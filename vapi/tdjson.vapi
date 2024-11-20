@@ -1,4 +1,3 @@
-// https://github.com/AYMENJD/td-vala
 [
 CCode(
 	cheader_filename = "td/telegram/td_json_client.h",

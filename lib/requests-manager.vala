@@ -24,24 +24,28 @@
  */
 internal sealed class TDLib.RequestManager : Object {
 
+    public double timeout { get; set; }
+
     public signal void recieved (string request_extra, string response_json);
 
     bool keep_running = true;
-    MainLoop? ml = null;
+
+    public RequestManager (double timeout) {
+        Object (timeout: timeout);
+    }
 
     public async void run () {
         while (keep_running) {
-            string? json_response = TDJsonApi.receive (0.05);
+            string? json_response = TDJsonApi.receive (timeout);
             if (json_response != null) {
-                TDJsoner jsoner;
+                string tdlib_extra;
                 try {
-                    jsoner = new TDJsoner (json_response, { "@extra" }, Case.SNAKE);
+                    TDJsoner jsoner = new TDJsoner (json_response, { "@extra" }, Case.SNAKE);
+                    tdlib_extra = jsoner.deserialize_value ().get_string ();
                 } catch (JsonError e) {
                     warning ("%s: %s", e.message, json_response);
                     continue;
                 }
-                
-                string tdlib_extra = jsoner.deserialize_value ().get_string ();
 
                 recieved (tdlib_extra, json_response);
             }

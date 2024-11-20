@@ -40,7 +40,7 @@ namespace TDLib {
         PARSE,
     }
 
-    public errordomain BadStatusCodeError {
+    public errordomain TDLibError {
         /**
          * Commot error
          */
