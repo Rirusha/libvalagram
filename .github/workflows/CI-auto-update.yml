@@ -1,0 +1,35 @@
+name: CI Auto Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    name: Update&Push
+    runs-on: ubuntu-latest
+
+    container:
+      image: ubuntu:latest
+
+    steps:
+      - name: Install libs on container
+        run: |
+          apt-get update
+          apt-get install -y git python3.12 python3-requests
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup git
+        run: |
+          git config --global user.name "Automatic Updater Bot"
+          git config --global user.email "automatic@updater.bot"
+          git config --global --add safe.directory '*'
+
+      - name: Setup
+        run: sh auto-update/update.sh

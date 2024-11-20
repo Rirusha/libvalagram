@@ -1,0 +1,41 @@
+/*
+ * Copyright (C) 2024 Vladimir Vaskov
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// THIS FILE WAS GENERATED, DON'T MODIFY IT
+
+/**
+ * Represents a list of emoji categories
+ */
+public class TDLib.EmojiCategories : Error {
+
+    /**
+     * List of categories
+     */
+    public Gee.ArrayList<EmojiCategory?> categories { get; construct set; default = new Gee.ArrayList<EmojiCategory?> (); }
+
+    public EmojiCategories (
+        Gee.ArrayList<EmojiCategory?> categories
+    ) {
+        Object (
+            categories: categories,
+            tdlib_type: "emojiCategories",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

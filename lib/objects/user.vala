@@ -1,0 +1,245 @@
+/*
+ * Copyright (C) 2024 Vladimir Vaskov
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// THIS FILE WAS GENERATED, DON'T MODIFY IT
+
+/**
+ * Represents a user
+ */
+public class TDLib.User : Error {
+
+    /**
+     * User identifier
+     */
+    public int64 id_ { get; construct set; }
+
+    /**
+     * First name of the user
+     */
+    public string first_name { get; construct set; }
+
+    /**
+     * Last name of the user
+     */
+    public string last_name { get; construct set; }
+
+    /**
+     * Usernames of the user; may be null
+     */
+    public Usernames? usernames { get; construct set; }
+
+    /**
+     * Phone number of the user
+     */
+    public string phone_number { get; construct set; }
+
+    /**
+     * Current online status of the user
+     */
+    public UserStatus status { get; construct set; }
+
+    /**
+     * Profile photo of the user; may be null
+     */
+    public ProfilePhoto? profile_photo { get; construct set; }
+
+    /**
+     * Identifier of the accent color for name, and backgrounds of profile
+     * photo, reply header, and link preview. For Telegram Premium users only
+     */
+    public int32 accent_color_id { get; construct set; }
+
+    /**
+     * Identifier of a custom emoji to be shown on the reply header and link
+     * preview background; 0 if none. For Telegram Premium users only
+     */
+    public int64 background_custom_emoji_id { get; construct set; }
+
+    /**
+     * Identifier of the accent color for the user's profile; -1 if none. For
+     * Telegram Premium users only
+     */
+    public int32 profile_accent_color_id { get; construct set; }
+
+    /**
+     * Identifier of a custom emoji to be shown on the background of the
+     * user's profile; 0 if none. For Telegram Premium users only
+     */
+    public int64 profile_background_custom_emoji_id { get; construct set; }
+
+    /**
+     * Emoji status to be shown instead of the default Telegram Premium
+     * badge; may be null. For Telegram Premium users only
+     */
+    public EmojiStatus? emoji_status { get; construct set; }
+
+    /**
+     * The user is a contact of the current user
+     */
+    public bool is_contact { get; construct set; }
+
+    /**
+     * The user is a contact of the current user and the current user is a
+     * contact of the user
+     */
+    public bool is_mutual_contact { get; construct set; }
+
+    /**
+     * The user is a close friend of the current user; implies that the user
+     * is a contact
+     */
+    public bool is_close_friend { get; construct set; }
+
+    /**
+     * True, if the user is verified
+     */
+    public bool is_verified { get; construct set; }
+
+    /**
+     * True, if the user is a Telegram Premium user
+     */
+    public bool is_premium { get; construct set; }
+
+    /**
+     * True, if the user is Telegram support account
+     */
+    public bool is_support { get; construct set; }
+
+    /**
+     * If non-empty, it contains a human-readable description of the reason
+     * why access to this user must be restricted
+     */
+    public string restriction_reason { get; construct set; }
+
+    /**
+     * True, if many users reported this user as a scam
+     */
+    public bool is_scam { get; construct set; }
+
+    /**
+     * True, if many users reported this user as a fake account
+     */
+    public bool is_fake { get; construct set; }
+
+    /**
+     * True, if the user has non-expired stories available to the current
+     * user
+     */
+    public bool has_active_stories { get; construct set; }
+
+    /**
+     * True, if the user has unread non-expired stories available to the
+     * current user
+     */
+    public bool has_unread_active_stories { get; construct set; }
+
+    /**
+     * True, if the user may restrict new chats with non-contacts. Use
+     * canSendMessageToUser to check whether the current user can message the
+     * user or try to create a chat with them
+     */
+    public bool restricts_new_chats { get; construct set; }
+
+    /**
+     * If false, the user is inaccessible, and the only information known
+     * about the user is inside this class. Identifier of the user can't be
+     * passed to any method
+     */
+    public bool have_access { get; construct set; }
+
+    /**
+     * Type of the user
+     */
+    public UserType type_ { get; construct set; }
+
+    /**
+     * IETF language tag of the user's language; only available to bots
+     */
+    public string language_code { get; construct set; }
+
+    /**
+     * True, if the user added the current bot to attachment menu; only
+     * available to bots
+     */
+    public bool added_to_attachment_menu { get; construct set; }
+
+    public User (
+        int64 id_,
+        string first_name,
+        string last_name,
+        Usernames? usernames,
+        string phone_number,
+        UserStatus status,
+        ProfilePhoto? profile_photo,
+        int32 accent_color_id,
+        int64 background_custom_emoji_id,
+        int32 profile_accent_color_id,
+        int64 profile_background_custom_emoji_id,
+        EmojiStatus? emoji_status,
+        bool is_contact,
+        bool is_mutual_contact,
+        bool is_close_friend,
+        bool is_verified,
+        bool is_premium,
+        bool is_support,
+        string restriction_reason,
+        bool is_scam,
+        bool is_fake,
+        bool has_active_stories,
+        bool has_unread_active_stories,
+        bool restricts_new_chats,
+        bool have_access,
+        UserType type_,
+        string language_code,
+        bool added_to_attachment_menu
+    ) {
+        Object (
+            id_: id_,
+            first_name: first_name,
+            last_name: last_name,
+            usernames: usernames,
+            phone_number: phone_number,
+            status: status,
+            profile_photo: profile_photo,
+            accent_color_id: accent_color_id,
+            background_custom_emoji_id: background_custom_emoji_id,
+            profile_accent_color_id: profile_accent_color_id,
+            profile_background_custom_emoji_id: profile_background_custom_emoji_id,
+            emoji_status: emoji_status,
+            is_contact: is_contact,
+            is_mutual_contact: is_mutual_contact,
+            is_close_friend: is_close_friend,
+            is_verified: is_verified,
+            is_premium: is_premium,
+            is_support: is_support,
+            restriction_reason: restriction_reason,
+            is_scam: is_scam,
+            is_fake: is_fake,
+            has_active_stories: has_active_stories,
+            has_unread_active_stories: has_unread_active_stories,
+            restricts_new_chats: restricts_new_chats,
+            have_access: have_access,
+            type_: type_,
+            language_code: language_code,
+            added_to_attachment_menu: added_to_attachment_menu,
+            tdlib_type: "user",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
