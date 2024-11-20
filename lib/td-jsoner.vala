@@ -294,8 +294,11 @@ internal class TDLib.TDJsoner : Object {
 
                 serialize_array (builder, array_list, element_type, names_case);
 
-            } else if (property.value_type.parent () == typeof (Object)) {
+            } else if (property.value_type.is_object ()) {
                 serialize_object (builder, (Object) prop_val.get_object (), names_case);
+
+            } else if (property.value_type == typeof (Bytes)) {
+                builder.add_string_value (Base64.encode (((Bytes) prop_val.get_boxed ()).get_data ()));
 
             } else {
                 serialize_value (builder, prop_val);
@@ -344,21 +347,12 @@ internal class TDLib.TDJsoner : Object {
         }
     }
 
-    ///////////////////
+    //////////////////
     // Deserialize  //
-    ///////////////////
+    //////////////////
 
-    /**
-     * Метод для десериализации объекта ``ApiBase.Object``.
-     *
-     * @param obj_type  тип объекта, по которому будет десериализован json
-     * @param node      нода, которая будет десериализована. Будет использовано свойство
-     *                  root, если передан ``null``
-     *
-     * @return          десериализованный объект
-     */
     public Object deserialize_object (
-        GLib.Type obj_type,
+        string? obj_type_name,
         Json.Node? node = null,
         SubArrayCreationFunc? sub_creation_func = null
     ) throws JsonError {
@@ -372,6 +366,13 @@ internal class TDLib.TDJsoner : Object {
                 node.get_node_type ().to_string ()
             );
             throw new JsonError.PARSE ("Node isn't object");
+        }
+
+        Type obj_type;
+        if (obj_type_name != null) {
+            obj_type = Type.from_name (obj_type_name);
+        } else {
+            obj_type = Type.from_name ("TDLib" + camel2pascal (node.get_object ().get_string_member ("@type")));
         }
 
         var api_object = (Object) Object.new (obj_type);
@@ -432,16 +433,16 @@ internal class TDLib.TDJsoner : Object {
                 case Json.NodeType.OBJECT:
                     api_object.set_property (
                         property.name,
-                        deserialize_object (prop_type, sub_node, sub_creation_func)
+                        deserialize_object (null, sub_node, sub_creation_func)
                     );
                     break;
 
                 case Json.NodeType.VALUE:
                     var val = deserialize_value (sub_node);
-                    if ((val.type () == Type.INT64) && (prop_type == Type.STRING)) {
+                    if ((val.type () == Type.STRING) && (prop_type == typeof (Bytes))) {
                         api_object.set_property (
                             property.name,
-                            val.get_int64 ().to_string ()
+                            new Bytes (Base64.decode (val.get_string ()))
                         );
                     } else {
                         api_object.set_property (
@@ -524,7 +525,7 @@ internal class TDLib.TDJsoner : Object {
 
             foreach (var sub_node in jarray.get_elements ()) {
                 try {
-                    narray_list.add (deserialize_object (narray_list.element_type, sub_node));
+                    narray_list.add (deserialize_object (null, sub_node));
                 } catch (JsonError e) {}
             }
 
@@ -587,377 +588,6 @@ internal class TDLib.TDJsoner : Object {
                         try {
                             narray_list.add (deserialize_value (sub_node).get_int64 ());
                         } catch (JsonError e) {}
-                    }
-                    break;
-
-                default:
-                    warning ("Unknown type of element of array - %s",
-                        array_list.element_type.name ()
-                    );
-                    break;
-            }
-        }
-    }
-
-    // ASYNC
-
-    /**
-     * Asynchronous version of method {@link serialize}
-     */
-    public static async string serialize_async (
-        Object api_obj,
-        Case names_case = Case.KEBAB
-    ) {
-        var builder = new Json.Builder ();
-        yield serialize_object_async (builder, api_obj, names_case);
-
-        return Json.to_string (builder.get_root (), false);
-    }
-
-    /**
-     * Asynchronous version of method {@link serialize_array}
-     */
-    static async void serialize_array_async (
-        Json.Builder builder,
-        ArrayList array_list,
-        Type element_type,
-        Case names_case = Case.KEBAB
-    ) {
-        builder.begin_array ();
-
-        if (element_type.parent () == typeof (Object)) {
-            foreach (var api_obj in (ArrayList<Object>) array_list) {
-                yield serialize_object_async (builder, api_obj, names_case);
-
-                Idle.add (serialize_array_async.callback);
-                yield;
-            }
-        } else if (element_type == typeof (ArrayList)) {
-            var array_of_arrays = (ArrayList<ArrayList?>) array_list;
-
-            if (array_of_arrays.size > 0) {
-                Type sub_element_type = ((ArrayList<ArrayList?>) array_list)[0].element_type;
-
-                foreach (var sub_array_list in (ArrayList<ArrayList?>) array_list) {
-                    yield serialize_array_async (builder, sub_array_list, sub_element_type, names_case);
-
-                    Idle.add (serialize_array_async.callback);
-                    yield;
-                }
-            }
-        } else {
-            switch (element_type) {
-                case Type.STRING:
-                    foreach (string val in (ArrayList<string>) array_list) {
-                        serialize_value (builder, val);
-
-                        Idle.add (serialize_array_async.callback);
-                        yield;
-                    }
-                    break;
-
-                case Type.INT:
-                    foreach (int val in (ArrayList<int>) array_list) {
-                        serialize_value (builder, val);
-
-                        Idle.add (serialize_array_async.callback);
-                        yield;
-                    }
-                    break;
-            }
-        }
-        builder.end_array ();
-    }
-
-    /**
-     * Asynchronous version of method {@link serialize_object}
-     */
-    static async void serialize_object_async (
-        Json.Builder builder,
-        Object? api_obj,
-        Case names_case = Case.KEBAB
-    ) {
-        if (api_obj == null) {
-            builder.add_null_value ();
-
-            return;
-        }
-
-        builder.begin_object ();
-        var cls = (ObjectClass) api_obj.get_type ().class_ref ();
-
-        foreach (ParamSpec property in cls.list_properties ()) {
-            if (((property.flags & ParamFlags.READABLE) == 0) || ((property.flags & ParamFlags.WRITABLE) == 0)) {
-                continue;
-            }
-
-            var json_property = strip (property.name, '-');
-            if (json_property.has_prefix ("tdlib-")) {
-                json_property = json_property.replace ("tdlib-", "@");
-            }
-
-            switch (names_case) {
-                case Case.CAMEL:
-                    builder.set_member_name (kebab2camel (json_property));
-                    break;
-
-                case Case.SNAKE:
-                    builder.set_member_name (kebab2snake (json_property));
-                    break;
-
-                case Case.KEBAB:
-                    builder.set_member_name (json_property);
-                    break;
-
-                default:
-                    error ("Unknown case - %s", names_case.to_string ());
-            }
-
-            var prop_val = Value (property.value_type);
-            api_obj.get_property (property.name, ref prop_val);
-
-            if (property.value_type == typeof (ArrayList)) {
-                var array_list = (ArrayList) prop_val.get_object ();
-                Type element_type = array_list.element_type;
-
-                yield serialize_array_async (builder, array_list, element_type, names_case);
-            } else if (property.value_type.parent () == typeof (Object)) {
-                yield serialize_object_async (builder, (Object) prop_val.get_object (), names_case);
-            } else {
-                serialize_value (builder, prop_val);
-            }
-
-            Idle.add (serialize_object_async.callback);
-            yield;
-        }
-
-        builder.end_object ();
-    }
-
-    ///////////////////
-    // Deserialize  //
-    ///////////////////
-
-    /**
-     * Asynchronous version of method {@link deserialize_object}
-     */
-    public async Object deserialize_object_async (
-        GLib.Type obj_type,
-        Json.Node? node = null,
-        SubArrayCreationFunc? sub_creation_func = null
-    ) throws JsonError {
-        if (node == null) {
-            node = root;
-        }
-
-        if (node.get_node_type () != Json.NodeType.OBJECT) {
-            warning ("Wrong type: expected %s, got %s",
-                Json.NodeType.OBJECT.to_string (),
-                node.get_node_type ().to_string ()
-            );
-            throw new JsonError.PARSE ("Node isn't object");
-        }
-
-        var api_object = (Object) Object.new (obj_type);
-        api_object.freeze_notify ();
-
-        var class_ref = (ObjectClass) obj_type.class_ref ();
-        ParamSpec[] properties = class_ref.list_properties ();
-
-        foreach (ParamSpec property in properties) {
-            if ((property.flags & ParamFlags.WRITABLE) == 0) {
-                continue;
-            }
-
-            Type prop_type = property.value_type;
-
-            var json_property = strip (property.name, '-');
-            if (json_property.has_prefix ("tdlib-")) {
-                json_property = json_property.replace ("tdlib-", "@");
-            }
-
-            string member_name;
-            switch (names_case) {
-                case Case.CAMEL:
-                    member_name = kebab2camel (json_property);
-                    break;
-
-                case Case.SNAKE:
-                    member_name = kebab2snake (json_property);
-                    break;
-
-                case Case.KEBAB:
-                    member_name = json_property;
-                    break;
-
-                default:
-                    error ("Unknown case - %s", names_case.to_string ());
-            }
-
-            if (!node.get_object ().has_member (member_name)) {
-                continue;
-            }
-
-            var sub_node = node.get_object ().get_member (member_name);
-
-            switch (sub_node.get_node_type ()) {
-                case Json.NodeType.ARRAY:
-                    var arrayval = Value (prop_type);
-                    api_object.get_property (property.name, ref arrayval);
-                    ArrayList array_list = (Gee.ArrayList) arrayval.get_object ();
-
-                    yield deserialize_array_async (array_list, sub_node, sub_creation_func);
-                    api_object.set_property (
-                        property.name,
-                        array_list
-                    );
-                    break;
-
-                case Json.NodeType.OBJECT:
-                    api_object.set_property (
-                        property.name,
-                        yield deserialize_object_async (prop_type, sub_node, sub_creation_func)
-                    );
-                    break;
-
-                case Json.NodeType.VALUE:
-                    var val = deserialize_value (sub_node);
-                    if ((val.type () == Type.INT64) && (prop_type == Type.STRING)) {
-                        api_object.set_property (
-                            property.name,
-                            val.get_int64 ().to_string ()
-                        );
-                    } else {
-                        api_object.set_property (
-                            property.name,
-                            val
-                        );
-                    }
-                    break;
-
-                case Json.NodeType.NULL:
-                    api_object.set_property (
-                        property.name,
-                        Value (prop_type)
-                    );
-                    break;
-            }
-
-            Idle.add (deserialize_object_async.callback);
-            yield;
-        }
-
-        api_object.thaw_notify ();
-
-        return api_object;
-    }
-
-    /**
-     * Asynchronous version of method {@link deserialize_array}
-     */
-    public async void deserialize_array_async (
-        ArrayList array_list,
-        Json.Node? node = null,
-        SubArrayCreationFunc? sub_creation_func = null
-    ) throws JsonError {
-        if (node == null) {
-            node = root;
-        }
-
-        if (node.get_node_type () != Json.NodeType.ARRAY) {
-            warning ("Wrong type: expected %s, got %s",
-                Json.NodeType.ARRAY.to_string (),
-                node.get_node_type ().to_string ()
-            );
-            throw new JsonError.PARSE ("Node isn't array");
-        }
-
-        var jarray = node.get_array ();
-
-        if (array_list.element_type.parent () == typeof (Object)) {
-            array_list.clear ();
-            var narray_list = array_list as ArrayList<Object>;
-
-            foreach (var sub_node in jarray.get_elements ()) {
-                try {
-                    narray_list.add (yield deserialize_object_async (narray_list.element_type, sub_node));
-                } catch (JsonError e) {}
-
-                Idle.add (deserialize_array_async.callback);
-                yield;
-            }
-
-            // Нужен только для YaMAPI.Album.tracks, так как апи возвращает массив из массивов
-        } else if (array_list.element_type == typeof (ArrayList)) {
-            var narray_list = array_list as ArrayList<ArrayList>;
-
-            // Проверка, если ли в массиве массив, из которого будет взят тип
-            assert (narray_list.size != 0);
-
-            Type sub_element_type = narray_list[0].element_type;
-
-            foreach (var sub_node in jarray.get_elements ()) {
-                ArrayList new_array_list;
-
-                if (sub_creation_func != null) {
-                    if (!sub_creation_func (out new_array_list, sub_element_type)) {
-                        error ("Creation func failed");
-                    }
-
-                } else {
-                    error ("Creation func is null");
-                }
-
-                try {
-                    yield deserialize_array_async (new_array_list, sub_node, sub_creation_func);
-                    narray_list.add (new_array_list);
-                } catch (JsonError e) {}
-
-                Idle.add (deserialize_array_async.callback);
-                yield;
-            }
-
-            narray_list.remove (narray_list[0]);
-        } else {
-            array_list.clear ();
-
-            switch (array_list.element_type) {
-                case Type.STRING:
-                    var narray_list = array_list as ArrayList<string>;
-
-                    foreach (var sub_node in jarray.get_elements ()) {
-                        try {
-                            narray_list.add (deserialize_value (sub_node).get_string ());
-                        } catch (JsonError e) {}
-
-                        Idle.add (deserialize_array_async.callback);
-                        yield;
-                    }
-                    break;
-
-                case Type.INT:
-                    var narray_list = array_list as ArrayList<int>;
-
-                    foreach (var sub_node in jarray.get_elements ()) {
-                        try {
-                            narray_list.add ((int) deserialize_value (sub_node).get_int64 ());
-                        } catch (JsonError e) {}
-
-                        Idle.add (deserialize_array_async.callback);
-                        yield;
-                    }
-                    break;
-
-                case Type.INT64:
-                    var narray_list = array_list as ArrayList<int64>;
-
-                    foreach (var sub_node in jarray.get_elements ()) {
-                        try {
-                            narray_list.add (deserialize_value (sub_node).get_int64 ());
-                        } catch (JsonError e) {}
-
-                        Idle.add (deserialize_array_async.callback);
-                        yield;
                     }
                     break;
 

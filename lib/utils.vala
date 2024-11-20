@@ -173,4 +173,8 @@ namespace TDLib {
 
         return builder.free_and_steal ();
     }
+
+    internal string camel2pascal (string camel_string) {
+        return camel_string[0].toupper ().to_string () + camel_string[1:camel_string.length];
+    }
 }

@@ -24,35 +24,51 @@
  */
 internal sealed class TDLib.RequestManager : Object {
 
-    public double timeout { get; set; }
+    public Client client { get; construct; }
+
+    public double timeout { get; construct set; }
 
     public signal void recieved (string request_extra, string response_json);
 
     bool keep_running = true;
 
-    public RequestManager (double timeout) {
-        Object (timeout: timeout);
+    public RequestManager (Client client, double timeout) {
+        Object (
+            client: client,
+            timeout: timeout
+        );
     }
 
     public async void run () {
         while (keep_running) {
             string? json_response = TDJsonApi.receive (timeout);
             if (json_response != null) {
-                string tdlib_extra;
                 try {
                     TDJsoner jsoner = new TDJsoner (json_response, { "@extra" }, Case.SNAKE);
-                    tdlib_extra = jsoner.deserialize_value ().get_string ();
-                } catch (JsonError e) {
-                    warning ("%s: %s", e.message, json_response);
-                    continue;
-                }
+                    string tdlib_extra = jsoner.deserialize_value ().get_string ();
 
-                recieved (tdlib_extra, json_response);
+                    recieved (tdlib_extra, json_response);
+
+                } catch (JsonError e) {
+                    TDJsoner jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+                    string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+                    if (tdlib_type.has_prefix ("update")) {
+                        client.update_recieved (deserialize_update (json_response));
+                    } else {
+                        warning ("%s: %s", e.message, json_response);
+                    }
+                }
             }
 
             Idle.add (run.callback, Priority.LOW);
             yield;
         }
+    }
+
+    public Update deserialize_update (string json_string) {
+        var jsoner = new TDJsoner (json_string, null, Case.SNAKE);
+        return (Update) jsoner.deserialize_object (null);
     }
 
     public void stop () {

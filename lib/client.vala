@@ -27,6 +27,8 @@ public sealed class TDLib.Client : Object {
 
     public double timeout { get; construct set; }
 
+    public string version { get; set; }
+    public signal void update_recieved (Update update);
     /**
      * @param timeout
      */
@@ -40,13 +42,1664 @@ public sealed class TDLib.Client : Object {
         }
     }
 
+    static construct {
+        typeof (Error).ensure ();
+        typeof (Ok).ensure ();
+        typeof (AuthenticationCodeTypeTelegramMessage).ensure ();
+        typeof (AuthenticationCodeTypeSms).ensure ();
+        typeof (AuthenticationCodeTypeSmsWord).ensure ();
+        typeof (AuthenticationCodeTypeSmsPhrase).ensure ();
+        typeof (AuthenticationCodeTypeCall).ensure ();
+        typeof (AuthenticationCodeTypeFlashCall).ensure ();
+        typeof (AuthenticationCodeTypeMissedCall).ensure ();
+        typeof (AuthenticationCodeTypeFragment).ensure ();
+        typeof (AuthenticationCodeTypeFirebaseAndroid).ensure ();
+        typeof (AuthenticationCodeTypeFirebaseIos).ensure ();
+        typeof (AuthenticationCodeInfo).ensure ();
+        typeof (EmailAddressAuthenticationCodeInfo).ensure ();
+        typeof (EmailAddressAuthenticationCode).ensure ();
+        typeof (EmailAddressAuthenticationAppleId).ensure ();
+        typeof (EmailAddressAuthenticationGoogleId).ensure ();
+        typeof (EmailAddressResetStateAvailable).ensure ();
+        typeof (EmailAddressResetStatePending).ensure ();
+        typeof (TextEntity).ensure ();
+        typeof (TextEntities).ensure ();
+        typeof (FormattedText).ensure ();
+        typeof (TermsOfService).ensure ();
+        typeof (AuthorizationStateWaitTdlibParameters).ensure ();
+        typeof (AuthorizationStateWaitPhoneNumber).ensure ();
+        typeof (AuthorizationStateWaitEmailAddress).ensure ();
+        typeof (AuthorizationStateWaitEmailCode).ensure ();
+        typeof (AuthorizationStateWaitCode).ensure ();
+        typeof (AuthorizationStateWaitOtherDeviceConfirmation).ensure ();
+        typeof (AuthorizationStateWaitRegistration).ensure ();
+        typeof (AuthorizationStateWaitPassword).ensure ();
+        typeof (AuthorizationStateReady).ensure ();
+        typeof (AuthorizationStateLoggingOut).ensure ();
+        typeof (AuthorizationStateClosing).ensure ();
+        typeof (AuthorizationStateClosed).ensure ();
+        typeof (FirebaseDeviceVerificationParametersSafetyNet).ensure ();
+        typeof (FirebaseDeviceVerificationParametersPlayIntegrity).ensure ();
+        typeof (PasswordState).ensure ();
+        typeof (RecoveryEmailAddress).ensure ();
+        typeof (TemporaryPasswordState).ensure ();
+        typeof (LocalFile).ensure ();
+        typeof (RemoteFile).ensure ();
+        typeof (File).ensure ();
+        typeof (InputFileId).ensure ();
+        typeof (InputFileRemote).ensure ();
+        typeof (InputFileLocal).ensure ();
+        typeof (InputFileGenerated).ensure ();
+        typeof (PhotoSize).ensure ();
+        typeof (Minithumbnail).ensure ();
+        typeof (ThumbnailFormatJpeg).ensure ();
+        typeof (ThumbnailFormatGif).ensure ();
+        typeof (ThumbnailFormatMpeg4).ensure ();
+        typeof (ThumbnailFormatPng).ensure ();
+        typeof (ThumbnailFormatTgs).ensure ();
+        typeof (ThumbnailFormatWebm).ensure ();
+        typeof (ThumbnailFormatWebp).ensure ();
+        typeof (Thumbnail).ensure ();
+        typeof (MaskPointForehead).ensure ();
+        typeof (MaskPointEyes).ensure ();
+        typeof (MaskPointMouth).ensure ();
+        typeof (MaskPointChin).ensure ();
+        typeof (MaskPosition).ensure ();
+        typeof (StickerFormatWebp).ensure ();
+        typeof (StickerFormatTgs).ensure ();
+        typeof (StickerFormatWebm).ensure ();
+        typeof (StickerTypeRegular).ensure ();
+        typeof (StickerTypeMask).ensure ();
+        typeof (StickerTypeCustomEmoji).ensure ();
+        typeof (StickerFullTypeRegular).ensure ();
+        typeof (StickerFullTypeMask).ensure ();
+        typeof (StickerFullTypeCustomEmoji).ensure ();
+        typeof (ClosedVectorPath).ensure ();
+        typeof (Outline).ensure ();
+        typeof (PollOption).ensure ();
+        typeof (PollTypeRegular).ensure ();
+        typeof (PollTypeQuiz).ensure ();
+        typeof (Animation).ensure ();
+        typeof (Audio).ensure ();
+        typeof (Document).ensure ();
+        typeof (Photo).ensure ();
+        typeof (Sticker).ensure ();
+        typeof (Video).ensure ();
+        typeof (VideoNote).ensure ();
+        typeof (VoiceNote).ensure ();
+        typeof (AnimatedEmoji).ensure ();
+        typeof (Contact).ensure ();
+        typeof (Location).ensure ();
+        typeof (Venue).ensure ();
+        typeof (Game).ensure ();
+        typeof (WebApp).ensure ();
+        typeof (Poll).ensure ();
+        typeof (AlternativeVideo).ensure ();
+        typeof (Background).ensure ();
+        typeof (Backgrounds).ensure ();
+        typeof (ChatBackground).ensure ();
+        typeof (ProfilePhoto).ensure ();
+        typeof (ChatPhotoInfo).ensure ();
+        typeof (UserTypeRegular).ensure ();
+        typeof (UserTypeDeleted).ensure ();
+        typeof (UserTypeBot).ensure ();
+        typeof (UserTypeUnknown).ensure ();
+        typeof (BotCommand).ensure ();
+        typeof (BotCommands).ensure ();
+        typeof (BotMenuButton).ensure ();
+        typeof (ChatLocation).ensure ();
+        typeof (Birthdate).ensure ();
+        typeof (CloseBirthdayUser).ensure ();
+        typeof (BusinessAwayMessageScheduleAlways).ensure ();
+        typeof (BusinessAwayMessageScheduleOutsideOfOpeningHours).ensure ();
+        typeof (BusinessAwayMessageScheduleCustom).ensure ();
+        typeof (BusinessLocation).ensure ();
+        typeof (BusinessRecipients).ensure ();
+        typeof (BusinessAwayMessageSettings).ensure ();
+        typeof (BusinessGreetingMessageSettings).ensure ();
+        typeof (BusinessConnectedBot).ensure ();
+        typeof (BusinessStartPage).ensure ();
+        typeof (InputBusinessStartPage).ensure ();
+        typeof (BusinessOpeningHoursInterval).ensure ();
+        typeof (BusinessOpeningHours).ensure ();
+        typeof (BusinessInfo).ensure ();
+        typeof (BusinessChatLink).ensure ();
+        typeof (BusinessChatLinks).ensure ();
+        typeof (InputBusinessChatLink).ensure ();
+        typeof (BusinessChatLinkInfo).ensure ();
+        typeof (ChatPhotoStickerTypeRegularOrMask).ensure ();
+        typeof (ChatPhotoStickerTypeCustomEmoji).ensure ();
+        typeof (ChatPhotoSticker).ensure ();
+        typeof (AnimatedChatPhoto).ensure ();
+        typeof (ChatPhoto).ensure ();
+        typeof (ChatPhotos).ensure ();
+        typeof (InputChatPhotoPrevious).ensure ();
+        typeof (InputChatPhotoStatic).ensure ();
+        typeof (InputChatPhotoAnimation).ensure ();
+        typeof (InputChatPhotoSticker).ensure ();
+        typeof (ChatPermissions).ensure ();
+        typeof (ChatAdministratorRights).ensure ();
+        typeof (StarSubscriptionTypeChannel).ensure ();
+        typeof (StarSubscriptionTypeBot).ensure ();
+        typeof (StarSubscriptionPricing).ensure ();
+        typeof (StarSubscription).ensure ();
+        typeof (StarSubscriptions).ensure ();
+        typeof (ProductInfo).ensure ();
+        typeof (PremiumPaymentOption).ensure ();
+        typeof (PremiumStatePaymentOption).ensure ();
+        typeof (PremiumGiftCodePaymentOption).ensure ();
+        typeof (PremiumGiftCodePaymentOptions).ensure ();
+        typeof (PremiumGiftCodeInfo).ensure ();
+        typeof (StarPaymentOption).ensure ();
+        typeof (StarPaymentOptions).ensure ();
+        typeof (StarGiveawayWinnerOption).ensure ();
+        typeof (StarGiveawayPaymentOption).ensure ();
+        typeof (StarGiveawayPaymentOptions).ensure ();
+        typeof (Gift).ensure ();
+        typeof (Gifts).ensure ();
+        typeof (UserGift).ensure ();
+        typeof (UserGifts).ensure ();
+        typeof (StarTransactionDirectionIncoming).ensure ();
+        typeof (StarTransactionDirectionOutgoing).ensure ();
+        typeof (BotTransactionPurposePaidMedia).ensure ();
+        typeof (BotTransactionPurposeInvoicePayment).ensure ();
+        typeof (BotTransactionPurposeSubscription).ensure ();
+        typeof (ChatTransactionPurposePaidMedia).ensure ();
+        typeof (ChatTransactionPurposeJoin).ensure ();
+        typeof (ChatTransactionPurposeReaction).ensure ();
+        typeof (ChatTransactionPurposeGiveaway).ensure ();
+        typeof (UserTransactionPurposeGiftedStars).ensure ();
+        typeof (UserTransactionPurposeGiftSell).ensure ();
+        typeof (UserTransactionPurposeGiftSend).ensure ();
+        typeof (StarTransactionPartnerTelegram).ensure ();
+        typeof (StarTransactionPartnerAppStore).ensure ();
+        typeof (StarTransactionPartnerGooglePlay).ensure ();
+        typeof (StarTransactionPartnerFragment).ensure ();
+        typeof (StarTransactionPartnerTelegramAds).ensure ();
+        typeof (StarTransactionPartnerTelegramApi).ensure ();
+        typeof (StarTransactionPartnerBot).ensure ();
+        typeof (StarTransactionPartnerBusiness).ensure ();
+        typeof (StarTransactionPartnerChat).ensure ();
+        typeof (StarTransactionPartnerUser).ensure ();
+        typeof (StarTransactionPartnerUnsupported).ensure ();
+        typeof (StarTransaction).ensure ();
+        typeof (StarTransactions).ensure ();
+        typeof (GiveawayParticipantStatusEligible).ensure ();
+        typeof (GiveawayParticipantStatusParticipating).ensure ();
+        typeof (GiveawayParticipantStatusAlreadyWasMember).ensure ();
+        typeof (GiveawayParticipantStatusAdministrator).ensure ();
+        typeof (GiveawayParticipantStatusDisallowedCountry).ensure ();
+        typeof (GiveawayInfoOngoing).ensure ();
+        typeof (GiveawayInfoCompleted).ensure ();
+        typeof (GiveawayPrizePremium).ensure ();
+        typeof (GiveawayPrizeStars).ensure ();
+        typeof (AccentColor).ensure ();
+        typeof (ProfileAccentColors).ensure ();
+        typeof (ProfileAccentColor).ensure ();
+        typeof (EmojiStatus).ensure ();
+        typeof (EmojiStatuses).ensure ();
+        typeof (Usernames).ensure ();
+        typeof (User).ensure ();
+        typeof (BotInfo).ensure ();
+        typeof (UserFullInfo).ensure ();
+        typeof (Users).ensure ();
+        typeof (FoundUsers).ensure ();
+        typeof (ChatAdministrator).ensure ();
+        typeof (ChatAdministrators).ensure ();
+        typeof (ChatMemberStatusCreator).ensure ();
+        typeof (ChatMemberStatusAdministrator).ensure ();
+        typeof (ChatMemberStatusMember).ensure ();
+        typeof (ChatMemberStatusRestricted).ensure ();
+        typeof (ChatMemberStatusLeft).ensure ();
+        typeof (ChatMemberStatusBanned).ensure ();
+        typeof (ChatMember).ensure ();
+        typeof (ChatMembers).ensure ();
+        typeof (ChatMembersFilterContacts).ensure ();
+        typeof (ChatMembersFilterAdministrators).ensure ();
+        typeof (ChatMembersFilterMembers).ensure ();
+        typeof (ChatMembersFilterMention).ensure ();
+        typeof (ChatMembersFilterRestricted).ensure ();
+        typeof (ChatMembersFilterBanned).ensure ();
+        typeof (ChatMembersFilterBots).ensure ();
+        typeof (SupergroupMembersFilterRecent).ensure ();
+        typeof (SupergroupMembersFilterContacts).ensure ();
+        typeof (SupergroupMembersFilterAdministrators).ensure ();
+        typeof (SupergroupMembersFilterSearch).ensure ();
+        typeof (SupergroupMembersFilterRestricted).ensure ();
+        typeof (SupergroupMembersFilterBanned).ensure ();
+        typeof (SupergroupMembersFilterMention).ensure ();
+        typeof (SupergroupMembersFilterBots).ensure ();
+        typeof (ChatInviteLink).ensure ();
+        typeof (ChatInviteLinks).ensure ();
+        typeof (ChatInviteLinkCount).ensure ();
+        typeof (ChatInviteLinkCounts).ensure ();
+        typeof (ChatInviteLinkMember).ensure ();
+        typeof (ChatInviteLinkMembers).ensure ();
+        typeof (InviteLinkChatTypeBasicGroup).ensure ();
+        typeof (InviteLinkChatTypeSupergroup).ensure ();
+        typeof (InviteLinkChatTypeChannel).ensure ();
+        typeof (ChatInviteLinkSubscriptionInfo).ensure ();
+        typeof (ChatInviteLinkInfo).ensure ();
+        typeof (ChatJoinRequest).ensure ();
+        typeof (ChatJoinRequests).ensure ();
+        typeof (ChatJoinRequestsInfo).ensure ();
+        typeof (BasicGroup).ensure ();
+        typeof (BasicGroupFullInfo).ensure ();
+        typeof (Supergroup).ensure ();
+        typeof (SupergroupFullInfo).ensure ();
+        typeof (SecretChatStatePending).ensure ();
+        typeof (SecretChatStateReady).ensure ();
+        typeof (SecretChatStateClosed).ensure ();
+        typeof (SecretChat).ensure ();
+        typeof (MessageSenderUser).ensure ();
+        typeof (MessageSenderChat).ensure ();
+        typeof (MessageSenders).ensure ();
+        typeof (ChatMessageSender).ensure ();
+        typeof (ChatMessageSenders).ensure ();
+        typeof (MessageReadDateRead).ensure ();
+        typeof (MessageReadDateUnread).ensure ();
+        typeof (MessageReadDateTooOld).ensure ();
+        typeof (MessageReadDateUserPrivacyRestricted).ensure ();
+        typeof (MessageReadDateMyPrivacyRestricted).ensure ();
+        typeof (MessageViewer).ensure ();
+        typeof (MessageViewers).ensure ();
+        typeof (MessageOriginUser).ensure ();
+        typeof (MessageOriginHiddenUser).ensure ();
+        typeof (MessageOriginChat).ensure ();
+        typeof (MessageOriginChannel).ensure ();
+        typeof (ForwardSource).ensure ();
+        typeof (ReactionTypeEmoji).ensure ();
+        typeof (ReactionTypeCustomEmoji).ensure ();
+        typeof (ReactionTypePaid).ensure ();
+        typeof (PaidReactor).ensure ();
+        typeof (MessageForwardInfo).ensure ();
+        typeof (MessageImportInfo).ensure ();
+        typeof (MessageReplyInfo).ensure ();
+        typeof (MessageReaction).ensure ();
+        typeof (MessageReactions).ensure ();
+        typeof (MessageInteractionInfo).ensure ();
+        typeof (UnreadReaction).ensure ();
+        typeof (MessageEffectTypeEmojiReaction).ensure ();
+        typeof (MessageEffectTypePremiumSticker).ensure ();
+        typeof (MessageEffect).ensure ();
+        typeof (MessageSendingStatePending).ensure ();
+        typeof (MessageSendingStateFailed).ensure ();
+        typeof (TextQuote).ensure ();
+        typeof (InputTextQuote).ensure ();
+        typeof (MessageReplyToMessage).ensure ();
+        typeof (MessageReplyToStory).ensure ();
+        typeof (InputMessageReplyToMessage).ensure ();
+        typeof (InputMessageReplyToExternalMessage).ensure ();
+        typeof (InputMessageReplyToStory).ensure ();
+        typeof (FactCheck).ensure ();
+        typeof (Message).ensure ();
+        typeof (Messages).ensure ();
+        typeof (FoundMessages).ensure ();
+        typeof (FoundChatMessages).ensure ();
+        typeof (MessagePosition).ensure ();
+        typeof (MessagePositions).ensure ();
+        typeof (MessageCalendarDay).ensure ();
+        typeof (MessageCalendar).ensure ();
+        typeof (BusinessMessage).ensure ();
+        typeof (BusinessMessages).ensure ();
+        typeof (MessageSourceChatHistory).ensure ();
+        typeof (MessageSourceMessageThreadHistory).ensure ();
+        typeof (MessageSourceForumTopicHistory).ensure ();
+        typeof (MessageSourceHistoryPreview).ensure ();
+        typeof (MessageSourceChatList).ensure ();
+        typeof (MessageSourceSearch).ensure ();
+        typeof (MessageSourceChatEventLog).ensure ();
+        typeof (MessageSourceNotification).ensure ();
+        typeof (MessageSourceScreenshot).ensure ();
+        typeof (MessageSourceOther).ensure ();
+        typeof (MessageSponsor).ensure ();
+        typeof (SponsoredMessage).ensure ();
+        typeof (SponsoredMessages).ensure ();
+        typeof (ReportOption).ensure ();
+        typeof (ReportChatSponsoredMessageResultOk).ensure ();
+        typeof (ReportChatSponsoredMessageResultFailed).ensure ();
+        typeof (ReportChatSponsoredMessageResultOptionRequired).ensure ();
+        typeof (ReportChatSponsoredMessageResultAdsHidden).ensure ();
+        typeof (ReportChatSponsoredMessageResultPremiumRequired).ensure ();
+        typeof (FileDownload).ensure ();
+        typeof (DownloadedFileCounts).ensure ();
+        typeof (FoundFileDownloads).ensure ();
+        typeof (NotificationSettingsScopePrivateChats).ensure ();
+        typeof (NotificationSettingsScopeGroupChats).ensure ();
+        typeof (NotificationSettingsScopeChannelChats).ensure ();
+        typeof (ChatNotificationSettings).ensure ();
+        typeof (ScopeNotificationSettings).ensure ();
+        typeof (ReactionNotificationSourceNone).ensure ();
+        typeof (ReactionNotificationSourceContacts).ensure ();
+        typeof (ReactionNotificationSourceAll).ensure ();
+        typeof (ReactionNotificationSettings).ensure ();
+        typeof (DraftMessage).ensure ();
+        typeof (ChatTypePrivate).ensure ();
+        typeof (ChatTypeBasicGroup).ensure ();
+        typeof (ChatTypeSupergroup).ensure ();
+        typeof (ChatTypeSecret).ensure ();
+        typeof (ChatFolderIcon).ensure ();
+        typeof (ChatFolder).ensure ();
+        typeof (ChatFolderInfo).ensure ();
+        typeof (ChatFolderInviteLink).ensure ();
+        typeof (ChatFolderInviteLinks).ensure ();
+        typeof (ChatFolderInviteLinkInfo).ensure ();
+        typeof (RecommendedChatFolder).ensure ();
+        typeof (RecommendedChatFolders).ensure ();
+        typeof (ArchiveChatListSettings).ensure ();
+        typeof (ChatListMain).ensure ();
+        typeof (ChatListArchive).ensure ();
+        typeof (ChatListFolder).ensure ();
+        typeof (ChatLists).ensure ();
+        typeof (ChatSourceMtprotoProxy).ensure ();
+        typeof (ChatSourcePublicServiceAnnouncement).ensure ();
+        typeof (ChatPosition).ensure ();
+        typeof (ChatAvailableReactionsAll).ensure ();
+        typeof (ChatAvailableReactionsSome).ensure ();
+        typeof (SavedMessagesTag).ensure ();
+        typeof (SavedMessagesTags).ensure ();
+        typeof (BusinessBotManageBar).ensure ();
+        typeof (VideoChat).ensure ();
+        typeof (Chat).ensure ();
+        typeof (Chats).ensure ();
+        typeof (FailedToAddMember).ensure ();
+        typeof (FailedToAddMembers).ensure ();
+        typeof (CreatedBasicGroupChat).ensure ();
+        typeof (PublicChatTypeHasUsername).ensure ();
+        typeof (PublicChatTypeIsLocationBased).ensure ();
+        typeof (ChatActionBarReportSpam).ensure ();
+        typeof (ChatActionBarInviteMembers).ensure ();
+        typeof (ChatActionBarReportAddBlock).ensure ();
+        typeof (ChatActionBarAddContact).ensure ();
+        typeof (ChatActionBarSharePhoneNumber).ensure ();
+        typeof (ChatActionBarJoinRequest).ensure ();
+        typeof (KeyboardButtonTypeText).ensure ();
+        typeof (KeyboardButtonTypeRequestPhoneNumber).ensure ();
+        typeof (KeyboardButtonTypeRequestLocation).ensure ();
+        typeof (KeyboardButtonTypeRequestPoll).ensure ();
+        typeof (KeyboardButtonTypeRequestUsers).ensure ();
+        typeof (KeyboardButtonTypeRequestChat).ensure ();
+        typeof (KeyboardButtonTypeWebApp).ensure ();
+        typeof (KeyboardButton).ensure ();
+        typeof (InlineKeyboardButtonTypeUrl).ensure ();
+        typeof (InlineKeyboardButtonTypeLoginUrl).ensure ();
+        typeof (InlineKeyboardButtonTypeWebApp).ensure ();
+        typeof (InlineKeyboardButtonTypeCallback).ensure ();
+        typeof (InlineKeyboardButtonTypeCallbackWithPassword).ensure ();
+        typeof (InlineKeyboardButtonTypeCallbackGame).ensure ();
+        typeof (InlineKeyboardButtonTypeSwitchInline).ensure ();
+        typeof (InlineKeyboardButtonTypeBuy).ensure ();
+        typeof (InlineKeyboardButtonTypeUser).ensure ();
+        typeof (InlineKeyboardButtonTypeCopyText).ensure ();
+        typeof (InlineKeyboardButton).ensure ();
+        typeof (ReplyMarkupRemoveKeyboard).ensure ();
+        typeof (ReplyMarkupForceReply).ensure ();
+        typeof (ReplyMarkupShowKeyboard).ensure ();
+        typeof (ReplyMarkupInlineKeyboard).ensure ();
+        typeof (LoginUrlInfoOpen).ensure ();
+        typeof (LoginUrlInfoRequestConfirmation).ensure ();
+        typeof (ThemeParameters).ensure ();
+        typeof (WebAppOpenModeCompact).ensure ();
+        typeof (WebAppOpenModeFullSize).ensure ();
+        typeof (WebAppOpenModeFullScreen).ensure ();
+        typeof (FoundWebApp).ensure ();
+        typeof (WebAppInfo).ensure ();
+        typeof (MainWebApp).ensure ();
+        typeof (WebAppOpenParameters).ensure ();
+        typeof (MessageThreadInfo).ensure ();
+        typeof (SavedMessagesTopicTypeMyNotes).ensure ();
+        typeof (SavedMessagesTopicTypeAuthorHidden).ensure ();
+        typeof (SavedMessagesTopicTypeSavedFromChat).ensure ();
+        typeof (SavedMessagesTopic).ensure ();
+        typeof (ForumTopicIcon).ensure ();
+        typeof (ForumTopicInfo).ensure ();
+        typeof (ForumTopic).ensure ();
+        typeof (ForumTopics).ensure ();
+        typeof (LinkPreviewOptions).ensure ();
+        typeof (SharedUser).ensure ();
+        typeof (SharedChat).ensure ();
+        typeof (ThemeSettings).ensure ();
+        typeof (RichTextPlain).ensure ();
+        typeof (RichTextBold).ensure ();
+        typeof (RichTextItalic).ensure ();
+        typeof (RichTextUnderline).ensure ();
+        typeof (RichTextStrikethrough).ensure ();
+        typeof (RichTextFixed).ensure ();
+        typeof (RichTextUrl).ensure ();
+        typeof (RichTextEmailAddress).ensure ();
+        typeof (RichTextSubscript).ensure ();
+        typeof (RichTextSuperscript).ensure ();
+        typeof (RichTextMarked).ensure ();
+        typeof (RichTextPhoneNumber).ensure ();
+        typeof (RichTextIcon).ensure ();
+        typeof (RichTextReference).ensure ();
+        typeof (RichTextAnchor).ensure ();
+        typeof (RichTextAnchorLink).ensure ();
+        typeof (RichTexts).ensure ();
+        typeof (PageBlockCaption).ensure ();
+        typeof (PageBlockListItem).ensure ();
+        typeof (PageBlockHorizontalAlignmentLeft).ensure ();
+        typeof (PageBlockHorizontalAlignmentCenter).ensure ();
+        typeof (PageBlockHorizontalAlignmentRight).ensure ();
+        typeof (PageBlockVerticalAlignmentTop).ensure ();
+        typeof (PageBlockVerticalAlignmentMiddle).ensure ();
+        typeof (PageBlockVerticalAlignmentBottom).ensure ();
+        typeof (PageBlockTableCell).ensure ();
+        typeof (PageBlockRelatedArticle).ensure ();
+        typeof (PageBlockTitle).ensure ();
+        typeof (PageBlockSubtitle).ensure ();
+        typeof (PageBlockAuthorDate).ensure ();
+        typeof (PageBlockHeader).ensure ();
+        typeof (PageBlockSubheader).ensure ();
+        typeof (PageBlockKicker).ensure ();
+        typeof (PageBlockParagraph).ensure ();
+        typeof (PageBlockPreformatted).ensure ();
+        typeof (PageBlockFooter).ensure ();
+        typeof (PageBlockDivider).ensure ();
+        typeof (PageBlockAnchor).ensure ();
+        typeof (PageBlockList).ensure ();
+        typeof (PageBlockBlockQuote).ensure ();
+        typeof (PageBlockPullQuote).ensure ();
+        typeof (PageBlockAnimation).ensure ();
+        typeof (PageBlockAudio).ensure ();
+        typeof (PageBlockPhoto).ensure ();
+        typeof (PageBlockVideo).ensure ();
+        typeof (PageBlockVoiceNote).ensure ();
+        typeof (PageBlockCover).ensure ();
+        typeof (PageBlockEmbedded).ensure ();
+        typeof (PageBlockEmbeddedPost).ensure ();
+        typeof (PageBlockCollage).ensure ();
+        typeof (PageBlockSlideshow).ensure ();
+        typeof (PageBlockChatLink).ensure ();
+        typeof (PageBlockTable).ensure ();
+        typeof (PageBlockDetails).ensure ();
+        typeof (PageBlockRelatedArticles).ensure ();
+        typeof (PageBlockMap).ensure ();
+        typeof (WebPageInstantView).ensure ();
+        typeof (LinkPreviewAlbumMediaPhoto).ensure ();
+        typeof (LinkPreviewAlbumMediaVideo).ensure ();
+        typeof (LinkPreviewTypeAlbum).ensure ();
+        typeof (LinkPreviewTypeAnimation).ensure ();
+        typeof (LinkPreviewTypeApp).ensure ();
+        typeof (LinkPreviewTypeArticle).ensure ();
+        typeof (LinkPreviewTypeAudio).ensure ();
+        typeof (LinkPreviewTypeBackground).ensure ();
+        typeof (LinkPreviewTypeChannelBoost).ensure ();
+        typeof (LinkPreviewTypeChat).ensure ();
+        typeof (LinkPreviewTypeDocument).ensure ();
+        typeof (LinkPreviewTypeEmbeddedAnimationPlayer).ensure ();
+        typeof (LinkPreviewTypeEmbeddedAudioPlayer).ensure ();
+        typeof (LinkPreviewTypeEmbeddedVideoPlayer).ensure ();
+        typeof (LinkPreviewTypeExternalAudio).ensure ();
+        typeof (LinkPreviewTypeExternalVideo).ensure ();
+        typeof (LinkPreviewTypeInvoice).ensure ();
+        typeof (LinkPreviewTypeMessage).ensure ();
+        typeof (LinkPreviewTypePhoto).ensure ();
+        typeof (LinkPreviewTypePremiumGiftCode).ensure ();
+        typeof (LinkPreviewTypeShareableChatFolder).ensure ();
+        typeof (LinkPreviewTypeSticker).ensure ();
+        typeof (LinkPreviewTypeStickerSet).ensure ();
+        typeof (LinkPreviewTypeStory).ensure ();
+        typeof (LinkPreviewTypeSupergroupBoost).ensure ();
+        typeof (LinkPreviewTypeTheme).ensure ();
+        typeof (LinkPreviewTypeUnsupported).ensure ();
+        typeof (LinkPreviewTypeUser).ensure ();
+        typeof (LinkPreviewTypeVideo).ensure ();
+        typeof (LinkPreviewTypeVideoChat).ensure ();
+        typeof (LinkPreviewTypeVideoNote).ensure ();
+        typeof (LinkPreviewTypeVoiceNote).ensure ();
+        typeof (LinkPreviewTypeWebApp).ensure ();
+        typeof (LinkPreview).ensure ();
+        typeof (CountryInfo).ensure ();
+        typeof (Countries).ensure ();
+        typeof (PhoneNumberInfo).ensure ();
+        typeof (CollectibleItemTypeUsername).ensure ();
+        typeof (CollectibleItemTypePhoneNumber).ensure ();
+        typeof (CollectibleItemInfo).ensure ();
+        typeof (BankCardActionOpenUrl).ensure ();
+        typeof (BankCardInfo).ensure ();
+        typeof (Address).ensure ();
+        typeof (LocationAddress).ensure ();
+        typeof (LabeledPricePart).ensure ();
+        typeof (Invoice).ensure ();
+        typeof (OrderInfo).ensure ();
+        typeof (ShippingOption).ensure ();
+        typeof (SavedCredentials).ensure ();
+        typeof (InputCredentialsSaved).ensure ();
+        typeof (InputCredentialsNew).ensure ();
+        typeof (InputCredentialsApplePay).ensure ();
+        typeof (InputCredentialsGooglePay).ensure ();
+        typeof (PaymentProviderSmartGlocal).ensure ();
+        typeof (PaymentProviderStripe).ensure ();
+        typeof (PaymentProviderOther).ensure ();
+        typeof (PaymentOption).ensure ();
+        typeof (PaymentFormTypeRegular).ensure ();
+        typeof (PaymentFormTypeStars).ensure ();
+        typeof (PaymentFormTypeStarSubscription).ensure ();
+        typeof (PaymentForm).ensure ();
+        typeof (ValidatedOrderInfo).ensure ();
+        typeof (PaymentResult).ensure ();
+        typeof (PaymentReceiptTypeRegular).ensure ();
+        typeof (PaymentReceiptTypeStars).ensure ();
+        typeof (PaymentReceipt).ensure ();
+        typeof (InputInvoiceMessage).ensure ();
+        typeof (InputInvoiceName).ensure ();
+        typeof (InputInvoiceTelegram).ensure ();
+        typeof (PaidMediaPreview).ensure ();
+        typeof (PaidMediaPhoto).ensure ();
+        typeof (PaidMediaVideo).ensure ();
+        typeof (PaidMediaUnsupported).ensure ();
+        typeof (GiveawayParameters).ensure ();
+        typeof (DatedFile).ensure ();
+        typeof (PassportElementTypePersonalDetails).ensure ();
+        typeof (PassportElementTypePassport).ensure ();
+        typeof (PassportElementTypeDriverLicense).ensure ();
+        typeof (PassportElementTypeIdentityCard).ensure ();
+        typeof (PassportElementTypeInternalPassport).ensure ();
+        typeof (PassportElementTypeAddress).ensure ();
+        typeof (PassportElementTypeUtilityBill).ensure ();
+        typeof (PassportElementTypeBankStatement).ensure ();
+        typeof (PassportElementTypeRentalAgreement).ensure ();
+        typeof (PassportElementTypePassportRegistration).ensure ();
+        typeof (PassportElementTypeTemporaryRegistration).ensure ();
+        typeof (PassportElementTypePhoneNumber).ensure ();
+        typeof (PassportElementTypeEmailAddress).ensure ();
+        typeof (Date).ensure ();
+        typeof (PersonalDetails).ensure ();
+        typeof (IdentityDocument).ensure ();
+        typeof (InputIdentityDocument).ensure ();
+        typeof (PersonalDocument).ensure ();
+        typeof (InputPersonalDocument).ensure ();
+        typeof (PassportElementPersonalDetails).ensure ();
+        typeof (PassportElementPassport).ensure ();
+        typeof (PassportElementDriverLicense).ensure ();
+        typeof (PassportElementIdentityCard).ensure ();
+        typeof (PassportElementInternalPassport).ensure ();
+        typeof (PassportElementAddress).ensure ();
+        typeof (PassportElementUtilityBill).ensure ();
+        typeof (PassportElementBankStatement).ensure ();
+        typeof (PassportElementRentalAgreement).ensure ();
+        typeof (PassportElementPassportRegistration).ensure ();
+        typeof (PassportElementTemporaryRegistration).ensure ();
+        typeof (PassportElementPhoneNumber).ensure ();
+        typeof (PassportElementEmailAddress).ensure ();
+        typeof (InputPassportElementPersonalDetails).ensure ();
+        typeof (InputPassportElementPassport).ensure ();
+        typeof (InputPassportElementDriverLicense).ensure ();
+        typeof (InputPassportElementIdentityCard).ensure ();
+        typeof (InputPassportElementInternalPassport).ensure ();
+        typeof (InputPassportElementAddress).ensure ();
+        typeof (InputPassportElementUtilityBill).ensure ();
+        typeof (InputPassportElementBankStatement).ensure ();
+        typeof (InputPassportElementRentalAgreement).ensure ();
+        typeof (InputPassportElementPassportRegistration).ensure ();
+        typeof (InputPassportElementTemporaryRegistration).ensure ();
+        typeof (InputPassportElementPhoneNumber).ensure ();
+        typeof (InputPassportElementEmailAddress).ensure ();
+        typeof (PassportElements).ensure ();
+        typeof (PassportElementErrorSourceUnspecified).ensure ();
+        typeof (PassportElementErrorSourceDataField).ensure ();
+        typeof (PassportElementErrorSourceFrontSide).ensure ();
+        typeof (PassportElementErrorSourceReverseSide).ensure ();
+        typeof (PassportElementErrorSourceSelfie).ensure ();
+        typeof (PassportElementErrorSourceTranslationFile).ensure ();
+        typeof (PassportElementErrorSourceTranslationFiles).ensure ();
+        typeof (PassportElementErrorSourceFile).ensure ();
+        typeof (PassportElementErrorSourceFiles).ensure ();
+        typeof (PassportElementError).ensure ();
+        typeof (PassportSuitableElement).ensure ();
+        typeof (PassportRequiredElement).ensure ();
+        typeof (PassportAuthorizationForm).ensure ();
+        typeof (PassportElementsWithErrors).ensure ();
+        typeof (EncryptedCredentials).ensure ();
+        typeof (EncryptedPassportElement).ensure ();
+        typeof (InputPassportElementErrorSourceUnspecified).ensure ();
+        typeof (InputPassportElementErrorSourceDataField).ensure ();
+        typeof (InputPassportElementErrorSourceFrontSide).ensure ();
+        typeof (InputPassportElementErrorSourceReverseSide).ensure ();
+        typeof (InputPassportElementErrorSourceSelfie).ensure ();
+        typeof (InputPassportElementErrorSourceTranslationFile).ensure ();
+        typeof (InputPassportElementErrorSourceTranslationFiles).ensure ();
+        typeof (InputPassportElementErrorSourceFile).ensure ();
+        typeof (InputPassportElementErrorSourceFiles).ensure ();
+        typeof (InputPassportElementError).ensure ();
+        typeof (MessageText).ensure ();
+        typeof (MessageAnimation).ensure ();
+        typeof (MessageAudio).ensure ();
+        typeof (MessageDocument).ensure ();
+        typeof (MessagePaidMedia).ensure ();
+        typeof (MessagePhoto).ensure ();
+        typeof (MessageSticker).ensure ();
+        typeof (MessageVideo).ensure ();
+        typeof (MessageVideoNote).ensure ();
+        typeof (MessageVoiceNote).ensure ();
+        typeof (MessageExpiredPhoto).ensure ();
+        typeof (MessageExpiredVideo).ensure ();
+        typeof (MessageExpiredVideoNote).ensure ();
+        typeof (MessageExpiredVoiceNote).ensure ();
+        typeof (MessageLocation).ensure ();
+        typeof (MessageVenue).ensure ();
+        typeof (MessageContact).ensure ();
+        typeof (MessageAnimatedEmoji).ensure ();
+        typeof (MessageDice).ensure ();
+        typeof (MessageGame).ensure ();
+        typeof (MessagePoll).ensure ();
+        typeof (MessageStory).ensure ();
+        typeof (MessageInvoice).ensure ();
+        typeof (MessageCall).ensure ();
+        typeof (MessageVideoChatScheduled).ensure ();
+        typeof (MessageVideoChatStarted).ensure ();
+        typeof (MessageVideoChatEnded).ensure ();
+        typeof (MessageInviteVideoChatParticipants).ensure ();
+        typeof (MessageBasicGroupChatCreate).ensure ();
+        typeof (MessageSupergroupChatCreate).ensure ();
+        typeof (MessageChatChangeTitle).ensure ();
+        typeof (MessageChatChangePhoto).ensure ();
+        typeof (MessageChatDeletePhoto).ensure ();
+        typeof (MessageChatAddMembers).ensure ();
+        typeof (MessageChatJoinByLink).ensure ();
+        typeof (MessageChatJoinByRequest).ensure ();
+        typeof (MessageChatDeleteMember).ensure ();
+        typeof (MessageChatUpgradeTo).ensure ();
+        typeof (MessageChatUpgradeFrom).ensure ();
+        typeof (MessagePinMessage).ensure ();
+        typeof (MessageScreenshotTaken).ensure ();
+        typeof (MessageChatSetBackground).ensure ();
+        typeof (MessageChatSetTheme).ensure ();
+        typeof (MessageChatSetMessageAutoDeleteTime).ensure ();
+        typeof (MessageChatBoost).ensure ();
+        typeof (MessageForumTopicCreated).ensure ();
+        typeof (MessageForumTopicEdited).ensure ();
+        typeof (MessageForumTopicIsClosedToggled).ensure ();
+        typeof (MessageForumTopicIsHiddenToggled).ensure ();
+        typeof (MessageSuggestProfilePhoto).ensure ();
+        typeof (MessageCustomServiceAction).ensure ();
+        typeof (MessageGameScore).ensure ();
+        typeof (MessagePaymentSuccessful).ensure ();
+        typeof (MessagePaymentSuccessfulBot).ensure ();
+        typeof (MessagePaymentRefunded).ensure ();
+        typeof (MessageGiftedPremium).ensure ();
+        typeof (MessagePremiumGiftCode).ensure ();
+        typeof (MessageGiveawayCreated).ensure ();
+        typeof (MessageGiveaway).ensure ();
+        typeof (MessageGiveawayCompleted).ensure ();
+        typeof (MessageGiveawayWinners).ensure ();
+        typeof (MessageGiftedStars).ensure ();
+        typeof (MessageGiveawayPrizeStars).ensure ();
+        typeof (MessageGift).ensure ();
+        typeof (MessageContactRegistered).ensure ();
+        typeof (MessageUsersShared).ensure ();
+        typeof (MessageChatShared).ensure ();
+        typeof (MessageBotWriteAccessAllowed).ensure ();
+        typeof (MessageWebAppDataSent).ensure ();
+        typeof (MessageWebAppDataReceived).ensure ();
+        typeof (MessagePassportDataSent).ensure ();
+        typeof (MessagePassportDataReceived).ensure ();
+        typeof (MessageProximityAlertTriggered).ensure ();
+        typeof (MessageUnsupported).ensure ();
+        typeof (TextEntityTypeMention).ensure ();
+        typeof (TextEntityTypeHashtag).ensure ();
+        typeof (TextEntityTypeCashtag).ensure ();
+        typeof (TextEntityTypeBotCommand).ensure ();
+        typeof (TextEntityTypeUrl).ensure ();
+        typeof (TextEntityTypeEmailAddress).ensure ();
+        typeof (TextEntityTypePhoneNumber).ensure ();
+        typeof (TextEntityTypeBankCardNumber).ensure ();
+        typeof (TextEntityTypeBold).ensure ();
+        typeof (TextEntityTypeItalic).ensure ();
+        typeof (TextEntityTypeUnderline).ensure ();
+        typeof (TextEntityTypeStrikethrough).ensure ();
+        typeof (TextEntityTypeSpoiler).ensure ();
+        typeof (TextEntityTypeCode).ensure ();
+        typeof (TextEntityTypePre).ensure ();
+        typeof (TextEntityTypePreCode).ensure ();
+        typeof (TextEntityTypeBlockQuote).ensure ();
+        typeof (TextEntityTypeExpandableBlockQuote).ensure ();
+        typeof (TextEntityTypeTextUrl).ensure ();
+        typeof (TextEntityTypeMentionName).ensure ();
+        typeof (TextEntityTypeCustomEmoji).ensure ();
+        typeof (TextEntityTypeMediaTimestamp).ensure ();
+        typeof (InputThumbnail).ensure ();
+        typeof (InputPaidMediaTypePhoto).ensure ();
+        typeof (InputPaidMediaTypeVideo).ensure ();
+        typeof (InputPaidMedia).ensure ();
+        typeof (MessageSchedulingStateSendAtDate).ensure ();
+        typeof (MessageSchedulingStateSendWhenOnline).ensure ();
+        typeof (MessageSchedulingStateSendWhenVideoProcessed).ensure ();
+        typeof (MessageSelfDestructTypeTimer).ensure ();
+        typeof (MessageSelfDestructTypeImmediately).ensure ();
+        typeof (MessageSendOptions).ensure ();
+        typeof (MessageCopyOptions).ensure ();
+        typeof (InputMessageText).ensure ();
+        typeof (InputMessageAnimation).ensure ();
+        typeof (InputMessageAudio).ensure ();
+        typeof (InputMessageDocument).ensure ();
+        typeof (InputMessagePaidMedia).ensure ();
+        typeof (InputMessagePhoto).ensure ();
+        typeof (InputMessageSticker).ensure ();
+        typeof (InputMessageVideo).ensure ();
+        typeof (InputMessageVideoNote).ensure ();
+        typeof (InputMessageVoiceNote).ensure ();
+        typeof (InputMessageLocation).ensure ();
+        typeof (InputMessageVenue).ensure ();
+        typeof (InputMessageContact).ensure ();
+        typeof (InputMessageDice).ensure ();
+        typeof (InputMessageGame).ensure ();
+        typeof (InputMessageInvoice).ensure ();
+        typeof (InputMessagePoll).ensure ();
+        typeof (InputMessageStory).ensure ();
+        typeof (InputMessageForwarded).ensure ();
+        typeof (MessageProperties).ensure ();
+        typeof (SearchMessagesFilterEmpty).ensure ();
+        typeof (SearchMessagesFilterAnimation).ensure ();
+        typeof (SearchMessagesFilterAudio).ensure ();
+        typeof (SearchMessagesFilterDocument).ensure ();
+        typeof (SearchMessagesFilterPhoto).ensure ();
+        typeof (SearchMessagesFilterVideo).ensure ();
+        typeof (SearchMessagesFilterVoiceNote).ensure ();
+        typeof (SearchMessagesFilterPhotoAndVideo).ensure ();
+        typeof (SearchMessagesFilterUrl).ensure ();
+        typeof (SearchMessagesFilterChatPhoto).ensure ();
+        typeof (SearchMessagesFilterVideoNote).ensure ();
+        typeof (SearchMessagesFilterVoiceAndVideoNote).ensure ();
+        typeof (SearchMessagesFilterMention).ensure ();
+        typeof (SearchMessagesFilterUnreadMention).ensure ();
+        typeof (SearchMessagesFilterUnreadReaction).ensure ();
+        typeof (SearchMessagesFilterFailedToSend).ensure ();
+        typeof (SearchMessagesFilterPinned).ensure ();
+        typeof (ChatActionTyping).ensure ();
+        typeof (ChatActionRecordingVideo).ensure ();
+        typeof (ChatActionUploadingVideo).ensure ();
+        typeof (ChatActionRecordingVoiceNote).ensure ();
+        typeof (ChatActionUploadingVoiceNote).ensure ();
+        typeof (ChatActionUploadingPhoto).ensure ();
+        typeof (ChatActionUploadingDocument).ensure ();
+        typeof (ChatActionChoosingSticker).ensure ();
+        typeof (ChatActionChoosingLocation).ensure ();
+        typeof (ChatActionChoosingContact).ensure ();
+        typeof (ChatActionStartPlayingGame).ensure ();
+        typeof (ChatActionRecordingVideoNote).ensure ();
+        typeof (ChatActionUploadingVideoNote).ensure ();
+        typeof (ChatActionWatchingAnimations).ensure ();
+        typeof (ChatActionCancel).ensure ();
+        typeof (UserStatusEmpty).ensure ();
+        typeof (UserStatusOnline).ensure ();
+        typeof (UserStatusOffline).ensure ();
+        typeof (UserStatusRecently).ensure ();
+        typeof (UserStatusLastWeek).ensure ();
+        typeof (UserStatusLastMonth).ensure ();
+        typeof (EmojiKeyword).ensure ();
+        typeof (EmojiKeywords).ensure ();
+        typeof (Stickers).ensure ();
+        typeof (Emojis).ensure ();
+        typeof (StickerSet).ensure ();
+        typeof (StickerSetInfo).ensure ();
+        typeof (StickerSets).ensure ();
+        typeof (TrendingStickerSets).ensure ();
+        typeof (EmojiCategorySourceSearch).ensure ();
+        typeof (EmojiCategorySourcePremium).ensure ();
+        typeof (EmojiCategory).ensure ();
+        typeof (EmojiCategories).ensure ();
+        typeof (EmojiCategoryTypeDefault).ensure ();
+        typeof (EmojiCategoryTypeRegularStickers).ensure ();
+        typeof (EmojiCategoryTypeEmojiStatus).ensure ();
+        typeof (EmojiCategoryTypeChatPhoto).ensure ();
+        typeof (CurrentWeather).ensure ();
+        typeof (StoryAreaPosition).ensure ();
+        typeof (StoryAreaTypeLocation).ensure ();
+        typeof (StoryAreaTypeVenue).ensure ();
+        typeof (StoryAreaTypeSuggestedReaction).ensure ();
+        typeof (StoryAreaTypeMessage).ensure ();
+        typeof (StoryAreaTypeLink).ensure ();
+        typeof (StoryAreaTypeWeather).ensure ();
+        typeof (StoryArea).ensure ();
+        typeof (InputStoryAreaTypeLocation).ensure ();
+        typeof (InputStoryAreaTypeFoundVenue).ensure ();
+        typeof (InputStoryAreaTypePreviousVenue).ensure ();
+        typeof (InputStoryAreaTypeSuggestedReaction).ensure ();
+        typeof (InputStoryAreaTypeMessage).ensure ();
+        typeof (InputStoryAreaTypeLink).ensure ();
+        typeof (InputStoryAreaTypeWeather).ensure ();
+        typeof (InputStoryArea).ensure ();
+        typeof (InputStoryAreas).ensure ();
+        typeof (StoryVideo).ensure ();
+        typeof (StoryContentPhoto).ensure ();
+        typeof (StoryContentVideo).ensure ();
+        typeof (StoryContentUnsupported).ensure ();
+        typeof (InputStoryContentPhoto).ensure ();
+        typeof (InputStoryContentVideo).ensure ();
+        typeof (StoryListMain).ensure ();
+        typeof (StoryListArchive).ensure ();
+        typeof (StoryOriginPublicStory).ensure ();
+        typeof (StoryOriginHiddenUser).ensure ();
+        typeof (StoryRepostInfo).ensure ();
+        typeof (StoryInteractionInfo).ensure ();
+        typeof (Story).ensure ();
+        typeof (Stories).ensure ();
+        typeof (FoundStories).ensure ();
+        typeof (StoryFullId).ensure ();
+        typeof (StoryInfo).ensure ();
+        typeof (ChatActiveStories).ensure ();
+        typeof (StoryInteractionTypeView).ensure ();
+        typeof (StoryInteractionTypeForward).ensure ();
+        typeof (StoryInteractionTypeRepost).ensure ();
+        typeof (StoryInteraction).ensure ();
+        typeof (StoryInteractions).ensure ();
+        typeof (QuickReplyMessage).ensure ();
+        typeof (QuickReplyMessages).ensure ();
+        typeof (QuickReplyShortcut).ensure ();
+        typeof (PublicForwardMessage).ensure ();
+        typeof (PublicForwardStory).ensure ();
+        typeof (PublicForwards).ensure ();
+        typeof (BotMediaPreview).ensure ();
+        typeof (BotMediaPreviews).ensure ();
+        typeof (BotMediaPreviewInfo).ensure ();
+        typeof (ChatBoostLevelFeatures).ensure ();
+        typeof (ChatBoostFeatures).ensure ();
+        typeof (ChatBoostSourceGiftCode).ensure ();
+        typeof (ChatBoostSourceGiveaway).ensure ();
+        typeof (ChatBoostSourcePremium).ensure ();
+        typeof (PrepaidGiveaway).ensure ();
+        typeof (ChatBoostStatus).ensure ();
+        typeof (ChatBoost).ensure ();
+        typeof (FoundChatBoosts).ensure ();
+        typeof (ChatBoostSlot).ensure ();
+        typeof (ChatBoostSlots).ensure ();
+        typeof (ResendCodeReasonUserRequest).ensure ();
+        typeof (ResendCodeReasonVerificationFailed).ensure ();
+        typeof (CallDiscardReasonEmpty).ensure ();
+        typeof (CallDiscardReasonMissed).ensure ();
+        typeof (CallDiscardReasonDeclined).ensure ();
+        typeof (CallDiscardReasonDisconnected).ensure ();
+        typeof (CallDiscardReasonHungUp).ensure ();
+        typeof (CallProtocol).ensure ();
+        typeof (CallServerTypeTelegramReflector).ensure ();
+        typeof (CallServerTypeWebrtc).ensure ();
+        typeof (CallServer).ensure ();
+        typeof (CallId).ensure ();
+        typeof (GroupCallId).ensure ();
+        typeof (CallStatePending).ensure ();
+        typeof (CallStateExchangingKeys).ensure ();
+        typeof (CallStateReady).ensure ();
+        typeof (CallStateHangingUp).ensure ();
+        typeof (CallStateDiscarded).ensure ();
+        typeof (CallStateError).ensure ();
+        typeof (GroupCallVideoQualityThumbnail).ensure ();
+        typeof (GroupCallVideoQualityMedium).ensure ();
+        typeof (GroupCallVideoQualityFull).ensure ();
+        typeof (GroupCallStream).ensure ();
+        typeof (GroupCallStreams).ensure ();
+        typeof (RtmpUrl).ensure ();
+        typeof (GroupCallRecentSpeaker).ensure ();
+        typeof (GroupCall).ensure ();
+        typeof (GroupCallVideoSourceGroup).ensure ();
+        typeof (GroupCallParticipantVideoInfo).ensure ();
+        typeof (GroupCallParticipant).ensure ();
+        typeof (CallProblemEcho).ensure ();
+        typeof (CallProblemNoise).ensure ();
+        typeof (CallProblemInterruptions).ensure ();
+        typeof (CallProblemDistortedSpeech).ensure ();
+        typeof (CallProblemSilentLocal).ensure ();
+        typeof (CallProblemSilentRemote).ensure ();
+        typeof (CallProblemDropped).ensure ();
+        typeof (CallProblemDistortedVideo).ensure ();
+        typeof (CallProblemPixelatedVideo).ensure ();
+        typeof (Call).ensure ();
+        typeof (FirebaseAuthenticationSettingsAndroid).ensure ();
+        typeof (FirebaseAuthenticationSettingsIos).ensure ();
+        typeof (PhoneNumberAuthenticationSettings).ensure ();
+        typeof (AddedReaction).ensure ();
+        typeof (AddedReactions).ensure ();
+        typeof (AvailableReaction).ensure ();
+        typeof (AvailableReactions).ensure ();
+        typeof (EmojiReaction).ensure ();
+        typeof (ReactionUnavailabilityReasonAnonymousAdministrator).ensure ();
+        typeof (ReactionUnavailabilityReasonGuest).ensure ();
+        typeof (Animations).ensure ();
+        typeof (DiceStickersRegular).ensure ();
+        typeof (DiceStickersSlotMachine).ensure ();
+        typeof (ImportedContacts).ensure ();
+        typeof (SpeechRecognitionResultPending).ensure ();
+        typeof (SpeechRecognitionResultText).ensure ();
+        typeof (SpeechRecognitionResultError).ensure ();
+        typeof (BusinessConnection).ensure ();
+        typeof (AttachmentMenuBotColor).ensure ();
+        typeof (AttachmentMenuBot).ensure ();
+        typeof (SentWebAppMessage).ensure ();
+        typeof (BotWriteAccessAllowReasonConnectedWebsite).ensure ();
+        typeof (BotWriteAccessAllowReasonAddedToAttachmentMenu).ensure ();
+        typeof (BotWriteAccessAllowReasonLaunchedWebApp).ensure ();
+        typeof (BotWriteAccessAllowReasonAcceptedRequest).ensure ();
+        typeof (HttpUrl).ensure ();
+        typeof (UserLink).ensure ();
+        typeof (TargetChatTypes).ensure ();
+        typeof (TargetChatCurrent).ensure ();
+        typeof (TargetChatChosen).ensure ();
+        typeof (TargetChatInternalLink).ensure ();
+        typeof (InputInlineQueryResultAnimation).ensure ();
+        typeof (InputInlineQueryResultArticle).ensure ();
+        typeof (InputInlineQueryResultAudio).ensure ();
+        typeof (InputInlineQueryResultContact).ensure ();
+        typeof (InputInlineQueryResultDocument).ensure ();
+        typeof (InputInlineQueryResultGame).ensure ();
+        typeof (InputInlineQueryResultLocation).ensure ();
+        typeof (InputInlineQueryResultPhoto).ensure ();
+        typeof (InputInlineQueryResultSticker).ensure ();
+        typeof (InputInlineQueryResultVenue).ensure ();
+        typeof (InputInlineQueryResultVideo).ensure ();
+        typeof (InputInlineQueryResultVoiceNote).ensure ();
+        typeof (InlineQueryResultArticle).ensure ();
+        typeof (InlineQueryResultContact).ensure ();
+        typeof (InlineQueryResultLocation).ensure ();
+        typeof (InlineQueryResultVenue).ensure ();
+        typeof (InlineQueryResultGame).ensure ();
+        typeof (InlineQueryResultAnimation).ensure ();
+        typeof (InlineQueryResultAudio).ensure ();
+        typeof (InlineQueryResultDocument).ensure ();
+        typeof (InlineQueryResultPhoto).ensure ();
+        typeof (InlineQueryResultSticker).ensure ();
+        typeof (InlineQueryResultVideo).ensure ();
+        typeof (InlineQueryResultVoiceNote).ensure ();
+        typeof (InlineQueryResultsButtonTypeStartBot).ensure ();
+        typeof (InlineQueryResultsButtonTypeWebApp).ensure ();
+        typeof (InlineQueryResultsButton).ensure ();
+        typeof (InlineQueryResults).ensure ();
+        typeof (PreparedInlineMessageId).ensure ();
+        typeof (PreparedInlineMessage).ensure ();
+        typeof (CallbackQueryPayloadData).ensure ();
+        typeof (CallbackQueryPayloadDataWithPassword).ensure ();
+        typeof (CallbackQueryPayloadGame).ensure ();
+        typeof (CallbackQueryAnswer).ensure ();
+        typeof (CustomRequestResult).ensure ();
+        typeof (GameHighScore).ensure ();
+        typeof (GameHighScores).ensure ();
+        typeof (ChatEventMessageEdited).ensure ();
+        typeof (ChatEventMessageDeleted).ensure ();
+        typeof (ChatEventMessagePinned).ensure ();
+        typeof (ChatEventMessageUnpinned).ensure ();
+        typeof (ChatEventPollStopped).ensure ();
+        typeof (ChatEventMemberJoined).ensure ();
+        typeof (ChatEventMemberJoinedByInviteLink).ensure ();
+        typeof (ChatEventMemberJoinedByRequest).ensure ();
+        typeof (ChatEventMemberInvited).ensure ();
+        typeof (ChatEventMemberLeft).ensure ();
+        typeof (ChatEventMemberPromoted).ensure ();
+        typeof (ChatEventMemberRestricted).ensure ();
+        typeof (ChatEventMemberSubscriptionExtended).ensure ();
+        typeof (ChatEventAvailableReactionsChanged).ensure ();
+        typeof (ChatEventBackgroundChanged).ensure ();
+        typeof (ChatEventDescriptionChanged).ensure ();
+        typeof (ChatEventEmojiStatusChanged).ensure ();
+        typeof (ChatEventLinkedChatChanged).ensure ();
+        typeof (ChatEventLocationChanged).ensure ();
+        typeof (ChatEventMessageAutoDeleteTimeChanged).ensure ();
+        typeof (ChatEventPermissionsChanged).ensure ();
+        typeof (ChatEventPhotoChanged).ensure ();
+        typeof (ChatEventSlowModeDelayChanged).ensure ();
+        typeof (ChatEventStickerSetChanged).ensure ();
+        typeof (ChatEventCustomEmojiStickerSetChanged).ensure ();
+        typeof (ChatEventTitleChanged).ensure ();
+        typeof (ChatEventUsernameChanged).ensure ();
+        typeof (ChatEventActiveUsernamesChanged).ensure ();
+        typeof (ChatEventAccentColorChanged).ensure ();
+        typeof (ChatEventProfileAccentColorChanged).ensure ();
+        typeof (ChatEventHasProtectedContentToggled).ensure ();
+        typeof (ChatEventInvitesToggled).ensure ();
+        typeof (ChatEventIsAllHistoryAvailableToggled).ensure ();
+        typeof (ChatEventHasAggressiveAntiSpamEnabledToggled).ensure ();
+        typeof (ChatEventSignMessagesToggled).ensure ();
+        typeof (ChatEventShowMessageSenderToggled).ensure ();
+        typeof (ChatEventInviteLinkEdited).ensure ();
+        typeof (ChatEventInviteLinkRevoked).ensure ();
+        typeof (ChatEventInviteLinkDeleted).ensure ();
+        typeof (ChatEventVideoChatCreated).ensure ();
+        typeof (ChatEventVideoChatEnded).ensure ();
+        typeof (ChatEventVideoChatMuteNewParticipantsToggled).ensure ();
+        typeof (ChatEventVideoChatParticipantIsMutedToggled).ensure ();
+        typeof (ChatEventVideoChatParticipantVolumeLevelChanged).ensure ();
+        typeof (ChatEventIsForumToggled).ensure ();
+        typeof (ChatEventForumTopicCreated).ensure ();
+        typeof (ChatEventForumTopicEdited).ensure ();
+        typeof (ChatEventForumTopicToggleIsClosed).ensure ();
+        typeof (ChatEventForumTopicToggleIsHidden).ensure ();
+        typeof (ChatEventForumTopicDeleted).ensure ();
+        typeof (ChatEventForumTopicPinned).ensure ();
+        typeof (ChatEvent).ensure ();
+        typeof (ChatEvents).ensure ();
+        typeof (ChatEventLogFilters).ensure ();
+        typeof (LanguagePackStringValueOrdinary).ensure ();
+        typeof (LanguagePackStringValuePluralized).ensure ();
+        typeof (LanguagePackStringValueDeleted).ensure ();
+        typeof (LanguagePackString).ensure ();
+        typeof (LanguagePackStrings).ensure ();
+        typeof (LanguagePackInfo).ensure ();
+        typeof (LocalizationTargetInfo).ensure ();
+        typeof (PremiumLimitTypeSupergroupCount).ensure ();
+        typeof (PremiumLimitTypePinnedChatCount).ensure ();
+        typeof (PremiumLimitTypeCreatedPublicChatCount).ensure ();
+        typeof (PremiumLimitTypeSavedAnimationCount).ensure ();
+        typeof (PremiumLimitTypeFavoriteStickerCount).ensure ();
+        typeof (PremiumLimitTypeChatFolderCount).ensure ();
+        typeof (PremiumLimitTypeChatFolderChosenChatCount).ensure ();
+        typeof (PremiumLimitTypePinnedArchivedChatCount).ensure ();
+        typeof (PremiumLimitTypePinnedSavedMessagesTopicCount).ensure ();
+        typeof (PremiumLimitTypeCaptionLength).ensure ();
+        typeof (PremiumLimitTypeBioLength).ensure ();
+        typeof (PremiumLimitTypeChatFolderInviteLinkCount).ensure ();
+        typeof (PremiumLimitTypeShareableChatFolderCount).ensure ();
+        typeof (PremiumLimitTypeActiveStoryCount).ensure ();
+        typeof (PremiumLimitTypeWeeklySentStoryCount).ensure ();
+        typeof (PremiumLimitTypeMonthlySentStoryCount).ensure ();
+        typeof (PremiumLimitTypeStoryCaptionLength).ensure ();
+        typeof (PremiumLimitTypeStorySuggestedReactionAreaCount).ensure ();
+        typeof (PremiumLimitTypeSimilarChatCount).ensure ();
+        typeof (PremiumFeatureIncreasedLimits).ensure ();
+        typeof (PremiumFeatureIncreasedUploadFileSize).ensure ();
+        typeof (PremiumFeatureImprovedDownloadSpeed).ensure ();
+        typeof (PremiumFeatureVoiceRecognition).ensure ();
+        typeof (PremiumFeatureDisabledAds).ensure ();
+        typeof (PremiumFeatureUniqueReactions).ensure ();
+        typeof (PremiumFeatureUniqueStickers).ensure ();
+        typeof (PremiumFeatureCustomEmoji).ensure ();
+        typeof (PremiumFeatureAdvancedChatManagement).ensure ();
+        typeof (PremiumFeatureProfileBadge).ensure ();
+        typeof (PremiumFeatureEmojiStatus).ensure ();
+        typeof (PremiumFeatureAnimatedProfilePhoto).ensure ();
+        typeof (PremiumFeatureForumTopicIcon).ensure ();
+        typeof (PremiumFeatureAppIcons).ensure ();
+        typeof (PremiumFeatureRealTimeChatTranslation).ensure ();
+        typeof (PremiumFeatureUpgradedStories).ensure ();
+        typeof (PremiumFeatureChatBoost).ensure ();
+        typeof (PremiumFeatureAccentColor).ensure ();
+        typeof (PremiumFeatureBackgroundForBoth).ensure ();
+        typeof (PremiumFeatureSavedMessagesTags).ensure ();
+        typeof (PremiumFeatureMessagePrivacy).ensure ();
+        typeof (PremiumFeatureLastSeenTimes).ensure ();
+        typeof (PremiumFeatureBusiness).ensure ();
+        typeof (PremiumFeatureMessageEffects).ensure ();
+        typeof (BusinessFeatureLocation).ensure ();
+        typeof (BusinessFeatureOpeningHours).ensure ();
+        typeof (BusinessFeatureQuickReplies).ensure ();
+        typeof (BusinessFeatureGreetingMessage).ensure ();
+        typeof (BusinessFeatureAwayMessage).ensure ();
+        typeof (BusinessFeatureAccountLinks).ensure ();
+        typeof (BusinessFeatureStartPage).ensure ();
+        typeof (BusinessFeatureBots).ensure ();
+        typeof (BusinessFeatureEmojiStatus).ensure ();
+        typeof (BusinessFeatureChatFolderTags).ensure ();
+        typeof (BusinessFeatureUpgradedStories).ensure ();
+        typeof (PremiumStoryFeaturePriorityOrder).ensure ();
+        typeof (PremiumStoryFeatureStealthMode).ensure ();
+        typeof (PremiumStoryFeaturePermanentViewsHistory).ensure ();
+        typeof (PremiumStoryFeatureCustomExpirationDuration).ensure ();
+        typeof (PremiumStoryFeatureSaveStories).ensure ();
+        typeof (PremiumStoryFeatureLinksAndFormatting).ensure ();
+        typeof (PremiumStoryFeatureVideoQuality).ensure ();
+        typeof (PremiumLimit).ensure ();
+        typeof (PremiumFeatures).ensure ();
+        typeof (BusinessFeatures).ensure ();
+        typeof (PremiumSourceLimitExceeded).ensure ();
+        typeof (PremiumSourceFeature).ensure ();
+        typeof (PremiumSourceBusinessFeature).ensure ();
+        typeof (PremiumSourceStoryFeature).ensure ();
+        typeof (PremiumSourceLink).ensure ();
+        typeof (PremiumSourceSettings).ensure ();
+        typeof (PremiumFeaturePromotionAnimation).ensure ();
+        typeof (BusinessFeaturePromotionAnimation).ensure ();
+        typeof (PremiumState).ensure ();
+        typeof (StorePaymentPurposePremiumSubscription).ensure ();
+        typeof (StorePaymentPurposePremiumGiftCodes).ensure ();
+        typeof (StorePaymentPurposePremiumGiveaway).ensure ();
+        typeof (StorePaymentPurposeStarGiveaway).ensure ();
+        typeof (StorePaymentPurposeStars).ensure ();
+        typeof (StorePaymentPurposeGiftedStars).ensure ();
+        typeof (TelegramPaymentPurposePremiumGiftCodes).ensure ();
+        typeof (TelegramPaymentPurposePremiumGiveaway).ensure ();
+        typeof (TelegramPaymentPurposeStars).ensure ();
+        typeof (TelegramPaymentPurposeGiftedStars).ensure ();
+        typeof (TelegramPaymentPurposeStarGiveaway).ensure ();
+        typeof (TelegramPaymentPurposeJoinChat).ensure ();
+        typeof (DeviceTokenFirebaseCloudMessaging).ensure ();
+        typeof (DeviceTokenApplePush).ensure ();
+        typeof (DeviceTokenApplePushVoIP).ensure ();
+        typeof (DeviceTokenWindowsPush).ensure ();
+        typeof (DeviceTokenMicrosoftPush).ensure ();
+        typeof (DeviceTokenMicrosoftPushVoIP).ensure ();
+        typeof (DeviceTokenWebPush).ensure ();
+        typeof (DeviceTokenSimplePush).ensure ();
+        typeof (DeviceTokenUbuntuPush).ensure ();
+        typeof (DeviceTokenBlackBerryPush).ensure ();
+        typeof (DeviceTokenTizenPush).ensure ();
+        typeof (DeviceTokenHuaweiPush).ensure ();
+        typeof (PushReceiverId).ensure ();
+        typeof (BackgroundFillSolid).ensure ();
+        typeof (BackgroundFillGradient).ensure ();
+        typeof (BackgroundFillFreeformGradient).ensure ();
+        typeof (BackgroundTypeWallpaper).ensure ();
+        typeof (BackgroundTypePattern).ensure ();
+        typeof (BackgroundTypeFill).ensure ();
+        typeof (BackgroundTypeChatTheme).ensure ();
+        typeof (InputBackgroundLocal).ensure ();
+        typeof (InputBackgroundRemote).ensure ();
+        typeof (InputBackgroundPrevious).ensure ();
+        typeof (ChatTheme).ensure ();
+        typeof (TimeZone).ensure ();
+        typeof (TimeZones).ensure ();
+        typeof (Hashtags).ensure ();
+        typeof (CanSendStoryResultOk).ensure ();
+        typeof (CanSendStoryResultPremiumNeeded).ensure ();
+        typeof (CanSendStoryResultBoostNeeded).ensure ();
+        typeof (CanSendStoryResultActiveStoryLimitExceeded).ensure ();
+        typeof (CanSendStoryResultWeeklyLimitExceeded).ensure ();
+        typeof (CanSendStoryResultMonthlyLimitExceeded).ensure ();
+        typeof (CanTransferOwnershipResultOk).ensure ();
+        typeof (CanTransferOwnershipResultPasswordNeeded).ensure ();
+        typeof (CanTransferOwnershipResultPasswordTooFresh).ensure ();
+        typeof (CanTransferOwnershipResultSessionTooFresh).ensure ();
+        typeof (CheckChatUsernameResultOk).ensure ();
+        typeof (CheckChatUsernameResultUsernameInvalid).ensure ();
+        typeof (CheckChatUsernameResultUsernameOccupied).ensure ();
+        typeof (CheckChatUsernameResultUsernamePurchasable).ensure ();
+        typeof (CheckChatUsernameResultPublicChatsTooMany).ensure ();
+        typeof (CheckChatUsernameResultPublicGroupsUnavailable).ensure ();
+        typeof (CheckStickerSetNameResultOk).ensure ();
+        typeof (CheckStickerSetNameResultNameInvalid).ensure ();
+        typeof (CheckStickerSetNameResultNameOccupied).ensure ();
+        typeof (ResetPasswordResultOk).ensure ();
+        typeof (ResetPasswordResultPending).ensure ();
+        typeof (ResetPasswordResultDeclined).ensure ();
+        typeof (MessageFileTypePrivate).ensure ();
+        typeof (MessageFileTypeGroup).ensure ();
+        typeof (MessageFileTypeUnknown).ensure ();
+        typeof (PushMessageContentHidden).ensure ();
+        typeof (PushMessageContentAnimation).ensure ();
+        typeof (PushMessageContentAudio).ensure ();
+        typeof (PushMessageContentContact).ensure ();
+        typeof (PushMessageContentContactRegistered).ensure ();
+        typeof (PushMessageContentDocument).ensure ();
+        typeof (PushMessageContentGame).ensure ();
+        typeof (PushMessageContentGameScore).ensure ();
+        typeof (PushMessageContentInvoice).ensure ();
+        typeof (PushMessageContentLocation).ensure ();
+        typeof (PushMessageContentPaidMedia).ensure ();
+        typeof (PushMessageContentPhoto).ensure ();
+        typeof (PushMessageContentPoll).ensure ();
+        typeof (PushMessageContentPremiumGiftCode).ensure ();
+        typeof (PushMessageContentGiveaway).ensure ();
+        typeof (PushMessageContentGift).ensure ();
+        typeof (PushMessageContentScreenshotTaken).ensure ();
+        typeof (PushMessageContentSticker).ensure ();
+        typeof (PushMessageContentStory).ensure ();
+        typeof (PushMessageContentText).ensure ();
+        typeof (PushMessageContentVideo).ensure ();
+        typeof (PushMessageContentVideoNote).ensure ();
+        typeof (PushMessageContentVoiceNote).ensure ();
+        typeof (PushMessageContentBasicGroupChatCreate).ensure ();
+        typeof (PushMessageContentChatAddMembers).ensure ();
+        typeof (PushMessageContentChatChangePhoto).ensure ();
+        typeof (PushMessageContentChatChangeTitle).ensure ();
+        typeof (PushMessageContentChatSetBackground).ensure ();
+        typeof (PushMessageContentChatSetTheme).ensure ();
+        typeof (PushMessageContentChatDeleteMember).ensure ();
+        typeof (PushMessageContentChatJoinByLink).ensure ();
+        typeof (PushMessageContentChatJoinByRequest).ensure ();
+        typeof (PushMessageContentRecurringPayment).ensure ();
+        typeof (PushMessageContentSuggestProfilePhoto).ensure ();
+        typeof (PushMessageContentMessageForwards).ensure ();
+        typeof (PushMessageContentMediaAlbum).ensure ();
+        typeof (NotificationTypeNewMessage).ensure ();
+        typeof (NotificationTypeNewSecretChat).ensure ();
+        typeof (NotificationTypeNewCall).ensure ();
+        typeof (NotificationTypeNewPushMessage).ensure ();
+        typeof (NotificationGroupTypeMessages).ensure ();
+        typeof (NotificationGroupTypeMentions).ensure ();
+        typeof (NotificationGroupTypeSecretChat).ensure ();
+        typeof (NotificationGroupTypeCalls).ensure ();
+        typeof (NotificationSound).ensure ();
+        typeof (NotificationSounds).ensure ();
+        typeof (Notification).ensure ();
+        typeof (NotificationGroup).ensure ();
+        typeof (OptionValueBoolean).ensure ();
+        typeof (OptionValueEmpty).ensure ();
+        typeof (OptionValueInteger).ensure ();
+        typeof (OptionValueString).ensure ();
+        typeof (JsonObjectMember).ensure ();
+        typeof (JsonValueNull).ensure ();
+        typeof (JsonValueBoolean).ensure ();
+        typeof (JsonValueNumber).ensure ();
+        typeof (JsonValueString).ensure ();
+        typeof (JsonValueArray).ensure ();
+        typeof (JsonValueObject).ensure ();
+        typeof (StoryPrivacySettingsEveryone).ensure ();
+        typeof (StoryPrivacySettingsContacts).ensure ();
+        typeof (StoryPrivacySettingsCloseFriends).ensure ();
+        typeof (StoryPrivacySettingsSelectedUsers).ensure ();
+        typeof (UserPrivacySettingRuleAllowAll).ensure ();
+        typeof (UserPrivacySettingRuleAllowContacts).ensure ();
+        typeof (UserPrivacySettingRuleAllowBots).ensure ();
+        typeof (UserPrivacySettingRuleAllowPremiumUsers).ensure ();
+        typeof (UserPrivacySettingRuleAllowUsers).ensure ();
+        typeof (UserPrivacySettingRuleAllowChatMembers).ensure ();
+        typeof (UserPrivacySettingRuleRestrictAll).ensure ();
+        typeof (UserPrivacySettingRuleRestrictContacts).ensure ();
+        typeof (UserPrivacySettingRuleRestrictBots).ensure ();
+        typeof (UserPrivacySettingRuleRestrictUsers).ensure ();
+        typeof (UserPrivacySettingRuleRestrictChatMembers).ensure ();
+        typeof (UserPrivacySettingRules).ensure ();
+        typeof (UserPrivacySettingShowStatus).ensure ();
+        typeof (UserPrivacySettingShowProfilePhoto).ensure ();
+        typeof (UserPrivacySettingShowLinkInForwardedMessages).ensure ();
+        typeof (UserPrivacySettingShowPhoneNumber).ensure ();
+        typeof (UserPrivacySettingShowBio).ensure ();
+        typeof (UserPrivacySettingShowBirthdate).ensure ();
+        typeof (UserPrivacySettingAllowChatInvites).ensure ();
+        typeof (UserPrivacySettingAllowCalls).ensure ();
+        typeof (UserPrivacySettingAllowPeerToPeerCalls).ensure ();
+        typeof (UserPrivacySettingAllowFindingByPhoneNumber).ensure ();
+        typeof (UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages).ensure ();
+        typeof (UserPrivacySettingAutosaveGifts).ensure ();
+        typeof (ReadDatePrivacySettings).ensure ();
+        typeof (NewChatPrivacySettings).ensure ();
+        typeof (CanSendMessageToUserResultOk).ensure ();
+        typeof (CanSendMessageToUserResultUserIsDeleted).ensure ();
+        typeof (CanSendMessageToUserResultUserRestrictsNewChats).ensure ();
+        typeof (AccountTtl).ensure ();
+        typeof (MessageAutoDeleteTime).ensure ();
+        typeof (SessionTypeAndroid).ensure ();
+        typeof (SessionTypeApple).ensure ();
+        typeof (SessionTypeBrave).ensure ();
+        typeof (SessionTypeChrome).ensure ();
+        typeof (SessionTypeEdge).ensure ();
+        typeof (SessionTypeFirefox).ensure ();
+        typeof (SessionTypeIpad).ensure ();
+        typeof (SessionTypeIphone).ensure ();
+        typeof (SessionTypeLinux).ensure ();
+        typeof (SessionTypeMac).ensure ();
+        typeof (SessionTypeOpera).ensure ();
+        typeof (SessionTypeSafari).ensure ();
+        typeof (SessionTypeUbuntu).ensure ();
+        typeof (SessionTypeUnknown).ensure ();
+        typeof (SessionTypeVivaldi).ensure ();
+        typeof (SessionTypeWindows).ensure ();
+        typeof (SessionTypeXbox).ensure ();
+        typeof (Session).ensure ();
+        typeof (Sessions).ensure ();
+        typeof (UnconfirmedSession).ensure ();
+        typeof (ConnectedWebsite).ensure ();
+        typeof (ConnectedWebsites).ensure ();
+        typeof (ReportReasonSpam).ensure ();
+        typeof (ReportReasonViolence).ensure ();
+        typeof (ReportReasonPornography).ensure ();
+        typeof (ReportReasonChildAbuse).ensure ();
+        typeof (ReportReasonCopyright).ensure ();
+        typeof (ReportReasonUnrelatedLocation).ensure ();
+        typeof (ReportReasonFake).ensure ();
+        typeof (ReportReasonIllegalDrugs).ensure ();
+        typeof (ReportReasonPersonalDetails).ensure ();
+        typeof (ReportReasonCustom).ensure ();
+        typeof (ReportChatResultOk).ensure ();
+        typeof (ReportChatResultOptionRequired).ensure ();
+        typeof (ReportChatResultTextRequired).ensure ();
+        typeof (ReportChatResultMessagesRequired).ensure ();
+        typeof (ReportStoryResultOk).ensure ();
+        typeof (ReportStoryResultOptionRequired).ensure ();
+        typeof (ReportStoryResultTextRequired).ensure ();
+        typeof (InternalLinkTypeActiveSessions).ensure ();
+        typeof (InternalLinkTypeAttachmentMenuBot).ensure ();
+        typeof (InternalLinkTypeAuthenticationCode).ensure ();
+        typeof (InternalLinkTypeBackground).ensure ();
+        typeof (InternalLinkTypeBotAddToChannel).ensure ();
+        typeof (InternalLinkTypeBotStart).ensure ();
+        typeof (InternalLinkTypeBotStartInGroup).ensure ();
+        typeof (InternalLinkTypeBusinessChat).ensure ();
+        typeof (InternalLinkTypeBuyStars).ensure ();
+        typeof (InternalLinkTypeChangePhoneNumber).ensure ();
+        typeof (InternalLinkTypeChatBoost).ensure ();
+        typeof (InternalLinkTypeChatFolderInvite).ensure ();
+        typeof (InternalLinkTypeChatFolderSettings).ensure ();
+        typeof (InternalLinkTypeChatInvite).ensure ();
+        typeof (InternalLinkTypeDefaultMessageAutoDeleteTimerSettings).ensure ();
+        typeof (InternalLinkTypeEditProfileSettings).ensure ();
+        typeof (InternalLinkTypeGame).ensure ();
+        typeof (InternalLinkTypeInstantView).ensure ();
+        typeof (InternalLinkTypeInvoice).ensure ();
+        typeof (InternalLinkTypeLanguagePack).ensure ();
+        typeof (InternalLinkTypeLanguageSettings).ensure ();
+        typeof (InternalLinkTypeMainWebApp).ensure ();
+        typeof (InternalLinkTypeMessage).ensure ();
+        typeof (InternalLinkTypeMessageDraft).ensure ();
+        typeof (InternalLinkTypePassportDataRequest).ensure ();
+        typeof (InternalLinkTypePhoneNumberConfirmation).ensure ();
+        typeof (InternalLinkTypePremiumFeatures).ensure ();
+        typeof (InternalLinkTypePremiumGift).ensure ();
+        typeof (InternalLinkTypePremiumGiftCode).ensure ();
+        typeof (InternalLinkTypePrivacyAndSecuritySettings).ensure ();
+        typeof (InternalLinkTypeProxy).ensure ();
+        typeof (InternalLinkTypePublicChat).ensure ();
+        typeof (InternalLinkTypeQrCodeAuthentication).ensure ();
+        typeof (InternalLinkTypeRestorePurchases).ensure ();
+        typeof (InternalLinkTypeSettings).ensure ();
+        typeof (InternalLinkTypeStickerSet).ensure ();
+        typeof (InternalLinkTypeStory).ensure ();
+        typeof (InternalLinkTypeTheme).ensure ();
+        typeof (InternalLinkTypeThemeSettings).ensure ();
+        typeof (InternalLinkTypeUnknownDeepLink).ensure ();
+        typeof (InternalLinkTypeUnsupportedProxy).ensure ();
+        typeof (InternalLinkTypeUserPhoneNumber).ensure ();
+        typeof (InternalLinkTypeUserToken).ensure ();
+        typeof (InternalLinkTypeVideoChat).ensure ();
+        typeof (InternalLinkTypeWebApp).ensure ();
+        typeof (MessageLink).ensure ();
+        typeof (MessageLinkInfo).ensure ();
+        typeof (ChatBoostLink).ensure ();
+        typeof (ChatBoostLinkInfo).ensure ();
+        typeof (BlockListMain).ensure ();
+        typeof (BlockListStories).ensure ();
+        typeof (FilePart).ensure ();
+        typeof (FileTypeNone).ensure ();
+        typeof (FileTypeAnimation).ensure ();
+        typeof (FileTypeAudio).ensure ();
+        typeof (FileTypeDocument).ensure ();
+        typeof (FileTypeNotificationSound).ensure ();
+        typeof (FileTypePhoto).ensure ();
+        typeof (FileTypePhotoStory).ensure ();
+        typeof (FileTypeProfilePhoto).ensure ();
+        typeof (FileTypeSecret).ensure ();
+        typeof (FileTypeSecretThumbnail).ensure ();
+        typeof (FileTypeSecure).ensure ();
+        typeof (FileTypeSticker).ensure ();
+        typeof (FileTypeThumbnail).ensure ();
+        typeof (FileTypeUnknown).ensure ();
+        typeof (FileTypeVideo).ensure ();
+        typeof (FileTypeVideoNote).ensure ();
+        typeof (FileTypeVideoStory).ensure ();
+        typeof (FileTypeVoiceNote).ensure ();
+        typeof (FileTypeWallpaper).ensure ();
+        typeof (StorageStatisticsByFileType).ensure ();
+        typeof (StorageStatisticsByChat).ensure ();
+        typeof (StorageStatistics).ensure ();
+        typeof (StorageStatisticsFast).ensure ();
+        typeof (DatabaseStatistics).ensure ();
+        typeof (NetworkTypeNone).ensure ();
+        typeof (NetworkTypeMobile).ensure ();
+        typeof (NetworkTypeMobileRoaming).ensure ();
+        typeof (NetworkTypeWiFi).ensure ();
+        typeof (NetworkTypeOther).ensure ();
+        typeof (NetworkStatisticsEntryFile).ensure ();
+        typeof (NetworkStatisticsEntryCall).ensure ();
+        typeof (NetworkStatistics).ensure ();
+        typeof (AutoDownloadSettings).ensure ();
+        typeof (AutoDownloadSettingsPresets).ensure ();
+        typeof (AutosaveSettingsScopePrivateChats).ensure ();
+        typeof (AutosaveSettingsScopeGroupChats).ensure ();
+        typeof (AutosaveSettingsScopeChannelChats).ensure ();
+        typeof (AutosaveSettingsScopeChat).ensure ();
+        typeof (ScopeAutosaveSettings).ensure ();
+        typeof (AutosaveSettingsException).ensure ();
+        typeof (AutosaveSettings).ensure ();
+        typeof (ConnectionStateWaitingForNetwork).ensure ();
+        typeof (ConnectionStateConnectingToProxy).ensure ();
+        typeof (ConnectionStateConnecting).ensure ();
+        typeof (ConnectionStateUpdating).ensure ();
+        typeof (ConnectionStateReady).ensure ();
+        typeof (TopChatCategoryUsers).ensure ();
+        typeof (TopChatCategoryBots).ensure ();
+        typeof (TopChatCategoryGroups).ensure ();
+        typeof (TopChatCategoryChannels).ensure ();
+        typeof (TopChatCategoryInlineBots).ensure ();
+        typeof (TopChatCategoryWebAppBots).ensure ();
+        typeof (TopChatCategoryCalls).ensure ();
+        typeof (TopChatCategoryForwardChats).ensure ();
+        typeof (FoundPosition).ensure ();
+        typeof (FoundPositions).ensure ();
+        typeof (TMeUrlTypeUser).ensure ();
+        typeof (TMeUrlTypeSupergroup).ensure ();
+        typeof (TMeUrlTypeChatInvite).ensure ();
+        typeof (TMeUrlTypeStickerSet).ensure ();
+        typeof (TMeUrl).ensure ();
+        typeof (TMeUrls).ensure ();
+        typeof (SuggestedActionEnableArchiveAndMuteNewChats).ensure ();
+        typeof (SuggestedActionCheckPassword).ensure ();
+        typeof (SuggestedActionCheckPhoneNumber).ensure ();
+        typeof (SuggestedActionViewChecksHint).ensure ();
+        typeof (SuggestedActionConvertToBroadcastGroup).ensure ();
+        typeof (SuggestedActionSetPassword).ensure ();
+        typeof (SuggestedActionUpgradePremium).ensure ();
+        typeof (SuggestedActionRestorePremium).ensure ();
+        typeof (SuggestedActionSubscribeToAnnualPremium).ensure ();
+        typeof (SuggestedActionGiftPremiumForChristmas).ensure ();
+        typeof (SuggestedActionSetBirthdate).ensure ();
+        typeof (SuggestedActionExtendPremium).ensure ();
+        typeof (SuggestedActionExtendStarSubscriptions).ensure ();
+        typeof (Count).ensure ();
+        typeof (Text).ensure ();
+        typeof (Seconds).ensure ();
+        typeof (FileDownloadedPrefixSize).ensure ();
+        typeof (DeepLinkInfo).ensure ();
+        typeof (TextParseModeMarkdown).ensure ();
+        typeof (TextParseModeHTML).ensure ();
+        typeof (ProxyTypeSocks5).ensure ();
+        typeof (ProxyTypeHttp).ensure ();
+        typeof (ProxyTypeMtproto).ensure ();
+        typeof (Proxy).ensure ();
+        typeof (Proxies).ensure ();
+        typeof (InputSticker).ensure ();
+        typeof (DateRange).ensure ();
+        typeof (StatisticalValue).ensure ();
+        typeof (StatisticalGraphData).ensure ();
+        typeof (StatisticalGraphAsync).ensure ();
+        typeof (StatisticalGraphError).ensure ();
+        typeof (ChatStatisticsObjectTypeMessage).ensure ();
+        typeof (ChatStatisticsObjectTypeStory).ensure ();
+        typeof (ChatStatisticsInteractionInfo).ensure ();
+        typeof (ChatStatisticsMessageSenderInfo).ensure ();
+        typeof (ChatStatisticsAdministratorActionsInfo).ensure ();
+        typeof (ChatStatisticsInviterInfo).ensure ();
+        typeof (ChatStatisticsSupergroup).ensure ();
+        typeof (ChatStatisticsChannel).ensure ();
+        typeof (ChatRevenueAmount).ensure ();
+        typeof (ChatRevenueStatistics).ensure ();
+        typeof (MessageStatistics).ensure ();
+        typeof (StoryStatistics).ensure ();
+        typeof (RevenueWithdrawalStatePending).ensure ();
+        typeof (RevenueWithdrawalStateSucceeded).ensure ();
+        typeof (RevenueWithdrawalStateFailed).ensure ();
+        typeof (ChatRevenueTransactionTypeEarnings).ensure ();
+        typeof (ChatRevenueTransactionTypeWithdrawal).ensure ();
+        typeof (ChatRevenueTransactionTypeRefund).ensure ();
+        typeof (ChatRevenueTransaction).ensure ();
+        typeof (ChatRevenueTransactions).ensure ();
+        typeof (StarRevenueStatus).ensure ();
+        typeof (StarRevenueStatistics).ensure ();
+        typeof (Point).ensure ();
+        typeof (VectorPathCommandLine).ensure ();
+        typeof (VectorPathCommandCubicBezierCurve).ensure ();
+        typeof (BotCommandScopeDefault).ensure ();
+        typeof (BotCommandScopeAllPrivateChats).ensure ();
+        typeof (BotCommandScopeAllGroupChats).ensure ();
+        typeof (BotCommandScopeAllChatAdministrators).ensure ();
+        typeof (BotCommandScopeChat).ensure ();
+        typeof (BotCommandScopeChatAdministrators).ensure ();
+        typeof (BotCommandScopeChatMember).ensure ();
+        typeof (PhoneNumberCodeTypeChange).ensure ();
+        typeof (PhoneNumberCodeTypeVerify).ensure ();
+        typeof (PhoneNumberCodeTypeConfirmOwnership).ensure ();
+        typeof (UpdateAuthorizationState).ensure ();
+        typeof (UpdateNewMessage).ensure ();
+        typeof (UpdateMessageSendAcknowledged).ensure ();
+        typeof (UpdateMessageSendSucceeded).ensure ();
+        typeof (UpdateMessageSendFailed).ensure ();
+        typeof (UpdateMessageContent).ensure ();
+        typeof (UpdateMessageEdited).ensure ();
+        typeof (UpdateMessageIsPinned).ensure ();
+        typeof (UpdateMessageInteractionInfo).ensure ();
+        typeof (UpdateMessageContentOpened).ensure ();
+        typeof (UpdateMessageMentionRead).ensure ();
+        typeof (UpdateMessageUnreadReactions).ensure ();
+        typeof (UpdateMessageFactCheck).ensure ();
+        typeof (UpdateMessageLiveLocationViewed).ensure ();
+        typeof (UpdateVideoPublished).ensure ();
+        typeof (UpdateNewChat).ensure ();
+        typeof (UpdateChatTitle).ensure ();
+        typeof (UpdateChatPhoto).ensure ();
+        typeof (UpdateChatAccentColors).ensure ();
+        typeof (UpdateChatPermissions).ensure ();
+        typeof (UpdateChatLastMessage).ensure ();
+        typeof (UpdateChatPosition).ensure ();
+        typeof (UpdateChatAddedToList).ensure ();
+        typeof (UpdateChatRemovedFromList).ensure ();
+        typeof (UpdateChatReadInbox).ensure ();
+        typeof (UpdateChatReadOutbox).ensure ();
+        typeof (UpdateChatActionBar).ensure ();
+        typeof (UpdateChatBusinessBotManageBar).ensure ();
+        typeof (UpdateChatAvailableReactions).ensure ();
+        typeof (UpdateChatDraftMessage).ensure ();
+        typeof (UpdateChatEmojiStatus).ensure ();
+        typeof (UpdateChatMessageSender).ensure ();
+        typeof (UpdateChatMessageAutoDeleteTime).ensure ();
+        typeof (UpdateChatNotificationSettings).ensure ();
+        typeof (UpdateChatPendingJoinRequests).ensure ();
+        typeof (UpdateChatReplyMarkup).ensure ();
+        typeof (UpdateChatBackground).ensure ();
+        typeof (UpdateChatTheme).ensure ();
+        typeof (UpdateChatUnreadMentionCount).ensure ();
+        typeof (UpdateChatUnreadReactionCount).ensure ();
+        typeof (UpdateChatVideoChat).ensure ();
+        typeof (UpdateChatDefaultDisableNotification).ensure ();
+        typeof (UpdateChatHasProtectedContent).ensure ();
+        typeof (UpdateChatIsTranslatable).ensure ();
+        typeof (UpdateChatIsMarkedAsUnread).ensure ();
+        typeof (UpdateChatViewAsTopics).ensure ();
+        typeof (UpdateChatBlockList).ensure ();
+        typeof (UpdateChatHasScheduledMessages).ensure ();
+        typeof (UpdateChatFolders).ensure ();
+        typeof (UpdateChatOnlineMemberCount).ensure ();
+        typeof (UpdateSavedMessagesTopic).ensure ();
+        typeof (UpdateSavedMessagesTopicCount).ensure ();
+        typeof (UpdateQuickReplyShortcut).ensure ();
+        typeof (UpdateQuickReplyShortcutDeleted).ensure ();
+        typeof (UpdateQuickReplyShortcuts).ensure ();
+        typeof (UpdateQuickReplyShortcutMessages).ensure ();
+        typeof (UpdateForumTopicInfo).ensure ();
+        typeof (UpdateScopeNotificationSettings).ensure ();
+        typeof (UpdateReactionNotificationSettings).ensure ();
+        typeof (UpdateNotification).ensure ();
+        typeof (UpdateNotificationGroup).ensure ();
+        typeof (UpdateActiveNotifications).ensure ();
+        typeof (UpdateHavePendingNotifications).ensure ();
+        typeof (UpdateDeleteMessages).ensure ();
+        typeof (UpdateChatAction).ensure ();
+        typeof (UpdateUserStatus).ensure ();
+        typeof (UpdateUser).ensure ();
+        typeof (UpdateBasicGroup).ensure ();
+        typeof (UpdateSupergroup).ensure ();
+        typeof (UpdateSecretChat).ensure ();
+        typeof (UpdateUserFullInfo).ensure ();
+        typeof (UpdateBasicGroupFullInfo).ensure ();
+        typeof (UpdateSupergroupFullInfo).ensure ();
+        typeof (UpdateServiceNotification).ensure ();
+        typeof (UpdateFile).ensure ();
+        typeof (UpdateFileGenerationStart).ensure ();
+        typeof (UpdateFileGenerationStop).ensure ();
+        typeof (UpdateFileDownloads).ensure ();
+        typeof (UpdateFileAddedToDownloads).ensure ();
+        typeof (UpdateFileDownload).ensure ();
+        typeof (UpdateFileRemovedFromDownloads).ensure ();
+        typeof (UpdateApplicationVerificationRequired).ensure ();
+        typeof (UpdateCall).ensure ();
+        typeof (UpdateGroupCall).ensure ();
+        typeof (UpdateGroupCallParticipant).ensure ();
+        typeof (UpdateNewCallSignalingData).ensure ();
+        typeof (UpdateUserPrivacySettingRules).ensure ();
+        typeof (UpdateUnreadMessageCount).ensure ();
+        typeof (UpdateUnreadChatCount).ensure ();
+        typeof (UpdateStory).ensure ();
+        typeof (UpdateStoryDeleted).ensure ();
+        typeof (UpdateStorySendSucceeded).ensure ();
+        typeof (UpdateStorySendFailed).ensure ();
+        typeof (UpdateChatActiveStories).ensure ();
+        typeof (UpdateStoryListChatCount).ensure ();
+        typeof (UpdateStoryStealthMode).ensure ();
+        typeof (UpdateOption).ensure ();
+        typeof (UpdateStickerSet).ensure ();
+        typeof (UpdateInstalledStickerSets).ensure ();
+        typeof (UpdateTrendingStickerSets).ensure ();
+        typeof (UpdateRecentStickers).ensure ();
+        typeof (UpdateFavoriteStickers).ensure ();
+        typeof (UpdateSavedAnimations).ensure ();
+        typeof (UpdateSavedNotificationSounds).ensure ();
+        typeof (UpdateDefaultBackground).ensure ();
+        typeof (UpdateChatThemes).ensure ();
+        typeof (UpdateAccentColors).ensure ();
+        typeof (UpdateProfileAccentColors).ensure ();
+        typeof (UpdateLanguagePackStrings).ensure ();
+        typeof (UpdateConnectionState).ensure ();
+        typeof (UpdateTermsOfService).ensure ();
+        typeof (UpdateUnconfirmedSession).ensure ();
+        typeof (UpdateAttachmentMenuBots).ensure ();
+        typeof (UpdateWebAppMessageSent).ensure ();
+        typeof (UpdateActiveEmojiReactions).ensure ();
+        typeof (UpdateAvailableMessageEffects).ensure ();
+        typeof (UpdateDefaultReactionType).ensure ();
+        typeof (UpdateSavedMessagesTags).ensure ();
+        typeof (UpdateActiveLiveLocationMessages).ensure ();
+        typeof (UpdateOwnedStarCount).ensure ();
+        typeof (UpdateChatRevenueAmount).ensure ();
+        typeof (UpdateStarRevenueStatus).ensure ();
+        typeof (UpdateSpeechRecognitionTrial).ensure ();
+        typeof (UpdateDiceEmojis).ensure ();
+        typeof (UpdateAnimatedEmojiMessageClicked).ensure ();
+        typeof (UpdateAnimationSearchParameters).ensure ();
+        typeof (UpdateSuggestedActions).ensure ();
+        typeof (UpdateSpeedLimitNotification).ensure ();
+        typeof (UpdateContactCloseBirthdays).ensure ();
+        typeof (UpdateAutosaveSettings).ensure ();
+        typeof (UpdateBusinessConnection).ensure ();
+        typeof (UpdateNewBusinessMessage).ensure ();
+        typeof (UpdateBusinessMessageEdited).ensure ();
+        typeof (UpdateBusinessMessagesDeleted).ensure ();
+        typeof (UpdateNewInlineQuery).ensure ();
+        typeof (UpdateNewChosenInlineResult).ensure ();
+        typeof (UpdateNewCallbackQuery).ensure ();
+        typeof (UpdateNewInlineCallbackQuery).ensure ();
+        typeof (UpdateNewBusinessCallbackQuery).ensure ();
+        typeof (UpdateNewShippingQuery).ensure ();
+        typeof (UpdateNewPreCheckoutQuery).ensure ();
+        typeof (UpdateNewCustomEvent).ensure ();
+        typeof (UpdateNewCustomQuery).ensure ();
+        typeof (UpdatePoll).ensure ();
+        typeof (UpdatePollAnswer).ensure ();
+        typeof (UpdateChatMember).ensure ();
+        typeof (UpdateNewChatJoinRequest).ensure ();
+        typeof (UpdateChatBoost).ensure ();
+        typeof (UpdateMessageReaction).ensure ();
+        typeof (UpdateMessageReactions).ensure ();
+        typeof (UpdatePaidMediaPurchased).ensure ();
+        typeof (Updates).ensure ();
+        typeof (LogStreamDefault).ensure ();
+        typeof (LogStreamFile).ensure ();
+        typeof (LogStreamEmpty).ensure ();
+        typeof (LogVerbosityLevel).ensure ();
+        typeof (LogTags).ensure ();
+        typeof (UserSupportInfo).ensure ();
+        typeof (TestInt).ensure ();
+        typeof (TestString).ensure ();
+        typeof (TestBytes).ensure ();
+        typeof (TestVectorInt).ensure ();
+        typeof (TestVectorIntObject).ensure ();
+        typeof (TestVectorString).ensure ();
+        typeof (TestVectorStringObject).ensure ();
+    }
+
     /**
      * Init client: create request manager and set client_id
      */
-    public void init () {
+    public void init () throws TDLibError {
         client_id = TDJsonApi.create_client_id ();
-        request_manager = new RequestManager (timeout);
-        request_manager.run.begin ();
+        request_manager = new RequestManager (this, timeout);
+        request_manager.run.begin (() => {
+            version = ((OptionValueString) get_option_sync ("version")).value;  
+        });
     }
 
     /**
@@ -61,7 +1714,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetAuthorizationState ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -85,50 +1738,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AuthorizationState out_obj;
-        switch (tdlib_type) {
-            case "authorizationStateWaitTdlibParameters":
-                out_obj = (AuthorizationStateWaitTdlibParameters) jsoner.deserialize_object (typeof (AuthorizationStateWaitTdlibParameters));
-                break;
-            case "authorizationStateWaitPhoneNumber":
-                out_obj = (AuthorizationStateWaitPhoneNumber) jsoner.deserialize_object (typeof (AuthorizationStateWaitPhoneNumber));
-                break;
-            case "authorizationStateWaitEmailAddress":
-                out_obj = (AuthorizationStateWaitEmailAddress) jsoner.deserialize_object (typeof (AuthorizationStateWaitEmailAddress));
-                break;
-            case "authorizationStateWaitEmailCode":
-                out_obj = (AuthorizationStateWaitEmailCode) jsoner.deserialize_object (typeof (AuthorizationStateWaitEmailCode));
-                break;
-            case "authorizationStateWaitCode":
-                out_obj = (AuthorizationStateWaitCode) jsoner.deserialize_object (typeof (AuthorizationStateWaitCode));
-                break;
-            case "authorizationStateWaitOtherDeviceConfirmation":
-                out_obj = (AuthorizationStateWaitOtherDeviceConfirmation) jsoner.deserialize_object (typeof (AuthorizationStateWaitOtherDeviceConfirmation));
-                break;
-            case "authorizationStateWaitRegistration":
-                out_obj = (AuthorizationStateWaitRegistration) jsoner.deserialize_object (typeof (AuthorizationStateWaitRegistration));
-                break;
-            case "authorizationStateWaitPassword":
-                out_obj = (AuthorizationStateWaitPassword) jsoner.deserialize_object (typeof (AuthorizationStateWaitPassword));
-                break;
-            case "authorizationStateReady":
-                out_obj = (AuthorizationStateReady) jsoner.deserialize_object (typeof (AuthorizationStateReady));
-                break;
-            case "authorizationStateLoggingOut":
-                out_obj = (AuthorizationStateLoggingOut) jsoner.deserialize_object (typeof (AuthorizationStateLoggingOut));
-                break;
-            case "authorizationStateClosing":
-                out_obj = (AuthorizationStateClosing) jsoner.deserialize_object (typeof (AuthorizationStateClosing));
-                break;
-            case "authorizationStateClosed":
-                out_obj = (AuthorizationStateClosed) jsoner.deserialize_object (typeof (AuthorizationStateClosed));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AuthorizationState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -204,7 +1814,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -228,17 +1838,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -270,7 +1870,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -294,17 +1894,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -327,7 +1917,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -351,17 +1941,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -386,7 +1966,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -410,17 +1990,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -442,7 +2012,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -466,17 +2036,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -498,7 +2058,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -522,17 +2082,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -560,7 +2110,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -584,17 +2134,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -624,7 +2164,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -648,17 +2188,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -678,7 +2208,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResetAuthenticationEmailAddress ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -702,17 +2232,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -734,7 +2254,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -758,17 +2278,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -786,7 +2296,7 @@ public sealed class TDLib.Client : Object {
         var obj = new RequestAuthenticationPasswordRecovery ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -810,17 +2320,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -843,7 +2343,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -867,17 +2367,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -907,7 +2397,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -931,17 +2421,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -968,7 +2448,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -992,17 +2472,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1025,7 +2495,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1049,17 +2519,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1083,7 +2543,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1107,17 +2567,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1136,7 +2586,7 @@ public sealed class TDLib.Client : Object {
         var obj = new LogOut ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1160,17 +2610,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1189,7 +2629,7 @@ public sealed class TDLib.Client : Object {
         var obj = new Close ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1213,17 +2653,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1244,7 +2674,7 @@ public sealed class TDLib.Client : Object {
         var obj = new Destroy ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1268,17 +2698,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1301,7 +2721,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1325,17 +2745,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Session out_obj;
-        switch (tdlib_type) {
-            case "session":
-                out_obj = (Session) jsoner.deserialize_object (typeof (Session));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Session) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1354,7 +2764,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetCurrentState ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1378,17 +2788,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Updates out_obj;
-        switch (tdlib_type) {
-            case "updates":
-                out_obj = (Updates) jsoner.deserialize_object (typeof (Updates));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Updates) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1410,7 +2810,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1434,17 +2834,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1460,7 +2850,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetPasswordState ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1484,17 +2874,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PasswordState out_obj;
-        switch (tdlib_type) {
-            case "passwordState":
-                out_obj = (PasswordState) jsoner.deserialize_object (typeof (PasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1532,7 +2912,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1556,17 +2936,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PasswordState out_obj;
-        switch (tdlib_type) {
-            case "passwordState":
-                out_obj = (PasswordState) jsoner.deserialize_object (typeof (PasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1592,7 +2962,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1616,17 +2986,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmailAddressAuthenticationCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "emailAddressAuthenticationCodeInfo":
-                out_obj = (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (typeof (EmailAddressAuthenticationCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1642,7 +3002,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResendLoginEmailAddressCode ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1666,17 +3026,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmailAddressAuthenticationCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "emailAddressAuthenticationCodeInfo":
-                out_obj = (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (typeof (EmailAddressAuthenticationCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1697,7 +3047,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1721,17 +3071,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1754,7 +3094,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1778,17 +3118,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        RecoveryEmailAddress out_obj;
-        switch (tdlib_type) {
-            case "recoveryEmailAddress":
-                out_obj = (RecoveryEmailAddress) jsoner.deserialize_object (typeof (RecoveryEmailAddress));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (RecoveryEmailAddress) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1817,7 +3147,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1841,17 +3171,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PasswordState out_obj;
-        switch (tdlib_type) {
-            case "passwordState":
-                out_obj = (PasswordState) jsoner.deserialize_object (typeof (PasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1873,7 +3193,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1897,17 +3217,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PasswordState out_obj;
-        switch (tdlib_type) {
-            case "passwordState":
-                out_obj = (PasswordState) jsoner.deserialize_object (typeof (PasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1924,7 +3234,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResendRecoveryEmailAddressCode ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1948,17 +3258,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PasswordState out_obj;
-        switch (tdlib_type) {
-            case "passwordState":
-                out_obj = (PasswordState) jsoner.deserialize_object (typeof (PasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -1974,7 +3274,7 @@ public sealed class TDLib.Client : Object {
         var obj = new CancelRecoveryEmailAddressVerification ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -1998,17 +3298,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PasswordState out_obj;
-        switch (tdlib_type) {
-            case "passwordState":
-                out_obj = (PasswordState) jsoner.deserialize_object (typeof (PasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2025,7 +3315,7 @@ public sealed class TDLib.Client : Object {
         var obj = new RequestPasswordRecovery ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2049,17 +3339,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmailAddressAuthenticationCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "emailAddressAuthenticationCodeInfo":
-                out_obj = (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (typeof (EmailAddressAuthenticationCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2081,7 +3361,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2105,17 +3385,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2144,7 +3414,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2168,17 +3438,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PasswordState out_obj;
-        switch (tdlib_type) {
-            case "passwordState":
-                out_obj = (PasswordState) jsoner.deserialize_object (typeof (PasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2197,7 +3457,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResetPassword ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2221,23 +3481,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ResetPasswordResult out_obj;
-        switch (tdlib_type) {
-            case "resetPasswordResultOk":
-                out_obj = (ResetPasswordResultOk) jsoner.deserialize_object (typeof (ResetPasswordResultOk));
-                break;
-            case "resetPasswordResultPending":
-                out_obj = (ResetPasswordResultPending) jsoner.deserialize_object (typeof (ResetPasswordResultPending));
-                break;
-            case "resetPasswordResultDeclined":
-                out_obj = (ResetPasswordResultDeclined) jsoner.deserialize_object (typeof (ResetPasswordResultDeclined));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ResetPasswordResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2254,7 +3498,7 @@ public sealed class TDLib.Client : Object {
         var obj = new CancelPasswordReset ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2278,17 +3522,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2313,7 +3547,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2337,17 +3571,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TemporaryPasswordState out_obj;
-        switch (tdlib_type) {
-            case "temporaryPasswordState":
-                out_obj = (TemporaryPasswordState) jsoner.deserialize_object (typeof (TemporaryPasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TemporaryPasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2363,7 +3587,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetTemporaryPasswordState ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2387,17 +3611,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TemporaryPasswordState out_obj;
-        switch (tdlib_type) {
-            case "temporaryPasswordState":
-                out_obj = (TemporaryPasswordState) jsoner.deserialize_object (typeof (TemporaryPasswordState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TemporaryPasswordState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2413,7 +3627,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetMe ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2437,17 +3651,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        User out_obj;
-        switch (tdlib_type) {
-            case "user":
-                out_obj = (User) jsoner.deserialize_object (typeof (User));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (User) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2469,7 +3673,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2493,17 +3697,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        User out_obj;
-        switch (tdlib_type) {
-            case "user":
-                out_obj = (User) jsoner.deserialize_object (typeof (User));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (User) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2524,7 +3718,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2548,17 +3742,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        UserFullInfo out_obj;
-        switch (tdlib_type) {
-            case "userFullInfo":
-                out_obj = (UserFullInfo) jsoner.deserialize_object (typeof (UserFullInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (UserFullInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2580,7 +3764,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2604,17 +3788,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BasicGroup out_obj;
-        switch (tdlib_type) {
-            case "basicGroup":
-                out_obj = (BasicGroup) jsoner.deserialize_object (typeof (BasicGroup));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BasicGroup) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2635,7 +3809,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2659,17 +3833,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BasicGroupFullInfo out_obj;
-        switch (tdlib_type) {
-            case "basicGroupFullInfo":
-                out_obj = (BasicGroupFullInfo) jsoner.deserialize_object (typeof (BasicGroupFullInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BasicGroupFullInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2691,7 +3855,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2715,17 +3879,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Supergroup out_obj;
-        switch (tdlib_type) {
-            case "supergroup":
-                out_obj = (Supergroup) jsoner.deserialize_object (typeof (Supergroup));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Supergroup) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2747,7 +3901,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2771,17 +3925,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        SupergroupFullInfo out_obj;
-        switch (tdlib_type) {
-            case "supergroupFullInfo":
-                out_obj = (SupergroupFullInfo) jsoner.deserialize_object (typeof (SupergroupFullInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (SupergroupFullInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2803,7 +3947,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2827,17 +3971,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        SecretChat out_obj;
-        switch (tdlib_type) {
-            case "secretChat":
-                out_obj = (SecretChat) jsoner.deserialize_object (typeof (SecretChat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (SecretChat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2859,7 +3993,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2883,17 +4017,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2918,7 +4042,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -2942,17 +4066,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -2978,7 +4092,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3002,17 +4116,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3044,7 +4148,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3068,17 +4172,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3100,7 +4194,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3124,17 +4218,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3162,7 +4246,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3186,17 +4270,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3221,7 +4295,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3245,17 +4319,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3279,7 +4343,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3303,17 +4367,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageProperties out_obj;
-        switch (tdlib_type) {
-            case "messageProperties":
-                out_obj = (MessageProperties) jsoner.deserialize_object (typeof (MessageProperties));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageProperties) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3338,7 +4392,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3362,17 +4416,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageThreadInfo out_obj;
-        switch (tdlib_type) {
-            case "messageThreadInfo":
-                out_obj = (MessageThreadInfo) jsoner.deserialize_object (typeof (MessageThreadInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageThreadInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3397,7 +4441,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3421,29 +4465,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageReadDate out_obj;
-        switch (tdlib_type) {
-            case "messageReadDateRead":
-                out_obj = (MessageReadDateRead) jsoner.deserialize_object (typeof (MessageReadDateRead));
-                break;
-            case "messageReadDateUnread":
-                out_obj = (MessageReadDateUnread) jsoner.deserialize_object (typeof (MessageReadDateUnread));
-                break;
-            case "messageReadDateTooOld":
-                out_obj = (MessageReadDateTooOld) jsoner.deserialize_object (typeof (MessageReadDateTooOld));
-                break;
-            case "messageReadDateUserPrivacyRestricted":
-                out_obj = (MessageReadDateUserPrivacyRestricted) jsoner.deserialize_object (typeof (MessageReadDateUserPrivacyRestricted));
-                break;
-            case "messageReadDateMyPrivacyRestricted":
-                out_obj = (MessageReadDateMyPrivacyRestricted) jsoner.deserialize_object (typeof (MessageReadDateMyPrivacyRestricted));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageReadDate) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3470,7 +4492,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3494,17 +4516,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageViewers out_obj;
-        switch (tdlib_type) {
-            case "messageViewers":
-                out_obj = (MessageViewers) jsoner.deserialize_object (typeof (MessageViewers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageViewers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3525,7 +4537,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3549,17 +4561,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        File out_obj;
-        switch (tdlib_type) {
-            case "file":
-                out_obj = (File) jsoner.deserialize_object (typeof (File));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (File) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3590,7 +4592,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3614,17 +4616,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        File out_obj;
-        switch (tdlib_type) {
-            case "file":
-                out_obj = (File) jsoner.deserialize_object (typeof (File));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (File) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3655,7 +4647,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3679,17 +4671,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3716,7 +4698,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3740,17 +4722,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3773,7 +4745,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3797,17 +4769,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3832,7 +4794,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3856,17 +4818,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3893,7 +4845,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3917,17 +4869,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -3953,7 +4895,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -3977,17 +4919,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4003,7 +4935,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetRecommendedChats ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4027,17 +4959,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4059,7 +4981,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4083,17 +5005,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4120,7 +5032,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4144,17 +5056,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Count out_obj;
-        switch (tdlib_type) {
-            case "count":
-                out_obj = (Count) jsoner.deserialize_object (typeof (Count));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Count) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4180,7 +5082,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4204,17 +5106,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4238,7 +5130,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4262,17 +5154,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4297,7 +5179,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4321,17 +5203,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4356,7 +5228,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4380,17 +5252,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4413,7 +5275,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4437,17 +5299,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4468,7 +5320,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4492,17 +5344,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4518,7 +5360,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ClearRecentlyFoundChats ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4542,17 +5384,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4574,7 +5406,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4598,17 +5430,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4634,7 +5456,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4658,32 +5480,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CheckChatUsernameResult out_obj;
-        switch (tdlib_type) {
-            case "checkChatUsernameResultOk":
-                out_obj = (CheckChatUsernameResultOk) jsoner.deserialize_object (typeof (CheckChatUsernameResultOk));
-                break;
-            case "checkChatUsernameResultUsernameInvalid":
-                out_obj = (CheckChatUsernameResultUsernameInvalid) jsoner.deserialize_object (typeof (CheckChatUsernameResultUsernameInvalid));
-                break;
-            case "checkChatUsernameResultUsernameOccupied":
-                out_obj = (CheckChatUsernameResultUsernameOccupied) jsoner.deserialize_object (typeof (CheckChatUsernameResultUsernameOccupied));
-                break;
-            case "checkChatUsernameResultUsernamePurchasable":
-                out_obj = (CheckChatUsernameResultUsernamePurchasable) jsoner.deserialize_object (typeof (CheckChatUsernameResultUsernamePurchasable));
-                break;
-            case "checkChatUsernameResultPublicChatsTooMany":
-                out_obj = (CheckChatUsernameResultPublicChatsTooMany) jsoner.deserialize_object (typeof (CheckChatUsernameResultPublicChatsTooMany));
-                break;
-            case "checkChatUsernameResultPublicGroupsUnavailable":
-                out_obj = (CheckChatUsernameResultPublicGroupsUnavailable) jsoner.deserialize_object (typeof (CheckChatUsernameResultPublicGroupsUnavailable));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CheckChatUsernameResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4705,7 +5502,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4729,17 +5526,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4762,7 +5549,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4786,17 +5573,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4818,7 +5595,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetSuitableDiscussionChats ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4842,17 +5619,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4871,7 +5638,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetInactiveSupergroupChats ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4895,17 +5662,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4921,7 +5678,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetSuitablePersonalChats ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -4945,17 +5702,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -4982,7 +5729,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5006,17 +5753,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5056,7 +5793,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5080,17 +5817,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5117,7 +5844,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5141,17 +5868,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5173,7 +5890,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5197,17 +5914,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5236,7 +5943,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5260,17 +5967,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5297,7 +5994,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5321,17 +6018,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5353,7 +6040,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5377,17 +6064,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5416,7 +6093,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5440,17 +6117,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5494,7 +6161,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5518,17 +6185,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5574,7 +6231,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5598,17 +6255,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5639,7 +6286,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5663,17 +6310,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5698,7 +6335,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5722,17 +6359,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5799,7 +6426,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5823,17 +6450,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundChatMessages out_obj;
-        switch (tdlib_type) {
-            case "foundChatMessages":
-                out_obj = (FoundChatMessages) jsoner.deserialize_object (typeof (FoundChatMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundChatMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5889,7 +6506,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5913,17 +6530,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundMessages out_obj;
-        switch (tdlib_type) {
-            case "foundMessages":
-                out_obj = (FoundMessages) jsoner.deserialize_object (typeof (FoundMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -5964,7 +6571,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -5988,17 +6595,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundMessages out_obj;
-        switch (tdlib_type) {
-            case "foundMessages":
-                out_obj = (FoundMessages) jsoner.deserialize_object (typeof (FoundMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6049,7 +6646,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6073,17 +6670,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundChatMessages out_obj;
-        switch (tdlib_type) {
-            case "foundChatMessages":
-                out_obj = (FoundChatMessages) jsoner.deserialize_object (typeof (FoundChatMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundChatMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6117,7 +6704,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6141,17 +6728,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundMessages out_obj;
-        switch (tdlib_type) {
-            case "foundMessages":
-                out_obj = (FoundMessages) jsoner.deserialize_object (typeof (FoundMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6178,7 +6755,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6202,17 +6779,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundMessages out_obj;
-        switch (tdlib_type) {
-            case "foundMessages":
-                out_obj = (FoundMessages) jsoner.deserialize_object (typeof (FoundMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6244,7 +6811,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6268,17 +6835,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundMessages out_obj;
-        switch (tdlib_type) {
-            case "foundMessages":
-                out_obj = (FoundMessages) jsoner.deserialize_object (typeof (FoundMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6314,7 +6871,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6338,17 +6895,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundStories out_obj;
-        switch (tdlib_type) {
-            case "foundStories":
-                out_obj = (FoundStories) jsoner.deserialize_object (typeof (FoundStories));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundStories) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6380,7 +6927,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6404,17 +6951,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundStories out_obj;
-        switch (tdlib_type) {
-            case "foundStories":
-                out_obj = (FoundStories) jsoner.deserialize_object (typeof (FoundStories));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundStories) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6449,7 +6986,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6473,17 +7010,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundStories out_obj;
-        switch (tdlib_type) {
-            case "foundStories":
-                out_obj = (FoundStories) jsoner.deserialize_object (typeof (FoundStories));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundStories) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6507,7 +7034,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6531,17 +7058,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Hashtags out_obj;
-        switch (tdlib_type) {
-            case "hashtags":
-                out_obj = (Hashtags) jsoner.deserialize_object (typeof (Hashtags));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Hashtags) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6563,7 +7080,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6587,17 +7104,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6620,7 +7127,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6644,17 +7151,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6675,7 +7172,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6699,17 +7196,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6734,7 +7221,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6758,17 +7245,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6794,7 +7271,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6818,17 +7295,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6876,7 +7343,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6900,17 +7367,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessagePositions out_obj;
-        switch (tdlib_type) {
-            case "messagePositions":
-                out_obj = (MessagePositions) jsoner.deserialize_object (typeof (MessagePositions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessagePositions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -6950,7 +7407,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -6974,17 +7431,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageCalendar out_obj;
-        switch (tdlib_type) {
-            case "messageCalendar":
-                out_obj = (MessageCalendar) jsoner.deserialize_object (typeof (MessageCalendar));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageCalendar) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7020,7 +7467,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7044,17 +7491,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Count out_obj;
-        switch (tdlib_type) {
-            case "count":
-                out_obj = (Count) jsoner.deserialize_object (typeof (Count));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Count) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7095,7 +7532,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7119,17 +7556,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Count out_obj;
-        switch (tdlib_type) {
-            case "count":
-                out_obj = (Count) jsoner.deserialize_object (typeof (Count));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Count) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7151,7 +7578,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7175,17 +7602,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7207,7 +7624,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7231,17 +7648,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        SponsoredMessages out_obj;
-        switch (tdlib_type) {
-            case "sponsoredMessages":
-                out_obj = (SponsoredMessages) jsoner.deserialize_object (typeof (SponsoredMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (SponsoredMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7275,7 +7682,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7299,17 +7706,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7337,7 +7734,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7361,29 +7758,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ReportChatSponsoredMessageResult out_obj;
-        switch (tdlib_type) {
-            case "reportChatSponsoredMessageResultOk":
-                out_obj = (ReportChatSponsoredMessageResultOk) jsoner.deserialize_object (typeof (ReportChatSponsoredMessageResultOk));
-                break;
-            case "reportChatSponsoredMessageResultFailed":
-                out_obj = (ReportChatSponsoredMessageResultFailed) jsoner.deserialize_object (typeof (ReportChatSponsoredMessageResultFailed));
-                break;
-            case "reportChatSponsoredMessageResultOptionRequired":
-                out_obj = (ReportChatSponsoredMessageResultOptionRequired) jsoner.deserialize_object (typeof (ReportChatSponsoredMessageResultOptionRequired));
-                break;
-            case "reportChatSponsoredMessageResultAdsHidden":
-                out_obj = (ReportChatSponsoredMessageResultAdsHidden) jsoner.deserialize_object (typeof (ReportChatSponsoredMessageResultAdsHidden));
-                break;
-            case "reportChatSponsoredMessageResultPremiumRequired":
-                out_obj = (ReportChatSponsoredMessageResultPremiumRequired) jsoner.deserialize_object (typeof (ReportChatSponsoredMessageResultPremiumRequired));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ReportChatSponsoredMessageResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7409,7 +7784,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7433,17 +7808,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7469,7 +7834,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7493,17 +7858,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7543,7 +7898,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7567,17 +7922,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageLink out_obj;
-        switch (tdlib_type) {
-            case "messageLink":
-                out_obj = (MessageLink) jsoner.deserialize_object (typeof (MessageLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7606,7 +7951,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7630,17 +7975,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7662,7 +7997,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7686,17 +8021,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageLinkInfo out_obj;
-        switch (tdlib_type) {
-            case "messageLinkInfo":
-                out_obj = (MessageLinkInfo) jsoner.deserialize_object (typeof (MessageLinkInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageLinkInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7733,7 +8058,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7757,17 +8082,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7808,7 +8123,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7832,17 +8147,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7868,7 +8173,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7892,17 +8197,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7929,7 +8224,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -7953,17 +8248,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -7985,7 +8270,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8009,17 +8294,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatMessageSenders out_obj;
-        switch (tdlib_type) {
-            case "chatMessageSenders":
-                out_obj = (ChatMessageSenders) jsoner.deserialize_object (typeof (ChatMessageSenders));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatMessageSenders) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8043,7 +8318,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8067,17 +8342,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8117,7 +8382,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8141,17 +8406,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8193,7 +8448,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8217,17 +8472,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8259,7 +8504,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8283,17 +8528,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8340,7 +8575,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8364,17 +8599,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8428,7 +8653,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8452,17 +8677,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8493,7 +8708,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8517,17 +8732,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8563,7 +8768,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8587,17 +8792,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Messages out_obj;
-        switch (tdlib_type) {
-            case "messages":
-                out_obj = (Messages) jsoner.deserialize_object (typeof (Messages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Messages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8634,7 +8829,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8658,17 +8853,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8699,7 +8884,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8723,17 +8908,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8759,7 +8934,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8783,17 +8958,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8826,7 +8991,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8850,17 +9015,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8895,7 +9050,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -8919,17 +9074,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -8982,7 +9127,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9006,17 +9151,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9055,7 +9190,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9079,17 +9214,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9130,7 +9255,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9154,17 +9279,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9194,7 +9309,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9218,17 +9333,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9257,7 +9362,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9281,17 +9386,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9336,7 +9431,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9360,17 +9455,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9402,7 +9487,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9426,17 +9511,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9469,7 +9544,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9493,17 +9568,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9528,7 +9593,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9552,17 +9617,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9595,7 +9650,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9619,17 +9674,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9660,7 +9705,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9684,17 +9729,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9742,7 +9777,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9766,17 +9801,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessage out_obj;
-        switch (tdlib_type) {
-            case "businessMessage":
-                out_obj = (BusinessMessage) jsoner.deserialize_object (typeof (BusinessMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9825,7 +9850,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9849,17 +9874,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessages out_obj;
-        switch (tdlib_type) {
-            case "businessMessages":
-                out_obj = (BusinessMessages) jsoner.deserialize_object (typeof (BusinessMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9895,7 +9910,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -9919,17 +9934,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessage out_obj;
-        switch (tdlib_type) {
-            case "businessMessage":
-                out_obj = (BusinessMessage) jsoner.deserialize_object (typeof (BusinessMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -9981,7 +9986,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10005,17 +10010,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessage out_obj;
-        switch (tdlib_type) {
-            case "businessMessage":
-                out_obj = (BusinessMessage) jsoner.deserialize_object (typeof (BusinessMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10054,7 +10049,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10078,17 +10073,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessage out_obj;
-        switch (tdlib_type) {
-            case "businessMessage":
-                out_obj = (BusinessMessage) jsoner.deserialize_object (typeof (BusinessMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10129,7 +10114,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10153,17 +10138,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessage out_obj;
-        switch (tdlib_type) {
-            case "businessMessage":
-                out_obj = (BusinessMessage) jsoner.deserialize_object (typeof (BusinessMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10195,7 +10170,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10219,17 +10194,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessage out_obj;
-        switch (tdlib_type) {
-            case "businessMessage":
-                out_obj = (BusinessMessage) jsoner.deserialize_object (typeof (BusinessMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10260,7 +10225,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10284,17 +10249,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessMessage out_obj;
-        switch (tdlib_type) {
-            case "businessMessage":
-                out_obj = (BusinessMessage) jsoner.deserialize_object (typeof (BusinessMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10326,7 +10281,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10350,17 +10305,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10396,17 +10341,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10428,7 +10363,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10452,17 +10387,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10480,7 +10405,7 @@ public sealed class TDLib.Client : Object {
         var obj = new LoadQuickReplyShortcuts ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10504,17 +10429,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10539,7 +10454,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10563,17 +10478,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10594,7 +10499,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10618,17 +10523,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10649,7 +10544,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10673,17 +10568,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10706,7 +10591,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10730,17 +10615,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10765,7 +10640,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10789,17 +10664,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10834,7 +10699,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10858,17 +10723,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        QuickReplyMessage out_obj;
-        switch (tdlib_type) {
-            case "quickReplyMessage":
-                out_obj = (QuickReplyMessage) jsoner.deserialize_object (typeof (QuickReplyMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (QuickReplyMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10912,7 +10767,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -10936,17 +10791,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        QuickReplyMessage out_obj;
-        switch (tdlib_type) {
-            case "quickReplyMessage":
-                out_obj = (QuickReplyMessage) jsoner.deserialize_object (typeof (QuickReplyMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (QuickReplyMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10980,7 +10825,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11004,17 +10849,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        QuickReplyMessages out_obj;
-        switch (tdlib_type) {
-            case "quickReplyMessages":
-                out_obj = (QuickReplyMessages) jsoner.deserialize_object (typeof (QuickReplyMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (QuickReplyMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11045,7 +10880,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11069,17 +10904,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        QuickReplyMessages out_obj;
-        switch (tdlib_type) {
-            case "quickReplyMessages":
-                out_obj = (QuickReplyMessages) jsoner.deserialize_object (typeof (QuickReplyMessages));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (QuickReplyMessages) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11115,7 +10940,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11139,17 +10964,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11166,7 +10981,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetForumTopicDefaultIcons ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11190,17 +11005,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11231,7 +11036,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11255,17 +11060,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ForumTopicInfo out_obj;
-        switch (tdlib_type) {
-            case "forumTopicInfo":
-                out_obj = (ForumTopicInfo) jsoner.deserialize_object (typeof (ForumTopicInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ForumTopicInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11306,7 +11101,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11330,17 +11125,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11364,7 +11149,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11388,17 +11173,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ForumTopic out_obj;
-        switch (tdlib_type) {
-            case "forumTopic":
-                out_obj = (ForumTopic) jsoner.deserialize_object (typeof (ForumTopic));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ForumTopic) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11423,7 +11198,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11447,17 +11222,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageLink out_obj;
-        switch (tdlib_type) {
-            case "messageLink":
-                out_obj = (MessageLink) jsoner.deserialize_object (typeof (MessageLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11500,7 +11265,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11524,17 +11289,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ForumTopics out_obj;
-        switch (tdlib_type) {
-            case "forumTopics":
-                out_obj = (ForumTopics) jsoner.deserialize_object (typeof (ForumTopics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ForumTopics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11563,7 +11318,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11587,17 +11342,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11626,7 +11371,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11650,17 +11395,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11686,7 +11421,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11710,17 +11445,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11749,7 +11474,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11773,17 +11498,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11808,7 +11523,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11832,17 +11547,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11869,7 +11574,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11893,17 +11598,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11925,7 +11620,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -11949,17 +11644,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiReaction out_obj;
-        switch (tdlib_type) {
-            case "emojiReaction":
-                out_obj = (EmojiReaction) jsoner.deserialize_object (typeof (EmojiReaction));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiReaction) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -11976,7 +11661,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetCustomEmojiReactionAnimations ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12000,17 +11685,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12039,7 +11714,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12063,17 +11738,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AvailableReactions out_obj;
-        switch (tdlib_type) {
-            case "availableReactions":
-                out_obj = (AvailableReactions) jsoner.deserialize_object (typeof (AvailableReactions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AvailableReactions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12089,7 +11754,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ClearRecentReactions ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12113,17 +11778,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12161,7 +11816,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12185,17 +11840,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12224,7 +11869,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12248,17 +11893,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12299,7 +11934,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12323,17 +11958,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12357,7 +11982,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12381,17 +12006,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12415,7 +12030,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12439,17 +12054,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12479,7 +12084,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12503,17 +12108,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12545,7 +12140,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12569,17 +12164,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12617,7 +12202,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12641,17 +12226,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AddedReactions out_obj;
-        switch (tdlib_type) {
-            case "addedReactions":
-                out_obj = (AddedReactions) jsoner.deserialize_object (typeof (AddedReactions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AddedReactions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12673,7 +12248,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12697,17 +12272,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12729,7 +12294,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12753,17 +12318,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        SavedMessagesTags out_obj;
-        switch (tdlib_type) {
-            case "savedMessagesTags":
-                out_obj = (SavedMessagesTags) jsoner.deserialize_object (typeof (SavedMessagesTags));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (SavedMessagesTags) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12787,7 +12342,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12811,17 +12366,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12843,7 +12388,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12867,17 +12412,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageEffect out_obj;
-        switch (tdlib_type) {
-            case "messageEffect":
-                out_obj = (MessageEffect) jsoner.deserialize_object (typeof (MessageEffect));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageEffect) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12920,17 +12455,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundPosition out_obj;
-        switch (tdlib_type) {
-            case "foundPosition":
-                out_obj = (FoundPosition) jsoner.deserialize_object (typeof (FoundPosition));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundPosition) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -12959,7 +12484,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -12983,17 +12508,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundPosition out_obj;
-        switch (tdlib_type) {
-            case "foundPosition":
-                out_obj = (FoundPosition) jsoner.deserialize_object (typeof (FoundPosition));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundPosition) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13030,17 +12545,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TextEntities out_obj;
-        switch (tdlib_type) {
-            case "textEntities":
-                out_obj = (TextEntities) jsoner.deserialize_object (typeof (TextEntities));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TextEntities) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13063,7 +12568,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13087,17 +12592,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TextEntities out_obj;
-        switch (tdlib_type) {
-            case "textEntities":
-                out_obj = (TextEntities) jsoner.deserialize_object (typeof (TextEntities));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TextEntities) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13138,17 +12633,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13175,7 +12660,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13199,17 +12684,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13247,17 +12722,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13281,7 +12746,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13305,17 +12770,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13352,17 +12807,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13385,7 +12830,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13409,17 +12854,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FormattedText out_obj;
-        switch (tdlib_type) {
-            case "formattedText":
-                out_obj = (FormattedText) jsoner.deserialize_object (typeof (FormattedText));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FormattedText) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13456,17 +12891,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13489,7 +12914,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13513,17 +12938,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13559,17 +12974,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13591,7 +12996,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13615,17 +13020,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13661,17 +13056,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13693,7 +13078,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13717,17 +13102,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13763,17 +13138,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13795,7 +13160,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13819,17 +13184,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13877,23 +13232,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LanguagePackStringValue out_obj;
-        switch (tdlib_type) {
-            case "languagePackStringValueOrdinary":
-                out_obj = (LanguagePackStringValueOrdinary) jsoner.deserialize_object (typeof (LanguagePackStringValueOrdinary));
-                break;
-            case "languagePackStringValuePluralized":
-                out_obj = (LanguagePackStringValuePluralized) jsoner.deserialize_object (typeof (LanguagePackStringValuePluralized));
-                break;
-            case "languagePackStringValueDeleted":
-                out_obj = (LanguagePackStringValueDeleted) jsoner.deserialize_object (typeof (LanguagePackStringValueDeleted));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LanguagePackStringValue) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -13927,7 +13266,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -13951,23 +13290,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LanguagePackStringValue out_obj;
-        switch (tdlib_type) {
-            case "languagePackStringValueOrdinary":
-                out_obj = (LanguagePackStringValueOrdinary) jsoner.deserialize_object (typeof (LanguagePackStringValueOrdinary));
-                break;
-            case "languagePackStringValuePluralized":
-                out_obj = (LanguagePackStringValuePluralized) jsoner.deserialize_object (typeof (LanguagePackStringValuePluralized));
-                break;
-            case "languagePackStringValueDeleted":
-                out_obj = (LanguagePackStringValueDeleted) jsoner.deserialize_object (typeof (LanguagePackStringValueDeleted));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LanguagePackStringValue) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14003,32 +13326,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        JsonValue out_obj;
-        switch (tdlib_type) {
-            case "jsonValueNull":
-                out_obj = (JsonValueNull) jsoner.deserialize_object (typeof (JsonValueNull));
-                break;
-            case "jsonValueBoolean":
-                out_obj = (JsonValueBoolean) jsoner.deserialize_object (typeof (JsonValueBoolean));
-                break;
-            case "jsonValueNumber":
-                out_obj = (JsonValueNumber) jsoner.deserialize_object (typeof (JsonValueNumber));
-                break;
-            case "jsonValueString":
-                out_obj = (JsonValueString) jsoner.deserialize_object (typeof (JsonValueString));
-                break;
-            case "jsonValueArray":
-                out_obj = (JsonValueArray) jsoner.deserialize_object (typeof (JsonValueArray));
-                break;
-            case "jsonValueObject":
-                out_obj = (JsonValueObject) jsoner.deserialize_object (typeof (JsonValueObject));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (JsonValue) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14050,7 +13348,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14074,32 +13372,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        JsonValue out_obj;
-        switch (tdlib_type) {
-            case "jsonValueNull":
-                out_obj = (JsonValueNull) jsoner.deserialize_object (typeof (JsonValueNull));
-                break;
-            case "jsonValueBoolean":
-                out_obj = (JsonValueBoolean) jsoner.deserialize_object (typeof (JsonValueBoolean));
-                break;
-            case "jsonValueNumber":
-                out_obj = (JsonValueNumber) jsoner.deserialize_object (typeof (JsonValueNumber));
-                break;
-            case "jsonValueString":
-                out_obj = (JsonValueString) jsoner.deserialize_object (typeof (JsonValueString));
-                break;
-            case "jsonValueArray":
-                out_obj = (JsonValueArray) jsoner.deserialize_object (typeof (JsonValueArray));
-                break;
-            case "jsonValueObject":
-                out_obj = (JsonValueObject) jsoner.deserialize_object (typeof (JsonValueObject));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (JsonValue) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14135,17 +13408,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14167,7 +13430,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14191,17 +13454,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14237,17 +13490,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14269,7 +13512,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14293,17 +13536,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14333,7 +13566,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14357,17 +13590,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14407,7 +13630,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14431,17 +13654,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageSenders out_obj;
-        switch (tdlib_type) {
-            case "messageSenders":
-                out_obj = (MessageSenders) jsoner.deserialize_object (typeof (MessageSenders));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageSenders) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14471,7 +13684,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14495,17 +13708,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14526,7 +13729,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14550,17 +13753,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14576,7 +13769,7 @@ public sealed class TDLib.Client : Object {
         var obj = new HideContactCloseBirthdays ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14600,17 +13793,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14632,7 +13815,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14656,17 +13839,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessConnection out_obj;
-        switch (tdlib_type) {
-            case "businessConnection":
-                out_obj = (BusinessConnection) jsoner.deserialize_object (typeof (BusinessConnection));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessConnection) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14696,7 +13869,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14720,20 +13893,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LoginUrlInfo out_obj;
-        switch (tdlib_type) {
-            case "loginUrlInfoOpen":
-                out_obj = (LoginUrlInfoOpen) jsoner.deserialize_object (typeof (LoginUrlInfoOpen));
-                break;
-            case "loginUrlInfoRequestConfirmation":
-                out_obj = (LoginUrlInfoRequestConfirmation) jsoner.deserialize_object (typeof (LoginUrlInfoRequestConfirmation));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LoginUrlInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14769,7 +13929,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14793,17 +13953,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14838,7 +13988,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14862,17 +14012,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14914,7 +14054,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -14938,17 +14078,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -14985,7 +14115,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15009,17 +14139,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        InlineQueryResults out_obj;
-        switch (tdlib_type) {
-            case "inlineQueryResults":
-                out_obj = (InlineQueryResults) jsoner.deserialize_object (typeof (InlineQueryResults));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (InlineQueryResults) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15060,7 +14180,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15084,17 +14204,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15121,7 +14231,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15145,17 +14255,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PreparedInlineMessageId out_obj;
-        switch (tdlib_type) {
-            case "preparedInlineMessageId":
-                out_obj = (PreparedInlineMessageId) jsoner.deserialize_object (typeof (PreparedInlineMessageId));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PreparedInlineMessageId) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15179,7 +14279,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15203,17 +14303,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PreparedInlineMessage out_obj;
-        switch (tdlib_type) {
-            case "preparedInlineMessage":
-                out_obj = (PreparedInlineMessage) jsoner.deserialize_object (typeof (PreparedInlineMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PreparedInlineMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15238,7 +14328,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15262,17 +14352,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundUsers out_obj;
-        switch (tdlib_type) {
-            case "foundUsers":
-                out_obj = (FoundUsers) jsoner.deserialize_object (typeof (FoundUsers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundUsers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15297,7 +14377,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15321,17 +14401,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundWebApp out_obj;
-        switch (tdlib_type) {
-            case "foundWebApp":
-                out_obj = (FoundWebApp) jsoner.deserialize_object (typeof (FoundWebApp));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundWebApp) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15353,7 +14423,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15377,17 +14447,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Outline out_obj;
-        switch (tdlib_type) {
-            case "outline":
-                out_obj = (Outline) jsoner.deserialize_object (typeof (Outline));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Outline) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15426,7 +14486,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15450,17 +14510,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15491,7 +14541,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15515,17 +14565,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MainWebApp out_obj;
-        switch (tdlib_type) {
-            case "mainWebApp":
-                out_obj = (MainWebApp) jsoner.deserialize_object (typeof (MainWebApp));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MainWebApp) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15556,7 +14596,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15580,17 +14620,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15618,7 +14648,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15642,17 +14672,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15697,7 +14717,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15721,17 +14741,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        WebAppInfo out_obj;
-        switch (tdlib_type) {
-            case "webAppInfo":
-                out_obj = (WebAppInfo) jsoner.deserialize_object (typeof (WebAppInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (WebAppInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15753,7 +14763,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15777,17 +14787,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15813,7 +14813,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15837,17 +14837,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        SentWebAppMessage out_obj;
-        switch (tdlib_type) {
-            case "sentWebAppMessage":
-                out_obj = (SentWebAppMessage) jsoner.deserialize_object (typeof (SentWebAppMessage));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (SentWebAppMessage) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15875,7 +14865,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15899,17 +14889,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -15939,7 +14919,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -15963,17 +14943,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CallbackQueryAnswer out_obj;
-        switch (tdlib_type) {
-            case "callbackQueryAnswer":
-                out_obj = (CallbackQueryAnswer) jsoner.deserialize_object (typeof (CallbackQueryAnswer));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CallbackQueryAnswer) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16008,7 +14978,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16032,17 +15002,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16069,7 +15029,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16093,17 +15053,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16127,7 +15077,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16151,17 +15101,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16200,7 +15140,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16224,17 +15164,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Message out_obj;
-        switch (tdlib_type) {
-            case "message":
-                out_obj = (Message) jsoner.deserialize_object (typeof (Message));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Message) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16269,7 +15199,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16293,17 +15223,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16331,7 +15251,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16355,17 +15275,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        GameHighScores out_obj;
-        switch (tdlib_type) {
-            case "gameHighScores":
-                out_obj = (GameHighScores) jsoner.deserialize_object (typeof (GameHighScores));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (GameHighScores) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16390,7 +15300,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16414,17 +15324,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        GameHighScores out_obj;
-        switch (tdlib_type) {
-            case "gameHighScores":
-                out_obj = (GameHighScores) jsoner.deserialize_object (typeof (GameHighScores));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (GameHighScores) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16451,7 +15351,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16475,17 +15375,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16518,7 +15408,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16542,17 +15432,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16576,7 +15456,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16600,17 +15480,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16632,7 +15502,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16656,17 +15526,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16704,7 +15564,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16728,17 +15588,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16766,7 +15616,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16790,17 +15640,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16826,7 +15666,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16850,17 +15690,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Sticker out_obj;
-        switch (tdlib_type) {
-            case "sticker":
-                out_obj = (Sticker) jsoner.deserialize_object (typeof (Sticker));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Sticker) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16886,7 +15716,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16910,17 +15740,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -16942,7 +15762,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -16966,149 +15786,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        InternalLinkType out_obj;
-        switch (tdlib_type) {
-            case "internalLinkTypeActiveSessions":
-                out_obj = (InternalLinkTypeActiveSessions) jsoner.deserialize_object (typeof (InternalLinkTypeActiveSessions));
-                break;
-            case "internalLinkTypeAttachmentMenuBot":
-                out_obj = (InternalLinkTypeAttachmentMenuBot) jsoner.deserialize_object (typeof (InternalLinkTypeAttachmentMenuBot));
-                break;
-            case "internalLinkTypeAuthenticationCode":
-                out_obj = (InternalLinkTypeAuthenticationCode) jsoner.deserialize_object (typeof (InternalLinkTypeAuthenticationCode));
-                break;
-            case "internalLinkTypeBackground":
-                out_obj = (InternalLinkTypeBackground) jsoner.deserialize_object (typeof (InternalLinkTypeBackground));
-                break;
-            case "internalLinkTypeBotAddToChannel":
-                out_obj = (InternalLinkTypeBotAddToChannel) jsoner.deserialize_object (typeof (InternalLinkTypeBotAddToChannel));
-                break;
-            case "internalLinkTypeBotStart":
-                out_obj = (InternalLinkTypeBotStart) jsoner.deserialize_object (typeof (InternalLinkTypeBotStart));
-                break;
-            case "internalLinkTypeBotStartInGroup":
-                out_obj = (InternalLinkTypeBotStartInGroup) jsoner.deserialize_object (typeof (InternalLinkTypeBotStartInGroup));
-                break;
-            case "internalLinkTypeBusinessChat":
-                out_obj = (InternalLinkTypeBusinessChat) jsoner.deserialize_object (typeof (InternalLinkTypeBusinessChat));
-                break;
-            case "internalLinkTypeBuyStars":
-                out_obj = (InternalLinkTypeBuyStars) jsoner.deserialize_object (typeof (InternalLinkTypeBuyStars));
-                break;
-            case "internalLinkTypeChangePhoneNumber":
-                out_obj = (InternalLinkTypeChangePhoneNumber) jsoner.deserialize_object (typeof (InternalLinkTypeChangePhoneNumber));
-                break;
-            case "internalLinkTypeChatBoost":
-                out_obj = (InternalLinkTypeChatBoost) jsoner.deserialize_object (typeof (InternalLinkTypeChatBoost));
-                break;
-            case "internalLinkTypeChatFolderInvite":
-                out_obj = (InternalLinkTypeChatFolderInvite) jsoner.deserialize_object (typeof (InternalLinkTypeChatFolderInvite));
-                break;
-            case "internalLinkTypeChatFolderSettings":
-                out_obj = (InternalLinkTypeChatFolderSettings) jsoner.deserialize_object (typeof (InternalLinkTypeChatFolderSettings));
-                break;
-            case "internalLinkTypeChatInvite":
-                out_obj = (InternalLinkTypeChatInvite) jsoner.deserialize_object (typeof (InternalLinkTypeChatInvite));
-                break;
-            case "internalLinkTypeDefaultMessageAutoDeleteTimerSettings":
-                out_obj = (InternalLinkTypeDefaultMessageAutoDeleteTimerSettings) jsoner.deserialize_object (typeof (InternalLinkTypeDefaultMessageAutoDeleteTimerSettings));
-                break;
-            case "internalLinkTypeEditProfileSettings":
-                out_obj = (InternalLinkTypeEditProfileSettings) jsoner.deserialize_object (typeof (InternalLinkTypeEditProfileSettings));
-                break;
-            case "internalLinkTypeGame":
-                out_obj = (InternalLinkTypeGame) jsoner.deserialize_object (typeof (InternalLinkTypeGame));
-                break;
-            case "internalLinkTypeInstantView":
-                out_obj = (InternalLinkTypeInstantView) jsoner.deserialize_object (typeof (InternalLinkTypeInstantView));
-                break;
-            case "internalLinkTypeInvoice":
-                out_obj = (InternalLinkTypeInvoice) jsoner.deserialize_object (typeof (InternalLinkTypeInvoice));
-                break;
-            case "internalLinkTypeLanguagePack":
-                out_obj = (InternalLinkTypeLanguagePack) jsoner.deserialize_object (typeof (InternalLinkTypeLanguagePack));
-                break;
-            case "internalLinkTypeLanguageSettings":
-                out_obj = (InternalLinkTypeLanguageSettings) jsoner.deserialize_object (typeof (InternalLinkTypeLanguageSettings));
-                break;
-            case "internalLinkTypeMainWebApp":
-                out_obj = (InternalLinkTypeMainWebApp) jsoner.deserialize_object (typeof (InternalLinkTypeMainWebApp));
-                break;
-            case "internalLinkTypeMessage":
-                out_obj = (InternalLinkTypeMessage) jsoner.deserialize_object (typeof (InternalLinkTypeMessage));
-                break;
-            case "internalLinkTypeMessageDraft":
-                out_obj = (InternalLinkTypeMessageDraft) jsoner.deserialize_object (typeof (InternalLinkTypeMessageDraft));
-                break;
-            case "internalLinkTypePassportDataRequest":
-                out_obj = (InternalLinkTypePassportDataRequest) jsoner.deserialize_object (typeof (InternalLinkTypePassportDataRequest));
-                break;
-            case "internalLinkTypePhoneNumberConfirmation":
-                out_obj = (InternalLinkTypePhoneNumberConfirmation) jsoner.deserialize_object (typeof (InternalLinkTypePhoneNumberConfirmation));
-                break;
-            case "internalLinkTypePremiumFeatures":
-                out_obj = (InternalLinkTypePremiumFeatures) jsoner.deserialize_object (typeof (InternalLinkTypePremiumFeatures));
-                break;
-            case "internalLinkTypePremiumGift":
-                out_obj = (InternalLinkTypePremiumGift) jsoner.deserialize_object (typeof (InternalLinkTypePremiumGift));
-                break;
-            case "internalLinkTypePremiumGiftCode":
-                out_obj = (InternalLinkTypePremiumGiftCode) jsoner.deserialize_object (typeof (InternalLinkTypePremiumGiftCode));
-                break;
-            case "internalLinkTypePrivacyAndSecuritySettings":
-                out_obj = (InternalLinkTypePrivacyAndSecuritySettings) jsoner.deserialize_object (typeof (InternalLinkTypePrivacyAndSecuritySettings));
-                break;
-            case "internalLinkTypeProxy":
-                out_obj = (InternalLinkTypeProxy) jsoner.deserialize_object (typeof (InternalLinkTypeProxy));
-                break;
-            case "internalLinkTypePublicChat":
-                out_obj = (InternalLinkTypePublicChat) jsoner.deserialize_object (typeof (InternalLinkTypePublicChat));
-                break;
-            case "internalLinkTypeQrCodeAuthentication":
-                out_obj = (InternalLinkTypeQrCodeAuthentication) jsoner.deserialize_object (typeof (InternalLinkTypeQrCodeAuthentication));
-                break;
-            case "internalLinkTypeRestorePurchases":
-                out_obj = (InternalLinkTypeRestorePurchases) jsoner.deserialize_object (typeof (InternalLinkTypeRestorePurchases));
-                break;
-            case "internalLinkTypeSettings":
-                out_obj = (InternalLinkTypeSettings) jsoner.deserialize_object (typeof (InternalLinkTypeSettings));
-                break;
-            case "internalLinkTypeStickerSet":
-                out_obj = (InternalLinkTypeStickerSet) jsoner.deserialize_object (typeof (InternalLinkTypeStickerSet));
-                break;
-            case "internalLinkTypeStory":
-                out_obj = (InternalLinkTypeStory) jsoner.deserialize_object (typeof (InternalLinkTypeStory));
-                break;
-            case "internalLinkTypeTheme":
-                out_obj = (InternalLinkTypeTheme) jsoner.deserialize_object (typeof (InternalLinkTypeTheme));
-                break;
-            case "internalLinkTypeThemeSettings":
-                out_obj = (InternalLinkTypeThemeSettings) jsoner.deserialize_object (typeof (InternalLinkTypeThemeSettings));
-                break;
-            case "internalLinkTypeUnknownDeepLink":
-                out_obj = (InternalLinkTypeUnknownDeepLink) jsoner.deserialize_object (typeof (InternalLinkTypeUnknownDeepLink));
-                break;
-            case "internalLinkTypeUnsupportedProxy":
-                out_obj = (InternalLinkTypeUnsupportedProxy) jsoner.deserialize_object (typeof (InternalLinkTypeUnsupportedProxy));
-                break;
-            case "internalLinkTypeUserPhoneNumber":
-                out_obj = (InternalLinkTypeUserPhoneNumber) jsoner.deserialize_object (typeof (InternalLinkTypeUserPhoneNumber));
-                break;
-            case "internalLinkTypeUserToken":
-                out_obj = (InternalLinkTypeUserToken) jsoner.deserialize_object (typeof (InternalLinkTypeUserToken));
-                break;
-            case "internalLinkTypeVideoChat":
-                out_obj = (InternalLinkTypeVideoChat) jsoner.deserialize_object (typeof (InternalLinkTypeVideoChat));
-                break;
-            case "internalLinkTypeWebApp":
-                out_obj = (InternalLinkTypeWebApp) jsoner.deserialize_object (typeof (InternalLinkTypeWebApp));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (InternalLinkType) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17131,7 +15809,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17155,20 +15833,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LoginUrlInfo out_obj;
-        switch (tdlib_type) {
-            case "loginUrlInfoOpen":
-                out_obj = (LoginUrlInfoOpen) jsoner.deserialize_object (typeof (LoginUrlInfoOpen));
-                break;
-            case "loginUrlInfoRequestConfirmation":
-                out_obj = (LoginUrlInfoRequestConfirmation) jsoner.deserialize_object (typeof (LoginUrlInfoRequestConfirmation));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LoginUrlInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17196,7 +15861,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17220,17 +15885,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17251,7 +15906,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17275,17 +15930,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17310,7 +15955,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17334,17 +15979,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17365,7 +16000,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17389,17 +16024,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17424,7 +16049,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17448,17 +16073,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17484,7 +16099,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17508,17 +16123,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17544,7 +16149,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17568,17 +16173,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17605,7 +16200,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17629,17 +16224,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17660,7 +16245,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17684,17 +16269,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17726,7 +16301,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17750,17 +16325,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CreatedBasicGroupChat out_obj;
-        switch (tdlib_type) {
-            case "createdBasicGroupChat":
-                out_obj = (CreatedBasicGroupChat) jsoner.deserialize_object (typeof (CreatedBasicGroupChat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CreatedBasicGroupChat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17805,7 +16370,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17829,17 +16394,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17860,7 +16415,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17884,17 +16439,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17917,7 +16462,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17941,17 +16486,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -17973,7 +16508,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -17997,17 +16532,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatLists out_obj;
-        switch (tdlib_type) {
-            case "chatLists":
-                out_obj = (ChatLists) jsoner.deserialize_object (typeof (ChatLists));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatLists) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18034,7 +16559,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18058,17 +16583,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18089,7 +16604,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18113,17 +16628,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolder out_obj;
-        switch (tdlib_type) {
-            case "chatFolder":
-                out_obj = (ChatFolder) jsoner.deserialize_object (typeof (ChatFolder));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolder) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18146,7 +16651,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18170,17 +16675,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderInfo out_obj;
-        switch (tdlib_type) {
-            case "chatFolderInfo":
-                out_obj = (ChatFolderInfo) jsoner.deserialize_object (typeof (ChatFolderInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18205,7 +16700,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18229,17 +16724,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderInfo out_obj;
-        switch (tdlib_type) {
-            case "chatFolderInfo":
-                out_obj = (ChatFolderInfo) jsoner.deserialize_object (typeof (ChatFolderInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18264,7 +16749,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18288,17 +16773,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18320,7 +16795,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18344,17 +16819,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18377,7 +16842,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18401,17 +16866,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Count out_obj;
-        switch (tdlib_type) {
-            case "count":
-                out_obj = (Count) jsoner.deserialize_object (typeof (Count));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Count) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18437,7 +16892,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18461,17 +16916,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18493,7 +16938,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18517,17 +16962,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18543,7 +16978,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetRecommendedChatFolders ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18567,17 +17002,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        RecommendedChatFolders out_obj;
-        switch (tdlib_type) {
-            case "recommendedChatFolders":
-                out_obj = (RecommendedChatFolders) jsoner.deserialize_object (typeof (RecommendedChatFolders));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (RecommendedChatFolders) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18612,17 +17037,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderIcon out_obj;
-        switch (tdlib_type) {
-            case "chatFolderIcon":
-                out_obj = (ChatFolderIcon) jsoner.deserialize_object (typeof (ChatFolderIcon));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderIcon) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18643,7 +17058,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18667,17 +17082,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderIcon out_obj;
-        switch (tdlib_type) {
-            case "chatFolderIcon":
-                out_obj = (ChatFolderIcon) jsoner.deserialize_object (typeof (ChatFolderIcon));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderIcon) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18699,7 +17104,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18723,17 +17128,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18764,7 +17159,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18788,17 +17183,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatFolderInviteLink":
-                out_obj = (ChatFolderInviteLink) jsoner.deserialize_object (typeof (ChatFolderInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18820,7 +17205,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18844,17 +17229,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderInviteLinks out_obj;
-        switch (tdlib_type) {
-            case "chatFolderInviteLinks":
-                out_obj = (ChatFolderInviteLinks) jsoner.deserialize_object (typeof (ChatFolderInviteLinks));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderInviteLinks) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18887,7 +17262,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18911,17 +17286,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatFolderInviteLink":
-                out_obj = (ChatFolderInviteLink) jsoner.deserialize_object (typeof (ChatFolderInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -18945,7 +17310,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -18969,17 +17334,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19001,7 +17356,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19025,17 +17380,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatFolderInviteLinkInfo out_obj;
-        switch (tdlib_type) {
-            case "chatFolderInviteLinkInfo":
-                out_obj = (ChatFolderInviteLinkInfo) jsoner.deserialize_object (typeof (ChatFolderInviteLinkInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatFolderInviteLinkInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19060,7 +17405,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19084,17 +17429,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19118,7 +17453,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19142,17 +17477,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19178,7 +17503,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19202,17 +17527,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19229,7 +17544,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetArchiveChatListSettings ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19253,17 +17568,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ArchiveChatListSettings out_obj;
-        switch (tdlib_type) {
-            case "archiveChatListSettings":
-                out_obj = (ArchiveChatListSettings) jsoner.deserialize_object (typeof (ArchiveChatListSettings));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ArchiveChatListSettings) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19285,7 +17590,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19309,17 +17614,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19344,7 +17639,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19368,17 +17663,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19403,7 +17688,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19427,17 +17712,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19470,7 +17745,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19494,17 +17769,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19540,7 +17805,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19564,17 +17829,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19604,7 +17859,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19628,17 +17883,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19664,7 +17909,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19688,17 +17933,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19724,7 +17959,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19748,17 +17983,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19805,7 +18030,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19829,17 +18054,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19867,7 +18082,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19891,17 +18106,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19926,7 +18131,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -19950,17 +18155,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -19990,7 +18185,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20014,17 +18209,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20051,7 +18236,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20075,17 +18260,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20111,7 +18286,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20135,17 +18310,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20169,7 +18334,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20193,17 +18358,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20227,7 +18382,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20251,17 +18406,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20285,7 +18430,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20309,17 +18454,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20345,7 +18480,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20369,17 +18504,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20407,7 +18532,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20431,17 +18556,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20465,7 +18580,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20489,17 +18604,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20524,7 +18629,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20548,17 +18653,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20591,7 +18686,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20615,17 +18710,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20651,7 +18736,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20675,17 +18760,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20711,7 +18786,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20735,17 +18810,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20779,7 +18844,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20803,17 +18868,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20839,7 +18894,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20863,17 +18918,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20896,7 +18941,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20920,17 +18965,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -20956,7 +18991,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -20980,17 +19015,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21013,7 +19038,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21037,17 +19062,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21069,7 +19084,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21093,17 +19108,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21134,7 +19139,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21158,17 +19163,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FailedToAddMembers out_obj;
-        switch (tdlib_type) {
-            case "failedToAddMembers":
-                out_obj = (FailedToAddMembers) jsoner.deserialize_object (typeof (FailedToAddMembers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FailedToAddMembers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21199,7 +19194,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21223,17 +19218,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FailedToAddMembers out_obj;
-        switch (tdlib_type) {
-            case "failedToAddMembers":
-                out_obj = (FailedToAddMembers) jsoner.deserialize_object (typeof (FailedToAddMembers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FailedToAddMembers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21268,7 +19253,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21292,17 +19277,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21341,7 +19316,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21365,17 +19340,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21392,7 +19357,7 @@ public sealed class TDLib.Client : Object {
         var obj = new CanTransferOwnership ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21416,26 +19381,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CanTransferOwnershipResult out_obj;
-        switch (tdlib_type) {
-            case "canTransferOwnershipResultOk":
-                out_obj = (CanTransferOwnershipResultOk) jsoner.deserialize_object (typeof (CanTransferOwnershipResultOk));
-                break;
-            case "canTransferOwnershipResultPasswordNeeded":
-                out_obj = (CanTransferOwnershipResultPasswordNeeded) jsoner.deserialize_object (typeof (CanTransferOwnershipResultPasswordNeeded));
-                break;
-            case "canTransferOwnershipResultPasswordTooFresh":
-                out_obj = (CanTransferOwnershipResultPasswordTooFresh) jsoner.deserialize_object (typeof (CanTransferOwnershipResultPasswordTooFresh));
-                break;
-            case "canTransferOwnershipResultSessionTooFresh":
-                out_obj = (CanTransferOwnershipResultSessionTooFresh) jsoner.deserialize_object (typeof (CanTransferOwnershipResultSessionTooFresh));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CanTransferOwnershipResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21466,7 +19412,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21490,17 +19436,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21524,7 +19460,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21548,17 +19484,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatMember out_obj;
-        switch (tdlib_type) {
-            case "chatMember":
-                out_obj = (ChatMember) jsoner.deserialize_object (typeof (ChatMember));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatMember) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21591,7 +19517,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21615,17 +19541,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatMembers out_obj;
-        switch (tdlib_type) {
-            case "chatMembers":
-                out_obj = (ChatMembers) jsoner.deserialize_object (typeof (ChatMembers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatMembers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21646,7 +19562,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21670,17 +19586,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatAdministrators out_obj;
-        switch (tdlib_type) {
-            case "chatAdministrators":
-                out_obj = (ChatAdministrators) jsoner.deserialize_object (typeof (ChatAdministrators));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatAdministrators) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21702,7 +19608,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21726,17 +19632,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21759,7 +19655,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21783,17 +19679,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        NotificationSounds out_obj;
-        switch (tdlib_type) {
-            case "notificationSounds":
-                out_obj = (NotificationSounds) jsoner.deserialize_object (typeof (NotificationSounds));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (NotificationSounds) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21810,7 +19696,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetSavedNotificationSounds ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21834,17 +19720,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        NotificationSounds out_obj;
-        switch (tdlib_type) {
-            case "notificationSounds":
-                out_obj = (NotificationSounds) jsoner.deserialize_object (typeof (NotificationSounds));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (NotificationSounds) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21867,7 +19743,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21891,17 +19767,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        NotificationSound out_obj;
-        switch (tdlib_type) {
-            case "notificationSound":
-                out_obj = (NotificationSound) jsoner.deserialize_object (typeof (NotificationSound));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (NotificationSound) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21923,7 +19789,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -21947,17 +19813,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21984,7 +19840,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22008,17 +19864,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22040,7 +19886,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22064,17 +19910,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ScopeNotificationSettings out_obj;
-        switch (tdlib_type) {
-            case "scopeNotificationSettings":
-                out_obj = (ScopeNotificationSettings) jsoner.deserialize_object (typeof (ScopeNotificationSettings));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ScopeNotificationSettings) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22100,7 +19936,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22124,17 +19960,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22156,7 +19982,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22180,17 +20006,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22208,7 +20024,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResetAllNotificationSettings ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22232,17 +20048,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22274,7 +20080,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22298,17 +20104,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22333,7 +20129,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22357,17 +20153,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22389,7 +20175,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22413,17 +20199,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22444,7 +20220,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22468,17 +20244,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CurrentWeather out_obj;
-        switch (tdlib_type) {
-            case "currentWeather":
-                out_obj = (CurrentWeather) jsoner.deserialize_object (typeof (CurrentWeather));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CurrentWeather) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22507,7 +20273,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22531,17 +20297,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Story out_obj;
-        switch (tdlib_type) {
-            case "story":
-                out_obj = (Story) jsoner.deserialize_object (typeof (Story));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Story) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22559,7 +20315,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetChatsToSendStories ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22583,17 +20339,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22616,7 +20362,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22640,32 +20386,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CanSendStoryResult out_obj;
-        switch (tdlib_type) {
-            case "canSendStoryResultOk":
-                out_obj = (CanSendStoryResultOk) jsoner.deserialize_object (typeof (CanSendStoryResultOk));
-                break;
-            case "canSendStoryResultPremiumNeeded":
-                out_obj = (CanSendStoryResultPremiumNeeded) jsoner.deserialize_object (typeof (CanSendStoryResultPremiumNeeded));
-                break;
-            case "canSendStoryResultBoostNeeded":
-                out_obj = (CanSendStoryResultBoostNeeded) jsoner.deserialize_object (typeof (CanSendStoryResultBoostNeeded));
-                break;
-            case "canSendStoryResultActiveStoryLimitExceeded":
-                out_obj = (CanSendStoryResultActiveStoryLimitExceeded) jsoner.deserialize_object (typeof (CanSendStoryResultActiveStoryLimitExceeded));
-                break;
-            case "canSendStoryResultWeeklyLimitExceeded":
-                out_obj = (CanSendStoryResultWeeklyLimitExceeded) jsoner.deserialize_object (typeof (CanSendStoryResultWeeklyLimitExceeded));
-                break;
-            case "canSendStoryResultMonthlyLimitExceeded":
-                out_obj = (CanSendStoryResultMonthlyLimitExceeded) jsoner.deserialize_object (typeof (CanSendStoryResultMonthlyLimitExceeded));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CanSendStoryResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22723,7 +20444,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22747,17 +20468,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Story out_obj;
-        switch (tdlib_type) {
-            case "story":
-                out_obj = (Story) jsoner.deserialize_object (typeof (Story));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Story) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22796,7 +20507,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22820,17 +20531,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22860,7 +20561,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22884,17 +20585,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22920,7 +20611,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -22944,17 +20635,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22984,7 +20665,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23008,17 +20689,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23044,7 +20715,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23068,17 +20739,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23095,7 +20756,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetStoryNotificationSettingsExceptions ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23119,17 +20780,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chats out_obj;
-        switch (tdlib_type) {
-            case "chats":
-                out_obj = (Chats) jsoner.deserialize_object (typeof (Chats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chats) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23154,7 +20805,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23178,17 +20829,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23212,7 +20853,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23236,17 +20877,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23267,7 +20898,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23291,17 +20922,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatActiveStories out_obj;
-        switch (tdlib_type) {
-            case "chatActiveStories":
-                out_obj = (ChatActiveStories) jsoner.deserialize_object (typeof (ChatActiveStories));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatActiveStories) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23336,7 +20957,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23360,17 +20981,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stories out_obj;
-        switch (tdlib_type) {
-            case "stories":
-                out_obj = (Stories) jsoner.deserialize_object (typeof (Stories));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stories) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23404,7 +21015,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23428,17 +21039,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stories out_obj;
-        switch (tdlib_type) {
-            case "stories":
-                out_obj = (Stories) jsoner.deserialize_object (typeof (Stories));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stories) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23465,7 +21066,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23489,17 +21090,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23524,7 +21115,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23548,17 +21139,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23583,7 +21164,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23607,17 +21188,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23638,7 +21209,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23662,17 +21233,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AvailableReactions out_obj;
-        switch (tdlib_type) {
-            case "availableReactions":
-                out_obj = (AvailableReactions) jsoner.deserialize_object (typeof (AvailableReactions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AvailableReactions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23705,7 +21266,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23729,17 +21290,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23786,7 +21337,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23810,17 +21361,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StoryInteractions out_obj;
-        switch (tdlib_type) {
-            case "storyInteractions":
-                out_obj = (StoryInteractions) jsoner.deserialize_object (typeof (StoryInteractions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StoryInteractions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23864,7 +21405,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23888,17 +21429,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StoryInteractions out_obj;
-        switch (tdlib_type) {
-            case "storyInteractions":
-                out_obj = (StoryInteractions) jsoner.deserialize_object (typeof (StoryInteractions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StoryInteractions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23931,7 +21462,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -23955,23 +21486,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ReportStoryResult out_obj;
-        switch (tdlib_type) {
-            case "reportStoryResultOk":
-                out_obj = (ReportStoryResultOk) jsoner.deserialize_object (typeof (ReportStoryResultOk));
-                break;
-            case "reportStoryResultOptionRequired":
-                out_obj = (ReportStoryResultOptionRequired) jsoner.deserialize_object (typeof (ReportStoryResultOptionRequired));
-                break;
-            case "reportStoryResultTextRequired":
-                out_obj = (ReportStoryResultTextRequired) jsoner.deserialize_object (typeof (ReportStoryResultTextRequired));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ReportStoryResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23991,7 +21506,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ActivateStoryStealthMode ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24015,17 +21530,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24063,7 +21568,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24087,17 +21592,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PublicForwards out_obj;
-        switch (tdlib_type) {
-            case "publicForwards":
-                out_obj = (PublicForwards) jsoner.deserialize_object (typeof (PublicForwards));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PublicForwards) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24123,7 +21618,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24147,17 +21642,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatBoostLevelFeatures out_obj;
-        switch (tdlib_type) {
-            case "chatBoostLevelFeatures":
-                out_obj = (ChatBoostLevelFeatures) jsoner.deserialize_object (typeof (ChatBoostLevelFeatures));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatBoostLevelFeatures) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24180,7 +21665,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24204,17 +21689,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatBoostFeatures out_obj;
-        switch (tdlib_type) {
-            case "chatBoostFeatures":
-                out_obj = (ChatBoostFeatures) jsoner.deserialize_object (typeof (ChatBoostFeatures));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatBoostFeatures) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24230,7 +21705,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetAvailableChatBoostSlots ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24254,17 +21729,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatBoostSlots out_obj;
-        switch (tdlib_type) {
-            case "chatBoostSlots":
-                out_obj = (ChatBoostSlots) jsoner.deserialize_object (typeof (ChatBoostSlots));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatBoostSlots) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24285,7 +21750,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24309,17 +21774,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatBoostStatus out_obj;
-        switch (tdlib_type) {
-            case "chatBoostStatus":
-                out_obj = (ChatBoostStatus) jsoner.deserialize_object (typeof (ChatBoostStatus));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatBoostStatus) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24345,7 +21800,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24369,17 +21824,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatBoostSlots out_obj;
-        switch (tdlib_type) {
-            case "chatBoostSlots":
-                out_obj = (ChatBoostSlots) jsoner.deserialize_object (typeof (ChatBoostSlots));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatBoostSlots) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24401,7 +21846,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24425,17 +21870,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatBoostLink out_obj;
-        switch (tdlib_type) {
-            case "chatBoostLink":
-                out_obj = (ChatBoostLink) jsoner.deserialize_object (typeof (ChatBoostLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatBoostLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24457,7 +21892,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24481,17 +21916,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatBoostLinkInfo out_obj;
-        switch (tdlib_type) {
-            case "chatBoostLinkInfo":
-                out_obj = (ChatBoostLinkInfo) jsoner.deserialize_object (typeof (ChatBoostLinkInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatBoostLinkInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24526,7 +21951,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24550,17 +21975,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundChatBoosts out_obj;
-        switch (tdlib_type) {
-            case "foundChatBoosts":
-                out_obj = (FoundChatBoosts) jsoner.deserialize_object (typeof (FoundChatBoosts));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundChatBoosts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24585,7 +22000,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24609,17 +22024,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundChatBoosts out_obj;
-        switch (tdlib_type) {
-            case "foundChatBoosts":
-                out_obj = (FoundChatBoosts) jsoner.deserialize_object (typeof (FoundChatBoosts));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundChatBoosts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24641,7 +22046,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24665,17 +22070,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AttachmentMenuBot out_obj;
-        switch (tdlib_type) {
-            case "attachmentMenuBot":
-                out_obj = (AttachmentMenuBot) jsoner.deserialize_object (typeof (AttachmentMenuBot));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AttachmentMenuBot) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24705,7 +22100,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24729,17 +22124,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24756,7 +22141,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetThemedEmojiStatuses ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24780,17 +22165,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiStatuses out_obj;
-        switch (tdlib_type) {
-            case "emojiStatuses":
-                out_obj = (EmojiStatuses) jsoner.deserialize_object (typeof (EmojiStatuses));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiStatuses) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24806,7 +22181,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetRecentEmojiStatuses ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24830,17 +22205,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiStatuses out_obj;
-        switch (tdlib_type) {
-            case "emojiStatuses":
-                out_obj = (EmojiStatuses) jsoner.deserialize_object (typeof (EmojiStatuses));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiStatuses) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24856,7 +22221,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDefaultEmojiStatuses ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24880,17 +22245,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiStatuses out_obj;
-        switch (tdlib_type) {
-            case "emojiStatuses":
-                out_obj = (EmojiStatuses) jsoner.deserialize_object (typeof (EmojiStatuses));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiStatuses) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24906,7 +22261,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ClearRecentEmojiStatuses ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24930,17 +22285,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -24957,7 +22302,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetThemedChatEmojiStatuses ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -24981,17 +22326,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiStatuses out_obj;
-        switch (tdlib_type) {
-            case "emojiStatuses":
-                out_obj = (EmojiStatuses) jsoner.deserialize_object (typeof (EmojiStatuses));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiStatuses) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25007,7 +22342,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDefaultChatEmojiStatuses ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25031,17 +22366,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiStatuses out_obj;
-        switch (tdlib_type) {
-            case "emojiStatuses":
-                out_obj = (EmojiStatuses) jsoner.deserialize_object (typeof (EmojiStatuses));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiStatuses) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25059,7 +22384,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDisallowedChatEmojiStatuses ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25083,17 +22408,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiStatuses out_obj;
-        switch (tdlib_type) {
-            case "emojiStatuses":
-                out_obj = (EmojiStatuses) jsoner.deserialize_object (typeof (EmojiStatuses));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiStatuses) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25137,7 +22452,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25161,17 +22476,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        File out_obj;
-        switch (tdlib_type) {
-            case "file":
-                out_obj = (File) jsoner.deserialize_object (typeof (File));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (File) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25196,7 +22501,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25220,17 +22525,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FileDownloadedPrefixSize out_obj;
-        switch (tdlib_type) {
-            case "fileDownloadedPrefixSize":
-                out_obj = (FileDownloadedPrefixSize) jsoner.deserialize_object (typeof (FileDownloadedPrefixSize));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FileDownloadedPrefixSize) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25256,7 +22551,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25280,17 +22575,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25314,7 +22599,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25338,17 +22623,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25383,7 +22658,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25407,17 +22682,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        File out_obj;
-        switch (tdlib_type) {
-            case "file":
-                out_obj = (File) jsoner.deserialize_object (typeof (File));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (File) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25439,7 +22704,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25463,17 +22728,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25503,7 +22758,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25527,17 +22782,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25565,7 +22810,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25589,17 +22834,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25624,7 +22859,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25648,17 +22883,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25692,7 +22917,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25716,17 +22941,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FilePart out_obj;
-        switch (tdlib_type) {
-            case "filePart":
-                out_obj = (FilePart) jsoner.deserialize_object (typeof (FilePart));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FilePart) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25747,7 +22962,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25771,17 +22986,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25820,7 +23025,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25844,17 +23049,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        File out_obj;
-        switch (tdlib_type) {
-            case "file":
-                out_obj = (File) jsoner.deserialize_object (typeof (File));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (File) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25878,7 +23073,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25902,17 +23097,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25934,7 +23119,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -25958,17 +23143,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25993,7 +23168,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26017,17 +23192,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26056,7 +23221,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26080,17 +23245,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26127,7 +23282,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26151,17 +23306,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundFileDownloads out_obj;
-        switch (tdlib_type) {
-            case "foundFileDownloads":
-                out_obj = (FoundFileDownloads) jsoner.deserialize_object (typeof (FoundFileDownloads));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundFileDownloads) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26190,7 +23335,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26214,17 +23359,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26247,7 +23382,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26271,23 +23406,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageFileType out_obj;
-        switch (tdlib_type) {
-            case "messageFileTypePrivate":
-                out_obj = (MessageFileTypePrivate) jsoner.deserialize_object (typeof (MessageFileTypePrivate));
-                break;
-            case "messageFileTypeGroup":
-                out_obj = (MessageFileTypeGroup) jsoner.deserialize_object (typeof (MessageFileTypeGroup));
-                break;
-            case "messageFileTypeUnknown":
-                out_obj = (MessageFileTypeUnknown) jsoner.deserialize_object (typeof (MessageFileTypeUnknown));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageFileType) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26312,7 +23431,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26336,17 +23455,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26380,7 +23489,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26404,17 +23513,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26437,7 +23536,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26461,17 +23560,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLink":
-                out_obj = (ChatInviteLink) jsoner.deserialize_object (typeof (ChatInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26510,7 +23599,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26534,17 +23623,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLink":
-                out_obj = (ChatInviteLink) jsoner.deserialize_object (typeof (ChatInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26575,7 +23654,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26599,17 +23678,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLink":
-                out_obj = (ChatInviteLink) jsoner.deserialize_object (typeof (ChatInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26654,7 +23723,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26678,17 +23747,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLink":
-                out_obj = (ChatInviteLink) jsoner.deserialize_object (typeof (ChatInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26717,7 +23776,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26741,17 +23800,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLink":
-                out_obj = (ChatInviteLink) jsoner.deserialize_object (typeof (ChatInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26777,7 +23826,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26801,17 +23850,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLink out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLink":
-                out_obj = (ChatInviteLink) jsoner.deserialize_object (typeof (ChatInviteLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26833,7 +23872,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26857,17 +23896,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLinkCounts out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLinkCounts":
-                out_obj = (ChatInviteLinkCounts) jsoner.deserialize_object (typeof (ChatInviteLinkCounts));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLinkCounts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26909,7 +23938,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -26933,17 +23962,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLinks out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLinks":
-                out_obj = (ChatInviteLinks) jsoner.deserialize_object (typeof (ChatInviteLinks));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLinks) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26981,7 +24000,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27005,17 +24024,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLinkMembers out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLinkMembers":
-                out_obj = (ChatInviteLinkMembers) jsoner.deserialize_object (typeof (ChatInviteLinkMembers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLinkMembers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27044,7 +24053,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27068,17 +24077,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLinks out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLinks":
-                out_obj = (ChatInviteLinks) jsoner.deserialize_object (typeof (ChatInviteLinks));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLinks) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27104,7 +24103,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27128,17 +24127,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27166,7 +24155,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27190,17 +24179,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27222,7 +24201,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27246,17 +24225,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatInviteLinkInfo out_obj;
-        switch (tdlib_type) {
-            case "chatInviteLinkInfo":
-                out_obj = (ChatInviteLinkInfo) jsoner.deserialize_object (typeof (ChatInviteLinkInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatInviteLinkInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27279,7 +24248,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27303,17 +24272,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Chat out_obj;
-        switch (tdlib_type) {
-            case "chat":
-                out_obj = (Chat) jsoner.deserialize_object (typeof (Chat));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Chat) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27351,7 +24310,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27375,17 +24334,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatJoinRequests out_obj;
-        switch (tdlib_type) {
-            case "chatJoinRequests":
-                out_obj = (ChatJoinRequests) jsoner.deserialize_object (typeof (ChatJoinRequests));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatJoinRequests) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27413,7 +24362,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27437,17 +24386,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27478,7 +24417,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27502,17 +24441,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27539,7 +24468,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27563,17 +24492,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CallId out_obj;
-        switch (tdlib_type) {
-            case "callId":
-                out_obj = (CallId) jsoner.deserialize_object (typeof (CallId));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CallId) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27597,7 +24516,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27621,17 +24540,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27655,7 +24564,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27679,17 +24588,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27722,7 +24621,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27746,17 +24645,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27787,7 +24676,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27811,17 +24700,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27846,7 +24725,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27870,17 +24749,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27905,7 +24774,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27929,17 +24798,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27961,7 +24820,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -27985,17 +24844,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageSenders out_obj;
-        switch (tdlib_type) {
-            case "messageSenders":
-                out_obj = (MessageSenders) jsoner.deserialize_object (typeof (MessageSenders));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageSenders) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28021,7 +24870,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28045,17 +24894,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28092,7 +24931,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28116,17 +24955,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        GroupCallId out_obj;
-        switch (tdlib_type) {
-            case "groupCallId":
-                out_obj = (GroupCallId) jsoner.deserialize_object (typeof (GroupCallId));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (GroupCallId) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28148,7 +24977,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28172,17 +25001,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        RtmpUrl out_obj;
-        switch (tdlib_type) {
-            case "rtmpUrl":
-                out_obj = (RtmpUrl) jsoner.deserialize_object (typeof (RtmpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (RtmpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28204,7 +25023,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28228,17 +25047,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        RtmpUrl out_obj;
-        switch (tdlib_type) {
-            case "rtmpUrl":
-                out_obj = (RtmpUrl) jsoner.deserialize_object (typeof (RtmpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (RtmpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28259,7 +25068,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28283,17 +25092,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        GroupCall out_obj;
-        switch (tdlib_type) {
-            case "groupCall":
-                out_obj = (GroupCall) jsoner.deserialize_object (typeof (GroupCall));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (GroupCall) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28314,7 +25113,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28338,17 +25137,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28374,7 +25163,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28398,17 +25187,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28451,7 +25230,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28475,17 +25254,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28514,7 +25283,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28538,17 +25307,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28573,7 +25332,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28597,17 +25356,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28628,7 +25377,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28652,17 +25401,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28687,7 +25426,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28711,17 +25450,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28748,7 +25477,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28772,17 +25501,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28808,7 +25527,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28832,17 +25551,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28869,7 +25578,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28893,17 +25602,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28925,7 +25624,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -28949,17 +25648,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28992,7 +25681,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29016,17 +25705,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29048,7 +25727,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29072,17 +25751,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29107,7 +25776,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29131,17 +25800,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29166,7 +25825,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29190,17 +25849,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29229,7 +25878,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29253,17 +25902,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29291,7 +25930,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29315,17 +25954,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29355,7 +25984,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29379,17 +26008,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29418,7 +26037,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29442,17 +26061,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29481,7 +26090,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29505,17 +26114,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29536,7 +26135,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29560,17 +26159,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29591,7 +26180,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29615,17 +26204,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29646,7 +26225,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29670,17 +26249,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        GroupCallStreams out_obj;
-        switch (tdlib_type) {
-            case "groupCallStreams":
-                out_obj = (GroupCallStreams) jsoner.deserialize_object (typeof (GroupCallStreams));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (GroupCallStreams) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29718,7 +26287,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29742,17 +26311,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FilePart out_obj;
-        switch (tdlib_type) {
-            case "filePart":
-                out_obj = (FilePart) jsoner.deserialize_object (typeof (FilePart));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FilePart) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29778,7 +26337,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29802,17 +26361,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29845,7 +26394,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29869,17 +26418,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29908,7 +26447,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29932,17 +26471,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageSenders out_obj;
-        switch (tdlib_type) {
-            case "messageSenders":
-                out_obj = (MessageSenders) jsoner.deserialize_object (typeof (MessageSenders));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageSenders) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29972,7 +26501,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -29996,17 +26525,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30029,7 +26548,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30053,17 +26572,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ImportedContacts out_obj;
-        switch (tdlib_type) {
-            case "importedContacts":
-                out_obj = (ImportedContacts) jsoner.deserialize_object (typeof (ImportedContacts));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ImportedContacts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30079,7 +26588,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetContacts ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30103,17 +26612,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Users out_obj;
-        switch (tdlib_type) {
-            case "users":
-                out_obj = (Users) jsoner.deserialize_object (typeof (Users));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Users) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30138,7 +26637,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30162,17 +26661,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Users out_obj;
-        switch (tdlib_type) {
-            case "users":
-                out_obj = (Users) jsoner.deserialize_object (typeof (Users));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Users) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30193,7 +26682,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30217,17 +26706,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30243,7 +26722,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetImportedContactCount ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30267,17 +26746,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Count out_obj;
-        switch (tdlib_type) {
-            case "count":
-                out_obj = (Count) jsoner.deserialize_object (typeof (Count));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Count) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30303,7 +26772,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30327,17 +26796,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ImportedContacts out_obj;
-        switch (tdlib_type) {
-            case "importedContacts":
-                out_obj = (ImportedContacts) jsoner.deserialize_object (typeof (ImportedContacts));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ImportedContacts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30353,7 +26812,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ClearImportedContacts ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30377,17 +26836,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30409,7 +26858,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30433,17 +26882,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30459,7 +26898,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetCloseFriends ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30483,17 +26922,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Users out_obj;
-        switch (tdlib_type) {
-            case "users":
-                out_obj = (Users) jsoner.deserialize_object (typeof (Users));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Users) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30518,7 +26947,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30542,17 +26971,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30577,7 +26996,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30601,17 +27020,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30636,7 +27045,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30660,17 +27069,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30695,7 +27094,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30719,17 +27118,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30755,7 +27144,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30779,17 +27168,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        User out_obj;
-        switch (tdlib_type) {
-            case "user":
-                out_obj = (User) jsoner.deserialize_object (typeof (User));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (User) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30813,7 +27192,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30837,17 +27216,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30875,7 +27244,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30899,17 +27268,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatPhotos out_obj;
-        switch (tdlib_type) {
-            case "chatPhotos":
-                out_obj = (ChatPhotos) jsoner.deserialize_object (typeof (ChatPhotos));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatPhotos) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30939,7 +27298,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -30963,17 +27322,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Outline out_obj;
-        switch (tdlib_type) {
-            case "outline":
-                out_obj = (Outline) jsoner.deserialize_object (typeof (Outline));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Outline) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31008,7 +27357,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31032,17 +27381,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31074,7 +27413,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31098,17 +27437,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Emojis out_obj;
-        switch (tdlib_type) {
-            case "emojis":
-                out_obj = (Emojis) jsoner.deserialize_object (typeof (Emojis));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Emojis) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31137,7 +27466,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31161,17 +27490,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31188,7 +27507,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetGreetingStickers ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31212,17 +27531,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31243,7 +27552,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31267,17 +27576,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31298,7 +27597,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31322,17 +27621,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSets out_obj;
-        switch (tdlib_type) {
-            case "stickerSets":
-                out_obj = (StickerSets) jsoner.deserialize_object (typeof (StickerSets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31360,7 +27649,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31384,17 +27673,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSets out_obj;
-        switch (tdlib_type) {
-            case "stickerSets":
-                out_obj = (StickerSets) jsoner.deserialize_object (typeof (StickerSets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31426,7 +27705,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31450,17 +27729,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TrendingStickerSets out_obj;
-        switch (tdlib_type) {
-            case "trendingStickerSets":
-                out_obj = (TrendingStickerSets) jsoner.deserialize_object (typeof (TrendingStickerSets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TrendingStickerSets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31483,7 +27752,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31507,17 +27776,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSets out_obj;
-        switch (tdlib_type) {
-            case "stickerSets":
-                out_obj = (StickerSets) jsoner.deserialize_object (typeof (StickerSets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31538,7 +27797,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31562,17 +27821,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSet out_obj;
-        switch (tdlib_type) {
-            case "stickerSet":
-                out_obj = (StickerSet) jsoner.deserialize_object (typeof (StickerSet));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSet) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31593,7 +27842,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31617,17 +27866,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31652,7 +27891,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31676,17 +27915,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSet out_obj;
-        switch (tdlib_type) {
-            case "stickerSet":
-                out_obj = (StickerSet) jsoner.deserialize_object (typeof (StickerSet));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSet) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31714,7 +27943,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31738,17 +27967,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSets out_obj;
-        switch (tdlib_type) {
-            case "stickerSets":
-                out_obj = (StickerSets) jsoner.deserialize_object (typeof (StickerSets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31773,7 +27992,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31797,17 +28016,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSets out_obj;
-        switch (tdlib_type) {
-            case "stickerSets":
-                out_obj = (StickerSets) jsoner.deserialize_object (typeof (StickerSets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31835,7 +28044,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31859,17 +28068,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31891,7 +28090,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31915,17 +28114,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -31950,7 +28139,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -31974,17 +28163,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32007,7 +28186,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32031,17 +28210,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32072,7 +28241,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32096,17 +28265,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32132,7 +28291,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32156,17 +28315,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32189,7 +28338,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32213,17 +28362,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32239,7 +28378,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetFavoriteStickers ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32263,17 +28402,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32299,7 +28428,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32323,17 +28452,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32354,7 +28473,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32378,17 +28497,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32411,7 +28520,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32435,17 +28544,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Emojis out_obj;
-        switch (tdlib_type) {
-            case "emojis":
-                out_obj = (Emojis) jsoner.deserialize_object (typeof (Emojis));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Emojis) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32471,7 +28570,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32495,17 +28594,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiKeywords out_obj;
-        switch (tdlib_type) {
-            case "emojiKeywords":
-                out_obj = (EmojiKeywords) jsoner.deserialize_object (typeof (EmojiKeywords));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiKeywords) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32531,7 +28620,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32555,17 +28644,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Emojis out_obj;
-        switch (tdlib_type) {
-            case "emojis":
-                out_obj = (Emojis) jsoner.deserialize_object (typeof (Emojis));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Emojis) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32587,7 +28666,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32611,17 +28690,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmojiCategories out_obj;
-        switch (tdlib_type) {
-            case "emojiCategories":
-                out_obj = (EmojiCategories) jsoner.deserialize_object (typeof (EmojiCategories));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmojiCategories) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32643,7 +28712,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32667,17 +28736,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AnimatedEmoji out_obj;
-        switch (tdlib_type) {
-            case "animatedEmoji":
-                out_obj = (AnimatedEmoji) jsoner.deserialize_object (typeof (AnimatedEmoji));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AnimatedEmoji) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32701,7 +28760,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32725,17 +28784,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32759,7 +28808,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32783,17 +28832,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32810,7 +28849,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDefaultChatPhotoCustomEmojiStickers ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32834,17 +28873,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32861,7 +28890,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDefaultProfilePhotoCustomEmojiStickers ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32885,17 +28914,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32911,7 +28930,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDefaultBackgroundCustomEmojiStickers ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32935,17 +28954,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -32961,7 +28970,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetSavedAnimations ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -32985,17 +28994,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Animations out_obj;
-        switch (tdlib_type) {
-            case "animations":
-                out_obj = (Animations) jsoner.deserialize_object (typeof (Animations));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Animations) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33022,7 +29021,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33046,17 +29045,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33077,7 +29066,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33101,17 +29090,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33128,7 +29107,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetRecentInlineBots ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33152,17 +29131,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Users out_obj;
-        switch (tdlib_type) {
-            case "users":
-                out_obj = (Users) jsoner.deserialize_object (typeof (Users));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Users) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33186,7 +29155,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33210,17 +29179,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Hashtags out_obj;
-        switch (tdlib_type) {
-            case "hashtags":
-                out_obj = (Hashtags) jsoner.deserialize_object (typeof (Hashtags));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Hashtags) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33241,7 +29200,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33265,17 +29224,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33302,7 +29251,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33326,17 +29275,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LinkPreview out_obj;
-        switch (tdlib_type) {
-            case "linkPreview":
-                out_obj = (LinkPreview) jsoner.deserialize_object (typeof (LinkPreview));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LinkPreview) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33361,7 +29300,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33385,17 +29324,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        WebPageInstantView out_obj;
-        switch (tdlib_type) {
-            case "webPageInstantView":
-                out_obj = (WebPageInstantView) jsoner.deserialize_object (typeof (WebPageInstantView));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (WebPageInstantView) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33420,7 +29349,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33444,17 +29373,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33475,7 +29394,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33499,17 +29418,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33535,7 +29444,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33559,17 +29468,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33596,7 +29495,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33620,17 +29519,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33656,7 +29545,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33680,17 +29569,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33712,7 +29591,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33736,17 +29615,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33769,7 +29638,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33793,17 +29662,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33831,7 +29690,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33855,17 +29714,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33887,7 +29736,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33911,17 +29760,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33943,7 +29782,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -33967,17 +29806,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -33999,7 +29828,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34023,17 +29852,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34056,7 +29875,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34080,17 +29899,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34114,7 +29923,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34138,17 +29947,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34171,7 +29970,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34195,17 +29994,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34228,7 +30017,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34252,17 +30041,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34285,7 +30064,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34309,17 +30088,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34342,7 +30111,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34366,17 +30135,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34399,7 +30158,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34423,17 +30182,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34463,7 +30212,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34487,17 +30236,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AuthenticationCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "authenticationCodeInfo":
-                out_obj = (AuthenticationCodeInfo) jsoner.deserialize_object (typeof (AuthenticationCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AuthenticationCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34523,7 +30262,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34547,17 +30286,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34579,7 +30308,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34603,17 +30332,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34636,7 +30355,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34660,17 +30379,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AuthenticationCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "authenticationCodeInfo":
-                out_obj = (AuthenticationCodeInfo) jsoner.deserialize_object (typeof (AuthenticationCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AuthenticationCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34692,7 +30401,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34716,17 +30425,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34743,7 +30442,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetBusinessConnectedBot ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34767,17 +30466,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessConnectedBot out_obj;
-        switch (tdlib_type) {
-            case "businessConnectedBot":
-                out_obj = (BusinessConnectedBot) jsoner.deserialize_object (typeof (BusinessConnectedBot));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessConnectedBot) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34799,7 +30488,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34823,17 +30512,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34854,7 +30533,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34878,17 +30557,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34913,7 +30582,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34937,17 +30606,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -34969,7 +30628,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -34993,17 +30652,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35019,7 +30668,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetBusinessChatLinks ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35043,17 +30692,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessChatLinks out_obj;
-        switch (tdlib_type) {
-            case "businessChatLinks":
-                out_obj = (BusinessChatLinks) jsoner.deserialize_object (typeof (BusinessChatLinks));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessChatLinks) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35077,7 +30716,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35101,17 +30740,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessChatLink out_obj;
-        switch (tdlib_type) {
-            case "businessChatLink":
-                out_obj = (BusinessChatLink) jsoner.deserialize_object (typeof (BusinessChatLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessChatLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35136,7 +30765,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35160,17 +30789,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessChatLink out_obj;
-        switch (tdlib_type) {
-            case "businessChatLink":
-                out_obj = (BusinessChatLink) jsoner.deserialize_object (typeof (BusinessChatLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessChatLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35191,7 +30810,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35215,17 +30834,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35246,7 +30855,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35270,17 +30879,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessChatLinkInfo out_obj;
-        switch (tdlib_type) {
-            case "businessChatLinkInfo":
-                out_obj = (BusinessChatLinkInfo) jsoner.deserialize_object (typeof (BusinessChatLinkInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessChatLinkInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35297,7 +30896,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetUserLink ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35321,17 +30920,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        UserLink out_obj;
-        switch (tdlib_type) {
-            case "userLink":
-                out_obj = (UserLink) jsoner.deserialize_object (typeof (UserLink));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (UserLink) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35352,7 +30941,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35376,17 +30965,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        User out_obj;
-        switch (tdlib_type) {
-            case "user":
-                out_obj = (User) jsoner.deserialize_object (typeof (User));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (User) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35417,7 +30996,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35441,17 +31020,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35478,7 +31047,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35502,17 +31071,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35539,7 +31098,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35563,17 +31122,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BotCommands out_obj;
-        switch (tdlib_type) {
-            case "botCommands":
-                out_obj = (BotCommands) jsoner.deserialize_object (typeof (BotCommands));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BotCommands) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35598,7 +31147,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35622,17 +31171,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35654,7 +31193,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35678,17 +31217,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BotMenuButton out_obj;
-        switch (tdlib_type) {
-            case "botMenuButton":
-                out_obj = (BotMenuButton) jsoner.deserialize_object (typeof (BotMenuButton));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BotMenuButton) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35712,7 +31241,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35736,17 +31265,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35770,7 +31289,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35794,17 +31313,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35827,7 +31336,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35851,17 +31360,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35882,7 +31381,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35906,17 +31405,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35943,7 +31432,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -35967,17 +31456,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CustomRequestResult out_obj;
-        switch (tdlib_type) {
-            case "customRequestResult":
-                out_obj = (CustomRequestResult) jsoner.deserialize_object (typeof (CustomRequestResult));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CustomRequestResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -35999,7 +31478,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36023,17 +31502,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BotMediaPreviews out_obj;
-        switch (tdlib_type) {
-            case "botMediaPreviews":
-                out_obj = (BotMediaPreviews) jsoner.deserialize_object (typeof (BotMediaPreviews));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BotMediaPreviews) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36060,7 +31529,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36084,17 +31553,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BotMediaPreviewInfo out_obj;
-        switch (tdlib_type) {
-            case "botMediaPreviewInfo":
-                out_obj = (BotMediaPreviewInfo) jsoner.deserialize_object (typeof (BotMediaPreviewInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BotMediaPreviewInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36129,7 +31588,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36153,17 +31612,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BotMediaPreview out_obj;
-        switch (tdlib_type) {
-            case "botMediaPreview":
-                out_obj = (BotMediaPreview) jsoner.deserialize_object (typeof (BotMediaPreview));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BotMediaPreview) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36195,7 +31644,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36219,17 +31668,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BotMediaPreview out_obj;
-        switch (tdlib_type) {
-            case "botMediaPreview":
-                out_obj = (BotMediaPreview) jsoner.deserialize_object (typeof (BotMediaPreview));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BotMediaPreview) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36257,7 +31696,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36281,17 +31720,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36319,7 +31748,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36343,17 +31772,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36384,7 +31803,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36408,17 +31827,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36444,7 +31853,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36468,17 +31877,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36502,7 +31901,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36526,17 +31925,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36568,7 +31957,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36592,17 +31981,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36628,7 +32007,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36652,17 +32031,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36692,7 +32061,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36716,17 +32085,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36753,7 +32112,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36777,17 +32136,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36819,7 +32168,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36843,17 +32192,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36880,7 +32219,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36904,17 +32243,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36930,7 +32259,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetActiveSessions ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -36954,17 +32283,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Sessions out_obj;
-        switch (tdlib_type) {
-            case "sessions":
-                out_obj = (Sessions) jsoner.deserialize_object (typeof (Sessions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Sessions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -36985,7 +32304,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37009,17 +32328,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37035,7 +32344,7 @@ public sealed class TDLib.Client : Object {
         var obj = new TerminateAllOtherSessions ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37059,17 +32368,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37091,7 +32390,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37115,17 +32414,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37150,7 +32439,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37174,17 +32463,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37209,7 +32488,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37233,17 +32512,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37266,7 +32535,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37290,17 +32559,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37316,7 +32575,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetConnectedWebsites ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37340,17 +32599,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ConnectedWebsites out_obj;
-        switch (tdlib_type) {
-            case "connectedWebsites":
-                out_obj = (ConnectedWebsites) jsoner.deserialize_object (typeof (ConnectedWebsites));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ConnectedWebsites) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37371,7 +32620,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37395,17 +32644,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37421,7 +32660,7 @@ public sealed class TDLib.Client : Object {
         var obj = new DisconnectAllWebsites ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37445,17 +32684,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37482,7 +32711,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37506,17 +32735,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37548,7 +32767,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37572,17 +32791,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37604,7 +32813,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37628,17 +32837,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37664,7 +32863,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37688,17 +32887,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37724,7 +32913,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37748,17 +32937,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37787,7 +32966,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37811,17 +32990,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37848,7 +33017,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37872,17 +33041,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37910,7 +33069,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37934,17 +33093,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37970,7 +33119,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -37994,17 +33143,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38031,7 +33170,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38055,17 +33194,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38091,7 +33220,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38115,17 +33244,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38153,7 +33272,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38177,17 +33296,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38213,7 +33322,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38237,17 +33346,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38275,7 +33374,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38299,17 +33398,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38334,7 +33423,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38358,17 +33447,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38390,7 +33469,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38414,17 +33493,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38451,7 +33520,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38475,17 +33544,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38513,7 +33572,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38537,17 +33596,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38581,7 +33630,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38605,17 +33654,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatMembers out_obj;
-        switch (tdlib_type) {
-            case "chatMembers":
-                out_obj = (ChatMembers) jsoner.deserialize_object (typeof (ChatMembers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatMembers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38637,7 +33676,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38661,17 +33700,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38713,7 +33742,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38737,17 +33766,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatEvents out_obj;
-        switch (tdlib_type) {
-            case "chatEvents":
-                out_obj = (ChatEvents) jsoner.deserialize_object (typeof (ChatEvents));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatEvents) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38763,7 +33782,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetTimeZones ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38787,17 +33806,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TimeZones out_obj;
-        switch (tdlib_type) {
-            case "timeZones":
-                out_obj = (TimeZones) jsoner.deserialize_object (typeof (TimeZones));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TimeZones) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38824,7 +33833,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38848,17 +33857,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PaymentForm out_obj;
-        switch (tdlib_type) {
-            case "paymentForm":
-                out_obj = (PaymentForm) jsoner.deserialize_object (typeof (PaymentForm));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PaymentForm) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38887,7 +33886,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38911,17 +33910,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ValidatedOrderInfo out_obj;
-        switch (tdlib_type) {
-            case "validatedOrderInfo":
-                out_obj = (ValidatedOrderInfo) jsoner.deserialize_object (typeof (ValidatedOrderInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ValidatedOrderInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -38962,7 +33951,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -38986,17 +33975,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PaymentResult out_obj;
-        switch (tdlib_type) {
-            case "paymentResult":
-                out_obj = (PaymentResult) jsoner.deserialize_object (typeof (PaymentResult));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PaymentResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39020,7 +33999,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39044,17 +34023,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PaymentReceipt out_obj;
-        switch (tdlib_type) {
-            case "paymentReceipt":
-                out_obj = (PaymentReceipt) jsoner.deserialize_object (typeof (PaymentReceipt));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PaymentReceipt) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39071,7 +34040,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetSavedOrderInfo ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39095,17 +34064,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        OrderInfo out_obj;
-        switch (tdlib_type) {
-            case "orderInfo":
-                out_obj = (OrderInfo) jsoner.deserialize_object (typeof (OrderInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (OrderInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39121,7 +34080,7 @@ public sealed class TDLib.Client : Object {
         var obj = new DeleteSavedOrderInfo ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39145,17 +34104,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39171,7 +34120,7 @@ public sealed class TDLib.Client : Object {
         var obj = new DeleteSavedCredentials ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39195,17 +34144,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39221,7 +34160,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetAvailableGifts ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39245,17 +34184,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Gifts out_obj;
-        switch (tdlib_type) {
-            case "gifts":
-                out_obj = (Gifts) jsoner.deserialize_object (typeof (Gifts));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Gifts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39291,7 +34220,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39315,17 +34244,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39350,7 +34269,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39374,17 +34293,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39413,7 +34322,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39437,17 +34346,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39478,7 +34377,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39502,17 +34401,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        UserGifts out_obj;
-        switch (tdlib_type) {
-            case "userGifts":
-                out_obj = (UserGifts) jsoner.deserialize_object (typeof (UserGifts));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (UserGifts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39538,7 +34427,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39562,17 +34451,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39596,7 +34475,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39620,17 +34499,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39646,7 +34515,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetSupportUser ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39670,17 +34539,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        User out_obj;
-        switch (tdlib_type) {
-            case "user":
-                out_obj = (User) jsoner.deserialize_object (typeof (User));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (User) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39704,7 +34563,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39728,17 +34587,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39759,7 +34608,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39783,17 +34632,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Background out_obj;
-        switch (tdlib_type) {
-            case "background":
-                out_obj = (Background) jsoner.deserialize_object (typeof (Background));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Background) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39824,7 +34663,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39848,17 +34687,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Background out_obj;
-        switch (tdlib_type) {
-            case "background":
-                out_obj = (Background) jsoner.deserialize_object (typeof (Background));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Background) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39880,7 +34709,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39904,17 +34733,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39936,7 +34755,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -39960,17 +34779,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Backgrounds out_obj;
-        switch (tdlib_type) {
-            case "backgrounds":
-                out_obj = (Backgrounds) jsoner.deserialize_object (typeof (Backgrounds));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Backgrounds) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -39991,7 +34800,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40015,17 +34824,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40041,7 +34840,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResetInstalledBackgrounds ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40065,17 +34864,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40099,7 +34888,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40123,17 +34912,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LocalizationTargetInfo out_obj;
-        switch (tdlib_type) {
-            case "localizationTargetInfo":
-                out_obj = (LocalizationTargetInfo) jsoner.deserialize_object (typeof (LocalizationTargetInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LocalizationTargetInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40156,7 +34935,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40180,17 +34959,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LanguagePackInfo out_obj;
-        switch (tdlib_type) {
-            case "languagePackInfo":
-                out_obj = (LanguagePackInfo) jsoner.deserialize_object (typeof (LanguagePackInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LanguagePackInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40217,7 +34986,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40241,17 +35010,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LanguagePackStrings out_obj;
-        switch (tdlib_type) {
-            case "languagePackStrings":
-                out_obj = (LanguagePackStrings) jsoner.deserialize_object (typeof (LanguagePackStrings));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LanguagePackStrings) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40275,7 +35034,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40299,17 +35058,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40332,7 +35081,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40356,17 +35105,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40394,7 +35133,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40418,17 +35157,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40450,7 +35179,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40474,17 +35203,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40510,7 +35229,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40534,17 +35253,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40569,7 +35278,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40593,17 +35302,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40630,7 +35329,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40654,17 +35353,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PushReceiverId out_obj;
-        switch (tdlib_type) {
-            case "pushReceiverId":
-                out_obj = (PushReceiverId) jsoner.deserialize_object (typeof (PushReceiverId));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PushReceiverId) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40689,7 +35378,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40713,17 +35402,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40760,17 +35439,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PushReceiverId out_obj;
-        switch (tdlib_type) {
-            case "pushReceiverId":
-                out_obj = (PushReceiverId) jsoner.deserialize_object (typeof (PushReceiverId));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PushReceiverId) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40793,7 +35462,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40817,17 +35486,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PushReceiverId out_obj;
-        switch (tdlib_type) {
-            case "pushReceiverId":
-                out_obj = (PushReceiverId) jsoner.deserialize_object (typeof (PushReceiverId));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PushReceiverId) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40848,7 +35507,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40872,17 +35531,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TMeUrls out_obj;
-        switch (tdlib_type) {
-            case "tMeUrls":
-                out_obj = (TMeUrls) jsoner.deserialize_object (typeof (TMeUrls));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TMeUrls) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40906,7 +35555,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40930,17 +35579,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40961,7 +35600,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -40985,17 +35624,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        UserPrivacySettingRules out_obj;
-        switch (tdlib_type) {
-            case "userPrivacySettingRules":
-                out_obj = (UserPrivacySettingRules) jsoner.deserialize_object (typeof (UserPrivacySettingRules));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (UserPrivacySettingRules) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41016,7 +35645,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41040,17 +35669,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41066,7 +35685,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetReadDatePrivacySettings ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41090,17 +35709,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ReadDatePrivacySettings out_obj;
-        switch (tdlib_type) {
-            case "readDatePrivacySettings":
-                out_obj = (ReadDatePrivacySettings) jsoner.deserialize_object (typeof (ReadDatePrivacySettings));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ReadDatePrivacySettings) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41122,7 +35731,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41146,17 +35755,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41172,7 +35771,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetNewChatPrivacySettings ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41196,17 +35795,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        NewChatPrivacySettings out_obj;
-        switch (tdlib_type) {
-            case "newChatPrivacySettings":
-                out_obj = (NewChatPrivacySettings) jsoner.deserialize_object (typeof (NewChatPrivacySettings));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (NewChatPrivacySettings) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41232,7 +35821,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41256,23 +35845,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CanSendMessageToUserResult out_obj;
-        switch (tdlib_type) {
-            case "canSendMessageToUserResultOk":
-                out_obj = (CanSendMessageToUserResultOk) jsoner.deserialize_object (typeof (CanSendMessageToUserResultOk));
-                break;
-            case "canSendMessageToUserResultUserIsDeleted":
-                out_obj = (CanSendMessageToUserResultUserIsDeleted) jsoner.deserialize_object (typeof (CanSendMessageToUserResultUserIsDeleted));
-                break;
-            case "canSendMessageToUserResultUserRestrictsNewChats":
-                out_obj = (CanSendMessageToUserResultUserRestrictsNewChats) jsoner.deserialize_object (typeof (CanSendMessageToUserResultUserRestrictsNewChats));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CanSendMessageToUserResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41310,26 +35883,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        OptionValue out_obj;
-        switch (tdlib_type) {
-            case "optionValueBoolean":
-                out_obj = (OptionValueBoolean) jsoner.deserialize_object (typeof (OptionValueBoolean));
-                break;
-            case "optionValueEmpty":
-                out_obj = (OptionValueEmpty) jsoner.deserialize_object (typeof (OptionValueEmpty));
-                break;
-            case "optionValueInteger":
-                out_obj = (OptionValueInteger) jsoner.deserialize_object (typeof (OptionValueInteger));
-                break;
-            case "optionValueString":
-                out_obj = (OptionValueString) jsoner.deserialize_object (typeof (OptionValueString));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (OptionValue) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41353,7 +35907,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41377,26 +35931,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        OptionValue out_obj;
-        switch (tdlib_type) {
-            case "optionValueBoolean":
-                out_obj = (OptionValueBoolean) jsoner.deserialize_object (typeof (OptionValueBoolean));
-                break;
-            case "optionValueEmpty":
-                out_obj = (OptionValueEmpty) jsoner.deserialize_object (typeof (OptionValueEmpty));
-                break;
-            case "optionValueInteger":
-                out_obj = (OptionValueInteger) jsoner.deserialize_object (typeof (OptionValueInteger));
-                break;
-            case "optionValueString":
-                out_obj = (OptionValueString) jsoner.deserialize_object (typeof (OptionValueString));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (OptionValue) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41423,7 +35958,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41447,17 +35982,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41479,7 +36004,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41503,17 +36028,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41530,7 +36045,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetAccountTtl ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41554,17 +36069,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AccountTtl out_obj;
-        switch (tdlib_type) {
-            case "accountTtl":
-                out_obj = (AccountTtl) jsoner.deserialize_object (typeof (AccountTtl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AccountTtl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41594,7 +36099,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41618,17 +36123,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41651,7 +36146,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41675,17 +36170,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41701,7 +36186,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDefaultMessageAutoDeleteTime ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41725,17 +36210,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageAutoDeleteTime out_obj;
-        switch (tdlib_type) {
-            case "messageAutoDeleteTime":
-                out_obj = (MessageAutoDeleteTime) jsoner.deserialize_object (typeof (MessageAutoDeleteTime));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageAutoDeleteTime) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41756,7 +36231,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41780,17 +36255,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41825,7 +36290,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41849,26 +36314,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ReportChatResult out_obj;
-        switch (tdlib_type) {
-            case "reportChatResultOk":
-                out_obj = (ReportChatResultOk) jsoner.deserialize_object (typeof (ReportChatResultOk));
-                break;
-            case "reportChatResultOptionRequired":
-                out_obj = (ReportChatResultOptionRequired) jsoner.deserialize_object (typeof (ReportChatResultOptionRequired));
-                break;
-            case "reportChatResultTextRequired":
-                out_obj = (ReportChatResultTextRequired) jsoner.deserialize_object (typeof (ReportChatResultTextRequired));
-                break;
-            case "reportChatResultMessagesRequired":
-                out_obj = (ReportChatResultMessagesRequired) jsoner.deserialize_object (typeof (ReportChatResultMessagesRequired));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ReportChatResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41900,7 +36346,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41924,17 +36370,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41963,7 +36399,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -41987,17 +36423,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42024,7 +36450,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42048,17 +36474,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatRevenueStatistics out_obj;
-        switch (tdlib_type) {
-            case "chatRevenueStatistics":
-                out_obj = (ChatRevenueStatistics) jsoner.deserialize_object (typeof (ChatRevenueStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatRevenueStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42087,7 +36503,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42111,17 +36527,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42152,7 +36558,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42176,17 +36582,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatRevenueTransactions out_obj;
-        switch (tdlib_type) {
-            case "chatRevenueTransactions":
-                out_obj = (ChatRevenueTransactions) jsoner.deserialize_object (typeof (ChatRevenueTransactions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatRevenueTransactions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42212,7 +36608,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42236,17 +36632,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StarRevenueStatistics out_obj;
-        switch (tdlib_type) {
-            case "starRevenueStatistics":
-                out_obj = (StarRevenueStatistics) jsoner.deserialize_object (typeof (StarRevenueStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StarRevenueStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42275,7 +36661,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42299,17 +36685,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42332,7 +36708,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42356,17 +36732,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42392,7 +36758,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42416,20 +36782,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        ChatStatistics out_obj;
-        switch (tdlib_type) {
-            case "chatStatisticsSupergroup":
-                out_obj = (ChatStatisticsSupergroup) jsoner.deserialize_object (typeof (ChatStatisticsSupergroup));
-                break;
-            case "chatStatisticsChannel":
-                out_obj = (ChatStatisticsChannel) jsoner.deserialize_object (typeof (ChatStatisticsChannel));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (ChatStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42457,7 +36810,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42481,17 +36834,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        MessageStatistics out_obj;
-        switch (tdlib_type) {
-            case "messageStatistics":
-                out_obj = (MessageStatistics) jsoner.deserialize_object (typeof (MessageStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (MessageStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42528,7 +36871,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42552,17 +36895,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PublicForwards out_obj;
-        switch (tdlib_type) {
-            case "publicForwards":
-                out_obj = (PublicForwards) jsoner.deserialize_object (typeof (PublicForwards));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PublicForwards) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42590,7 +36923,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42614,17 +36947,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StoryStatistics out_obj;
-        switch (tdlib_type) {
-            case "storyStatistics":
-                out_obj = (StoryStatistics) jsoner.deserialize_object (typeof (StoryStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StoryStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42651,7 +36974,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42675,23 +36998,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StatisticalGraph out_obj;
-        switch (tdlib_type) {
-            case "statisticalGraphData":
-                out_obj = (StatisticalGraphData) jsoner.deserialize_object (typeof (StatisticalGraphData));
-                break;
-            case "statisticalGraphAsync":
-                out_obj = (StatisticalGraphAsync) jsoner.deserialize_object (typeof (StatisticalGraphAsync));
-                break;
-            case "statisticalGraphError":
-                out_obj = (StatisticalGraphError) jsoner.deserialize_object (typeof (StatisticalGraphError));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StatisticalGraph) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42715,7 +37022,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42739,17 +37046,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StorageStatistics out_obj;
-        switch (tdlib_type) {
-            case "storageStatistics":
-                out_obj = (StorageStatistics) jsoner.deserialize_object (typeof (StorageStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StorageStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42766,7 +37063,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetStorageStatisticsFast ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42790,17 +37087,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StorageStatisticsFast out_obj;
-        switch (tdlib_type) {
-            case "storageStatisticsFast":
-                out_obj = (StorageStatisticsFast) jsoner.deserialize_object (typeof (StorageStatisticsFast));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StorageStatisticsFast) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42816,7 +37103,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetDatabaseStatistics ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42840,17 +37127,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        DatabaseStatistics out_obj;
-        switch (tdlib_type) {
-            case "databaseStatistics":
-                out_obj = (DatabaseStatistics) jsoner.deserialize_object (typeof (DatabaseStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (DatabaseStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42911,7 +37188,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42935,17 +37212,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StorageStatistics out_obj;
-        switch (tdlib_type) {
-            case "storageStatistics":
-                out_obj = (StorageStatistics) jsoner.deserialize_object (typeof (StorageStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StorageStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42973,7 +37240,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -42997,17 +37264,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43030,7 +37287,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43054,17 +37311,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        NetworkStatistics out_obj;
-        switch (tdlib_type) {
-            case "networkStatistics":
-                out_obj = (NetworkStatistics) jsoner.deserialize_object (typeof (NetworkStatistics));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (NetworkStatistics) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43087,7 +37334,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43111,17 +37358,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43138,7 +37375,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResetNetworkStatistics ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43162,17 +37399,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43188,7 +37415,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetAutoDownloadSettingsPresets ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43212,17 +37439,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AutoDownloadSettingsPresets out_obj;
-        switch (tdlib_type) {
-            case "autoDownloadSettingsPresets":
-                out_obj = (AutoDownloadSettingsPresets) jsoner.deserialize_object (typeof (AutoDownloadSettingsPresets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AutoDownloadSettingsPresets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43247,7 +37464,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43271,17 +37488,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43297,7 +37504,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetAutosaveSettings ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43321,17 +37528,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        AutosaveSettings out_obj;
-        switch (tdlib_type) {
-            case "autosaveSettings":
-                out_obj = (AutosaveSettings) jsoner.deserialize_object (typeof (AutosaveSettings));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (AutosaveSettings) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43357,7 +37554,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43381,17 +37578,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43408,7 +37595,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ClearAutosaveSettingsExceptions ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43432,17 +37619,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43463,7 +37640,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43487,17 +37664,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BankCardInfo out_obj;
-        switch (tdlib_type) {
-            case "bankCardInfo":
-                out_obj = (BankCardInfo) jsoner.deserialize_object (typeof (BankCardInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BankCardInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43521,7 +37688,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43545,53 +37712,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PassportElement out_obj;
-        switch (tdlib_type) {
-            case "passportElementPersonalDetails":
-                out_obj = (PassportElementPersonalDetails) jsoner.deserialize_object (typeof (PassportElementPersonalDetails));
-                break;
-            case "passportElementPassport":
-                out_obj = (PassportElementPassport) jsoner.deserialize_object (typeof (PassportElementPassport));
-                break;
-            case "passportElementDriverLicense":
-                out_obj = (PassportElementDriverLicense) jsoner.deserialize_object (typeof (PassportElementDriverLicense));
-                break;
-            case "passportElementIdentityCard":
-                out_obj = (PassportElementIdentityCard) jsoner.deserialize_object (typeof (PassportElementIdentityCard));
-                break;
-            case "passportElementInternalPassport":
-                out_obj = (PassportElementInternalPassport) jsoner.deserialize_object (typeof (PassportElementInternalPassport));
-                break;
-            case "passportElementAddress":
-                out_obj = (PassportElementAddress) jsoner.deserialize_object (typeof (PassportElementAddress));
-                break;
-            case "passportElementUtilityBill":
-                out_obj = (PassportElementUtilityBill) jsoner.deserialize_object (typeof (PassportElementUtilityBill));
-                break;
-            case "passportElementBankStatement":
-                out_obj = (PassportElementBankStatement) jsoner.deserialize_object (typeof (PassportElementBankStatement));
-                break;
-            case "passportElementRentalAgreement":
-                out_obj = (PassportElementRentalAgreement) jsoner.deserialize_object (typeof (PassportElementRentalAgreement));
-                break;
-            case "passportElementPassportRegistration":
-                out_obj = (PassportElementPassportRegistration) jsoner.deserialize_object (typeof (PassportElementPassportRegistration));
-                break;
-            case "passportElementTemporaryRegistration":
-                out_obj = (PassportElementTemporaryRegistration) jsoner.deserialize_object (typeof (PassportElementTemporaryRegistration));
-                break;
-            case "passportElementPhoneNumber":
-                out_obj = (PassportElementPhoneNumber) jsoner.deserialize_object (typeof (PassportElementPhoneNumber));
-                break;
-            case "passportElementEmailAddress":
-                out_obj = (PassportElementEmailAddress) jsoner.deserialize_object (typeof (PassportElementEmailAddress));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PassportElement) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43612,7 +37733,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43636,17 +37757,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PassportElements out_obj;
-        switch (tdlib_type) {
-            case "passportElements":
-                out_obj = (PassportElements) jsoner.deserialize_object (typeof (PassportElements));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PassportElements) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43673,7 +37784,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43697,53 +37808,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PassportElement out_obj;
-        switch (tdlib_type) {
-            case "passportElementPersonalDetails":
-                out_obj = (PassportElementPersonalDetails) jsoner.deserialize_object (typeof (PassportElementPersonalDetails));
-                break;
-            case "passportElementPassport":
-                out_obj = (PassportElementPassport) jsoner.deserialize_object (typeof (PassportElementPassport));
-                break;
-            case "passportElementDriverLicense":
-                out_obj = (PassportElementDriverLicense) jsoner.deserialize_object (typeof (PassportElementDriverLicense));
-                break;
-            case "passportElementIdentityCard":
-                out_obj = (PassportElementIdentityCard) jsoner.deserialize_object (typeof (PassportElementIdentityCard));
-                break;
-            case "passportElementInternalPassport":
-                out_obj = (PassportElementInternalPassport) jsoner.deserialize_object (typeof (PassportElementInternalPassport));
-                break;
-            case "passportElementAddress":
-                out_obj = (PassportElementAddress) jsoner.deserialize_object (typeof (PassportElementAddress));
-                break;
-            case "passportElementUtilityBill":
-                out_obj = (PassportElementUtilityBill) jsoner.deserialize_object (typeof (PassportElementUtilityBill));
-                break;
-            case "passportElementBankStatement":
-                out_obj = (PassportElementBankStatement) jsoner.deserialize_object (typeof (PassportElementBankStatement));
-                break;
-            case "passportElementRentalAgreement":
-                out_obj = (PassportElementRentalAgreement) jsoner.deserialize_object (typeof (PassportElementRentalAgreement));
-                break;
-            case "passportElementPassportRegistration":
-                out_obj = (PassportElementPassportRegistration) jsoner.deserialize_object (typeof (PassportElementPassportRegistration));
-                break;
-            case "passportElementTemporaryRegistration":
-                out_obj = (PassportElementTemporaryRegistration) jsoner.deserialize_object (typeof (PassportElementTemporaryRegistration));
-                break;
-            case "passportElementPhoneNumber":
-                out_obj = (PassportElementPhoneNumber) jsoner.deserialize_object (typeof (PassportElementPhoneNumber));
-                break;
-            case "passportElementEmailAddress":
-                out_obj = (PassportElementEmailAddress) jsoner.deserialize_object (typeof (PassportElementEmailAddress));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PassportElement) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43764,7 +37829,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43788,17 +37853,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43824,7 +37879,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43848,17 +37903,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43881,7 +37926,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43905,17 +37950,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43937,7 +37972,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -43961,17 +37996,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmailAddressAuthenticationCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "emailAddressAuthenticationCodeInfo":
-                out_obj = (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (typeof (EmailAddressAuthenticationCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -43988,7 +38013,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ResendEmailAddressVerificationCode ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44012,17 +38037,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        EmailAddressAuthenticationCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "emailAddressAuthenticationCodeInfo":
-                out_obj = (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (typeof (EmailAddressAuthenticationCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (EmailAddressAuthenticationCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44043,7 +38058,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44067,17 +38082,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44108,7 +38113,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44132,17 +38137,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PassportAuthorizationForm out_obj;
-        switch (tdlib_type) {
-            case "passportAuthorizationForm":
-                out_obj = (PassportAuthorizationForm) jsoner.deserialize_object (typeof (PassportAuthorizationForm));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PassportAuthorizationForm) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44168,7 +38163,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44192,17 +38187,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PassportElementsWithErrors out_obj;
-        switch (tdlib_type) {
-            case "passportElementsWithErrors":
-                out_obj = (PassportElementsWithErrors) jsoner.deserialize_object (typeof (PassportElementsWithErrors));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PassportElementsWithErrors) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44230,7 +38215,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44254,17 +38239,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44289,7 +38264,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44313,17 +38288,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44354,7 +38319,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44378,17 +38343,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        File out_obj;
-        switch (tdlib_type) {
-            case "file":
-                out_obj = (File) jsoner.deserialize_object (typeof (File));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (File) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44409,7 +38364,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44433,17 +38388,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44464,7 +38409,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44488,23 +38433,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CheckStickerSetNameResult out_obj;
-        switch (tdlib_type) {
-            case "checkStickerSetNameResultOk":
-                out_obj = (CheckStickerSetNameResultOk) jsoner.deserialize_object (typeof (CheckStickerSetNameResultOk));
-                break;
-            case "checkStickerSetNameResultNameInvalid":
-                out_obj = (CheckStickerSetNameResultNameInvalid) jsoner.deserialize_object (typeof (CheckStickerSetNameResultNameInvalid));
-                break;
-            case "checkStickerSetNameResultNameOccupied":
-                out_obj = (CheckStickerSetNameResultNameOccupied) jsoner.deserialize_object (typeof (CheckStickerSetNameResultNameOccupied));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CheckStickerSetNameResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44551,7 +38480,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44575,17 +38504,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSet out_obj;
-        switch (tdlib_type) {
-            case "stickerSet":
-                out_obj = (StickerSet) jsoner.deserialize_object (typeof (StickerSet));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSet) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44614,7 +38533,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44638,17 +38557,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44681,7 +38590,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44705,17 +38614,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44748,7 +38647,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44772,17 +38671,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44809,7 +38698,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44833,17 +38722,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44868,7 +38747,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44892,17 +38771,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44924,7 +38793,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -44948,17 +38817,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -44983,7 +38842,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45007,17 +38866,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45039,7 +38888,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45063,17 +38912,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45099,7 +38938,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45123,17 +38962,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45160,7 +38989,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45184,17 +39013,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45220,7 +39039,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45244,17 +39063,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45282,7 +39091,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45306,17 +39115,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StickerSets out_obj;
-        switch (tdlib_type) {
-            case "stickerSets":
-                out_obj = (StickerSets) jsoner.deserialize_object (typeof (StickerSets));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StickerSets) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45354,7 +39153,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45378,17 +39177,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        File out_obj;
-        switch (tdlib_type) {
-            case "file":
-                out_obj = (File) jsoner.deserialize_object (typeof (File));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (File) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45410,7 +39199,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45434,17 +39223,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PremiumLimit out_obj;
-        switch (tdlib_type) {
-            case "premiumLimit":
-                out_obj = (PremiumLimit) jsoner.deserialize_object (typeof (PremiumLimit));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PremiumLimit) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45466,7 +39245,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45490,17 +39269,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PremiumFeatures out_obj;
-        switch (tdlib_type) {
-            case "premiumFeatures":
-                out_obj = (PremiumFeatures) jsoner.deserialize_object (typeof (PremiumFeatures));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PremiumFeatures) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45516,7 +39285,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetPremiumStickerExamples ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45540,17 +39309,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Stickers out_obj;
-        switch (tdlib_type) {
-            case "stickers":
-                out_obj = (Stickers) jsoner.deserialize_object (typeof (Stickers));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Stickers) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45573,7 +39332,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45597,17 +39356,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Sticker out_obj;
-        switch (tdlib_type) {
-            case "sticker":
-                out_obj = (Sticker) jsoner.deserialize_object (typeof (Sticker));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Sticker) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45629,7 +39378,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45653,17 +39402,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45680,7 +39419,7 @@ public sealed class TDLib.Client : Object {
         var obj = new ClickPremiumSubscriptionButton ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45704,17 +39443,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45731,7 +39460,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetPremiumState ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45755,17 +39484,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PremiumState out_obj;
-        switch (tdlib_type) {
-            case "premiumState":
-                out_obj = (PremiumState) jsoner.deserialize_object (typeof (PremiumState));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PremiumState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45789,7 +39508,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45813,17 +39532,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PremiumGiftCodePaymentOptions out_obj;
-        switch (tdlib_type) {
-            case "premiumGiftCodePaymentOptions":
-                out_obj = (PremiumGiftCodePaymentOptions) jsoner.deserialize_object (typeof (PremiumGiftCodePaymentOptions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PremiumGiftCodePaymentOptions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45844,7 +39553,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45868,17 +39577,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PremiumGiftCodeInfo out_obj;
-        switch (tdlib_type) {
-            case "premiumGiftCodeInfo":
-                out_obj = (PremiumGiftCodeInfo) jsoner.deserialize_object (typeof (PremiumGiftCodeInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PremiumGiftCodeInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45899,7 +39598,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45923,17 +39622,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -45964,7 +39653,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -45988,17 +39677,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46024,7 +39703,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46048,20 +39727,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        GiveawayInfo out_obj;
-        switch (tdlib_type) {
-            case "giveawayInfoOngoing":
-                out_obj = (GiveawayInfoOngoing) jsoner.deserialize_object (typeof (GiveawayInfoOngoing));
-                break;
-            case "giveawayInfoCompleted":
-                out_obj = (GiveawayInfoCompleted) jsoner.deserialize_object (typeof (GiveawayInfoCompleted));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (GiveawayInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46077,7 +39743,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetStarPaymentOptions ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46101,17 +39767,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StarPaymentOptions out_obj;
-        switch (tdlib_type) {
-            case "starPaymentOptions":
-                out_obj = (StarPaymentOptions) jsoner.deserialize_object (typeof (StarPaymentOptions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StarPaymentOptions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46133,7 +39789,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46157,17 +39813,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StarPaymentOptions out_obj;
-        switch (tdlib_type) {
-            case "starPaymentOptions":
-                out_obj = (StarPaymentOptions) jsoner.deserialize_object (typeof (StarPaymentOptions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StarPaymentOptions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46183,7 +39829,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetStarGiveawayPaymentOptions ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46207,17 +39853,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StarGiveawayPaymentOptions out_obj;
-        switch (tdlib_type) {
-            case "starGiveawayPaymentOptions":
-                out_obj = (StarGiveawayPaymentOptions) jsoner.deserialize_object (typeof (StarGiveawayPaymentOptions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StarGiveawayPaymentOptions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46257,7 +39893,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46281,17 +39917,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StarTransactions out_obj;
-        switch (tdlib_type) {
-            case "starTransactions":
-                out_obj = (StarTransactions) jsoner.deserialize_object (typeof (StarTransactions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StarTransactions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46318,7 +39944,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46342,17 +39968,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        StarSubscriptions out_obj;
-        switch (tdlib_type) {
-            case "starSubscriptions":
-                out_obj = (StarSubscriptions) jsoner.deserialize_object (typeof (StarSubscriptions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (StarSubscriptions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46374,7 +39990,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46398,17 +40014,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46433,7 +40039,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46457,17 +40063,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46498,7 +40094,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46522,17 +40118,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46556,7 +40142,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46580,17 +40166,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46620,7 +40196,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46644,17 +40220,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46676,7 +40242,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46700,17 +40266,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46732,7 +40288,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46756,17 +40312,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        BusinessFeatures out_obj;
-        switch (tdlib_type) {
-            case "businessFeatures":
-                out_obj = (BusinessFeatures) jsoner.deserialize_object (typeof (BusinessFeatures));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (BusinessFeatures) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46787,7 +40333,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46811,17 +40357,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46868,17 +40404,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundPositions out_obj;
-        switch (tdlib_type) {
-            case "foundPositions":
-                out_obj = (FoundPositions) jsoner.deserialize_object (typeof (FoundPositions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundPositions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46911,7 +40437,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46935,17 +40461,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        FoundPositions out_obj;
-        switch (tdlib_type) {
-            case "foundPositions":
-                out_obj = (FoundPositions) jsoner.deserialize_object (typeof (FoundPositions));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (FoundPositions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -46969,7 +40485,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -46993,17 +40509,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CustomRequestResult out_obj;
-        switch (tdlib_type) {
-            case "customRequestResult":
-                out_obj = (CustomRequestResult) jsoner.deserialize_object (typeof (CustomRequestResult));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CustomRequestResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47027,7 +40533,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47051,17 +40557,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47083,7 +40579,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47107,17 +40603,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47134,7 +40620,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetCountries ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47158,17 +40644,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Countries out_obj;
-        switch (tdlib_type) {
-            case "countries":
-                out_obj = (Countries) jsoner.deserialize_object (typeof (Countries));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Countries) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47186,7 +40662,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetCountryCode ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47210,17 +40686,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47242,7 +40708,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47266,17 +40732,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PhoneNumberInfo out_obj;
-        switch (tdlib_type) {
-            case "phoneNumberInfo":
-                out_obj = (PhoneNumberInfo) jsoner.deserialize_object (typeof (PhoneNumberInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PhoneNumberInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47318,17 +40774,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PhoneNumberInfo out_obj;
-        switch (tdlib_type) {
-            case "phoneNumberInfo":
-                out_obj = (PhoneNumberInfo) jsoner.deserialize_object (typeof (PhoneNumberInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PhoneNumberInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47356,7 +40802,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47380,17 +40826,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        PhoneNumberInfo out_obj;
-        switch (tdlib_type) {
-            case "phoneNumberInfo":
-                out_obj = (PhoneNumberInfo) jsoner.deserialize_object (typeof (PhoneNumberInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (PhoneNumberInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47413,7 +40849,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47437,17 +40873,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        CollectibleItemInfo out_obj;
-        switch (tdlib_type) {
-            case "collectibleItemInfo":
-                out_obj = (CollectibleItemInfo) jsoner.deserialize_object (typeof (CollectibleItemInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (CollectibleItemInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47471,7 +40897,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47495,17 +40921,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        DeepLinkInfo out_obj;
-        switch (tdlib_type) {
-            case "deepLinkInfo":
-                out_obj = (DeepLinkInfo) jsoner.deserialize_object (typeof (DeepLinkInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (DeepLinkInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47522,7 +40938,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetApplicationConfig ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47546,32 +40962,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        JsonValue out_obj;
-        switch (tdlib_type) {
-            case "jsonValueNull":
-                out_obj = (JsonValueNull) jsoner.deserialize_object (typeof (JsonValueNull));
-                break;
-            case "jsonValueBoolean":
-                out_obj = (JsonValueBoolean) jsoner.deserialize_object (typeof (JsonValueBoolean));
-                break;
-            case "jsonValueNumber":
-                out_obj = (JsonValueNumber) jsoner.deserialize_object (typeof (JsonValueNumber));
-                break;
-            case "jsonValueString":
-                out_obj = (JsonValueString) jsoner.deserialize_object (typeof (JsonValueString));
-                break;
-            case "jsonValueArray":
-                out_obj = (JsonValueArray) jsoner.deserialize_object (typeof (JsonValueArray));
-                break;
-            case "jsonValueObject":
-                out_obj = (JsonValueObject) jsoner.deserialize_object (typeof (JsonValueObject));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (JsonValue) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47599,7 +40990,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47623,17 +41014,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47650,7 +41031,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetApplicationDownloadLink ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47674,17 +41055,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47715,7 +41086,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47739,17 +41110,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Proxy out_obj;
-        switch (tdlib_type) {
-            case "proxy":
-                out_obj = (Proxy) jsoner.deserialize_object (typeof (Proxy));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Proxy) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47783,7 +41144,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47807,17 +41168,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Proxy out_obj;
-        switch (tdlib_type) {
-            case "proxy":
-                out_obj = (Proxy) jsoner.deserialize_object (typeof (Proxy));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Proxy) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47839,7 +41190,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47863,17 +41214,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47890,7 +41231,7 @@ public sealed class TDLib.Client : Object {
         var obj = new DisableProxy ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47914,17 +41255,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47945,7 +41276,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -47969,17 +41300,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -47996,7 +41317,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetProxies ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48020,17 +41341,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Proxies out_obj;
-        switch (tdlib_type) {
-            case "proxies":
-                out_obj = (Proxies) jsoner.deserialize_object (typeof (Proxies));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Proxies) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48053,7 +41364,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48077,17 +41388,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        HttpUrl out_obj;
-        switch (tdlib_type) {
-            case "httpUrl":
-                out_obj = (HttpUrl) jsoner.deserialize_object (typeof (HttpUrl));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (HttpUrl) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48110,7 +41411,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48134,17 +41435,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Seconds out_obj;
-        switch (tdlib_type) {
-            case "seconds":
-                out_obj = (Seconds) jsoner.deserialize_object (typeof (Seconds));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Seconds) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48180,17 +41471,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48212,7 +41493,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48236,17 +41517,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48277,23 +41548,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogStream out_obj;
-        switch (tdlib_type) {
-            case "logStreamDefault":
-                out_obj = (LogStreamDefault) jsoner.deserialize_object (typeof (LogStreamDefault));
-                break;
-            case "logStreamFile":
-                out_obj = (LogStreamFile) jsoner.deserialize_object (typeof (LogStreamFile));
-                break;
-            case "logStreamEmpty":
-                out_obj = (LogStreamEmpty) jsoner.deserialize_object (typeof (LogStreamEmpty));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogStream) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48310,7 +41565,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetLogStream ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48334,23 +41589,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogStream out_obj;
-        switch (tdlib_type) {
-            case "logStreamDefault":
-                out_obj = (LogStreamDefault) jsoner.deserialize_object (typeof (LogStreamDefault));
-                break;
-            case "logStreamFile":
-                out_obj = (LogStreamFile) jsoner.deserialize_object (typeof (LogStreamFile));
-                break;
-            case "logStreamEmpty":
-                out_obj = (LogStreamEmpty) jsoner.deserialize_object (typeof (LogStreamEmpty));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogStream) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48391,17 +41630,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48428,7 +41657,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48452,17 +41681,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48493,17 +41712,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogVerbosityLevel out_obj;
-        switch (tdlib_type) {
-            case "logVerbosityLevel":
-                out_obj = (LogVerbosityLevel) jsoner.deserialize_object (typeof (LogVerbosityLevel));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogVerbosityLevel) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48520,7 +41729,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetLogVerbosityLevel ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48544,17 +41753,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogVerbosityLevel out_obj;
-        switch (tdlib_type) {
-            case "logVerbosityLevel":
-                out_obj = (LogVerbosityLevel) jsoner.deserialize_object (typeof (LogVerbosityLevel));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogVerbosityLevel) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48586,17 +41785,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogTags out_obj;
-        switch (tdlib_type) {
-            case "logTags":
-                out_obj = (LogTags) jsoner.deserialize_object (typeof (LogTags));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogTags) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48614,7 +41803,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetLogTags ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48638,17 +41827,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogTags out_obj;
-        switch (tdlib_type) {
-            case "logTags":
-                out_obj = (LogTags) jsoner.deserialize_object (typeof (LogTags));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogTags) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48687,17 +41866,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48722,7 +41891,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48746,17 +41915,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48792,17 +41951,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogVerbosityLevel out_obj;
-        switch (tdlib_type) {
-            case "logVerbosityLevel":
-                out_obj = (LogVerbosityLevel) jsoner.deserialize_object (typeof (LogVerbosityLevel));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogVerbosityLevel) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48824,7 +41973,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48848,17 +41997,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        LogVerbosityLevel out_obj;
-        switch (tdlib_type) {
-            case "logVerbosityLevel":
-                out_obj = (LogVerbosityLevel) jsoner.deserialize_object (typeof (LogVerbosityLevel));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (LogVerbosityLevel) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48897,17 +42036,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48932,7 +42061,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -48956,17 +42085,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -48988,7 +42107,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49012,17 +42131,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        UserSupportInfo out_obj;
-        switch (tdlib_type) {
-            case "userSupportInfo":
-                out_obj = (UserSupportInfo) jsoner.deserialize_object (typeof (UserSupportInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (UserSupportInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49046,7 +42155,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49070,17 +42179,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        UserSupportInfo out_obj;
-        switch (tdlib_type) {
-            case "userSupportInfo":
-                out_obj = (UserSupportInfo) jsoner.deserialize_object (typeof (UserSupportInfo));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (UserSupportInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49097,7 +42196,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetSupportName ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49121,17 +42220,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Text out_obj;
-        switch (tdlib_type) {
-            case "text":
-                out_obj = (Text) jsoner.deserialize_object (typeof (Text));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Text) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49148,7 +42237,7 @@ public sealed class TDLib.Client : Object {
         var obj = new TestCallEmpty ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49172,17 +42261,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49204,7 +42283,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49228,17 +42307,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TestString out_obj;
-        switch (tdlib_type) {
-            case "testString":
-                out_obj = (TestString) jsoner.deserialize_object (typeof (TestString));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TestString) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49260,7 +42329,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49284,17 +42353,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TestBytes out_obj;
-        switch (tdlib_type) {
-            case "testBytes":
-                out_obj = (TestBytes) jsoner.deserialize_object (typeof (TestBytes));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TestBytes) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49316,7 +42375,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49340,17 +42399,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TestVectorInt out_obj;
-        switch (tdlib_type) {
-            case "testVectorInt":
-                out_obj = (TestVectorInt) jsoner.deserialize_object (typeof (TestVectorInt));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TestVectorInt) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49373,7 +42422,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49397,17 +42446,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TestVectorIntObject out_obj;
-        switch (tdlib_type) {
-            case "testVectorIntObject":
-                out_obj = (TestVectorIntObject) jsoner.deserialize_object (typeof (TestVectorIntObject));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TestVectorIntObject) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49429,7 +42468,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49453,17 +42492,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TestVectorString out_obj;
-        switch (tdlib_type) {
-            case "testVectorString":
-                out_obj = (TestVectorString) jsoner.deserialize_object (typeof (TestVectorString));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TestVectorString) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49486,7 +42515,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49510,17 +42539,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TestVectorStringObject out_obj;
-        switch (tdlib_type) {
-            case "testVectorStringObject":
-                out_obj = (TestVectorStringObject) jsoner.deserialize_object (typeof (TestVectorStringObject));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TestVectorStringObject) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49542,7 +42561,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49566,17 +42585,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        TestInt out_obj;
-        switch (tdlib_type) {
-            case "testInt":
-                out_obj = (TestInt) jsoner.deserialize_object (typeof (TestInt));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (TestInt) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49593,7 +42602,7 @@ public sealed class TDLib.Client : Object {
         var obj = new TestNetwork ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49617,17 +42626,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49661,7 +42660,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49685,17 +42684,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49712,7 +42701,7 @@ public sealed class TDLib.Client : Object {
         var obj = new TestGetDifference ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49736,17 +42725,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Ok out_obj;
-        switch (tdlib_type) {
-            case "ok":
-                out_obj = (Ok) jsoner.deserialize_object (typeof (Ok));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49763,7 +42742,7 @@ public sealed class TDLib.Client : Object {
         var obj = new TestUseUpdate ();
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -49787,467 +42766,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Update out_obj;
-        switch (tdlib_type) {
-            case "updateAuthorizationState":
-                out_obj = (UpdateAuthorizationState) jsoner.deserialize_object (typeof (UpdateAuthorizationState));
-                break;
-            case "updateNewMessage":
-                out_obj = (UpdateNewMessage) jsoner.deserialize_object (typeof (UpdateNewMessage));
-                break;
-            case "updateMessageSendAcknowledged":
-                out_obj = (UpdateMessageSendAcknowledged) jsoner.deserialize_object (typeof (UpdateMessageSendAcknowledged));
-                break;
-            case "updateMessageSendSucceeded":
-                out_obj = (UpdateMessageSendSucceeded) jsoner.deserialize_object (typeof (UpdateMessageSendSucceeded));
-                break;
-            case "updateMessageSendFailed":
-                out_obj = (UpdateMessageSendFailed) jsoner.deserialize_object (typeof (UpdateMessageSendFailed));
-                break;
-            case "updateMessageContent":
-                out_obj = (UpdateMessageContent) jsoner.deserialize_object (typeof (UpdateMessageContent));
-                break;
-            case "updateMessageEdited":
-                out_obj = (UpdateMessageEdited) jsoner.deserialize_object (typeof (UpdateMessageEdited));
-                break;
-            case "updateMessageIsPinned":
-                out_obj = (UpdateMessageIsPinned) jsoner.deserialize_object (typeof (UpdateMessageIsPinned));
-                break;
-            case "updateMessageInteractionInfo":
-                out_obj = (UpdateMessageInteractionInfo) jsoner.deserialize_object (typeof (UpdateMessageInteractionInfo));
-                break;
-            case "updateMessageContentOpened":
-                out_obj = (UpdateMessageContentOpened) jsoner.deserialize_object (typeof (UpdateMessageContentOpened));
-                break;
-            case "updateMessageMentionRead":
-                out_obj = (UpdateMessageMentionRead) jsoner.deserialize_object (typeof (UpdateMessageMentionRead));
-                break;
-            case "updateMessageUnreadReactions":
-                out_obj = (UpdateMessageUnreadReactions) jsoner.deserialize_object (typeof (UpdateMessageUnreadReactions));
-                break;
-            case "updateMessageFactCheck":
-                out_obj = (UpdateMessageFactCheck) jsoner.deserialize_object (typeof (UpdateMessageFactCheck));
-                break;
-            case "updateMessageLiveLocationViewed":
-                out_obj = (UpdateMessageLiveLocationViewed) jsoner.deserialize_object (typeof (UpdateMessageLiveLocationViewed));
-                break;
-            case "updateVideoPublished":
-                out_obj = (UpdateVideoPublished) jsoner.deserialize_object (typeof (UpdateVideoPublished));
-                break;
-            case "updateNewChat":
-                out_obj = (UpdateNewChat) jsoner.deserialize_object (typeof (UpdateNewChat));
-                break;
-            case "updateChatTitle":
-                out_obj = (UpdateChatTitle) jsoner.deserialize_object (typeof (UpdateChatTitle));
-                break;
-            case "updateChatPhoto":
-                out_obj = (UpdateChatPhoto) jsoner.deserialize_object (typeof (UpdateChatPhoto));
-                break;
-            case "updateChatAccentColors":
-                out_obj = (UpdateChatAccentColors) jsoner.deserialize_object (typeof (UpdateChatAccentColors));
-                break;
-            case "updateChatPermissions":
-                out_obj = (UpdateChatPermissions) jsoner.deserialize_object (typeof (UpdateChatPermissions));
-                break;
-            case "updateChatLastMessage":
-                out_obj = (UpdateChatLastMessage) jsoner.deserialize_object (typeof (UpdateChatLastMessage));
-                break;
-            case "updateChatPosition":
-                out_obj = (UpdateChatPosition) jsoner.deserialize_object (typeof (UpdateChatPosition));
-                break;
-            case "updateChatAddedToList":
-                out_obj = (UpdateChatAddedToList) jsoner.deserialize_object (typeof (UpdateChatAddedToList));
-                break;
-            case "updateChatRemovedFromList":
-                out_obj = (UpdateChatRemovedFromList) jsoner.deserialize_object (typeof (UpdateChatRemovedFromList));
-                break;
-            case "updateChatReadInbox":
-                out_obj = (UpdateChatReadInbox) jsoner.deserialize_object (typeof (UpdateChatReadInbox));
-                break;
-            case "updateChatReadOutbox":
-                out_obj = (UpdateChatReadOutbox) jsoner.deserialize_object (typeof (UpdateChatReadOutbox));
-                break;
-            case "updateChatActionBar":
-                out_obj = (UpdateChatActionBar) jsoner.deserialize_object (typeof (UpdateChatActionBar));
-                break;
-            case "updateChatBusinessBotManageBar":
-                out_obj = (UpdateChatBusinessBotManageBar) jsoner.deserialize_object (typeof (UpdateChatBusinessBotManageBar));
-                break;
-            case "updateChatAvailableReactions":
-                out_obj = (UpdateChatAvailableReactions) jsoner.deserialize_object (typeof (UpdateChatAvailableReactions));
-                break;
-            case "updateChatDraftMessage":
-                out_obj = (UpdateChatDraftMessage) jsoner.deserialize_object (typeof (UpdateChatDraftMessage));
-                break;
-            case "updateChatEmojiStatus":
-                out_obj = (UpdateChatEmojiStatus) jsoner.deserialize_object (typeof (UpdateChatEmojiStatus));
-                break;
-            case "updateChatMessageSender":
-                out_obj = (UpdateChatMessageSender) jsoner.deserialize_object (typeof (UpdateChatMessageSender));
-                break;
-            case "updateChatMessageAutoDeleteTime":
-                out_obj = (UpdateChatMessageAutoDeleteTime) jsoner.deserialize_object (typeof (UpdateChatMessageAutoDeleteTime));
-                break;
-            case "updateChatNotificationSettings":
-                out_obj = (UpdateChatNotificationSettings) jsoner.deserialize_object (typeof (UpdateChatNotificationSettings));
-                break;
-            case "updateChatPendingJoinRequests":
-                out_obj = (UpdateChatPendingJoinRequests) jsoner.deserialize_object (typeof (UpdateChatPendingJoinRequests));
-                break;
-            case "updateChatReplyMarkup":
-                out_obj = (UpdateChatReplyMarkup) jsoner.deserialize_object (typeof (UpdateChatReplyMarkup));
-                break;
-            case "updateChatBackground":
-                out_obj = (UpdateChatBackground) jsoner.deserialize_object (typeof (UpdateChatBackground));
-                break;
-            case "updateChatTheme":
-                out_obj = (UpdateChatTheme) jsoner.deserialize_object (typeof (UpdateChatTheme));
-                break;
-            case "updateChatUnreadMentionCount":
-                out_obj = (UpdateChatUnreadMentionCount) jsoner.deserialize_object (typeof (UpdateChatUnreadMentionCount));
-                break;
-            case "updateChatUnreadReactionCount":
-                out_obj = (UpdateChatUnreadReactionCount) jsoner.deserialize_object (typeof (UpdateChatUnreadReactionCount));
-                break;
-            case "updateChatVideoChat":
-                out_obj = (UpdateChatVideoChat) jsoner.deserialize_object (typeof (UpdateChatVideoChat));
-                break;
-            case "updateChatDefaultDisableNotification":
-                out_obj = (UpdateChatDefaultDisableNotification) jsoner.deserialize_object (typeof (UpdateChatDefaultDisableNotification));
-                break;
-            case "updateChatHasProtectedContent":
-                out_obj = (UpdateChatHasProtectedContent) jsoner.deserialize_object (typeof (UpdateChatHasProtectedContent));
-                break;
-            case "updateChatIsTranslatable":
-                out_obj = (UpdateChatIsTranslatable) jsoner.deserialize_object (typeof (UpdateChatIsTranslatable));
-                break;
-            case "updateChatIsMarkedAsUnread":
-                out_obj = (UpdateChatIsMarkedAsUnread) jsoner.deserialize_object (typeof (UpdateChatIsMarkedAsUnread));
-                break;
-            case "updateChatViewAsTopics":
-                out_obj = (UpdateChatViewAsTopics) jsoner.deserialize_object (typeof (UpdateChatViewAsTopics));
-                break;
-            case "updateChatBlockList":
-                out_obj = (UpdateChatBlockList) jsoner.deserialize_object (typeof (UpdateChatBlockList));
-                break;
-            case "updateChatHasScheduledMessages":
-                out_obj = (UpdateChatHasScheduledMessages) jsoner.deserialize_object (typeof (UpdateChatHasScheduledMessages));
-                break;
-            case "updateChatFolders":
-                out_obj = (UpdateChatFolders) jsoner.deserialize_object (typeof (UpdateChatFolders));
-                break;
-            case "updateChatOnlineMemberCount":
-                out_obj = (UpdateChatOnlineMemberCount) jsoner.deserialize_object (typeof (UpdateChatOnlineMemberCount));
-                break;
-            case "updateSavedMessagesTopic":
-                out_obj = (UpdateSavedMessagesTopic) jsoner.deserialize_object (typeof (UpdateSavedMessagesTopic));
-                break;
-            case "updateSavedMessagesTopicCount":
-                out_obj = (UpdateSavedMessagesTopicCount) jsoner.deserialize_object (typeof (UpdateSavedMessagesTopicCount));
-                break;
-            case "updateQuickReplyShortcut":
-                out_obj = (UpdateQuickReplyShortcut) jsoner.deserialize_object (typeof (UpdateQuickReplyShortcut));
-                break;
-            case "updateQuickReplyShortcutDeleted":
-                out_obj = (UpdateQuickReplyShortcutDeleted) jsoner.deserialize_object (typeof (UpdateQuickReplyShortcutDeleted));
-                break;
-            case "updateQuickReplyShortcuts":
-                out_obj = (UpdateQuickReplyShortcuts) jsoner.deserialize_object (typeof (UpdateQuickReplyShortcuts));
-                break;
-            case "updateQuickReplyShortcutMessages":
-                out_obj = (UpdateQuickReplyShortcutMessages) jsoner.deserialize_object (typeof (UpdateQuickReplyShortcutMessages));
-                break;
-            case "updateForumTopicInfo":
-                out_obj = (UpdateForumTopicInfo) jsoner.deserialize_object (typeof (UpdateForumTopicInfo));
-                break;
-            case "updateScopeNotificationSettings":
-                out_obj = (UpdateScopeNotificationSettings) jsoner.deserialize_object (typeof (UpdateScopeNotificationSettings));
-                break;
-            case "updateReactionNotificationSettings":
-                out_obj = (UpdateReactionNotificationSettings) jsoner.deserialize_object (typeof (UpdateReactionNotificationSettings));
-                break;
-            case "updateNotification":
-                out_obj = (UpdateNotification) jsoner.deserialize_object (typeof (UpdateNotification));
-                break;
-            case "updateNotificationGroup":
-                out_obj = (UpdateNotificationGroup) jsoner.deserialize_object (typeof (UpdateNotificationGroup));
-                break;
-            case "updateActiveNotifications":
-                out_obj = (UpdateActiveNotifications) jsoner.deserialize_object (typeof (UpdateActiveNotifications));
-                break;
-            case "updateHavePendingNotifications":
-                out_obj = (UpdateHavePendingNotifications) jsoner.deserialize_object (typeof (UpdateHavePendingNotifications));
-                break;
-            case "updateDeleteMessages":
-                out_obj = (UpdateDeleteMessages) jsoner.deserialize_object (typeof (UpdateDeleteMessages));
-                break;
-            case "updateChatAction":
-                out_obj = (UpdateChatAction) jsoner.deserialize_object (typeof (UpdateChatAction));
-                break;
-            case "updateUserStatus":
-                out_obj = (UpdateUserStatus) jsoner.deserialize_object (typeof (UpdateUserStatus));
-                break;
-            case "updateUser":
-                out_obj = (UpdateUser) jsoner.deserialize_object (typeof (UpdateUser));
-                break;
-            case "updateBasicGroup":
-                out_obj = (UpdateBasicGroup) jsoner.deserialize_object (typeof (UpdateBasicGroup));
-                break;
-            case "updateSupergroup":
-                out_obj = (UpdateSupergroup) jsoner.deserialize_object (typeof (UpdateSupergroup));
-                break;
-            case "updateSecretChat":
-                out_obj = (UpdateSecretChat) jsoner.deserialize_object (typeof (UpdateSecretChat));
-                break;
-            case "updateUserFullInfo":
-                out_obj = (UpdateUserFullInfo) jsoner.deserialize_object (typeof (UpdateUserFullInfo));
-                break;
-            case "updateBasicGroupFullInfo":
-                out_obj = (UpdateBasicGroupFullInfo) jsoner.deserialize_object (typeof (UpdateBasicGroupFullInfo));
-                break;
-            case "updateSupergroupFullInfo":
-                out_obj = (UpdateSupergroupFullInfo) jsoner.deserialize_object (typeof (UpdateSupergroupFullInfo));
-                break;
-            case "updateServiceNotification":
-                out_obj = (UpdateServiceNotification) jsoner.deserialize_object (typeof (UpdateServiceNotification));
-                break;
-            case "updateFile":
-                out_obj = (UpdateFile) jsoner.deserialize_object (typeof (UpdateFile));
-                break;
-            case "updateFileGenerationStart":
-                out_obj = (UpdateFileGenerationStart) jsoner.deserialize_object (typeof (UpdateFileGenerationStart));
-                break;
-            case "updateFileGenerationStop":
-                out_obj = (UpdateFileGenerationStop) jsoner.deserialize_object (typeof (UpdateFileGenerationStop));
-                break;
-            case "updateFileDownloads":
-                out_obj = (UpdateFileDownloads) jsoner.deserialize_object (typeof (UpdateFileDownloads));
-                break;
-            case "updateFileAddedToDownloads":
-                out_obj = (UpdateFileAddedToDownloads) jsoner.deserialize_object (typeof (UpdateFileAddedToDownloads));
-                break;
-            case "updateFileDownload":
-                out_obj = (UpdateFileDownload) jsoner.deserialize_object (typeof (UpdateFileDownload));
-                break;
-            case "updateFileRemovedFromDownloads":
-                out_obj = (UpdateFileRemovedFromDownloads) jsoner.deserialize_object (typeof (UpdateFileRemovedFromDownloads));
-                break;
-            case "updateApplicationVerificationRequired":
-                out_obj = (UpdateApplicationVerificationRequired) jsoner.deserialize_object (typeof (UpdateApplicationVerificationRequired));
-                break;
-            case "updateCall":
-                out_obj = (UpdateCall) jsoner.deserialize_object (typeof (UpdateCall));
-                break;
-            case "updateGroupCall":
-                out_obj = (UpdateGroupCall) jsoner.deserialize_object (typeof (UpdateGroupCall));
-                break;
-            case "updateGroupCallParticipant":
-                out_obj = (UpdateGroupCallParticipant) jsoner.deserialize_object (typeof (UpdateGroupCallParticipant));
-                break;
-            case "updateNewCallSignalingData":
-                out_obj = (UpdateNewCallSignalingData) jsoner.deserialize_object (typeof (UpdateNewCallSignalingData));
-                break;
-            case "updateUserPrivacySettingRules":
-                out_obj = (UpdateUserPrivacySettingRules) jsoner.deserialize_object (typeof (UpdateUserPrivacySettingRules));
-                break;
-            case "updateUnreadMessageCount":
-                out_obj = (UpdateUnreadMessageCount) jsoner.deserialize_object (typeof (UpdateUnreadMessageCount));
-                break;
-            case "updateUnreadChatCount":
-                out_obj = (UpdateUnreadChatCount) jsoner.deserialize_object (typeof (UpdateUnreadChatCount));
-                break;
-            case "updateStory":
-                out_obj = (UpdateStory) jsoner.deserialize_object (typeof (UpdateStory));
-                break;
-            case "updateStoryDeleted":
-                out_obj = (UpdateStoryDeleted) jsoner.deserialize_object (typeof (UpdateStoryDeleted));
-                break;
-            case "updateStorySendSucceeded":
-                out_obj = (UpdateStorySendSucceeded) jsoner.deserialize_object (typeof (UpdateStorySendSucceeded));
-                break;
-            case "updateStorySendFailed":
-                out_obj = (UpdateStorySendFailed) jsoner.deserialize_object (typeof (UpdateStorySendFailed));
-                break;
-            case "updateChatActiveStories":
-                out_obj = (UpdateChatActiveStories) jsoner.deserialize_object (typeof (UpdateChatActiveStories));
-                break;
-            case "updateStoryListChatCount":
-                out_obj = (UpdateStoryListChatCount) jsoner.deserialize_object (typeof (UpdateStoryListChatCount));
-                break;
-            case "updateStoryStealthMode":
-                out_obj = (UpdateStoryStealthMode) jsoner.deserialize_object (typeof (UpdateStoryStealthMode));
-                break;
-            case "updateOption":
-                out_obj = (UpdateOption) jsoner.deserialize_object (typeof (UpdateOption));
-                break;
-            case "updateStickerSet":
-                out_obj = (UpdateStickerSet) jsoner.deserialize_object (typeof (UpdateStickerSet));
-                break;
-            case "updateInstalledStickerSets":
-                out_obj = (UpdateInstalledStickerSets) jsoner.deserialize_object (typeof (UpdateInstalledStickerSets));
-                break;
-            case "updateTrendingStickerSets":
-                out_obj = (UpdateTrendingStickerSets) jsoner.deserialize_object (typeof (UpdateTrendingStickerSets));
-                break;
-            case "updateRecentStickers":
-                out_obj = (UpdateRecentStickers) jsoner.deserialize_object (typeof (UpdateRecentStickers));
-                break;
-            case "updateFavoriteStickers":
-                out_obj = (UpdateFavoriteStickers) jsoner.deserialize_object (typeof (UpdateFavoriteStickers));
-                break;
-            case "updateSavedAnimations":
-                out_obj = (UpdateSavedAnimations) jsoner.deserialize_object (typeof (UpdateSavedAnimations));
-                break;
-            case "updateSavedNotificationSounds":
-                out_obj = (UpdateSavedNotificationSounds) jsoner.deserialize_object (typeof (UpdateSavedNotificationSounds));
-                break;
-            case "updateDefaultBackground":
-                out_obj = (UpdateDefaultBackground) jsoner.deserialize_object (typeof (UpdateDefaultBackground));
-                break;
-            case "updateChatThemes":
-                out_obj = (UpdateChatThemes) jsoner.deserialize_object (typeof (UpdateChatThemes));
-                break;
-            case "updateAccentColors":
-                out_obj = (UpdateAccentColors) jsoner.deserialize_object (typeof (UpdateAccentColors));
-                break;
-            case "updateProfileAccentColors":
-                out_obj = (UpdateProfileAccentColors) jsoner.deserialize_object (typeof (UpdateProfileAccentColors));
-                break;
-            case "updateLanguagePackStrings":
-                out_obj = (UpdateLanguagePackStrings) jsoner.deserialize_object (typeof (UpdateLanguagePackStrings));
-                break;
-            case "updateConnectionState":
-                out_obj = (UpdateConnectionState) jsoner.deserialize_object (typeof (UpdateConnectionState));
-                break;
-            case "updateTermsOfService":
-                out_obj = (UpdateTermsOfService) jsoner.deserialize_object (typeof (UpdateTermsOfService));
-                break;
-            case "updateUnconfirmedSession":
-                out_obj = (UpdateUnconfirmedSession) jsoner.deserialize_object (typeof (UpdateUnconfirmedSession));
-                break;
-            case "updateAttachmentMenuBots":
-                out_obj = (UpdateAttachmentMenuBots) jsoner.deserialize_object (typeof (UpdateAttachmentMenuBots));
-                break;
-            case "updateWebAppMessageSent":
-                out_obj = (UpdateWebAppMessageSent) jsoner.deserialize_object (typeof (UpdateWebAppMessageSent));
-                break;
-            case "updateActiveEmojiReactions":
-                out_obj = (UpdateActiveEmojiReactions) jsoner.deserialize_object (typeof (UpdateActiveEmojiReactions));
-                break;
-            case "updateAvailableMessageEffects":
-                out_obj = (UpdateAvailableMessageEffects) jsoner.deserialize_object (typeof (UpdateAvailableMessageEffects));
-                break;
-            case "updateDefaultReactionType":
-                out_obj = (UpdateDefaultReactionType) jsoner.deserialize_object (typeof (UpdateDefaultReactionType));
-                break;
-            case "updateSavedMessagesTags":
-                out_obj = (UpdateSavedMessagesTags) jsoner.deserialize_object (typeof (UpdateSavedMessagesTags));
-                break;
-            case "updateActiveLiveLocationMessages":
-                out_obj = (UpdateActiveLiveLocationMessages) jsoner.deserialize_object (typeof (UpdateActiveLiveLocationMessages));
-                break;
-            case "updateOwnedStarCount":
-                out_obj = (UpdateOwnedStarCount) jsoner.deserialize_object (typeof (UpdateOwnedStarCount));
-                break;
-            case "updateChatRevenueAmount":
-                out_obj = (UpdateChatRevenueAmount) jsoner.deserialize_object (typeof (UpdateChatRevenueAmount));
-                break;
-            case "updateStarRevenueStatus":
-                out_obj = (UpdateStarRevenueStatus) jsoner.deserialize_object (typeof (UpdateStarRevenueStatus));
-                break;
-            case "updateSpeechRecognitionTrial":
-                out_obj = (UpdateSpeechRecognitionTrial) jsoner.deserialize_object (typeof (UpdateSpeechRecognitionTrial));
-                break;
-            case "updateDiceEmojis":
-                out_obj = (UpdateDiceEmojis) jsoner.deserialize_object (typeof (UpdateDiceEmojis));
-                break;
-            case "updateAnimatedEmojiMessageClicked":
-                out_obj = (UpdateAnimatedEmojiMessageClicked) jsoner.deserialize_object (typeof (UpdateAnimatedEmojiMessageClicked));
-                break;
-            case "updateAnimationSearchParameters":
-                out_obj = (UpdateAnimationSearchParameters) jsoner.deserialize_object (typeof (UpdateAnimationSearchParameters));
-                break;
-            case "updateSuggestedActions":
-                out_obj = (UpdateSuggestedActions) jsoner.deserialize_object (typeof (UpdateSuggestedActions));
-                break;
-            case "updateSpeedLimitNotification":
-                out_obj = (UpdateSpeedLimitNotification) jsoner.deserialize_object (typeof (UpdateSpeedLimitNotification));
-                break;
-            case "updateContactCloseBirthdays":
-                out_obj = (UpdateContactCloseBirthdays) jsoner.deserialize_object (typeof (UpdateContactCloseBirthdays));
-                break;
-            case "updateAutosaveSettings":
-                out_obj = (UpdateAutosaveSettings) jsoner.deserialize_object (typeof (UpdateAutosaveSettings));
-                break;
-            case "updateBusinessConnection":
-                out_obj = (UpdateBusinessConnection) jsoner.deserialize_object (typeof (UpdateBusinessConnection));
-                break;
-            case "updateNewBusinessMessage":
-                out_obj = (UpdateNewBusinessMessage) jsoner.deserialize_object (typeof (UpdateNewBusinessMessage));
-                break;
-            case "updateBusinessMessageEdited":
-                out_obj = (UpdateBusinessMessageEdited) jsoner.deserialize_object (typeof (UpdateBusinessMessageEdited));
-                break;
-            case "updateBusinessMessagesDeleted":
-                out_obj = (UpdateBusinessMessagesDeleted) jsoner.deserialize_object (typeof (UpdateBusinessMessagesDeleted));
-                break;
-            case "updateNewInlineQuery":
-                out_obj = (UpdateNewInlineQuery) jsoner.deserialize_object (typeof (UpdateNewInlineQuery));
-                break;
-            case "updateNewChosenInlineResult":
-                out_obj = (UpdateNewChosenInlineResult) jsoner.deserialize_object (typeof (UpdateNewChosenInlineResult));
-                break;
-            case "updateNewCallbackQuery":
-                out_obj = (UpdateNewCallbackQuery) jsoner.deserialize_object (typeof (UpdateNewCallbackQuery));
-                break;
-            case "updateNewInlineCallbackQuery":
-                out_obj = (UpdateNewInlineCallbackQuery) jsoner.deserialize_object (typeof (UpdateNewInlineCallbackQuery));
-                break;
-            case "updateNewBusinessCallbackQuery":
-                out_obj = (UpdateNewBusinessCallbackQuery) jsoner.deserialize_object (typeof (UpdateNewBusinessCallbackQuery));
-                break;
-            case "updateNewShippingQuery":
-                out_obj = (UpdateNewShippingQuery) jsoner.deserialize_object (typeof (UpdateNewShippingQuery));
-                break;
-            case "updateNewPreCheckoutQuery":
-                out_obj = (UpdateNewPreCheckoutQuery) jsoner.deserialize_object (typeof (UpdateNewPreCheckoutQuery));
-                break;
-            case "updateNewCustomEvent":
-                out_obj = (UpdateNewCustomEvent) jsoner.deserialize_object (typeof (UpdateNewCustomEvent));
-                break;
-            case "updateNewCustomQuery":
-                out_obj = (UpdateNewCustomQuery) jsoner.deserialize_object (typeof (UpdateNewCustomQuery));
-                break;
-            case "updatePoll":
-                out_obj = (UpdatePoll) jsoner.deserialize_object (typeof (UpdatePoll));
-                break;
-            case "updatePollAnswer":
-                out_obj = (UpdatePollAnswer) jsoner.deserialize_object (typeof (UpdatePollAnswer));
-                break;
-            case "updateChatMember":
-                out_obj = (UpdateChatMember) jsoner.deserialize_object (typeof (UpdateChatMember));
-                break;
-            case "updateNewChatJoinRequest":
-                out_obj = (UpdateNewChatJoinRequest) jsoner.deserialize_object (typeof (UpdateNewChatJoinRequest));
-                break;
-            case "updateChatBoost":
-                out_obj = (UpdateChatBoost) jsoner.deserialize_object (typeof (UpdateChatBoost));
-                break;
-            case "updateMessageReaction":
-                out_obj = (UpdateMessageReaction) jsoner.deserialize_object (typeof (UpdateMessageReaction));
-                break;
-            case "updateMessageReactions":
-                out_obj = (UpdateMessageReactions) jsoner.deserialize_object (typeof (UpdateMessageReactions));
-                break;
-            case "updatePaidMediaPurchased":
-                out_obj = (UpdatePaidMediaPurchased) jsoner.deserialize_object (typeof (UpdatePaidMediaPurchased));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Update) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -50283,17 +42802,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Error out_obj;
-        switch (tdlib_type) {
-            case "error":
-                out_obj = (Error) jsoner.deserialize_object (typeof (Error));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Error) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -50315,7 +42824,7 @@ public sealed class TDLib.Client : Object {
         );
         string json_response = "";
 
-        string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
 
         GLib.debug ("send %d %s", client_id, json_string);
 
@@ -50339,17 +42848,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-
-        Error out_obj;
-        switch (tdlib_type) {
-            case "error":
-                out_obj = (Error) jsoner.deserialize_object (typeof (Error));
-                break;
-            default:
-                assert_not_reached ();
-        }
-
-        return out_obj;
+        return (Error) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
