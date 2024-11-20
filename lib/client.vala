@@ -62,7 +62,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -78,7 +78,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -127,7 +127,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -205,7 +205,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -221,7 +221,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -237,7 +237,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -271,7 +271,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -287,7 +287,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -303,7 +303,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -328,7 +328,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -344,7 +344,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -360,7 +360,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -387,7 +387,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -403,7 +403,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -419,7 +419,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -443,7 +443,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -459,7 +459,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -475,7 +475,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -499,7 +499,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -515,7 +515,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -531,7 +531,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -561,7 +561,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -577,7 +577,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -593,7 +593,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -625,7 +625,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -641,7 +641,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -657,7 +657,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -679,7 +679,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -695,7 +695,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -711,7 +711,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -735,7 +735,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -751,7 +751,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -767,7 +767,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -787,7 +787,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -803,7 +803,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -819,7 +819,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -844,7 +844,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -860,7 +860,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -876,7 +876,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -908,7 +908,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -924,7 +924,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -940,7 +940,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -969,7 +969,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -985,7 +985,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1001,7 +1001,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1026,7 +1026,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1042,7 +1042,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1058,7 +1058,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1084,7 +1084,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1100,7 +1100,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1116,7 +1116,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1137,7 +1137,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1153,7 +1153,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1169,7 +1169,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1190,7 +1190,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1206,7 +1206,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1222,7 +1222,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1245,7 +1245,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1261,7 +1261,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1277,7 +1277,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1302,7 +1302,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1318,7 +1318,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1334,7 +1334,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1355,7 +1355,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1371,7 +1371,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1387,7 +1387,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1411,7 +1411,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1427,7 +1427,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1443,7 +1443,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1461,7 +1461,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1477,7 +1477,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1493,7 +1493,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1533,7 +1533,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1549,7 +1549,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1565,7 +1565,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1593,7 +1593,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1609,7 +1609,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1625,7 +1625,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1643,7 +1643,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1659,7 +1659,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1675,7 +1675,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1698,7 +1698,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1714,7 +1714,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1730,7 +1730,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1755,7 +1755,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1771,7 +1771,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1787,7 +1787,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1818,7 +1818,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1834,7 +1834,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1850,7 +1850,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1874,7 +1874,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1890,7 +1890,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1906,7 +1906,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1925,7 +1925,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1941,7 +1941,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -1957,7 +1957,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -1975,7 +1975,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -1991,7 +1991,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2007,7 +2007,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2026,7 +2026,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2042,7 +2042,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2058,7 +2058,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2082,7 +2082,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2098,7 +2098,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2114,7 +2114,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2145,7 +2145,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2161,7 +2161,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2177,7 +2177,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2198,7 +2198,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2214,7 +2214,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2236,7 +2236,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2255,7 +2255,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2271,7 +2271,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2287,7 +2287,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2314,7 +2314,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2330,7 +2330,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2346,7 +2346,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2364,7 +2364,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2380,7 +2380,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2396,7 +2396,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2414,7 +2414,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2430,7 +2430,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2446,7 +2446,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2470,7 +2470,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2486,7 +2486,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2502,7 +2502,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2525,7 +2525,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2541,7 +2541,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2557,7 +2557,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2581,7 +2581,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2597,7 +2597,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2613,7 +2613,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2636,7 +2636,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2652,7 +2652,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2668,7 +2668,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2692,7 +2692,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2708,7 +2708,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2724,7 +2724,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2748,7 +2748,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2764,7 +2764,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2780,7 +2780,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2804,7 +2804,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2820,7 +2820,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2836,7 +2836,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2860,7 +2860,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2876,7 +2876,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2892,7 +2892,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2919,7 +2919,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2935,7 +2935,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -2951,7 +2951,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -2979,7 +2979,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -2995,7 +2995,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3011,7 +3011,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3045,7 +3045,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3061,7 +3061,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3077,7 +3077,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3101,7 +3101,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3117,7 +3117,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3133,7 +3133,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3163,7 +3163,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3179,7 +3179,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3195,7 +3195,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3222,7 +3222,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3238,7 +3238,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3254,7 +3254,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3280,7 +3280,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3296,7 +3296,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3312,7 +3312,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3339,7 +3339,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3355,7 +3355,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3371,7 +3371,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3398,7 +3398,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3414,7 +3414,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3442,7 +3442,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3471,7 +3471,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3487,7 +3487,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3503,7 +3503,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3526,7 +3526,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3542,7 +3542,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3558,7 +3558,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3591,7 +3591,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3607,7 +3607,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3623,7 +3623,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3656,7 +3656,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3672,7 +3672,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3688,7 +3688,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3717,7 +3717,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3733,7 +3733,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3749,7 +3749,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3774,7 +3774,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3790,7 +3790,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3806,7 +3806,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3833,7 +3833,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3849,7 +3849,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3865,7 +3865,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3894,7 +3894,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3910,7 +3910,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3926,7 +3926,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -3954,7 +3954,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -3970,7 +3970,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -3986,7 +3986,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4004,7 +4004,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4020,7 +4020,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4036,7 +4036,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4060,7 +4060,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4076,7 +4076,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4092,7 +4092,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4121,7 +4121,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4137,7 +4137,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4153,7 +4153,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4181,7 +4181,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4197,7 +4197,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4213,7 +4213,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4239,7 +4239,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4255,7 +4255,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4271,7 +4271,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4298,7 +4298,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4314,7 +4314,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4330,7 +4330,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4357,7 +4357,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4373,7 +4373,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4389,7 +4389,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4414,7 +4414,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4430,7 +4430,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4446,7 +4446,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4469,7 +4469,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4485,7 +4485,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4501,7 +4501,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4519,7 +4519,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4535,7 +4535,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4551,7 +4551,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4575,7 +4575,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4591,7 +4591,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4607,7 +4607,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4635,7 +4635,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4651,7 +4651,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4682,7 +4682,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4706,7 +4706,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4722,7 +4722,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4738,7 +4738,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4763,7 +4763,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4779,7 +4779,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4795,7 +4795,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4819,7 +4819,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4835,7 +4835,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4851,7 +4851,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4872,7 +4872,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4888,7 +4888,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4904,7 +4904,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4922,7 +4922,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4938,7 +4938,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -4954,7 +4954,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -4983,7 +4983,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -4999,7 +4999,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5015,7 +5015,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5057,7 +5057,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5073,7 +5073,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5089,7 +5089,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5118,7 +5118,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5134,7 +5134,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5150,7 +5150,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5174,7 +5174,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5190,7 +5190,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5206,7 +5206,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5237,7 +5237,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5253,7 +5253,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5269,7 +5269,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5298,7 +5298,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5314,7 +5314,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5330,7 +5330,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5354,7 +5354,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5370,7 +5370,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5386,7 +5386,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5417,7 +5417,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5433,7 +5433,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5449,7 +5449,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5495,7 +5495,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5511,7 +5511,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5527,7 +5527,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5575,7 +5575,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5591,7 +5591,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5607,7 +5607,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5640,7 +5640,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5656,7 +5656,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5672,7 +5672,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5699,7 +5699,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5715,7 +5715,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5731,7 +5731,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5800,7 +5800,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5816,7 +5816,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5832,7 +5832,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5890,7 +5890,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5906,7 +5906,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5922,7 +5922,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -5965,7 +5965,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -5981,7 +5981,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -5997,7 +5997,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6050,7 +6050,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6066,7 +6066,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6082,7 +6082,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6118,7 +6118,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6134,7 +6134,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6150,7 +6150,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6179,7 +6179,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6195,7 +6195,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6211,7 +6211,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6245,7 +6245,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6261,7 +6261,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6277,7 +6277,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6315,7 +6315,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6331,7 +6331,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6347,7 +6347,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6381,7 +6381,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6397,7 +6397,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6413,7 +6413,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6450,7 +6450,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6466,7 +6466,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6482,7 +6482,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6508,7 +6508,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6524,7 +6524,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6540,7 +6540,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6564,7 +6564,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6580,7 +6580,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6596,7 +6596,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6621,7 +6621,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6637,7 +6637,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6653,7 +6653,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6676,7 +6676,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6692,7 +6692,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6708,7 +6708,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6735,7 +6735,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6751,7 +6751,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6767,7 +6767,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6795,7 +6795,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6811,7 +6811,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6827,7 +6827,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6877,7 +6877,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6893,7 +6893,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6909,7 +6909,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -6951,7 +6951,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -6967,7 +6967,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -6983,7 +6983,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7021,7 +7021,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7037,7 +7037,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7053,7 +7053,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7096,7 +7096,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7112,7 +7112,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7128,7 +7128,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7152,7 +7152,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7168,7 +7168,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7184,7 +7184,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7208,7 +7208,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7224,7 +7224,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7240,7 +7240,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7276,7 +7276,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7292,7 +7292,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7308,7 +7308,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7338,7 +7338,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7354,7 +7354,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7382,7 +7382,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7410,7 +7410,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7426,7 +7426,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7442,7 +7442,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7470,7 +7470,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7486,7 +7486,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7502,7 +7502,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7544,7 +7544,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7560,7 +7560,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7576,7 +7576,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7607,7 +7607,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7623,7 +7623,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7639,7 +7639,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7663,7 +7663,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7679,7 +7679,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7695,7 +7695,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7734,7 +7734,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7750,7 +7750,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7766,7 +7766,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7809,7 +7809,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7825,7 +7825,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7841,7 +7841,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7869,7 +7869,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7885,7 +7885,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7901,7 +7901,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7930,7 +7930,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -7946,7 +7946,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -7962,7 +7962,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -7986,7 +7986,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8002,7 +8002,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8018,7 +8018,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8044,7 +8044,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8060,7 +8060,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8076,7 +8076,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8118,7 +8118,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8134,7 +8134,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8150,7 +8150,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8194,7 +8194,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8210,7 +8210,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8226,7 +8226,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8260,7 +8260,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8276,7 +8276,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8292,7 +8292,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8341,7 +8341,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8357,7 +8357,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8373,7 +8373,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8429,7 +8429,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8445,7 +8445,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8461,7 +8461,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8494,7 +8494,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8510,7 +8510,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8526,7 +8526,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8564,7 +8564,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8580,7 +8580,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8596,7 +8596,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8635,7 +8635,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8651,7 +8651,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8667,7 +8667,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8700,7 +8700,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8716,7 +8716,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8732,7 +8732,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8760,7 +8760,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8776,7 +8776,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8792,7 +8792,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8827,7 +8827,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8843,7 +8843,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8859,7 +8859,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8896,7 +8896,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8912,7 +8912,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -8928,7 +8928,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -8983,7 +8983,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -8999,7 +8999,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9015,7 +9015,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9056,7 +9056,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9072,7 +9072,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9088,7 +9088,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9131,7 +9131,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9147,7 +9147,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9163,7 +9163,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9195,7 +9195,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9211,7 +9211,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9227,7 +9227,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9258,7 +9258,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9274,7 +9274,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9290,7 +9290,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9337,7 +9337,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9353,7 +9353,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9369,7 +9369,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9403,7 +9403,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9419,7 +9419,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9435,7 +9435,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9470,7 +9470,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9486,7 +9486,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9502,7 +9502,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9529,7 +9529,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9545,7 +9545,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9561,7 +9561,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9596,7 +9596,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9612,7 +9612,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9628,7 +9628,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9661,7 +9661,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9677,7 +9677,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9693,7 +9693,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9743,7 +9743,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9759,7 +9759,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9775,7 +9775,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9826,7 +9826,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9842,7 +9842,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9858,7 +9858,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9896,7 +9896,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9912,7 +9912,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -9928,7 +9928,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -9982,7 +9982,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -9998,7 +9998,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10014,7 +10014,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10055,7 +10055,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10071,7 +10071,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10087,7 +10087,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10130,7 +10130,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10146,7 +10146,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10162,7 +10162,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10196,7 +10196,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10212,7 +10212,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10228,7 +10228,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10261,7 +10261,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10277,7 +10277,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10293,7 +10293,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10327,7 +10327,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10343,7 +10343,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10359,7 +10359,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10386,10 +10386,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10405,7 +10405,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10429,7 +10429,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10445,7 +10445,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10461,7 +10461,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10481,7 +10481,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10497,7 +10497,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10513,7 +10513,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10540,7 +10540,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10556,7 +10556,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10572,7 +10572,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10595,7 +10595,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10611,7 +10611,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10627,7 +10627,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10650,7 +10650,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10666,7 +10666,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10682,7 +10682,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10707,7 +10707,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10723,7 +10723,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10739,7 +10739,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10766,7 +10766,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10782,7 +10782,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10798,7 +10798,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10835,7 +10835,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10851,7 +10851,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10867,7 +10867,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10913,7 +10913,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10929,7 +10929,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -10945,7 +10945,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -10981,7 +10981,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -10997,7 +10997,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11013,7 +11013,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11046,7 +11046,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11062,7 +11062,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11078,7 +11078,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11116,7 +11116,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11132,7 +11132,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11148,7 +11148,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11167,7 +11167,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11183,7 +11183,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11199,7 +11199,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11232,7 +11232,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11248,7 +11248,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11264,7 +11264,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11307,7 +11307,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11323,7 +11323,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11339,7 +11339,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11365,7 +11365,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11381,7 +11381,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11397,7 +11397,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11424,7 +11424,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11440,7 +11440,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11456,7 +11456,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11501,7 +11501,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11517,7 +11517,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11533,7 +11533,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11564,7 +11564,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11580,7 +11580,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11596,7 +11596,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11627,7 +11627,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11643,7 +11643,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11659,7 +11659,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11687,7 +11687,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11703,7 +11703,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11719,7 +11719,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11750,7 +11750,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11766,7 +11766,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11782,7 +11782,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11809,7 +11809,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11825,7 +11825,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11841,7 +11841,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11870,7 +11870,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11886,7 +11886,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11902,7 +11902,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11926,7 +11926,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11942,7 +11942,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -11958,7 +11958,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -11977,7 +11977,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -11993,7 +11993,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12009,7 +12009,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12040,7 +12040,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12056,7 +12056,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12072,7 +12072,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12090,7 +12090,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12106,7 +12106,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12122,7 +12122,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12162,7 +12162,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12178,7 +12178,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12194,7 +12194,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12225,7 +12225,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12241,7 +12241,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12257,7 +12257,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12300,7 +12300,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12316,7 +12316,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12332,7 +12332,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12358,7 +12358,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12374,7 +12374,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12390,7 +12390,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12416,7 +12416,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12432,7 +12432,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12448,7 +12448,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12480,7 +12480,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12496,7 +12496,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12512,7 +12512,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12546,7 +12546,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12562,7 +12562,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12578,7 +12578,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12618,7 +12618,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12634,7 +12634,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12650,7 +12650,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12674,7 +12674,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12690,7 +12690,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12706,7 +12706,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12730,7 +12730,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12746,7 +12746,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12762,7 +12762,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12788,7 +12788,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12804,7 +12804,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12820,7 +12820,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12844,7 +12844,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12860,7 +12860,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12876,7 +12876,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12910,10 +12910,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12929,7 +12929,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -12960,7 +12960,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -12976,7 +12976,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -12992,7 +12992,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13020,10 +13020,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13039,7 +13039,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13064,7 +13064,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13080,7 +13080,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13096,7 +13096,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13128,10 +13128,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13147,7 +13147,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13176,7 +13176,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13192,7 +13192,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13208,7 +13208,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13237,10 +13237,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13256,7 +13256,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13282,7 +13282,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13298,7 +13298,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13314,7 +13314,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13342,10 +13342,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13361,7 +13361,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13386,7 +13386,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13402,7 +13402,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13418,7 +13418,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13446,10 +13446,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13465,7 +13465,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13490,7 +13490,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13506,7 +13506,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13522,7 +13522,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13549,10 +13549,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13568,7 +13568,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13592,7 +13592,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13608,7 +13608,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13624,7 +13624,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13651,10 +13651,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13670,7 +13670,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13694,7 +13694,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13710,7 +13710,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13726,7 +13726,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13753,10 +13753,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13772,7 +13772,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13796,7 +13796,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13812,7 +13812,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13828,7 +13828,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13867,10 +13867,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13892,7 +13892,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13928,7 +13928,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -13944,7 +13944,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -13966,7 +13966,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -13993,10 +13993,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14027,7 +14027,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14051,7 +14051,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14067,7 +14067,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14098,7 +14098,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14125,10 +14125,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14144,7 +14144,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14168,7 +14168,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14184,7 +14184,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14200,7 +14200,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14227,10 +14227,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14246,7 +14246,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14270,7 +14270,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14286,7 +14286,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14302,7 +14302,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14334,7 +14334,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14350,7 +14350,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14366,7 +14366,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14408,7 +14408,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14424,7 +14424,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14440,7 +14440,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14472,7 +14472,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14488,7 +14488,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14504,7 +14504,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14527,7 +14527,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14543,7 +14543,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14559,7 +14559,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14577,7 +14577,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14593,7 +14593,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14609,7 +14609,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14633,7 +14633,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14649,7 +14649,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14665,7 +14665,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14697,7 +14697,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14713,7 +14713,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14732,7 +14732,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14770,7 +14770,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14786,7 +14786,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14802,7 +14802,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14839,7 +14839,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14855,7 +14855,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14871,7 +14871,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14915,7 +14915,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -14931,7 +14931,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -14947,7 +14947,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -14986,7 +14986,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15002,7 +15002,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15018,7 +15018,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15061,7 +15061,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15077,7 +15077,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15093,7 +15093,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15122,7 +15122,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15138,7 +15138,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15154,7 +15154,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15180,7 +15180,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15196,7 +15196,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15212,7 +15212,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15239,7 +15239,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15255,7 +15255,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15271,7 +15271,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15298,7 +15298,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15314,7 +15314,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15330,7 +15330,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15354,7 +15354,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15370,7 +15370,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15386,7 +15386,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15427,7 +15427,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15443,7 +15443,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15459,7 +15459,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15492,7 +15492,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15508,7 +15508,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15524,7 +15524,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15557,7 +15557,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15573,7 +15573,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15589,7 +15589,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15619,7 +15619,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15635,7 +15635,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15651,7 +15651,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15698,7 +15698,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15714,7 +15714,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15730,7 +15730,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15754,7 +15754,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15770,7 +15770,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15786,7 +15786,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15814,7 +15814,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15830,7 +15830,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15846,7 +15846,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15876,7 +15876,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15892,7 +15892,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15908,7 +15908,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -15940,7 +15940,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -15956,7 +15956,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -15972,7 +15972,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16009,7 +16009,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16025,7 +16025,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16041,7 +16041,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16070,7 +16070,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16086,7 +16086,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16102,7 +16102,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16128,7 +16128,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16144,7 +16144,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16160,7 +16160,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16201,7 +16201,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16217,7 +16217,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16233,7 +16233,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16270,7 +16270,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16286,7 +16286,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16302,7 +16302,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16332,7 +16332,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16348,7 +16348,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16364,7 +16364,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16391,7 +16391,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16407,7 +16407,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16423,7 +16423,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16452,7 +16452,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16468,7 +16468,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16484,7 +16484,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16519,7 +16519,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16535,7 +16535,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16551,7 +16551,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16577,7 +16577,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16593,7 +16593,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16609,7 +16609,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16633,7 +16633,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16649,7 +16649,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16665,7 +16665,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16705,7 +16705,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16721,7 +16721,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16737,7 +16737,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16767,7 +16767,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16783,7 +16783,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16799,7 +16799,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16827,7 +16827,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16843,7 +16843,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16859,7 +16859,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16887,7 +16887,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16903,7 +16903,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -16919,7 +16919,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -16943,7 +16943,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -16959,7 +16959,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17107,7 +17107,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17132,7 +17132,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17148,7 +17148,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17167,7 +17167,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17197,7 +17197,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17213,7 +17213,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17229,7 +17229,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17252,7 +17252,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17268,7 +17268,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17284,7 +17284,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17311,7 +17311,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17327,7 +17327,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17343,7 +17343,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17366,7 +17366,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17382,7 +17382,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17398,7 +17398,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17425,7 +17425,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17441,7 +17441,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17457,7 +17457,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17485,7 +17485,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17501,7 +17501,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17517,7 +17517,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17545,7 +17545,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17561,7 +17561,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17577,7 +17577,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17606,7 +17606,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17622,7 +17622,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17638,7 +17638,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17661,7 +17661,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17677,7 +17677,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17693,7 +17693,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17727,7 +17727,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17743,7 +17743,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17759,7 +17759,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17806,7 +17806,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17822,7 +17822,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17838,7 +17838,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17861,7 +17861,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17877,7 +17877,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17893,7 +17893,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17918,7 +17918,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17934,7 +17934,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -17950,7 +17950,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -17974,7 +17974,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -17990,7 +17990,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18006,7 +18006,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18035,7 +18035,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18051,7 +18051,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18067,7 +18067,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18090,7 +18090,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18106,7 +18106,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18122,7 +18122,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18147,7 +18147,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18163,7 +18163,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18179,7 +18179,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18206,7 +18206,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18222,7 +18222,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18238,7 +18238,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18265,7 +18265,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18281,7 +18281,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18297,7 +18297,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18321,7 +18321,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18337,7 +18337,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18353,7 +18353,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18378,7 +18378,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18394,7 +18394,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18410,7 +18410,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18438,7 +18438,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18454,7 +18454,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18470,7 +18470,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18494,7 +18494,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18510,7 +18510,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18526,7 +18526,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18544,7 +18544,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18560,7 +18560,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18576,7 +18576,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18602,10 +18602,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18621,7 +18621,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18644,7 +18644,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18660,7 +18660,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18676,7 +18676,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18700,7 +18700,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18716,7 +18716,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18732,7 +18732,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18765,7 +18765,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18781,7 +18781,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18797,7 +18797,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18821,7 +18821,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18837,7 +18837,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18853,7 +18853,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18888,7 +18888,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18904,7 +18904,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18920,7 +18920,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -18946,7 +18946,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -18962,7 +18962,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -18978,7 +18978,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19002,7 +19002,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19018,7 +19018,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19034,7 +19034,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19061,7 +19061,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19077,7 +19077,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19093,7 +19093,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19119,7 +19119,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19135,7 +19135,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19151,7 +19151,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19179,7 +19179,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19195,7 +19195,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19211,7 +19211,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19230,7 +19230,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19246,7 +19246,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19262,7 +19262,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19286,7 +19286,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19302,7 +19302,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19318,7 +19318,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19345,7 +19345,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19361,7 +19361,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19377,7 +19377,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19404,7 +19404,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19420,7 +19420,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19436,7 +19436,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19471,7 +19471,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19487,7 +19487,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19503,7 +19503,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19541,7 +19541,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19557,7 +19557,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19573,7 +19573,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19605,7 +19605,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19621,7 +19621,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19637,7 +19637,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19665,7 +19665,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19681,7 +19681,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19697,7 +19697,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19725,7 +19725,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19741,7 +19741,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19757,7 +19757,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19806,7 +19806,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19822,7 +19822,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19838,7 +19838,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19868,7 +19868,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19884,7 +19884,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19900,7 +19900,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19927,7 +19927,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -19943,7 +19943,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -19959,7 +19959,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -19991,7 +19991,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20007,7 +20007,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20023,7 +20023,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20052,7 +20052,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20068,7 +20068,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20084,7 +20084,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20112,7 +20112,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20128,7 +20128,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20144,7 +20144,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20170,7 +20170,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20186,7 +20186,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20202,7 +20202,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20228,7 +20228,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20244,7 +20244,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20260,7 +20260,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20286,7 +20286,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20302,7 +20302,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20318,7 +20318,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20346,7 +20346,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20362,7 +20362,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20378,7 +20378,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20408,7 +20408,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20424,7 +20424,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20440,7 +20440,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20466,7 +20466,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20482,7 +20482,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20498,7 +20498,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20525,7 +20525,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20541,7 +20541,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20557,7 +20557,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20592,7 +20592,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20608,7 +20608,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20624,7 +20624,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20652,7 +20652,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20668,7 +20668,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20684,7 +20684,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20712,7 +20712,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20728,7 +20728,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20744,7 +20744,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20780,7 +20780,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20796,7 +20796,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20812,7 +20812,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20840,7 +20840,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20856,7 +20856,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20872,7 +20872,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20897,7 +20897,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20913,7 +20913,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20929,7 +20929,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -20957,7 +20957,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -20973,7 +20973,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -20989,7 +20989,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21014,7 +21014,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21030,7 +21030,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21046,7 +21046,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21070,7 +21070,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21086,7 +21086,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21102,7 +21102,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21135,7 +21135,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21151,7 +21151,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21167,7 +21167,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21200,7 +21200,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21216,7 +21216,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21232,7 +21232,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21269,7 +21269,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21285,7 +21285,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21301,7 +21301,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21342,7 +21342,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21358,7 +21358,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21374,7 +21374,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21393,7 +21393,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21409,7 +21409,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21434,7 +21434,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21467,7 +21467,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21483,7 +21483,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21499,7 +21499,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21525,7 +21525,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21541,7 +21541,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21557,7 +21557,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21592,7 +21592,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21608,7 +21608,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21624,7 +21624,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21647,7 +21647,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21663,7 +21663,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21679,7 +21679,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21703,7 +21703,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21719,7 +21719,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21735,7 +21735,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21760,7 +21760,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21776,7 +21776,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21792,7 +21792,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21811,7 +21811,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21827,7 +21827,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21843,7 +21843,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21868,7 +21868,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21884,7 +21884,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21900,7 +21900,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21924,7 +21924,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -21940,7 +21940,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -21956,7 +21956,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -21985,7 +21985,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22001,7 +22001,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22017,7 +22017,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22041,7 +22041,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22057,7 +22057,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22073,7 +22073,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22101,7 +22101,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22117,7 +22117,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22133,7 +22133,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22157,7 +22157,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22173,7 +22173,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22189,7 +22189,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22209,7 +22209,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22225,7 +22225,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22241,7 +22241,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22275,7 +22275,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22291,7 +22291,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22307,7 +22307,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22334,7 +22334,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22350,7 +22350,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22366,7 +22366,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22390,7 +22390,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22406,7 +22406,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22422,7 +22422,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22445,7 +22445,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22461,7 +22461,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22477,7 +22477,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22508,7 +22508,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22524,7 +22524,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22540,7 +22540,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22560,7 +22560,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22576,7 +22576,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22592,7 +22592,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22617,7 +22617,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22633,7 +22633,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22664,7 +22664,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22724,7 +22724,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22740,7 +22740,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22756,7 +22756,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22797,7 +22797,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22813,7 +22813,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22829,7 +22829,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22861,7 +22861,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22877,7 +22877,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22893,7 +22893,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22921,7 +22921,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -22937,7 +22937,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -22953,7 +22953,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -22985,7 +22985,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23001,7 +23001,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23017,7 +23017,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23045,7 +23045,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23061,7 +23061,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23077,7 +23077,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23096,7 +23096,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23112,7 +23112,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23128,7 +23128,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23155,7 +23155,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23171,7 +23171,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23187,7 +23187,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23213,7 +23213,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23229,7 +23229,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23245,7 +23245,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23268,7 +23268,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23284,7 +23284,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23300,7 +23300,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23337,7 +23337,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23353,7 +23353,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23369,7 +23369,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23405,7 +23405,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23421,7 +23421,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23437,7 +23437,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23466,7 +23466,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23482,7 +23482,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23498,7 +23498,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23525,7 +23525,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23541,7 +23541,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23557,7 +23557,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23584,7 +23584,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23600,7 +23600,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23616,7 +23616,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23639,7 +23639,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23655,7 +23655,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23671,7 +23671,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23706,7 +23706,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23722,7 +23722,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23738,7 +23738,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23787,7 +23787,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23803,7 +23803,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23819,7 +23819,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23865,7 +23865,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23881,7 +23881,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23897,7 +23897,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23932,7 +23932,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -23948,7 +23948,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -23970,7 +23970,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -23992,7 +23992,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24008,7 +24008,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24024,7 +24024,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24064,7 +24064,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24080,7 +24080,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24096,7 +24096,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24124,7 +24124,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24140,7 +24140,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24156,7 +24156,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24181,7 +24181,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24197,7 +24197,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24213,7 +24213,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24231,7 +24231,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24247,7 +24247,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24263,7 +24263,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24286,7 +24286,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24302,7 +24302,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24318,7 +24318,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24346,7 +24346,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24362,7 +24362,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24378,7 +24378,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24402,7 +24402,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24418,7 +24418,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24434,7 +24434,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24458,7 +24458,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24474,7 +24474,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24490,7 +24490,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24527,7 +24527,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24543,7 +24543,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24559,7 +24559,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24586,7 +24586,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24602,7 +24602,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24618,7 +24618,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24642,7 +24642,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24658,7 +24658,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24674,7 +24674,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24706,7 +24706,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24722,7 +24722,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24738,7 +24738,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24757,7 +24757,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24773,7 +24773,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24789,7 +24789,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24807,7 +24807,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24823,7 +24823,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24839,7 +24839,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24857,7 +24857,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24873,7 +24873,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24889,7 +24889,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24907,7 +24907,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24923,7 +24923,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24939,7 +24939,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -24958,7 +24958,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -24974,7 +24974,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -24990,7 +24990,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25008,7 +25008,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25024,7 +25024,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25040,7 +25040,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25060,7 +25060,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25076,7 +25076,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25092,7 +25092,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25138,7 +25138,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25154,7 +25154,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25170,7 +25170,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25197,7 +25197,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25213,7 +25213,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25229,7 +25229,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25257,7 +25257,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25273,7 +25273,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25289,7 +25289,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25315,7 +25315,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25331,7 +25331,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25347,7 +25347,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25384,7 +25384,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25400,7 +25400,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25416,7 +25416,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25440,7 +25440,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25456,7 +25456,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25472,7 +25472,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25504,7 +25504,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25520,7 +25520,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25536,7 +25536,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25566,7 +25566,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25582,7 +25582,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25598,7 +25598,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25625,7 +25625,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25641,7 +25641,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25657,7 +25657,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25693,7 +25693,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25709,7 +25709,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25725,7 +25725,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25748,7 +25748,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25764,7 +25764,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25780,7 +25780,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25821,7 +25821,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25837,7 +25837,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25853,7 +25853,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25879,7 +25879,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25895,7 +25895,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25911,7 +25911,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25935,7 +25935,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -25951,7 +25951,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -25967,7 +25967,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -25994,7 +25994,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26010,7 +26010,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26026,7 +26026,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26057,7 +26057,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26073,7 +26073,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26089,7 +26089,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26128,7 +26128,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26144,7 +26144,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26160,7 +26160,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26191,7 +26191,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26207,7 +26207,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26223,7 +26223,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26248,7 +26248,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26264,7 +26264,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26286,7 +26286,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26313,7 +26313,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26329,7 +26329,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26345,7 +26345,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26381,7 +26381,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26397,7 +26397,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26413,7 +26413,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26438,7 +26438,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26454,7 +26454,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26470,7 +26470,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26511,7 +26511,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26527,7 +26527,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26543,7 +26543,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26576,7 +26576,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26592,7 +26592,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26608,7 +26608,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26655,7 +26655,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26671,7 +26671,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26687,7 +26687,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26718,7 +26718,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26734,7 +26734,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26750,7 +26750,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26778,7 +26778,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26794,7 +26794,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26810,7 +26810,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26834,7 +26834,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26850,7 +26850,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26866,7 +26866,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26910,7 +26910,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26926,7 +26926,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -26942,7 +26942,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -26982,7 +26982,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -26998,7 +26998,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27014,7 +27014,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27045,7 +27045,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27061,7 +27061,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27077,7 +27077,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27105,7 +27105,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27121,7 +27121,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27137,7 +27137,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27167,7 +27167,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27183,7 +27183,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27199,7 +27199,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27223,7 +27223,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27239,7 +27239,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27255,7 +27255,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27280,7 +27280,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27296,7 +27296,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27312,7 +27312,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27352,7 +27352,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27368,7 +27368,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27384,7 +27384,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27414,7 +27414,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27430,7 +27430,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27446,7 +27446,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27479,7 +27479,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27495,7 +27495,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27511,7 +27511,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27540,7 +27540,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27556,7 +27556,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27572,7 +27572,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27598,7 +27598,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27614,7 +27614,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27630,7 +27630,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27656,7 +27656,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27672,7 +27672,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27688,7 +27688,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27723,7 +27723,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27739,7 +27739,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27755,7 +27755,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27788,7 +27788,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27804,7 +27804,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27820,7 +27820,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27847,7 +27847,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27863,7 +27863,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27879,7 +27879,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27906,7 +27906,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27922,7 +27922,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27938,7 +27938,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -27962,7 +27962,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -27978,7 +27978,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -27994,7 +27994,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28022,7 +28022,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28038,7 +28038,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28054,7 +28054,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28093,7 +28093,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28109,7 +28109,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28125,7 +28125,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28149,7 +28149,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28165,7 +28165,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28181,7 +28181,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28205,7 +28205,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28221,7 +28221,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28237,7 +28237,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28260,7 +28260,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28276,7 +28276,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28292,7 +28292,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28315,7 +28315,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28331,7 +28331,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28347,7 +28347,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28375,7 +28375,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28391,7 +28391,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28407,7 +28407,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28452,7 +28452,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28468,7 +28468,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28484,7 +28484,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28515,7 +28515,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28531,7 +28531,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28547,7 +28547,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28574,7 +28574,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28590,7 +28590,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28606,7 +28606,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28629,7 +28629,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28645,7 +28645,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28661,7 +28661,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28688,7 +28688,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28704,7 +28704,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28720,7 +28720,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28749,7 +28749,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28765,7 +28765,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28781,7 +28781,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28809,7 +28809,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28825,7 +28825,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28841,7 +28841,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28870,7 +28870,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28886,7 +28886,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28902,7 +28902,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28926,7 +28926,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -28942,7 +28942,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -28958,7 +28958,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -28993,7 +28993,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29009,7 +29009,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29025,7 +29025,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29049,7 +29049,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29065,7 +29065,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29081,7 +29081,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29108,7 +29108,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29124,7 +29124,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29140,7 +29140,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29167,7 +29167,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29183,7 +29183,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29199,7 +29199,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29230,7 +29230,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29246,7 +29246,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29262,7 +29262,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29292,7 +29292,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29308,7 +29308,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29324,7 +29324,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29356,7 +29356,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29372,7 +29372,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29388,7 +29388,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29419,7 +29419,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29435,7 +29435,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29451,7 +29451,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29482,7 +29482,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29498,7 +29498,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29514,7 +29514,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29537,7 +29537,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29553,7 +29553,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29569,7 +29569,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29592,7 +29592,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29608,7 +29608,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29624,7 +29624,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29647,7 +29647,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29663,7 +29663,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29679,7 +29679,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29719,7 +29719,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29735,7 +29735,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29751,7 +29751,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29779,7 +29779,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29795,7 +29795,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29811,7 +29811,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29846,7 +29846,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29862,7 +29862,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29878,7 +29878,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29909,7 +29909,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29925,7 +29925,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -29941,7 +29941,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -29973,7 +29973,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -29989,7 +29989,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30005,7 +30005,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30030,7 +30030,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30046,7 +30046,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30062,7 +30062,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30080,7 +30080,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30096,7 +30096,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30112,7 +30112,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30139,7 +30139,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30155,7 +30155,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30171,7 +30171,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30194,7 +30194,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30210,7 +30210,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30226,7 +30226,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30244,7 +30244,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30260,7 +30260,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30276,7 +30276,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30304,7 +30304,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30320,7 +30320,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30336,7 +30336,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30354,7 +30354,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30370,7 +30370,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30386,7 +30386,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30410,7 +30410,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30426,7 +30426,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30442,7 +30442,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30460,7 +30460,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30476,7 +30476,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30492,7 +30492,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30519,7 +30519,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30535,7 +30535,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30551,7 +30551,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30578,7 +30578,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30594,7 +30594,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30610,7 +30610,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30637,7 +30637,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30653,7 +30653,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30669,7 +30669,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30696,7 +30696,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30712,7 +30712,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30728,7 +30728,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30756,7 +30756,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30772,7 +30772,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30788,7 +30788,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30814,7 +30814,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30830,7 +30830,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30846,7 +30846,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30876,7 +30876,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30892,7 +30892,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30908,7 +30908,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -30940,7 +30940,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -30956,7 +30956,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -30972,7 +30972,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31009,7 +31009,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31025,7 +31025,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31041,7 +31041,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31075,7 +31075,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31091,7 +31091,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31107,7 +31107,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31138,7 +31138,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31154,7 +31154,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31170,7 +31170,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31189,7 +31189,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31205,7 +31205,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31221,7 +31221,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31244,7 +31244,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31260,7 +31260,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31276,7 +31276,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31299,7 +31299,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31315,7 +31315,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31331,7 +31331,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31361,7 +31361,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31377,7 +31377,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31393,7 +31393,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31427,7 +31427,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31443,7 +31443,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31459,7 +31459,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31484,7 +31484,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31500,7 +31500,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31516,7 +31516,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31539,7 +31539,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31555,7 +31555,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31571,7 +31571,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31594,7 +31594,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31610,7 +31610,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31626,7 +31626,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31653,7 +31653,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31669,7 +31669,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31685,7 +31685,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31715,7 +31715,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31731,7 +31731,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31747,7 +31747,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31774,7 +31774,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31790,7 +31790,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31806,7 +31806,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31836,7 +31836,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31852,7 +31852,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31868,7 +31868,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31892,7 +31892,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31908,7 +31908,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31924,7 +31924,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -31951,7 +31951,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -31967,7 +31967,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -31983,7 +31983,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32008,7 +32008,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32024,7 +32024,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32040,7 +32040,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32073,7 +32073,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32089,7 +32089,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32105,7 +32105,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32133,7 +32133,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32149,7 +32149,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32165,7 +32165,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32190,7 +32190,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32206,7 +32206,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32222,7 +32222,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32240,7 +32240,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32256,7 +32256,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32272,7 +32272,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32300,7 +32300,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32316,7 +32316,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32332,7 +32332,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32355,7 +32355,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32371,7 +32371,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32387,7 +32387,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32412,7 +32412,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32428,7 +32428,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32444,7 +32444,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32472,7 +32472,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32488,7 +32488,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32504,7 +32504,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32532,7 +32532,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32548,7 +32548,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32564,7 +32564,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32588,7 +32588,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32604,7 +32604,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32620,7 +32620,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32644,7 +32644,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32660,7 +32660,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32676,7 +32676,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32702,7 +32702,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32718,7 +32718,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32734,7 +32734,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32760,7 +32760,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32776,7 +32776,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32792,7 +32792,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32811,7 +32811,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32827,7 +32827,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32843,7 +32843,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32862,7 +32862,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32878,7 +32878,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32894,7 +32894,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32912,7 +32912,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32928,7 +32928,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32944,7 +32944,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -32962,7 +32962,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -32978,7 +32978,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -32994,7 +32994,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33023,7 +33023,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33039,7 +33039,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33055,7 +33055,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33078,7 +33078,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33094,7 +33094,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33110,7 +33110,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33129,7 +33129,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33145,7 +33145,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33161,7 +33161,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33187,7 +33187,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33203,7 +33203,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33219,7 +33219,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33242,7 +33242,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33258,7 +33258,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33274,7 +33274,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33303,7 +33303,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33319,7 +33319,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33335,7 +33335,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33362,7 +33362,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33378,7 +33378,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33394,7 +33394,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33421,7 +33421,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33437,7 +33437,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33453,7 +33453,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33476,7 +33476,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33492,7 +33492,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33508,7 +33508,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33536,7 +33536,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33552,7 +33552,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33568,7 +33568,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33597,7 +33597,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33613,7 +33613,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33629,7 +33629,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33657,7 +33657,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33673,7 +33673,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33689,7 +33689,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33713,7 +33713,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33729,7 +33729,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33745,7 +33745,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33770,7 +33770,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33786,7 +33786,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33802,7 +33802,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33832,7 +33832,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33848,7 +33848,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33864,7 +33864,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33888,7 +33888,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33904,7 +33904,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33920,7 +33920,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -33944,7 +33944,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -33960,7 +33960,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -33976,7 +33976,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34000,7 +34000,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34016,7 +34016,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34032,7 +34032,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34057,7 +34057,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34073,7 +34073,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34089,7 +34089,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34115,7 +34115,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34131,7 +34131,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34147,7 +34147,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34172,7 +34172,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34188,7 +34188,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34204,7 +34204,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34229,7 +34229,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34245,7 +34245,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34261,7 +34261,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34286,7 +34286,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34302,7 +34302,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34318,7 +34318,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34343,7 +34343,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34359,7 +34359,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34375,7 +34375,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34400,7 +34400,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34416,7 +34416,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34432,7 +34432,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34464,7 +34464,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34480,7 +34480,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34496,7 +34496,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34524,7 +34524,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34540,7 +34540,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34556,7 +34556,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34580,7 +34580,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34596,7 +34596,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34612,7 +34612,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34637,7 +34637,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34653,7 +34653,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34669,7 +34669,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34693,7 +34693,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34709,7 +34709,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34725,7 +34725,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34744,7 +34744,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34760,7 +34760,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34776,7 +34776,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34800,7 +34800,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34816,7 +34816,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34832,7 +34832,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34855,7 +34855,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34871,7 +34871,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34887,7 +34887,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34914,7 +34914,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34930,7 +34930,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -34946,7 +34946,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -34970,7 +34970,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -34986,7 +34986,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35002,7 +35002,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35020,7 +35020,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35036,7 +35036,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35052,7 +35052,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35078,7 +35078,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35094,7 +35094,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35110,7 +35110,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35137,7 +35137,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35153,7 +35153,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35169,7 +35169,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35192,7 +35192,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35208,7 +35208,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35224,7 +35224,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35247,7 +35247,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35263,7 +35263,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35279,7 +35279,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35298,7 +35298,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35314,7 +35314,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35330,7 +35330,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35353,7 +35353,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35369,7 +35369,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35385,7 +35385,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35418,7 +35418,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35434,7 +35434,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35450,7 +35450,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35479,7 +35479,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35495,7 +35495,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35511,7 +35511,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35540,7 +35540,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35556,7 +35556,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35572,7 +35572,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35599,7 +35599,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35615,7 +35615,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35631,7 +35631,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35655,7 +35655,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35671,7 +35671,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35687,7 +35687,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35713,7 +35713,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35729,7 +35729,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35745,7 +35745,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35771,7 +35771,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35787,7 +35787,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35803,7 +35803,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35828,7 +35828,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35844,7 +35844,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35860,7 +35860,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35883,7 +35883,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35899,7 +35899,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35915,7 +35915,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -35944,7 +35944,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -35960,7 +35960,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -35976,7 +35976,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36000,7 +36000,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36016,7 +36016,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36032,7 +36032,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36061,7 +36061,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36077,7 +36077,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36093,7 +36093,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36130,7 +36130,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36146,7 +36146,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36162,7 +36162,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36196,7 +36196,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36212,7 +36212,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36228,7 +36228,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36258,7 +36258,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36274,7 +36274,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36290,7 +36290,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36320,7 +36320,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36336,7 +36336,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36352,7 +36352,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36385,7 +36385,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36401,7 +36401,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36417,7 +36417,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36445,7 +36445,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36461,7 +36461,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36477,7 +36477,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36503,7 +36503,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36519,7 +36519,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36535,7 +36535,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36569,7 +36569,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36585,7 +36585,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36601,7 +36601,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36629,7 +36629,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36645,7 +36645,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36661,7 +36661,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36693,7 +36693,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36709,7 +36709,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36725,7 +36725,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36754,7 +36754,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36770,7 +36770,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36786,7 +36786,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36820,7 +36820,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36836,7 +36836,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36852,7 +36852,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36881,7 +36881,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36897,7 +36897,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36913,7 +36913,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36931,7 +36931,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -36947,7 +36947,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -36963,7 +36963,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -36986,7 +36986,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37002,7 +37002,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37018,7 +37018,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37036,7 +37036,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37052,7 +37052,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37068,7 +37068,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37092,7 +37092,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37108,7 +37108,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37124,7 +37124,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37151,7 +37151,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37167,7 +37167,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37183,7 +37183,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37210,7 +37210,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37226,7 +37226,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37242,7 +37242,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37267,7 +37267,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37283,7 +37283,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37299,7 +37299,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37317,7 +37317,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37333,7 +37333,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37349,7 +37349,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37372,7 +37372,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37388,7 +37388,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37404,7 +37404,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37422,7 +37422,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37438,7 +37438,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37454,7 +37454,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37483,7 +37483,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37499,7 +37499,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37515,7 +37515,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37549,7 +37549,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37565,7 +37565,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37581,7 +37581,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37605,7 +37605,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37621,7 +37621,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37637,7 +37637,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37665,7 +37665,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37681,7 +37681,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37697,7 +37697,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37725,7 +37725,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37741,7 +37741,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37757,7 +37757,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37788,7 +37788,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37804,7 +37804,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37820,7 +37820,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37849,7 +37849,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37865,7 +37865,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37881,7 +37881,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37911,7 +37911,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37927,7 +37927,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -37943,7 +37943,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -37971,7 +37971,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -37987,7 +37987,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38003,7 +38003,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38032,7 +38032,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38048,7 +38048,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38064,7 +38064,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38092,7 +38092,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38108,7 +38108,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38124,7 +38124,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38154,7 +38154,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38170,7 +38170,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38186,7 +38186,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38214,7 +38214,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38230,7 +38230,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38246,7 +38246,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38276,7 +38276,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38292,7 +38292,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38308,7 +38308,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38335,7 +38335,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38351,7 +38351,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38367,7 +38367,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38391,7 +38391,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38407,7 +38407,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38423,7 +38423,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38452,7 +38452,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38468,7 +38468,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38484,7 +38484,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38514,7 +38514,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38530,7 +38530,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38546,7 +38546,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38582,7 +38582,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38598,7 +38598,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38614,7 +38614,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38638,7 +38638,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38654,7 +38654,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38670,7 +38670,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38714,7 +38714,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38730,7 +38730,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38746,7 +38746,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38764,7 +38764,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38780,7 +38780,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38796,7 +38796,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38825,7 +38825,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38841,7 +38841,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38857,7 +38857,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38888,7 +38888,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38904,7 +38904,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38920,7 +38920,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -38963,7 +38963,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -38979,7 +38979,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -38995,7 +38995,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39021,7 +39021,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39037,7 +39037,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39053,7 +39053,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39072,7 +39072,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39088,7 +39088,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39104,7 +39104,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39122,7 +39122,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39138,7 +39138,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39154,7 +39154,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39172,7 +39172,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39188,7 +39188,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39204,7 +39204,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39222,7 +39222,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39238,7 +39238,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39254,7 +39254,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39292,7 +39292,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39308,7 +39308,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39324,7 +39324,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39351,7 +39351,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39367,7 +39367,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39383,7 +39383,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39414,7 +39414,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39430,7 +39430,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39446,7 +39446,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39479,7 +39479,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39495,7 +39495,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39511,7 +39511,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39539,7 +39539,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39555,7 +39555,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39571,7 +39571,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39597,7 +39597,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39613,7 +39613,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39629,7 +39629,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39647,7 +39647,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39663,7 +39663,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39679,7 +39679,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39705,7 +39705,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39721,7 +39721,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39737,7 +39737,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39760,7 +39760,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39776,7 +39776,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39792,7 +39792,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39825,7 +39825,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39841,7 +39841,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39857,7 +39857,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39881,7 +39881,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39897,7 +39897,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39913,7 +39913,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39937,7 +39937,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -39953,7 +39953,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -39969,7 +39969,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -39992,7 +39992,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40008,7 +40008,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40024,7 +40024,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40042,7 +40042,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40058,7 +40058,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40074,7 +40074,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40100,7 +40100,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40116,7 +40116,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40132,7 +40132,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40157,7 +40157,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40173,7 +40173,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40189,7 +40189,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40218,7 +40218,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40234,7 +40234,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40250,7 +40250,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40276,7 +40276,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40292,7 +40292,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40308,7 +40308,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40333,7 +40333,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40349,7 +40349,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40365,7 +40365,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40395,7 +40395,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40411,7 +40411,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40427,7 +40427,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40451,7 +40451,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40467,7 +40467,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40483,7 +40483,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40511,7 +40511,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40527,7 +40527,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40543,7 +40543,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40570,7 +40570,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40586,7 +40586,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40602,7 +40602,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40631,7 +40631,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40647,7 +40647,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40663,7 +40663,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40690,7 +40690,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40706,7 +40706,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40722,7 +40722,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40750,10 +40750,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40769,7 +40769,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40794,7 +40794,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40810,7 +40810,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40826,7 +40826,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40849,7 +40849,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40865,7 +40865,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40881,7 +40881,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40907,7 +40907,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40923,7 +40923,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40939,7 +40939,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -40962,7 +40962,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -40978,7 +40978,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -40994,7 +40994,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41017,7 +41017,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41033,7 +41033,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41049,7 +41049,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41067,7 +41067,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41083,7 +41083,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41099,7 +41099,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41123,7 +41123,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41139,7 +41139,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41155,7 +41155,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41173,7 +41173,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41189,7 +41189,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41205,7 +41205,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41233,7 +41233,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41249,7 +41249,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41271,7 +41271,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41300,10 +41300,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41328,7 +41328,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41354,7 +41354,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41370,7 +41370,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41395,7 +41395,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41424,7 +41424,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41440,7 +41440,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41456,7 +41456,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41480,7 +41480,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41496,7 +41496,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41512,7 +41512,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41531,7 +41531,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41547,7 +41547,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41563,7 +41563,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41595,7 +41595,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41611,7 +41611,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41627,7 +41627,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41652,7 +41652,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41668,7 +41668,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41684,7 +41684,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41702,7 +41702,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41718,7 +41718,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41734,7 +41734,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41757,7 +41757,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41773,7 +41773,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41789,7 +41789,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41826,7 +41826,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41842,7 +41842,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41867,7 +41867,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41901,7 +41901,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41917,7 +41917,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41933,7 +41933,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -41964,7 +41964,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -41980,7 +41980,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -41996,7 +41996,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42025,7 +42025,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42041,7 +42041,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42057,7 +42057,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42088,7 +42088,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42104,7 +42104,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42120,7 +42120,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42153,7 +42153,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42169,7 +42169,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42185,7 +42185,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42213,7 +42213,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42229,7 +42229,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42245,7 +42245,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42276,7 +42276,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42292,7 +42292,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42308,7 +42308,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42333,7 +42333,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42349,7 +42349,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42365,7 +42365,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42393,7 +42393,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42409,7 +42409,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42428,7 +42428,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42458,7 +42458,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42474,7 +42474,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42490,7 +42490,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42529,7 +42529,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42545,7 +42545,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42561,7 +42561,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42591,7 +42591,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42607,7 +42607,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42623,7 +42623,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42652,7 +42652,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42668,7 +42668,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42690,7 +42690,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42716,7 +42716,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42732,7 +42732,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42748,7 +42748,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42767,7 +42767,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42783,7 +42783,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42799,7 +42799,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42817,7 +42817,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42833,7 +42833,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42849,7 +42849,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42912,7 +42912,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42928,7 +42928,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -42944,7 +42944,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -42974,7 +42974,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -42990,7 +42990,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43006,7 +43006,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43031,7 +43031,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43047,7 +43047,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43063,7 +43063,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43088,7 +43088,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43104,7 +43104,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43120,7 +43120,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43139,7 +43139,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43155,7 +43155,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43171,7 +43171,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43189,7 +43189,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43205,7 +43205,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43221,7 +43221,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43248,7 +43248,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43264,7 +43264,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43280,7 +43280,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43298,7 +43298,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43314,7 +43314,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43330,7 +43330,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43358,7 +43358,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43374,7 +43374,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43390,7 +43390,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43409,7 +43409,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43425,7 +43425,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43441,7 +43441,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43464,7 +43464,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43480,7 +43480,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43496,7 +43496,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43522,7 +43522,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43538,7 +43538,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43590,7 +43590,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43613,7 +43613,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43629,7 +43629,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43645,7 +43645,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43674,7 +43674,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43690,7 +43690,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43742,7 +43742,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43765,7 +43765,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43781,7 +43781,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43797,7 +43797,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43825,7 +43825,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43841,7 +43841,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43857,7 +43857,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43882,7 +43882,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43898,7 +43898,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43914,7 +43914,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43938,7 +43938,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -43954,7 +43954,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -43970,7 +43970,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -43989,7 +43989,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44005,7 +44005,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44021,7 +44021,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44044,7 +44044,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44060,7 +44060,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44076,7 +44076,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44109,7 +44109,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44125,7 +44125,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44141,7 +44141,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44169,7 +44169,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44185,7 +44185,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44201,7 +44201,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44231,7 +44231,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44247,7 +44247,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44263,7 +44263,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44290,7 +44290,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44306,7 +44306,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44322,7 +44322,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44355,7 +44355,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44371,7 +44371,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44387,7 +44387,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44410,7 +44410,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44426,7 +44426,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44442,7 +44442,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44465,7 +44465,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44481,7 +44481,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44503,7 +44503,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44552,7 +44552,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44568,7 +44568,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44584,7 +44584,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44615,7 +44615,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44631,7 +44631,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44647,7 +44647,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44682,7 +44682,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44698,7 +44698,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44714,7 +44714,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44749,7 +44749,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44765,7 +44765,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44781,7 +44781,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44810,7 +44810,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44826,7 +44826,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44842,7 +44842,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44869,7 +44869,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44885,7 +44885,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44901,7 +44901,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44925,7 +44925,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -44941,7 +44941,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -44957,7 +44957,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -44984,7 +44984,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45000,7 +45000,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45016,7 +45016,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45040,7 +45040,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45056,7 +45056,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45072,7 +45072,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45100,7 +45100,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45116,7 +45116,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45132,7 +45132,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45161,7 +45161,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45177,7 +45177,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45193,7 +45193,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45221,7 +45221,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45237,7 +45237,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45253,7 +45253,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45283,7 +45283,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45299,7 +45299,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45315,7 +45315,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45355,7 +45355,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45371,7 +45371,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45387,7 +45387,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45411,7 +45411,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45427,7 +45427,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45443,7 +45443,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45467,7 +45467,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45483,7 +45483,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45499,7 +45499,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45517,7 +45517,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45533,7 +45533,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45549,7 +45549,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45574,7 +45574,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45590,7 +45590,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45606,7 +45606,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45630,7 +45630,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45646,7 +45646,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45662,7 +45662,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45681,7 +45681,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45697,7 +45697,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45713,7 +45713,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45732,7 +45732,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45748,7 +45748,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45764,7 +45764,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45790,7 +45790,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45806,7 +45806,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45822,7 +45822,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45845,7 +45845,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45861,7 +45861,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45877,7 +45877,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45900,7 +45900,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45916,7 +45916,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45932,7 +45932,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -45965,7 +45965,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -45981,7 +45981,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -45997,7 +45997,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46025,7 +46025,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46041,7 +46041,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46060,7 +46060,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46078,7 +46078,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46094,7 +46094,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46110,7 +46110,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46134,7 +46134,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46150,7 +46150,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46166,7 +46166,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46184,7 +46184,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46200,7 +46200,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46216,7 +46216,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46258,7 +46258,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46274,7 +46274,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46290,7 +46290,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46319,7 +46319,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46335,7 +46335,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46351,7 +46351,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46375,7 +46375,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46391,7 +46391,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46407,7 +46407,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46434,7 +46434,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46450,7 +46450,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46466,7 +46466,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46499,7 +46499,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46515,7 +46515,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46531,7 +46531,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46557,7 +46557,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46573,7 +46573,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46589,7 +46589,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46621,7 +46621,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46637,7 +46637,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46653,7 +46653,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46677,7 +46677,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46693,7 +46693,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46709,7 +46709,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46733,7 +46733,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46749,7 +46749,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46765,7 +46765,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46788,7 +46788,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46804,7 +46804,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46820,7 +46820,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46858,10 +46858,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46877,7 +46877,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46912,7 +46912,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46928,7 +46928,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -46944,7 +46944,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -46970,7 +46970,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -46986,7 +46986,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47002,7 +47002,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47028,7 +47028,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47044,7 +47044,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47060,7 +47060,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47084,7 +47084,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47100,7 +47100,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47116,7 +47116,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47135,7 +47135,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47151,7 +47151,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47167,7 +47167,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47187,7 +47187,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47203,7 +47203,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47219,7 +47219,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47243,7 +47243,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47259,7 +47259,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47275,7 +47275,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47308,10 +47308,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47327,7 +47327,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47357,7 +47357,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47373,7 +47373,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47389,7 +47389,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47414,7 +47414,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47430,7 +47430,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47446,7 +47446,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47472,7 +47472,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47488,7 +47488,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47504,7 +47504,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47523,7 +47523,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47539,7 +47539,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47570,7 +47570,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47600,7 +47600,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47616,7 +47616,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47632,7 +47632,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47651,7 +47651,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47667,7 +47667,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47683,7 +47683,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47716,7 +47716,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47732,7 +47732,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47748,7 +47748,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47784,7 +47784,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47800,7 +47800,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47816,7 +47816,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47840,7 +47840,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47856,7 +47856,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47872,7 +47872,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47891,7 +47891,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47907,7 +47907,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47923,7 +47923,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47946,7 +47946,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -47962,7 +47962,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -47978,7 +47978,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -47997,7 +47997,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48013,7 +48013,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48029,7 +48029,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48054,7 +48054,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48070,7 +48070,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48086,7 +48086,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48111,7 +48111,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48127,7 +48127,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48143,7 +48143,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48170,10 +48170,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48189,7 +48189,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48213,7 +48213,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48229,7 +48229,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48245,7 +48245,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48267,10 +48267,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48292,7 +48292,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48311,7 +48311,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48327,7 +48327,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48349,7 +48349,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48381,10 +48381,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48400,7 +48400,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48429,7 +48429,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48445,7 +48445,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48461,7 +48461,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48483,10 +48483,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48502,7 +48502,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48521,7 +48521,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48537,7 +48537,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48553,7 +48553,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48576,10 +48576,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48595,7 +48595,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48615,7 +48615,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48631,7 +48631,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48647,7 +48647,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48677,10 +48677,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48696,7 +48696,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48723,7 +48723,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48739,7 +48739,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48755,7 +48755,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48782,10 +48782,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48801,7 +48801,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48825,7 +48825,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48841,7 +48841,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48857,7 +48857,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48887,10 +48887,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48906,7 +48906,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48933,7 +48933,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -48949,7 +48949,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -48965,7 +48965,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -48989,7 +48989,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49005,7 +49005,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49021,7 +49021,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49047,7 +49047,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49063,7 +49063,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49079,7 +49079,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49098,7 +49098,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49114,7 +49114,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49130,7 +49130,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49149,7 +49149,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49165,7 +49165,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49181,7 +49181,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49205,7 +49205,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49221,7 +49221,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49237,7 +49237,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49261,7 +49261,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49277,7 +49277,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49293,7 +49293,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49317,7 +49317,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49333,7 +49333,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49349,7 +49349,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49374,7 +49374,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49390,7 +49390,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49406,7 +49406,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49430,7 +49430,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49446,7 +49446,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49462,7 +49462,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49487,7 +49487,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49503,7 +49503,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49519,7 +49519,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49543,7 +49543,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49559,7 +49559,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49575,7 +49575,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49594,7 +49594,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49610,7 +49610,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49626,7 +49626,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49662,7 +49662,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49678,7 +49678,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49694,7 +49694,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49713,7 +49713,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49729,7 +49729,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -49745,7 +49745,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -49764,7 +49764,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -49780,7 +49780,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -50246,7 +50246,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -50273,10 +50273,10 @@ public sealed class TDLib.Client : Object {
         GLib.debug ("execute %s", json_string);
 
         string json_response = TDJsonApi.execute (json_string);
-        
+
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -50292,7 +50292,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
@@ -50316,7 +50316,7 @@ public sealed class TDLib.Client : Object {
         string json_response = "";
 
         string json_string = yield TDJsoner.serialize_async (obj, Case.SNAKE);
-        
+
         GLib.debug ("send %d %s", client_id, json_string);
 
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
@@ -50332,7 +50332,7 @@ public sealed class TDLib.Client : Object {
 
         var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
         string tdlib_type = jsoner.deserialize_value ().get_string ();
-        
+
         if (tdlib_type == "error") {
             jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
             throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
@@ -50348,7 +50348,7 @@ public sealed class TDLib.Client : Object {
             default:
                 assert_not_reached ();
         }
-        
+
         return out_obj;
 
         } catch (JsonError e) {
