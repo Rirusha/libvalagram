@@ -1,12 +1,12 @@
 project(
   'libvalagram',
   ['c', 'vala'],
-  version: '0.1.0',
+  version: '1.0.1',
   meson_version: '>= 1.0.0',
   license: 'GPL-3.0-or-later',
 )
 
-api_version = '0.1'
+api_version = '1'
 glib_min_version = '2.76'
 
 project_name = meson.project_name()
