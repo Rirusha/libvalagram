@@ -34,6 +34,8 @@ fi
 new_version="$major.$minor.$patch"
 new_tag="v.$major.$minor.$patch"
 
+rm -rf auto-update/tdlib2vala/
+
 git add .
 if git commit -m "update: Regular lib update" ; then
     python3.12 auto-update/update_main_meson.py meson.build "$new_version"
@@ -42,7 +44,7 @@ if git commit -m "update: Regular lib update" ; then
     if  git commit -m "Bump version to $new_version" ; then
         git push
 
-        git tag $tag_name
+        git tag -a $tag_name -m "Release"
         git push origin $tag_name
         exit 0
     fi
