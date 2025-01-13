@@ -44,8 +44,8 @@ if git commit -m "update: Regular lib update" ; then
     if  git commit -m "Bump version to $new_version" ; then
         git push
 
-        git tag -a $tag_name -m "Release"
-        git push origin $tag_name
+        git tag -a $new_tag -m "Release"
+        git push origin $new_tag
         exit 0
     fi
 fi
