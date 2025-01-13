@@ -68,13 +68,19 @@ jobs:
       - name: Install libs on container
         run: |
           apt-get update
-          apt-get install -y git python3.12 valac meson ninja-build libgee-0.8-dev libglib2.0-dev libsoup-3.0-dev libjson-glib-dev gobject-introspection
+          apt-get install -y git python3.12 valac meson ninja-build libgee-0.8-dev libglib2.0-dev libsoup-3.0-dev libjson-glib-dev gobject-introspection 	libtd-dev valadoc
           
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup
-        run: meson setup _build -Dprefix=/usr
+        run: meson setup _build -Dprefix=/usr -Ddocumentation=true
 
       - name: Build
         run: meson compile -C _build
+        
+      - name: Upload doc
+        uses: actions/upload-artifact@v4
+        with:
+          name: doc
+          path: _build/doc/valagram-1-vala
