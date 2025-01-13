@@ -43,7 +43,6 @@ Requires: %name = %EVR
 %package devel-vala
 Summary: Development vapi files for %name
 Group: System/Libraries
-BuildArch: noarch
 
 Requires: %name = %EVR
 
@@ -62,7 +61,6 @@ Requires: %name = %EVR
 %package gir-devel
 Summary: Development gir files for %name for various bindings
 Group: Development/Other
-BuildArch: noarch
 
 Requires: %name = %EVR
 
