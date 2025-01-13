@@ -23,7 +23,7 @@
  * Removes a chat from the list of frequently used chats. Supported only
  * if the chat info database is enabled
  */
-internal class TDLib.RemoveTopChat : TDObject {
+public class TDLib.RemoveTopChat : TDObject {
 
     /**
      * Category of frequently used chats

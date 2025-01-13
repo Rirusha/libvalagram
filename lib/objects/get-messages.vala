@@ -23,7 +23,7 @@
  * Returns information about messages. If a message is not found, returns
  * null on the corresponding position of the result
  */
-internal class TDLib.GetMessages : TDObject {
+public class TDLib.GetMessages : TDObject {
 
     /**
      * Identifier of the chat the messages belong to

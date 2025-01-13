@@ -60,11 +60,11 @@ public class TDLib.ChatEventMessageDeleted : ChatEventAction {
     /**
      * Deleted message
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     /**
      * True, if the message deletion can be reported via
-     * reportSupergroupAntiSpamFalsePositive
+     * {@link Client.report_supergroup_anti_spam_false_positive}
      */
     public bool can_report_anti_spam_false_positive { get; construct set; }
 
@@ -89,7 +89,7 @@ public class TDLib.ChatEventMessagePinned : ChatEventAction {
     /**
      * Pinned message
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     public ChatEventMessagePinned (
         Message message
@@ -110,7 +110,7 @@ public class TDLib.ChatEventMessageUnpinned : ChatEventAction {
     /**
      * Unpinned message
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     public ChatEventMessageUnpinned (
         Message message
@@ -131,7 +131,7 @@ public class TDLib.ChatEventPollStopped : ChatEventAction {
     /**
      * The message with the poll
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     public ChatEventPollStopped (
         Message message
@@ -1071,7 +1071,7 @@ public class TDLib.ChatEventVideoChatCreated : ChatEventAction {
 
     /**
      * Identifier of the video chat. The video chat can be received through
-     * the method getGroupCall
+     * the method {@link Client.get_group_call}
      */
     public int32 group_call_id { get; construct set; }
 
@@ -1093,7 +1093,7 @@ public class TDLib.ChatEventVideoChatEnded : ChatEventAction {
 
     /**
      * Identifier of the video chat. The video chat can be received through
-     * the method getGroupCall
+     * the method {@link Client.get_group_call}
      */
     public int32 group_call_id { get; construct set; }
 

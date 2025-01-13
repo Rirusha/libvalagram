@@ -22,7 +22,7 @@
 /**
  * Returns information about available group call streams
  */
-internal class TDLib.GetGroupCallStreams : TDObject {
+public class TDLib.GetGroupCallStreams : TDObject {
 
     /**
      * Group call identifier

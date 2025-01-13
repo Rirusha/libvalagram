@@ -25,7 +25,7 @@
  * chatBoostFeatures.min_custom_emoji_sticker_set_boost_level boost level
  * to pass the corresponding color
  */
-internal class TDLib.SetSupergroupCustomEmojiStickerSet : TDObject {
+public class TDLib.SetSupergroupCustomEmojiStickerSet : TDObject {
 
     /**
      * Identifier of the supergroup

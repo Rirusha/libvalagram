@@ -60,7 +60,8 @@ public class TDLib.BotInfo : Error {
     /**
      * The HTTP link to the privacy policy of the bot. If empty, then
      * /privacy command must be used if supported by the bot. If the command
-     * isn't supported, then https://telegram.org/privacy-tpa must be opened
+     * isn't supported, then [[https://telegram.org/privacy-tpa]] must be
+     * opened
      */
     public string privacy_policy_url { get; construct set; }
 

@@ -24,7 +24,7 @@
  * the email address. Works only when the current authorization state is
  * authorizationStateWaitEmailAddress
  */
-internal class TDLib.SetAuthenticationEmailAddress : TDObject {
+public class TDLib.SetAuthenticationEmailAddress : TDObject {
 
     /**
      * The email address of the user

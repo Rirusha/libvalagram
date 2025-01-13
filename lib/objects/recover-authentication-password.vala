@@ -24,7 +24,7 @@
  * code sent to an email address that was previously set up. Works only
  * when the current authorization state is authorizationStateWaitPassword
  */
-internal class TDLib.RecoverAuthenticationPassword : TDObject {
+public class TDLib.RecoverAuthenticationPassword : TDObject {
 
     /**
      * Recovery code to check

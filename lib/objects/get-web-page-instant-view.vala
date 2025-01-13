@@ -23,7 +23,7 @@
  * Returns an instant view version of a web page if available. Returns a
  * 404 error if the web page has no instant view page
  */
-internal class TDLib.GetWebPageInstantView : TDObject {
+public class TDLib.GetWebPageInstantView : TDObject {
 
     /**
      * The web page URL

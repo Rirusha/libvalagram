@@ -24,7 +24,7 @@
  * a regular or custom emoji sticker set that is owned by the current
  * user
  */
-internal class TDLib.SetStickerKeywords : TDObject {
+public class TDLib.SetStickerKeywords : TDObject {
 
     /**
      * Sticker

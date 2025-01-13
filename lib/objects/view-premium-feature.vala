@@ -23,7 +23,7 @@
  * Informs TDLib that the user viewed detailed information about a
  * Premium feature on the Premium features screen
  */
-internal class TDLib.ViewPremiumFeature : TDObject {
+public class TDLib.ViewPremiumFeature : TDObject {
 
     /**
      * The viewed premium feature

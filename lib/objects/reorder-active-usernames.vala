@@ -22,7 +22,7 @@
 /**
  * Changes order of active usernames of the current user
  */
-internal class TDLib.ReorderActiveUsernames : TDObject {
+public class TDLib.ReorderActiveUsernames : TDObject {
 
     /**
      * The new order of active usernames. All currently active usernames must

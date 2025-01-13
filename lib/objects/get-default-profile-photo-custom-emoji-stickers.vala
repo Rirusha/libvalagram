@@ -23,7 +23,7 @@
  * Returns default list of custom emoji stickers for placing on a profile
  * photo
  */
-internal class TDLib.GetDefaultProfilePhotoCustomEmojiStickers : TDObject {
+public class TDLib.GetDefaultProfilePhotoCustomEmojiStickers : TDObject {
 
     public GetDefaultProfilePhotoCustomEmojiStickers () {
         Object (

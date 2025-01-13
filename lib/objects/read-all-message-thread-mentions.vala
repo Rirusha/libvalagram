@@ -22,7 +22,7 @@
 /**
  * Marks all mentions in a forum topic as read
  */
-internal class TDLib.ReadAllMessageThreadMentions : TDObject {
+public class TDLib.ReadAllMessageThreadMentions : TDObject {
 
     /**
      * Chat identifier

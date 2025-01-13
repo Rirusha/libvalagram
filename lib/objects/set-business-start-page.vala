@@ -23,7 +23,7 @@
  * Changes the business start page of the current user. Requires Telegram
  * Business subscription
  */
-internal class TDLib.SetBusinessStartPage : TDObject {
+public class TDLib.SetBusinessStartPage : TDObject {
 
     /**
      * The new start page of the business; pass null to remove custom start

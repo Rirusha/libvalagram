@@ -23,7 +23,7 @@
  * Returns recently opened chats; this is an offline request. Returns
  * chats in the order of last opening
  */
-internal class TDLib.GetRecentlyOpenedChats : TDObject {
+public class TDLib.GetRecentlyOpenedChats : TDObject {
 
     /**
      * The maximum number of chats to be returned

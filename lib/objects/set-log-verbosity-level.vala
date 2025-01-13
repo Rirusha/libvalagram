@@ -23,7 +23,7 @@
  * Sets the verbosity level of the internal logging of TDLib. Can be
  * called synchronously
  */
-internal class TDLib.SetLogVerbosityLevel : TDObject {
+public class TDLib.SetLogVerbosityLevel : TDObject {
 
     /**
      * New value of the verbosity level for logging. Value 0 corresponds to

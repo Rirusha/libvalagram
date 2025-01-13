@@ -25,7 +25,7 @@
  * This is especially useful if TDLib is run in a separate process. Can
  * be called before initialization
  */
-internal class TDLib.GetCurrentState : TDObject {
+public class TDLib.GetCurrentState : TDObject {
 
     public GetCurrentState () {
         Object (

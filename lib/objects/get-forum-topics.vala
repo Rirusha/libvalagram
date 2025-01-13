@@ -23,7 +23,7 @@
  * Returns found forum topics in a forum chat. This is a temporary method
  * for getting information about topic list from the server
  */
-internal class TDLib.GetForumTopics : TDObject {
+public class TDLib.GetForumTopics : TDObject {
 
     /**
      * Identifier of the forum chat

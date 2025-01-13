@@ -23,7 +23,7 @@
  * Informs server about a purchase through App Store. For official
  * applications only
  */
-internal class TDLib.AssignAppStoreTransaction : TDObject {
+public class TDLib.AssignAppStoreTransaction : TDObject {
 
     /**
      * App Store receipt

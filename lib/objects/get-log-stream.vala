@@ -23,7 +23,7 @@
  * Returns information about currently used log stream for internal
  * logging of TDLib. Can be called synchronously
  */
-internal class TDLib.GetLogStream : TDObject {
+public class TDLib.GetLogStream : TDObject {
 
     public GetLogStream () {
         Object (

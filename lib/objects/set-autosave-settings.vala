@@ -21,9 +21,10 @@
 
 /**
  * Sets autosave settings for the given scope. The method is guaranteed
- * to work only after at least one call to getAutosaveSettings
+ * to work only after at least one call to
+ * {@link Client.get_autosave_settings}
  */
-internal class TDLib.SetAutosaveSettings : TDObject {
+public class TDLib.SetAutosaveSettings : TDObject {
 
     /**
      * Autosave settings scope

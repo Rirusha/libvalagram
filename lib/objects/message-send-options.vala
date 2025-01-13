@@ -48,8 +48,8 @@ public class TDLib.MessageSendOptions : Error {
 
     /**
      * Pass true if the user explicitly chosen a sticker or a custom emoji
-     * from an installed sticker set; applicable only to sendMessage and
-     * sendMessageAlbum
+     * from an installed sticker set; applicable only to
+     * {@link Client.send_message} and {@link Client.send_message_album}
      */
     public bool update_order_of_installed_sticker_sets { get; construct set; }
 
@@ -62,7 +62,8 @@ public class TDLib.MessageSendOptions : Error {
 
     /**
      * Identifier of the effect to apply to the message; pass 0 if none;
-     * applicable only to sendMessage and sendMessageAlbum in private chats
+     * applicable only to {@link Client.send_message} and
+     * {@link Client.send_message_album} in private chats
      */
     public int64 effect_id { get; construct set; }
 

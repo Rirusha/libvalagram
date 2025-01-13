@@ -23,7 +23,7 @@
  * Returns the list of participant identifiers, on whose behalf a video
  * chat in the chat can be joined
  */
-internal class TDLib.GetVideoChatAvailableParticipants : TDObject {
+public class TDLib.GetVideoChatAvailableParticipants : TDObject {
 
     /**
      * Chat identifier

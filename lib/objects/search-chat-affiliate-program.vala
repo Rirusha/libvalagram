@@ -23,7 +23,7 @@
  * Searches a chat with an affiliate program. Returns the chat if found
  * and the program is active
  */
-internal class TDLib.SearchChatAffiliateProgram : TDObject {
+public class TDLib.SearchChatAffiliateProgram : TDObject {
 
     /**
      * Username of the chat

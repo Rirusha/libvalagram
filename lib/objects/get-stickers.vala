@@ -25,7 +25,7 @@
  * If the query is non-empty, then favorite, recently used or trending
  * stickers may also be returned
  */
-internal class TDLib.GetStickers : TDObject {
+public class TDLib.GetStickers : TDObject {
 
     /**
      * Type of the stickers to return

@@ -25,11 +25,12 @@
  * groupCall.loaded_all_participants to check whether all participants
  * have already been loaded
  */
-internal class TDLib.LoadGroupCallParticipants : TDObject {
+public class TDLib.LoadGroupCallParticipants : TDObject {
 
     /**
      * Group call identifier. The group call must be previously received
-     * through getGroupCall and must be joined or being joined
+     * through {@link Client.get_group_call} and must be joined or being
+     * joined
      */
     public int32 group_call_id { get; construct set; }
 

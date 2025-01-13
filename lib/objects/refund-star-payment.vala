@@ -22,7 +22,7 @@
 /**
  * Refunds a previously done payment in Telegram Stars; for bots only
  */
-internal class TDLib.RefundStarPayment : TDObject {
+public class TDLib.RefundStarPayment : TDObject {
 
     /**
      * Identifier of the user that did the payment

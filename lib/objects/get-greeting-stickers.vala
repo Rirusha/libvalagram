@@ -23,7 +23,7 @@
  * Returns greeting stickers from regular sticker sets that can be used
  * for the start page of other users
  */
-internal class TDLib.GetGreetingStickers : TDObject {
+public class TDLib.GetGreetingStickers : TDObject {
 
     public GetGreetingStickers () {
         Object (

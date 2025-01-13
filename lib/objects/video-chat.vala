@@ -27,7 +27,7 @@ public class TDLib.VideoChat : Error {
     /**
      * Group call identifier of an active video chat; 0 if none. Full
      * information about the video chat can be received through the method
-     * getGroupCall
+     * {@link Client.get_group_call}
      */
     public int32 group_call_id { get; construct set; }
 

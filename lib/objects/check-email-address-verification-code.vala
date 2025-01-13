@@ -22,7 +22,7 @@
 /**
  * Checks the email address verification code for Telegram Passport
  */
-internal class TDLib.CheckEmailAddressVerificationCode : TDObject {
+public class TDLib.CheckEmailAddressVerificationCode : TDObject {
 
     /**
      * Verification code to check

@@ -23,7 +23,7 @@
  * Returns a default placeholder for Web Apps of a bot; this is an
  * offline request. Returns a 404 error if the placeholder isn't known
  */
-internal class TDLib.GetWebAppPlaceholder : TDObject {
+public class TDLib.GetWebAppPlaceholder : TDObject {
 
     /**
      * Identifier of the target bot

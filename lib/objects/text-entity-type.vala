@@ -119,8 +119,8 @@ public class TDLib.TextEntityTypePhoneNumber : TextEntityType {
 }
 
 /**
- * A bank card number. The getBankCardInfo method can be used to get
- * information about the bank card
+ * A bank card number. The {@link Client.get_bank_card_info} method can
+ * be used to get information about the bank card
  */
 public class TDLib.TextEntityTypeBankCardNumber : TextEntityType {
 
@@ -279,7 +279,7 @@ public class TDLib.TextEntityTypeExpandableBlockQuote : TextEntityType {
 public class TDLib.TextEntityTypeTextUrl : TextEntityType {
 
     /**
-     * HTTP or tg:// URL to be opened when the link is clicked
+     * HTTP or [[tg://]] URL to be opened when the link is clicked
      */
     public string url { get; construct set; }
 

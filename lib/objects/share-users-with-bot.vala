@@ -23,7 +23,7 @@
  * Shares users after pressing a keyboardButtonTypeRequestUsers button
  * with the bot
  */
-internal class TDLib.ShareUsersWithBot : TDObject {
+public class TDLib.ShareUsersWithBot : TDObject {
 
     /**
      * Identifier of the chat with the bot

@@ -23,7 +23,7 @@
  * Returns information about a newest pinned message in the chat. Returns
  * a 404 error if the message doesn't exist
  */
-internal class TDLib.GetChatPinnedMessage : TDObject {
+public class TDLib.GetChatPinnedMessage : TDObject {
 
     /**
      * Identifier of the chat the message belongs to

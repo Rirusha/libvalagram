@@ -288,10 +288,10 @@ public class TDLib.PremiumFeatureSavedMessagesTags : PremiumFeature {
 
 /**
  * The ability to disallow incoming voice and video note messages in
- * private chats using setUserPrivacySettingRules with
+ * private chats using {@link Client.set_user_privacy_setting_rules} with
  * userPrivacySettingAllowPrivateVoiceAndVideoNoteMessages
  * and to restrict incoming messages from non-contacts using
- * setNewChatPrivacySettings
+ * {@link Client.set_new_chat_privacy_settings}
  */
 public class TDLib.PremiumFeatureMessagePrivacy : PremiumFeature {
 

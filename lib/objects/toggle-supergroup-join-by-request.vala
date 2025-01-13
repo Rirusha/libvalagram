@@ -24,7 +24,7 @@
  * approved by supergroup administrators; requires can_restrict_members
  * administrator right
  */
-internal class TDLib.ToggleSupergroupJoinByRequest : TDObject {
+public class TDLib.ToggleSupergroupJoinByRequest : TDObject {
 
     /**
      * Identifier of the supergroup that isn't a broadcast group

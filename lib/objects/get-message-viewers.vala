@@ -25,7 +25,7 @@
  * content of the message, are returned. The method can be called if
  * messageProperties.can_get_viewers == true
  */
-internal class TDLib.GetMessageViewers : TDObject {
+public class TDLib.GetMessageViewers : TDObject {
 
     /**
      * Chat identifier

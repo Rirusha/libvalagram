@@ -22,7 +22,7 @@
 /**
  * Returns favorite stickers
  */
-internal class TDLib.GetFavoriteStickers : TDObject {
+public class TDLib.GetFavoriteStickers : TDObject {
 
     public GetFavoriteStickers () {
         Object (

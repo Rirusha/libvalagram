@@ -22,7 +22,7 @@
 /**
  * Returns storage usage statistics. Can be called before authorization
  */
-internal class TDLib.GetStorageStatistics : TDObject {
+public class TDLib.GetStorageStatistics : TDObject {
 
     /**
      * The maximum number of chats with the largest storage usage for which

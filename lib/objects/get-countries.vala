@@ -23,7 +23,7 @@
  * Returns information about existing countries. Can be called before
  * authorization
  */
-internal class TDLib.GetCountries : TDObject {
+public class TDLib.GetCountries : TDObject {
 
     public GetCountries () {
         Object (

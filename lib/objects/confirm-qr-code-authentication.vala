@@ -23,7 +23,7 @@
  * Confirms QR code authentication on another device. Returns created
  * session on success
  */
-internal class TDLib.ConfirmQrCodeAuthentication : TDObject {
+public class TDLib.ConfirmQrCodeAuthentication : TDObject {
 
     /**
      * A link from a QR code. The link must be scanned by the in-app camera

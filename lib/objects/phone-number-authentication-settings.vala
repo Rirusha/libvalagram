@@ -52,7 +52,8 @@ public class TDLib.PhoneNumberAuthenticationSettings : Error {
      * For official applications only. True, if the application can use
      * Android SMS Retriever API (requires Google Play Services >= 10.2) to
      * automatically receive the authentication code from the SMS. See
-     * https://developers.google.com/identity/sms-retriever/ for more details
+     * [[https://developers.google.com/identity/sms-retriever/]] for more
+     * details
      */
     public bool allow_sms_retriever_api { get; construct set; }
 

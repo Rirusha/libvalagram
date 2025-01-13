@@ -23,7 +23,7 @@
  * Changes settings for automatic moving of chats to and from the Archive
  * chat lists
  */
-internal class TDLib.SetArchiveChatListSettings : TDObject {
+public class TDLib.SetArchiveChatListSettings : TDObject {
 
     /**
      * New settings

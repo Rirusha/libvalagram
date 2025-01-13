@@ -22,7 +22,7 @@
 /**
  * Changes pause state of all files in the file download list
  */
-internal class TDLib.ToggleAllDownloadsArePaused : TDObject {
+public class TDLib.ToggleAllDownloadsArePaused : TDObject {
 
     /**
      * Pass true to pause all downloads; pass false to unpause them

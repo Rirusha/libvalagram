@@ -23,7 +23,7 @@
  * Returns interactions with a story. The method can be called only for
  * stories posted on behalf of the current user
  */
-internal class TDLib.GetStoryInteractions : TDObject {
+public class TDLib.GetStoryInteractions : TDObject {
 
     /**
      * Story identifier

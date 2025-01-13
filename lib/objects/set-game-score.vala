@@ -23,7 +23,7 @@
  * Updates the game score of the specified user in the game; for bots
  * only
  */
-internal class TDLib.SetGameScore : TDObject {
+public class TDLib.SetGameScore : TDObject {
 
     /**
      * The chat to which the message with the game belongs

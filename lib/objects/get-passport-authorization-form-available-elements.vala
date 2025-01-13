@@ -24,7 +24,7 @@
  * completing a Telegram Passport authorization form. Result can be
  * received only once for each authorization form
  */
-internal class TDLib.GetPassportAuthorizationFormAvailableElements : TDObject {
+public class TDLib.GetPassportAuthorizationFormAvailableElements : TDObject {
 
     /**
      * Authorization form identifier

@@ -23,7 +23,7 @@
  * Returns an affiliate program that were connected to the given
  * affiliate by identifier of the bot that created the program
  */
-internal class TDLib.GetConnectedAffiliateProgram : TDObject {
+public class TDLib.GetConnectedAffiliateProgram : TDObject {
 
     /**
      * The affiliate to which the affiliate program will be connected

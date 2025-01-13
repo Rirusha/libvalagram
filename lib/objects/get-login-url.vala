@@ -23,11 +23,11 @@
  * Returns an HTTP URL which can be used to automatically authorize the
  * user on a website after clicking an inline button of type
  * inlineKeyboardButtonTypeLoginUrl.
- * Use the method getLoginUrlInfo to find whether a prior user
- * confirmation is needed. If an error is returned, then the button must
- * be handled as an ordinary URL button
+ * Use the method {@link Client.get_login_url_info} to find whether a
+ * prior user confirmation is needed. If an error is returned, then the
+ * button must be handled as an ordinary URL button
  */
-internal class TDLib.GetLoginUrl : TDObject {
+public class TDLib.GetLoginUrl : TDObject {
 
     /**
      * Chat identifier of the message with the button

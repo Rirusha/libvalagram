@@ -23,7 +23,7 @@
  * Searches affiliate programs that can be connected to the given
  * affiliate
  */
-internal class TDLib.SearchAffiliatePrograms : TDObject {
+public class TDLib.SearchAffiliatePrograms : TDObject {
 
     /**
      * The affiliate for which affiliate programs are searched for

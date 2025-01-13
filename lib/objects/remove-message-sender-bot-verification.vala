@@ -22,7 +22,7 @@
 /**
  * Removes the verification status of a user or a chat by an owned bot
  */
-internal class TDLib.RemoveMessageSenderBotVerification : TDObject {
+public class TDLib.RemoveMessageSenderBotVerification : TDObject {
 
     /**
      * Identifier of the owned bot, which verified the user or the chat

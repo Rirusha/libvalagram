@@ -23,7 +23,7 @@
  * Removes a notification sound from the list of saved notification
  * sounds
  */
-internal class TDLib.RemoveSavedNotificationSound : TDObject {
+public class TDLib.RemoveSavedNotificationSound : TDObject {
 
     /**
      * Identifier of the notification sound

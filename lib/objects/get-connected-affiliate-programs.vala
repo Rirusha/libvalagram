@@ -22,7 +22,7 @@
 /**
  * Returns affiliate programs that were connected to the given affiliate
  */
-internal class TDLib.GetConnectedAffiliatePrograms : TDObject {
+public class TDLib.GetConnectedAffiliatePrograms : TDObject {
 
     /**
      * The affiliate to which the affiliate program were connected

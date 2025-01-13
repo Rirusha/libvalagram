@@ -23,7 +23,7 @@
  * Changes reactions, available in a chat. Available for basic groups,
  * supergroups, and channels. Requires can_change_info member right
  */
-internal class TDLib.SetChatAvailableReactions : TDObject {
+public class TDLib.SetChatAvailableReactions : TDObject {
 
     /**
      * Identifier of the chat

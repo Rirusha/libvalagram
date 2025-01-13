@@ -22,7 +22,7 @@
 /**
  * Changes the default message auto-delete time for new chats
  */
-internal class TDLib.SetDefaultMessageAutoDeleteTime : TDObject {
+public class TDLib.SetDefaultMessageAutoDeleteTime : TDObject {
 
     /**
      * New default message auto-delete time; must be from 0 up to 365 * 86400

@@ -20,15 +20,15 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes an internal https://t.me or tg: link, which must be
+ * Describes an internal [[https://t.me]] or tg: link, which must be
  * processed by the application in a special way
  */
 public abstract class TDLib.InternalLinkType : Error {}
 
 /**
  * The link is a link to the Devices section of the application. Use
- * getActiveSessions to get the list of active sessions and show them to
- * the user
+ * {@link Client.get_active_sessions} to get the list of active sessions
+ * and show them to the user
  */
 public class TDLib.InternalLinkTypeActiveSessions : InternalLinkType {
 
@@ -44,18 +44,20 @@ public class TDLib.InternalLinkTypeActiveSessions : InternalLinkType {
  * The link is a link to an attachment menu bot to be opened in the
  * specified or a chosen chat. Process given target_chat to open the
  * chat.
- * Then, call searchPublicChat with the given bot username, check that
- * the user is a bot and can be added to attachment menu. Then, use
- * getAttachmentMenuBot to receive information about the bot.
+ * Then, call {@link Client.search_public_chat} with the given bot
+ * username, check that the user is a bot and can be added to attachment
+ * menu. Then, use {@link Client.get_attachment_menu_bot} to receive
+ * information about the bot.
  * If the bot isn't added to attachment menu, then show a disclaimer
  * about Mini Apps being third-party applications, ask the user to accept
  * their Terms of service and confirm adding the bot to side and
  * attachment menu.
  * If the user accept the terms and confirms adding, then use
- * toggleBotIsAddedToAttachmentMenu to add the bot.
+ * {@link Client.toggle_bot_is_added_to_attachment_menu} to add the bot.
  * If the attachment menu bot can't be used in the opened chat, show an
  * error to the user. If the bot is added to attachment menu and can be
- * used in the chat, then use openWebApp with the given URL
+ * used in the chat, then use {@link Client.open_web_app} with the given
+ * URL
  */
 public class TDLib.InternalLinkTypeAttachmentMenuBot : InternalLinkType {
 
@@ -70,7 +72,7 @@ public class TDLib.InternalLinkTypeAttachmentMenuBot : InternalLinkType {
     public string bot_username { get; construct set; }
 
     /**
-     * URL to be passed to openWebApp
+     * URL to be passed to {@link Client.open_web_app}
      */
     public string url { get; construct set; }
 
@@ -90,16 +92,16 @@ public class TDLib.InternalLinkTypeAttachmentMenuBot : InternalLinkType {
 }
 
 /**
- * The link contains an authentication code. Call checkAuthenticationCode
- * with the code if the current authorization state is
- * authorizationStateWaitCode
+ * The link contains an authentication code. Call
+ * {@link Client.check_authentication_code} with the code if the current
+ * authorization state is authorizationStateWaitCode
  */
 public class TDLib.InternalLinkTypeAuthenticationCode : InternalLinkType {
 
     /**
      * The authentication code
      */
-    public string code { get; construct set; }
+    public new string code { get; construct set; }
 
     public InternalLinkTypeAuthenticationCode (
         string code
@@ -113,10 +115,11 @@ public class TDLib.InternalLinkTypeAuthenticationCode : InternalLinkType {
 }
 
 /**
- * The link is a link to a background. Call searchBackground with the
- * given background name to process the link.
+ * The link is a link to a background. Call
+ * {@link Client.search_background} with the given background name to
+ * process the link.
  * If background is found and the user wants to apply it, then call
- * setDefaultBackground
+ * {@link Client.set_default_background}
  */
 public class TDLib.InternalLinkTypeBackground : InternalLinkType {
 
@@ -138,15 +141,18 @@ public class TDLib.InternalLinkTypeBackground : InternalLinkType {
 
 /**
  * The link is a link to a Telegram bot, which is expected to be added to
- * a channel chat as an administrator. Call searchPublicChat with the
- * given bot username and check that the user is a bot,
+ * a channel chat as an administrator. Call
+ * {@link Client.search_public_chat} with the given bot username and
+ * check that the user is a bot,
  * ask the current user to select a channel chat to add the bot to as an
- * administrator. Then, call getChatMember to receive the current bot
- * rights in the chat and if the bot already is an administrator,
+ * administrator. Then, call {@link Client.get_chat_member} to receive
+ * the current bot rights in the chat and if the bot already is an
+ * administrator,
  * check that the current user can edit its administrator rights and
  * combine received rights with the requested administrator rights. Then,
- * show confirmation box to the user, and call setChatMemberStatus with
- * the chosen chat and confirmed rights
+ * show confirmation box to the user, and call
+ * {@link Client.set_chat_member_status} with the chosen chat and
+ * confirmed rights
  */
 public class TDLib.InternalLinkTypeBotAddToChannel : InternalLinkType {
 
@@ -175,10 +181,10 @@ public class TDLib.InternalLinkTypeBotAddToChannel : InternalLinkType {
 
 /**
  * The link is a link to a chat with a Telegram bot. Call
- * searchPublicChat with the given bot username, check that the user is a
- * bot, show START button in the chat with the bot,
- * and then call sendBotStartMessage with the given start parameter after
- * the button is pressed
+ * {@link Client.search_public_chat} with the given bot username, check
+ * that the user is a bot, show START button in the chat with the bot,
+ * and then call {@link Client.send_bot_start_message} with the given
+ * start parameter after the button is pressed
  */
 public class TDLib.InternalLinkTypeBotStart : InternalLinkType {
 
@@ -188,13 +194,13 @@ public class TDLib.InternalLinkTypeBotStart : InternalLinkType {
     public string bot_username { get; construct set; }
 
     /**
-     * The parameter to be passed to sendBotStartMessage
+     * The parameter to be passed to {@link Client.send_bot_start_message}
      */
     public string start_parameter { get; construct set; }
 
     /**
-     * True, if sendBotStartMessage must be called automatically without
-     * showing the START button
+     * True, if {@link Client.send_bot_start_message} must be called
+     * automatically without showing the START button
      */
     public bool autostart { get; construct set; }
 
@@ -215,23 +221,25 @@ public class TDLib.InternalLinkTypeBotStart : InternalLinkType {
 
 /**
  * The link is a link to a Telegram bot, which is expected to be added to
- * a group chat. Call searchPublicChat with the given bot username, check
- * that the user is a bot and can be added to groups,
+ * a group chat. Call {@link Client.search_public_chat} with the given
+ * bot username, check that the user is a bot and can be added to groups,
  * ask the current user to select a basic group or a supergroup chat to
  * add the bot to, taking into account that bots can be added to a public
  * supergroup only by administrators of the supergroup.
- * If administrator rights are provided by the link, call getChatMember
- * to receive the current bot rights in the chat and if the bot already
- * is an administrator,
+ * If administrator rights are provided by the link, call
+ * {@link Client.get_chat_member} to receive the current bot rights in
+ * the chat and if the bot already is an administrator,
  * check that the current user can edit its administrator rights, combine
  * received rights with the requested administrator rights, show
  * confirmation box to the user,
- * and call setChatMemberStatus with the chosen chat and confirmed
- * administrator rights. Before call to setChatMemberStatus it may be
- * required to upgrade the chosen basic group chat to a supergroup chat.
- * Then, if start_parameter isn't empty, call sendBotStartMessage with
- * the given start parameter and the chosen chat; otherwise, just send
- * /start message with bot's username added to the chat
+ * and call {@link Client.set_chat_member_status} with the chosen chat
+ * and confirmed administrator rights. Before call to
+ * {@link Client.set_chat_member_status} it may be required to upgrade
+ * the chosen basic group chat to a supergroup chat.
+ * Then, if start_parameter isn't empty, call
+ * {@link Client.send_bot_start_message} with the given start parameter
+ * and the chosen chat; otherwise, just send /start message with bot's
+ * username added to the chat
  */
 public class TDLib.InternalLinkTypeBotStartInGroup : InternalLinkType {
 
@@ -241,7 +249,7 @@ public class TDLib.InternalLinkTypeBotStartInGroup : InternalLinkType {
     public string bot_username { get; construct set; }
 
     /**
-     * The parameter to be passed to sendBotStartMessage
+     * The parameter to be passed to {@link Client.send_bot_start_message}
      */
     public string start_parameter { get; construct set; }
 
@@ -266,8 +274,9 @@ public class TDLib.InternalLinkTypeBotStartInGroup : InternalLinkType {
 }
 
 /**
- * The link is a link to a business chat. Use getBusinessChatLinkInfo
- * with the provided link name to get information about the link,
+ * The link is a link to a business chat. Use
+ * {@link Client.get_business_chat_link_info} with the provided link name
+ * to get information about the link,
  * then open received private chat and replace chat draft with the
  * provided text
  */
@@ -335,18 +344,19 @@ public class TDLib.InternalLinkTypeChangePhoneNumber : InternalLinkType {
 }
 
 /**
- * The link is an affiliate program link. Call searchChatAffiliateProgram
- * with the given username and referrer to process the link
+ * The link is an affiliate program link. Call
+ * {@link Client.search_chat_affiliate_program} with the given username
+ * and referrer to process the link
  */
 public class TDLib.InternalLinkTypeChatAffiliateProgram : InternalLinkType {
 
     /**
-     * Username to be passed to searchChatAffiliateProgram
+     * Username to be passed to {@link Client.search_chat_affiliate_program}
      */
     public string username { get; construct set; }
 
     /**
-     * Referrer to be passed to searchChatAffiliateProgram
+     * Referrer to be passed to {@link Client.search_chat_affiliate_program}
      */
     public string referrer { get; construct set; }
 
@@ -364,18 +374,19 @@ public class TDLib.InternalLinkTypeChatAffiliateProgram : InternalLinkType {
 }
 
 /**
- * The link is a link to boost a Telegram chat. Call getChatBoostLinkInfo
- * with the given URL to process the link.
- * If the chat is found, then call getChatBoostStatus and
- * getAvailableChatBoostSlots to get the current boost status and check
- * whether the chat can be boosted.
+ * The link is a link to boost a Telegram chat. Call
+ * {@link Client.get_chat_boost_link_info} with the given URL to process
+ * the link.
+ * If the chat is found, then call {@link Client.get_chat_boost_status}
+ * and {@link Client.get_available_chat_boost_slots} to get the current
+ * boost status and check whether the chat can be boosted.
  * If the user wants to boost the chat and the chat can be boosted, then
- * call boostChat
+ * call {@link Client.boost_chat}
  */
 public class TDLib.InternalLinkTypeChatBoost : InternalLinkType {
 
     /**
-     * URL to be passed to getChatBoostLinkInfo
+     * URL to be passed to {@link Client.get_chat_boost_link_info}
      */
     public string url { get; construct set; }
 
@@ -392,10 +403,10 @@ public class TDLib.InternalLinkTypeChatBoost : InternalLinkType {
 
 /**
  * The link is an invite link to a chat folder. Call
- * checkChatFolderInviteLink with the given invite link to process the
- * link.
+ * {@link Client.check_chat_folder_invite_link} with the given invite
+ * link to process the link.
  * If the link is valid and the user wants to join the chat folder, then
- * call addChatFolderByInviteLink
+ * call {@link Client.add_chat_folder_by_invite_link}
  */
 public class TDLib.InternalLinkTypeChatFolderInvite : InternalLinkType {
 
@@ -429,10 +440,11 @@ public class TDLib.InternalLinkTypeChatFolderSettings : InternalLinkType {
 }
 
 /**
- * The link is a chat invite link. Call checkChatInviteLink with the
- * given invite link to process the link.
+ * The link is a chat invite link. Call
+ * {@link Client.check_chat_invite_link} with the given invite link to
+ * process the link.
  * If the link is valid and the user wants to join the chat, then call
- * joinChatByInviteLink
+ * {@link Client.join_chat_by_invite_link}
  */
 public class TDLib.InternalLinkTypeChatInvite : InternalLinkType {
 
@@ -481,10 +493,10 @@ public class TDLib.InternalLinkTypeEditProfileSettings : InternalLinkType {
 }
 
 /**
- * The link is a link to a game. Call searchPublicChat with the given bot
- * username, check that the user is a bot,
+ * The link is a link to a game. Call {@link Client.search_public_chat}
+ * with the given bot username, check that the user is a bot,
  * ask the current user to select a chat to send the game, and then call
- * sendMessage with inputMessageGame
+ * {@link Client.send_message} with inputMessageGame
  */
 public class TDLib.InternalLinkTypeGame : InternalLinkType {
 
@@ -512,20 +524,21 @@ public class TDLib.InternalLinkTypeGame : InternalLinkType {
 }
 
 /**
- * The link must be opened in an Instant View. Call getWebPageInstantView
- * with the given URL to process the link.
+ * The link must be opened in an Instant View. Call
+ * {@link Client.get_web_page_instant_view} with the given URL to process
+ * the link.
  * If Instant View is found, then show it, otherwise, open the fallback
  * URL in an external browser
  */
 public class TDLib.InternalLinkTypeInstantView : InternalLinkType {
 
     /**
-     * URL to be passed to getWebPageInstantView
+     * URL to be passed to {@link Client.get_web_page_instant_view}
      */
     public string url { get; construct set; }
 
     /**
-     * An URL to open if getWebPageInstantView fails
+     * An URL to open if {@link Client.get_web_page_instant_view} fails
      */
     public string fallback_url { get; construct set; }
 
@@ -543,8 +556,8 @@ public class TDLib.InternalLinkTypeInstantView : InternalLinkType {
 }
 
 /**
- * The link is a link to an invoice. Call getPaymentForm with the given
- * invoice name to process the link
+ * The link is a link to an invoice. Call {@link Client.get_payment_form}
+ * with the given invoice name to process the link
  */
 public class TDLib.InternalLinkTypeInvoice : InternalLinkType {
 
@@ -565,10 +578,11 @@ public class TDLib.InternalLinkTypeInvoice : InternalLinkType {
 }
 
 /**
- * The link is a link to a language pack. Call getLanguagePackInfo with
- * the given language pack identifier to process the link.
+ * The link is a link to a language pack. Call
+ * {@link Client.get_language_pack_info} with the given language pack
+ * identifier to process the link.
  * If the language pack is found and the user wants to apply it, then
- * call setOption for the option "language_pack_id"
+ * call {@link Client.set_option} for the option "language_pack_id"
  */
 public class TDLib.InternalLinkTypeLanguagePack : InternalLinkType {
 
@@ -602,19 +616,19 @@ public class TDLib.InternalLinkTypeLanguageSettings : InternalLinkType {
 }
 
 /**
- * The link is a link to the main Web App of a bot. Call searchPublicChat
- * with the given bot username, check that the user is a bot and has the
- * main Web App.
+ * The link is a link to the main Web App of a bot. Call
+ * {@link Client.search_public_chat} with the given bot username, check
+ * that the user is a bot and has the main Web App.
  * If the bot can be added to attachment menu, then use
- * getAttachmentMenuBot to receive information about the bot, then if the
- * bot isn't added to side menu,
+ * {@link Client.get_attachment_menu_bot} to receive information about
+ * the bot, then if the bot isn't added to side menu,
  * show a disclaimer about Mini Apps being third-party applications, ask
  * the user to accept their Terms of service and confirm adding the bot
  * to side and attachment menu,
  * then if the user accepts the terms and confirms adding, use
- * toggleBotIsAddedToAttachmentMenu to add the bot.
- * Then, use getMainWebApp with the given start parameter and mode and
- * open the returned URL as a Web App
+ * {@link Client.toggle_bot_is_added_to_attachment_menu} to add the bot.
+ * Then, use {@link Client.get_main_web_app} with the given start
+ * parameter and mode and open the returned URL as a Web App
  */
 public class TDLib.InternalLinkTypeMainWebApp : InternalLinkType {
 
@@ -624,12 +638,12 @@ public class TDLib.InternalLinkTypeMainWebApp : InternalLinkType {
     public string bot_username { get; construct set; }
 
     /**
-     * Start parameter to be passed to getMainWebApp
+     * Start parameter to be passed to {@link Client.get_main_web_app}
      */
     public string start_parameter { get; construct set; }
 
     /**
-     * The mode to be passed to getMainWebApp
+     * The mode to be passed to {@link Client.get_main_web_app}
      */
     public WebAppOpenMode mode { get; construct set; }
 
@@ -650,13 +664,14 @@ public class TDLib.InternalLinkTypeMainWebApp : InternalLinkType {
 
 /**
  * The link is a link to a Telegram message or a forum topic. Call
- * getMessageLinkInfo with the given URL to process the link,
+ * {@link Client.get_message_link_info} with the given URL to process the
+ * link,
  * and then open received forum topic or chat and show the message there
  */
 public class TDLib.InternalLinkTypeMessage : InternalLinkType {
 
     /**
-     * URL to be passed to getMessageLinkInfo
+     * URL to be passed to {@link Client.get_message_link_info}
      */
     public string url { get; construct set; }
 
@@ -705,9 +720,9 @@ public class TDLib.InternalLinkTypeMessageDraft : InternalLinkType {
 
 /**
  * The link contains a request of Telegram passport data. Call
- * getPassportAuthorizationForm with the given parameters to process the
- * link if the link was received from outside of the application;
- * otherwise, ignore it
+ * {@link Client.get_passport_authorization_form} with the given
+ * parameters to process the link if the link was received from outside
+ * of the application; otherwise, ignore it
  */
 public class TDLib.InternalLinkTypePassportDataRequest : InternalLinkType {
 
@@ -737,8 +752,8 @@ public class TDLib.InternalLinkTypePassportDataRequest : InternalLinkType {
      * with the parameters tg_passport=success, tg_passport=cancel, or
      * tg_passport=error&error=... respectively.
      * If empty, then onActivityResult method must be used to return response
-     * on Android, or the link tgbot{bot_user_id}://passport/success or
-     * tgbot{bot_user_id}://passport/cancel must be opened otherwise
+     * on Android, or the link [[tgbot(bot_user_id)://passport/success]] or
+     * [[tgbot(bot_user_id)://passport/cancel]] must be opened otherwise
      */
     public string callback_url { get; construct set; }
 
@@ -763,11 +778,12 @@ public class TDLib.InternalLinkTypePassportDataRequest : InternalLinkType {
 
 /**
  * The link can be used to confirm ownership of a phone number to prevent
- * account deletion. Call sendPhoneNumberCode with the given phone number
- * and with phoneNumberCodeTypeConfirmOwnership with the given hash to
- * process the link.
- * If succeeded, call checkPhoneNumberCode to check entered by the user
- * code, or resendPhoneNumberCode to resend it
+ * account deletion. Call {@link Client.send_phone_number_code} with the
+ * given phone number and with phoneNumberCodeTypeConfirmOwnership with
+ * the given hash to process the link.
+ * If succeeded, call {@link Client.check_phone_number_code} to check
+ * entered by the user code, or {@link Client.resend_phone_number_code}
+ * to resend it
  */
 public class TDLib.InternalLinkTypePhoneNumberConfirmation : InternalLinkType {
 
@@ -797,7 +813,8 @@ public class TDLib.InternalLinkTypePhoneNumberConfirmation : InternalLinkType {
 /**
  * The link is a link to the Premium features screen of the application
  * from which the user can subscribe to Telegram Premium. Call
- * getPremiumFeatures with the given referrer to process the link
+ * {@link Client.get_premium_features} with the given referrer to process
+ * the link
  */
 public class TDLib.InternalLinkTypePremiumFeatures : InternalLinkType {
 
@@ -842,16 +859,17 @@ public class TDLib.InternalLinkTypePremiumGift : InternalLinkType {
 
 /**
  * The link is a link with a Telegram Premium gift code. Call
- * checkPremiumGiftCode with the given code to process the link.
+ * {@link Client.check_premium_gift_code} with the given code to process
+ * the link.
  * If the code is valid and the user wants to apply it, then call
- * applyPremiumGiftCode
+ * {@link Client.apply_premium_gift_code}
  */
 public class TDLib.InternalLinkTypePremiumGiftCode : InternalLinkType {
 
     /**
      * The Telegram Premium gift code
      */
-    public string code { get; construct set; }
+    public new string code { get; construct set; }
 
     public InternalLinkTypePremiumGiftCode (
         string code
@@ -879,8 +897,8 @@ public class TDLib.InternalLinkTypePrivacyAndSecuritySettings : InternalLinkType
 }
 
 /**
- * The link is a link to a proxy. Call addProxy with the given parameters
- * to process the link and add the proxy
+ * The link is a link to a proxy. Call {@link Client.add_proxy} with the
+ * given parameters to process the link and add the proxy
  */
 public class TDLib.InternalLinkTypeProxy : InternalLinkType {
 
@@ -915,8 +933,9 @@ public class TDLib.InternalLinkTypeProxy : InternalLinkType {
 }
 
 /**
- * The link is a link to a chat by its username. Call searchPublicChat
- * with the given chat username to process the link.
+ * The link is a link to a chat by its username. Call
+ * {@link Client.search_public_chat} with the given chat username to
+ * process the link.
  * If the chat is found, open its profile information screen or the chat
  * itself.
  * If draft text isn't empty and the chat is a private chat with a
@@ -1001,10 +1020,11 @@ public class TDLib.InternalLinkTypeSettings : InternalLinkType {
 }
 
 /**
- * The link is a link to a sticker set. Call searchStickerSet with the
- * given sticker set name to process the link and show the sticker set.
+ * The link is a link to a sticker set. Call
+ * {@link Client.search_sticker_set} with the given sticker set name to
+ * process the link and show the sticker set.
  * If the sticker set is found and the user wants to add it, then call
- * changeStickerSet
+ * {@link Client.change_sticker_set}
  */
 public class TDLib.InternalLinkTypeStickerSet : InternalLinkType {
 
@@ -1032,9 +1052,10 @@ public class TDLib.InternalLinkTypeStickerSet : InternalLinkType {
 }
 
 /**
- * The link is a link to a story. Call searchPublicChat with the given
- * sender username, then call getStory with the received chat identifier
- * and the given story identifier, then show the story if received
+ * The link is a link to a story. Call {@link Client.search_public_chat}
+ * with the given sender username, then call {@link Client.get_story}
+ * with the received chat identifier and the given story identifier, then
+ * show the story if received
  */
 public class TDLib.InternalLinkTypeStory : InternalLinkType {
 
@@ -1096,13 +1117,13 @@ public class TDLib.InternalLinkTypeThemeSettings : InternalLinkType {
 }
 
 /**
- * The link is an unknown tg: link. Call getDeepLinkInfo to process the
- * link
+ * The link is an unknown tg: link. Call
+ * {@link Client.get_deep_link_info} to process the link
  */
 public class TDLib.InternalLinkTypeUnknownDeepLink : InternalLinkType {
 
     /**
-     * Link to be passed to getDeepLinkInfo
+     * Link to be passed to {@link Client.get_deep_link_info}
      */
     public string link { get; construct set; }
 
@@ -1133,11 +1154,11 @@ public class TDLib.InternalLinkTypeUnsupportedProxy : InternalLinkType {
 
 /**
  * The link is a link to a user by its phone number. Call
- * searchUserByPhoneNumber with the given phone number to process the
- * link.
- * If the user is found, then call createPrivateChat and open user's
- * profile information screen or the chat itself. If draft text isn't
- * empty, then put the draft text in the input field
+ * {@link Client.search_user_by_phone_number} with the given phone number
+ * to process the link.
+ * If the user is found, then call {@link Client.create_private_chat} and
+ * open user's profile information screen or the chat itself. If draft
+ * text isn't empty, then put the draft text in the input field
  */
 public class TDLib.InternalLinkTypeUserPhoneNumber : InternalLinkType {
 
@@ -1174,8 +1195,10 @@ public class TDLib.InternalLinkTypeUserPhoneNumber : InternalLinkType {
 
 /**
  * The link is a link to a user by a temporary token. Call
- * searchUserByToken with the given token to process the link.
- * If the user is found, then call createPrivateChat and open the chat
+ * {@link Client.search_user_by_token} with the given token to process
+ * the link.
+ * If the user is found, then call {@link Client.create_private_chat} and
+ * open the chat
  */
 public class TDLib.InternalLinkTypeUserToken : InternalLinkType {
 
@@ -1196,9 +1219,10 @@ public class TDLib.InternalLinkTypeUserToken : InternalLinkType {
 }
 
 /**
- * The link is a link to a video chat. Call searchPublicChat with the
- * given chat username, and then joinGroupCall with the given invite hash
- * to process the link
+ * The link is a link to a video chat. Call
+ * {@link Client.search_public_chat} with the given chat username, and
+ * then {@link Client.join_group_call} with the given invite hash to
+ * process the link
  */
 public class TDLib.InternalLinkTypeVideoChat : InternalLinkType {
 
@@ -1235,17 +1259,19 @@ public class TDLib.InternalLinkTypeVideoChat : InternalLinkType {
 }
 
 /**
- * The link is a link to a Web App. Call searchPublicChat with the given
- * bot username, check that the user is a bot, then call searchWebApp
- * with the received bot and the given web_app_short_name.
+ * The link is a link to a Web App. Call
+ * {@link Client.search_public_chat} with the given bot username, check
+ * that the user is a bot, then call {@link Client.search_web_app} with
+ * the received bot and the given web_app_short_name.
  * Process received foundWebApp by showing a confirmation dialog if
  * needed. If the bot can be added to attachment or side menu, but isn't
  * added yet, then show a disclaimer about Mini Apps being third-party
  * applications
  * instead of the dialog and ask the user to accept their Terms of
  * service. If the user accept the terms and confirms adding, then use
- * toggleBotIsAddedToAttachmentMenu to add the bot.
- * Then, call getWebAppLinkUrl and open the returned URL as a Web App
+ * {@link Client.toggle_bot_is_added_to_attachment_menu} to add the bot.
+ * Then, call {@link Client.get_web_app_link_url} and open the returned
+ * URL as a Web App
  */
 public class TDLib.InternalLinkTypeWebApp : InternalLinkType {
 
@@ -1260,7 +1286,7 @@ public class TDLib.InternalLinkTypeWebApp : InternalLinkType {
     public string web_app_short_name { get; construct set; }
 
     /**
-     * Start parameter to be passed to getWebAppLinkUrl
+     * Start parameter to be passed to {@link Client.get_web_app_link_url}
      */
     public string start_parameter { get; construct set; }
 

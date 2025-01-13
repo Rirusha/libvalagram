@@ -24,7 +24,7 @@
  * supergroup. Can be called only if
  * supergroupFullInfo.can_toggle_aggressive_anti_spam == true
  */
-internal class TDLib.ToggleSupergroupHasAggressiveAntiSpamEnabled : TDObject {
+public class TDLib.ToggleSupergroupHasAggressiveAntiSpamEnabled : TDObject {
 
     /**
      * The identifier of the supergroup, which isn't a broadcast group

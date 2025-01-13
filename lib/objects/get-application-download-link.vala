@@ -23,7 +23,7 @@
  * Returns the link for downloading official Telegram application to be
  * used when the current user invites friends to Telegram
  */
-internal class TDLib.GetApplicationDownloadLink : TDObject {
+public class TDLib.GetApplicationDownloadLink : TDObject {
 
     public GetApplicationDownloadLink () {
         Object (

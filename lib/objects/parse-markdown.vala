@@ -23,7 +23,7 @@
  * Parses Markdown entities in a human-friendly format, ignoring markup
  * errors. Can be called synchronously
  */
-internal class TDLib.ParseMarkdown : TDObject {
+public class TDLib.ParseMarkdown : TDObject {
 
     /**
      * The text to parse. For example, "__italic__ ~~strikethrough~~

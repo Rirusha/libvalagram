@@ -22,7 +22,7 @@
 /**
  * Sets support information for the given user; for Telegram support only
  */
-internal class TDLib.SetUserSupportInfo : TDObject {
+public class TDLib.SetUserSupportInfo : TDObject {
 
     /**
      * User identifier

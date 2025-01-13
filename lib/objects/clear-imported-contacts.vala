@@ -22,7 +22,7 @@
 /**
  * Clears all imported contacts, contact list remains unchanged
  */
-internal class TDLib.ClearImportedContacts : TDObject {
+public class TDLib.ClearImportedContacts : TDObject {
 
     public ClearImportedContacts () {
         Object (

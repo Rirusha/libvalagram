@@ -22,7 +22,7 @@
 /**
  * Searches for a sticker set by its name
  */
-internal class TDLib.SearchStickerSet : TDObject {
+public class TDLib.SearchStickerSet : TDObject {
 
     /**
      * Name of the sticker set

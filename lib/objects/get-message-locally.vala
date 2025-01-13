@@ -24,7 +24,7 @@
  * sending network request. Returns a 404 error if message isn't
  * available locally. This is an offline request
  */
-internal class TDLib.GetMessageLocally : TDObject {
+public class TDLib.GetMessageLocally : TDObject {
 
     /**
      * Identifier of the chat the message belongs to

@@ -24,7 +24,7 @@
  * application restarts only if the message database is used. Returns the
  * added message
  */
-internal class TDLib.AddLocalMessage : TDObject {
+public class TDLib.AddLocalMessage : TDObject {
 
     /**
      * Target chat

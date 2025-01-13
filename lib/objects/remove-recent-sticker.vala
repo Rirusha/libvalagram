@@ -22,7 +22,7 @@
 /**
  * Removes a sticker from the list of recently used stickers
  */
-internal class TDLib.RemoveRecentSticker : TDObject {
+public class TDLib.RemoveRecentSticker : TDObject {
 
     /**
      * Pass true to remove the sticker from the list of stickers recently

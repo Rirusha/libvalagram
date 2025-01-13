@@ -23,7 +23,7 @@
  * Enables a proxy. Only one proxy can be enabled at a time. Can be
  * called before authorization
  */
-internal class TDLib.EnableProxy : TDObject {
+public class TDLib.EnableProxy : TDObject {
 
     /**
      * Proxy identifier

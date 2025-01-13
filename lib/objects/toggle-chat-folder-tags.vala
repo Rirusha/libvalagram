@@ -22,7 +22,7 @@
 /**
  * Toggles whether chat folder tags are enabled
  */
-internal class TDLib.ToggleChatFolderTags : TDObject {
+public class TDLib.ToggleChatFolderTags : TDObject {
 
     /**
      * Pass true to enable folder tags; pass false to disable them

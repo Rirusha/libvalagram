@@ -23,7 +23,7 @@
  * Returns RTMP URL for streaming to the chat; requires
  * can_manage_video_chats administrator right
  */
-internal class TDLib.GetVideoChatRtmpUrl : TDObject {
+public class TDLib.GetVideoChatRtmpUrl : TDObject {
 
     /**
      * Chat identifier

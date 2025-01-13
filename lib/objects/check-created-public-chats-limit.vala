@@ -24,7 +24,7 @@
  * reached. Returns corresponding error if the limit was reached. The
  * limit can be increased with Telegram Premium
  */
-internal class TDLib.CheckCreatedPublicChatsLimit : TDObject {
+public class TDLib.CheckCreatedPublicChatsLimit : TDObject {
 
     /**
      * Type of the public chats, for which to check the limit

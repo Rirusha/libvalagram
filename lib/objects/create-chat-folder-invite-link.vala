@@ -23,7 +23,7 @@
  * Creates a new invite link for a chat folder. A link can be created for
  * a chat folder if it has only pinned and included chats
  */
-internal class TDLib.CreateChatFolderInviteLink : TDObject {
+public class TDLib.CreateChatFolderInviteLink : TDObject {
 
     /**
      * Chat folder identifier
@@ -37,8 +37,9 @@ internal class TDLib.CreateChatFolderInviteLink : TDObject {
 
     /**
      * Identifiers of chats to be accessible by the invite link. Use
-     * getChatsForChatFolderInviteLink to get suitable chats. Basic groups
-     * will be automatically converted to supergroups before link creation
+     * {@link Client.get_chats_for_chat_folder_invite_link} to get suitable
+     * chats. Basic groups will be automatically converted to supergroups
+     * before link creation
      */
     public Gee.ArrayList<int64?> chat_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
 

@@ -25,7 +25,7 @@
  * completed server-side. The total number of previews must not exceed
  * getOption("bot_media_preview_count_max") for the given language
  */
-internal class TDLib.AddBotMediaPreview : TDObject {
+public class TDLib.AddBotMediaPreview : TDObject {
 
     /**
      * Identifier of the target bot. The bot must be owned and must have the
@@ -38,7 +38,7 @@ internal class TDLib.AddBotMediaPreview : TDObject {
      * empty, then the preview will be shown to all users for whose languages
      * there are no dedicated previews.
      * If non-empty, then there must be an official language pack of the same
-     * name, which is returned by getLocalizationTargetInfo
+     * name, which is returned by {@link Client.get_localization_target_info}
      */
     public string language_code { get; construct set; }
 

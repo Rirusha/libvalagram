@@ -23,7 +23,7 @@
  * Returns the business bot that is connected to the current user
  * account. Returns a 404 error if there is no connected bot
  */
-internal class TDLib.GetBusinessConnectedBot : TDObject {
+public class TDLib.GetBusinessConnectedBot : TDObject {
 
     public GetBusinessConnectedBot () {
         Object (

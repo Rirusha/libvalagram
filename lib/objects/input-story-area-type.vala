@@ -176,12 +176,12 @@ public class TDLib.InputStoryAreaTypeMessage : InputStoryAreaType {
 }
 
 /**
- * An area pointing to a HTTP or tg:// link
+ * An area pointing to a HTTP or [[tg://]] link
  */
 public class TDLib.InputStoryAreaTypeLink : InputStoryAreaType {
 
     /**
-     * HTTP or tg:// URL to be opened when the area is clicked
+     * HTTP or [[tg://]] URL to be opened when the area is clicked
      */
     public string url { get; construct set; }
 

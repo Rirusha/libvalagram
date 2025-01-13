@@ -22,7 +22,7 @@
 /**
  * Removes a file from the file download list
  */
-internal class TDLib.RemoveFileFromDownloads : TDObject {
+public class TDLib.RemoveFileFromDownloads : TDObject {
 
     /**
      * Identifier of the downloaded file

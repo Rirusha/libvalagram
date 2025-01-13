@@ -25,7 +25,7 @@
  * the topic, the topic has no messages from other users and has at most
  * 11 messages
  */
-internal class TDLib.DeleteForumTopic : TDObject {
+public class TDLib.DeleteForumTopic : TDObject {
 
     /**
      * Identifier of the chat

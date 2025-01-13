@@ -23,7 +23,7 @@
  * Revokes invite link for a group call. Requires
  * groupCall.can_be_managed group call flag
  */
-internal class TDLib.RevokeGroupCallInviteLink : TDObject {
+public class TDLib.RevokeGroupCallInviteLink : TDObject {
 
     /**
      * Group call identifier

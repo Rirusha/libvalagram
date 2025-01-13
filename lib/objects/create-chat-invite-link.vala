@@ -24,7 +24,7 @@
  * supergroups, and channels. Requires administrator privileges and
  * can_invite_users right in the chat
  */
-internal class TDLib.CreateChatInviteLink : TDObject {
+public class TDLib.CreateChatInviteLink : TDObject {
 
     /**
      * Chat identifier

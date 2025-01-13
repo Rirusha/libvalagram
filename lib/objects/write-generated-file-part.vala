@@ -25,7 +25,7 @@
  * because it is usually slower than a direct write to the destination
  * file
  */
-internal class TDLib.WriteGeneratedFilePart : TDObject {
+public class TDLib.WriteGeneratedFilePart : TDObject {
 
     /**
      * The identifier of the generation process

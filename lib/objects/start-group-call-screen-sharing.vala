@@ -23,7 +23,7 @@
  * Starts screen sharing in a joined group call. Returns join response
  * payload for tgcalls
  */
-internal class TDLib.StartGroupCallScreenSharing : TDObject {
+public class TDLib.StartGroupCallScreenSharing : TDObject {
 
     /**
      * Group call identifier

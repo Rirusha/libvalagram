@@ -23,7 +23,7 @@
  * Returns the list of commands supported by the bot for the given user
  * scope and language; for bots only
  */
-internal class TDLib.GetCommands : TDObject {
+public class TDLib.GetCommands : TDObject {
 
     /**
      * The scope to which the commands are relevant; pass null to get

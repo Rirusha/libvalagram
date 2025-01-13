@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a game. Use getInternalLink with internalLinkTypeGame to
- * share the game
+ * Describes a game. Use {@link Client.get_internal_link} with
+ * internalLinkTypeGame to share the game
  */
 public class TDLib.Game : Error {
 

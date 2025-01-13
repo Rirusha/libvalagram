@@ -24,7 +24,7 @@
  * Reactions on a message can be reported only if
  * messageProperties.can_report_reactions
  */
-internal class TDLib.ReportMessageReactions : TDObject {
+public class TDLib.ReportMessageReactions : TDObject {
 
     /**
      * Chat identifier

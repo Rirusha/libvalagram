@@ -23,7 +23,7 @@
  * Searches a user by their phone number. Returns a 404 error if the user
  * can't be found
  */
-internal class TDLib.SearchUserByPhoneNumber : TDObject {
+public class TDLib.SearchUserByPhoneNumber : TDObject {
 
     /**
      * Phone number to search for

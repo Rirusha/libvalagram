@@ -24,7 +24,7 @@
  * Members can't be added to private or secret chats. Returns information
  * about members that weren't added
  */
-internal class TDLib.AddChatMember : TDObject {
+public class TDLib.AddChatMember : TDObject {
 
     /**
      * Chat identifier

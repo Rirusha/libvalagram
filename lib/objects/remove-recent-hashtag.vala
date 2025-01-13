@@ -22,7 +22,7 @@
 /**
  * Removes a hashtag from the list of recently used hashtags
  */
-internal class TDLib.RemoveRecentHashtag : TDObject {
+public class TDLib.RemoveRecentHashtag : TDObject {
 
     /**
      * Hashtag to delete

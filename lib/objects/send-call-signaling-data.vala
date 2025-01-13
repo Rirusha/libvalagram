@@ -22,7 +22,7 @@
 /**
  * Sends call signaling data
  */
-internal class TDLib.SendCallSignalingData : TDObject {
+public class TDLib.SendCallSignalingData : TDObject {
 
     /**
      * Call identifier

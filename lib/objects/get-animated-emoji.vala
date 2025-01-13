@@ -23,7 +23,7 @@
  * Returns an animated emoji corresponding to a given emoji. Returns a
  * 404 error if the emoji has no animated emoji
  */
-internal class TDLib.GetAnimatedEmoji : TDObject {
+public class TDLib.GetAnimatedEmoji : TDObject {
 
     /**
      * The emoji

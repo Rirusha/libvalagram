@@ -23,7 +23,7 @@
  * Searches for the specified query in the first names, last names and
  * usernames of the known user contacts
  */
-internal class TDLib.SearchContacts : TDObject {
+public class TDLib.SearchContacts : TDObject {
 
     /**
      * Query to search for; may be empty to return all contacts

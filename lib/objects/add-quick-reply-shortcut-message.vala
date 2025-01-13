@@ -27,7 +27,7 @@
  * getOption("quick_reply_shortcut_message_count_max") messages after
  * adding the new message. Returns the added message
  */
-internal class TDLib.AddQuickReplyShortcutMessage : TDObject {
+public class TDLib.AddQuickReplyShortcutMessage : TDObject {
 
     /**
      * Name of the target shortcut

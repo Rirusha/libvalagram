@@ -22,7 +22,7 @@
 /**
  * Deletes an invite link for a chat folder
  */
-internal class TDLib.DeleteChatFolderInviteLink : TDObject {
+public class TDLib.DeleteChatFolderInviteLink : TDObject {
 
     /**
      * Chat folder identifier

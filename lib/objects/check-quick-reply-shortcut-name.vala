@@ -23,7 +23,7 @@
  * Checks validness of a name for a quick reply shortcut. Can be called
  * synchronously
  */
-internal class TDLib.CheckQuickReplyShortcutName : TDObject {
+public class TDLib.CheckQuickReplyShortcutName : TDObject {
 
     /**
      * The name of the shortcut; 1-32 characters

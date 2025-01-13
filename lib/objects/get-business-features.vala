@@ -22,7 +22,7 @@
 /**
  * Returns information about features, available to Business users
  */
-internal class TDLib.GetBusinessFeatures : TDObject {
+public class TDLib.GetBusinessFeatures : TDObject {
 
     /**
      * Source of the request; pass null if the method is called from settings

@@ -23,7 +23,7 @@
  * Returns the list of custom emoji, which can be used as forum topic
  * icon by all users
  */
-internal class TDLib.GetForumTopicDefaultIcons : TDObject {
+public class TDLib.GetForumTopicDefaultIcons : TDObject {
 
     public GetForumTopicDefaultIcons () {
         Object (

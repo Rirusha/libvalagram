@@ -22,7 +22,7 @@
 /**
  * Clears the list of recently used stickers
  */
-internal class TDLib.ClearRecentStickers : TDObject {
+public class TDLib.ClearRecentStickers : TDObject {
 
     /**
      * Pass true to clear the list of stickers recently attached to photo or

@@ -23,7 +23,7 @@
  * Sets new log stream for internal logging of TDLib. Can be called
  * synchronously
  */
-internal class TDLib.SetLogStream : TDObject {
+public class TDLib.SetLogStream : TDObject {
 
     /**
      * New log stream

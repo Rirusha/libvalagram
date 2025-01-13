@@ -22,7 +22,7 @@
 /**
  * Terminates a session of the current user
  */
-internal class TDLib.TerminateSession : TDObject {
+public class TDLib.TerminateSession : TDObject {
 
     /**
      * Session identifier

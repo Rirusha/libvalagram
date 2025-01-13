@@ -23,7 +23,7 @@
  * Checks whether an in-store purchase is possible. Must be called before
  * any in-store purchase
  */
-internal class TDLib.CanPurchaseFromStore : TDObject {
+public class TDLib.CanPurchaseFromStore : TDObject {
 
     /**
      * Transaction purpose

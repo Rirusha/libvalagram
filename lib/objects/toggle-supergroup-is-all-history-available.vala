@@ -23,7 +23,7 @@
  * Toggles whether the message history of a supergroup is available to
  * new members; requires can_change_info member right
  */
-internal class TDLib.ToggleSupergroupIsAllHistoryAvailable : TDObject {
+public class TDLib.ToggleSupergroupIsAllHistoryAvailable : TDObject {
 
     /**
      * The identifier of the supergroup

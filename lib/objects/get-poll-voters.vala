@@ -24,7 +24,7 @@
  * non-anonymous polls. For optimal performance, the number of returned
  * users is chosen by TDLib
  */
-internal class TDLib.GetPollVoters : TDObject {
+public class TDLib.GetPollVoters : TDObject {
 
     /**
      * Identifier of the chat to which the poll belongs

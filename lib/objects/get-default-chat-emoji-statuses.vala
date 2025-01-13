@@ -22,7 +22,7 @@
 /**
  * Returns default emoji statuses for chats
  */
-internal class TDLib.GetDefaultChatEmojiStatuses : TDObject {
+public class TDLib.GetDefaultChatEmojiStatuses : TDObject {
 
     public GetDefaultChatEmojiStatuses () {
         Object (

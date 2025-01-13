@@ -23,7 +23,7 @@
  * Returns information about a supergroup or a channel by its identifier.
  * This is an offline request if the current user is not a bot
  */
-internal class TDLib.GetSupergroup : TDObject {
+public class TDLib.GetSupergroup : TDObject {
 
     /**
      * Supergroup or channel identifier

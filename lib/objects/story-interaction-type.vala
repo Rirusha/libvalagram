@@ -54,7 +54,7 @@ public class TDLib.StoryInteractionTypeForward : StoryInteractionType {
     /**
      * The message with story forward
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     public StoryInteractionTypeForward (
         Message message

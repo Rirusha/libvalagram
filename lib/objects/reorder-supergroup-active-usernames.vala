@@ -23,7 +23,7 @@
  * Changes order of active usernames of a supergroup or channel, requires
  * owner privileges in the supergroup or channel
  */
-internal class TDLib.ReorderSupergroupActiveUsernames : TDObject {
+public class TDLib.ReorderSupergroupActiveUsernames : TDObject {
 
     /**
      * Identifier of the supergroup or channel

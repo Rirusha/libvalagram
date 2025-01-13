@@ -23,7 +23,7 @@
  * Connects an affiliate program to the given affiliate. Returns
  * information about the connected affiliate program
  */
-internal class TDLib.ConnectAffiliateProgram : TDObject {
+public class TDLib.ConnectAffiliateProgram : TDObject {
 
     /**
      * The affiliate to which the affiliate program will be connected

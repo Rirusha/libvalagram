@@ -24,7 +24,7 @@
  * supergroups and channels can be public. Returns the chat if found;
  * otherwise, an error is returned
  */
-internal class TDLib.SearchPublicChat : TDObject {
+public class TDLib.SearchPublicChat : TDObject {
 
     /**
      * Username to be resolved

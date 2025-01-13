@@ -23,7 +23,7 @@
  * Creates a new subscription invite link for a channel chat. Requires
  * can_invite_users right in the chat
  */
-internal class TDLib.CreateChatSubscriptionInviteLink : TDObject {
+public class TDLib.CreateChatSubscriptionInviteLink : TDObject {
 
     /**
      * Chat identifier

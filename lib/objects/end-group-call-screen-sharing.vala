@@ -22,7 +22,7 @@
 /**
  * Ends screen sharing in a joined group call
  */
-internal class TDLib.EndGroupCallScreenSharing : TDObject {
+public class TDLib.EndGroupCallScreenSharing : TDObject {
 
     /**
      * Group call identifier

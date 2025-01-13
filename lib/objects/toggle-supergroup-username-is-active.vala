@@ -26,7 +26,7 @@
  * May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the
  * maximum number of active usernames has been reached
  */
-internal class TDLib.ToggleSupergroupUsernameIsActive : TDObject {
+public class TDLib.ToggleSupergroupUsernameIsActive : TDObject {
 
     /**
      * Identifier of the supergroup or channel

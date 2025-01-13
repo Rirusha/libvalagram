@@ -23,7 +23,7 @@
  * Reports that authentication code wasn't delivered via SMS to the
  * specified phone number; for official mobile applications only
  */
-internal class TDLib.ReportPhoneNumberCodeMissing : TDObject {
+public class TDLib.ReportPhoneNumberCodeMissing : TDObject {
 
     /**
      * Current mobile network code

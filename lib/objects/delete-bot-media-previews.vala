@@ -22,7 +22,7 @@
 /**
  * Delete media previews from the list of media previews of a bot
  */
-internal class TDLib.DeleteBotMediaPreviews : TDObject {
+public class TDLib.DeleteBotMediaPreviews : TDObject {
 
     /**
      * Identifier of the target bot. The bot must be owned and must have the

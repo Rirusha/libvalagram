@@ -24,7 +24,7 @@
  * error if there is no saved notification sound with the specified
  * identifier
  */
-internal class TDLib.GetSavedNotificationSound : TDObject {
+public class TDLib.GetSavedNotificationSound : TDObject {
 
     /**
      * Identifier of the notification sound

@@ -25,8 +25,8 @@
 public abstract class TDLib.ConnectionState : Error {}
 
 /**
- * Waiting for the network to become available. Use setNetworkType to
- * change the available network type
+ * Waiting for the network to become available. Use
+ * {@link Client.set_network_type} to change the available network type
  */
 public class TDLib.ConnectionStateWaitingForNetwork : ConnectionState {
 

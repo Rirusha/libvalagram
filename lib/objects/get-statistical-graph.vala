@@ -22,7 +22,7 @@
 /**
  * Loads an asynchronous or a zoomed in statistical graph
  */
-internal class TDLib.GetStatisticalGraph : TDObject {
+public class TDLib.GetStatisticalGraph : TDObject {
 
     /**
      * Chat identifier

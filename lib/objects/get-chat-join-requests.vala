@@ -22,7 +22,7 @@
 /**
  * Returns pending join requests in a chat
  */
-internal class TDLib.GetChatJoinRequests : TDObject {
+public class TDLib.GetChatJoinRequests : TDObject {
 
     /**
      * Chat identifier

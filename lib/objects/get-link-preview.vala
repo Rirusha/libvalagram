@@ -24,7 +24,7 @@
  * function too often. Returns a 404 error if the text has no link
  * preview
  */
-internal class TDLib.GetLinkPreview : TDObject {
+public class TDLib.GetLinkPreview : TDObject {
 
     /**
      * Message text with formatting

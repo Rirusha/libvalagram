@@ -22,7 +22,7 @@
 /**
  * Resends the login email address verification code
  */
-internal class TDLib.ResendLoginEmailAddressCode : TDObject {
+public class TDLib.ResendLoginEmailAddressCode : TDObject {
 
     public ResendLoginEmailAddressCode () {
         Object (

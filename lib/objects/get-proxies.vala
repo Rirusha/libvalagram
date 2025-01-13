@@ -23,7 +23,7 @@
  * Returns the list of proxies that are currently set up. Can be called
  * before authorization
  */
-internal class TDLib.GetProxies : TDObject {
+public class TDLib.GetProxies : TDObject {
 
     public GetProxies () {
         Object (

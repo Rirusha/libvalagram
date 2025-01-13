@@ -24,7 +24,7 @@
  * usernames of the members of a specified chat. Requires administrator
  * rights if the chat is a channel
  */
-internal class TDLib.SearchChatMembers : TDObject {
+public class TDLib.SearchChatMembers : TDObject {
 
     /**
      * Chat identifier

@@ -22,10 +22,10 @@
 /**
  * Returns an HTTP URL which can be used to automatically authorize the
  * current user on a website after clicking an HTTP link. Use the method
- * getExternalLinkInfo to find whether a prior user confirmation is
- * needed
+ * {@link Client.get_external_link_info} to find whether a prior user
+ * confirmation is needed
  */
-internal class TDLib.GetExternalLink : TDObject {
+public class TDLib.GetExternalLink : TDObject {
 
     /**
      * The HTTP link
@@ -34,7 +34,7 @@ internal class TDLib.GetExternalLink : TDObject {
 
     /**
      * Pass true if the current user allowed the bot, returned in
-     * getExternalLinkInfo, to send them messages
+     * {@link Client.get_external_link_info} to send them messages
      */
     public bool allow_write_access { get; construct set; }
 

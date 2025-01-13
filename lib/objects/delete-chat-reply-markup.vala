@@ -25,7 +25,7 @@
  * used. An updateChatReplyMarkup update will be sent if the reply markup
  * is changed
  */
-internal class TDLib.DeleteChatReplyMarkup : TDObject {
+public class TDLib.DeleteChatReplyMarkup : TDObject {
 
     /**
      * Chat identifier

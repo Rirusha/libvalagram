@@ -23,7 +23,7 @@
  * Changes the chat title. Supported only for basic groups, supergroups
  * and channels. Requires can_change_info member right
  */
-internal class TDLib.SetChatTitle : TDObject {
+public class TDLib.SetChatTitle : TDObject {
 
     /**
      * Chat identifier

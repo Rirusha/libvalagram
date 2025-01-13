@@ -23,7 +23,7 @@
  * Changes accent color and background custom emoji of a channel chat.
  * Requires can_change_info administrator right
  */
-internal class TDLib.SetChatAccentColor : TDObject {
+public class TDLib.SetChatAccentColor : TDObject {
 
     /**
      * Chat identifier

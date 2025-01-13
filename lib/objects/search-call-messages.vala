@@ -25,7 +25,7 @@
  * optimal performance, the number of returned messages is chosen by
  * TDLib
  */
-internal class TDLib.SearchCallMessages : TDObject {
+public class TDLib.SearchCallMessages : TDObject {
 
     /**
      * Offset of the first entry to return as received from the previous

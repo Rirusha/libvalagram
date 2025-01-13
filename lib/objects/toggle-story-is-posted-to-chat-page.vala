@@ -23,7 +23,7 @@
  * Toggles whether a story is accessible after expiration. Can be called
  * only if story.can_toggle_is_posted_to_chat_page == true
  */
-internal class TDLib.ToggleStoryIsPostedToChatPage : TDObject {
+public class TDLib.ToggleStoryIsPostedToChatPage : TDObject {
 
     /**
      * Identifier of the chat that posted the story

@@ -22,7 +22,7 @@
 /**
  * Returns database statistics
  */
-internal class TDLib.GetDatabaseStatistics : TDObject {
+public class TDLib.GetDatabaseStatistics : TDObject {
 
     public GetDatabaseStatistics () {
         Object (

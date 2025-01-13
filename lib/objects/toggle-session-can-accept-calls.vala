@@ -22,7 +22,7 @@
 /**
  * Toggles whether a session can accept incoming calls
  */
-internal class TDLib.ToggleSessionCanAcceptCalls : TDObject {
+public class TDLib.ToggleSessionCanAcceptCalls : TDObject {
 
     /**
      * Session identifier

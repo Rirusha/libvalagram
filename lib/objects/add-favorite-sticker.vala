@@ -27,7 +27,7 @@
  * be added to this list. Emoji stickers can't be added to favorite
  * stickers
  */
-internal class TDLib.AddFavoriteSticker : TDObject {
+public class TDLib.AddFavoriteSticker : TDObject {
 
     /**
      * Sticker file to add

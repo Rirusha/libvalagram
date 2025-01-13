@@ -21,7 +21,7 @@
 
 /**
  * Describes a collectible item that can be purchased at
- * https://fragment.com
+ * [[https://fragment.com]]
  */
 public abstract class TDLib.CollectibleItemType : Error {}
 

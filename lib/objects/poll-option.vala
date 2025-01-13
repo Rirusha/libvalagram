@@ -46,7 +46,8 @@ public class TDLib.PollOption : Error {
     public bool is_chosen { get; construct set; }
 
     /**
-     * True, if the option is being chosen by a pending setPollAnswer request
+     * True, if the option is being chosen by a pending
+     * {@link Client.set_poll_answer} request
      */
     public bool is_being_chosen { get; construct set; }
 

@@ -22,7 +22,7 @@
 /**
  * Returns the list of active stories posted by the given chat
  */
-internal class TDLib.GetChatActiveStories : TDObject {
+public class TDLib.GetChatActiveStories : TDObject {
 
     /**
      * Chat identifier

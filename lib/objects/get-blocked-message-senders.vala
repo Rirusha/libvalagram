@@ -22,7 +22,7 @@
 /**
  * Returns users and chats that were blocked by the current user
  */
-internal class TDLib.GetBlockedMessageSenders : TDObject {
+public class TDLib.GetBlockedMessageSenders : TDObject {
 
     /**
      * Block list from which to return users

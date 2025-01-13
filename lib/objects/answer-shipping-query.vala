@@ -22,7 +22,7 @@
 /**
  * Sets the result of a shipping query; for bots only
  */
-internal class TDLib.AnswerShippingQuery : TDObject {
+public class TDLib.AnswerShippingQuery : TDObject {
 
     /**
      * Identifier of the shipping query

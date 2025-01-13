@@ -22,7 +22,7 @@
 /**
  * Returns reactions, which can be chosen for a story
  */
-internal class TDLib.GetStoryAvailableReactions : TDObject {
+public class TDLib.GetStoryAvailableReactions : TDObject {
 
     /**
      * Number of reaction per row, 5-25

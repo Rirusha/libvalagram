@@ -22,7 +22,7 @@
 /**
  * Resets list of installed backgrounds to its default value
  */
-internal class TDLib.ResetInstalledBackgrounds : TDObject {
+public class TDLib.ResetInstalledBackgrounds : TDObject {
 
     public ResetInstalledBackgrounds () {
         Object (

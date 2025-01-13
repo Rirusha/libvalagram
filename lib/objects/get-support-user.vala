@@ -22,7 +22,7 @@
 /**
  * Returns a user that can be contacted to get support
  */
-internal class TDLib.GetSupportUser : TDObject {
+public class TDLib.GetSupportUser : TDObject {
 
     public GetSupportUser () {
         Object (

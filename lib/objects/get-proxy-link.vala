@@ -24,7 +24,7 @@
  * only for SOCKS5 and MTProto proxies. Can be called before
  * authorization
  */
-internal class TDLib.GetProxyLink : TDObject {
+public class TDLib.GetProxyLink : TDObject {
 
     /**
      * Proxy identifier

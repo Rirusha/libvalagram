@@ -23,7 +23,7 @@
  * Returns available options for Telegram Premium gift code or Telegram
  * Premium giveaway creation
  */
-internal class TDLib.GetPremiumGiftCodePaymentOptions : TDObject {
+public class TDLib.GetPremiumGiftCodePaymentOptions : TDObject {
 
     /**
      * Identifier of the supergroup or channel chat, which will be

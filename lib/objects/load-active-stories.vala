@@ -26,7 +26,7 @@
  * in descending order. Returns a 404 error if all active stories have
  * been loaded
  */
-internal class TDLib.LoadActiveStories : TDObject {
+public class TDLib.LoadActiveStories : TDObject {
 
     /**
      * The story list in which to load active stories

@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Specifies the kind of chat members to return in getSupergroupMembers
+ * Specifies the kind of chat members to return in
+ * {@link Client.get_supergroup_members}
  */
 public abstract class TDLib.SupergroupMembersFilter : Error {}
 

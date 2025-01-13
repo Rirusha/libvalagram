@@ -25,7 +25,7 @@
  * supergroups and channels all updates are received only for opened
  * chats)
  */
-internal class TDLib.OpenChat : TDObject {
+public class TDLib.OpenChat : TDObject {
 
     /**
      * Chat identifier

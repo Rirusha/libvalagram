@@ -22,7 +22,7 @@
 /**
  * Changes type of default reaction for the current user
  */
-internal class TDLib.SetDefaultReactionType : TDObject {
+public class TDLib.SetDefaultReactionType : TDObject {
 
     /**
      * New type of the default reaction. The paid reaction can't be set as

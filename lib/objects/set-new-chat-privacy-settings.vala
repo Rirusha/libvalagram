@@ -23,7 +23,7 @@
  * Changes privacy settings for new chat creation; can be used only if
  * getOption("can_set_new_chat_privacy_settings")
  */
-internal class TDLib.SetNewChatPrivacySettings : TDObject {
+public class TDLib.SetNewChatPrivacySettings : TDObject {
 
     /**
      * New settings

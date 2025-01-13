@@ -21,9 +21,10 @@
 
 /**
  * Informs TDLib that a chat was opened from the list of similar chats.
- * The method is independent of openChat and closeChat methods
+ * The method is independent of {@link Client.open_chat} and
+ * {@link Client.close_chat} methods
  */
-internal class TDLib.OpenChatSimilarChat : TDObject {
+public class TDLib.OpenChatSimilarChat : TDObject {
 
     /**
      * Identifier of the original chat, which similar chats were requested

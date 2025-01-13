@@ -22,7 +22,7 @@
 /**
  * Changes a profile photo for the current user
  */
-internal class TDLib.SetProfilePhoto : TDObject {
+public class TDLib.SetProfilePhoto : TDObject {
 
     /**
      * Profile photo to set

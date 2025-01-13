@@ -26,7 +26,7 @@
  * Documents and audio files can be only grouped in an album with
  * messages of the same type. Returns sent messages
  */
-internal class TDLib.AddQuickReplyShortcutMessageAlbum : TDObject {
+public class TDLib.AddQuickReplyShortcutMessageAlbum : TDObject {
 
     /**
      * Name of the target shortcut

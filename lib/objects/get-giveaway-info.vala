@@ -22,7 +22,7 @@
 /**
  * Returns information about a giveaway
  */
-internal class TDLib.GetGiveawayInfo : TDObject {
+public class TDLib.GetGiveawayInfo : TDObject {
 
     /**
      * Identifier of the channel chat which started the giveaway

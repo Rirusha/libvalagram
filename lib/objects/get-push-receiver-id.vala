@@ -24,7 +24,7 @@
  * for identification of an account, which has received a push
  * notification. Can be called synchronously
  */
-internal class TDLib.GetPushReceiverId : TDObject {
+public class TDLib.GetPushReceiverId : TDObject {
 
     /**
      * JSON-encoded push notification payload

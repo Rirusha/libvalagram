@@ -26,7 +26,7 @@
  * and for the next "story_stealth_mode_future_period" seconds; for
  * Telegram Premium users only
  */
-internal class TDLib.ActivateStoryStealthMode : TDObject {
+public class TDLib.ActivateStoryStealthMode : TDObject {
 
     public ActivateStoryStealthMode () {
         Object (

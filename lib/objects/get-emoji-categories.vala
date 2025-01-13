@@ -22,7 +22,7 @@
 /**
  * Returns available emoji categories
  */
-internal class TDLib.GetEmojiCategories : TDObject {
+public class TDLib.GetEmojiCategories : TDObject {
 
     /**
      * Type of emoji categories to return; pass null to get default emoji

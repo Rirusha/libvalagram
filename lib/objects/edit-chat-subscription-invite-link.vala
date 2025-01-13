@@ -24,7 +24,7 @@
  * can_invite_users right in the chat for own links and owner privileges
  * for other links
  */
-internal class TDLib.EditChatSubscriptionInviteLink : TDObject {
+public class TDLib.EditChatSubscriptionInviteLink : TDObject {
 
     /**
      * Chat identifier

@@ -23,7 +23,7 @@
  * Returns the last message sent in a chat no later than the specified
  * date. Returns a 404 error if such message doesn't exist
  */
-internal class TDLib.GetChatMessageByDate : TDObject {
+public class TDLib.GetChatMessageByDate : TDObject {
 
     /**
      * Chat identifier

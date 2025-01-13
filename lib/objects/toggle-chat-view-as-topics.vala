@@ -22,7 +22,7 @@
 /**
  * Changes the view_as_topics setting of a forum chat or Saved Messages
  */
-internal class TDLib.ToggleChatViewAsTopics : TDObject {
+public class TDLib.ToggleChatViewAsTopics : TDObject {
 
     /**
      * Chat identifier

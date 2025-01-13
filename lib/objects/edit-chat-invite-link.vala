@@ -27,7 +27,7 @@
  * Requires administrator privileges and can_invite_users right in the
  * chat for own links and owner privileges for other links
  */
-internal class TDLib.EditChatInviteLink : TDObject {
+public class TDLib.EditChatInviteLink : TDObject {
 
     /**
      * Chat identifier

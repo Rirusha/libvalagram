@@ -23,7 +23,7 @@
  * Adds or changes business bot that is connected to the current user
  * account
  */
-internal class TDLib.SetBusinessConnectedBot : TDObject {
+public class TDLib.SetBusinessConnectedBot : TDObject {
 
     /**
      * Connection settings for the bot

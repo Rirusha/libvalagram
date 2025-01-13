@@ -23,7 +23,7 @@
  * Translates a text to the given language. If the current user is a
  * Telegram Premium user, then text formatting is preserved
  */
-internal class TDLib.TranslateText : TDObject {
+public class TDLib.TranslateText : TDObject {
 
     /**
      * Text to translate

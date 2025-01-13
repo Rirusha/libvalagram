@@ -23,7 +23,7 @@
  * Changes the photo of a chat. Supported only for basic groups,
  * supergroups and channels. Requires can_change_info member right
  */
-internal class TDLib.SetChatPhoto : TDObject {
+public class TDLib.SetChatPhoto : TDObject {
 
     /**
      * Chat identifier

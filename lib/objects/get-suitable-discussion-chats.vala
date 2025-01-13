@@ -25,10 +25,10 @@
  * be first upgraded to supergroups before they can be set as a
  * discussion group.
  * To set a returned supergroup as a discussion group, access to its old
- * messages must be enabled using toggleSupergroupIsAllHistoryAvailable
- * first
+ * messages must be enabled using
+ * {@link Client.toggle_supergroup_is_all_history_available} first
  */
-internal class TDLib.GetSuitableDiscussionChats : TDObject {
+public class TDLib.GetSuitableDiscussionChats : TDObject {
 
     public GetSuitableDiscussionChats () {
         Object (

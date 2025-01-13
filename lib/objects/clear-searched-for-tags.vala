@@ -22,7 +22,7 @@
 /**
  * Clears the list of recently searched for hashtags or cashtags
  */
-internal class TDLib.ClearSearchedForTags : TDObject {
+public class TDLib.ClearSearchedForTags : TDObject {
 
     /**
      * Pass true to clear the list of recently searched for cashtags;

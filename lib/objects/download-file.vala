@@ -23,7 +23,7 @@
  * Downloads a file from the cloud. Download progress and completion of
  * the download will be notified through updateFile updates
  */
-internal class TDLib.DownloadFile : TDObject {
+public class TDLib.DownloadFile : TDObject {
 
     /**
      * Identifier of the file to download
@@ -52,10 +52,10 @@ internal class TDLib.DownloadFile : TDObject {
 
     /**
      * Pass true to return response only after the file download has
-     * succeeded, has failed, has been canceled, or a new downloadFile
-     * request with different offset/limit parameters was sent; pass false to
-     * return file state immediately, just after the download has been
-     * started
+     * succeeded, has failed, has been canceled, or a new
+     * {@link Client.download_file} request with different offset/limit
+     * parameters was sent; pass false to return file state immediately, just
+     * after the download has been started
      */
     public bool synchronous { get; construct set; }
 

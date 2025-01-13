@@ -23,7 +23,7 @@
  * Returns up to 8 emoji statuses, which must be shown right after the
  * default Premium Badge in the emoji status list for self status
  */
-internal class TDLib.GetThemedEmojiStatuses : TDObject {
+public class TDLib.GetThemedEmojiStatuses : TDObject {
 
     public GetThemedEmojiStatuses () {
         Object (

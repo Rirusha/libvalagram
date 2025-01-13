@@ -22,7 +22,7 @@
 /**
  * Changes story list in which stories from the chat are shown
  */
-internal class TDLib.SetChatActiveStoriesList : TDObject {
+public class TDLib.SetChatActiveStoriesList : TDObject {
 
     /**
      * Identifier of the chat that posted stories

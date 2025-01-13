@@ -22,7 +22,7 @@
 /**
  * Clears message drafts in all chats
  */
-internal class TDLib.ClearAllDraftMessages : TDObject {
+public class TDLib.ClearAllDraftMessages : TDObject {
 
     /**
      * Pass true to keep local message drafts in secret chats

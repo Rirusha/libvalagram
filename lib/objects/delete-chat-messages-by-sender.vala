@@ -24,7 +24,7 @@
  * Supported only for supergroups; requires can_delete_messages
  * administrator privileges
  */
-internal class TDLib.DeleteChatMessagesBySender : TDObject {
+public class TDLib.DeleteChatMessagesBySender : TDObject {
 
     /**
      * Chat identifier

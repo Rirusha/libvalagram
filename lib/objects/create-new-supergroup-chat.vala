@@ -23,7 +23,7 @@
  * Creates a new supergroup or channel and sends a corresponding
  * messageSupergroupChatCreate. Returns the newly created chat
  */
-internal class TDLib.CreateNewSupergroupChat : TDObject {
+public class TDLib.CreateNewSupergroupChat : TDObject {
 
     /**
      * Title of the new chat; 1-128 characters
@@ -60,7 +60,7 @@ internal class TDLib.CreateNewSupergroupChat : TDObject {
 
     /**
      * Pass true to create a supergroup for importing messages using
-     * importMessages
+     * {@link Client.import_messages}
      */
     public bool for_import { get; construct set; }
 

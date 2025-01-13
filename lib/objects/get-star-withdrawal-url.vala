@@ -22,7 +22,7 @@
 /**
  * Returns a URL for Telegram Star withdrawal
  */
-internal class TDLib.GetStarWithdrawalUrl : TDObject {
+public class TDLib.GetStarWithdrawalUrl : TDObject {
 
     /**
      * Identifier of the owner of the Telegram Stars; can be identifier of an

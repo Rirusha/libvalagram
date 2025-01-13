@@ -23,7 +23,7 @@
  * Returns the received string; for testing only. This is an offline
  * method. Can be called before authorization
  */
-internal class TDLib.TestCallString : TDObject {
+public class TDLib.TestCallString : TDObject {
 
     /**
      * String to return

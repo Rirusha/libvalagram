@@ -22,7 +22,7 @@
 /**
  * Changes application-specific data associated with a chat
  */
-internal class TDLib.SetChatClientData : TDObject {
+public class TDLib.SetChatClientData : TDObject {
 
     /**
      * Chat identifier

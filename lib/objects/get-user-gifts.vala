@@ -22,7 +22,7 @@
 /**
  * Returns gifts saved to profile by the given user
  */
-internal class TDLib.GetUserGifts : TDObject {
+public class TDLib.GetUserGifts : TDObject {
 
     /**
      * Identifier of the user

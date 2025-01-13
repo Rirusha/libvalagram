@@ -22,7 +22,7 @@
 /**
  * Changes the chat theme. Supported only in private and secret chats
  */
-internal class TDLib.SetChatTheme : TDObject {
+public class TDLib.SetChatTheme : TDObject {
 
     /**
      * Chat identifier

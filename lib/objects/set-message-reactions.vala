@@ -22,7 +22,7 @@
 /**
  * Sets reactions on a message; for bots only
  */
-internal class TDLib.SetMessageReactions : TDObject {
+public class TDLib.SetMessageReactions : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

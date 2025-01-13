@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Information about the message sent by answerWebAppQuery
+ * Information about the message sent by
+ * {@link Client.answer_web_app_query}
  */
 public class TDLib.SentWebAppMessage : Error {
 

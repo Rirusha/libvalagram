@@ -24,7 +24,7 @@
  * messageDocument in all chats except secret chats. Returns the results
  * in reverse chronological order
  */
-internal class TDLib.SearchOutgoingDocumentMessages : TDObject {
+public class TDLib.SearchOutgoingDocumentMessages : TDObject {
 
     /**
      * Query to search for in document file name and message caption

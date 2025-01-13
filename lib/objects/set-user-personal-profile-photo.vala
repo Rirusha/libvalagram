@@ -22,7 +22,7 @@
 /**
  * Changes a personal profile photo of a contact user
  */
-internal class TDLib.SetUserPersonalProfilePhoto : TDObject {
+public class TDLib.SetUserPersonalProfilePhoto : TDObject {
 
     /**
      * User identifier

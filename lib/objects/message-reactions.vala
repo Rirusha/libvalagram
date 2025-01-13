@@ -42,7 +42,7 @@ public class TDLib.MessageReactions : Error {
 
     /**
      * True, if the list of added reactions is available using
-     * getMessageAddedReactions
+     * {@link Client.get_message_added_reactions}
      */
     public bool can_get_added_reactions { get; construct set; }
 

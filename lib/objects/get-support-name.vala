@@ -23,7 +23,7 @@
  * Returns localized name of the Telegram support user; for Telegram
  * support only
  */
-internal class TDLib.GetSupportName : TDObject {
+public class TDLib.GetSupportName : TDObject {
 
     public GetSupportName () {
         Object (

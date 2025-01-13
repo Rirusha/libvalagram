@@ -23,7 +23,7 @@
  * Returns the name of a bot in the given language. Can be called only if
  * userTypeBot.can_be_edited == true
  */
-internal class TDLib.GetBotName : TDObject {
+public class TDLib.GetBotName : TDObject {
 
     /**
      * Identifier of the target bot

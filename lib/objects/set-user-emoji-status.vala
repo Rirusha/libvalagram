@@ -22,7 +22,7 @@
 /**
  * Changes the emoji status of a user; for bots only
  */
-internal class TDLib.SetUserEmojiStatus : TDObject {
+public class TDLib.SetUserEmojiStatus : TDObject {
 
     /**
      * Identifier of the user

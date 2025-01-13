@@ -729,8 +729,9 @@ public class TDLib.MessageStory : MessageContent {
 }
 
 /**
- * A message with an invoice from a bot. Use getInternalLink with
- * internalLinkTypeBotStart to share the invoice
+ * A message with an invoice from a bot. Use
+ * {@link Client.get_internal_link} with internalLinkTypeBotStart to
+ * share the invoice
  */
 public class TDLib.MessageInvoice : MessageContent {
 
@@ -750,7 +751,8 @@ public class TDLib.MessageInvoice : MessageContent {
     public int64 total_amount { get; construct set; }
 
     /**
-     * Unique invoice bot start_parameter to be passed to getInternalLink
+     * Unique invoice bot start_parameter to be passed to
+     * {@link Client.get_internal_link}
      */
     public string start_parameter { get; construct set; }
 
@@ -849,7 +851,7 @@ public class TDLib.MessageVideoChatScheduled : MessageContent {
 
     /**
      * Identifier of the video chat. The video chat can be received through
-     * the method getGroupCall
+     * the method {@link Client.get_group_call}
      */
     public int32 group_call_id { get; construct set; }
 
@@ -879,7 +881,7 @@ public class TDLib.MessageVideoChatStarted : MessageContent {
 
     /**
      * Identifier of the video chat. The video chat can be received through
-     * the method getGroupCall
+     * the method {@link Client.get_group_call}
      */
     public int32 group_call_id { get; construct set; }
 
@@ -922,7 +924,7 @@ public class TDLib.MessageInviteVideoChatParticipants : MessageContent {
 
     /**
      * Identifier of the video chat. The video chat can be received through
-     * the method getGroupCall
+     * the method {@link Client.get_group_call}
      */
     public int32 group_call_id { get; construct set; }
 
@@ -1422,8 +1424,9 @@ public class TDLib.MessageForumTopicIsHiddenToggled : MessageContent {
 public class TDLib.MessageSuggestProfilePhoto : MessageContent {
 
     /**
-     * The suggested chat photo. Use the method setProfilePhoto with
-     * inputChatPhotoPrevious to apply the photo
+     * The suggested chat photo. Use the method
+     * {@link Client.set_profile_photo} with inputChatPhotoPrevious to apply
+     * the photo
      */
     public ChatPhoto photo { get; construct set; }
 
@@ -1854,7 +1857,7 @@ public class TDLib.MessagePremiumGiftCode : MessageContent {
     /**
      * The gift code
      */
-    public string code { get; construct set; }
+    public new string code { get; construct set; }
 
     public MessagePremiumGiftCode (
         MessageSender? creator_id,
@@ -2298,7 +2301,7 @@ public class TDLib.MessageGift : MessageContent {
      * Identifier of the service message messageUpgradedGift or
      * messageRefundedUpgradedGift with upgraded version of the gift; can be
      * 0 if none or an identifier of a deleted message.
-     * Use getUserGift to get information about the gift
+     * Use {@link Client.get_user_gift} to get information about the gift
      */
     public int64 upgrade_message_id { get; construct set; }
 

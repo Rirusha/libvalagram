@@ -22,7 +22,7 @@
 /**
  * Returns recently searched for hashtags or cashtags by their prefix
  */
-internal class TDLib.GetSearchedForTags : TDObject {
+public class TDLib.GetSearchedForTags : TDObject {
 
     /**
      * Prefix of hashtags or cashtags to return

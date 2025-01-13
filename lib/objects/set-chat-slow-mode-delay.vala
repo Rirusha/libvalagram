@@ -23,7 +23,7 @@
  * Changes the slow mode delay of a chat. Available only for supergroups;
  * requires can_restrict_members right
  */
-internal class TDLib.SetChatSlowModeDelay : TDObject {
+public class TDLib.SetChatSlowModeDelay : TDObject {
 
     /**
      * Chat identifier

@@ -25,7 +25,7 @@
  * immediately and the request needs to be repeated after the specified
  * time
  */
-internal class TDLib.ResetPassword : TDObject {
+public class TDLib.ResetPassword : TDObject {
 
     public ResetPassword () {
         Object (

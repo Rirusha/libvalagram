@@ -23,7 +23,7 @@
  * Does nothing; for testing only. This is an offline method. Can be
  * called before authorization
  */
-internal class TDLib.TestCallEmpty : TDObject {
+public class TDLib.TestCallEmpty : TDObject {
 
     public TestCallEmpty () {
         Object (

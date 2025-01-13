@@ -22,7 +22,7 @@
 /**
  * Changes affiliate program for a bot
  */
-internal class TDLib.SetChatAffiliateProgram : TDObject {
+public class TDLib.SetChatAffiliateProgram : TDObject {
 
     /**
      * Identifier of the chat with an owned bot for which affiliate program
@@ -31,9 +31,9 @@ internal class TDLib.SetChatAffiliateProgram : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Parameters of the affiliate program; pass null to close the currently
-     * active program. If there is an active program, then commission and
-     * program duration can only be increased.
+     * Parameters of the affiliate program; pass null to {@link Client.close}
+     * the currently active program. If there is an active program, then
+     * commission and program duration can only be increased.
      * If the active program is scheduled to be closed, then it can't be
      * changed anymore
      */

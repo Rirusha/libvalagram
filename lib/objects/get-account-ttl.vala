@@ -23,7 +23,7 @@
  * Returns the period of inactivity after which the account of the
  * current user will automatically be deleted
  */
-internal class TDLib.GetAccountTtl : TDObject {
+public class TDLib.GetAccountTtl : TDObject {
 
     public GetAccountTtl () {
         Object (

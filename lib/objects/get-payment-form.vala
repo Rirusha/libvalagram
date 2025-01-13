@@ -24,7 +24,7 @@
  * user presses inline button of the type inlineKeyboardButtonTypeBuy, or
  * wants to buy access to media in a messagePaidMedia message
  */
-internal class TDLib.GetPaymentForm : TDObject {
+public class TDLib.GetPaymentForm : TDObject {
 
     /**
      * The invoice

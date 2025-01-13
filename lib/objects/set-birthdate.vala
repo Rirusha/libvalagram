@@ -22,7 +22,7 @@
 /**
  * Changes the birthdate of the current user
  */
-internal class TDLib.SetBirthdate : TDObject {
+public class TDLib.SetBirthdate : TDObject {
 
     /**
      * The new value of the current user's birthdate; pass null to remove the

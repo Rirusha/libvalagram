@@ -22,7 +22,7 @@
 /**
  * Changes the order of pinned Saved Messages topics
  */
-internal class TDLib.SetPinnedSavedMessagesTopics : TDObject {
+public class TDLib.SetPinnedSavedMessagesTopics : TDObject {
 
     /**
      * Identifiers of the new pinned Saved Messages topics

@@ -22,7 +22,7 @@
 /**
  * Changes order of media previews in the list of media previews of a bot
  */
-internal class TDLib.ReorderBotMediaPreviews : TDObject {
+public class TDLib.ReorderBotMediaPreviews : TDObject {
 
     /**
      * Identifier of the target bot. The bot must be owned and must have the

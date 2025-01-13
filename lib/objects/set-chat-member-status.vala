@@ -25,11 +25,11 @@
  * change administrator rights of the member,
  * and can_restrict_members administrator right to change restrictions of
  * a user. This function is currently not suitable for transferring chat
- * ownership; use transferChatOwnership instead.
- * Use addChatMember or banChatMember if some additional parameters needs
- * to be passed
+ * ownership; use {@link Client.transfer_chat_ownership} instead.
+ * Use {@link Client.add_chat_member} or {@link Client.ban_chat_member}
+ * if some additional parameters needs to be passed
  */
-internal class TDLib.SetChatMemberStatus : TDObject {
+public class TDLib.SetChatMemberStatus : TDObject {
 
     /**
      * Chat identifier

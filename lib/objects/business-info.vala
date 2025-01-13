@@ -52,9 +52,9 @@ public class TDLib.BusinessInfo : Error {
     public int32 next_open_in { get; construct set; }
 
     /**
-     * Time left before the business will close the next time, in seconds; 0
-     * if unknown. An updateUserFullInfo update is not triggered when value
-     * of this field changes
+     * Time left before the business will {@link Client.close} the next time,
+     * in seconds; 0 if unknown. An updateUserFullInfo update is not
+     * triggered when value of this field changes
      */
     public int32 next_close_in { get; construct set; }
 

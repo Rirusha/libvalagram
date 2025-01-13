@@ -22,7 +22,7 @@
 /**
  * Changes the draft message in a chat
  */
-internal class TDLib.SetChatDraftMessage : TDObject {
+public class TDLib.SetChatDraftMessage : TDObject {
 
     /**
      * Chat identifier

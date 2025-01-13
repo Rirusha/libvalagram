@@ -23,7 +23,7 @@
  * Sets group call title. Requires groupCall.can_be_managed group call
  * flag
  */
-internal class TDLib.SetGroupCallTitle : TDObject {
+public class TDLib.SetGroupCallTitle : TDObject {
 
     /**
      * Group call identifier

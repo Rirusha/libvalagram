@@ -23,7 +23,7 @@
  * Changes the sticker set of a supergroup; requires can_change_info
  * administrator right
  */
-internal class TDLib.SetSupergroupStickerSet : TDObject {
+public class TDLib.SetSupergroupStickerSet : TDObject {
 
     /**
      * Identifier of the supergroup

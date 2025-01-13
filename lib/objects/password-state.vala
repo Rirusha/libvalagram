@@ -57,7 +57,8 @@ public class TDLib.PasswordState : Error {
 
     /**
      * If not 0, point in time (Unix timestamp) after which the 2-step
-     * verification password can be reset immediately using resetPassword
+     * verification password can be reset immediately using
+     * {@link Client.reset_password}
      */
     public int32 pending_reset_date { get; construct set; }
 

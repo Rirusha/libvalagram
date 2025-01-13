@@ -22,7 +22,7 @@
 /**
  * Checks whether a username can be set for a chat
  */
-internal class TDLib.CheckChatUsername : TDObject {
+public class TDLib.CheckChatUsername : TDObject {
 
     /**
      * Chat identifier; must be identifier of a supergroup chat, or a channel

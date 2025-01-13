@@ -23,7 +23,7 @@
  * Edits the text of an inline text or game message sent via a bot; for
  * bots only
  */
-internal class TDLib.EditInlineMessageText : TDObject {
+public class TDLib.EditInlineMessageText : TDObject {
 
     /**
      * Inline message identifier

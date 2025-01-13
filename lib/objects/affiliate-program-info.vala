@@ -33,8 +33,8 @@ public class TDLib.AffiliateProgramInfo : Error {
      * Point in time (Unix timestamp) when the affiliate program will be
      * closed; 0 if the affiliate program isn't scheduled to be closed.
      * If positive, then the program can't be connected using
-     * connectAffiliateProgram, but active connections will work until the
-     * date
+     * {@link Client.connect_affiliate_program} but active connections will
+     * work until the date
      */
     public int32 end_date { get; construct set; }
 

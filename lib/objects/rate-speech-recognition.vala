@@ -22,7 +22,7 @@
 /**
  * Rates recognized speech in a video note or a voice note message
  */
-internal class TDLib.RateSpeechRecognition : TDObject {
+public class TDLib.RateSpeechRecognition : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

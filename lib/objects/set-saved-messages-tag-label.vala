@@ -22,7 +22,7 @@
 /**
  * Changes label of a Saved Messages tag; for Telegram Premium users only
  */
-internal class TDLib.SetSavedMessagesTagLabel : TDObject {
+public class TDLib.SetSavedMessagesTagLabel : TDObject {
 
     /**
      * The tag which label will be changed

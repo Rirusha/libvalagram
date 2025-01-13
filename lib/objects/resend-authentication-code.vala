@@ -26,7 +26,7 @@
  * and the server-specified timeout has passed, or when the current
  * authorization state is authorizationStateWaitEmailCode
  */
-internal class TDLib.ResendAuthenticationCode : TDObject {
+public class TDLib.ResendAuthenticationCode : TDObject {
 
     /**
      * Reason of code resending; pass null if unknown

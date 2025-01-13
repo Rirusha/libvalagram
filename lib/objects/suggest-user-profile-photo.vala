@@ -22,7 +22,7 @@
 /**
  * Suggests a profile photo to another regular user with common messages
  */
-internal class TDLib.SuggestUserProfilePhoto : TDObject {
+public class TDLib.SuggestUserProfilePhoto : TDObject {
 
     /**
      * User identifier

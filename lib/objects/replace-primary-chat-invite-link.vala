@@ -24,7 +24,7 @@
  * invite link. Available for basic groups, supergroups, and channels.
  * Requires administrator privileges and can_invite_users right
  */
-internal class TDLib.ReplacePrimaryChatInviteLink : TDObject {
+public class TDLib.ReplacePrimaryChatInviteLink : TDObject {
 
     /**
      * Chat identifier

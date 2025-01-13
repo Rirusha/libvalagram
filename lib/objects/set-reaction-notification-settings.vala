@@ -22,7 +22,7 @@
 /**
  * Changes notification settings for reactions
  */
-internal class TDLib.SetReactionNotificationSettings : TDObject {
+public class TDLib.SetReactionNotificationSettings : TDObject {
 
     /**
      * The new notification settings for reactions

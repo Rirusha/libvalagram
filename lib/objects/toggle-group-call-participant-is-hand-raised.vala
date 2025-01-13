@@ -22,7 +22,7 @@
 /**
  * Toggles whether a group call participant hand is rased
  */
-internal class TDLib.ToggleGroupCallParticipantIsHandRaised : TDObject {
+public class TDLib.ToggleGroupCallParticipantIsHandRaised : TDObject {
 
     /**
      * Group call identifier

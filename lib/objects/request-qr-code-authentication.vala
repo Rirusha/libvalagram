@@ -28,7 +28,7 @@
  * authorizationStateWaitEmailCode, authorizationStateWaitCode,
  * authorizationStateWaitRegistration, or authorizationStateWaitPassword
  */
-internal class TDLib.RequestQrCodeAuthentication : TDObject {
+public class TDLib.RequestQrCodeAuthentication : TDObject {
 
     /**
      * List of user identifiers of other users currently using the

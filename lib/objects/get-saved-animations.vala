@@ -22,7 +22,7 @@
 /**
  * Returns saved animations
  */
-internal class TDLib.GetSavedAnimations : TDObject {
+public class TDLib.GetSavedAnimations : TDObject {
 
     public GetSavedAnimations () {
         Object (

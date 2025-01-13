@@ -24,7 +24,7 @@
  * chats can't be joined using this method. May return an error with a
  * message "INVITE_REQUEST_SENT" if only a join request was created
  */
-internal class TDLib.JoinChat : TDObject {
+public class TDLib.JoinChat : TDObject {
 
     /**
      * Chat identifier

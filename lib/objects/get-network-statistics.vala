@@ -23,7 +23,7 @@
  * Returns network data usage statistics. Can be called before
  * authorization
  */
-internal class TDLib.GetNetworkStatistics : TDObject {
+public class TDLib.GetNetworkStatistics : TDObject {
 
     /**
      * Pass true to get statistics only for the current library launch

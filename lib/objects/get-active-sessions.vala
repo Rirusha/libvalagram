@@ -22,7 +22,7 @@
 /**
  * Returns all active sessions of the current user
  */
-internal class TDLib.GetActiveSessions : TDObject {
+public class TDLib.GetActiveSessions : TDObject {
 
     public GetActiveSessions () {
         Object (

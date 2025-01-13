@@ -22,7 +22,7 @@
 /**
  * Returns invite link to a video chat in a public chat
  */
-internal class TDLib.GetGroupCallInviteLink : TDObject {
+public class TDLib.GetGroupCallInviteLink : TDObject {
 
     /**
      * Group call identifier
@@ -31,8 +31,9 @@ internal class TDLib.GetGroupCallInviteLink : TDObject {
 
     /**
      * Pass true if the invite link needs to contain an invite hash, passing
-     * which to joinGroupCall would allow the invited user to unmute
-     * themselves. Requires groupCall.can_be_managed group call flag
+     * which to {@link Client.join_group_call} would allow the invited user
+     * to unmute themselves. Requires groupCall.can_be_managed group call
+     * flag
      */
     public bool can_self_unmute { get; construct set; }
 

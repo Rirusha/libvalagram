@@ -22,7 +22,7 @@
 /**
  * Deletes existing chat folder
  */
-internal class TDLib.DeleteChatFolder : TDObject {
+public class TDLib.DeleteChatFolder : TDObject {
 
     /**
      * Chat folder identifier

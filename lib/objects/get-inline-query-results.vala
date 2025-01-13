@@ -24,7 +24,7 @@
  * error with code 502 if the bot fails to answer the query before the
  * query timeout expires
  */
-internal class TDLib.GetInlineQueryResults : TDObject {
+public class TDLib.GetInlineQueryResults : TDObject {
 
     /**
      * Identifier of the target bot

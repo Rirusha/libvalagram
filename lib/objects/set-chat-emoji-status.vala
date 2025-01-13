@@ -24,7 +24,7 @@
  * chatBoostLevelFeatures.can_set_emoji_status to check whether an emoji
  * status can be set. Requires can_change_info administrator right
  */
-internal class TDLib.SetChatEmojiStatus : TDObject {
+public class TDLib.SetChatEmojiStatus : TDObject {
 
     /**
      * Chat identifier

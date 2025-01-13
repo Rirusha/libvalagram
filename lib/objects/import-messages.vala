@@ -22,7 +22,7 @@
 /**
  * Imports messages exported from another app
  */
-internal class TDLib.ImportMessages : TDObject {
+public class TDLib.ImportMessages : TDObject {
 
     /**
      * Identifier of a chat to which the messages will be imported. It must

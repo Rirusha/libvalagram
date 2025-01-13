@@ -23,7 +23,7 @@
  * Returns identifiers of chats from a chat folder, suitable for adding
  * to a chat folder invite link
  */
-internal class TDLib.GetChatsForChatFolderInviteLink : TDObject {
+public class TDLib.GetChatsForChatFolderInviteLink : TDObject {
 
     /**
      * Chat folder identifier

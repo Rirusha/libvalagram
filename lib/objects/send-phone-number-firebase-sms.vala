@@ -25,7 +25,7 @@
  * authenticationCodeTypeFirebaseAndroid or
  * authenticationCodeTypeFirebaseIos
  */
-internal class TDLib.SendPhoneNumberFirebaseSms : TDObject {
+public class TDLib.SendPhoneNumberFirebaseSms : TDObject {
 
     /**
      * Play Integrity API or SafetyNet Attestation API token for the Android

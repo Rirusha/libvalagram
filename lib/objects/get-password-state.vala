@@ -22,7 +22,7 @@
 /**
  * Returns the current state of 2-step verification
  */
-internal class TDLib.GetPasswordState : TDObject {
+public class TDLib.GetPasswordState : TDObject {
 
     public GetPasswordState () {
         Object (

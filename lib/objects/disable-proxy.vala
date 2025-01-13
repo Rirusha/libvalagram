@@ -23,7 +23,7 @@
  * Disables the currently enabled proxy. Can be called before
  * authorization
  */
-internal class TDLib.DisableProxy : TDObject {
+public class TDLib.DisableProxy : TDObject {
 
     public DisableProxy () {
         Object (

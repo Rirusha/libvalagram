@@ -27,22 +27,25 @@ public class TDLib.Usernames : Error {
     /**
      * List of active usernames; the first one must be shown as the primary
      * username. The order of active usernames can be changed with
-     * reorderActiveUsernames, reorderBotActiveUsernames or
-     * reorderSupergroupActiveUsernames
+     * {@link Client.reorder_active_usernames}
+     * {@link Client.reorder_bot_active_usernames} or
+     * {@link Client.reorder_supergroup_active_usernames}
      */
     public Gee.ArrayList<string?> active_usernames { get; construct set; default = new Gee.ArrayList<string?> (); }
 
     /**
      * List of currently disabled usernames; the username can be activated
-     * with toggleUsernameIsActive, toggleBotUsernameIsActive, or
-     * toggleSupergroupUsernameIsActive
+     * with {@link Client.toggle_username_is_active}
+     * {@link Client.toggle_bot_username_is_active} or
+     * {@link Client.toggle_supergroup_username_is_active}
      */
     public Gee.ArrayList<string?> disabled_usernames { get; construct set; default = new Gee.ArrayList<string?> (); }
 
     /**
-     * The active username, which can be changed with setUsername or
-     * setSupergroupUsername. Information about other active usernames can be
-     * received using getCollectibleItemInfo
+     * The active username, which can be changed with
+     * {@link Client.set_username} or {@link Client.set_supergroup_username}
+     * Information about other active usernames can be received using
+     * {@link Client.get_collectible_item_info}
      */
     public string editable_username { get; construct set; }
 

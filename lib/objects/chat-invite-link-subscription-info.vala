@@ -33,7 +33,8 @@ public class TDLib.ChatInviteLinkSubscriptionInfo : Error {
 
     /**
      * True, if the user has already paid for the subscription and can use
-     * joinChatByInviteLink to join the subscribed chat again
+     * {@link Client.join_chat_by_invite_link} to join the subscribed chat
+     * again
      */
     public bool can_reuse { get; construct set; }
 

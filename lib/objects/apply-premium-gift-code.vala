@@ -22,7 +22,7 @@
 /**
  * Applies a Telegram Premium gift code
  */
-internal class TDLib.ApplyPremiumGiftCode : TDObject {
+public class TDLib.ApplyPremiumGiftCode : TDObject {
 
     /**
      * The code to apply

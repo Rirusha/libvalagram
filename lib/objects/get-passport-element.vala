@@ -22,7 +22,7 @@
 /**
  * Returns one of the available Telegram Passport elements
  */
-internal class TDLib.GetPassportElement : TDObject {
+public class TDLib.GetPassportElement : TDObject {
 
     /**
      * Telegram Passport element type

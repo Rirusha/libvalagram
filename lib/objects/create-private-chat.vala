@@ -22,7 +22,7 @@
 /**
  * Returns an existing chat corresponding to a given user
  */
-internal class TDLib.CreatePrivateChat : TDObject {
+public class TDLib.CreatePrivateChat : TDObject {
 
     /**
      * User identifier

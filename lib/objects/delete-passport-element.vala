@@ -22,7 +22,7 @@
 /**
  * Deletes a Telegram Passport element
  */
-internal class TDLib.DeletePassportElement : TDObject {
+public class TDLib.DeletePassportElement : TDObject {
 
     /**
      * Element type

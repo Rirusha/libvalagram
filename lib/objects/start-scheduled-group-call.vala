@@ -22,7 +22,7 @@
 /**
  * Starts a scheduled group call
  */
-internal class TDLib.StartScheduledGroupCall : TDObject {
+public class TDLib.StartScheduledGroupCall : TDObject {
 
     /**
      * Group call identifier

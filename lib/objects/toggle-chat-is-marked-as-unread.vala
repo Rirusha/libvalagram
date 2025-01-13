@@ -22,7 +22,7 @@
 /**
  * Changes the marked as unread state of a chat
  */
-internal class TDLib.ToggleChatIsMarkedAsUnread : TDObject {
+public class TDLib.ToggleChatIsMarkedAsUnread : TDObject {
 
     /**
      * Chat identifier

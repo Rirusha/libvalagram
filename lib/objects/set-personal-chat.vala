@@ -22,11 +22,11 @@
 /**
  * Changes the personal chat of the current user
  */
-internal class TDLib.SetPersonalChat : TDObject {
+public class TDLib.SetPersonalChat : TDObject {
 
     /**
      * Identifier of the new personal chat; pass 0 to remove the chat. Use
-     * getSuitablePersonalChats to get suitable chats
+     * {@link Client.get_suitable_personal_chats} to get suitable chats
      */
     public int64 chat_id { get; construct set; }
 

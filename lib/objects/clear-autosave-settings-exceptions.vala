@@ -21,9 +21,10 @@
 
 /**
  * Clears the list of all autosave settings exceptions. The method is
- * guaranteed to work only after at least one call to getAutosaveSettings
+ * guaranteed to work only after at least one call to
+ * {@link Client.get_autosave_settings}
  */
-internal class TDLib.ClearAutosaveSettingsExceptions : TDObject {
+public class TDLib.ClearAutosaveSettingsExceptions : TDObject {
 
     public ClearAutosaveSettingsExceptions () {
         Object (

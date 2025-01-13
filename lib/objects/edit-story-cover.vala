@@ -23,7 +23,7 @@
  * Changes cover of a video story. Can be called only if
  * story.can_be_edited == true and the story isn't being edited now
  */
-internal class TDLib.EditStoryCover : TDObject {
+public class TDLib.EditStoryCover : TDObject {
 
     /**
      * Identifier of the chat that posted the story

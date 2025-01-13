@@ -22,7 +22,7 @@
 /**
  * Returns a list of recently used stickers
  */
-internal class TDLib.GetRecentStickers : TDObject {
+public class TDLib.GetRecentStickers : TDObject {
 
     /**
      * Pass true to return stickers and masks that were recently attached to

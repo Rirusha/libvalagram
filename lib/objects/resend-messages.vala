@@ -28,7 +28,7 @@
  * identifiers passed in message_ids. If a message can't be re-sent, null
  * will be returned instead of the message
  */
-internal class TDLib.ResendMessages : TDObject {
+public class TDLib.ResendMessages : TDObject {
 
     /**
      * Identifier of the chat to send messages

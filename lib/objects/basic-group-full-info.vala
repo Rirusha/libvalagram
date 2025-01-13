@@ -47,8 +47,9 @@ public class TDLib.BasicGroupFullInfo : Error {
 
     /**
      * True, if non-administrators and non-bots can be hidden in responses to
-     * getSupergroupMembers and searchChatMembers for non-administrators
-     * after upgrading the basic group to a supergroup
+     * {@link Client.get_supergroup_members} and
+     * {@link Client.search_chat_members} for non-administrators after
+     * upgrading the basic group to a supergroup
      */
     public bool can_hide_members { get; construct set; }
 

@@ -23,7 +23,7 @@
  * Sets the name of a bot. Can be called only if
  * userTypeBot.can_be_edited == true
  */
-internal class TDLib.SetBotName : TDObject {
+public class TDLib.SetBotName : TDObject {
 
     /**
      * Identifier of the target bot

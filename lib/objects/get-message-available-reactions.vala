@@ -24,7 +24,7 @@
  * change after updateActiveEmojiReactions, updateChatAvailableReactions
  * for the chat, or updateMessageInteractionInfo for the message
  */
-internal class TDLib.GetMessageAvailableReactions : TDObject {
+public class TDLib.GetMessageAvailableReactions : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

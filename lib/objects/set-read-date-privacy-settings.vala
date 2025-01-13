@@ -22,7 +22,7 @@
 /**
  * Changes privacy settings for message read date
  */
-internal class TDLib.SetReadDatePrivacySettings : TDObject {
+public class TDLib.SetReadDatePrivacySettings : TDObject {
 
     /**
      * New settings

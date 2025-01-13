@@ -22,7 +22,7 @@
 /**
  * Accepts Telegram terms of services
  */
-internal class TDLib.AcceptTermsOfService : TDObject {
+public class TDLib.AcceptTermsOfService : TDObject {
 
     /**
      * Terms of service identifier

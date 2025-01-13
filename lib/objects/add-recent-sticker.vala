@@ -27,7 +27,7 @@
  * be added to this list. Emoji stickers can't be added to recent
  * stickers
  */
-internal class TDLib.AddRecentSticker : TDObject {
+public class TDLib.AddRecentSticker : TDObject {
 
     /**
      * Pass true to add the sticker to the list of stickers recently attached

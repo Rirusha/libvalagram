@@ -22,7 +22,7 @@
 /**
  * Changes the notification settings of a forum topic
  */
-internal class TDLib.SetForumTopicNotificationSettings : TDObject {
+public class TDLib.SetForumTopicNotificationSettings : TDObject {
 
     /**
      * Chat identifier

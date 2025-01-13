@@ -23,7 +23,7 @@
  * Returns support information for the given user; for Telegram support
  * only
  */
-internal class TDLib.GetUserSupportInfo : TDObject {
+public class TDLib.GetUserSupportInfo : TDObject {
 
     /**
      * User identifier

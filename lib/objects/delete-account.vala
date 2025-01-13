@@ -26,7 +26,7 @@
  * Can be called before authorization when the current authorization
  * state is authorizationStateWaitPassword
  */
-internal class TDLib.DeleteAccount : TDObject {
+public class TDLib.DeleteAccount : TDObject {
 
     /**
      * The reason why the account was deleted; optional

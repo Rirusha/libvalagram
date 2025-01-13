@@ -67,8 +67,9 @@ public class TDLib.AttachmentMenuBot : Error {
 
     /**
      * True, if the bot was explicitly added by the user. If the bot isn't
-     * added, then on the first bot launch toggleBotIsAddedToAttachmentMenu
-     * must be called and the bot must be added or removed
+     * added, then on the first bot launch
+     * {@link Client.toggle_bot_is_added_to_attachment_menu} must be called
+     * and the bot must be added or removed
      */
     public bool is_added { get; construct set; }
 

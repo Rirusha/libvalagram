@@ -25,7 +25,7 @@
  * "EMAIL_VERIFICATION_NEEDED" if the chosen phone number or the chosen
  * email address must be verified first
  */
-internal class TDLib.SetPassportElement : TDObject {
+public class TDLib.SetPassportElement : TDObject {
 
     /**
      * Input Telegram Passport element

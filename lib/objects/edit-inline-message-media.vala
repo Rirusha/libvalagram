@@ -24,7 +24,7 @@
  * audio, a document, a photo or a video in an inline message sent via a
  * bot; for bots only
  */
-internal class TDLib.EditInlineMessageMedia : TDObject {
+public class TDLib.EditInlineMessageMedia : TDObject {
 
     /**
      * Inline message identifier

@@ -22,7 +22,7 @@
 /**
  * Returns the current weather in the given location
  */
-internal class TDLib.GetCurrentWeather : TDObject {
+public class TDLib.GetCurrentWeather : TDObject {
 
     /**
      * The location

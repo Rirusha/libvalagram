@@ -24,7 +24,7 @@
  * the link when users share the bot in the given language. Can be called
  * only if userTypeBot.can_be_edited == true
  */
-internal class TDLib.GetBotInfoShortDescription : TDObject {
+public class TDLib.GetBotInfoShortDescription : TDObject {
 
     /**
      * Identifier of the target bot

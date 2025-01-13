@@ -22,7 +22,7 @@
 /**
  * Deletes a file from the TDLib file cache
  */
-internal class TDLib.DeleteFile : TDObject {
+public class TDLib.DeleteFile : TDObject {
 
     /**
      * Identifier of the file to delete

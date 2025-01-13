@@ -22,7 +22,7 @@
 /**
  * Removes users from the contact list
  */
-internal class TDLib.RemoveContacts : TDObject {
+public class TDLib.RemoveContacts : TDObject {
 
     /**
      * Identifiers of users to be deleted

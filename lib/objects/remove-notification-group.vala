@@ -23,7 +23,7 @@
  * Removes a group of active notifications. Needs to be called only if
  * the notification group is removed by the current user
  */
-internal class TDLib.RemoveNotificationGroup : TDObject {
+public class TDLib.RemoveNotificationGroup : TDObject {
 
     /**
      * Notification group identifier

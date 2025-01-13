@@ -22,7 +22,7 @@
 /**
  * Returns a list of archived sticker sets
  */
-internal class TDLib.GetArchivedStickerSets : TDObject {
+public class TDLib.GetArchivedStickerSets : TDObject {
 
     /**
      * Type of the sticker sets to return

@@ -24,7 +24,7 @@
  * can_manage_topics right in the supergroup unless the user is creator
  * of the topic
  */
-internal class TDLib.ToggleForumTopicIsClosed : TDObject {
+public class TDLib.ToggleForumTopicIsClosed : TDObject {
 
     /**
      * Identifier of the chat
@@ -37,7 +37,7 @@ internal class TDLib.ToggleForumTopicIsClosed : TDObject {
     public int64 message_thread_id { get; construct set; }
 
     /**
-     * Pass true to close the topic; pass false to reopen it
+     * Pass true to {@link Client.close} the topic; pass false to reopen it
      */
     public bool is_closed { get; construct set; }
 

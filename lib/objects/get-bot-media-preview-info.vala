@@ -23,7 +23,7 @@
  * Returns the list of media previews for the given language and the list
  * of languages for which the bot has dedicated previews
  */
-internal class TDLib.GetBotMediaPreviewInfo : TDObject {
+public class TDLib.GetBotMediaPreviewInfo : TDObject {
 
     /**
      * Identifier of the target bot. The bot must be owned and must have the

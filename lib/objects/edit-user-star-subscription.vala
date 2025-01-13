@@ -23,7 +23,7 @@
  * Cancels or re-enables Telegram Star subscription for a user; for bots
  * only
  */
-internal class TDLib.EditUserStarSubscription : TDObject {
+public class TDLib.EditUserStarSubscription : TDObject {
 
     /**
      * User identifier

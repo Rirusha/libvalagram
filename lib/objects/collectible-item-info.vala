@@ -50,7 +50,7 @@ public class TDLib.CollectibleItemInfo : Error {
     public int64 cryptocurrency_amount { get; construct set; }
 
     /**
-     * Individual URL for the item on https://fragment.com
+     * Individual URL for the item on [[https://fragment.com]]
      */
     public string url { get; construct set; }
 

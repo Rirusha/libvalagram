@@ -23,7 +23,7 @@
  * Toggles whether the supergroup is a forum; requires owner privileges
  * in the supergroup. Discussion supergroups can't be converted to forums
  */
-internal class TDLib.ToggleSupergroupIsForum : TDObject {
+public class TDLib.ToggleSupergroupIsForum : TDObject {
 
     /**
      * Identifier of the supergroup

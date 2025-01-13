@@ -22,7 +22,7 @@
 /**
  * Returns information about a group call
  */
-internal class TDLib.GetGroupCall : TDObject {
+public class TDLib.GetGroupCall : TDObject {
 
     /**
      * Group call identifier

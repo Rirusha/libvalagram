@@ -22,7 +22,7 @@
 /**
  * Returns full information about a user by their identifier
  */
-internal class TDLib.GetUserFullInfo : TDObject {
+public class TDLib.GetUserFullInfo : TDObject {
 
     /**
      * User identifier

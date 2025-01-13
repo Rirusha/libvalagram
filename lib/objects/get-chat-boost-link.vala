@@ -23,7 +23,7 @@
  * Returns an HTTPS link to boost the specified supergroup or channel
  * chat
  */
-internal class TDLib.GetChatBoostLink : TDObject {
+public class TDLib.GetChatBoostLink : TDObject {
 
     /**
      * Identifier of the chat

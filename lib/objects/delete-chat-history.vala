@@ -25,7 +25,7 @@
  * chat.can_be_deleted_for_all_users fields to find whether and how the
  * method can be applied to the chat
  */
-internal class TDLib.DeleteChatHistory : TDObject {
+public class TDLib.DeleteChatHistory : TDObject {
 
     /**
      * Chat identifier

@@ -23,7 +23,7 @@
  * Removes the connected business bot from a specific chat by adding the
  * chat to businessRecipients.excluded_chat_ids
  */
-internal class TDLib.RemoveBusinessConnectedBotFromChat : TDObject {
+public class TDLib.RemoveBusinessConnectedBotFromChat : TDObject {
 
     /**
      * Chat identifier

@@ -23,7 +23,7 @@
  * Sends a simple network request to the Telegram servers via proxy; for
  * testing only. Can be called before authorization
  */
-internal class TDLib.TestProxy : TDObject {
+public class TDLib.TestProxy : TDObject {
 
     /**
      * Proxy server domain or IP address

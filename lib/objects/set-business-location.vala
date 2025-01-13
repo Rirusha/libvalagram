@@ -23,7 +23,7 @@
  * Changes the business location of the current user. Requires Telegram
  * Business subscription
  */
-internal class TDLib.SetBusinessLocation : TDObject {
+public class TDLib.SetBusinessLocation : TDObject {
 
     /**
      * The new location of the business; pass null to remove the location

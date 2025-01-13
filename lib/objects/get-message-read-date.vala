@@ -23,7 +23,7 @@
  * Returns read date of a recent outgoing message in a private chat. The
  * method can be called if messageProperties.can_get_read_date == true
  */
-internal class TDLib.GetMessageReadDate : TDObject {
+public class TDLib.GetMessageReadDate : TDObject {
 
     /**
      * Chat identifier

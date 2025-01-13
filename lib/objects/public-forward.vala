@@ -32,7 +32,7 @@ public class TDLib.PublicForwardMessage : PublicForward {
     /**
      * Information about the message
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     public PublicForwardMessage (
         Message message

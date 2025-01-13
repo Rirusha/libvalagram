@@ -24,7 +24,7 @@
  * status, even they are from a sticker set with
  * is_allowed_as_chat_emoji_status == true
  */
-internal class TDLib.GetDisallowedChatEmojiStatuses : TDObject {
+public class TDLib.GetDisallowedChatEmojiStatuses : TDObject {
 
     public GetDisallowedChatEmojiStatuses () {
         Object (

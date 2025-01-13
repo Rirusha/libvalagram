@@ -22,7 +22,7 @@
 /**
  * Leaves a group call
  */
-internal class TDLib.LeaveGroupCall : TDObject {
+public class TDLib.LeaveGroupCall : TDObject {
 
     /**
      * Group call identifier

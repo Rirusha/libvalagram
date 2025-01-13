@@ -23,7 +23,7 @@
  * Changes the value of the default disable_notification parameter, used
  * when a message is sent to a chat
  */
-internal class TDLib.ToggleChatDefaultDisableNotification : TDObject {
+public class TDLib.ToggleChatDefaultDisableNotification : TDObject {
 
     /**
      * Chat identifier

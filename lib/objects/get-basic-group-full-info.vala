@@ -22,7 +22,7 @@
 /**
  * Returns full information about a basic group by its identifier
  */
-internal class TDLib.GetBasicGroupFullInfo : TDObject {
+public class TDLib.GetBasicGroupFullInfo : TDObject {
 
     /**
      * Basic group identifier

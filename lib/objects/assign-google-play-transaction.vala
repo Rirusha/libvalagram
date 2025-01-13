@@ -23,7 +23,7 @@
  * Informs server about a purchase through Google Play. For official
  * applications only
  */
-internal class TDLib.AssignGooglePlayTransaction : TDObject {
+public class TDLib.AssignGooglePlayTransaction : TDObject {
 
     /**
      * Application package name

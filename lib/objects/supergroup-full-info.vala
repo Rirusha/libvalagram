@@ -82,20 +82,23 @@ public class TDLib.SupergroupFullInfo : Error {
     public bool can_enable_paid_reaction { get; construct set; }
 
     /**
-     * True, if members of the chat can be retrieved via getSupergroupMembers
-     * or searchChatMembers
+     * True, if members of the chat can be retrieved via
+     * {@link Client.get_supergroup_members} or
+     * {@link Client.search_chat_members}
      */
     public bool can_get_members { get; construct set; }
 
     /**
      * True, if non-administrators can receive only administrators and bots
-     * using getSupergroupMembers or searchChatMembers
+     * using {@link Client.get_supergroup_members} or
+     * {@link Client.search_chat_members}
      */
     public bool has_hidden_members { get; construct set; }
 
     /**
      * True, if non-administrators and non-bots can be hidden in responses to
-     * getSupergroupMembers and searchChatMembers for non-administrators
+     * {@link Client.get_supergroup_members} and
+     * {@link Client.search_chat_members} for non-administrators
      */
     public bool can_hide_members { get; construct set; }
 

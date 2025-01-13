@@ -75,8 +75,8 @@ public class TDLib.StoryAreaTypeVenue : StoryAreaType {
 
 /**
  * An area pointing to a suggested reaction. App needs to show a
- * clickable reaction on the area and call setStoryReaction when the are
- * is clicked
+ * clickable reaction on the area and call
+ * {@link Client.set_story_reaction} when the are is clicked
  */
 public class TDLib.StoryAreaTypeSuggestedReaction : StoryAreaType {
 
@@ -146,12 +146,12 @@ public class TDLib.StoryAreaTypeMessage : StoryAreaType {
 }
 
 /**
- * An area pointing to a HTTP or tg:// link
+ * An area pointing to a HTTP or [[tg://]] link
  */
 public class TDLib.StoryAreaTypeLink : StoryAreaType {
 
     /**
-     * HTTP or tg:// URL to be opened when the area is clicked
+     * HTTP or [[tg://]] URL to be opened when the area is clicked
      */
     public string url { get; construct set; }
 

@@ -23,7 +23,7 @@
  * Returns information about a chat by its identifier; this is an offline
  * request if the current user is not a bot
  */
-internal class TDLib.GetChat : TDObject {
+public class TDLib.GetChat : TDObject {
 
     /**
      * Chat identifier

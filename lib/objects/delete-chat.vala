@@ -26,7 +26,7 @@
  * Use the field chat.can_be_deleted_for_all_users to find whether the
  * method can be applied to the chat
  */
-internal class TDLib.DeleteChat : TDObject {
+public class TDLib.DeleteChat : TDObject {
 
     /**
      * Chat identifier

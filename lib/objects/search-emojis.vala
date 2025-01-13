@@ -23,7 +23,7 @@
  * Searches for emojis by keywords. Supported only if the file database
  * is enabled. Order of results is unspecified
  */
-internal class TDLib.SearchEmojis : TDObject {
+public class TDLib.SearchEmojis : TDObject {
 
     /**
      * Text to search for

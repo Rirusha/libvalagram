@@ -23,7 +23,7 @@
  * Changes the editable username of a supergroup or channel, requires
  * owner privileges in the supergroup or channel
  */
-internal class TDLib.SetSupergroupUsername : TDObject {
+public class TDLib.SetSupergroupUsername : TDObject {
 
     /**
      * Identifier of the supergroup or channel

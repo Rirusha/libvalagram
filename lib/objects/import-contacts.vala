@@ -23,7 +23,7 @@
  * Adds new contacts or edits existing contacts by their phone numbers;
  * contacts' user identifiers are ignored
  */
-internal class TDLib.ImportContacts : TDObject {
+public class TDLib.ImportContacts : TDObject {
 
     /**
      * The list of contacts to import or edit; contacts' vCard are ignored

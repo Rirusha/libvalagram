@@ -27,7 +27,7 @@
  * authorizationStateClosed will be sent. Can be called before
  * authorization
  */
-internal class TDLib.Destroy : TDObject {
+public class TDLib.Destroy : TDObject {
 
     public Destroy () {
         Object (

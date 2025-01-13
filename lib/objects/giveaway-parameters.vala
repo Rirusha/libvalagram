@@ -66,8 +66,8 @@ public class TDLib.GiveawayParameters : Error {
      * can participate in the giveaway.
      * There can be up to getOption("giveaway_country_count_max") chosen
      * countries. Users with phone number that was bought at
-     * https://fragment.com can participate in any giveaway and the country
-     * code "FT" must not be specified in the list
+     * [[https://fragment.com]] can participate in any giveaway and the
+     * country code "FT" must not be specified in the list
      */
     public Gee.ArrayList<string?> country_codes { get; construct set; default = new Gee.ArrayList<string?> (); }
 

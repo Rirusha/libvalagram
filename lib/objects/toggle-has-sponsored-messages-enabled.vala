@@ -24,7 +24,7 @@
  * setting has no effect for users without Telegram Premium for which
  * sponsored messages are always enabled
  */
-internal class TDLib.ToggleHasSponsoredMessagesEnabled : TDObject {
+public class TDLib.ToggleHasSponsoredMessagesEnabled : TDObject {
 
     /**
      * Pass true to enable sponsored messages for the current user; false to

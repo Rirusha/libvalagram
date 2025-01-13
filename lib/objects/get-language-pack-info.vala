@@ -24,7 +24,7 @@
  * identifier may be different from a provided one. Can be called before
  * authorization
  */
-internal class TDLib.GetLanguagePackInfo : TDObject {
+public class TDLib.GetLanguagePackInfo : TDObject {
 
     /**
      * Language pack identifier

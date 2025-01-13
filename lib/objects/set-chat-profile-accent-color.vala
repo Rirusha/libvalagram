@@ -24,7 +24,7 @@
  * supergroup or channel chat. Requires can_change_info administrator
  * right
  */
-internal class TDLib.SetChatProfileAccentColor : TDObject {
+public class TDLib.SetChatProfileAccentColor : TDObject {
 
     /**
      * Chat identifier

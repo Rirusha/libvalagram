@@ -26,7 +26,7 @@
  * Documents and audio files can be only grouped in an album with
  * messages of the same type. Returns sent messages
  */
-internal class TDLib.SendBusinessMessageAlbum : TDObject {
+public class TDLib.SendBusinessMessageAlbum : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which to send

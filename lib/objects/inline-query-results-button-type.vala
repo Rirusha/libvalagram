@@ -47,12 +47,13 @@ public class TDLib.InlineQueryResultsButtonTypeStartBot : InlineQueryResultsButt
 }
 
 /**
- * Describes the button that opens a Web App by calling getWebAppUrl
+ * Describes the button that opens a Web App by calling
+ * {@link Client.get_web_app_url}
  */
 public class TDLib.InlineQueryResultsButtonTypeWebApp : InlineQueryResultsButtonType {
 
     /**
-     * An HTTP URL to pass to getWebAppUrl
+     * An HTTP URL to pass to {@link Client.get_web_app_url}
      */
     public string url { get; construct set; }
 

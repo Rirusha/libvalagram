@@ -24,7 +24,7 @@
  * Returns a globally unique identifier of the push notification
  * subscription
  */
-internal class TDLib.RegisterDevice : TDObject {
+public class TDLib.RegisterDevice : TDObject {
 
     /**
      * Device token

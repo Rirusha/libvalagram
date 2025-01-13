@@ -24,7 +24,7 @@
  * keyboardButtonTypeWebApp button, or an
  * inlineQueryResultsButtonTypeWebApp button
  */
-internal class TDLib.GetWebAppUrl : TDObject {
+public class TDLib.GetWebAppUrl : TDObject {
 
     /**
      * Identifier of the target bot

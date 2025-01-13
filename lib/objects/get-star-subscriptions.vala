@@ -22,7 +22,7 @@
 /**
  * Returns the list of Telegram Star subscriptions for the current user
  */
-internal class TDLib.GetStarSubscriptions : TDObject {
+public class TDLib.GetStarSubscriptions : TDObject {
 
     /**
      * Pass true to receive only expiring subscriptions for which there are

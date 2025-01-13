@@ -22,7 +22,7 @@
 /**
  * Returns default icon name for a folder. Can be called synchronously
  */
-internal class TDLib.GetChatFolderDefaultIconName : TDObject {
+public class TDLib.GetChatFolderDefaultIconName : TDObject {
 
     /**
      * Chat folder

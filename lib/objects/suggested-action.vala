@@ -230,7 +230,8 @@ public class TDLib.SuggestedActionExtendPremium : SuggestedAction {
 
 /**
  * Suggests the user to extend their expiring Telegram Star
- * subscriptions. Call getStarSubscriptions with only_expiring == true
+ * subscriptions. Call {@link Client.get_star_subscriptions} with
+ * only_expiring == true
  * to get the number of expiring subscriptions and the number of required
  * to buy Telegram Stars
  */

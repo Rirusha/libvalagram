@@ -25,7 +25,7 @@
  * and channels. Requires administrator rights. Returns results in
  * reverse chronological order (i.e., in order of decreasing event_id)
  */
-internal class TDLib.GetChatEventLog : TDObject {
+public class TDLib.GetChatEventLog : TDObject {
 
     /**
      * Chat identifier

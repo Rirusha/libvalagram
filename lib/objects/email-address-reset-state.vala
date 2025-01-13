@@ -26,8 +26,9 @@ public abstract class TDLib.EmailAddressResetState : Error {}
 
 /**
  * Email address can be reset after the given period. Call
- * resetAuthenticationEmailAddress to reset it and allow the user to
- * authorize with a code sent to the user's phone number
+ * {@link Client.reset_authentication_email_address} to reset it and
+ * allow the user to authorize with a code sent to the user's phone
+ * number
  */
 public class TDLib.EmailAddressResetStateAvailable : EmailAddressResetState {
 
@@ -50,8 +51,8 @@ public class TDLib.EmailAddressResetStateAvailable : EmailAddressResetState {
 
 /**
  * Email address reset has already been requested. Call
- * resetAuthenticationEmailAddress to check whether immediate reset is
- * possible
+ * {@link Client.reset_authentication_email_address} to check whether
+ * immediate reset is possible
  */
 public class TDLib.EmailAddressResetStatePending : EmailAddressResetState {
 

@@ -23,7 +23,7 @@
  * Returns invite links created by the current user for a shareable chat
  * folder
  */
-internal class TDLib.GetChatFolderInviteLinks : TDObject {
+public class TDLib.GetChatFolderInviteLinks : TDObject {
 
     /**
      * Chat folder identifier

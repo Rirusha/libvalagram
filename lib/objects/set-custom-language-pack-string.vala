@@ -23,7 +23,7 @@
  * Adds, edits or deletes a string in a custom local language pack. Can
  * be called before authorization
  */
-internal class TDLib.SetCustomLanguagePackString : TDObject {
+public class TDLib.SetCustomLanguagePackString : TDObject {
 
     /**
      * Identifier of a previously added custom local language pack in the

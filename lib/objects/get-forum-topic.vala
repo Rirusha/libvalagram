@@ -22,7 +22,7 @@
 /**
  * Returns information about a forum topic
  */
-internal class TDLib.GetForumTopic : TDObject {
+public class TDLib.GetForumTopic : TDObject {
 
     /**
      * Identifier of the chat

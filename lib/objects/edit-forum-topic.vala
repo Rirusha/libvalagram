@@ -24,7 +24,7 @@
  * can_manage_topics right in the supergroup unless the user is creator
  * of the topic
  */
-internal class TDLib.EditForumTopic : TDObject {
+public class TDLib.EditForumTopic : TDObject {
 
     /**
      * Identifier of the chat
@@ -52,7 +52,7 @@ internal class TDLib.EditForumTopic : TDObject {
      * Identifier of the new custom emoji for topic icon; pass 0 to remove
      * the custom emoji. Ignored if edit_icon_custom_emoji is false. Telegram
      * Premium users can use any custom emoji, other users can use only a
-     * custom emoji returned by getForumTopicDefaultIcons
+     * custom emoji returned by {@link Client.get_forum_topic_default_icons}
      */
     public int64 icon_custom_emoji_id { get; construct set; }
 

@@ -22,7 +22,7 @@
 /**
  * Changes user privacy settings
  */
-internal class TDLib.SetUserPrivacySettingRules : TDObject {
+public class TDLib.SetUserPrivacySettingRules : TDObject {
 
     /**
      * The privacy setting

@@ -22,7 +22,7 @@
 /**
  * Returns available options for Telegram Star giveaway creation
  */
-internal class TDLib.GetStarGiveawayPaymentOptions : TDObject {
+public class TDLib.GetStarGiveawayPaymentOptions : TDObject {
 
     public GetStarGiveawayPaymentOptions () {
         Object (

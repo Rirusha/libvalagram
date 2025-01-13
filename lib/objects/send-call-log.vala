@@ -22,7 +22,7 @@
 /**
  * Sends log file for a call to Telegram servers
  */
-internal class TDLib.SendCallLog : TDObject {
+public class TDLib.SendCallLog : TDObject {
 
     /**
      * Call identifier

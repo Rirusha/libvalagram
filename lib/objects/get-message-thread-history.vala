@@ -27,7 +27,7 @@
  * order of decreasing message_id). For optimal performance, the number
  * of returned messages is chosen by TDLib
  */
-internal class TDLib.GetMessageThreadHistory : TDObject {
+public class TDLib.GetMessageThreadHistory : TDObject {
 
     /**
      * Chat identifier

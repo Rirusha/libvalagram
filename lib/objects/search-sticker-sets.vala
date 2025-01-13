@@ -23,7 +23,7 @@
  * Searches for sticker sets by looking for specified query in their
  * title and name. Excludes installed sticker sets from the results
  */
-internal class TDLib.SearchStickerSets : TDObject {
+public class TDLib.SearchStickerSets : TDObject {
 
     /**
      * Type of the sticker sets to return

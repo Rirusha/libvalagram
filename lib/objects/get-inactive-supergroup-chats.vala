@@ -25,7 +25,7 @@
  * channels and receives CHANNELS_TOO_MUCH error. Also, the limit can be
  * increased with Telegram Premium
  */
-internal class TDLib.GetInactiveSupergroupChats : TDObject {
+public class TDLib.GetInactiveSupergroupChats : TDObject {
 
     public GetInactiveSupergroupChats () {
         Object (

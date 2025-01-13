@@ -23,7 +23,7 @@
  * Sends a gift to another user. May return an error with a message
  * "STARGIFT_USAGE_LIMITED" if the gift was sold out
  */
-internal class TDLib.SendGift : TDObject {
+public class TDLib.SendGift : TDObject {
 
     /**
      * Identifier of the gift to send

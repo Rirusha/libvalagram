@@ -23,7 +23,7 @@
  * Returns TGS stickers with generic animations for custom emoji
  * reactions
  */
-internal class TDLib.GetCustomEmojiReactionAnimations : TDObject {
+public class TDLib.GetCustomEmojiReactionAnimations : TDObject {
 
     public GetCustomEmojiReactionAnimations () {
         Object (

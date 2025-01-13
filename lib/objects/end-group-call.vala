@@ -22,7 +22,7 @@
 /**
  * Ends a group call. Requires groupCall.can_be_managed
  */
-internal class TDLib.EndGroupCall : TDObject {
+public class TDLib.EndGroupCall : TDObject {
 
     /**
      * Group call identifier

@@ -28,7 +28,7 @@
  * identifiers passed in message_ids. If a message can't be readded, null
  * will be returned instead of the message
  */
-internal class TDLib.ReaddQuickReplyShortcutMessages : TDObject {
+public class TDLib.ReaddQuickReplyShortcutMessages : TDObject {
 
     /**
      * Name of the target shortcut

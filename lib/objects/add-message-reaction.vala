@@ -21,10 +21,10 @@
 
 /**
  * Adds a reaction or a tag to a message. Use
- * getMessageAvailableReactions to receive the list of available
- * reactions for the message
+ * {@link Client.get_message_available_reactions} to receive the list of
+ * available reactions for the message
  */
-internal class TDLib.AddMessageReaction : TDObject {
+public class TDLib.AddMessageReaction : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs
@@ -37,8 +37,9 @@ internal class TDLib.AddMessageReaction : TDObject {
     public int64 message_id { get; construct set; }
 
     /**
-     * Type of the reaction to add. Use addPendingPaidMessageReaction instead
-     * to add the paid reaction
+     * Type of the reaction to add. Use
+     * {@link Client.add_pending_paid_message_reaction} instead to add the
+     * paid reaction
      */
     public ReactionType reaction_type { get; construct set; }
 

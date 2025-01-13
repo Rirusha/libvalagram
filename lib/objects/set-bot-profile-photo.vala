@@ -22,7 +22,7 @@
 /**
  * Changes a profile photo for a bot
  */
-internal class TDLib.SetBotProfilePhoto : TDObject {
+public class TDLib.SetBotProfilePhoto : TDObject {
 
     /**
      * Identifier of the target bot

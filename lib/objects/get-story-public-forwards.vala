@@ -26,7 +26,7 @@
  * For optimal performance, the number of returned messages and stories
  * is chosen by TDLib
  */
-internal class TDLib.GetStoryPublicForwards : TDObject {
+public class TDLib.GetStoryPublicForwards : TDObject {
 
     /**
      * The identifier of the sender of the story

@@ -24,7 +24,7 @@
  * known chats; this is an offline request. Returns chats in the order
  * seen in the main chat list
  */
-internal class TDLib.SearchChats : TDObject {
+public class TDLib.SearchChats : TDObject {
 
     /**
      * Query to search for. If the query is empty, returns up to 50 recently

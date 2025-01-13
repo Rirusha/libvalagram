@@ -23,7 +23,7 @@
  * Checks the authentication of an email address. Works only when the
  * current authorization state is authorizationStateWaitEmailCode
  */
-internal class TDLib.CheckAuthenticationEmailCode : TDObject {
+public class TDLib.CheckAuthenticationEmailCode : TDObject {
 
     /**
      * Email address authentication to check

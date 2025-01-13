@@ -23,7 +23,7 @@
  * Returns up to 8 emoji statuses, which must be shown in the emoji
  * status list for chats
  */
-internal class TDLib.GetThemedChatEmojiStatuses : TDObject {
+public class TDLib.GetThemedChatEmojiStatuses : TDObject {
 
     public GetThemedChatEmojiStatuses () {
         Object (

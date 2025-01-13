@@ -24,7 +24,7 @@
  * link when users share the bot. Can be called only if
  * userTypeBot.can_be_edited == true
  */
-internal class TDLib.SetBotInfoShortDescription : TDObject {
+public class TDLib.SetBotInfoShortDescription : TDObject {
 
     /**
      * Identifier of the target bot

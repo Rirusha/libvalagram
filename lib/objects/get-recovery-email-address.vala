@@ -24,7 +24,7 @@
  * previously set up. This method can be used to verify a password
  * provided by the user
  */
-internal class TDLib.GetRecoveryEmailAddress : TDObject {
+public class TDLib.GetRecoveryEmailAddress : TDObject {
 
     /**
      * The 2-step verification password for the current user

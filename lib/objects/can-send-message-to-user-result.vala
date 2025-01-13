@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes result of canSendMessageToUser
+ * Describes result of {@link Client.can_send_message_to_user}
  */
 public abstract class TDLib.CanSendMessageToUserResult : Error {}
 

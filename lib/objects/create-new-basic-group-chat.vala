@@ -24,7 +24,7 @@
  * messageBasicGroupChatCreate. Returns information about the newly
  * created chat
  */
-internal class TDLib.CreateNewBasicGroupChat : TDObject {
+public class TDLib.CreateNewBasicGroupChat : TDObject {
 
     /**
      * Identifiers of users to be added to the basic group; may be empty to

@@ -24,7 +24,7 @@
  * inlineKeyboardButtonTypeLoginUrl. The method needs to be called when
  * the user presses the button
  */
-internal class TDLib.GetLoginUrlInfo : TDObject {
+public class TDLib.GetLoginUrlInfo : TDObject {
 
     /**
      * Chat identifier of the message with the button

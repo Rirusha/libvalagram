@@ -25,7 +25,7 @@
  * getOption("chat_folder_new_chats_update_period") for the given chat
  * folder
  */
-internal class TDLib.GetChatFolderNewChats : TDObject {
+public class TDLib.GetChatFolderNewChats : TDObject {
 
     /**
      * Chat folder identifier

@@ -49,7 +49,7 @@ public class TDLib.BotWriteAccessAllowReasonConnectedWebsite : BotWriteAccessAll
 
 /**
  * The user added the bot to attachment or side menu using
- * toggleBotIsAddedToAttachmentMenu
+ * {@link Client.toggle_bot_is_added_to_attachment_menu}
  */
 public class TDLib.BotWriteAccessAllowReasonAddedToAttachmentMenu : BotWriteAccessAllowReason {
 
@@ -62,7 +62,7 @@ public class TDLib.BotWriteAccessAllowReasonAddedToAttachmentMenu : BotWriteAcce
 }
 
 /**
- * The user launched a Web App using getWebAppLinkUrl
+ * The user launched a Web App using {@link Client.get_web_app_link_url}
  */
 public class TDLib.BotWriteAccessAllowReasonLaunchedWebApp : BotWriteAccessAllowReason {
 
@@ -84,7 +84,7 @@ public class TDLib.BotWriteAccessAllowReasonLaunchedWebApp : BotWriteAccessAllow
 
 /**
  * The user accepted bot's request to send messages with
- * allowBotToSendMessages
+ * {@link Client.allow_bot_to_send_messages}
  */
 public class TDLib.BotWriteAccessAllowReasonAcceptedRequest : BotWriteAccessAllowReason {
 

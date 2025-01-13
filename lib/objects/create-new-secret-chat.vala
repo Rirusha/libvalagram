@@ -22,7 +22,7 @@
 /**
  * Creates a new secret chat. Returns the newly created chat
  */
-internal class TDLib.CreateNewSecretChat : TDObject {
+public class TDLib.CreateNewSecretChat : TDObject {
 
     /**
      * Identifier of the target user

@@ -23,7 +23,7 @@
  * Edits the caption of a message sent on behalf of a business account;
  * for bots only
  */
-internal class TDLib.EditBusinessMessageCaption : TDObject {
+public class TDLib.EditBusinessMessageCaption : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which the

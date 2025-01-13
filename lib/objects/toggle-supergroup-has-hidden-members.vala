@@ -21,10 +21,11 @@
 
 /**
  * Toggles whether non-administrators can receive only administrators and
- * bots using getSupergroupMembers or searchChatMembers. Can be called
- * only if supergroupFullInfo.can_hide_members == true
+ * bots using {@link Client.get_supergroup_members} or
+ * {@link Client.search_chat_members} Can be called only if
+ * supergroupFullInfo.can_hide_members == true
  */
-internal class TDLib.ToggleSupergroupHasHiddenMembers : TDObject {
+public class TDLib.ToggleSupergroupHasHiddenMembers : TDObject {
 
     /**
      * Identifier of the supergroup

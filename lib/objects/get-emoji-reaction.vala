@@ -23,7 +23,7 @@
  * Returns information about an emoji reaction. Returns a 404 error if
  * the reaction is not found
  */
-internal class TDLib.GetEmojiReaction : TDObject {
+public class TDLib.GetEmojiReaction : TDObject {
 
     /**
      * Text representation of the reaction

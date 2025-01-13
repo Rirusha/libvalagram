@@ -22,7 +22,7 @@
 /**
  * Deletes a business chat link of the current account
  */
-internal class TDLib.DeleteBusinessChatLink : TDObject {
+public class TDLib.DeleteBusinessChatLink : TDObject {
 
     /**
      * The link to delete

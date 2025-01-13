@@ -23,7 +23,7 @@
  * Informs the server that some trending sticker sets have been viewed by
  * the user
  */
-internal class TDLib.ViewTrendingStickerSets : TDObject {
+public class TDLib.ViewTrendingStickerSets : TDObject {
 
     /**
      * Identifiers of viewed trending sticker sets

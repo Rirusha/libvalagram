@@ -22,7 +22,7 @@
 /**
  * Returns a suggested name for a new sticker set with a given title
  */
-internal class TDLib.GetSuggestedStickerSetName : TDObject {
+public class TDLib.GetSuggestedStickerSetName : TDObject {
 
     /**
      * Sticker set title; 1-64 characters

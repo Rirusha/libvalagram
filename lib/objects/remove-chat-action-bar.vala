@@ -22,7 +22,7 @@
 /**
  * Removes a chat action bar without any other action
  */
-internal class TDLib.RemoveChatActionBar : TDObject {
+public class TDLib.RemoveChatActionBar : TDObject {
 
     /**
      * Chat identifier

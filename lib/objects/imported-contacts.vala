@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents the result of an importContacts request
+ * Represents the result of an {@link Client.import_contacts} request
  */
 public class TDLib.ImportedContacts : Error {
 

@@ -22,7 +22,7 @@
 /**
  * Clears the list of recently found chats
  */
-internal class TDLib.ClearRecentlyFoundChats : TDObject {
+public class TDLib.ClearRecentlyFoundChats : TDObject {
 
     public ClearRecentlyFoundChats () {
         Object (

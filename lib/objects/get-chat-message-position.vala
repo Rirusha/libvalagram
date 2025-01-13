@@ -24,7 +24,7 @@
  * which can be found by the specified filter in the chat. Cannot be used
  * in secret chats
  */
-internal class TDLib.GetChatMessagePosition : TDObject {
+public class TDLib.GetChatMessagePosition : TDObject {
 
     /**
      * Identifier of the chat in which to find message position

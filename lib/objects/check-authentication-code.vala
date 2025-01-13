@@ -23,7 +23,7 @@
  * Checks the authentication code. Works only when the current
  * authorization state is authorizationStateWaitCode
  */
-internal class TDLib.CheckAuthenticationCode : TDObject {
+public class TDLib.CheckAuthenticationCode : TDObject {
 
     /**
      * Authentication code to check

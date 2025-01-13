@@ -27,7 +27,7 @@
  * currently set up, this call succeeds immediately and aborts all other
  * requests waiting for an email confirmation
  */
-internal class TDLib.SetRecoveryEmailAddress : TDObject {
+public class TDLib.SetRecoveryEmailAddress : TDObject {
 
     /**
      * The 2-step verification password of the current user

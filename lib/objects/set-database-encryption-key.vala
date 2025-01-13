@@ -23,7 +23,7 @@
  * Changes the database encryption key. Usually the encryption key is
  * never changed and is stored in some OS keychain
  */
-internal class TDLib.SetDatabaseEncryptionKey : TDObject {
+public class TDLib.SetDatabaseEncryptionKey : TDObject {
 
     /**
      * New encryption key

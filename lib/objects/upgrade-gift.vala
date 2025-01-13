@@ -24,7 +24,7 @@
  * prepaid_upgrade_star_count > 0, the user must pay
  * gift.upgrade_star_count Telegram Stars for the upgrade
  */
-internal class TDLib.UpgradeGift : TDObject {
+public class TDLib.UpgradeGift : TDObject {
 
     /**
      * Identifier of the user that sent the gift

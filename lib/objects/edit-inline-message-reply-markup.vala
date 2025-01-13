@@ -23,7 +23,7 @@
  * Edits the reply markup of an inline message sent via a bot; for bots
  * only
  */
-internal class TDLib.EditInlineMessageReplyMarkup : TDObject {
+public class TDLib.EditInlineMessageReplyMarkup : TDObject {
 
     /**
      * Inline message identifier

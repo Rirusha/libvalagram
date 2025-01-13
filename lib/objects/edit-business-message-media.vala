@@ -24,7 +24,7 @@
  * audio, a document, a photo or a video in a message sent on behalf of a
  * business account; for bots only
  */
-internal class TDLib.EditBusinessMessageMedia : TDObject {
+public class TDLib.EditBusinessMessageMedia : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which the

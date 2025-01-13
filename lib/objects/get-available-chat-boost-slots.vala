@@ -22,7 +22,7 @@
 /**
  * Returns the list of available chat boost slots for the current user
  */
-internal class TDLib.GetAvailableChatBoostSlots : TDObject {
+public class TDLib.GetAvailableChatBoostSlots : TDObject {
 
     public GetAvailableChatBoostSlots () {
         Object (

@@ -23,7 +23,7 @@
  * Returns approximate number of messages of the specified type in the
  * chat
  */
-internal class TDLib.GetChatMessageCount : TDObject {
+public class TDLib.GetChatMessageCount : TDObject {
 
     /**
      * Identifier of the chat in which to count messages

@@ -22,7 +22,7 @@
 /**
  * Clears the list of recently used reactions
  */
-internal class TDLib.ClearRecentReactions : TDObject {
+public class TDLib.ClearRecentReactions : TDObject {
 
     public ClearRecentReactions () {
         Object (

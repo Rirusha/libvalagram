@@ -23,7 +23,7 @@
  * Returns information about a message thread. Can be used only if
  * messageProperties.can_get_message_thread == true
  */
-internal class TDLib.GetMessageThread : TDObject {
+public class TDLib.GetMessageThread : TDObject {
 
     /**
      * Chat identifier

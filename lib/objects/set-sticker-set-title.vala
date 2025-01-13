@@ -22,7 +22,7 @@
 /**
  * Sets a sticker set title
  */
-internal class TDLib.SetStickerSetTitle : TDObject {
+public class TDLib.SetStickerSetTitle : TDObject {
 
     /**
      * Sticker set name. The sticker set must be owned by the current user

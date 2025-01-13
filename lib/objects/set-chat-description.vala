@@ -23,7 +23,7 @@
  * Changes information about a chat. Available for basic groups,
  * supergroups, and channels. Requires can_change_info member right
  */
-internal class TDLib.SetChatDescription : TDObject {
+public class TDLib.SetChatDescription : TDObject {
 
     /**
      * Identifier of the chat

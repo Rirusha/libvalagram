@@ -25,7 +25,7 @@
  * This method doesn't need to be called explicitly for the current
  * used/base language packs. Can be called before authorization
  */
-internal class TDLib.SynchronizeLanguagePack : TDObject {
+public class TDLib.SynchronizeLanguagePack : TDObject {
 
     /**
      * Language pack identifier

@@ -23,7 +23,7 @@
  * Informs TDLib that speaking state of a participant of an active group
  * has changed
  */
-internal class TDLib.SetGroupCallParticipantIsSpeaking : TDObject {
+public class TDLib.SetGroupCallParticipantIsSpeaking : TDObject {
 
     /**
      * Group call identifier

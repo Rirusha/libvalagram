@@ -23,7 +23,7 @@
  * Checks the 2-step verification password for correctness. Works only
  * when the current authorization state is authorizationStateWaitPassword
  */
-internal class TDLib.CheckAuthenticationPassword : TDObject {
+public class TDLib.CheckAuthenticationPassword : TDObject {
 
     /**
      * The 2-step verification password to check

@@ -192,9 +192,9 @@ public class TDLib.AuthenticationCodeTypeMissedCall : AuthenticationCodeType {
 }
 
 /**
- * A digit-only authentication code is delivered to https://fragment.com.
- * The user must be logged in there via a wallet owning the phone
- * number's NFT
+ * A digit-only authentication code is delivered to
+ * [[https://fragment.com]]. The user must be logged in there via a
+ * wallet owning the phone number's NFT
  */
 public class TDLib.AuthenticationCodeTypeFragment : AuthenticationCodeType {
 

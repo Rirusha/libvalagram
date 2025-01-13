@@ -23,7 +23,7 @@
  * Sets default administrator rights for adding the bot to basic group
  * and supergroup chats; for bots only
  */
-internal class TDLib.SetDefaultGroupAdministratorRights : TDObject {
+public class TDLib.SetDefaultGroupAdministratorRights : TDObject {
 
     /**
      * Default administrator rights for adding the bot to basic group and

@@ -22,7 +22,7 @@
 /**
  * Creates a new call
  */
-internal class TDLib.CreateCall : TDObject {
+public class TDLib.CreateCall : TDObject {
 
     /**
      * Identifier of the user to be called

@@ -23,7 +23,7 @@
  * Returns the profile photos of a user. Personal and public photo aren't
  * returned
  */
-internal class TDLib.GetUserProfilePhotos : TDObject {
+public class TDLib.GetUserProfilePhotos : TDObject {
 
     /**
      * User identifier

@@ -22,7 +22,7 @@
 /**
  * Returns t.me URLs recently visited by a newly registered user
  */
-internal class TDLib.GetRecentlyVisitedTMeUrls : TDObject {
+public class TDLib.GetRecentlyVisitedTMeUrls : TDObject {
 
     /**
      * Google Play referrer to identify the user

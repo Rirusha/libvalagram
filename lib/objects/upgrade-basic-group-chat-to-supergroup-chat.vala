@@ -24,7 +24,7 @@
  * corresponding messageChatUpgradeTo and messageChatUpgradeFrom;
  * requires owner privileges. Deactivates the original basic group
  */
-internal class TDLib.UpgradeBasicGroupChatToSupergroupChat : TDObject {
+public class TDLib.UpgradeBasicGroupChatToSupergroupChat : TDObject {
 
     /**
      * Identifier of the chat to upgrade

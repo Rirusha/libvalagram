@@ -23,7 +23,7 @@
  * Returns up to 20 recently used inline bots in the order of their last
  * usage
  */
-internal class TDLib.GetRecentInlineBots : TDObject {
+public class TDLib.GetRecentInlineBots : TDObject {
 
     public GetRecentInlineBots () {
         Object (

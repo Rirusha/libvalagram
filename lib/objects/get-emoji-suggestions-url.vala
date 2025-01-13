@@ -24,7 +24,7 @@
  * translation platform and suggest new emoji replacements. The URL will
  * be valid for 30 seconds after generation
  */
-internal class TDLib.GetEmojiSuggestionsUrl : TDObject {
+public class TDLib.GetEmojiSuggestionsUrl : TDObject {
 
     /**
      * Language code for which the emoji replacements will be suggested

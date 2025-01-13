@@ -26,8 +26,9 @@ public abstract class TDLib.EmojiCategorySource : Error {}
 
 /**
  * The category contains a list of similar emoji to search for in
- * getStickers and searchStickers for stickers,
- * or getInlineQueryResults with the bot
+ * {@link Client.get_stickers} and {@link Client.search_stickers} for
+ * stickers,
+ * or {@link Client.get_inline_query_results} with the bot
  * getOption("animation_search_bot_username") for animations
  */
 public class TDLib.EmojiCategorySourceSearch : EmojiCategorySource {
@@ -50,7 +51,7 @@ public class TDLib.EmojiCategorySourceSearch : EmojiCategorySource {
 
 /**
  * The category contains premium stickers that must be found by
- * getPremiumStickers
+ * {@link Client.get_premium_stickers}
  */
 public class TDLib.EmojiCategorySourcePremium : EmojiCategorySource {
 

@@ -24,7 +24,7 @@
  * chronological order. For optimal performance, the number of returned
  * messages is chosen by TDLib
  */
-internal class TDLib.SearchSecretMessages : TDObject {
+public class TDLib.SearchSecretMessages : TDObject {
 
     /**
      * Identifier of the chat in which to search. Specify 0 to search in all
@@ -33,7 +33,8 @@ internal class TDLib.SearchSecretMessages : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Query to search for. If empty, searchChatMessages must be used instead
+     * Query to search for. If empty, {@link Client.search_chat_messages}
+     * must be used instead
      */
     public string query { get; construct set; }
 

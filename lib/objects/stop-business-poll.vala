@@ -22,7 +22,7 @@
 /**
  * Stops a poll sent on behalf of a business account; for bots only
  */
-internal class TDLib.StopBusinessPoll : TDObject {
+public class TDLib.StopBusinessPoll : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which the

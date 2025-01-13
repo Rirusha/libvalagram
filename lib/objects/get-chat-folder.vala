@@ -22,7 +22,7 @@
 /**
  * Returns information about a chat folder by its identifier
  */
-internal class TDLib.GetChatFolder : TDObject {
+public class TDLib.GetChatFolder : TDObject {
 
     /**
      * Chat folder identifier

@@ -23,7 +23,7 @@
  * Returns an HTTPS link, which can be used to get information about the
  * current user
  */
-internal class TDLib.GetUserLink : TDObject {
+public class TDLib.GetUserLink : TDObject {
 
     public GetUserLink () {
         Object (

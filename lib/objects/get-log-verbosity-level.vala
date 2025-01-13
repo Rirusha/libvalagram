@@ -23,7 +23,7 @@
  * Returns current verbosity level of the internal logging of TDLib. Can
  * be called synchronously
  */
-internal class TDLib.GetLogVerbosityLevel : TDObject {
+public class TDLib.GetLogVerbosityLevel : TDObject {
 
     public GetLogVerbosityLevel () {
         Object (

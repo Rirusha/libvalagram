@@ -24,7 +24,7 @@
  * by administrators of the group call. Requires
  * groupCall.can_toggle_mute_new_participants group call flag
  */
-internal class TDLib.ToggleGroupCallMuteNewParticipants : TDObject {
+public class TDLib.ToggleGroupCallMuteNewParticipants : TDObject {
 
     /**
      * Group call identifier

@@ -23,7 +23,7 @@
  * Edits information about a custom local language pack in the current
  * localization target. Can be called before authorization
  */
-internal class TDLib.EditCustomLanguagePackInfo : TDObject {
+public class TDLib.EditCustomLanguagePackInfo : TDObject {
 
     /**
      * New information about the custom local language pack

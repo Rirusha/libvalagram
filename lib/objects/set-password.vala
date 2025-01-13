@@ -24,7 +24,7 @@
  * new recovery email address is specified, then the change will not be
  * applied until the new recovery email address is confirmed
  */
-internal class TDLib.SetPassword : TDObject {
+public class TDLib.SetPassword : TDObject {
 
     /**
      * Previous 2-step verification password of the user

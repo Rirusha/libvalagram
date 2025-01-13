@@ -23,7 +23,7 @@
  * Returns an HTML code for embedding the message. Available only if
  * messageProperties.can_get_embedding_code
  */
-internal class TDLib.GetMessageEmbeddingCode : TDObject {
+public class TDLib.GetMessageEmbeddingCode : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

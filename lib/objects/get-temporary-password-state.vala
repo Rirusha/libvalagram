@@ -22,7 +22,7 @@
 /**
  * Returns information about the current temporary password
  */
-internal class TDLib.GetTemporaryPasswordState : TDObject {
+public class TDLib.GetTemporaryPasswordState : TDObject {
 
     public GetTemporaryPasswordState () {
         Object (

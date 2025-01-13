@@ -24,7 +24,7 @@
  * stories posted on behalf of the current user and if
  * story.can_be_edited == true
  */
-internal class TDLib.SetStoryPrivacySettings : TDObject {
+public class TDLib.SetStoryPrivacySettings : TDObject {
 
     /**
      * Identifier of the story

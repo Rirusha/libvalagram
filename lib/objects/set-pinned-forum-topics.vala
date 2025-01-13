@@ -23,7 +23,7 @@
  * Changes the order of pinned forum topics; requires can_manage_topics
  * right in the supergroup
  */
-internal class TDLib.SetPinnedForumTopics : TDObject {
+public class TDLib.SetPinnedForumTopics : TDObject {
 
     /**
      * Chat identifier

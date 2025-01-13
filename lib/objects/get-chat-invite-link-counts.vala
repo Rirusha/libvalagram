@@ -23,7 +23,7 @@
  * Returns the list of chat administrators with number of their invite
  * links. Requires owner privileges in the chat
  */
-internal class TDLib.GetChatInviteLinkCounts : TDObject {
+public class TDLib.GetChatInviteLinkCounts : TDObject {
 
     /**
      * Chat identifier

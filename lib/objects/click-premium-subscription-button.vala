@@ -23,7 +23,7 @@
  * Informs TDLib that the user clicked Premium subscription button on the
  * Premium features screen
  */
-internal class TDLib.ClickPremiumSubscriptionButton : TDObject {
+public class TDLib.ClickPremiumSubscriptionButton : TDObject {
 
     public ClickPremiumSubscriptionButton () {
         Object (

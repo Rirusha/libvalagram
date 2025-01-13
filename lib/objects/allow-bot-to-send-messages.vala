@@ -22,7 +22,7 @@
 /**
  * Allows the specified bot to send messages to the user
  */
-internal class TDLib.AllowBotToSendMessages : TDObject {
+public class TDLib.AllowBotToSendMessages : TDObject {
 
     /**
      * Identifier of the target bot

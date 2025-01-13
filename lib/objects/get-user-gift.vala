@@ -22,7 +22,7 @@
 /**
  * Returns information about a gift received or sent by the current user
  */
-internal class TDLib.GetUserGift : TDObject {
+public class TDLib.GetUserGift : TDObject {
 
     /**
      * Identifier of the message with the gift

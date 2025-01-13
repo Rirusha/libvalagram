@@ -72,7 +72,7 @@ public class TDLib.ReportChatResultOptionRequired : ReportChatResult {
 public class TDLib.ReportChatResultTextRequired : ReportChatResult {
 
     /**
-     * Option identifier for the next reportChat request
+     * Option identifier for the next {@link Client.report_chat} request
      */
     public Bytes option_id { get; construct set; }
 
@@ -95,8 +95,8 @@ public class TDLib.ReportChatResultTextRequired : ReportChatResult {
 }
 
 /**
- * The user must choose messages to report and repeat the reportChat
- * request with the chosen messages
+ * The user must choose messages to report and repeat the
+ * {@link Client.report_chat} request with the chosen messages
  */
 public class TDLib.ReportChatResultMessagesRequired : ReportChatResult {
 

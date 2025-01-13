@@ -23,7 +23,7 @@
  * Application verification has been completed. Can be called before
  * authorization
  */
-internal class TDLib.SetApplicationVerificationToken : TDObject {
+public class TDLib.SetApplicationVerificationToken : TDObject {
 
     /**
      * Unique identifier for the verification process as received from

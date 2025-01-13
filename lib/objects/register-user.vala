@@ -23,7 +23,7 @@
  * Finishes user registration. Works only when the current authorization
  * state is authorizationStateWaitRegistration
  */
-internal class TDLib.RegisterUser : TDObject {
+public class TDLib.RegisterUser : TDObject {
 
     /**
      * The first name of the user; 1-64 characters

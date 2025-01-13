@@ -22,7 +22,7 @@
 /**
  * Deletes background in a specific chat
  */
-internal class TDLib.DeleteChatBackground : TDObject {
+public class TDLib.DeleteChatBackground : TDObject {
 
     /**
      * Chat identifier

@@ -27,7 +27,7 @@
  * For optimal performance, the number of returned messages is chosen by
  * TDLib and can be smaller than the specified limit
  */
-internal class TDLib.SearchSavedMessages : TDObject {
+public class TDLib.SearchSavedMessages : TDObject {
 
     /**
      * If not 0, only messages in the specified Saved Messages topic will be

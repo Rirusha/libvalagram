@@ -22,7 +22,7 @@
 /**
  * Removes background from the list of installed backgrounds
  */
-internal class TDLib.RemoveInstalledBackground : TDObject {
+public class TDLib.RemoveInstalledBackground : TDObject {
 
     /**
      * The background identifier

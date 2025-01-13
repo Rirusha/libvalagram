@@ -22,7 +22,7 @@
 /**
  * Returns suggested name for saving a file in a given directory
  */
-internal class TDLib.GetSuggestedFileName : TDObject {
+public class TDLib.GetSuggestedFileName : TDObject {
 
     /**
      * Identifier of the file

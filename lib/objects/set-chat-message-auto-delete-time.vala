@@ -26,7 +26,7 @@
  * Message auto-delete time can't be changed in a chat with the current
  * user (Saved Messages) and the chat 777000 (Telegram).
  */
-internal class TDLib.SetChatMessageAutoDeleteTime : TDObject {
+public class TDLib.SetChatMessageAutoDeleteTime : TDObject {
 
     /**
      * Chat identifier

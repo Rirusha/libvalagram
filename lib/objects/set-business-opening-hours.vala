@@ -23,7 +23,7 @@
  * Changes the business opening hours of the current user. Requires
  * Telegram Business subscription
  */
-internal class TDLib.SetBusinessOpeningHours : TDObject {
+public class TDLib.SetBusinessOpeningHours : TDObject {
 
     /**
      * The new opening hours of the business; pass null to remove the opening

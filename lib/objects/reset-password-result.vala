@@ -44,7 +44,7 @@ public class TDLib.ResetPasswordResultPending : ResetPasswordResult {
 
     /**
      * Point in time (Unix timestamp) after which the password can be reset
-     * immediately using resetPassword
+     * immediately using {@link Client.reset_password}
      */
     public int32 pending_reset_date { get; construct set; }
 

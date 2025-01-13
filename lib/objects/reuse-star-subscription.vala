@@ -23,7 +23,7 @@
  * Reuses an active Telegram Star subscription to a channel chat and
  * joins the chat again
  */
-internal class TDLib.ReuseStarSubscription : TDObject {
+public class TDLib.ReuseStarSubscription : TDObject {
 
     /**
      * Identifier of the subscription

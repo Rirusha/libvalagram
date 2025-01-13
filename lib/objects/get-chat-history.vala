@@ -25,7 +25,7 @@
  * For optimal performance, the number of returned messages is chosen by
  * TDLib. This is an offline request if only_local is true
  */
-internal class TDLib.GetChatHistory : TDObject {
+public class TDLib.GetChatHistory : TDObject {
 
     /**
      * Chat identifier

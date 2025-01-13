@@ -24,7 +24,7 @@
  * right in the supergroup. There can be up to
  * getOption("pinned_forum_topic_count_max") pinned forum topics
  */
-internal class TDLib.ToggleForumTopicIsPinned : TDObject {
+public class TDLib.ToggleForumTopicIsPinned : TDObject {
 
     /**
      * Chat identifier

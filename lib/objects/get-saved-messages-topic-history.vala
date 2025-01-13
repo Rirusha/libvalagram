@@ -24,7 +24,7 @@
  * in reverse chronological order (i.e., in order of decreasing
  * message_id)
  */
-internal class TDLib.GetSavedMessagesTopicHistory : TDObject {
+public class TDLib.GetSavedMessagesTopicHistory : TDObject {
 
     /**
      * Identifier of Saved Messages topic which messages will be fetched

@@ -24,7 +24,7 @@
  * cashtag. For optimal performance, the number of returned messages is
  * chosen by TDLib and can be smaller than the specified limit
  */
-internal class TDLib.SearchPublicMessagesByTag : TDObject {
+public class TDLib.SearchPublicMessagesByTag : TDObject {
 
     /**
      * Hashtag or cashtag to search for

@@ -26,7 +26,7 @@
  * main/archive chat list. The limit can be increased with Telegram
  * Premium
  */
-internal class TDLib.ToggleChatIsPinned : TDObject {
+public class TDLib.ToggleChatIsPinned : TDObject {
 
     /**
      * Chat list in which to change the pinned state of the chat

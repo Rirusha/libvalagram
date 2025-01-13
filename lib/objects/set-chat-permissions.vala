@@ -23,7 +23,7 @@
  * Changes the chat members permissions. Supported only for basic groups
  * and supergroups. Requires can_restrict_members administrator right
  */
-internal class TDLib.SetChatPermissions : TDObject {
+public class TDLib.SetChatPermissions : TDObject {
 
     /**
      * Chat identifier

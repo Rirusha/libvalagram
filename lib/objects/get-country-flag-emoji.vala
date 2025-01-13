@@ -23,11 +23,11 @@
  * Returns an emoji for the given country. Returns an empty string on
  * failure. Can be called synchronously
  */
-internal class TDLib.GetCountryFlagEmoji : TDObject {
+public class TDLib.GetCountryFlagEmoji : TDObject {
 
     /**
      * A two-letter ISO 3166-1 alpha-2 country code as received from
-     * getCountries
+     * {@link Client.get_countries}
      */
     public string country_code { get; construct set; }
 

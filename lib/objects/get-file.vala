@@ -22,7 +22,7 @@
 /**
  * Returns information about a file; this is an offline request
  */
-internal class TDLib.GetFile : TDObject {
+public class TDLib.GetFile : TDObject {
 
     /**
      * Identifier of the file to get

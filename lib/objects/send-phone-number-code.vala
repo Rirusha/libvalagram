@@ -24,7 +24,7 @@
  * number verification if there was one. On success, returns information
  * about the sent code
  */
-internal class TDLib.SendPhoneNumberCode : TDObject {
+public class TDLib.SendPhoneNumberCode : TDObject {
 
     /**
      * The phone number, in international format

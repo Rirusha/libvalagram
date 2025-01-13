@@ -26,7 +26,7 @@
  * For optimal performance, the number of returned messages is chosen by
  * TDLib and can be smaller than the specified limit
  */
-internal class TDLib.SearchMessages : TDObject {
+public class TDLib.SearchMessages : TDObject {
 
     /**
      * Chat list in which to search messages; pass null to search in all

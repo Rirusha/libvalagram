@@ -22,7 +22,7 @@
 /**
  * Returns all contacts of the user
  */
-internal class TDLib.GetContacts : TDObject {
+public class TDLib.GetContacts : TDObject {
 
     public GetContacts () {
         Object (

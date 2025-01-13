@@ -23,7 +23,7 @@
  * Returns the received vector of strings; for testing only. This is an
  * offline method. Can be called before authorization
  */
-internal class TDLib.TestCallVectorString : TDObject {
+public class TDLib.TestCallVectorString : TDObject {
 
     /**
      * Vector of strings to return

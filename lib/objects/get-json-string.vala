@@ -23,7 +23,7 @@
  * Converts a JsonValue object to corresponding JSON-serialized string.
  * Can be called synchronously
  */
-internal class TDLib.GetJsonString : TDObject {
+public class TDLib.GetJsonString : TDObject {
 
     /**
      * The JsonValue object

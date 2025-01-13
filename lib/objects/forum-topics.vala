@@ -35,17 +35,19 @@ public class TDLib.ForumTopics : Error {
     public Gee.ArrayList<ForumTopic?> topics { get; construct set; default = new Gee.ArrayList<ForumTopic?> (); }
 
     /**
-     * Offset date for the next getForumTopics request
+     * Offset date for the next {@link Client.get_forum_topics} request
      */
     public int32 next_offset_date { get; construct set; }
 
     /**
-     * Offset message identifier for the next getForumTopics request
+     * Offset message identifier for the next {@link Client.get_forum_topics}
+     * request
      */
     public int64 next_offset_message_id { get; construct set; }
 
     /**
-     * Offset message thread identifier for the next getForumTopics request
+     * Offset message thread identifier for the next
+     * {@link Client.get_forum_topics} request
      */
     public int64 next_offset_message_thread_id { get; construct set; }
 

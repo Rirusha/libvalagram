@@ -22,7 +22,7 @@
 /**
  * Sets the result of a pre-checkout query; for bots only
  */
-internal class TDLib.AnswerPreCheckoutQuery : TDObject {
+public class TDLib.AnswerPreCheckoutQuery : TDObject {
 
     /**
      * Identifier of the pre-checkout query

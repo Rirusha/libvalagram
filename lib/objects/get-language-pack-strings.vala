@@ -23,7 +23,7 @@
  * Returns strings from a language pack in the current localization
  * target by their keys. Can be called before authorization
  */
-internal class TDLib.GetLanguagePackStrings : TDObject {
+public class TDLib.GetLanguagePackStrings : TDObject {
 
     /**
      * Language pack identifier of the strings to be returned

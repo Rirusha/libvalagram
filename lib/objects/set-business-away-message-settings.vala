@@ -23,7 +23,7 @@
  * Changes the business away message settings of the current user.
  * Requires Telegram Business subscription
  */
-internal class TDLib.SetBusinessAwayMessageSettings : TDObject {
+public class TDLib.SetBusinessAwayMessageSettings : TDObject {
 
     /**
      * The new settings for the away message of the business; pass null to

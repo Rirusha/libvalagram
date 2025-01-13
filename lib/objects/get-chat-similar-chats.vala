@@ -22,7 +22,7 @@
 /**
  * Returns a list of chats similar to the given chat
  */
-internal class TDLib.GetChatSimilarChats : TDObject {
+public class TDLib.GetChatSimilarChats : TDObject {
 
     /**
      * Identifier of the target chat; must be an identifier of a channel chat

@@ -22,7 +22,7 @@
 /**
  * Returns auto-download settings presets for the current user
  */
-internal class TDLib.GetAutoDownloadSettingsPresets : TDObject {
+public class TDLib.GetAutoDownloadSettingsPresets : TDObject {
 
     public GetAutoDownloadSettingsPresets () {
         Object (

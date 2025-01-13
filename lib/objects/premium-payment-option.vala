@@ -41,8 +41,8 @@ public class TDLib.PremiumPaymentOption : Error {
 
     /**
      * Number of months the Telegram Premium subscription will be active. Use
-     * getPremiumInfoSticker to get the sticker to be used as representation
-     * of the Telegram Premium subscription
+     * {@link Client.get_premium_info_sticker} to get the sticker to be used
+     * as representation of the Telegram Premium subscription
      */
     public int32 month_count { get; construct set; }
 

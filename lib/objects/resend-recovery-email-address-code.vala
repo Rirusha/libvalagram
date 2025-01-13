@@ -23,7 +23,7 @@
  * Resends the 2-step verification recovery email address verification
  * code
  */
-internal class TDLib.ResendRecoveryEmailAddressCode : TDObject {
+public class TDLib.ResendRecoveryEmailAddressCode : TDObject {
 
     public ResendRecoveryEmailAddressCode () {
         Object (

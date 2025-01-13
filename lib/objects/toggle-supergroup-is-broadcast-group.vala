@@ -23,7 +23,7 @@
  * Upgrades supergroup to a broadcast group; requires owner privileges in
  * the supergroup
  */
-internal class TDLib.ToggleSupergroupIsBroadcastGroup : TDObject {
+public class TDLib.ToggleSupergroupIsBroadcastGroup : TDObject {
 
     /**
      * Identifier of the supergroup

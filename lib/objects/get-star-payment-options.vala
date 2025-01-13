@@ -22,7 +22,7 @@
 /**
  * Returns available options for Telegram Stars purchase
  */
-internal class TDLib.GetStarPaymentOptions : TDObject {
+public class TDLib.GetStarPaymentOptions : TDObject {
 
     public GetStarPaymentOptions () {
         Object (

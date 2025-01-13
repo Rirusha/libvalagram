@@ -98,13 +98,14 @@ public class TDLib.Story : Error {
     public bool can_toggle_is_posted_to_chat_page { get; construct set; }
 
     /**
-     * True, if the story statistics are available through getStoryStatistics
+     * True, if the story statistics are available through
+     * {@link Client.get_story_statistics}
      */
     public bool can_get_statistics { get; construct set; }
 
     /**
      * True, if interactions with the story can be received through
-     * getStoryInteractions
+     * {@link Client.get_story_interactions}
      */
     public bool can_get_interactions { get; construct set; }
 

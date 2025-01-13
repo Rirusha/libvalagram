@@ -25,7 +25,7 @@
  * order. Can return partial result for the last returned day. Behavior
  * of this method depends on the value of the option "utc_time_offset"
  */
-internal class TDLib.GetChatMessageCalendar : TDObject {
+public class TDLib.GetChatMessageCalendar : TDObject {
 
     /**
      * Identifier of the chat in which to return information about messages

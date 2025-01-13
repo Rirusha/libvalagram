@@ -24,7 +24,7 @@
  * member right if the chat is a basic group or supergroup, or
  * can_edit_messages administrator right if the chat is a channel
  */
-internal class TDLib.UnpinAllChatMessages : TDObject {
+public class TDLib.UnpinAllChatMessages : TDObject {
 
     /**
      * Identifier of the chat

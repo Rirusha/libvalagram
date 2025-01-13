@@ -22,7 +22,7 @@
 /**
  * Returns sticker sets owned by the current user
  */
-internal class TDLib.GetOwnedStickerSets : TDObject {
+public class TDLib.GetOwnedStickerSets : TDObject {
 
     /**
      * Identifier of the sticker set from which to return owned sticker sets;

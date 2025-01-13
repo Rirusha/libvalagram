@@ -22,7 +22,7 @@
 /**
  * Deletes specified quick reply messages
  */
-internal class TDLib.DeleteQuickReplyShortcutMessages : TDObject {
+public class TDLib.DeleteQuickReplyShortcutMessages : TDObject {
 
     /**
      * Unique identifier of the quick reply shortcut to which the messages

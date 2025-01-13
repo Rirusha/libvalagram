@@ -23,7 +23,7 @@
  * Returns information about a message. Returns a 404 error if the
  * message doesn't exist
  */
-internal class TDLib.GetMessage : TDObject {
+public class TDLib.GetMessage : TDObject {
 
     /**
      * Identifier of the chat the message belongs to

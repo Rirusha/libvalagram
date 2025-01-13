@@ -21,12 +21,13 @@
 
 /**
  * Edits the media content of a message, including message caption. If
- * only the caption needs to be edited, use editMessageCaption instead.
+ * only the caption needs to be edited, use
+ * {@link Client.edit_message_caption} instead.
  * The type of message content in an album can't be changed with
  * exception of replacing a photo with a video or vice versa. Returns the
  * edited message after the edit is completed on the server side
  */
-internal class TDLib.EditMessageMedia : TDObject {
+public class TDLib.EditMessageMedia : TDObject {
 
     /**
      * The chat the message belongs to

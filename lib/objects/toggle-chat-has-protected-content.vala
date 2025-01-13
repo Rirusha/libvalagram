@@ -24,7 +24,7 @@
  * Supported only for basic groups, supergroups and channels. Requires
  * owner privileges
  */
-internal class TDLib.ToggleChatHasProtectedContent : TDObject {
+public class TDLib.ToggleChatHasProtectedContent : TDObject {
 
     /**
      * Chat identifier

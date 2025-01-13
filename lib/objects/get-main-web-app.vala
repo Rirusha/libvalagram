@@ -22,7 +22,7 @@
 /**
  * Returns information needed to open the main Web App of a bot
  */
-internal class TDLib.GetMainWebApp : TDObject {
+public class TDLib.GetMainWebApp : TDObject {
 
     /**
      * Identifier of the chat in which the Web App is opened; pass 0 if none

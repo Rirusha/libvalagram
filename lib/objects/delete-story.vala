@@ -23,7 +23,7 @@
  * Deletes a previously sent story. Can be called only if
  * story.can_be_deleted == true
  */
-internal class TDLib.DeleteStory : TDObject {
+public class TDLib.DeleteStory : TDObject {
 
     /**
      * Identifier of the chat that posted the story

@@ -21,11 +21,11 @@
 
 /**
  * Changes the owner of a chat; requires owner privileges in the chat.
- * Use the method canTransferOwnership to check whether the ownership can
- * be transferred from the current session. Available only for
- * supergroups and channel chats
+ * Use the method {@link Client.can_transfer_ownership} to check whether
+ * the ownership can be transferred from the current session. Available
+ * only for supergroups and channel chats
  */
-internal class TDLib.TransferChatOwnership : TDObject {
+public class TDLib.TransferChatOwnership : TDObject {
 
     /**
      * Chat identifier

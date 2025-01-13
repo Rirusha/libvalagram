@@ -23,7 +23,7 @@
  * Returns chat lists to which the chat can be added. This is an offline
  * request
  */
-internal class TDLib.GetChatListsToAddChat : TDObject {
+public class TDLib.GetChatListsToAddChat : TDObject {
 
     /**
      * Chat identifier

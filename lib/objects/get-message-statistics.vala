@@ -23,7 +23,7 @@
  * Returns detailed statistics about a message. Can be used only if
  * messageProperties.can_get_statistics == true
  */
-internal class TDLib.GetMessageStatistics : TDObject {
+public class TDLib.GetMessageStatistics : TDObject {
 
     /**
      * Chat identifier

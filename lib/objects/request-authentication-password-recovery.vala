@@ -24,7 +24,7 @@
  * email address that was previously set up. Works only when the current
  * authorization state is authorizationStateWaitPassword
  */
-internal class TDLib.RequestAuthenticationPasswordRecovery : TDObject {
+public class TDLib.RequestAuthenticationPasswordRecovery : TDObject {
 
     public RequestAuthenticationPasswordRecovery () {
         Object (

@@ -22,7 +22,7 @@
 /**
  * Returns gifts that can be sent to other users
  */
-internal class TDLib.GetAvailableGifts : TDObject {
+public class TDLib.GetAvailableGifts : TDObject {
 
     public GetAvailableGifts () {
         Object (

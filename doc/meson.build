@@ -10,7 +10,7 @@ custom_target(
   'valadoc',
   command: [ valadoc ] + pkgs +
   [
-    libvalagram_sources,
+    sources,
     '--target-glib=' + glib_min_version,
     '--package-name=' + versioned_name,
     '--package-version=' + meson.project_version(),
@@ -19,26 +19,27 @@ custom_target(
     '-o', meson.current_build_dir() / valadoc_vala_dir,
   ],
   build_by_default: true,
-  input : libvalagram_sources,
+  input : sources,
   output: valadoc_vala_dir,
-  depends: libvalagram,
+  depends: lib,
 )
 
-custom_target(
-  'cdocs',
-  command: [ valadoc ] + pkgs +
-  [
-    libvalagram_sources,
-    '--target-glib=' + glib_min_version,
-    '--package-name=' + versioned_name,
-    '--package-version=' + meson.project_version(),
-    '--verbose',
-    '--force',
-    '-o', meson.current_build_dir() / versioned_name,
-    '--doclet-arg=lib/' + libvalagram_header,
-    '--doclet=gtkdoc',
-  ],
-  build_by_default: true,
-  output: versioned_name,
-  depends: libvalagram,
-)
+# Error building it
+# custom_target(
+#   'cdocs',
+#   command: [ valadoc ] + pkgs +
+#   [
+#     sources,
+#     '--target-glib=' + glib_min_version,
+#     '--package-name=' + versioned_name,
+#     '--package-version=' + meson.project_version(),
+#     '--verbose',
+#     '--force',
+#     '-o', meson.current_build_dir() / versioned_name,
+#     '--doclet-arg=lib/' + header_name,
+#     '--doclet=gtkdoc',
+#   ],
+#   build_by_default: true,
+#   output: versioned_name,
+#   depends: lib,
+# )

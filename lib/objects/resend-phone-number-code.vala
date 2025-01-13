@@ -24,7 +24,7 @@
  * the previously received authenticationCodeInfo next_code_type was not
  * null and the server-specified timeout has passed
  */
-internal class TDLib.ResendPhoneNumberCode : TDObject {
+public class TDLib.ResendPhoneNumberCode : TDObject {
 
     /**
      * Reason of code resending; pass null if unknown

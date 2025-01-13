@@ -22,7 +22,7 @@
 /**
  * Returns a story
  */
-internal class TDLib.GetStory : TDObject {
+public class TDLib.GetStory : TDObject {
 
     /**
      * Identifier of the chat that posted the story

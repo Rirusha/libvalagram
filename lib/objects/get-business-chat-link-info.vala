@@ -22,7 +22,7 @@
 /**
  * Returns information about a business chat link
  */
-internal class TDLib.GetBusinessChatLinkInfo : TDObject {
+public class TDLib.GetBusinessChatLinkInfo : TDObject {
 
     /**
      * Name of the link

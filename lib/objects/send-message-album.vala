@@ -26,7 +26,7 @@
  * Documents and audio files can be only grouped in an album with
  * messages of the same type. Returns sent messages
  */
-internal class TDLib.SendMessageAlbum : TDObject {
+public class TDLib.SendMessageAlbum : TDObject {
 
     /**
      * Target chat

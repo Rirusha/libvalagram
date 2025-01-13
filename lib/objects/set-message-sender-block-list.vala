@@ -23,7 +23,7 @@
  * Changes the block list of a message sender. Currently, only users and
  * supergroup chats can be blocked
  */
-internal class TDLib.SetMessageSenderBlockList : TDObject {
+public class TDLib.SetMessageSenderBlockList : TDObject {
 
     /**
      * Identifier of a message sender to block/unblock

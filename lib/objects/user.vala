@@ -100,8 +100,8 @@ public class TDLib.User : Error {
     public bool is_mutual_contact { get; construct set; }
 
     /**
-     * The user is a close friend of the current user; implies that the user
-     * is a contact
+     * The user is a {@link Client.close} friend of the current user; implies
+     * that the user is a contact
      */
     public bool is_close_friend { get; construct set; }
 
@@ -140,8 +140,8 @@ public class TDLib.User : Error {
 
     /**
      * True, if the user may restrict new chats with non-contacts. Use
-     * canSendMessageToUser to check whether the current user can message the
-     * user or try to create a chat with them
+     * {@link Client.can_send_message_to_user} to check whether the current
+     * user can message the user or try to create a chat with them
      */
     public bool restricts_new_chats { get; construct set; }
 

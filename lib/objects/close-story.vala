@@ -22,10 +22,10 @@
 /**
  * Informs TDLib that a story is closed by the user
  */
-internal class TDLib.CloseStory : TDObject {
+public class TDLib.CloseStory : TDObject {
 
     /**
-     * The identifier of the sender of the story to close
+     * The identifier of the sender of the story to {@link Client.close}
      */
     public int64 story_sender_chat_id { get; construct set; }
 

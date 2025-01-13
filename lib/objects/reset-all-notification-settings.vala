@@ -24,7 +24,7 @@
  * values. By default, all chats are unmuted and message previews are
  * shown
  */
-internal class TDLib.ResetAllNotificationSettings : TDObject {
+public class TDLib.ResetAllNotificationSettings : TDObject {
 
     public ResetAllNotificationSettings () {
         Object (

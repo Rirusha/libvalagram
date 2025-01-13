@@ -24,7 +24,7 @@
  * official mobile applications only. Works only when the current
  * authorization state is authorizationStateWaitCode
  */
-internal class TDLib.ReportAuthenticationCodeMissing : TDObject {
+public class TDLib.ReportAuthenticationCodeMissing : TDObject {
 
     /**
      * Current mobile network code

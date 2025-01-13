@@ -23,7 +23,7 @@
  * Returns an existing chat corresponding to a known supergroup or
  * channel
  */
-internal class TDLib.CreateSupergroupChat : TDObject {
+public class TDLib.CreateSupergroupChat : TDObject {
 
     /**
      * Supergroup or channel identifier

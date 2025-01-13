@@ -21,10 +21,11 @@
 
 /**
  * Returns supergroup and channel chats in which the current user has the
- * right to post stories. The chats must be rechecked with canSendStory
- * before actually trying to post a story there
+ * right to post stories. The chats must be rechecked with
+ * {@link Client.can_send_story} before actually trying to post a story
+ * there
  */
-internal class TDLib.GetChatsToSendStories : TDObject {
+public class TDLib.GetChatsToSendStories : TDObject {
 
     public GetChatsToSendStories () {
         Object (

@@ -25,10 +25,11 @@
  * updateFile updates.
  * If message database is used, the list of file downloads is persistent
  * across application restarts. The downloading is independent of
- * download using downloadFile, i.e. it continues if downloadFile is
- * canceled or is used to download a part of the file
+ * download using {@link Client.download_file} i.e. it continues if
+ * {@link Client.download_file} is canceled or is used to download a part
+ * of the file
  */
-internal class TDLib.AddFileToDownloads : TDObject {
+public class TDLib.AddFileToDownloads : TDObject {
 
     /**
      * Identifier of the file to download

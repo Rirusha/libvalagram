@@ -23,7 +23,7 @@
  * Changes accent color and background custom emoji for the current user;
  * for Telegram Premium users only
  */
-internal class TDLib.SetAccentColor : TDObject {
+public class TDLib.SetAccentColor : TDObject {
 
     /**
      * Identifier of the accent color to use

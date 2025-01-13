@@ -23,7 +23,7 @@
  * Sends a code to verify an email address to be added to a user's
  * Telegram Passport
  */
-internal class TDLib.SendEmailAddressVerificationCode : TDObject {
+public class TDLib.SendEmailAddressVerificationCode : TDObject {
 
     /**
      * Email address

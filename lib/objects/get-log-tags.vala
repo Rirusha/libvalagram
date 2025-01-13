@@ -24,7 +24,7 @@
  * ["actor", "binlog", "connections", "notifications", "proxy"]. Can be
  * called synchronously
  */
-internal class TDLib.GetLogTags : TDObject {
+public class TDLib.GetLogTags : TDObject {
 
     public GetLogTags () {
         Object (

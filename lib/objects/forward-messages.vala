@@ -25,7 +25,7 @@
  * message can't be forwarded, null will be returned instead of the
  * message
  */
-internal class TDLib.ForwardMessages : TDObject {
+public class TDLib.ForwardMessages : TDObject {
 
     /**
      * Identifier of the chat to which to forward messages

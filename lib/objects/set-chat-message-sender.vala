@@ -22,7 +22,7 @@
 /**
  * Selects a message sender to send messages in a chat
  */
-internal class TDLib.SetChatMessageSender : TDObject {
+public class TDLib.SetChatMessageSender : TDObject {
 
     /**
      * Chat identifier

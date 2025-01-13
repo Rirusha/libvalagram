@@ -24,7 +24,7 @@
  * data will be sent through updateQuickReplyShortcut and
  * updateQuickReplyShortcuts
  */
-internal class TDLib.LoadQuickReplyShortcuts : TDObject {
+public class TDLib.LoadQuickReplyShortcuts : TDObject {
 
     public LoadQuickReplyShortcuts () {
         Object (

@@ -22,7 +22,7 @@
 /**
  * Sets the result of an inline query; for bots only
  */
-internal class TDLib.AnswerInlineQuery : TDObject {
+public class TDLib.AnswerInlineQuery : TDObject {
 
     /**
      * Identifier of the inline query

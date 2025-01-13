@@ -24,7 +24,7 @@
  * For optimal performance, the number of returned stories is chosen by
  * TDLib and can be smaller than the specified limit
  */
-internal class TDLib.SearchPublicStoriesByTag : TDObject {
+public class TDLib.SearchPublicStoriesByTag : TDObject {
 
     /**
      * Identifier of the chat that posted the stories to search for; pass 0

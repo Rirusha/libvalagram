@@ -23,7 +23,7 @@
  * Removes potentially dangerous characters from the name of a file.
  * Returns an empty string on failure. Can be called synchronously
  */
-internal class TDLib.CleanFileName : TDObject {
+public class TDLib.CleanFileName : TDObject {
 
     /**
      * File name or path to the file

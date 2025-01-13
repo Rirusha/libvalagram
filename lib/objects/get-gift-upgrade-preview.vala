@@ -22,7 +22,7 @@
 /**
  * Returns examples of possible upgraded gifts for a regular gift
  */
-internal class TDLib.GetGiftUpgradePreview : TDObject {
+public class TDLib.GetGiftUpgradePreview : TDObject {
 
     /**
      * Identifier of the gift

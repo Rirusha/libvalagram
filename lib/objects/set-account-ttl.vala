@@ -23,7 +23,7 @@
  * Changes the period of inactivity after which the account of the
  * current user will automatically be deleted
  */
-internal class TDLib.SetAccountTtl : TDObject {
+public class TDLib.SetAccountTtl : TDObject {
 
     /**
      * New account TTL

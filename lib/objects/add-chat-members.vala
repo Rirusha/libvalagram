@@ -27,7 +27,7 @@
  * channel if it has more than 200 members. Returns information about
  * members that weren't added
  */
-internal class TDLib.AddChatMembers : TDObject {
+public class TDLib.AddChatMembers : TDObject {
 
     /**
      * Chat identifier

@@ -22,7 +22,7 @@
 /**
  * Installs/uninstalls or activates/archives a sticker set
  */
-internal class TDLib.ChangeStickerSet : TDObject {
+public class TDLib.ChangeStickerSet : TDObject {
 
     /**
      * Identifier of the sticker set

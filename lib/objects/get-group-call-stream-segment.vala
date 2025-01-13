@@ -23,7 +23,7 @@
  * Returns a file with a segment of a group call stream in a modified OGG
  * format for audio or MPEG-4 format for video
  */
-internal class TDLib.GetGroupCallStreamSegment : TDObject {
+public class TDLib.GetGroupCallStreamSegment : TDObject {
 
     /**
      * Group call identifier

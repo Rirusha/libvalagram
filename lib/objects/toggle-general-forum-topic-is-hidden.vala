@@ -23,7 +23,7 @@
  * Toggles whether a General topic is hidden in a forum supergroup chat;
  * requires can_manage_topics right in the supergroup
  */
-internal class TDLib.ToggleGeneralForumTopicIsHidden : TDObject {
+public class TDLib.ToggleGeneralForumTopicIsHidden : TDObject {
 
     /**
      * Identifier of the chat
@@ -31,7 +31,8 @@ internal class TDLib.ToggleGeneralForumTopicIsHidden : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Pass true to hide and close the General topic; pass false to unhide it
+     * Pass true to hide and {@link Client.close} the General topic; pass
+     * false to unhide it
      */
     public bool is_hidden { get; construct set; }
 

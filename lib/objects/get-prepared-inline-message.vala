@@ -22,7 +22,7 @@
 /**
  * Saves an inline message to be sent by the given user
  */
-internal class TDLib.GetPreparedInlineMessage : TDObject {
+public class TDLib.GetPreparedInlineMessage : TDObject {
 
     /**
      * Identifier of the bot that created the message

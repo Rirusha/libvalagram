@@ -22,7 +22,7 @@
 /**
  * Reports a sponsored message to Telegram moderators
  */
-internal class TDLib.ReportChatSponsoredMessage : TDObject {
+public class TDLib.ReportChatSponsoredMessage : TDObject {
 
     /**
      * Chat identifier of the sponsored message

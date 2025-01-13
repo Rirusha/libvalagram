@@ -27,7 +27,7 @@
  * supergroupFullInfo.can_get_revenue_statistics == true or bots with
  * userFullInfo.bot_info.can_get_revenue_statistics == true
  */
-internal class TDLib.GetChatRevenueWithdrawalUrl : TDObject {
+public class TDLib.GetChatRevenueWithdrawalUrl : TDObject {
 
     /**
      * Chat identifier

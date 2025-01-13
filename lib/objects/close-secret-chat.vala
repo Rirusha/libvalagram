@@ -23,7 +23,7 @@
  * Closes a secret chat, effectively transferring its state to
  * secretChatStateClosed
  */
-internal class TDLib.CloseSecretChat : TDObject {
+public class TDLib.CloseSecretChat : TDObject {
 
     /**
      * Secret chat identifier

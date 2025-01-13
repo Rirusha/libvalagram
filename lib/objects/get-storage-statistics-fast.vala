@@ -23,7 +23,7 @@
  * Quickly returns approximate storage usage statistics. Can be called
  * before authorization
  */
-internal class TDLib.GetStorageStatisticsFast : TDObject {
+public class TDLib.GetStorageStatisticsFast : TDObject {
 
     public GetStorageStatisticsFast () {
         Object (

@@ -23,7 +23,7 @@
  * Validates the order information provided by a user and returns the
  * available shipping options for a flexible invoice
  */
-internal class TDLib.ValidateOrderInfo : TDObject {
+public class TDLib.ValidateOrderInfo : TDObject {
 
     /**
      * The invoice

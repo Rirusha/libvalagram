@@ -23,7 +23,7 @@
  * Changes the period of inactivity after which sessions will
  * automatically be terminated
  */
-internal class TDLib.SetInactiveSessionTtl : TDObject {
+public class TDLib.SetInactiveSessionTtl : TDObject {
 
     /**
      * New number of days of inactivity before sessions will be automatically

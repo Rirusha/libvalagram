@@ -22,7 +22,7 @@
 /**
  * Returns information about a single member of a chat
  */
-internal class TDLib.GetChatMember : TDObject {
+public class TDLib.GetChatMember : TDObject {
 
     /**
      * Chat identifier

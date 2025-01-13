@@ -23,7 +23,7 @@
  * Sends a new story to a chat; requires can_post_stories right for
  * supergroup and channel chats. Returns a temporary story
  */
-internal class TDLib.SendStory : TDObject {
+public class TDLib.SendStory : TDObject {
 
     /**
      * Identifier of the chat that will post the story. Pass Saved Messages

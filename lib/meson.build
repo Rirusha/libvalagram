@@ -1410,35 +1410,35 @@ vala_sources = files(
   'utils.vala',
 )
 
-libvalagram_sources = [
+sources = [
   vapi_sources,
   vala_sources,
 ]
 
-libvalagram = shared_library(
-  'valagram',
-  libvalagram_sources,
-  dependencies: libvalagram_dependencies,
-  vala_header: libvalagram_header,
-  vala_vapi: libvalagram_vapi,
-  vala_gir: libvalagram_gir,
+lib = shared_library(
+  versioned_name,
+  sources,
+  dependencies: dependencies,
+  vala_header: header_name,
+  vala_vapi: vapi_name,
+  vala_gir: gir_name,
   version: meson.project_version(),
   install: true,
   install_dir: [ true, true, true, true ],
 )
 
-libvalagram_dep = declare_dependency(
-  link_with: libvalagram,
+lib_dep = declare_dependency(
+  link_with: lib,
   include_directories: include_directories('.'),
-  dependencies: libvalagram_dependencies
+  dependencies: dependencies
 )
 
 deps_conf = configuration_data()
 deps_conf.set ('DEPS',  '\n'.join (deps_pkgs))
 
 configure_file(
-  input: 'libvalagram.deps.in',
-  output: libvalagram_deps,
+  input: 'lib.deps.in',
+  output: deps_name,
   configuration: deps_conf,
   install: true,
   install_dir: get_option('datadir') / 'vala' / 'vapi',
@@ -1453,22 +1453,22 @@ if get_option('introspection')
       '--shared-library', '@PLAINNAME@',
       '--output', '@OUTPUT@',
       '--includedir', gee_girdir,
-      meson.current_build_dir() / libvalagram_gir,
+      meson.current_build_dir() / gir_name,
     ],
-    input: libvalagram,
-    output: libvalagram_typelib,
-    depends: libvalagram,
+    input: lib,
+    output: typelib_name,
+    depends: lib,
     install: true,
     install_dir: get_option('libdir') / 'girepository-1.0',
   )
 endif
 
 pkgconfig.generate(
-  libvalagram,
-  name: versioned_name,
-  requires: libvalagram_pgconfig_req,
+  lib,
+  name: versioned_lib_name,
+  requires: dependencies,
   subdirs: [ versioned_name ],
-  description: 'Base objects for API libraries',
+  description: 'TDLib wrapper for Vala lang',
   version: meson.project_version(),
   url: 'https://github.com/Rirusha/libvalagram',
 )

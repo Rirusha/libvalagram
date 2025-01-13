@@ -19,7 +19,7 @@ echo "*" >> auto-update/tdlib2vala/.gitignore
 
 last_tag=$(git describe --tags --abbrev=0)
 
-version=$(echo $last_tag | sed 's/^v.//')
+version=$(echo $last_tag | sed 's/^v//')
 IFS='.' read -r major minor patch <<< "$version"
 
 deleted_files=$(git ls-files --deleted)
@@ -32,7 +32,7 @@ else
 fi
 
 new_version="$major.$minor.$patch"
-new_tag="v.$major.$minor.$patch"
+new_tag="v$major.$minor.$patch"
 
 rm -rf auto-update/tdlib2vala/
 

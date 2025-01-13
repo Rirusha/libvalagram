@@ -24,7 +24,7 @@
  * must belong to a regular or custom emoji sticker set that is owned by
  * the current user
  */
-internal class TDLib.SetStickerEmojis : TDObject {
+public class TDLib.SetStickerEmojis : TDObject {
 
     /**
      * Sticker

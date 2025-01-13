@@ -22,10 +22,10 @@
 /**
  * Sends a Telegram Passport authorization form, effectively sharing data
  * with the service. This method must be called after
- * getPassportAuthorizationFormAvailableElements if some previously
- * available elements are going to be reused
+ * {@link Client.get_passport_authorization_form_available_elements} if
+ * some previously available elements are going to be reused
  */
-internal class TDLib.SendPassportAuthorizationForm : TDObject {
+public class TDLib.SendPassportAuthorizationForm : TDObject {
 
     /**
      * Authorization form identifier

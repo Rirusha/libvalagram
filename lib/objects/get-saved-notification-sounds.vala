@@ -23,7 +23,7 @@
  * Returns the list of saved notification sounds. If a sound isn't in the
  * list, then default sound needs to be used
  */
-internal class TDLib.GetSavedNotificationSounds : TDObject {
+public class TDLib.GetSavedNotificationSounds : TDObject {
 
     public GetSavedNotificationSounds () {
         Object (

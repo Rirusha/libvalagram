@@ -23,7 +23,7 @@
  * Returns a list of trending sticker sets. For optimal performance, the
  * number of returned sticker sets is chosen by TDLib
  */
-internal class TDLib.GetTrendingStickerSets : TDObject {
+public class TDLib.GetTrendingStickerSets : TDObject {
 
     /**
      * Type of the sticker sets to return

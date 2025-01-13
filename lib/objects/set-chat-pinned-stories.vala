@@ -23,7 +23,7 @@
  * Changes the list of pinned stories on a chat page; requires
  * can_edit_stories right in the chat
  */
-internal class TDLib.SetChatPinnedStories : TDObject {
+public class TDLib.SetChatPinnedStories : TDObject {
 
     /**
      * Identifier of the chat that posted the stories

@@ -22,7 +22,7 @@
 /**
  * Completely deletes a sticker set
  */
-internal class TDLib.DeleteStickerSet : TDObject {
+public class TDLib.DeleteStickerSet : TDObject {
 
     /**
      * Sticker set name. The sticker set must be owned by the current user

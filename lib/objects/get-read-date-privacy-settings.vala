@@ -22,7 +22,7 @@
 /**
  * Returns privacy settings for message read date
  */
-internal class TDLib.GetReadDatePrivacySettings : TDObject {
+public class TDLib.GetReadDatePrivacySettings : TDObject {
 
     public GetReadDatePrivacySettings () {
         Object (

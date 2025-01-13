@@ -22,7 +22,7 @@
 /**
  * Checks the login email address authentication
  */
-internal class TDLib.CheckLoginEmailAddressCode : TDObject {
+public class TDLib.CheckLoginEmailAddressCode : TDObject {
 
     /**
      * Email address authentication to check

@@ -22,7 +22,7 @@
 /**
  * Blocks an original sender of a message in the Replies chat
  */
-internal class TDLib.BlockMessageSenderFromReplies : TDObject {
+public class TDLib.BlockMessageSenderFromReplies : TDObject {
 
     /**
      * The identifier of an incoming message in the Replies chat

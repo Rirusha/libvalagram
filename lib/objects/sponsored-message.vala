@@ -38,7 +38,7 @@ public class TDLib.SponsoredMessage : Error {
 
     /**
      * True, if the message can be reported to Telegram moderators through
-     * reportChatSponsoredMessage
+     * {@link Client.report_chat_sponsored_message}
      */
     public bool can_be_reported { get; construct set; }
 

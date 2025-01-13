@@ -22,7 +22,7 @@
 /**
  * Creates a link for the given invoice; for bots only
  */
-internal class TDLib.CreateInvoiceLink : TDObject {
+public class TDLib.CreateInvoiceLink : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which to send

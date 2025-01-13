@@ -22,7 +22,7 @@
 /**
  * Changes pause state of a file in the file download list
  */
-internal class TDLib.ToggleDownloadIsPaused : TDObject {
+public class TDLib.ToggleDownloadIsPaused : TDObject {
 
     /**
      * Identifier of the downloaded file

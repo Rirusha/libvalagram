@@ -23,7 +23,7 @@
  * Searches for files in the file download list or recently downloaded
  * files from the list
  */
-internal class TDLib.SearchFileDownloads : TDObject {
+public class TDLib.SearchFileDownloads : TDObject {
 
     /**
      * Query to search for; may be empty to return all downloaded files

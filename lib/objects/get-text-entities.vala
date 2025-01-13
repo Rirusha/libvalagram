@@ -24,7 +24,7 @@
  * card numbers, URLs, and email addresses) found in the text. Can be
  * called synchronously
  */
-internal class TDLib.GetTextEntities : TDObject {
+public class TDLib.GetTextEntities : TDObject {
 
     /**
      * The text in which to look for entities

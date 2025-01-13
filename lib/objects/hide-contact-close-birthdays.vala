@@ -20,9 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Hides the list of contacts that have close birthdays for 24 hours
+ * Hides the list of contacts that have {@link Client.close} birthdays
+ * for 24 hours
  */
-internal class TDLib.HideContactCloseBirthdays : TDObject {
+public class TDLib.HideContactCloseBirthdays : TDObject {
 
     public HideContactCloseBirthdays () {
         Object (

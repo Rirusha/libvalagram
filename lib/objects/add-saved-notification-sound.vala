@@ -24,7 +24,7 @@
  * sounds. The new notification sound is added to the top of the list. If
  * it is already in the list, its position isn't changed
  */
-internal class TDLib.AddSavedNotificationSound : TDObject {
+public class TDLib.AddSavedNotificationSound : TDObject {
 
     /**
      * Notification sound file to add

@@ -23,7 +23,7 @@
  * Stops the downloading of a file. If a file has already been
  * downloaded, does nothing
  */
-internal class TDLib.CancelDownloadFile : TDObject {
+public class TDLib.CancelDownloadFile : TDObject {
 
     /**
      * Identifier of a file to stop downloading

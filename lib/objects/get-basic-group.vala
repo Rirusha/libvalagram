@@ -23,7 +23,7 @@
  * Returns information about a basic group by its identifier. This is an
  * offline request if the current user is not a bot
  */
-internal class TDLib.GetBasicGroup : TDObject {
+public class TDLib.GetBasicGroup : TDObject {
 
     /**
      * Basic group identifier

@@ -24,7 +24,7 @@
  * if story is posted on behalf of a chat and the user is an
  * administrator in the chat
  */
-internal class TDLib.GetChatStoryInteractions : TDObject {
+public class TDLib.GetChatStoryInteractions : TDObject {
 
     /**
      * The identifier of the sender of the story

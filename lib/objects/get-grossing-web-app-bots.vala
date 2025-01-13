@@ -22,7 +22,7 @@
 /**
  * Returns the most grossing Web App bots
  */
-internal class TDLib.GetGrossingWebAppBots : TDObject {
+public class TDLib.GetGrossingWebAppBots : TDObject {
 
     /**
      * Offset of the first entry to return as received from the previous

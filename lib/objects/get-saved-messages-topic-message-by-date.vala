@@ -23,7 +23,7 @@
  * Returns the last message sent in a Saved Messages topic no later than
  * the specified date
  */
-internal class TDLib.GetSavedMessagesTopicMessageByDate : TDObject {
+public class TDLib.GetSavedMessagesTopicMessageByDate : TDObject {
 
     /**
      * Identifier of Saved Messages topic which message will be returned

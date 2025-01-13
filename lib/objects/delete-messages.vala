@@ -22,7 +22,7 @@
 /**
  * Deletes messages
  */
-internal class TDLib.DeleteMessages : TDObject {
+public class TDLib.DeleteMessages : TDObject {
 
     /**
      * Chat identifier

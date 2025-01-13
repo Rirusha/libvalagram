@@ -25,7 +25,7 @@
  * supergroups and channels, the user will not be able to return to the
  * group on their own using invite links, etc., unless unbanned first
  */
-internal class TDLib.BanChatMember : TDObject {
+public class TDLib.BanChatMember : TDObject {
 
     /**
      * Chat identifier

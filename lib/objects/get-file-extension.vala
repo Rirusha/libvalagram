@@ -23,7 +23,7 @@
  * Returns the extension of a file, guessed by its MIME type. Returns an
  * empty string on failure. Can be called synchronously
  */
-internal class TDLib.GetFileExtension : TDObject {
+public class TDLib.GetFileExtension : TDObject {
 
     /**
      * The MIME type of the file

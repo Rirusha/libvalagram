@@ -22,7 +22,7 @@
 /**
  * Toggles whether current user's video is enabled
  */
-internal class TDLib.ToggleGroupCallIsMyVideoEnabled : TDObject {
+public class TDLib.ToggleGroupCallIsMyVideoEnabled : TDObject {
 
     /**
      * Group call identifier

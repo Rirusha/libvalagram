@@ -22,7 +22,7 @@
 /**
  * Changes the verification status of a user or a chat by an owned bot
  */
-internal class TDLib.SetMessageSenderBotVerification : TDObject {
+public class TDLib.SetMessageSenderBotVerification : TDObject {
 
     /**
      * Identifier of the owned bot, which will verify the user or the chat

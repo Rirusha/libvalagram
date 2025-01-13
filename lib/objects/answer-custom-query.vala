@@ -22,7 +22,7 @@
 /**
  * Answers a custom query; for bots only
  */
-internal class TDLib.AnswerCustomQuery : TDObject {
+public class TDLib.AnswerCustomQuery : TDObject {
 
     /**
      * Identifier of a custom query

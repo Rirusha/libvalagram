@@ -25,7 +25,7 @@
  * for messages from chatEventMessageDeleted with
  * can_report_anti_spam_false_positive == true
  */
-internal class TDLib.ReportSupergroupAntiSpamFalsePositive : TDObject {
+public class TDLib.ReportSupergroupAntiSpamFalsePositive : TDObject {
 
     /**
      * Supergroup identifier

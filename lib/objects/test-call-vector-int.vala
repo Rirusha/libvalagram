@@ -23,7 +23,7 @@
  * Returns the received vector of numbers; for testing only. This is an
  * offline method. Can be called before authorization
  */
-internal class TDLib.TestCallVectorInt : TDObject {
+public class TDLib.TestCallVectorInt : TDObject {
 
     /**
      * Vector of numbers to return

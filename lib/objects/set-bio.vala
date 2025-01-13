@@ -22,7 +22,7 @@
 /**
  * Changes the bio of the current user
  */
-internal class TDLib.SetBio : TDObject {
+public class TDLib.SetBio : TDObject {
 
     /**
      * The new value of the user bio; 0-getOption("bio_length_max")

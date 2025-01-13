@@ -22,7 +22,7 @@
 /**
  * Handles all pending join requests for a given link in a chat
  */
-internal class TDLib.ProcessChatJoinRequests : TDObject {
+public class TDLib.ProcessChatJoinRequests : TDObject {
 
     /**
      * Chat identifier

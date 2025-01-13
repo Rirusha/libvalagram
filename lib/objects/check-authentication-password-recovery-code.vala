@@ -24,7 +24,7 @@
  * email address is valid. Works only when the current authorization
  * state is authorizationStateWaitPassword
  */
-internal class TDLib.CheckAuthenticationPasswordRecoveryCode : TDObject {
+public class TDLib.CheckAuthenticationPasswordRecoveryCode : TDObject {
 
     /**
      * Recovery code to check

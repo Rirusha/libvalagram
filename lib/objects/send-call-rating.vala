@@ -22,7 +22,7 @@
 /**
  * Sends a call rating
  */
-internal class TDLib.SendCallRating : TDObject {
+public class TDLib.SendCallRating : TDObject {
 
     /**
      * Call identifier

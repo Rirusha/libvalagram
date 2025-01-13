@@ -24,7 +24,7 @@
  * secret chats with non-deleted users, and in chats with sufficient
  * boost level and can_change_info administrator right
  */
-internal class TDLib.SetChatBackground : TDObject {
+public class TDLib.SetChatBackground : TDObject {
 
     /**
      * Chat identifier

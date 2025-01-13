@@ -23,7 +23,7 @@
  * Returns settings for automatic moving of chats to and from the Archive
  * chat lists
  */
-internal class TDLib.GetArchiveChatListSettings : TDObject {
+public class TDLib.GetArchiveChatListSettings : TDObject {
 
     public GetArchiveChatListSettings () {
         Object (

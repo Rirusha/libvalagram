@@ -23,7 +23,7 @@
  * Returns the list of chats with non-default notification settings for
  * new messages
  */
-internal class TDLib.GetChatNotificationSettingsExceptions : TDObject {
+public class TDLib.GetChatNotificationSettingsExceptions : TDObject {
 
     /**
      * If specified, only chats from the scope will be returned; pass null to

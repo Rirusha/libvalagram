@@ -22,7 +22,7 @@
 /**
  * Returns information about a successful payment
  */
-internal class TDLib.GetPaymentReceipt : TDObject {
+public class TDLib.GetPaymentReceipt : TDObject {
 
     /**
      * Chat identifier of the messagePaymentSuccessful message

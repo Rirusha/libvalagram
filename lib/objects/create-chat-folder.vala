@@ -24,7 +24,7 @@
  * folder. There can be up to getOption("chat_folder_count_max") chat
  * folders, but the limit can be increased with Telegram Premium
  */
-internal class TDLib.CreateChatFolder : TDObject {
+public class TDLib.CreateChatFolder : TDObject {
 
     /**
      * The new chat folder

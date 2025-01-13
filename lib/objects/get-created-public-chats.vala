@@ -23,7 +23,7 @@
  * Returns a list of public chats of the specified type, owned by the
  * user
  */
-internal class TDLib.GetCreatedPublicChats : TDObject {
+public class TDLib.GetCreatedPublicChats : TDObject {
 
     /**
      * Type of the public chats to return

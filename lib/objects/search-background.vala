@@ -22,7 +22,7 @@
 /**
  * Searches for a background by its name
  */
-internal class TDLib.SearchBackground : TDObject {
+public class TDLib.SearchBackground : TDObject {
 
     /**
      * The name of the background

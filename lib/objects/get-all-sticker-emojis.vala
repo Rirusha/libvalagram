@@ -23,7 +23,7 @@
  * Returns unique emoji that correspond to stickers to be found by the
  * getStickers(sticker_type, query, 1000000, chat_id)
  */
-internal class TDLib.GetAllStickerEmojis : TDObject {
+public class TDLib.GetAllStickerEmojis : TDObject {
 
     /**
      * Type of the stickers to search for

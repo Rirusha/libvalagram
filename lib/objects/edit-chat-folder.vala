@@ -23,7 +23,7 @@
  * Edits existing chat folder. Returns information about the edited chat
  * folder
  */
-internal class TDLib.EditChatFolder : TDObject {
+public class TDLib.EditChatFolder : TDObject {
 
     /**
      * Chat folder identifier

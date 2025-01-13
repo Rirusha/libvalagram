@@ -22,7 +22,7 @@
 /**
  * Returns business chat links created for the current account
  */
-internal class TDLib.GetBusinessChatLinks : TDObject {
+public class TDLib.GetBusinessChatLinks : TDObject {
 
     public GetBusinessChatLinks () {
         Object (

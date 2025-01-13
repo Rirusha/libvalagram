@@ -23,7 +23,7 @@
  * Returns a Telegram Passport authorization form for sharing data with a
  * service
  */
-internal class TDLib.GetPassportAuthorizationForm : TDObject {
+public class TDLib.GetPassportAuthorizationForm : TDObject {
 
     /**
      * User identifier of the service's bot

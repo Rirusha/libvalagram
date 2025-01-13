@@ -23,7 +23,7 @@
  * Sets the parameters for TDLib initialization. Works only when the
  * current authorization state is authorizationStateWaitTdlibParameters
  */
-internal class TDLib.SetTdlibParameters : TDObject {
+public class TDLib.SetTdlibParameters : TDObject {
 
     /**
      * Pass true to use Telegram test environment instead of the production
@@ -74,13 +74,13 @@ internal class TDLib.SetTdlibParameters : TDObject {
 
     /**
      * Application identifier for Telegram API access, which can be obtained
-     * at https://my.telegram.org
+     * at [[https://my.telegram.org]]
      */
     public int32 api_id { get; construct set; }
 
     /**
      * Application identifier hash for Telegram API access, which can be
-     * obtained at https://my.telegram.org
+     * obtained at [[https://my.telegram.org]]
      */
     public string api_hash { get; construct set; }
 

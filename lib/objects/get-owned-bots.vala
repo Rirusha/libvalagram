@@ -22,7 +22,7 @@
 /**
  * Returns the list of bots owned by the current user
  */
-internal class TDLib.GetOwnedBots : TDObject {
+public class TDLib.GetOwnedBots : TDObject {
 
     public GetOwnedBots () {
         Object (

@@ -22,7 +22,7 @@
 /**
  * Sets menu button for the given user or for all users; for bots only
  */
-internal class TDLib.SetMenuButton : TDObject {
+public class TDLib.SetMenuButton : TDObject {
 
     /**
      * Identifier of the user or 0 to set menu button for all users

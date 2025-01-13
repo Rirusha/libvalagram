@@ -24,7 +24,7 @@
  * packs in current localization target. Can be called before
  * authorization
  */
-internal class TDLib.AddCustomServerLanguagePack : TDObject {
+public class TDLib.AddCustomServerLanguagePack : TDObject {
 
     /**
      * Identifier of a language pack to be added

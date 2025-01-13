@@ -26,7 +26,7 @@
  * Bots can't be invited to channels (although they can be added as
  * admins) and secret chats. Returns the sent message
  */
-internal class TDLib.SendBotStartMessage : TDObject {
+public class TDLib.SendBotStartMessage : TDObject {
 
     /**
      * Identifier of the bot
@@ -40,7 +40,7 @@ internal class TDLib.SendBotStartMessage : TDObject {
 
     /**
      * A hidden parameter sent to the bot for deep linking purposes
-     * (https://core.telegram.org/bots#deep-linking)
+     * ([[https://core.telegram.org/bots#deep-linking]])
      */
     public string parameter { get; construct set; }
 

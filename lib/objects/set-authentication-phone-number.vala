@@ -28,7 +28,7 @@
  * authorizationStateWaitEmailCode, authorizationStateWaitCode,
  * authorizationStateWaitRegistration, or authorizationStateWaitPassword
  */
-internal class TDLib.SetAuthenticationPhoneNumber : TDObject {
+public class TDLib.SetAuthenticationPhoneNumber : TDObject {
 
     /**
      * The phone number of the user, in international format

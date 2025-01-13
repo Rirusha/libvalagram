@@ -23,7 +23,7 @@
  * Checks whether the current user can send a story on behalf of a chat;
  * requires can_post_stories right for supergroup and channel chats
  */
-internal class TDLib.CanSendStory : TDObject {
+public class TDLib.CanSendStory : TDObject {
 
     /**
      * Chat identifier. Pass Saved Messages chat identifier when posting a

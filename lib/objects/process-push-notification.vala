@@ -24,7 +24,7 @@
  * notification is not supported and connection to the server is required
  * to fetch new data. Can be called before authorization
  */
-internal class TDLib.ProcessPushNotification : TDObject {
+public class TDLib.ProcessPushNotification : TDObject {
 
     /**
      * JSON-encoded push notification payload with all fields sent by the

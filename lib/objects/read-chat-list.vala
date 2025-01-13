@@ -23,7 +23,7 @@
  * Traverse all chats in a chat list and marks all messages in the chats
  * as read
  */
-internal class TDLib.ReadChatList : TDObject {
+public class TDLib.ReadChatList : TDObject {
 
     /**
      * Chat list in which to mark all chats as read

@@ -23,7 +23,7 @@
  * Returns application config, provided by the server. Can be called
  * before authorization
  */
-internal class TDLib.GetApplicationConfig : TDObject {
+public class TDLib.GetApplicationConfig : TDObject {
 
     public GetApplicationConfig () {
         Object (

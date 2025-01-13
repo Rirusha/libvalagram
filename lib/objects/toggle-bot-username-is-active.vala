@@ -26,7 +26,7 @@
  * has been reached. Can be called only if userTypeBot.can_be_edited ==
  * true
  */
-internal class TDLib.ToggleBotUsernameIsActive : TDObject {
+public class TDLib.ToggleBotUsernameIsActive : TDObject {
 
     /**
      * Identifier of the target bot

@@ -21,10 +21,11 @@
 
 /**
  * Replaces existing sticker in a set. The function is equivalent to
- * removeStickerFromSet, then addStickerToSet, then
- * setStickerPositionInSet
+ * {@link Client.remove_sticker_from_set} then
+ * {@link Client.add_sticker_to_set} then
+ * {@link Client.set_sticker_position_in_set}
  */
-internal class TDLib.ReplaceStickerInSet : TDObject {
+public class TDLib.ReplaceStickerInSet : TDObject {
 
     /**
      * Sticker set owner; ignored for regular users

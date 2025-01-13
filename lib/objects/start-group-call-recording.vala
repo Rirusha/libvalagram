@@ -23,7 +23,7 @@
  * Starts recording of an active group call. Requires
  * groupCall.can_be_managed group call flag
  */
-internal class TDLib.StartGroupCallRecording : TDObject {
+public class TDLib.StartGroupCallRecording : TDObject {
 
     /**
      * Group call identifier

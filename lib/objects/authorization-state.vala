@@ -25,8 +25,8 @@
 public abstract class TDLib.AuthorizationState : Error {}
 
 /**
- * Initialization parameters are needed. Call setTdlibParameters to
- * provide them
+ * Initialization parameters are needed. Call
+ * {@link Client.set_tdlib_parameters} to provide them
  */
 public class TDLib.AuthorizationStateWaitTdlibParameters : AuthorizationState {
 
@@ -40,9 +40,10 @@ public class TDLib.AuthorizationStateWaitTdlibParameters : AuthorizationState {
 
 /**
  * TDLib needs the user's phone number to authorize. Call
- * setAuthenticationPhoneNumber to provide the phone number, or use
- * requestQrCodeAuthentication or checkAuthenticationBotToken for other
- * authentication options
+ * {@link Client.set_authentication_phone_number} to provide the phone
+ * number, or use {@link Client.request_qr_code_authentication} or
+ * {@link Client.check_authentication_bot_token} for other authentication
+ * options
  */
 public class TDLib.AuthorizationStateWaitPhoneNumber : AuthorizationState {
 
@@ -56,8 +57,9 @@ public class TDLib.AuthorizationStateWaitPhoneNumber : AuthorizationState {
 
 /**
  * TDLib needs the user's email address to authorize. Call
- * setAuthenticationEmailAddress to provide the email address, or
- * directly call checkAuthenticationEmailCode with Apple ID/Google ID
+ * {@link Client.set_authentication_email_address} to provide the email
+ * address, or directly call
+ * {@link Client.check_authentication_email_code} with Apple ID/Google ID
  * token if allowed
  */
 public class TDLib.AuthorizationStateWaitEmailAddress : AuthorizationState {
@@ -87,7 +89,8 @@ public class TDLib.AuthorizationStateWaitEmailAddress : AuthorizationState {
 
 /**
  * TDLib needs the user's authentication code sent to an email address to
- * authorize. Call checkAuthenticationEmailCode to provide the code
+ * authorize. Call {@link Client.check_authentication_email_code} to
+ * provide the code
  */
 public class TDLib.AuthorizationStateWaitEmailCode : AuthorizationState {
 
@@ -131,7 +134,7 @@ public class TDLib.AuthorizationStateWaitEmailCode : AuthorizationState {
 
 /**
  * TDLib needs the user's authentication code to authorize. Call
- * checkAuthenticationCode to check the code
+ * {@link Client.check_authentication_code} to check the code
  */
 public class TDLib.AuthorizationStateWaitCode : AuthorizationState {
 
@@ -158,7 +161,7 @@ public class TDLib.AuthorizationStateWaitCode : AuthorizationState {
 public class TDLib.AuthorizationStateWaitOtherDeviceConfirmation : AuthorizationState {
 
     /**
-     * A tg:// URL for the QR code. The link will be updated frequently
+     * A [[tg://]] URL for the QR code. The link will be updated frequently
      */
     public string link { get; construct set; }
 
@@ -176,7 +179,8 @@ public class TDLib.AuthorizationStateWaitOtherDeviceConfirmation : Authorization
 /**
  * The user is unregistered and need to accept terms of service and enter
  * their first name and last name to finish registration. Call
- * registerUser to accept the terms of service and provide the data
+ * {@link Client.register_user} to accept the terms of service and
+ * provide the data
  */
 public class TDLib.AuthorizationStateWaitRegistration : AuthorizationState {
 
@@ -199,9 +203,10 @@ public class TDLib.AuthorizationStateWaitRegistration : AuthorizationState {
 /**
  * The user has been authorized, but needs to enter a 2-step verification
  * password to start using the application.
- * Call checkAuthenticationPassword to provide the password, or
- * requestAuthenticationPasswordRecovery to recover the password, or
- * deleteAccount to delete the account after a week
+ * Call {@link Client.check_authentication_password} to provide the
+ * password, or {@link Client.request_authentication_password_recovery}
+ * to recover the password, or {@link Client.delete_account} to delete
+ * the account after a week
  */
 public class TDLib.AuthorizationStateWaitPassword : AuthorizationState {
 

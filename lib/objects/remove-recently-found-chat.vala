@@ -22,7 +22,7 @@
 /**
  * Removes a chat from the list of recently found chats
  */
-internal class TDLib.RemoveRecentlyFoundChat : TDObject {
+public class TDLib.RemoveRecentlyFoundChat : TDObject {
 
     /**
      * Identifier of the chat to be removed

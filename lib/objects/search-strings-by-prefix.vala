@@ -24,7 +24,7 @@
  * Returns 0-based positions of strings that matched. Can be called
  * synchronously
  */
-internal class TDLib.SearchStringsByPrefix : TDObject {
+public class TDLib.SearchStringsByPrefix : TDObject {
 
     /**
      * The strings to search in for the query

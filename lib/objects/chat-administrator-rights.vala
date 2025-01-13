@@ -73,8 +73,9 @@ public class TDLib.ChatAdministratorRights : Error {
     public bool can_pin_messages { get; construct set; }
 
     /**
-     * True, if the administrator can create, rename, close, reopen, hide,
-     * and unhide forum topics; applicable to forum supergroups only
+     * True, if the administrator can create, rename, {@link Client.close}
+     * reopen, hide, and unhide forum topics; applicable to forum supergroups
+     * only
      */
     public bool can_manage_topics { get; construct set; }
 

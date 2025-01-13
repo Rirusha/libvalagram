@@ -25,7 +25,7 @@
  * to maintain the current authorization state. Can be called before
  * initialization
  */
-internal class TDLib.GetAuthorizationState : TDObject {
+public class TDLib.GetAuthorizationState : TDObject {
 
     public GetAuthorizationState () {
         Object (

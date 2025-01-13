@@ -54,15 +54,17 @@ public class TDLib.UserTypeDeleted : UserType {
 }
 
 /**
- * A bot (see https://core.telegram.org/bots)
+ * A bot (see [[https://core.telegram.org/bots]])
  */
 public class TDLib.UserTypeBot : UserType {
 
     /**
      * True, if the bot is owned by the current user and can be edited using
-     * the methods toggleBotUsernameIsActive, reorderBotActiveUsernames,
-     * setBotProfilePhoto, setBotName, setBotInfoDescription, and
-     * setBotInfoShortDescription
+     * the methods {@link Client.toggle_bot_username_is_active}
+     * {@link Client.reorder_bot_active_usernames}
+     * {@link Client.set_bot_profile_photo} {@link Client.set_bot_name}
+     * {@link Client.set_bot_info_description} and
+     * {@link Client.set_bot_info_short_description}
      */
     public bool can_be_edited { get; construct set; }
 

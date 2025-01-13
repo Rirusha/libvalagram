@@ -23,7 +23,7 @@
  * Returns identifiers of pinned or always included chats from a chat
  * folder, which are suggested to be left when the chat folder is deleted
  */
-internal class TDLib.GetChatFolderChatsToLeave : TDObject {
+public class TDLib.GetChatFolderChatsToLeave : TDObject {
 
     /**
      * Chat folder identifier

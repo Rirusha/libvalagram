@@ -22,7 +22,7 @@
 /**
  * Sets a sticker set thumbnail
  */
-internal class TDLib.SetStickerSetThumbnail : TDObject {
+public class TDLib.SetStickerSetThumbnail : TDObject {
 
     /**
      * Sticker set owner; ignored for regular users

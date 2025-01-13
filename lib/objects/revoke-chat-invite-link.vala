@@ -27,7 +27,7 @@
  * If a primary link is revoked, then additionally to the revoked link
  * returns new primary link
  */
-internal class TDLib.RevokeChatInviteLink : TDObject {
+public class TDLib.RevokeChatInviteLink : TDObject {
 
     /**
      * Chat identifier

@@ -23,7 +23,7 @@
  * Reports a chat to the Telegram moderators. A chat can be reported only
  * from the chat action bar, or if chat.can_be_reported
  */
-internal class TDLib.ReportChat : TDObject {
+public class TDLib.ReportChat : TDObject {
 
     /**
      * Chat identifier

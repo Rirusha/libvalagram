@@ -23,7 +23,7 @@
  * Ends recording of an active group call. Requires
  * groupCall.can_be_managed group call flag
  */
-internal class TDLib.EndGroupCallRecording : TDObject {
+public class TDLib.EndGroupCallRecording : TDObject {
 
     /**
      * Group call identifier

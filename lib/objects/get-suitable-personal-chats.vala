@@ -22,7 +22,7 @@
 /**
  * Returns a list of channel chats, which can be used as a personal chat
  */
-internal class TDLib.GetSuitablePersonalChats : TDObject {
+public class TDLib.GetSuitablePersonalChats : TDObject {
 
     public GetSuitablePersonalChats () {
         Object (

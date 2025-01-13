@@ -23,7 +23,7 @@
  * Reports messages in a supergroup as spam; requires administrator
  * rights in the supergroup
  */
-internal class TDLib.ReportSupergroupSpam : TDObject {
+public class TDLib.ReportSupergroupSpam : TDObject {
 
     /**
      * Supergroup identifier

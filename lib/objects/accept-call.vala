@@ -22,7 +22,7 @@
 /**
  * Accepts an incoming call
  */
-internal class TDLib.AcceptCall : TDObject {
+public class TDLib.AcceptCall : TDObject {
 
     /**
      * Call identifier

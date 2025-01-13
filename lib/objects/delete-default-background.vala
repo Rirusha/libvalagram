@@ -22,7 +22,7 @@
 /**
  * Deletes default background for chats
  */
-internal class TDLib.DeleteDefaultBackground : TDObject {
+public class TDLib.DeleteDefaultBackground : TDObject {
 
     /**
      * Pass true if the background is deleted for a dark theme

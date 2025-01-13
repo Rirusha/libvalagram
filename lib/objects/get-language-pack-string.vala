@@ -24,7 +24,7 @@
  * localization target and language pack by its key. Returns a 404 error
  * if the string is not found. Can be called synchronously
  */
-internal class TDLib.GetLanguagePackString : TDObject {
+public class TDLib.GetLanguagePackString : TDObject {
 
     /**
      * Path to the language pack database in which strings are stored

@@ -26,7 +26,7 @@
  * authorizationStateWaitEmailCode and
  * authorization_state.can_reset_email_address == true
  */
-internal class TDLib.ResetAuthenticationEmailAddress : TDObject {
+public class TDLib.ResetAuthenticationEmailAddress : TDObject {
 
     public ResetAuthenticationEmailAddress () {
         Object (

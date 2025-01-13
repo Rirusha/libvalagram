@@ -23,7 +23,7 @@
  * Checks the validity of an invite link for a chat folder and returns
  * information about the corresponding chat folder
  */
-internal class TDLib.CheckChatFolderInviteLink : TDObject {
+public class TDLib.CheckChatFolderInviteLink : TDObject {
 
     /**
      * Invite link to be checked

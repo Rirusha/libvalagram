@@ -23,7 +23,7 @@
  * Returns information about a bot that can be added to attachment or
  * side menu
  */
-internal class TDLib.GetAttachmentMenuBot : TDObject {
+public class TDLib.GetAttachmentMenuBot : TDObject {
 
     /**
      * Bot's user identifier

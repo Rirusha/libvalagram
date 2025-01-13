@@ -22,7 +22,7 @@
 /**
  * Adds a new sticker to a set
  */
-internal class TDLib.AddStickerToSet : TDObject {
+public class TDLib.AddStickerToSet : TDObject {
 
     /**
      * Sticker set owner; ignored for regular users

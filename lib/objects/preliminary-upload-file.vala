@@ -27,7 +27,7 @@
  * Updates updateFile will be used to notify about upload progress.
  * The upload will not be completed until the file is sent in a message
  */
-internal class TDLib.PreliminaryUploadFile : TDObject {
+public class TDLib.PreliminaryUploadFile : TDObject {
 
     /**
      * File to upload
@@ -42,8 +42,8 @@ internal class TDLib.PreliminaryUploadFile : TDObject {
     /**
      * Priority of the upload (1-32). The higher the priority, the earlier
      * the file will be uploaded. If the priorities of two files are equal,
-     * then the first one for which preliminaryUploadFile was called will be
-     * uploaded first
+     * then the first one for which {@link Client.preliminary_upload_file}
+     * was called will be uploaded first
      */
     public int32 priority { get; construct set; }
 

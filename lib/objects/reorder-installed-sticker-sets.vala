@@ -22,7 +22,7 @@
 /**
  * Changes the order of installed sticker sets
  */
-internal class TDLib.ReorderInstalledStickerSets : TDObject {
+public class TDLib.ReorderInstalledStickerSets : TDObject {
 
     /**
      * Type of the sticker sets to reorder

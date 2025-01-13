@@ -22,7 +22,7 @@
 /**
  * Returns the list of supported time zones
  */
-internal class TDLib.GetTimeZones : TDObject {
+public class TDLib.GetTimeZones : TDObject {
 
     public GetTimeZones () {
         Object (

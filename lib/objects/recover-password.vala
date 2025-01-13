@@ -23,7 +23,7 @@
  * Recovers the 2-step verification password using a recovery code sent
  * to an email address that was previously set up
  */
-internal class TDLib.RecoverPassword : TDObject {
+public class TDLib.RecoverPassword : TDObject {
 
     /**
      * Recovery code to check

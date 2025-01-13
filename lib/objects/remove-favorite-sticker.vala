@@ -22,7 +22,7 @@
 /**
  * Removes a sticker from the list of favorite stickers
  */
-internal class TDLib.RemoveFavoriteSticker : TDObject {
+public class TDLib.RemoveFavoriteSticker : TDObject {
 
     /**
      * Sticker file to delete from the list

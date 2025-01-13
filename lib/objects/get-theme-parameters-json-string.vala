@@ -23,7 +23,7 @@
  * Converts a themeParameters object to corresponding JSON-serialized
  * string. Can be called synchronously
  */
-internal class TDLib.GetThemeParametersJsonString : TDObject {
+public class TDLib.GetThemeParametersJsonString : TDObject {
 
     /**
      * Theme parameters to convert to JSON

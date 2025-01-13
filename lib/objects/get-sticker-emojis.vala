@@ -24,7 +24,7 @@
  * informational purposes, because a sticker is always sent with a fixed
  * emoji from the corresponding Sticker object
  */
-internal class TDLib.GetStickerEmojis : TDObject {
+public class TDLib.GetStickerEmojis : TDObject {
 
     /**
      * Sticker file identifier

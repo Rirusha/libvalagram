@@ -22,7 +22,7 @@
 /**
  * Returns all available Telegram Passport elements
  */
-internal class TDLib.GetAllPassportElements : TDObject {
+public class TDLib.GetAllPassportElements : TDObject {
 
     /**
      * The 2-step verification password of the current user

@@ -22,7 +22,7 @@
 /**
  * Searches a user by a token from the user's link
  */
-internal class TDLib.SearchUserByToken : TDObject {
+public class TDLib.SearchUserByToken : TDObject {
 
     /**
      * Token to search for

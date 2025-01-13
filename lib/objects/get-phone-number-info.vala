@@ -23,7 +23,7 @@
  * Returns information about a phone number by its prefix. Can be called
  * before authorization
  */
-internal class TDLib.GetPhoneNumberInfo : TDObject {
+public class TDLib.GetPhoneNumberInfo : TDObject {
 
     /**
      * The phone number prefix

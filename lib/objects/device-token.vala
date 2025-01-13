@@ -21,10 +21,10 @@
 
 /**
  * Represents a data needed to subscribe for push notifications through
- * registerDevice method.
+ * {@link Client.register_device} method.
  * To use specific push notification service, the correct application
  * platform must be specified and a valid server authentication data must
- * be uploaded at https://my.telegram.org
+ * be uploaded at [[https://my.telegram.org]]
  */
 public abstract class TDLib.DeviceToken : Error {}
 

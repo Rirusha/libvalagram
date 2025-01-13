@@ -23,7 +23,7 @@
  * Toggles whether joining is mandatory to send messages to a discussion
  * supergroup; requires can_restrict_members administrator right
  */
-internal class TDLib.ToggleSupergroupJoinToSendMessages : TDObject {
+public class TDLib.ToggleSupergroupJoinToSendMessages : TDObject {
 
     /**
      * Identifier of the supergroup that isn't a broadcast group

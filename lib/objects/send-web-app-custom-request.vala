@@ -22,7 +22,7 @@
 /**
  * Sends a custom request from a Web App
  */
-internal class TDLib.SendWebAppCustomRequest : TDObject {
+public class TDLib.SendWebAppCustomRequest : TDObject {
 
     /**
      * Identifier of the bot

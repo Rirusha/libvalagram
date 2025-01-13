@@ -23,7 +23,7 @@
  * Returns full information about a supergroup or a channel by its
  * identifier, cached for up to 1 minute
  */
-internal class TDLib.GetSupergroupFullInfo : TDObject {
+public class TDLib.GetSupergroupFullInfo : TDObject {
 
     /**
      * Supergroup or channel identifier

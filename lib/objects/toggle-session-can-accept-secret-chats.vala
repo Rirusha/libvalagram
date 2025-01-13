@@ -22,7 +22,7 @@
 /**
  * Toggles whether a session can accept incoming secret chats
  */
-internal class TDLib.ToggleSessionCanAcceptSecretChats : TDObject {
+public class TDLib.ToggleSessionCanAcceptSecretChats : TDObject {
 
     /**
      * Session identifier

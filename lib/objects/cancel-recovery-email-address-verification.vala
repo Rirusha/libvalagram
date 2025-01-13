@@ -22,7 +22,7 @@
 /**
  * Cancels verification of the 2-step verification recovery email address
  */
-internal class TDLib.CancelRecoveryEmailAddressVerification : TDObject {
+public class TDLib.CancelRecoveryEmailAddressVerification : TDObject {
 
     public CancelRecoveryEmailAddressVerification () {
         Object (

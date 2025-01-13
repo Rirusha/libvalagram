@@ -23,7 +23,7 @@
  * Informs the server about the number of pending bot updates if they
  * haven't been processed for a long time; for bots only
  */
-internal class TDLib.SetBotUpdatesStatus : TDObject {
+public class TDLib.SetBotUpdatesStatus : TDObject {
 
     /**
      * The number of pending updates

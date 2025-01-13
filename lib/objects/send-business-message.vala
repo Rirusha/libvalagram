@@ -23,7 +23,7 @@
  * Sends a message on behalf of a business account; for bots only.
  * Returns the message after it was sent
  */
-internal class TDLib.SendBusinessMessage : TDObject {
+public class TDLib.SendBusinessMessage : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which to send

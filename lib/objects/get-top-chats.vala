@@ -22,7 +22,7 @@
 /**
  * Returns a list of frequently used chats
  */
-internal class TDLib.GetTopChats : TDObject {
+public class TDLib.GetTopChats : TDObject {
 
     /**
      * Category of chats to be returned

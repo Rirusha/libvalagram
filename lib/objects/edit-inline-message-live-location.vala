@@ -23,7 +23,7 @@
  * Edits the content of a live location in an inline message sent via a
  * bot; for bots only
  */
-internal class TDLib.EditInlineMessageLiveLocation : TDObject {
+public class TDLib.EditInlineMessageLiveLocation : TDObject {
 
     /**
      * Inline message identifier

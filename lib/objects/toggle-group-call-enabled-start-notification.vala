@@ -23,7 +23,7 @@
  * Toggles whether the current user will receive a notification when the
  * group call starts; scheduled group calls only
  */
-internal class TDLib.ToggleGroupCallEnabledStartNotification : TDObject {
+public class TDLib.ToggleGroupCallEnabledStartNotification : TDObject {
 
     /**
      * Group call identifier

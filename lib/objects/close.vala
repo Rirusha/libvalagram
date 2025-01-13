@@ -21,11 +21,11 @@
 
 /**
  * Closes the TDLib instance. All databases will be flushed to disk and
- * properly closed. After the close completes, updateAuthorizationState
- * with authorizationStateClosed will be sent. Can be called before
- * initialization
+ * properly closed. After the {@link Client.close} completes,
+ * updateAuthorizationState with authorizationStateClosed will be sent.
+ * Can be called before initialization
  */
-internal class TDLib.Close : TDObject {
+public class TDLib.Close : TDObject {
 
     public Close () {
         Object (

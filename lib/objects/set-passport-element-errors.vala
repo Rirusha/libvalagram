@@ -24,7 +24,7 @@
  * contain errors; for bots only. The user will not be able to resend the
  * elements, until the errors are fixed
  */
-internal class TDLib.SetPassportElementErrors : TDObject {
+public class TDLib.SetPassportElementErrors : TDObject {
 
     /**
      * User identifier

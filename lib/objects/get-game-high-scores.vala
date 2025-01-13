@@ -23,7 +23,7 @@
  * Returns the high scores for a game and some part of the high score
  * table in the range of the specified user; for bots only
  */
-internal class TDLib.GetGameHighScores : TDObject {
+public class TDLib.GetGameHighScores : TDObject {
 
     /**
      * The chat that contains the message with the game

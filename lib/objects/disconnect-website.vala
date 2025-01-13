@@ -22,7 +22,7 @@
 /**
  * Disconnects website from the current user's Telegram account
  */
-internal class TDLib.DisconnectWebsite : TDObject {
+public class TDLib.DisconnectWebsite : TDObject {
 
     /**
      * Website identifier

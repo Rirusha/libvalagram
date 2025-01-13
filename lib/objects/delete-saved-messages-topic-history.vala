@@ -22,7 +22,7 @@
 /**
  * Deletes all messages in a Saved Messages topic
  */
-internal class TDLib.DeleteSavedMessagesTopicHistory : TDObject {
+public class TDLib.DeleteSavedMessagesTopicHistory : TDObject {
 
     /**
      * Identifier of Saved Messages topic which messages will be deleted

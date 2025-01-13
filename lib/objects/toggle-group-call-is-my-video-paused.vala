@@ -22,7 +22,7 @@
 /**
  * Toggles whether current user's video is paused
  */
-internal class TDLib.ToggleGroupCallIsMyVideoPaused : TDObject {
+public class TDLib.ToggleGroupCallIsMyVideoPaused : TDObject {
 
     /**
      * Group call identifier

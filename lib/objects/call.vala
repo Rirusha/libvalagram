@@ -52,7 +52,7 @@ public class TDLib.Call : Error {
     /**
      * Identifier of the group call associated with the call; 0 if the group
      * call isn't created yet. The group call can be received through the
-     * method getGroupCall
+     * method {@link Client.get_group_call}
      */
     public int32 group_call_id { get; construct set; }
 

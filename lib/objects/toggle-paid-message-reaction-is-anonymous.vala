@@ -23,7 +23,7 @@
  * Changes whether the paid message reaction of the user to a message is
  * anonymous. The message must have paid reaction added by the user
  */
-internal class TDLib.TogglePaidMessageReactionIsAnonymous : TDObject {
+public class TDLib.TogglePaidMessageReactionIsAnonymous : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

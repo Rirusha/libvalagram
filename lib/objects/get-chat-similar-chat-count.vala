@@ -22,7 +22,7 @@
 /**
  * Returns approximate number of chats similar to the given chat
  */
-internal class TDLib.GetChatSimilarChatCount : TDObject {
+public class TDLib.GetChatSimilarChatCount : TDObject {
 
     /**
      * Identifier of the target chat; must be an identifier of a channel chat

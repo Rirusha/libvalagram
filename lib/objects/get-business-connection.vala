@@ -23,7 +23,7 @@
  * Returns information about a business connection by its identifier; for
  * bots only
  */
-internal class TDLib.GetBusinessConnection : TDObject {
+public class TDLib.GetBusinessConnection : TDObject {
 
     /**
      * Identifier of the business connection to return

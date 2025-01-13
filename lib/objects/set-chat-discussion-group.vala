@@ -23,7 +23,7 @@
  * Changes the discussion group of a channel chat; requires
  * can_change_info administrator right in the channel if it is specified
  */
-internal class TDLib.SetChatDiscussionGroup : TDObject {
+public class TDLib.SetChatDiscussionGroup : TDObject {
 
     /**
      * Identifier of the channel chat. Pass 0 to remove a link from the
@@ -34,12 +34,13 @@ internal class TDLib.SetChatDiscussionGroup : TDObject {
 
     /**
      * Identifier of a new channel's discussion group. Use 0 to remove the
-     * discussion group. Use the method getSuitableDiscussionChats to find
-     * all suitable groups.
+     * discussion group. Use the method
+     * {@link Client.get_suitable_discussion_chats} to find all suitable
+     * groups.
      * Basic group chats must be first upgraded to supergroup chats. If new
      * chat members don't have access to old messages in the supergroup, then
-     * toggleSupergroupIsAllHistoryAvailable must be used first to change
-     * that
+     * {@link Client.toggle_supergroup_is_all_history_available} must be used
+     * first to change that
      */
     public int64 discussion_chat_id { get; construct set; }
 

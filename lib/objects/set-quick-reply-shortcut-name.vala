@@ -22,7 +22,7 @@
 /**
  * Changes name of a quick reply shortcut
  */
-internal class TDLib.SetQuickReplyShortcutName : TDObject {
+public class TDLib.SetQuickReplyShortcutName : TDObject {
 
     /**
      * Unique identifier of the quick reply shortcut
@@ -30,8 +30,8 @@ internal class TDLib.SetQuickReplyShortcutName : TDObject {
     public int32 shortcut_id { get; construct set; }
 
     /**
-     * New name for the shortcut. Use checkQuickReplyShortcutName to check
-     * its validness
+     * New name for the shortcut. Use
+     * {@link Client.check_quick_reply_shortcut_name} to check its validness
      */
     public string name { get; construct set; }
 

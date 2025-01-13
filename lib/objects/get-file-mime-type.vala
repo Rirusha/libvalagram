@@ -23,7 +23,7 @@
  * Returns the MIME type of a file, guessed by its extension. Returns an
  * empty string on failure. Can be called synchronously
  */
-internal class TDLib.GetFileMimeType : TDObject {
+public class TDLib.GetFileMimeType : TDObject {
 
     /**
      * The name of the file or path to the file

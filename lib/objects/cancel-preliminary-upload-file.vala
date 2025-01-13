@@ -21,9 +21,9 @@
 
 /**
  * Stops the preliminary uploading of a file. Supported only for files
- * uploaded by using preliminaryUploadFile
+ * uploaded by using {@link Client.preliminary_upload_file}
  */
-internal class TDLib.CancelPreliminaryUploadFile : TDObject {
+public class TDLib.CancelPreliminaryUploadFile : TDObject {
 
     /**
      * Identifier of the file to stop uploading

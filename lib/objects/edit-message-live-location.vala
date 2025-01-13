@@ -25,7 +25,7 @@
  * Returns the edited message after the edit is completed on the server
  * side
  */
-internal class TDLib.EditMessageLiveLocation : TDObject {
+public class TDLib.EditMessageLiveLocation : TDObject {
 
     /**
      * The chat the message belongs to

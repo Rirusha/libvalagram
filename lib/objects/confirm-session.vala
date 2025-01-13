@@ -23,7 +23,7 @@
  * Confirms an unconfirmed session of the current user from another
  * device
  */
-internal class TDLib.ConfirmSession : TDObject {
+public class TDLib.ConfirmSession : TDObject {
 
     /**
      * Session identifier

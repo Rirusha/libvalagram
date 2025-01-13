@@ -24,7 +24,7 @@
  * the name, the chat photo, a mention in the sponsored message text, or
  * the media in the sponsored message
  */
-internal class TDLib.ClickChatSponsoredMessage : TDObject {
+public class TDLib.ClickChatSponsoredMessage : TDObject {
 
     /**
      * Chat identifier of the sponsored message

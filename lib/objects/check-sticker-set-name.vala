@@ -22,7 +22,7 @@
 /**
  * Checks whether a name can be used for a new sticker set
  */
-internal class TDLib.CheckStickerSetName : TDObject {
+public class TDLib.CheckStickerSetName : TDObject {
 
     /**
      * Name to be checked

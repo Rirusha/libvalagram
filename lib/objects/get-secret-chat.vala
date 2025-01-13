@@ -23,7 +23,7 @@
  * Returns information about a secret chat by its identifier. This is an
  * offline request
  */
-internal class TDLib.GetSecretChat : TDObject {
+public class TDLib.GetSecretChat : TDObject {
 
     /**
      * Secret chat identifier

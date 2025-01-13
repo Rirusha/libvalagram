@@ -36,7 +36,8 @@ public class TDLib.BotVerificationParameters : Error {
 
     /**
      * Default custom description of verification reason to be used as
-     * placeholder in setMessageSenderBotVerification; may be null if none
+     * placeholder in {@link Client.set_message_sender_bot_verification} may
+     * be null if none
      */
     public FormattedText? default_custom_description { get; construct set; }
 

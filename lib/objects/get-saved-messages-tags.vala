@@ -22,7 +22,7 @@
 /**
  * Returns tags used in Saved Messages or a Saved Messages topic
  */
-internal class TDLib.GetSavedMessagesTags : TDObject {
+public class TDLib.GetSavedMessagesTags : TDObject {
 
     /**
      * Identifier of Saved Messages topic which tags will be returned; pass 0

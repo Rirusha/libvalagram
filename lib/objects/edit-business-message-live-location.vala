@@ -23,7 +23,7 @@
  * Edits the content of a live location in a message sent on behalf of a
  * business account; for bots only
  */
-internal class TDLib.EditBusinessMessageLiveLocation : TDObject {
+public class TDLib.EditBusinessMessageLiveLocation : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which the

@@ -23,7 +23,7 @@
  * Edits the message content caption. Returns the edited message after
  * the edit is completed on the server side
  */
-internal class TDLib.EditMessageCaption : TDObject {
+public class TDLib.EditMessageCaption : TDObject {
 
     /**
      * The chat the message belongs to

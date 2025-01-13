@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains information about a message created with importMessages
+ * Contains information about a message created with
+ * {@link Client.import_messages}
  */
 public class TDLib.MessageImportInfo : Error {
 

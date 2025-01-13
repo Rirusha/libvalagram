@@ -22,7 +22,7 @@
 /**
  * Returns privacy settings for new chat creation
  */
-internal class TDLib.GetNewChatPrivacySettings : TDObject {
+public class TDLib.GetNewChatPrivacySettings : TDObject {
 
     public GetNewChatPrivacySettings () {
         Object (

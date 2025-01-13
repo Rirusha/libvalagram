@@ -24,7 +24,7 @@
  * Archive chat lists, so it is automatically removed from another one if
  * needed
  */
-internal class TDLib.AddChatToList : TDObject {
+public class TDLib.AddChatToList : TDObject {
 
     /**
      * Chat identifier
@@ -32,7 +32,8 @@ internal class TDLib.AddChatToList : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * The chat list. Use getChatListsToAddChat to get suitable chat lists
+     * The chat list. Use {@link Client.get_chat_lists_to_add_chat} to get
+     * suitable chat lists
      */
     public ChatList chat_list { get; construct set; }
 

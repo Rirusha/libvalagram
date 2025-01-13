@@ -23,7 +23,7 @@
  * Returns a list of common group chats with a given user. Chats are
  * sorted by their type and creation date
  */
-internal class TDLib.GetGroupsInCommon : TDObject {
+public class TDLib.GetGroupsInCommon : TDObject {
 
     /**
      * User identifier

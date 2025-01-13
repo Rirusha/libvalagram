@@ -22,7 +22,7 @@
 /**
  * Sends a notification about user activity in a chat
  */
-internal class TDLib.SendChatAction : TDObject {
+public class TDLib.SendChatAction : TDObject {
 
     /**
      * Chat identifier

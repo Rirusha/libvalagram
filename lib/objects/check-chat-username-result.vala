@@ -64,8 +64,9 @@ public class TDLib.CheckChatUsernameResultUsernameOccupied : CheckChatUsernameRe
 }
 
 /**
- * The username can be purchased at https://fragment.com. Information
- * about the username can be received using getCollectibleItemInfo
+ * The username can be purchased at [[https://fragment.com]]. Information
+ * about the username can be received using
+ * {@link Client.get_collectible_item_info}
  */
 public class TDLib.CheckChatUsernameResultUsernamePurchasable : CheckChatUsernameResult {
 

@@ -23,7 +23,7 @@
  * Edits an existing proxy server for network requests. Can be called
  * before authorization
  */
-internal class TDLib.EditProxy : TDObject {
+public class TDLib.EditProxy : TDObject {
 
     /**
      * Proxy identifier

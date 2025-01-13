@@ -22,7 +22,7 @@
 /**
  * Marks all mentions in a chat as read
  */
-internal class TDLib.ReadAllChatMentions : TDObject {
+public class TDLib.ReadAllChatMentions : TDObject {
 
     /**
      * Chat identifier

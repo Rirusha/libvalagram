@@ -53,8 +53,8 @@ public class TDLib.CanSendStoryResultPremiumNeeded : CanSendStoryResult {
 
 /**
  * The chat must be boosted first by Telegram Premium subscribers to post
- * more stories. Call getChatBoostStatus to get current boost status of
- * the chat
+ * more stories. Call {@link Client.get_chat_boost_status} to get current
+ * boost status of the chat
  */
 public class TDLib.CanSendStoryResultBoostNeeded : CanSendStoryResult {
 

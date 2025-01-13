@@ -23,7 +23,7 @@
  * Returns information about a message with the callback button that
  * originated a callback query; for bots only
  */
-internal class TDLib.GetCallbackQueryMessage : TDObject {
+public class TDLib.GetCallbackQueryMessage : TDObject {
 
     /**
      * Identifier of the chat the message belongs to

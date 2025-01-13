@@ -21,7 +21,8 @@
 
 /**
  * Represents the results of the inline query. Use
- * sendInlineQueryResultMessage to send the result of the query
+ * {@link Client.send_inline_query_result_message} to send the result of
+ * the query
  */
 public class TDLib.InlineQueryResults : Error {
 

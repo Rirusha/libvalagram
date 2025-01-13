@@ -22,7 +22,7 @@
 /**
  * Changes the first and last name of the current user
  */
-internal class TDLib.SetName : TDObject {
+public class TDLib.SetName : TDObject {
 
     /**
      * The new value of the first name for the current user; 1-64 characters

@@ -23,7 +23,7 @@
  * Requests to send a 2-step verification password recovery code to an
  * email address that was previously set up
  */
-internal class TDLib.RequestPasswordRecovery : TDObject {
+public class TDLib.RequestPasswordRecovery : TDObject {
 
     public RequestPasswordRecovery () {
         Object (

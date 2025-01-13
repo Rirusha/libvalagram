@@ -72,7 +72,7 @@ public class TDLib.ReportStoryResultOptionRequired : ReportStoryResult {
 public class TDLib.ReportStoryResultTextRequired : ReportStoryResult {
 
     /**
-     * Option identifier for the next reportStory request
+     * Option identifier for the next {@link Client.report_story} request
      */
     public Bytes option_id { get; construct set; }
 

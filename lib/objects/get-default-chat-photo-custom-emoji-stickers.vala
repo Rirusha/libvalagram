@@ -23,7 +23,7 @@
  * Returns default list of custom emoji stickers for placing on a chat
  * photo
  */
-internal class TDLib.GetDefaultChatPhotoCustomEmojiStickers : TDObject {
+public class TDLib.GetDefaultChatPhotoCustomEmojiStickers : TDObject {
 
     public GetDefaultChatPhotoCustomEmojiStickers () {
         Object (

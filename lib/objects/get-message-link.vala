@@ -25,7 +25,7 @@
  * messageProperties.can_get_media_timestamp_links and a media timestamp
  * link is generated. This is an offline request
  */
-internal class TDLib.GetMessageLink : TDObject {
+public class TDLib.GetMessageLink : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

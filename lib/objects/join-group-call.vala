@@ -22,7 +22,7 @@
 /**
  * Joins an active group call. Returns join response payload for tgcalls
  */
-internal class TDLib.JoinGroupCall : TDObject {
+public class TDLib.JoinGroupCall : TDObject {
 
     /**
      * Group call identifier

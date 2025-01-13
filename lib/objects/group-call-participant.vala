@@ -63,7 +63,7 @@ public class TDLib.GroupCallParticipant : Error {
 
     /**
      * True, if the participant is speaking as set by
-     * setGroupCallParticipantIsSpeaking
+     * {@link Client.set_group_call_participant_is_speaking}
      */
     public bool is_speaking { get; construct set; }
 

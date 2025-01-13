@@ -28,7 +28,7 @@
  * the library can use the network at all and also for collecting
  * detailed network data usage statistics
  */
-internal class TDLib.SetNetworkType : TDObject {
+public class TDLib.SetNetworkType : TDObject {
 
     /**
      * The new network type; pass null to set network type to

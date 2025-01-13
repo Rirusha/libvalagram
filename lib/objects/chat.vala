@@ -144,7 +144,7 @@ public class TDLib.Chat : Error {
 
     /**
      * True, if the chat can be reported to Telegram moderators through
-     * reportChat or reportChatPhoto
+     * {@link Client.report_chat} or {@link Client.report_chat_photo}
      */
     public bool can_be_reported { get; construct set; }
 

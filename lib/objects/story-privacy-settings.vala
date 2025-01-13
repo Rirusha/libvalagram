@@ -69,7 +69,7 @@ public class TDLib.StoryPrivacySettingsContacts : StoryPrivacySettings {
 }
 
 /**
- * The story can be viewed by all close friends
+ * The story can be viewed by all {@link Client.close} friends
  */
 public class TDLib.StoryPrivacySettingsCloseFriends : StoryPrivacySettings {
 

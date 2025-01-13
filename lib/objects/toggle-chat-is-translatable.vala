@@ -22,7 +22,7 @@
 /**
  * Changes the translatable state of a chat
  */
-internal class TDLib.ToggleChatIsTranslatable : TDObject {
+public class TDLib.ToggleChatIsTranslatable : TDObject {
 
     /**
      * Chat identifier

@@ -23,7 +23,7 @@
  * Edits a business chat link of the current account. Requires Telegram
  * Business subscription. Returns the edited link
  */
-internal class TDLib.EditBusinessChatLink : TDObject {
+public class TDLib.EditBusinessChatLink : TDObject {
 
     /**
      * The link to edit

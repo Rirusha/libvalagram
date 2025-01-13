@@ -25,7 +25,7 @@
  * and MentionName entities from a marked-up text. Can be called
  * synchronously
  */
-internal class TDLib.ParseTextEntities : TDObject {
+public class TDLib.ParseTextEntities : TDObject {
 
     /**
      * The text to parse

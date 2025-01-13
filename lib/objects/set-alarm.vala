@@ -23,7 +23,7 @@
  * Succeeds after a specified amount of time has passed. Can be called
  * before initialization
  */
-internal class TDLib.SetAlarm : TDObject {
+public class TDLib.SetAlarm : TDObject {
 
     /**
      * Number of seconds before the function returns

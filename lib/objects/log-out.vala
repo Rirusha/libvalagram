@@ -25,7 +25,7 @@
  * completes, updateAuthorizationState with authorizationStateClosed will
  * be sent
  */
-internal class TDLib.LogOut : TDObject {
+public class TDLib.LogOut : TDObject {
 
     public LogOut () {
         Object (

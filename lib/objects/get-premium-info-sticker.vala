@@ -23,7 +23,7 @@
  * Returns the sticker to be used as representation of the Telegram
  * Premium subscription
  */
-internal class TDLib.GetPremiumInfoSticker : TDObject {
+public class TDLib.GetPremiumInfoSticker : TDObject {
 
     /**
      * Number of months the Telegram Premium subscription will be active

@@ -22,7 +22,7 @@
 /**
  * Deletes a profile photo
  */
-internal class TDLib.DeleteProfilePhoto : TDObject {
+public class TDLib.DeleteProfilePhoto : TDObject {
 
     /**
      * Identifier of the profile photo to delete

@@ -23,7 +23,7 @@
  * Returns an HTTPS URL of a Web App to open after a link of the type
  * internalLinkTypeWebApp is clicked
  */
-internal class TDLib.GetWebAppLinkUrl : TDObject {
+public class TDLib.GetWebAppLinkUrl : TDObject {
 
     /**
      * Identifier of the chat in which the link was clicked; pass 0 if none

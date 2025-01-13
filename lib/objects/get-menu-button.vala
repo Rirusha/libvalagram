@@ -22,7 +22,7 @@
 /**
  * Returns menu button set by the bot for the given user; for bots only
  */
-internal class TDLib.GetMenuButton : TDObject {
+public class TDLib.GetMenuButton : TDObject {
 
     /**
      * Identifier of the user or 0 to get the default menu button

@@ -29,7 +29,7 @@
  * disabled, then the corresponding object with the file must be
  * preloaded by the application
  */
-internal class TDLib.GetRemoteFile : TDObject {
+public class TDLib.GetRemoteFile : TDObject {
 
     /**
      * Remote identifier of the file to get

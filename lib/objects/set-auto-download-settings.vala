@@ -22,7 +22,7 @@
 /**
  * Sets auto-download settings
  */
-internal class TDLib.SetAutoDownloadSettings : TDObject {
+public class TDLib.SetAutoDownloadSettings : TDObject {
 
     /**
      * New user auto-download settings

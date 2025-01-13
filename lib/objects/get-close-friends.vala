@@ -20,9 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns all close friends of the current user
+ * Returns all {@link Client.close} friends of the current user
  */
-internal class TDLib.GetCloseFriends : TDObject {
+public class TDLib.GetCloseFriends : TDObject {
 
     public GetCloseFriends () {
         Object (

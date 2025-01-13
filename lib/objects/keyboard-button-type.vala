@@ -97,8 +97,8 @@ public class TDLib.KeyboardButtonTypeRequestPoll : KeyboardButtonType {
 
 /**
  * A button that requests users to be shared by the current user;
- * available only in private chats. Use the method shareUsersWithBot to
- * complete the request
+ * available only in private chats. Use the method
+ * {@link Client.share_users_with_bot} to complete the request
  */
 public class TDLib.KeyboardButtonTypeRequestUsers : KeyboardButtonType {
 
@@ -179,8 +179,8 @@ public class TDLib.KeyboardButtonTypeRequestUsers : KeyboardButtonType {
 
 /**
  * A button that requests a chat to be shared by the current user;
- * available only in private chats. Use the method shareChatWithBot to
- * complete the request
+ * available only in private chats. Use the method
+ * {@link Client.share_chat_with_bot} to complete the request
  */
 public class TDLib.KeyboardButtonTypeRequestChat : KeyboardButtonType {
 
@@ -291,12 +291,13 @@ public class TDLib.KeyboardButtonTypeRequestChat : KeyboardButtonType {
 }
 
 /**
- * A button that opens a Web App by calling getWebAppUrl
+ * A button that opens a Web App by calling
+ * {@link Client.get_web_app_url}
  */
 public class TDLib.KeyboardButtonTypeWebApp : KeyboardButtonType {
 
     /**
-     * An HTTP URL to pass to getWebAppUrl
+     * An HTTP URL to pass to {@link Client.get_web_app_url}
      */
     public string url { get; construct set; }
 

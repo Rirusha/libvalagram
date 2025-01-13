@@ -22,7 +22,7 @@
 /**
  * Returns examples of premium stickers for demonstration purposes
  */
-internal class TDLib.GetPremiumStickerExamples : TDObject {
+public class TDLib.GetPremiumStickerExamples : TDObject {
 
     public GetPremiumStickerExamples () {
         Object (

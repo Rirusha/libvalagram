@@ -26,7 +26,7 @@
  * Query result depends on the result of the previous query, so only one
  * query is possible at the same time
  */
-internal class TDLib.ChangeImportedContacts : TDObject {
+public class TDLib.ChangeImportedContacts : TDObject {
 
     /**
      * The new list of contacts, contact's vCard are ignored and are not

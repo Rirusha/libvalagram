@@ -22,7 +22,7 @@
 /**
  * Clears the list of recently used emoji statuses for self status
  */
-internal class TDLib.ClearRecentEmojiStatuses : TDObject {
+public class TDLib.ClearRecentEmojiStatuses : TDObject {
 
     public ClearRecentEmojiStatuses () {
         Object (

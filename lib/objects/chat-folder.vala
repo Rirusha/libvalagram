@@ -31,7 +31,8 @@ public class TDLib.ChatFolder : Error {
 
     /**
      * The chosen icon for the chat folder; may be null. If null, use
-     * getChatFolderDefaultIconName to get default icon name for the folder
+     * {@link Client.get_chat_folder_default_icon_name} to get default icon
+     * name for the folder
      */
     public ChatFolderIcon? icon { get; construct set; }
 

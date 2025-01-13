@@ -24,7 +24,7 @@
  * be used only for supergroups and channels. Can be used only if
  * supergroupFullInfo.can_get_statistics == true
  */
-internal class TDLib.GetChatStatistics : TDObject {
+public class TDLib.GetChatStatistics : TDObject {
 
     /**
      * Chat identifier

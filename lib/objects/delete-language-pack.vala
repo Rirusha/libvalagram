@@ -26,7 +26,7 @@
  * deleted.
  * Can be called before authorization
  */
-internal class TDLib.DeleteLanguagePack : TDObject {
+public class TDLib.DeleteLanguagePack : TDObject {
 
     /**
      * Identifier of the language pack to delete

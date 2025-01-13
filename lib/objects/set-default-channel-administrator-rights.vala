@@ -23,7 +23,7 @@
  * Sets default administrator rights for adding the bot to channel chats;
  * for bots only
  */
-internal class TDLib.SetDefaultChannelAdministratorRights : TDObject {
+public class TDLib.SetDefaultChannelAdministratorRights : TDObject {
 
     /**
      * Default administrator rights for adding the bot to channels; pass null

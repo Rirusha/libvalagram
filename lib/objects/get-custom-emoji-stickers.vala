@@ -24,7 +24,7 @@
  * Stickers are returned in arbitrary order. Only found stickers are
  * returned
  */
-internal class TDLib.GetCustomEmojiStickers : TDObject {
+public class TDLib.GetCustomEmojiStickers : TDObject {
 
     /**
      * Identifiers of custom emoji stickers. At most 200 custom emoji

@@ -22,7 +22,7 @@
 /**
  * Edits an invite link for a chat folder
  */
-internal class TDLib.EditChatFolderInviteLink : TDObject {
+public class TDLib.EditChatFolderInviteLink : TDObject {
 
     /**
      * Chat folder identifier
@@ -41,8 +41,9 @@ internal class TDLib.EditChatFolderInviteLink : TDObject {
 
     /**
      * New identifiers of chats to be accessible by the invite link. Use
-     * getChatsForChatFolderInviteLink to get suitable chats. Basic groups
-     * will be automatically converted to supergroups before link editing
+     * {@link Client.get_chats_for_chat_folder_invite_link} to get suitable
+     * chats. Basic groups will be automatically converted to supergroups
+     * before link editing
      */
     public Gee.ArrayList<int64?> chat_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
 

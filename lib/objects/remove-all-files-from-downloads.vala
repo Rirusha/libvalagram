@@ -22,7 +22,7 @@
 /**
  * Removes all files from the file download list
  */
-internal class TDLib.RemoveAllFilesFromDownloads : TDObject {
+public class TDLib.RemoveAllFilesFromDownloads : TDObject {
 
     /**
      * Pass true to remove only active downloads, including paused

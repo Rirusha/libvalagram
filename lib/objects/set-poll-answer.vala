@@ -23,7 +23,7 @@
  * Changes the user answer to a poll. A poll in quiz mode can be answered
  * only once
  */
-internal class TDLib.SetPollAnswer : TDObject {
+public class TDLib.SetPollAnswer : TDObject {
 
     /**
      * Identifier of the chat to which the poll belongs

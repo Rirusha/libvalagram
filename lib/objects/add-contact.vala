@@ -23,7 +23,7 @@
  * Adds a user to the contact list or edits an existing contact by their
  * user identifier
  */
-internal class TDLib.AddContact : TDObject {
+public class TDLib.AddContact : TDObject {
 
     /**
      * The contact to add or edit; phone number may be empty and needs to be

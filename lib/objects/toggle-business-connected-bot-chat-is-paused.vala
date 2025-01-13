@@ -22,7 +22,7 @@
 /**
  * Pauses or resumes the connected business bot in a specific chat
  */
-internal class TDLib.ToggleBusinessConnectedBotChatIsPaused : TDObject {
+public class TDLib.ToggleBusinessConnectedBotChatIsPaused : TDObject {
 
     /**
      * Chat identifier

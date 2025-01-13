@@ -23,7 +23,7 @@
  * Returns saved order information. Returns a 404 error if there is no
  * saved order information
  */
-internal class TDLib.GetSavedOrderInfo : TDObject {
+public class TDLib.GetSavedOrderInfo : TDObject {
 
     public GetSavedOrderInfo () {
         Object (

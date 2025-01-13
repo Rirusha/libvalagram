@@ -23,7 +23,7 @@
  * Checks whether a file can be downloaded and saved locally by Web App
  * request
  */
-internal class TDLib.CheckWebAppFileDownload : TDObject {
+public class TDLib.CheckWebAppFileDownload : TDObject {
 
     /**
      * Identifier of the bot, providing the Web App

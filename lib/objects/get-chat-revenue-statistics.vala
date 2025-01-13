@@ -25,7 +25,7 @@
  * for channels if supergroupFullInfo.can_get_revenue_statistics == true
  * or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
  */
-internal class TDLib.GetChatRevenueStatistics : TDObject {
+public class TDLib.GetChatRevenueStatistics : TDObject {
 
     /**
      * Chat identifier

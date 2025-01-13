@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Specifies the kind of chat members to return in searchChatMembers
+ * Specifies the kind of chat members to return in
+ * {@link Client.search_chat_members}
  */
 public abstract class TDLib.ChatMembersFilter : Error {}
 

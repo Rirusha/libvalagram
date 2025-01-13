@@ -22,10 +22,11 @@
 /**
  * Informs TDLib that a previously opened Web App was closed
  */
-internal class TDLib.CloseWebApp : TDObject {
+public class TDLib.CloseWebApp : TDObject {
 
     /**
-     * Identifier of Web App launch, received from openWebApp
+     * Identifier of Web App launch, received from
+     * {@link Client.open_web_app}
      */
     public int64 web_app_launch_id { get; construct set; }
 

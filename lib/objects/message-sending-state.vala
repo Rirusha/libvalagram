@@ -58,8 +58,9 @@ public class TDLib.MessageSendingStateFailed : MessageSendingState {
     public Error error { get; construct set; }
 
     /**
-     * True, if the message can be re-sent using resendMessages or
-     * readdQuickReplyShortcutMessages
+     * True, if the message can be re-sent using
+     * {@link Client.resend_messages} or
+     * {@link Client.readd_quick_reply_shortcut_messages}
      */
     public bool can_retry { get; construct set; }
 
@@ -77,7 +78,8 @@ public class TDLib.MessageSendingStateFailed : MessageSendingState {
 
     /**
      * True, if the message can be re-sent only if the message to be replied
-     * is removed. This will be done automatically by resendMessages
+     * is removed. This will be done automatically by
+     * {@link Client.resend_messages}
      */
     public bool need_drop_reply { get; construct set; }
 

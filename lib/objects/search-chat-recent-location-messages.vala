@@ -23,7 +23,7 @@
  * Returns information about the recent locations of chat members that
  * were sent to the chat. Returns up to 1 location message per user
  */
-internal class TDLib.SearchChatRecentLocationMessages : TDObject {
+public class TDLib.SearchChatRecentLocationMessages : TDObject {
 
     /**
      * Chat identifier

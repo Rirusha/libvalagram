@@ -22,7 +22,7 @@
 /**
  * Returns a list of administrators of the chat with their custom titles
  */
-internal class TDLib.GetChatAdministrators : TDObject {
+public class TDLib.GetChatAdministrators : TDObject {
 
     /**
      * Chat identifier

@@ -23,7 +23,7 @@
  * Edits the text of a text or game message sent on behalf of a business
  * account; for bots only
  */
-internal class TDLib.EditBusinessMessageText : TDObject {
+public class TDLib.EditBusinessMessageText : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which the

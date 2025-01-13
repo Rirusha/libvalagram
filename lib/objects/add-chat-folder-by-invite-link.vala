@@ -22,7 +22,7 @@
 /**
  * Adds a chat folder by an invite link
  */
-internal class TDLib.AddChatFolderByInviteLink : TDObject {
+public class TDLib.AddChatFolderByInviteLink : TDObject {
 
     /**
      * Invite link for the chat folder

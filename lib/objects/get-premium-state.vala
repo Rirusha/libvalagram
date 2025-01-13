@@ -23,7 +23,7 @@
  * Returns state of Telegram Premium subscription and promotion videos
  * for Premium features
  */
-internal class TDLib.GetPremiumState : TDObject {
+public class TDLib.GetPremiumState : TDObject {
 
     public GetPremiumState () {
         Object (

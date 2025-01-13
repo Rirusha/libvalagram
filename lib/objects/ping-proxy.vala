@@ -23,7 +23,7 @@
  * Computes time needed to receive a response from a Telegram server
  * through a proxy. Can be called before authorization
  */
-internal class TDLib.PingProxy : TDObject {
+public class TDLib.PingProxy : TDObject {
 
     /**
      * Proxy identifier. Use 0 to ping a Telegram server without a proxy

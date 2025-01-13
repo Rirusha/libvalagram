@@ -23,7 +23,7 @@
  * Edits the reply markup of a message sent on behalf of a business
  * account; for bots only
  */
-internal class TDLib.EditBusinessMessageReplyMarkup : TDObject {
+public class TDLib.EditBusinessMessageReplyMarkup : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which the

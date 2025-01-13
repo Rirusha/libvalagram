@@ -24,7 +24,7 @@
  * Supposed to be called when the user clicks on
  * chatActionBarSharePhoneNumber
  */
-internal class TDLib.SharePhoneNumber : TDObject {
+public class TDLib.SharePhoneNumber : TDObject {
 
     /**
      * Identifier of the user with whom to share the phone number. The user

@@ -22,7 +22,7 @@
 /**
  * Searches for recently used hashtags by their prefix
  */
-internal class TDLib.SearchHashtags : TDObject {
+public class TDLib.SearchHashtags : TDObject {
 
     /**
      * Hashtag prefix to search for

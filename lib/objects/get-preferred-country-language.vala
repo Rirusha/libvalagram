@@ -24,7 +24,7 @@
  * which must be used to fill native fields in Telegram Passport personal
  * details. Returns a 404 error if unknown
  */
-internal class TDLib.GetPreferredCountryLanguage : TDObject {
+public class TDLib.GetPreferredCountryLanguage : TDObject {
 
     /**
      * A two-letter ISO 3166-1 alpha-2 country code

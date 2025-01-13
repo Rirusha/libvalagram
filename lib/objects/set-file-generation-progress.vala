@@ -22,7 +22,7 @@
 /**
  * Informs TDLib on a file generation progress
  */
-internal class TDLib.SetFileGenerationProgress : TDObject {
+public class TDLib.SetFileGenerationProgress : TDObject {
 
     /**
      * The identifier of the generation process

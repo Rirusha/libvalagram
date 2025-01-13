@@ -23,7 +23,7 @@
  * Check whether the current user can message another user or try to
  * create a chat with them
  */
-internal class TDLib.CanSendMessageToUser : TDObject {
+public class TDLib.CanSendMessageToUser : TDObject {
 
     /**
      * Identifier of the other user

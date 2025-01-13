@@ -22,7 +22,7 @@
 /**
  * Returns recommended chat folders for the current user
  */
-internal class TDLib.GetRecommendedChatFolders : TDObject {
+public class TDLib.GetRecommendedChatFolders : TDObject {
 
     public GetRecommendedChatFolders () {
         Object (

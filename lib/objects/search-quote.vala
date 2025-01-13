@@ -24,7 +24,7 @@
  * position in UTF-16 code units. Returns a 404 error if the quote is not
  * found. Can be called synchronously
  */
-internal class TDLib.SearchQuote : TDObject {
+public class TDLib.SearchQuote : TDObject {
 
     /**
      * Text in which to search for the quote

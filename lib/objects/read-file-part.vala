@@ -25,7 +25,7 @@
  * no direct access to TDLib's file system, because it is usually slower
  * than a direct read from the file
  */
-internal class TDLib.ReadFilePart : TDObject {
+public class TDLib.ReadFilePart : TDObject {
 
     /**
      * Identifier of the file. The file must be located in the TDLib file

@@ -30,7 +30,7 @@ public sealed class TDLib.Client : Object {
     public string version { get; set; }
     public signal void update_recieved (Update update);
     /**
-     * @param timeout
+     * @param timeout Base timeout
      */
     public Client (double timeout = 1.0) {
         Object (timeout: timeout);
@@ -1744,7 +1744,11 @@ public sealed class TDLib.Client : Object {
         client_id = TDJsonApi.create_client_id ();
         request_manager = new RequestManager (this, timeout);
         request_manager.run.begin (() => {
-            version = ((OptionValueString) get_option_sync ("version")).value;  
+            try {{
+                version = ((OptionValueString) get_option_sync ("version")).value;
+            }} catch (TDLibError.COMMON e) {{
+                warning ("Error while getting init version: %s", e.message);
+            }}
         });
     }
 
@@ -1812,9 +1816,9 @@ public sealed class TDLib.Client : Object {
      * messages between restarts. Implies use_chat_info_database
      * @param use_secret_chats Pass true to enable support for secret chats
      * @param api_id Application identifier for Telegram API access, which
-     * can be obtained at https://my.telegram.org
+     * can be obtained at [[https://my.telegram.org]]
      * @param api_hash Application identifier hash for Telegram API access,
-     * which can be obtained at https://my.telegram.org
+     * which can be obtained at [[https://my.telegram.org]]
      * @param system_language_code IETF language tag of the user's operating
      * system language; must be non-empty
      * @param device_model Model of the device the application is being run
@@ -2576,7 +2580,8 @@ public sealed class TDLib.Client : Object {
      * Checks the authentication token of a bot; to log in as a bot. Works
      * only when the current authorization state is
      * authorizationStateWaitPhoneNumber. Can be used instead of
-     * setAuthenticationPhoneNumber and checkAuthenticationCode to log in
+     * {@link Client.set_authentication_phone_number} and
+     * {@link Client.check_authentication_code} to log in
      * @param token The bot token
      */
     public async Ok check_authentication_bot_token (
@@ -2665,9 +2670,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Closes the TDLib instance. All databases will be flushed to disk and
-     * properly closed. After the close completes, updateAuthorizationState
-     * with authorizationStateClosed will be sent. Can be called before
-     * initialization
+     * properly closed. After the {@link Client.close} completes,
+     * updateAuthorizationState with authorizationStateClosed will be sent.
+     * Can be called before initialization
      */
     public async Ok close () throws TDLibError {
         try {
@@ -2994,8 +2999,9 @@ public sealed class TDLib.Client : Object {
      * changed only if the current user already has login email and
      * passwordState.login_email_address_pattern is non-empty.
      * The change will not be applied until the new login email address is
-     * confirmed with checkLoginEmailAddressCode. To use Apple ID/Google ID
-     * instead of an email address, call checkLoginEmailAddressCode directly
+     * confirmed with {@link Client.check_login_email_address_code} To use
+     * Apple ID/Google ID instead of an email address, call
+     * {@link Client.check_login_email_address_code} directly
      * @param new_login_email_address New login email address
      */
     public async EmailAddressAuthenticationCodeInfo set_login_email_address (
@@ -4726,8 +4732,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns an ordered list of chats from the beginning of a chat list.
-     * For informational purposes only. Use loadChats and updates processing
-     * instead to maintain chat lists in a consistent state
+     * For informational purposes only. Use {@link Client.load_chats} and
+     * updates processing instead to maintain chat lists in a consistent
+     * state
      * @param chat_list The chat list in which to return chats; pass null to
      * get chats from the main chat list
      * @param limit The maximum number of chats to be returned
@@ -5111,7 +5118,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Informs TDLib that a chat was opened from the list of similar chats.
-     * The method is independent of openChat and closeChat methods
+     * The method is independent of {@link Client.open_chat} and
+     * {@link Client.close_chat} methods
      * @param chat_id Identifier of the original chat, which similar chats
      * were requested
      * @param opened_chat_id Identifier of the opened chat
@@ -5632,8 +5640,8 @@ public sealed class TDLib.Client : Object {
      * be first upgraded to supergroups before they can be set as a
      * discussion group.
      * To set a returned supergroup as a discussion group, access to its old
-     * messages must be enabled using toggleSupergroupIsAllHistoryAvailable
-     * first
+     * messages must be enabled using
+     * {@link Client.toggle_supergroup_is_all_history_available} first
      */
     public async Chats get_suitable_discussion_chats () throws TDLibError {
         try {
@@ -6416,10 +6424,10 @@ public sealed class TDLib.Client : Object {
      * Searches for messages with given words in the chat. Returns the
      * results in reverse chronological order, i.e. in order of decreasing
      * message_id. Cannot be used in secret chats with a non-empty query
-     * (searchSecretMessages must be used instead), or without an enabled
-     * message database. For optimal performance, the number of returned
-     * messages is chosen by TDLib and can be smaller than the specified
-     * limit.
+     * {@link Client.search_secret_messages} must be used instead), or
+     * without an enabled message database. For optimal performance, the
+     * number of returned messages is chosen by TDLib and can be smaller than
+     * the specified limit.
      * A combination of query, sender_id, filter and message_thread_id search
      * criteria is expected to be supported, only if it is required for
      * Telegram official application implementation
@@ -6589,8 +6597,8 @@ public sealed class TDLib.Client : Object {
      * messages is chosen by TDLib
      * @param chat_id Identifier of the chat in which to search. Specify 0 to
      * search in all secret chats
-     * @param query Query to search for. If empty, searchChatMessages must be
-     * used instead
+     * @param query Query to search for. If empty,
+     * {@link Client.search_chat_messages} must be used instead
      * @param offset Offset of the first entry to return as received from the
      * previous request; use empty string to get the first chunk of results
      * @param limit The maximum number of messages to be returned; up to 100.
@@ -8534,7 +8542,7 @@ public sealed class TDLib.Client : Object {
      * @param bot_user_id Identifier of the bot
      * @param chat_id Identifier of the target chat
      * @param parameter A hidden parameter sent to the bot for deep linking
-     * purposes (https://core.telegram.org/bots#deep-linking)
+     * purposes ([[https://core.telegram.org/bots#deep-linking]])
      */
     public async Message send_bot_start_message (
         int64 bot_user_id,
@@ -9206,7 +9214,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Edits the media content of a message, including message caption. If
-     * only the caption needs to be edited, use editMessageCaption instead.
+     * only the caption needs to be edited, use
+     * {@link Client.edit_message_caption} instead.
      * The type of message content in an album can't be changed with
      * exception of replacing a photo with a video or vice versa. Returns the
      * edited message after the edit is completed on the server side
@@ -9734,8 +9743,8 @@ public sealed class TDLib.Client : Object {
      * @param message_id Identifier of the message
      * @param text New text of the fact-check;
      * 0-getOption("fact_check_length_max") characters; pass null to remove
-     * it. Only Bold, Italic, and TextUrl entities with https://t.me/ links
-     * are supported
+     * it. Only Bold, Italic, and TextUrl entities with [[https://t.me/]]
+     * links are supported
      */
     public async Ok set_message_fact_check (
         int64 chat_id,
@@ -10485,8 +10494,8 @@ public sealed class TDLib.Client : Object {
     /**
      * Changes name of a quick reply shortcut
      * @param shortcut_id Unique identifier of the quick reply shortcut
-     * @param name New name for the shortcut. Use checkQuickReplyShortcutName
-     * to check its validness
+     * @param name New name for the shortcut. Use
+     * {@link Client.check_quick_reply_shortcut_name} to check its validness
      */
     public async Ok set_quick_reply_shortcut_name (
         int32 shortcut_id,
@@ -11066,7 +11075,8 @@ public sealed class TDLib.Client : Object {
      * @param icon Icon of the topic. Icon color must be one of 0x6FB9F0,
      * 0xFFD67E, 0xCB86DB, 0x8EEE98, 0xFF93B2, or 0xFB6F5F. Telegram Premium
      * users can use any custom emoji as topic icon, other users can use only
-     * a custom emoji returned by getForumTopicDefaultIcons
+     * a custom emoji returned by
+     * {@link Client.get_forum_topic_default_icons}
      */
     public async ForumTopicInfo create_forum_topic (
         int64 chat_id,
@@ -11127,7 +11137,7 @@ public sealed class TDLib.Client : Object {
      * topic icon; pass 0 to remove the custom emoji. Ignored if
      * edit_icon_custom_emoji is false. Telegram Premium users can use any
      * custom emoji, other users can use only a custom emoji returned by
-     * getForumTopicDefaultIcons
+     * {@link Client.get_forum_topic_default_icons}
      */
     public async Ok edit_forum_topic (
         int64 chat_id,
@@ -11401,7 +11411,8 @@ public sealed class TDLib.Client : Object {
      * of the topic
      * @param chat_id Identifier of the chat
      * @param message_thread_id Message thread identifier of the forum topic
-     * @param is_closed Pass true to close the topic; pass false to reopen it
+     * @param is_closed Pass true to {@link Client.close} the topic; pass
+     * false to reopen it
      */
     public async Ok toggle_forum_topic_is_closed (
         int64 chat_id,
@@ -11452,8 +11463,8 @@ public sealed class TDLib.Client : Object {
      * Toggles whether a General topic is hidden in a forum supergroup chat;
      * requires can_manage_topics right in the supergroup
      * @param chat_id Identifier of the chat
-     * @param is_hidden Pass true to hide and close the General topic; pass
-     * false to unhide it
+     * @param is_hidden Pass true to hide and {@link Client.close} the
+     * General topic; pass false to unhide it
      */
     public async Ok toggle_general_forum_topic_is_hidden (
         int64 chat_id,
@@ -11833,12 +11844,13 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Adds a reaction or a tag to a message. Use
-     * getMessageAvailableReactions to receive the list of available
-     * reactions for the message
+     * {@link Client.get_message_available_reactions} to receive the list of
+     * available reactions for the message
      * @param chat_id Identifier of the chat to which the message belongs
      * @param message_id Identifier of the message
      * @param reaction_type Type of the reaction to add. Use
-     * addPendingPaidMessageReaction instead to add the paid reaction
+     * {@link Client.add_pending_paid_message_reaction} instead to add the
+     * paid reaction
      * @param is_big Pass true if the reaction is added with a big animation
      * @param update_recent_reactions Pass true if the reaction needs to be
      * added to recent reactions; tags are never added to the list of recent
@@ -11948,8 +11960,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Adds the paid message reaction to a message. Use
-     * getMessageAvailableReactions to check whether the reaction is
-     * available for the message
+     * {@link Client.get_message_available_reactions} to check whether the
+     * reaction is available for the message
      * @param chat_id Identifier of the chat to which the message belongs
      * @param message_id Identifier of the message
      * @param star_count Number of Telegram Stars to be used for the
@@ -12911,7 +12923,7 @@ public sealed class TDLib.Client : Object {
      * Returns an emoji for the given country. Returns an empty string on
      * failure. Can be called synchronously
      * @param country_code A two-letter ISO 3166-1 alpha-2 country code as
-     * received from getCountries
+     * received from {@link Client.get_countries}
      */
     public Text get_country_flag_emoji_sync (
         string country_code
@@ -12948,7 +12960,7 @@ public sealed class TDLib.Client : Object {
      * Returns an emoji for the given country. Returns an empty string on
      * failure. Can be called synchronously
      * @param country_code A two-letter ISO 3166-1 alpha-2 country code as
-     * received from getCountries
+     * received from {@link Client.get_countries}
      */
     public async Text get_country_flag_emoji (
         string country_code
@@ -13807,7 +13819,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Hides the list of contacts that have close birthdays for 24 hours
+     * Hides the list of contacts that have {@link Client.close} birthdays
+     * for 24 hours
      */
     public async Ok hide_contact_close_birthdays () throws TDLibError {
         try {
@@ -13950,9 +13963,9 @@ public sealed class TDLib.Client : Object {
      * Returns an HTTP URL which can be used to automatically authorize the
      * user on a website after clicking an inline button of type
      * inlineKeyboardButtonTypeLoginUrl.
-     * Use the method getLoginUrlInfo to find whether a prior user
-     * confirmation is needed. If an error is returned, then the button must
-     * be handled as an ordinary URL button
+     * Use the method {@link Client.get_login_url_info} to find whether a
+     * prior user confirmation is needed. If an error is returned, then the
+     * button must be handled as an ordinary URL button
      * @param chat_id Chat identifier of the message with the button
      * @param message_id Message identifier of the message with the button
      * @param button_id Button identifier
@@ -14075,12 +14088,13 @@ public sealed class TDLib.Client : Object {
      * @param only_check Pass true to check that the chat can be shared by
      * the button instead of actually sharing it. Doesn't check bot_is_member
      * and bot_administrator_rights restrictions. If the bot must be a
-     * member, then all chats from getGroupsInCommon and all chats, where the
-     * user can add the bot, are suitable. In the latter case the bot will be
-     * automatically added to the chat. If the bot must be an administrator,
-     * then all chats, where the bot already has requested rights or can be
-     * added to administrators by the user, are suitable. In the latter case
-     * the bot will be automatically granted requested rights
+     * member, then all chats from {@link Client.get_groups_in_common} and
+     * all chats, where the user can add the bot, are suitable. In the latter
+     * case the bot will be automatically added to the chat. If the bot must
+     * be an administrator, then all chats, where the bot already has
+     * requested rights or can be added to administrators by the user, are
+     * suitable. In the latter case the bot will be automatically granted
+     * requested rights
      */
     public async Ok share_chat_with_bot (
         int64 chat_id,
@@ -14797,7 +14811,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Informs TDLib that a previously opened Web App was closed
      * @param web_app_launch_id Identifier of Web App launch, received from
-     * openWebApp
+     * {@link Client.open_web_app}
      */
     public async Ok close_web_app (
         int64 web_app_launch_id
@@ -15889,11 +15903,12 @@ public sealed class TDLib.Client : Object {
     /**
      * Returns an HTTP URL which can be used to automatically authorize the
      * current user on a website after clicking an HTTP link. Use the method
-     * getExternalLinkInfo to find whether a prior user confirmation is
-     * needed
+     * {@link Client.get_external_link_info} to find whether a prior user
+     * confirmation is needed
      * @param link The HTTP link
      * @param allow_write_access Pass true if the current user allowed the
-     * bot, returned in getExternalLinkInfo, to send them messages
+     * bot, returned in {@link Client.get_external_link_info} to send them
+     * messages
      */
     public async HttpUrl get_external_link (
         string link,
@@ -16392,7 +16407,7 @@ public sealed class TDLib.Client : Object {
      * seconds; must be from 0 up to 365 * 86400 and be divisible by 86400.
      * If 0, then messages aren't deleted automatically
      * @param for_import Pass true to create a supergroup for importing
-     * messages using importMessages
+     * messages using {@link Client.import_messages}
      */
     public async Chat create_new_supergroup_chat (
         string title,
@@ -16590,8 +16605,8 @@ public sealed class TDLib.Client : Object {
      * Archive chat lists, so it is automatically removed from another one if
      * needed
      * @param chat_id Chat identifier
-     * @param chat_list The chat list. Use getChatListsToAddChat to get
-     * suitable chat lists
+     * @param chat_list The chat list. Use
+     * {@link Client.get_chat_lists_to_add_chat} to get suitable chat lists
      */
     public async Ok add_chat_to_list (
         int64 chat_id,
@@ -17187,9 +17202,9 @@ public sealed class TDLib.Client : Object {
      * @param chat_folder_id Chat folder identifier
      * @param name Name of the link; 0-32 characters
      * @param chat_ids Identifiers of chats to be accessible by the invite
-     * link. Use getChatsForChatFolderInviteLink to get suitable chats. Basic
-     * groups will be automatically converted to supergroups before link
-     * creation
+     * link. Use {@link Client.get_chats_for_chat_folder_invite_link} to get
+     * suitable chats. Basic groups will be automatically converted to
+     * supergroups before link creation
      */
     public async ChatFolderInviteLink create_chat_folder_invite_link (
         int32 chat_folder_id,
@@ -17288,9 +17303,9 @@ public sealed class TDLib.Client : Object {
      * @param invite_link Invite link to be edited
      * @param name New name of the link; 0-32 characters
      * @param chat_ids New identifiers of chats to be accessible by the
-     * invite link. Use getChatsForChatFolderInviteLink to get suitable
-     * chats. Basic groups will be automatically converted to supergroups
-     * before link editing
+     * invite link. Use {@link Client.get_chats_for_chat_folder_invite_link}
+     * to get suitable chats. Basic groups will be automatically converted to
+     * supergroups before link editing
      */
     public async ChatFolderInviteLink edit_chat_folder_invite_link (
         int32 chat_folder_id,
@@ -18714,11 +18729,12 @@ public sealed class TDLib.Client : Object {
      * chat (requires can_pin_messages member right in the supergroup)
      * @param discussion_chat_id Identifier of a new channel's discussion
      * group. Use 0 to remove the discussion group. Use the method
-     * getSuitableDiscussionChats to find all suitable groups. Basic group
-     * chats must be first upgraded to supergroup chats. If new chat members
-     * don't have access to old messages in the supergroup, then
-     * toggleSupergroupIsAllHistoryAvailable must be used first to change
-     * that
+     * {@link Client.get_suitable_discussion_chats} to find all suitable
+     * groups. Basic group chats must be first upgraded to supergroup chats.
+     * If new chat members don't have access to old messages in the
+     * supergroup, then
+     * {@link Client.toggle_supergroup_is_all_history_available} must be used
+     * first to change that
      */
     public async Ok set_chat_discussion_group (
         int64 chat_id,
@@ -19277,9 +19293,9 @@ public sealed class TDLib.Client : Object {
      * change administrator rights of the member,
      * and can_restrict_members administrator right to change restrictions of
      * a user. This function is currently not suitable for transferring chat
-     * ownership; use transferChatOwnership instead.
-     * Use addChatMember or banChatMember if some additional parameters needs
-     * to be passed
+     * ownership; use {@link Client.transfer_chat_ownership} instead.
+     * Use {@link Client.add_chat_member} or {@link Client.ban_chat_member}
+     * if some additional parameters needs to be passed
      * @param chat_id Chat identifier
      * @param member_id Member identifier. Chats can be only banned and
      * unbanned in supergroups and channels
@@ -19436,9 +19452,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes the owner of a chat; requires owner privileges in the chat.
-     * Use the method canTransferOwnership to check whether the ownership can
-     * be transferred from the current session. Available only for
-     * supergroups and channel chats
+     * Use the method {@link Client.can_transfer_ownership} to check whether
+     * the ownership can be transferred from the current session. Available
+     * only for supergroups and channel chats
      * @param chat_id Chat identifier
      * @param user_id Identifier of the user to which transfer the ownership.
      * The ownership can't be transferred to a bot or to a deleted user
@@ -20352,8 +20368,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns supergroup and channel chats in which the current user has the
-     * right to post stories. The chats must be rechecked with canSendStory
-     * before actually trying to post a story there
+     * right to post stories. The chats must be rechecked with
+     * {@link Client.can_send_story} before actually trying to post a story
+     * there
      */
     public async Chats get_chats_to_send_stories () throws TDLibError {
         try {
@@ -21195,7 +21212,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Informs TDLib that a story is closed by the user
      * @param story_sender_chat_id The identifier of the sender of the story
-     * to close
+     * to {@link Client.close}
      * @param story_id The identifier of the story
      */
     public async Ok close_story (
@@ -22476,9 +22493,9 @@ public sealed class TDLib.Client : Object {
      * canceled; use 0 to download without a limit
      * @param synchronous Pass true to return response only after the file
      * download has succeeded, has failed, has been canceled, or a new
-     * downloadFile request with different offset/limit parameters was sent;
-     * pass false to return file state immediately, just after the download
-     * has been started
+     * {@link Client.download_file} request with different offset/limit
+     * parameters was sent; pass false to return file state immediately, just
+     * after the download has been started
      */
     public async File download_file (
         int32 file_id,
@@ -22688,7 +22705,8 @@ public sealed class TDLib.Client : Object {
      * @param priority Priority of the upload (1-32). The higher the
      * priority, the earlier the file will be uploaded. If the priorities of
      * two files are equal, then the first one for which
-     * preliminaryUploadFile was called will be uploaded first
+     * {@link Client.preliminary_upload_file} was called will be uploaded
+     * first
      */
     public async File preliminary_upload_file (
         InputFile file,
@@ -22737,7 +22755,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Stops the preliminary uploading of a file. Supported only for files
-     * uploaded by using preliminaryUploadFile
+     * uploaded by using {@link Client.preliminary_upload_file}
      * @param file_id Identifier of the file to stop uploading
      */
     public async Ok cancel_preliminary_upload_file (
@@ -23045,8 +23063,9 @@ public sealed class TDLib.Client : Object {
      * updateFile updates.
      * If message database is used, the list of file downloads is persistent
      * across application restarts. The downloading is independent of
-     * download using downloadFile, i.e. it continues if downloadFile is
-     * canceled or is used to download a part of the file
+     * download using {@link Client.download_file} i.e. it continues if
+     * {@link Client.download_file} is canceled or is used to download a part
+     * of the file
      * @param file_id Identifier of the file to download
      * @param chat_id Chat identifier of the message with the file
      * @param message_id Message identifier
@@ -25658,9 +25677,9 @@ public sealed class TDLib.Client : Object {
      * Returns invite link to a video chat in a public chat
      * @param group_call_id Group call identifier
      * @param can_self_unmute Pass true if the invite link needs to contain
-     * an invite hash, passing which to joinGroupCall would allow the invited
-     * user to unmute themselves. Requires groupCall.can_be_managed group
-     * call flag
+     * an invite hash, passing which to {@link Client.join_group_call} would
+     * allow the invited user to unmute themselves. Requires
+     * groupCall.can_be_managed group call flag
      */
     public async HttpUrl get_group_call_invite_link (
         int32 group_call_id,
@@ -26170,8 +26189,8 @@ public sealed class TDLib.Client : Object {
      * groupCall.loaded_all_participants to check whether all participants
      * have already been loaded
      * @param group_call_id Group call identifier. The group call must be
-     * previously received through getGroupCall and must be joined or being
-     * joined
+     * previously received through {@link Client.get_group_call} and must be
+     * joined or being joined
      * @param limit The maximum number of participants to load; up to 100
      */
     public async Ok load_group_call_participants (
@@ -26940,9 +26959,9 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes the list of close friends of the current user
-     * @param user_ids User identifiers of close friends; the users must be
-     * contacts of the current user
+     * Changes the list of {@link Client.close} friends of the current user
+     * @param user_ids User identifiers of {@link Client.close} friends; the
+     * users must be contacts of the current user
      */
     public async Ok set_close_friends (
         Gee.ArrayList<int64?> user_ids
@@ -26986,7 +27005,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns all close friends of the current user
+     * Returns all {@link Client.close} friends of the current user
      */
     public async Users get_close_friends () throws TDLibError {
         try {
@@ -29963,7 +29982,8 @@ public sealed class TDLib.Client : Object {
     /**
      * Changes the personal chat of the current user
      * @param chat_id Identifier of the new personal chat; pass 0 to remove
-     * the chat. Use getSuitablePersonalChats to get suitable chats
+     * the chat. Use {@link Client.get_suitable_personal_chats} to get
+     * suitable chats
      */
     public async Ok set_personal_chat (
         int64 chat_id
@@ -31470,7 +31490,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Checks whether the specified bot can send messages to the user.
      * Returns a 404 error if can't and the access can be granted by call to
-     * allowBotToSendMessages
+     * {@link Client.allow_bot_to_send_messages}
      * @param bot_user_id Identifier of the target bot
      */
     public async Ok can_bot_send_messages (
@@ -31718,7 +31738,7 @@ public sealed class TDLib.Client : Object {
      * preview is added. If empty, then the preview will be shown to all
      * users for whose languages there are no dedicated previews. If
      * non-empty, then there must be an official language pack of the same
-     * name, which is returned by getLocalizationTargetInfo
+     * name, which is returned by {@link Client.get_localization_target_info}
      * @param content Content of the added preview
      */
     public async BotMediaPreview add_bot_media_preview (
@@ -33559,8 +33579,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Toggles whether non-administrators can receive only administrators and
-     * bots using getSupergroupMembers or searchChatMembers. Can be called
-     * only if supergroupFullInfo.can_hide_members == true
+     * bots using {@link Client.get_supergroup_members} or
+     * {@link Client.search_chat_members} Can be called only if
+     * supergroupFullInfo.can_hide_members == true
      * @param supergroup_id Identifier of the supergroup
      * @param has_hidden_members New value of has_hidden_members
      */
@@ -34175,9 +34196,9 @@ public sealed class TDLib.Client : Object {
      * Sends a filled-out payment form to the bot for final verification
      * @param input_invoice The invoice
      * @param payment_form_id Payment form identifier returned by
-     * getPaymentForm
-     * @param order_info_id Identifier returned by validateOrderInfo, or an
-     * empty string
+     * {@link Client.get_payment_form}
+     * @param order_info_id Identifier returned by
+     * {@link Client.validate_order_info} or an empty string
      * @param shipping_option_id Identifier of a chosen shipping option, if
      * applicable
      * @param credentials The credentials chosen by user for payment; pass
@@ -36314,9 +36335,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns the value of an option by its name. (Check the list of
-     * available options on https://core.telegram.org/tdlib/options.) Can be
-     * called before authorization. Can be called synchronously for options
-     * "version" and "commit_hash"
+     * available options on [[https://core.telegram.org/tdlib/options]].) Can
+     * be called before authorization. Can be called synchronously for
+     * options "version" and "commit_hash"
      * @param name The name of the option
      */
     public OptionValue get_option_sync (
@@ -36352,9 +36373,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns the value of an option by its name. (Check the list of
-     * available options on https://core.telegram.org/tdlib/options.) Can be
-     * called before authorization. Can be called synchronously for options
-     * "version" and "commit_hash"
+     * available options on [[https://core.telegram.org/tdlib/options]].) Can
+     * be called before authorization. Can be called synchronously for
+     * options "version" and "commit_hash"
      * @param name The name of the option
      */
     public async OptionValue get_option (
@@ -36400,8 +36421,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Sets the value of an option. (Check the list of available options on
-     * https://core.telegram.org/tdlib/options.) Only writable options can be
-     * set. Can be called before authorization
+     * [[https://core.telegram.org/tdlib/options]].) Only writable options
+     * can be set. Can be called before authorization
      * @param name The name of the option
      * @param value The new value of the option; pass null to reset option
      * value to a default value
@@ -37619,8 +37640,8 @@ public sealed class TDLib.Client : Object {
      * @param return_deleted_file_statistics Pass true if statistics about
      * the files that were deleted must be returned instead of the whole
      * storage usage statistics. Affects only returned statistics
-     * @param chat_limit Same as in getStorageStatistics. Affects only
-     * returned statistics
+     * @param chat_limit Same as in {@link Client.get_storage_statistics}
+     * Affects only returned statistics
      */
     public async StorageStatistics optimize_storage (
         int64 size,
@@ -37997,7 +38018,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Sets autosave settings for the given scope. The method is guaranteed
-     * to work only after at least one call to getAutosaveSettings
+     * to work only after at least one call to
+     * {@link Client.get_autosave_settings}
      * @param scope Autosave settings scope
      * @param settings New autosave settings for the scope; pass null to set
      * autosave settings to default
@@ -38047,7 +38069,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Clears the list of all autosave settings exceptions. The method is
-     * guaranteed to work only after at least one call to getAutosaveSettings
+     * guaranteed to work only after at least one call to
+     * {@link Client.get_autosave_settings}
      */
     public async Ok clear_autosave_settings_exceptions () throws TDLibError {
         try {
@@ -38657,8 +38680,8 @@ public sealed class TDLib.Client : Object {
     /**
      * Sends a Telegram Passport authorization form, effectively sharing data
      * with the service. This method must be called after
-     * getPassportAuthorizationFormAvailableElements if some previously
-     * available elements are going to be reused
+     * {@link Client.get_passport_authorization_form_available_elements} if
+     * some previously available elements are going to be reused
      * @param authorization_form_id Authorization form identifier
      * @param types Types of Telegram Passport elements chosen by user to
      * complete the authorization form
@@ -38762,8 +38785,8 @@ public sealed class TDLib.Client : Object {
      * @param sticker File file to upload; must fit in a 512x512 square. For
      * WEBP stickers the file must be in WEBP or PNG format, which will be
      * converted to WEBP server-side. See
-     * https://core.telegram.org/animated_stickers#technical-requirements for
-     * technical requirements
+     * [[https://core.telegram.org/animated_stickers#technical-requirements]]
+     * for technical requirements
      */
     public async File upload_sticker_file (
         int64 user_id,
@@ -38907,15 +38930,16 @@ public sealed class TDLib.Client : Object {
      * @param name Sticker set name. Can contain only English letters, digits
      * and underscores. Must end with *"_by_<bot username>"*
      * (*<bot_username>* is case insensitive) for bots; 0-64 characters. If
-     * empty, then the name returned by getSuggestedStickerSetName will be
-     * used automatically
+     * empty, then the name returned by
+     * {@link Client.get_suggested_sticker_set_name} will be used
+     * automatically
      * @param sticker_type Type of the stickers in the set
      * @param needs_repainting Pass true if stickers in the sticker set must
      * be repainted; for custom emoji sticker sets only
      * @param stickers List of stickers to be added to the set; 1-200
      * stickers for custom emoji sticker sets, and 1-120 stickers otherwise.
-     * For TGS stickers, uploadStickerFile must be used before the sticker is
-     * shown
+     * For TGS stickers, {@link Client.upload_sticker_file} must be used
+     * before the sticker is shown
      * @param source Source of the sticker set; may be empty if unknown
      */
     public async StickerSet create_new_sticker_set (
@@ -39026,8 +39050,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Replaces existing sticker in a set. The function is equivalent to
-     * removeStickerFromSet, then addStickerToSet, then
-     * setStickerPositionInSet
+     * {@link Client.remove_sticker_from_set} then
+     * {@link Client.add_sticker_to_set} then
+     * {@link Client.set_sticker_position_in_set}
      * @param user_id Sticker set owner; ignored for regular users
      * @param name Sticker set name. The sticker set must be owned by the
      * current user
@@ -40738,10 +40763,10 @@ public sealed class TDLib.Client : Object {
      * @param chat_id Identifier of the chat with an owned bot for which
      * affiliate program is changed
      * @param parameters Parameters of the affiliate program; pass null to
-     * close the currently active program. If there is an active program,
-     * then commission and program duration can only be increased. If the
-     * active program is scheduled to be closed, then it can't be changed
-     * anymore
+     * {@link Client.close} the currently active program. If there is an
+     * active program, then commission and program duration can only be
+     * increased. If the active program is scheduled to be closed, then it
+     * can't be changed anymore
      */
     public async Ok set_chat_affiliate_program (
         int64 chat_id,
@@ -41568,9 +41593,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a phone number by its prefix synchronously.
-     * getCountries must be called at least once after changing localization
-     * to the specified language if properly localized country information is
-     * expected. Can be called synchronously
+     * {@link Client.get_countries} must be called at least once after
+     * changing localization to the specified language if properly localized
+     * country information is expected. Can be called synchronously
      * @param language_code A two-letter ISO 639-1 language code for country
      * information localization
      * @param phone_number_prefix The phone number prefix
@@ -41610,9 +41635,9 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a phone number by its prefix synchronously.
-     * getCountries must be called at least once after changing localization
-     * to the specified language if properly localized country information is
-     * expected. Can be called synchronously
+     * {@link Client.get_countries} must be called at least once after
+     * changing localization to the specified language if properly localized
+     * country information is expected. Can be called synchronously
      * @param language_code A two-letter ISO 639-1 language code for country
      * information localization
      * @param phone_number_prefix The phone number prefix
@@ -41662,7 +41687,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a given collectible item that was purchased
-     * at https://fragment.com
+     * at [[https://fragment.com]]
      * @param type_ Type of the collectible item. The item must be used by a
      * user and must be visible to the current user
      */
@@ -41708,10 +41733,10 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns information about a tg:// deep link. Use
-     * "tg://need_update_for_some_feature" or "tg:some_unsupported_feature"
-     * for testing. Returns a 404 error for unknown links. Can be called
-     * before authorization
+     * Returns information about a [[tg://]] deep link. Use
+     * "[[tg://need_update_for_some_feature"]] or
+     * "tg:some_unsupported_feature" for testing. Returns a 404 error for
+     * unknown links. Can be called before authorization
      * @param link The link
      */
     public async DeepLinkInfo get_deep_link_info (

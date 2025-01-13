@@ -22,7 +22,7 @@
 /**
  * Stops a poll
  */
-internal class TDLib.StopPoll : TDObject {
+public class TDLib.StopPoll : TDObject {
 
     /**
      * Identifier of the chat to which the poll belongs

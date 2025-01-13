@@ -22,7 +22,7 @@
 /**
  * Return information about a Telegram Premium gift code
  */
-internal class TDLib.CheckPremiumGiftCode : TDObject {
+public class TDLib.CheckPremiumGiftCode : TDObject {
 
     /**
      * The code to check

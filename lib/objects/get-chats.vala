@@ -21,10 +21,11 @@
 
 /**
  * Returns an ordered list of chats from the beginning of a chat list.
- * For informational purposes only. Use loadChats and updates processing
- * instead to maintain chat lists in a consistent state
+ * For informational purposes only. Use {@link Client.load_chats} and
+ * updates processing instead to maintain chat lists in a consistent
+ * state
  */
-internal class TDLib.GetChats : TDObject {
+public class TDLib.GetChats : TDObject {
 
     /**
      * The chat list in which to return chats; pass null to get chats from

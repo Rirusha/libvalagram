@@ -28,7 +28,7 @@
  * searchMessagesFilterFailedToSend filter without an enabled message
  * database
  */
-internal class TDLib.GetChatSparseMessagePositions : TDObject {
+public class TDLib.GetChatSparseMessagePositions : TDObject {
 
     /**
      * Identifier of the chat in which to return information about message

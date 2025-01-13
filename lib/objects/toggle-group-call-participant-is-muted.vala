@@ -23,7 +23,7 @@
  * Toggles whether a participant of an active group call is muted,
  * unmuted, or allowed to unmute themselves
  */
-internal class TDLib.ToggleGroupCallParticipantIsMuted : TDObject {
+public class TDLib.ToggleGroupCallParticipantIsMuted : TDObject {
 
     /**
      * Group call identifier

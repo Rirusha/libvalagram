@@ -22,7 +22,7 @@
 /**
  * Returns reactions added for a message, along with their sender
  */
-internal class TDLib.GetMessageAddedReactions : TDObject {
+public class TDLib.GetMessageAddedReactions : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

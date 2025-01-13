@@ -22,7 +22,7 @@
 /**
  * Returns the list of Telegram Star transactions for the specified owner
  */
-internal class TDLib.GetStarTransactions : TDObject {
+public class TDLib.GetStarTransactions : TDObject {
 
     /**
      * Identifier of the owner of the Telegram Stars; can be the identifier

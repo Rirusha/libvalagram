@@ -25,7 +25,7 @@
 public class TDLib.PhotoSize : Error {
 
     /**
-     * Image type (see https://core.telegram.org/constructor/photoSize)
+     * Image type (see [[https://core.telegram.org/constructor/photoSize]])
      */
     public string type_ { get; construct set; }
 

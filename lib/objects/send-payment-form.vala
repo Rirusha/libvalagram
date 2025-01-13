@@ -22,7 +22,7 @@
 /**
  * Sends a filled-out payment form to the bot for final verification
  */
-internal class TDLib.SendPaymentForm : TDObject {
+public class TDLib.SendPaymentForm : TDObject {
 
     /**
      * The invoice
@@ -30,12 +30,13 @@ internal class TDLib.SendPaymentForm : TDObject {
     public InputInvoice input_invoice { get; construct set; }
 
     /**
-     * Payment form identifier returned by getPaymentForm
+     * Payment form identifier returned by {@link Client.get_payment_form}
      */
     public int64 payment_form_id { get; construct set; }
 
     /**
-     * Identifier returned by validateOrderInfo, or an empty string
+     * Identifier returned by {@link Client.validate_order_info} or an empty
+     * string
      */
     public string order_info_id { get; construct set; }
 

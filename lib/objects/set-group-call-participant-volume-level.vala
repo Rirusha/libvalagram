@@ -24,7 +24,7 @@
  * current user can manage the group call, then the participant's volume
  * level will be changed for all users with the default volume level
  */
-internal class TDLib.SetGroupCallParticipantVolumeLevel : TDObject {
+public class TDLib.SetGroupCallParticipantVolumeLevel : TDObject {
 
     /**
      * Group call identifier

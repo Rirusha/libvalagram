@@ -23,7 +23,7 @@
  * Checks whether the current session can be used to transfer a chat
  * ownership to another user
  */
-internal class TDLib.CanTransferOwnership : TDObject {
+public class TDLib.CanTransferOwnership : TDObject {
 
     public CanTransferOwnership () {
         Object (

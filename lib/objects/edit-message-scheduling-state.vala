@@ -24,7 +24,7 @@
  * of all messages in the same album or forwarded together with the
  * message will be also changed
  */
-internal class TDLib.EditMessageSchedulingState : TDObject {
+public class TDLib.EditMessageSchedulingState : TDObject {
 
     /**
      * The chat the message belongs to

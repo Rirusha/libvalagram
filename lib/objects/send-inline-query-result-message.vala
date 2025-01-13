@@ -23,7 +23,7 @@
  * Sends the result of an inline query as a message. Returns the sent
  * message. Always clears a chat draft message
  */
-internal class TDLib.SendInlineQueryResultMessage : TDObject {
+public class TDLib.SendInlineQueryResultMessage : TDObject {
 
     /**
      * Target chat

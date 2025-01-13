@@ -32,7 +32,8 @@ public class TDLib.BotMenuButton : Error {
     /**
      * URL of a Web App to open when the button is pressed. If the link is of
      * the type internalLinkTypeWebApp, then it must be processed
-     * accordingly. Otherwise, the link must be passed to openWebApp
+     * accordingly. Otherwise, the link must be passed to
+     * {@link Client.open_web_app}
      */
     public string url { get; construct set; }
 

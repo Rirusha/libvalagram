@@ -22,7 +22,7 @@
 /**
  * Updates the game score of the specified user in a game; for bots only
  */
-internal class TDLib.SetInlineGameScore : TDObject {
+public class TDLib.SetInlineGameScore : TDObject {
 
     /**
      * Inline message identifier

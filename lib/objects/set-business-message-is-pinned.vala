@@ -23,7 +23,7 @@
  * Pins or unpins a message sent on behalf of a business account; for
  * bots only
  */
-internal class TDLib.SetBusinessMessageIsPinned : TDObject {
+public class TDLib.SetBusinessMessageIsPinned : TDObject {
 
     /**
      * Unique identifier of business connection on behalf of which the

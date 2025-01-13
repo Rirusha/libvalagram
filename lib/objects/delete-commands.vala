@@ -23,7 +23,7 @@
  * Deletes commands supported by the bot for the given user scope and
  * language; for bots only
  */
-internal class TDLib.DeleteCommands : TDObject {
+public class TDLib.DeleteCommands : TDObject {
 
     /**
      * The scope to which the commands are relevant; pass null to delete

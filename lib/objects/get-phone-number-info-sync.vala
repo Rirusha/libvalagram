@@ -21,11 +21,11 @@
 
 /**
  * Returns information about a phone number by its prefix synchronously.
- * getCountries must be called at least once after changing localization
- * to the specified language if properly localized country information is
- * expected. Can be called synchronously
+ * {@link Client.get_countries} must be called at least once after
+ * changing localization to the specified language if properly localized
+ * country information is expected. Can be called synchronously
  */
-internal class TDLib.GetPhoneNumberInfoSync : TDObject {
+public class TDLib.GetPhoneNumberInfoSync : TDObject {
 
     /**
      * A two-letter ISO 639-1 language code for country information

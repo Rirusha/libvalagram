@@ -22,7 +22,7 @@
 /**
  * Returns information about a bank card
  */
-internal class TDLib.GetBankCardInfo : TDObject {
+public class TDLib.GetBankCardInfo : TDObject {
 
     /**
      * The bank card number

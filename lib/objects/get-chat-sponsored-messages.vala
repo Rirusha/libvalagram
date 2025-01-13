@@ -23,7 +23,7 @@
  * Returns sponsored messages to be shown in a chat; for channel chats
  * and chats with bots only
  */
-internal class TDLib.GetChatSponsoredMessages : TDObject {
+public class TDLib.GetChatSponsoredMessages : TDObject {
 
     /**
      * Identifier of the chat

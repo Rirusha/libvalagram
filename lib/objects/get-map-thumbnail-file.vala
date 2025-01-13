@@ -23,7 +23,7 @@
  * Returns information about a file with a map thumbnail in PNG format.
  * Only map thumbnail files with size less than 1MB can be downloaded
  */
-internal class TDLib.GetMapThumbnailFile : TDObject {
+public class TDLib.GetMapThumbnailFile : TDObject {
 
     /**
      * Location of the map center

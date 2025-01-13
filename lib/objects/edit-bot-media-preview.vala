@@ -23,7 +23,7 @@
  * Replaces media preview in the list of media previews of a bot. Returns
  * the new preview after edit is completed server-side
  */
-internal class TDLib.EditBotMediaPreview : TDObject {
+public class TDLib.EditBotMediaPreview : TDObject {
 
     /**
      * Identifier of the target bot. The bot must be owned and must have the

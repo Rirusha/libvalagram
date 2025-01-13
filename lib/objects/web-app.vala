@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a Web App. Use getInternalLink with internalLinkTypeWebApp
- * to share the Web App
+ * Describes a Web App. Use {@link Client.get_internal_link} with
+ * internalLinkTypeWebApp to share the Web App
  */
 public class TDLib.WebApp : Error {
 

@@ -22,7 +22,7 @@
 /**
  * Returns the current privacy settings
  */
-internal class TDLib.GetUserPrivacySettingRules : TDObject {
+public class TDLib.GetUserPrivacySettingRules : TDObject {
 
     /**
      * The privacy setting

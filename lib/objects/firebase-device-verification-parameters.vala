@@ -49,7 +49,7 @@ public class TDLib.FirebaseDeviceVerificationParametersSafetyNet : FirebaseDevic
 /**
  * Device verification must be performed with the classic Play Integrity
  * verification
- * (https://developer.android.com/google/play/integrity/classic)
+ * ([[https://developer.android.com/google/play/integrity/classic]])
  */
 public class TDLib.FirebaseDeviceVerificationParametersPlayIntegrity : FirebaseDeviceVerificationParameters {
 

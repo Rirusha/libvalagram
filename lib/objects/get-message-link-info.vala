@@ -23,7 +23,7 @@
  * Returns information about a public or private message link. Can be
  * called for any internal link of the type internalLinkTypeMessage
  */
-internal class TDLib.GetMessageLinkInfo : TDObject {
+public class TDLib.GetMessageLinkInfo : TDObject {
 
     /**
      * The message link

@@ -23,7 +23,7 @@
  * Saves application log event on the server. Can be called before
  * authorization
  */
-internal class TDLib.SaveApplicationLogEvent : TDObject {
+public class TDLib.SaveApplicationLogEvent : TDObject {
 
     /**
      * Event type

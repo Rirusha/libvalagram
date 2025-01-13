@@ -26,7 +26,7 @@
  * Only non-secret video animations with MIME type "video/mp4" can be
  * added to the list
  */
-internal class TDLib.AddSavedAnimation : TDObject {
+public class TDLib.AddSavedAnimation : TDObject {
 
     /**
      * The animation file to be added. Only animations known to the server

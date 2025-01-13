@@ -24,7 +24,7 @@
  * for basic groups, supergroups and channels; requires
  * can_manage_video_chats administrator right
  */
-internal class TDLib.CreateVideoChat : TDObject {
+public class TDLib.CreateVideoChat : TDObject {
 
     /**
      * Identifier of a chat in which the video chat will be created

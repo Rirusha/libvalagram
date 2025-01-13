@@ -22,7 +22,7 @@
 /**
  * Discards a call
  */
-internal class TDLib.DiscardCall : TDObject {
+public class TDLib.DiscardCall : TDObject {
 
     /**
      * Call identifier

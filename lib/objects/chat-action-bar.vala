@@ -26,18 +26,18 @@
 public abstract class TDLib.ChatActionBar : Error {}
 
 /**
- * The chat can be reported as spam using the method reportChat with an
- * empty option_id and message_ids. If the chat is a private chat with a
- * user with an emoji status, then a notice about emoji status usage must
- * be shown
+ * The chat can be reported as spam using the method
+ * {@link Client.report_chat} with an empty option_id and message_ids. If
+ * the chat is a private chat with a user with an emoji status, then a
+ * notice about emoji status usage must be shown
  */
 public class TDLib.ChatActionBarReportSpam : ChatActionBar {
 
     /**
      * If true, the chat was automatically archived and can be moved back to
-     * the main chat list using addChatToList simultaneously with setting
-     * chat notification settings to default using
-     * setChatNotificationSettings
+     * the main chat list using {@link Client.add_chat_to_list}
+     * simultaneously with setting chat notification settings to default
+     * using {@link Client.set_chat_notification_settings}
      */
     public bool can_unarchive { get; construct set; }
 
@@ -68,19 +68,20 @@ public class TDLib.ChatActionBarInviteMembers : ChatActionBar {
 
 /**
  * The chat is a private or secret chat, which can be reported using the
- * method reportChat, or the other user can be blocked using the method
- * setMessageSenderBlockList,
+ * method {@link Client.report_chat} or the other user can be blocked
+ * using the method {@link Client.set_message_sender_block_list}
  * or the other user can be added to the contact list using the method
- * addContact. If the chat is a private chat with a user with an emoji
- * status, then a notice about emoji status usage must be shown
+ * {@link Client.add_contact} If the chat is a private chat with a user
+ * with an emoji status, then a notice about emoji status usage must be
+ * shown
  */
 public class TDLib.ChatActionBarReportAddBlock : ChatActionBar {
 
     /**
      * If true, the chat was automatically archived and can be moved back to
-     * the main chat list using addChatToList simultaneously with setting
-     * chat notification settings to default using
-     * setChatNotificationSettings
+     * the main chat list using {@link Client.add_chat_to_list}
+     * simultaneously with setting chat notification settings to default
+     * using {@link Client.set_chat_notification_settings}
      */
     public bool can_unarchive { get; construct set; }
 
@@ -97,7 +98,7 @@ public class TDLib.ChatActionBarReportAddBlock : ChatActionBar {
 
 /**
  * The chat is a private or secret chat and the other user can be added
- * to the contact list using the method addContact
+ * to the contact list using the method {@link Client.add_contact}
  */
 public class TDLib.ChatActionBarAddContact : ChatActionBar {
 
@@ -112,7 +113,7 @@ public class TDLib.ChatActionBarAddContact : ChatActionBar {
 /**
  * The chat is a private or secret chat with a mutual contact and the
  * user's phone number can be shared with the other user using the method
- * sharePhoneNumber
+ * {@link Client.share_phone_number}
  */
 public class TDLib.ChatActionBarSharePhoneNumber : ChatActionBar {
 

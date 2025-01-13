@@ -23,7 +23,7 @@
  * Sends a simple network request to the Telegram servers; for testing
  * only. Can be called before authorization
  */
-internal class TDLib.TestNetwork : TDObject {
+public class TDLib.TestNetwork : TDObject {
 
     public TestNetwork () {
         Object (

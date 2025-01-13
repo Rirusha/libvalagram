@@ -23,7 +23,7 @@
  * Replaces the current RTMP URL for streaming to the chat; requires
  * owner privileges
  */
-internal class TDLib.ReplaceVideoChatRtmpUrl : TDObject {
+public class TDLib.ReplaceVideoChatRtmpUrl : TDObject {
 
     /**
      * Chat identifier

@@ -23,7 +23,7 @@
  * Boosts a chat and returns the list of available chat boost slots for
  * the current user after the boost
  */
-internal class TDLib.BoostChat : TDObject {
+public class TDLib.BoostChat : TDObject {
 
     /**
      * Identifier of the chat

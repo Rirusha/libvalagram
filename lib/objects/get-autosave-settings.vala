@@ -22,7 +22,7 @@
 /**
  * Returns autosave settings for the current user
  */
-internal class TDLib.GetAutosaveSettings : TDObject {
+public class TDLib.GetAutosaveSettings : TDObject {
 
     public GetAutosaveSettings () {
         Object (

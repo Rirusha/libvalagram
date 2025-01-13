@@ -22,7 +22,7 @@
 /**
  * Sends a gift upgraded by the current user to another user
  */
-internal class TDLib.TransferGift : TDObject {
+public class TDLib.TransferGift : TDObject {
 
     /**
      * Identifier of the user that sent the gift

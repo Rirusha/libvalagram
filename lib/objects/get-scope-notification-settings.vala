@@ -22,7 +22,7 @@
 /**
  * Returns the notification settings for chats of a given type
  */
-internal class TDLib.GetScopeNotificationSettings : TDObject {
+public class TDLib.GetScopeNotificationSettings : TDObject {
 
     /**
      * Types of chats for which to return the notification settings

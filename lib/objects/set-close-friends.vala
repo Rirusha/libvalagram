@@ -20,13 +20,13 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the list of close friends of the current user
+ * Changes the list of {@link Client.close} friends of the current user
  */
-internal class TDLib.SetCloseFriends : TDObject {
+public class TDLib.SetCloseFriends : TDObject {
 
     /**
-     * User identifiers of close friends; the users must be contacts of the
-     * current user
+     * User identifiers of {@link Client.close} friends; the users must be
+     * contacts of the current user
      */
     public Gee.ArrayList<int64?> user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
 

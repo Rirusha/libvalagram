@@ -23,7 +23,7 @@
  * Edits the text of a message (or a text of a game message). Returns the
  * edited message after the edit is completed on the server side
  */
-internal class TDLib.EditMessageText : TDObject {
+public class TDLib.EditMessageText : TDObject {
 
     /**
      * The chat the message belongs to

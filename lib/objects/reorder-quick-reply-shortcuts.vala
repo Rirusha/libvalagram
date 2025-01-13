@@ -22,7 +22,7 @@
 /**
  * Changes the order of quick reply shortcuts
  */
-internal class TDLib.ReorderQuickReplyShortcuts : TDObject {
+public class TDLib.ReorderQuickReplyShortcuts : TDObject {
 
     /**
      * The new order of quick reply shortcuts

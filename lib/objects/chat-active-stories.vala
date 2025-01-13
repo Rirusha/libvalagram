@@ -49,9 +49,9 @@ public class TDLib.ChatActiveStories : Error {
     public int32 max_read_story_id { get; construct set; }
 
     /**
-     * Basic information about the stories; use getStory to get full
-     * information about the stories. The stories are in chronological order
-     * (i.e., in order of increasing story identifiers)
+     * Basic information about the stories; use {@link Client.get_story} to
+     * get full information about the stories. The stories are in
+     * chronological order (i.e., in order of increasing story identifiers)
      */
     public Gee.ArrayList<StoryInfo?> stories { get; construct set; default = new Gee.ArrayList<StoryInfo?> (); }
 

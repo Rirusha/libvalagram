@@ -22,7 +22,7 @@
 /**
  * Changes the order of chat folders
  */
-internal class TDLib.ReorderChatFolders : TDObject {
+public class TDLib.ReorderChatFolders : TDObject {
 
     /**
      * Identifiers of chat folders in the new correct order

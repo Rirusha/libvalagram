@@ -23,7 +23,7 @@
  * Forces an updates.getDifference call to the Telegram servers; for
  * testing only
  */
-internal class TDLib.TestGetDifference : TDObject {
+public class TDLib.TestGetDifference : TDObject {
 
     public TestGetDifference () {
         Object (

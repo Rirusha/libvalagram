@@ -24,7 +24,7 @@
  * given language. If the current user is a Telegram Premium user, then
  * text formatting is preserved
  */
-internal class TDLib.TranslateMessageText : TDObject {
+public class TDLib.TranslateMessageText : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

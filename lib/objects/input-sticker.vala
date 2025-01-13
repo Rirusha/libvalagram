@@ -28,7 +28,8 @@ public class TDLib.InputSticker : Error {
      * File with the sticker; must fit in a 512x512 square. For WEBP stickers
      * the file must be in WEBP or PNG format, which will be converted to
      * WEBP server-side.
-     * See https://core.telegram.org/animated_stickers#technical-requirements
+     * See
+     * [[https://core.telegram.org/animated_stickers#technical-requirements]]
      * for technical requirements
      */
     public InputFile sticker { get; construct set; }

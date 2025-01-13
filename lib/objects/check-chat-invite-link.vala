@@ -23,7 +23,7 @@
  * Checks the validity of an invite link for a chat and returns
  * information about the corresponding chat
  */
-internal class TDLib.CheckChatInviteLink : TDObject {
+public class TDLib.CheckChatInviteLink : TDObject {
 
     /**
      * Invite link to be checked

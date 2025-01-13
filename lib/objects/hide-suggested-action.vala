@@ -22,7 +22,7 @@
 /**
  * Hides a suggested action
  */
-internal class TDLib.HideSuggestedAction : TDObject {
+public class TDLib.HideSuggestedAction : TDObject {
 
     /**
      * Suggested action to hide

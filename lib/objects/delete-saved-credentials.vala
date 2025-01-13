@@ -22,7 +22,7 @@
 /**
  * Deletes saved credentials for all payment provider bots
  */
-internal class TDLib.DeleteSavedCredentials : TDObject {
+public class TDLib.DeleteSavedCredentials : TDObject {
 
     public DeleteSavedCredentials () {
         Object (

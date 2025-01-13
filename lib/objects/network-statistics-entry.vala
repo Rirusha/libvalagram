@@ -37,8 +37,8 @@ public class TDLib.NetworkStatisticsEntryFile : NetworkStatisticsEntry {
     public FileType file_type { get; construct set; }
 
     /**
-     * Type of the network the data was sent through. Call setNetworkType to
-     * maintain the actual network type
+     * Type of the network the data was sent through. Call
+     * {@link Client.set_network_type} to maintain the actual network type
      */
     public NetworkType network_type { get; construct set; }
 
@@ -76,8 +76,8 @@ public class TDLib.NetworkStatisticsEntryFile : NetworkStatisticsEntry {
 public class TDLib.NetworkStatisticsEntryCall : NetworkStatisticsEntry {
 
     /**
-     * Type of the network the data was sent through. Call setNetworkType to
-     * maintain the actual network type
+     * Type of the network the data was sent through. Call
+     * {@link Client.set_network_type} to maintain the actual network type
      */
     public NetworkType network_type { get; construct set; }
 

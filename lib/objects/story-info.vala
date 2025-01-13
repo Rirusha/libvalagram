@@ -35,7 +35,7 @@ public class TDLib.StoryInfo : Error {
     public int32 date { get; construct set; }
 
     /**
-     * True, if the story is available only to close friends
+     * True, if the story is available only to {@link Client.close} friends
      */
     public bool is_for_close_friends { get; construct set; }
 

@@ -43,9 +43,9 @@ public class TDLib.PhoneNumberInfo : Error {
     public string formatted_phone_number { get; construct set; }
 
     /**
-     * True, if the phone number was bought at https://fragment.com and isn't
-     * tied to a SIM card. Information about the phone number can be received
-     * using getCollectibleItemInfo
+     * True, if the phone number was bought at [[https://fragment.com]] and
+     * isn't tied to a SIM card. Information about the phone number can be
+     * received using {@link Client.get_collectible_item_info}
      */
     public bool is_anonymous { get; construct set; }
 

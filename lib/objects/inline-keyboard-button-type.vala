@@ -30,7 +30,7 @@ public abstract class TDLib.InlineKeyboardButtonType : Error {}
 public class TDLib.InlineKeyboardButtonTypeUrl : InlineKeyboardButtonType {
 
     /**
-     * HTTP or tg:// URL to open. If the link is of the type
+     * HTTP or [[tg://]] URL to open. If the link is of the type
      * internalLinkTypeWebApp, then the button must be marked as a Web App
      * button
      */
@@ -49,12 +49,12 @@ public class TDLib.InlineKeyboardButtonTypeUrl : InlineKeyboardButtonType {
 
 /**
  * A button that opens a specified URL and automatically authorize the
- * current user by calling getLoginUrlInfo
+ * current user by calling {@link Client.get_login_url_info}
  */
 public class TDLib.InlineKeyboardButtonTypeLoginUrl : InlineKeyboardButtonType {
 
     /**
-     * An HTTP URL to pass to getLoginUrlInfo
+     * An HTTP URL to pass to {@link Client.get_login_url_info}
      */
     public string url { get; construct set; }
 
@@ -84,12 +84,12 @@ public class TDLib.InlineKeyboardButtonTypeLoginUrl : InlineKeyboardButtonType {
 }
 
 /**
- * A button that opens a Web App by calling openWebApp
+ * A button that opens a Web App by calling {@link Client.open_web_app}
  */
 public class TDLib.InlineKeyboardButtonTypeWebApp : InlineKeyboardButtonType {
 
     /**
-     * An HTTP URL to pass to openWebApp
+     * An HTTP URL to pass to {@link Client.open_web_app}
      */
     public string url { get; construct set; }
 

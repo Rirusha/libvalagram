@@ -23,7 +23,7 @@
  * Invites users to an active group call. Sends a service message of type
  * messageInviteVideoChatParticipants for video chats
  */
-internal class TDLib.InviteGroupCallParticipants : TDObject {
+public class TDLib.InviteGroupCallParticipants : TDObject {
 
     /**
      * Group call identifier

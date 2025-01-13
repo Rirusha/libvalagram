@@ -23,7 +23,7 @@
  * Resets all network data usage statistics to zero. Can be called before
  * authorization
  */
-internal class TDLib.ResetNetworkStatistics : TDObject {
+public class TDLib.ResetNetworkStatistics : TDObject {
 
     public ResetNetworkStatistics () {
         Object (

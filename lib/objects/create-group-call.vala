@@ -22,7 +22,7 @@
 /**
  * Creates a group call from a one-to-one call
  */
-internal class TDLib.CreateGroupCall : TDObject {
+public class TDLib.CreateGroupCall : TDObject {
 
     /**
      * Call identifier

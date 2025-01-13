@@ -22,7 +22,7 @@
 /**
  * Launches a prepaid giveaway
  */
-internal class TDLib.LaunchPrepaidGiveaway : TDObject {
+public class TDLib.LaunchPrepaidGiveaway : TDObject {
 
     /**
      * Unique identifier of the prepaid giveaway

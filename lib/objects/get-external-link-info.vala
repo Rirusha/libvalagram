@@ -24,7 +24,7 @@
  * clicks an external link. Don't use this method for links from secret
  * chats if link preview is disabled in secret chats
  */
-internal class TDLib.GetExternalLinkInfo : TDObject {
+public class TDLib.GetExternalLinkInfo : TDObject {
 
     /**
      * The link

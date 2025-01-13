@@ -22,7 +22,7 @@
 /**
  * Sends debug information for a call to Telegram servers
  */
-internal class TDLib.SendCallDebugInformation : TDObject {
+public class TDLib.SendCallDebugInformation : TDObject {
 
     /**
      * Call identifier

@@ -22,7 +22,7 @@
 /**
  * Returns detailed Telegram Star revenue statistics
  */
-internal class TDLib.GetStarRevenueStatistics : TDObject {
+public class TDLib.GetStarRevenueStatistics : TDObject {
 
     /**
      * Identifier of the owner of the Telegram Stars; can be identifier of an

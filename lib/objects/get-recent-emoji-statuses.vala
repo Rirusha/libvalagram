@@ -22,7 +22,7 @@
 /**
  * Returns recent emoji statuses for self status
  */
-internal class TDLib.GetRecentEmojiStatuses : TDObject {
+public class TDLib.GetRecentEmojiStatuses : TDObject {
 
     public GetRecentEmojiStatuses () {
         Object (

@@ -22,7 +22,7 @@
 /**
  * Returns default message auto-delete time setting for new chats
  */
-internal class TDLib.GetDefaultMessageAutoDeleteTime : TDObject {
+public class TDLib.GetDefaultMessageAutoDeleteTime : TDObject {
 
     public GetDefaultMessageAutoDeleteTime () {
         Object (

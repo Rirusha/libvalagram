@@ -22,7 +22,7 @@
 /**
  * Deletes the business bot that is connected to the current user account
  */
-internal class TDLib.DeleteBusinessConnectedBot : TDObject {
+public class TDLib.DeleteBusinessConnectedBot : TDObject {
 
     /**
      * Unique user identifier for the bot

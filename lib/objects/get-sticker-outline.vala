@@ -23,7 +23,7 @@
  * Returns outline of a sticker; this is an offline request. Returns a
  * 404 error if the outline isn't known
  */
-internal class TDLib.GetStickerOutline : TDObject {
+public class TDLib.GetStickerOutline : TDObject {
 
     /**
      * File identifier of the sticker

@@ -23,7 +23,7 @@
  * Changes the business greeting message settings of the current user.
  * Requires Telegram Business subscription
  */
-internal class TDLib.SetBusinessGreetingMessageSettings : TDObject {
+public class TDLib.SetBusinessGreetingMessageSettings : TDObject {
 
     /**
      * The new settings for the greeting message of the business; pass null

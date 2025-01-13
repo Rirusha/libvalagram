@@ -26,7 +26,7 @@
  * Excludes private chats with contacts and chats from the chat list from
  * the results
  */
-internal class TDLib.SearchPublicChats : TDObject {
+public class TDLib.SearchPublicChats : TDObject {
 
     /**
      * Query to search for

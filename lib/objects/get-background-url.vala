@@ -22,7 +22,7 @@
 /**
  * Constructs a persistent HTTP URL for a background
  */
-internal class TDLib.GetBackgroundUrl : TDObject {
+public class TDLib.GetBackgroundUrl : TDObject {
 
     /**
      * Background name

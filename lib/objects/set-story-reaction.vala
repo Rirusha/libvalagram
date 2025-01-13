@@ -22,7 +22,7 @@
 /**
  * Changes chosen reaction on a story that has already been sent
  */
-internal class TDLib.SetStoryReaction : TDObject {
+public class TDLib.SetStoryReaction : TDObject {
 
     /**
      * The identifier of the sender of the story

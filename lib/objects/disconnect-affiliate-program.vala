@@ -24,7 +24,7 @@
  * immediately deactivates its referral link. Returns updated information
  * about the disconnected affiliate program
  */
-internal class TDLib.DisconnectAffiliateProgram : TDObject {
+public class TDLib.DisconnectAffiliateProgram : TDObject {
 
     /**
      * The affiliate to which the affiliate program is connected

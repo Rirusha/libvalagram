@@ -24,7 +24,7 @@
  * mask, and emoji sticker sets. Currently, only animations, photos, and
  * videos can have attached sticker sets
  */
-internal class TDLib.GetAttachedStickerSets : TDObject {
+public class TDLib.GetAttachedStickerSets : TDObject {
 
     /**
      * File identifier

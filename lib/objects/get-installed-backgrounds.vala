@@ -22,7 +22,7 @@
 /**
  * Returns backgrounds installed by the user
  */
-internal class TDLib.GetInstalledBackgrounds : TDObject {
+public class TDLib.GetInstalledBackgrounds : TDObject {
 
     /**
      * Pass true to order returned backgrounds for a dark theme

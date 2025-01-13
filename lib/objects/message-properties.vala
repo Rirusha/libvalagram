@@ -27,34 +27,37 @@ public class TDLib.MessageProperties : Error {
 
     /**
      * True, if content of the message can be copied to a secret chat using
-     * inputMessageForwarded or forwardMessages with copy options
+     * inputMessageForwarded or {@link Client.forward_messages} with copy
+     * options
      */
     public bool can_be_copied_to_secret_chat { get; construct set; }
 
     /**
      * True, if the message can be deleted only for the current user while
-     * other users will continue to see it using the method deleteMessages
-     * with revoke == false
+     * other users will continue to see it using the method
+     * {@link Client.delete_messages} with revoke == false
      */
     public bool can_be_deleted_only_for_self { get; construct set; }
 
     /**
      * True, if the message can be deleted for all users using the method
-     * deleteMessages with revoke == true
+     * {@link Client.delete_messages} with revoke == true
      */
     public bool can_be_deleted_for_all_users { get; construct set; }
 
     /**
-     * True, if the message can be edited using the methods editMessageText,
-     * editMessageCaption, or editMessageReplyMarkup.
+     * True, if the message can be edited using the methods
+     * {@link Client.edit_message_text} {@link Client.edit_message_caption}
+     * or {@link Client.edit_message_reply_markup}
      * For live location and poll messages this fields shows whether
-     * editMessageLiveLocation or stopPoll can be used with this message
+     * {@link Client.edit_message_live_location} or {@link Client.stop_poll}
+     * can be used with this message
      */
     public bool can_be_edited { get; construct set; }
 
     /**
      * True, if the message can be forwarded using inputMessageForwarded or
-     * forwardMessages
+     * {@link Client.forward_messages}
      */
     public bool can_be_forwarded { get; construct set; }
 
@@ -65,7 +68,7 @@ public class TDLib.MessageProperties : Error {
 
     /**
      * True, if the message can be pinned or unpinned in the chat using
-     * pinChatMessage or unpinChatMessage
+     * {@link Client.pin_chat_message} or {@link Client.unpin_chat_message}
      */
     public bool can_be_pinned { get; construct set; }
 
@@ -83,7 +86,8 @@ public class TDLib.MessageProperties : Error {
 
     /**
      * True, if content of the message can be saved locally or copied using
-     * inputMessageForwarded or forwardMessages with copy options
+     * inputMessageForwarded or {@link Client.forward_messages} with copy
+     * options
      */
     public bool can_be_saved { get; construct set; }
 
@@ -94,7 +98,8 @@ public class TDLib.MessageProperties : Error {
     public bool can_be_shared_in_story { get; construct set; }
 
     /**
-     * True, if the message can be edited using the method editMessageMedia
+     * True, if the message can be edited using the method
+     * {@link Client.edit_message_media}
      */
     public bool can_edit_media { get; construct set; }
 
@@ -105,71 +110,75 @@ public class TDLib.MessageProperties : Error {
 
     /**
      * True, if code for message embedding can be received using
-     * getMessageEmbeddingCode
+     * {@link Client.get_message_embedding_code}
      */
     public bool can_get_embedding_code { get; construct set; }
 
     /**
-     * True, if a link can be generated for the message using getMessageLink
+     * True, if a link can be generated for the message using
+     * {@link Client.get_message_link}
      */
     public bool can_get_link { get; construct set; }
 
     /**
      * True, if media timestamp links can be generated for media timestamp
      * entities in the message text, caption or link preview description
-     * using getMessageLink
+     * using {@link Client.get_message_link}
      */
     public bool can_get_media_timestamp_links { get; construct set; }
 
     /**
      * True, if information about the message thread is available through
-     * getMessageThread and getMessageThreadHistory
+     * {@link Client.get_message_thread} and
+     * {@link Client.get_message_thread_history}
      */
     public bool can_get_message_thread { get; construct set; }
 
     /**
      * True, if read date of the message can be received through
-     * getMessageReadDate
+     * {@link Client.get_message_read_date}
      */
     public bool can_get_read_date { get; construct set; }
 
     /**
-     * True, if message statistics are available through getMessageStatistics
-     * and message forwards can be received using getMessagePublicForwards
+     * True, if message statistics are available through
+     * {@link Client.get_message_statistics} and message forwards can be
+     * received using {@link Client.get_message_public_forwards}
      */
     public bool can_get_statistics { get; construct set; }
 
     /**
      * True, if chat members already viewed the message can be received
-     * through getMessageViewers
+     * through {@link Client.get_message_viewers}
      */
     public bool can_get_viewers { get; construct set; }
 
     /**
      * True, if speech can be recognized for the message through
-     * recognizeSpeech
+     * {@link Client.recognize_speech}
      */
     public bool can_recognize_speech { get; construct set; }
 
     /**
-     * True, if the message can be reported using reportChat
+     * True, if the message can be reported using {@link Client.report_chat}
      */
     public bool can_report_chat { get; construct set; }
 
     /**
      * True, if reactions on the message can be reported through
-     * reportMessageReactions
+     * {@link Client.report_message_reactions}
      */
     public bool can_report_reactions { get; construct set; }
 
     /**
-     * True, if the message can be reported using reportSupergroupSpam
+     * True, if the message can be reported using
+     * {@link Client.report_supergroup_spam}
      */
     public bool can_report_supergroup_spam { get; construct set; }
 
     /**
      * True, if fact check for the message can be changed through
-     * setMessageFactCheck
+     * {@link Client.set_message_fact_check}
      */
     public bool can_set_fact_check { get; construct set; }
 

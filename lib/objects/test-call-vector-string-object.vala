@@ -24,7 +24,7 @@
  * testing only. This is an offline method. Can be called before
  * authorization
  */
-internal class TDLib.TestCallVectorStringObject : TDObject {
+public class TDLib.TestCallVectorStringObject : TDObject {
 
     /**
      * Vector of objects to return

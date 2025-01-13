@@ -22,7 +22,7 @@
 /**
  * Recognizes speech in a video note or a voice note message
  */
-internal class TDLib.RecognizeSpeech : TDObject {
+public class TDLib.RecognizeSpeech : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

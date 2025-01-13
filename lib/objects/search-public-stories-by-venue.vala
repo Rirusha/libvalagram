@@ -24,7 +24,7 @@
  * performance, the number of returned stories is chosen by TDLib and can
  * be smaller than the specified limit
  */
-internal class TDLib.SearchPublicStoriesByVenue : TDObject {
+public class TDLib.SearchPublicStoriesByVenue : TDObject {
 
     /**
      * Provider of the venue

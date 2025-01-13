@@ -22,7 +22,7 @@
 /**
  * Returns all website where the current user used Telegram to log in
  */
-internal class TDLib.GetConnectedWebsites : TDObject {
+public class TDLib.GetConnectedWebsites : TDObject {
 
     public GetConnectedWebsites () {
         Object (

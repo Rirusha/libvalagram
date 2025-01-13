@@ -22,7 +22,7 @@
 /**
  * Pauses or unpauses screen sharing in a joined group call
  */
-internal class TDLib.ToggleGroupCallScreenSharingIsPaused : TDObject {
+public class TDLib.ToggleGroupCallScreenSharingIsPaused : TDObject {
 
     /**
      * Group call identifier

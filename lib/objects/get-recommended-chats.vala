@@ -22,7 +22,7 @@
 /**
  * Returns a list of channel chats recommended to the current user
  */
-internal class TDLib.GetRecommendedChats : TDObject {
+public class TDLib.GetRecommendedChats : TDObject {
 
     public GetRecommendedChats () {
         Object (

@@ -22,7 +22,7 @@
 /**
  * Toggles whether the bot can manage emoji status of the current user
  */
-internal class TDLib.ToggleBotCanManageEmojiStatus : TDObject {
+public class TDLib.ToggleBotCanManageEmojiStatus : TDObject {
 
     /**
      * User identifier of the bot

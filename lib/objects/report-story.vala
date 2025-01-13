@@ -22,7 +22,7 @@
 /**
  * Reports a story to the Telegram moderators
  */
-internal class TDLib.ReportStory : TDObject {
+public class TDLib.ReportStory : TDObject {
 
     /**
      * The identifier of the sender of the story to report

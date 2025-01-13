@@ -22,7 +22,7 @@
 /**
  * Adds a message to TDLib internal log. Can be called synchronously
  */
-internal class TDLib.AddLogMessage : TDObject {
+public class TDLib.AddLogMessage : TDObject {
 
     /**
      * The minimum verbosity level needed for the message to be logged;

@@ -22,7 +22,7 @@
 /**
  * Removes an animation from the list of saved animations
  */
-internal class TDLib.RemoveSavedAnimation : TDObject {
+public class TDLib.RemoveSavedAnimation : TDObject {
 
     /**
      * Animation file to be removed

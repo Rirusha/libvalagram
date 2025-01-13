@@ -24,7 +24,7 @@
  * privileges and can_invite_users right in the chat to get own links and
  * owner privileges to get other links
  */
-internal class TDLib.GetChatInviteLink : TDObject {
+public class TDLib.GetChatInviteLink : TDObject {
 
     /**
      * Chat identifier

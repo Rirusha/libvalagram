@@ -23,7 +23,7 @@
  * Checks the 2-step verification recovery email address verification
  * code
  */
-internal class TDLib.CheckRecoveryEmailAddressCode : TDObject {
+public class TDLib.CheckRecoveryEmailAddressCode : TDObject {
 
     /**
      * Verification code to check

@@ -24,7 +24,7 @@
  * to ignore slow mode and chat permission restrictions; requires
  * can_restrict_members administrator right
  */
-internal class TDLib.SetSupergroupUnrestrictBoostCount : TDObject {
+public class TDLib.SetSupergroupUnrestrictBoostCount : TDObject {
 
     /**
      * Identifier of the supergroup

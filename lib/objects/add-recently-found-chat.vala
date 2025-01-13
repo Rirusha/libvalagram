@@ -24,7 +24,7 @@
  * the beginning of the list. If the chat is already in the list, it will
  * be removed from the list first
  */
-internal class TDLib.AddRecentlyFoundChat : TDObject {
+public class TDLib.AddRecentlyFoundChat : TDObject {
 
     /**
      * Identifier of the chat to add

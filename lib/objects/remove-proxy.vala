@@ -22,7 +22,7 @@
 /**
  * Removes a proxy server. Can be called before authorization
  */
-internal class TDLib.RemoveProxy : TDObject {
+public class TDLib.RemoveProxy : TDObject {
 
     /**
      * Proxy identifier

@@ -24,7 +24,7 @@
  * shortcut. The loaded messages will be sent through
  * updateQuickReplyShortcutMessages
  */
-internal class TDLib.LoadQuickReplyShortcutMessages : TDObject {
+public class TDLib.LoadQuickReplyShortcutMessages : TDObject {
 
     /**
      * Unique identifier of the quick reply shortcut

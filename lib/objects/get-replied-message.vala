@@ -30,7 +30,7 @@
  * without non-bundled replied message respectively.
  * Returns a 404 error if the message doesn't exist
  */
-internal class TDLib.GetRepliedMessage : TDObject {
+public class TDLib.GetRepliedMessage : TDObject {
 
     /**
      * Identifier of the chat the message belongs to

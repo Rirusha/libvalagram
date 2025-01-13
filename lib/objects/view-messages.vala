@@ -28,7 +28,7 @@
  * view counter, updating a view counter, removing deleted messages in
  * supergroups and channels)
  */
-internal class TDLib.ViewMessages : TDObject {
+public class TDLib.ViewMessages : TDObject {
 
     /**
      * Chat identifier

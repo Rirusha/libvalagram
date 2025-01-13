@@ -22,7 +22,7 @@
 /**
  * Toggles whether a gift is shown on the current user's profile page
  */
-internal class TDLib.ToggleGiftIsSaved : TDObject {
+public class TDLib.ToggleGiftIsSaved : TDObject {
 
     /**
      * Identifier of the user that sent the gift

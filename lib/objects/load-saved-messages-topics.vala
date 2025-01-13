@@ -25,7 +25,7 @@
  * topic.order in descending order. Returns a 404 error if all topics
  * have been loaded
  */
-internal class TDLib.LoadSavedMessagesTopics : TDObject {
+public class TDLib.LoadSavedMessagesTopics : TDObject {
 
     /**
      * The maximum number of topics to be loaded. For optimal performance,

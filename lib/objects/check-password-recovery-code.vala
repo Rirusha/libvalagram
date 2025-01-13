@@ -23,7 +23,7 @@
  * Checks whether a 2-step verification password recovery code sent to an
  * email address is valid
  */
-internal class TDLib.CheckPasswordRecoveryCode : TDObject {
+public class TDLib.CheckPasswordRecoveryCode : TDObject {
 
     /**
      * Recovery code to check

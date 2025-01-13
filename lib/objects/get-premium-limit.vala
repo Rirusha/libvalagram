@@ -23,7 +23,7 @@
  * Returns information about a limit, increased for Premium users.
  * Returns a 404 error if the limit is unknown
  */
-internal class TDLib.GetPremiumLimit : TDObject {
+public class TDLib.GetPremiumLimit : TDObject {
 
     /**
      * Type of the limit

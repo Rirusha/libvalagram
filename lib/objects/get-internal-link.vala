@@ -23,7 +23,7 @@
  * Returns an HTTPS or a tg: link with the given type. Can be called
  * before authorization
  */
-internal class TDLib.GetInternalLink : TDObject {
+public class TDLib.GetInternalLink : TDObject {
 
     /**
      * Expected type of the link

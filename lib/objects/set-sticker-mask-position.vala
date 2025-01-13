@@ -23,7 +23,7 @@
  * Changes the mask position of a mask sticker. The sticker must belong
  * to a mask sticker set that is owned by the current user
  */
-internal class TDLib.SetStickerMaskPosition : TDObject {
+public class TDLib.SetStickerMaskPosition : TDObject {
 
     /**
      * Sticker

@@ -22,7 +22,7 @@
 /**
  * Changes the editable username of the current user
  */
-internal class TDLib.SetUsername : TDObject {
+public class TDLib.SetUsername : TDObject {
 
     /**
      * The new value of the username. Use an empty string to remove the

@@ -23,7 +23,7 @@
  * Pins a message in a chat. A message can be pinned only if
  * messageProperties.can_be_pinned
  */
-internal class TDLib.PinChatMessage : TDObject {
+public class TDLib.PinChatMessage : TDObject {
 
     /**
      * Identifier of the chat

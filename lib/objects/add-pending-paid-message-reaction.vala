@@ -21,10 +21,10 @@
 
 /**
  * Adds the paid message reaction to a message. Use
- * getMessageAvailableReactions to check whether the reaction is
- * available for the message
+ * {@link Client.get_message_available_reactions} to check whether the
+ * reaction is available for the message
  */
-internal class TDLib.AddPendingPaidMessageReaction : TDObject {
+public class TDLib.AddPendingPaidMessageReaction : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

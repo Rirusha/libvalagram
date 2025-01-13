@@ -24,7 +24,7 @@
  * only for private chats and basic groups. Messages sent in the last 30
  * seconds will not be deleted
  */
-internal class TDLib.DeleteChatMessagesByDate : TDObject {
+public class TDLib.DeleteChatMessagesByDate : TDObject {
 
     /**
      * Chat identifier

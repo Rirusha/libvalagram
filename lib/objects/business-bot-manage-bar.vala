@@ -35,8 +35,9 @@ public class TDLib.BusinessBotManageBar : Error {
     public string manage_url { get; construct set; }
 
     /**
-     * True, if the bot is paused. Use toggleBusinessConnectedBotChatIsPaused
-     * to change the value of the field
+     * True, if the bot is paused. Use
+     * {@link Client.toggle_business_connected_bot_chat_is_paused} to change
+     * the value of the field
      */
     public bool is_bot_paused { get; construct set; }
 

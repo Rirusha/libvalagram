@@ -22,7 +22,7 @@
 /**
  * Returns properties of a message; this is an offline request
  */
-internal class TDLib.GetMessageProperties : TDObject {
+public class TDLib.GetMessageProperties : TDObject {
 
     /**
      * Chat identifier

@@ -24,7 +24,7 @@
  * and can_invite_users right in the chat for own links and owner
  * privileges for other links
  */
-internal class TDLib.DeleteRevokedChatInviteLink : TDObject {
+public class TDLib.DeleteRevokedChatInviteLink : TDObject {
 
     /**
      * Chat identifier

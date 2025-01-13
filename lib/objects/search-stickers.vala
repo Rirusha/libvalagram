@@ -23,7 +23,7 @@
  * Searches for stickers from public sticker sets that correspond to any
  * of the given emoji
  */
-internal class TDLib.SearchStickers : TDObject {
+public class TDLib.SearchStickers : TDObject {
 
     /**
      * Type of the stickers to return

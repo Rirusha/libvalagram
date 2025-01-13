@@ -23,7 +23,7 @@
  * Returns information about a message effect. Returns a 404 error if the
  * effect is not found
  */
-internal class TDLib.GetMessageEffect : TDObject {
+public class TDLib.GetMessageEffect : TDObject {
 
     /**
      * Unique identifier of the effect

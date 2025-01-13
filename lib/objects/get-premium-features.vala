@@ -22,7 +22,7 @@
 /**
  * Returns information about features, available to Premium users
  */
-internal class TDLib.GetPremiumFeatures : TDObject {
+public class TDLib.GetPremiumFeatures : TDObject {
 
     /**
      * Source of the request; pass null if the method is called from some

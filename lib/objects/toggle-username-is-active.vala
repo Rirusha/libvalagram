@@ -25,7 +25,7 @@
  * "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames
  * has been reached
  */
-internal class TDLib.ToggleUsernameIsActive : TDObject {
+public class TDLib.ToggleUsernameIsActive : TDObject {
 
     /**
      * The username to change

@@ -23,7 +23,7 @@
  * Returns the list of features available for different chat boost
  * levels; this is an offline request
  */
-internal class TDLib.GetChatBoostFeatures : TDObject {
+public class TDLib.GetChatBoostFeatures : TDObject {
 
     /**
      * Pass true to get the list of features for channels; pass false to get

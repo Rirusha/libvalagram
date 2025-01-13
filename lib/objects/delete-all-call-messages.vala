@@ -22,7 +22,7 @@
 /**
  * Deletes all call messages
  */
-internal class TDLib.DeleteAllCallMessages : TDObject {
+public class TDLib.DeleteAllCallMessages : TDObject {
 
     /**
      * Pass true to delete the messages for all users

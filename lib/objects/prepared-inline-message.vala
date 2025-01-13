@@ -21,13 +21,13 @@
 
 /**
  * Represents a ready to send inline message. Use
- * sendInlineQueryResultMessage to send the message
+ * {@link Client.send_inline_query_result_message} to send the message
  */
 public class TDLib.PreparedInlineMessage : Error {
 
     /**
      * Unique identifier of the inline query to pass to
-     * sendInlineQueryResultMessage
+     * {@link Client.send_inline_query_result_message}
      */
     public int64 inline_query_id { get; construct set; }
 

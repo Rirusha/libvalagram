@@ -24,7 +24,7 @@
  * format. Entities that can't be represented in Markdown unambiguously
  * are kept as is. Can be called synchronously
  */
-internal class TDLib.GetMarkdownText : TDObject {
+public class TDLib.GetMarkdownText : TDObject {
 
     /**
      * The text

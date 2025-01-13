@@ -22,7 +22,7 @@
 /**
  * Returns the current boost status for a supergroup or a channel chat
  */
-internal class TDLib.GetChatBoostStatus : TDObject {
+public class TDLib.GetChatBoostStatus : TDObject {
 
     /**
      * Identifier of the chat

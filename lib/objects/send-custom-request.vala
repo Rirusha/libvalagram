@@ -22,7 +22,7 @@
 /**
  * Sends a custom request; for bots only
  */
-internal class TDLib.SendCustomRequest : TDObject {
+public class TDLib.SendCustomRequest : TDObject {
 
     /**
      * The method name

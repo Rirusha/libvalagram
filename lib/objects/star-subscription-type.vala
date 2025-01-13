@@ -31,7 +31,8 @@ public class TDLib.StarSubscriptionTypeChannel : StarSubscriptionType {
 
     /**
      * True, if the subscription is active and the user can use the method
-     * reuseStarSubscription to join the subscribed chat again
+     * {@link Client.reuse_star_subscription} to join the subscribed chat
+     * again
      */
     public bool can_reuse { get; construct set; }
 

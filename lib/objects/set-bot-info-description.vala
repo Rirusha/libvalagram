@@ -23,7 +23,7 @@
  * Sets the text shown in the chat with a bot if the chat is empty. Can
  * be called only if userTypeBot.can_be_edited == true
  */
-internal class TDLib.SetBotInfoDescription : TDObject {
+public class TDLib.SetBotInfoDescription : TDObject {
 
     /**
      * Identifier of the target bot

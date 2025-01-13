@@ -23,7 +23,7 @@
  * Returns game high scores and some part of the high score table in the
  * range of the specified user; for bots only
  */
-internal class TDLib.GetInlineGameHighScores : TDObject {
+public class TDLib.GetInlineGameHighScores : TDObject {
 
     /**
      * Inline message identifier

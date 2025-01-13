@@ -23,7 +23,7 @@
  * Returns detailed statistics about a story. Can be used only if
  * story.can_get_statistics == true
  */
-internal class TDLib.GetStoryStatistics : TDObject {
+public class TDLib.GetStoryStatistics : TDObject {
 
     /**
      * Chat identifier

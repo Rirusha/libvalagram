@@ -48,7 +48,7 @@ public class TDLib.LanguagePackInfo : Error {
 
     /**
      * A language code to be used to apply plural forms. See
-     * https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
+     * [[https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html]]
      * for more information
      */
     public string plural_code { get; construct set; }

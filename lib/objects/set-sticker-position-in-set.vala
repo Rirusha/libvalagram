@@ -23,7 +23,7 @@
  * Changes the position of a sticker in the set to which it belongs. The
  * sticker set must be owned by the current user
  */
-internal class TDLib.SetStickerPositionInSet : TDObject {
+public class TDLib.SetStickerPositionInSet : TDObject {
 
     /**
      * Sticker

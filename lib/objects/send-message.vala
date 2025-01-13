@@ -22,7 +22,7 @@
 /**
  * Sends a message. Returns the sent message
  */
-internal class TDLib.SendMessage : TDObject {
+public class TDLib.SendMessage : TDObject {
 
     /**
      * Target chat

@@ -23,7 +23,7 @@
  * Optimizes storage usage, i.e. deletes some files and returns new
  * storage usage statistics. Secret thumbnails can't be deleted
  */
-internal class TDLib.OptimizeStorage : TDObject {
+public class TDLib.OptimizeStorage : TDObject {
 
     /**
      * Limit on the total size of files after deletion, in bytes. Pass -1 to
@@ -79,7 +79,8 @@ internal class TDLib.OptimizeStorage : TDObject {
     public bool return_deleted_file_statistics { get; construct set; }
 
     /**
-     * Same as in getStorageStatistics. Affects only returned statistics
+     * Same as in {@link Client.get_storage_statistics} Affects only returned
+     * statistics
      */
     public int32 chat_limit { get; construct set; }
 

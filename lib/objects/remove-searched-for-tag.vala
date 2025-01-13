@@ -23,7 +23,7 @@
  * Removes a hashtag or a cashtag from the list of recently searched for
  * hashtags or cashtags
  */
-internal class TDLib.RemoveSearchedForTag : TDObject {
+public class TDLib.RemoveSearchedForTag : TDObject {
 
     /**
      * Hashtag or cashtag to delete

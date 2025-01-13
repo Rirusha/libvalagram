@@ -24,7 +24,7 @@
  * getOption("pinned_saved_messages_topic_count_max") pinned topics. The
  * limit can be increased with Telegram Premium
  */
-internal class TDLib.ToggleSavedMessagesTopicIsPinned : TDObject {
+public class TDLib.ToggleSavedMessagesTopicIsPinned : TDObject {
 
     /**
      * Identifier of Saved Messages topic to pin or unpin

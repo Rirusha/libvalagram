@@ -24,7 +24,7 @@
  * known chats via request to the server. Returns chats in the order seen
  * in the main chat list
  */
-internal class TDLib.SearchChatsOnServer : TDObject {
+public class TDLib.SearchChatsOnServer : TDObject {
 
     /**
      * Query to search for

@@ -23,7 +23,7 @@
  * Adds or removes a bot to attachment and side menu. Bot can be added to
  * the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
  */
-internal class TDLib.ToggleBotIsAddedToAttachmentMenu : TDObject {
+public class TDLib.ToggleBotIsAddedToAttachmentMenu : TDObject {
 
     /**
      * Bot's user identifier

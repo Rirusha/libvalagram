@@ -24,7 +24,7 @@
  * May return an error with a message "INVITE_REQUEST_SENT" if only a
  * join request was created
  */
-internal class TDLib.JoinChatByInviteLink : TDObject {
+public class TDLib.JoinChatByInviteLink : TDObject {
 
     /**
      * Invite link to use

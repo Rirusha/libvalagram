@@ -23,7 +23,7 @@
  * Returns information about the type of internal link. Returns a 404
  * error if the link is not internal. Can be called before authorization
  */
-internal class TDLib.GetInternalLinkType : TDObject {
+public class TDLib.GetInternalLinkType : TDObject {
 
     /**
      * The link

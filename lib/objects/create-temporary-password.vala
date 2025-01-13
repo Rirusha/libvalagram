@@ -22,7 +22,7 @@
 /**
  * Creates a new temporary password for processing payments
  */
-internal class TDLib.CreateTemporaryPassword : TDObject {
+public class TDLib.CreateTemporaryPassword : TDObject {
 
     /**
      * The 2-step verification password of the current user

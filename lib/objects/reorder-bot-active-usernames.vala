@@ -23,7 +23,7 @@
  * Changes order of active usernames of a bot. Can be called only if
  * userTypeBot.can_be_edited == true
  */
-internal class TDLib.ReorderBotActiveUsernames : TDObject {
+public class TDLib.ReorderBotActiveUsernames : TDObject {
 
     /**
      * Identifier of the target bot

@@ -22,7 +22,7 @@
 /**
  * Sets a custom emoji sticker set thumbnail
  */
-internal class TDLib.SetCustomEmojiStickerSetThumbnail : TDObject {
+public class TDLib.SetCustomEmojiStickerSetThumbnail : TDObject {
 
     /**
      * Sticker set name. The sticker set must be owned by the current user

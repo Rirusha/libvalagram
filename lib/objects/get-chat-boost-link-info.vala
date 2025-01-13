@@ -23,7 +23,7 @@
  * Returns information about a link to boost a chat. Can be called for
  * any internal link of the type internalLinkTypeChatBoost
  */
-internal class TDLib.GetChatBoostLinkInfo : TDObject {
+public class TDLib.GetChatBoostLinkInfo : TDObject {
 
     /**
      * The link to boost a chat

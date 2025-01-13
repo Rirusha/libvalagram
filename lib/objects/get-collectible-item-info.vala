@@ -21,9 +21,9 @@
 
 /**
  * Returns information about a given collectible item that was purchased
- * at https://fragment.com
+ * at [[https://fragment.com]]
  */
-internal class TDLib.GetCollectibleItemInfo : TDObject {
+public class TDLib.GetCollectibleItemInfo : TDObject {
 
     /**
      * Type of the collectible item. The item must be used by a user and must

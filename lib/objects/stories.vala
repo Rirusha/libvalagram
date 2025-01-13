@@ -36,7 +36,8 @@ public class TDLib.Stories : Error {
 
     /**
      * Identifiers of the pinned stories; returned only in
-     * getChatPostedToChatPageStories with from_story_id == 0
+     * {@link Client.get_chat_posted_to_chat_page_stories} with from_story_id
+     * == 0
      */
     public Gee.ArrayList<int32?> pinned_story_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 

@@ -23,7 +23,7 @@
  * Changes default participant identifier, on whose behalf a video chat
  * in the chat will be joined
  */
-internal class TDLib.SetVideoChatDefaultParticipant : TDObject {
+public class TDLib.SetVideoChatDefaultParticipant : TDObject {
 
     /**
      * Chat identifier

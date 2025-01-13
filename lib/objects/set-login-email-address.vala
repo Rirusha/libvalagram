@@ -24,10 +24,11 @@
  * changed only if the current user already has login email and
  * passwordState.login_email_address_pattern is non-empty.
  * The change will not be applied until the new login email address is
- * confirmed with checkLoginEmailAddressCode. To use Apple ID/Google ID
- * instead of an email address, call checkLoginEmailAddressCode directly
+ * confirmed with {@link Client.check_login_email_address_code} To use
+ * Apple ID/Google ID instead of an email address, call
+ * {@link Client.check_login_email_address_code} directly
  */
-internal class TDLib.SetLoginEmailAddress : TDObject {
+public class TDLib.SetLoginEmailAddress : TDObject {
 
     /**
      * New login email address

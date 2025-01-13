@@ -22,7 +22,7 @@
 /**
  * Sends data received from a keyboardButtonTypeWebApp Web App to a bot
  */
-internal class TDLib.SendWebAppData : TDObject {
+public class TDLib.SendWebAppData : TDObject {
 
     /**
      * Identifier of the target bot

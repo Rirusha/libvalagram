@@ -23,7 +23,7 @@
  * Sends messages from a quick reply shortcut. Requires Telegram Business
  * subscription
  */
-internal class TDLib.SendQuickReplyShortcutMessages : TDObject {
+public class TDLib.SendQuickReplyShortcutMessages : TDObject {
 
     /**
      * Identifier of the chat to which to send messages. The chat must be a

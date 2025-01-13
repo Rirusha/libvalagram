@@ -22,7 +22,7 @@
 /**
  * Edits the caption of an inline message sent via a bot; for bots only
  */
-internal class TDLib.EditInlineMessageCaption : TDObject {
+public class TDLib.EditInlineMessageCaption : TDObject {
 
     /**
      * Inline message identifier

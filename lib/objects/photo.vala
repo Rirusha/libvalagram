@@ -26,7 +26,8 @@ public class TDLib.Photo : Error {
 
     /**
      * True, if stickers were added to the photo. The list of corresponding
-     * sticker sets can be received using getAttachedStickerSets
+     * sticker sets can be received using
+     * {@link Client.get_attached_sticker_sets}
      */
     public bool has_stickers { get; construct set; }
 

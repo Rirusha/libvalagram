@@ -22,7 +22,7 @@
 /**
  * Returns available options for Telegram Stars gifting
  */
-internal class TDLib.GetStarGiftPaymentOptions : TDObject {
+public class TDLib.GetStarGiftPaymentOptions : TDObject {
 
     /**
      * Identifier of the user that will receive Telegram Stars; pass 0 to get

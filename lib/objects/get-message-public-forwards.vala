@@ -25,7 +25,7 @@
  * messageProperties.can_get_statistics == true. For optimal performance,
  * the number of returned messages and stories is chosen by TDLib
  */
-internal class TDLib.GetMessagePublicForwards : TDObject {
+public class TDLib.GetMessagePublicForwards : TDObject {
 
     /**
      * Chat identifier of the message

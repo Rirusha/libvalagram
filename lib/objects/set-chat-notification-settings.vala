@@ -23,7 +23,7 @@
  * Changes the notification settings of a chat. Notification settings of
  * a chat with the current user (Saved Messages) can't be changed
  */
-internal class TDLib.SetChatNotificationSettings : TDObject {
+public class TDLib.SetChatNotificationSettings : TDObject {
 
     /**
      * Chat identifier

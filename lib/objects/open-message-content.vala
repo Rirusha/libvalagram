@@ -26,7 +26,7 @@
  * An updateMessageContentOpened update will be generated if something
  * has changed
  */
-internal class TDLib.OpenMessageContent : TDObject {
+public class TDLib.OpenMessageContent : TDObject {
 
     /**
      * Chat identifier of the message

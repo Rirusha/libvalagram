@@ -22,7 +22,7 @@
 /**
  * Sets the result of a callback query; for bots only
  */
-internal class TDLib.AnswerCallbackQuery : TDObject {
+public class TDLib.AnswerCallbackQuery : TDObject {
 
     /**
      * Identifier of the callback query

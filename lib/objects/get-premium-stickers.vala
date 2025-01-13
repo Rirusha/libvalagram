@@ -22,7 +22,7 @@
 /**
  * Returns premium stickers from regular sticker sets
  */
-internal class TDLib.GetPremiumStickers : TDObject {
+public class TDLib.GetPremiumStickers : TDObject {
 
     /**
      * The maximum number of stickers to be returned; 0-100

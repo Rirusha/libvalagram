@@ -23,7 +23,7 @@
  * Adds a proxy server for network requests. Can be called before
  * authorization
  */
-internal class TDLib.AddProxy : TDObject {
+public class TDLib.AddProxy : TDObject {
 
     /**
      * Proxy server domain or IP address

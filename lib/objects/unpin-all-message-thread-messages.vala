@@ -23,7 +23,7 @@
  * Removes all pinned messages from a forum topic; requires
  * can_pin_messages member right in the supergroup
  */
-internal class TDLib.UnpinAllMessageThreadMessages : TDObject {
+public class TDLib.UnpinAllMessageThreadMessages : TDObject {
 
     /**
      * Identifier of the chat

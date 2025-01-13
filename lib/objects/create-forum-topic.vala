@@ -23,7 +23,7 @@
  * Creates a topic in a forum supergroup chat; requires can_manage_topics
  * administrator or can_create_topics member right in the supergroup
  */
-internal class TDLib.CreateForumTopic : TDObject {
+public class TDLib.CreateForumTopic : TDObject {
 
     /**
      * Identifier of the chat
@@ -39,7 +39,7 @@ internal class TDLib.CreateForumTopic : TDObject {
      * Icon of the topic. Icon color must be one of 0x6FB9F0, 0xFFD67E,
      * 0xCB86DB, 0x8EEE98, 0xFF93B2, or 0xFB6F5F. Telegram Premium users can
      * use any custom emoji as topic icon, other users can use only a custom
-     * emoji returned by getForumTopicDefaultIcons
+     * emoji returned by {@link Client.get_forum_topic_default_icons}
      */
     public ForumTopicIcon icon { get; construct set; }
 

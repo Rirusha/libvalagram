@@ -53,7 +53,8 @@ public class TDLib.StatisticalGraphData : StatisticalGraph {
 }
 
 /**
- * The graph data to be asynchronously loaded through getStatisticalGraph
+ * The graph data to be asynchronously loaded through
+ * {@link Client.get_statistical_graph}
  */
 public class TDLib.StatisticalGraphAsync : StatisticalGraph {
 

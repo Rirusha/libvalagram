@@ -22,7 +22,7 @@
 /**
  * Cancels or re-enables Telegram Star subscription
  */
-internal class TDLib.EditStarSubscription : TDObject {
+public class TDLib.EditStarSubscription : TDObject {
 
     /**
      * Identifier of the subscription to change

@@ -23,7 +23,7 @@
  * Returns the list of boosts applied to a chat by a given user; requires
  * administrator rights in the chat; for bots only
  */
-internal class TDLib.GetUserChatBoosts : TDObject {
+public class TDLib.GetUserChatBoosts : TDObject {
 
     /**
      * Identifier of the chat

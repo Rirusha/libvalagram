@@ -69,7 +69,8 @@ public class TDLib.Message : Error {
 
     /**
      * True, if content of the message can be saved locally or copied using
-     * inputMessageForwarded or forwardMessages with copy options
+     * inputMessageForwarded or {@link Client.forward_messages} with copy
+     * options
      */
     public bool can_be_saved { get; construct set; }
 
@@ -115,7 +116,8 @@ public class TDLib.Message : Error {
 
     /**
      * Information about the initial message for messages created with
-     * importMessages; may be null if the message isn't imported
+     * {@link Client.import_messages} may be null if the message isn't
+     * imported
      */
     public MessageImportInfo? import_info { get; construct set; }
 

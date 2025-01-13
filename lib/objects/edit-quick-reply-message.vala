@@ -27,7 +27,7 @@
  * message content in an album can't be changed with exception of
  * replacing a photo with a video or vice versa
  */
-internal class TDLib.EditQuickReplyMessage : TDObject {
+public class TDLib.EditQuickReplyMessage : TDObject {
 
     /**
      * Unique identifier of the quick reply shortcut with the message

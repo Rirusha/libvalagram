@@ -32,7 +32,7 @@ public class TDLib.NotificationTypeNewMessage : NotificationType {
     /**
      * The message
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     /**
      * True, if message content must be displayed in notifications
@@ -93,8 +93,9 @@ public class TDLib.NotificationTypeNewPushMessage : NotificationType {
 
     /**
      * The message identifier. The message will not be available in the chat
-     * history, but the identifier can be used in viewMessages, or as a
-     * message to be replied in the same chat
+     * history, but the identifier can be used in
+     * {@link Client.view_messages} or as a message to be replied in the same
+     * chat
      */
     public int64 message_id { get; construct set; }
 

@@ -22,7 +22,7 @@
 /**
  * Finishes the file generation
  */
-internal class TDLib.FinishFileGeneration : TDObject {
+public class TDLib.FinishFileGeneration : TDObject {
 
     /**
      * The identifier of the generation process

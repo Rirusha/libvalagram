@@ -24,7 +24,7 @@
  * error with code 502 if the bot fails to answer the query before the
  * query timeout expires
  */
-internal class TDLib.GetCallbackQueryAnswer : TDObject {
+public class TDLib.GetCallbackQueryAnswer : TDObject {
 
     /**
      * Identifier of the chat with the message

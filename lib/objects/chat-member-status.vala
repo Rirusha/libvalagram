@@ -113,7 +113,7 @@ public class TDLib.ChatMemberStatusMember : ChatMemberStatus {
     /**
      * Point in time (Unix timestamp) when the user will be removed from the
      * chat because of the expired subscription; 0 if never. Ignored in
-     * setChatMemberStatus
+     * {@link Client.set_chat_member_status}
      */
     public int32 member_until_date { get; construct set; }
 

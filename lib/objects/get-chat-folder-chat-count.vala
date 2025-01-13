@@ -24,7 +24,7 @@
  * Main and archive chat lists must be fully preloaded for this function
  * to work correctly
  */
-internal class TDLib.GetChatFolderChatCount : TDObject {
+public class TDLib.GetChatFolderChatCount : TDObject {
 
     /**
      * The new chat folder

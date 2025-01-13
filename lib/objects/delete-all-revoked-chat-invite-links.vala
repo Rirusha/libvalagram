@@ -24,7 +24,7 @@
  * administrator. Requires administrator privileges and can_invite_users
  * right in the chat for own links and owner privileges for other links
  */
-internal class TDLib.DeleteAllRevokedChatInviteLinks : TDObject {
+public class TDLib.DeleteAllRevokedChatInviteLinks : TDObject {
 
     /**
      * Chat identifier

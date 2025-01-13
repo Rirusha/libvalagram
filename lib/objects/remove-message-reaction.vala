@@ -23,7 +23,7 @@
  * Removes a reaction from a message. A chosen reaction can always be
  * removed
  */
-internal class TDLib.RemoveMessageReaction : TDObject {
+public class TDLib.RemoveMessageReaction : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

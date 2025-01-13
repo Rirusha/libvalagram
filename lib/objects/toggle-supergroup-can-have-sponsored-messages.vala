@@ -25,7 +25,7 @@
  * chatBoostFeatures.min_sponsored_message_disable_boost_level boost
  * level to disable sponsored messages
  */
-internal class TDLib.ToggleSupergroupCanHaveSponsoredMessages : TDObject {
+public class TDLib.ToggleSupergroupCanHaveSponsoredMessages : TDObject {
 
     /**
      * The identifier of the channel

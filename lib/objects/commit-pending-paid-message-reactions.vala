@@ -22,7 +22,7 @@
 /**
  * Applies all pending paid reactions on a message
  */
-internal class TDLib.CommitPendingPaidMessageReactions : TDObject {
+public class TDLib.CommitPendingPaidMessageReactions : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs

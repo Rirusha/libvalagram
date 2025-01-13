@@ -23,7 +23,7 @@
  * Returns the squared received number; for testing only. This is an
  * offline method. Can be called before authorization
  */
-internal class TDLib.TestSquareInt : TDObject {
+public class TDLib.TestSquareInt : TDObject {
 
     /**
      * Number to square

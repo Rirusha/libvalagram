@@ -22,7 +22,7 @@
 /**
  * Returns default list of custom emoji stickers for reply background
  */
-internal class TDLib.GetDefaultBackgroundCustomEmojiStickers : TDObject {
+public class TDLib.GetDefaultBackgroundCustomEmojiStickers : TDObject {
 
     public GetDefaultBackgroundCustomEmojiStickers () {
         Object (

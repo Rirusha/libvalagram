@@ -23,7 +23,7 @@
  * Returns a confirmation text to be shown to the user before starting
  * message import
  */
-internal class TDLib.GetMessageImportConfirmationText : TDObject {
+public class TDLib.GetMessageImportConfirmationText : TDObject {
 
     /**
      * Identifier of a chat to which the messages will be imported. It must

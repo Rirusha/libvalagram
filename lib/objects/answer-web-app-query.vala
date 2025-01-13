@@ -24,7 +24,7 @@
  * message on behalf of the user to the chat from which the query
  * originated; for bots only
  */
-internal class TDLib.AnswerWebAppQuery : TDObject {
+public class TDLib.AnswerWebAppQuery : TDObject {
 
     /**
      * Identifier of the Web App query

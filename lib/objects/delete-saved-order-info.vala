@@ -22,7 +22,7 @@
 /**
  * Deletes saved order information
  */
-internal class TDLib.DeleteSavedOrderInfo : TDObject {
+public class TDLib.DeleteSavedOrderInfo : TDObject {
 
     public DeleteSavedOrderInfo () {
         Object (

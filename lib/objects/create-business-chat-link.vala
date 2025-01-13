@@ -25,7 +25,7 @@
  * getOption("business_chat_link_count_max") links created. Returns the
  * created link
  */
-internal class TDLib.CreateBusinessChatLink : TDObject {
+public class TDLib.CreateBusinessChatLink : TDObject {
 
     /**
      * Information about the link to create

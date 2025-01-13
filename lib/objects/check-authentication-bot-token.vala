@@ -23,9 +23,10 @@
  * Checks the authentication token of a bot; to log in as a bot. Works
  * only when the current authorization state is
  * authorizationStateWaitPhoneNumber. Can be used instead of
- * setAuthenticationPhoneNumber and checkAuthenticationCode to log in
+ * {@link Client.set_authentication_phone_number} and
+ * {@link Client.check_authentication_code} to log in
  */
-internal class TDLib.CheckAuthenticationBotToken : TDObject {
+public class TDLib.CheckAuthenticationBotToken : TDObject {
 
     /**
      * The bot token

@@ -22,7 +22,7 @@
 /**
  * Sells a gift received by the current user for Telegram Stars
  */
-internal class TDLib.SellGift : TDObject {
+public class TDLib.SellGift : TDObject {
 
     /**
      * Identifier of the user that sent the gift

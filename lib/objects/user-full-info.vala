@@ -95,7 +95,8 @@ public class TDLib.UserFullInfo : Error {
 
     /**
      * True, if the current user needs to explicitly allow to share their
-     * phone number with the user when the method addContact is used
+     * phone number with the user when the method {@link Client.add_contact}
+     * is used
      */
     public bool need_phone_number_privacy_exception { get; construct set; }
 

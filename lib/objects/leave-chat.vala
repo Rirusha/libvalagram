@@ -23,7 +23,7 @@
  * Removes the current user from chat members. Private and secret chats
  * can't be left using this method
  */
-internal class TDLib.LeaveChat : TDObject {
+public class TDLib.LeaveChat : TDObject {
 
     /**
      * Chat identifier

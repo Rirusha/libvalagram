@@ -22,7 +22,7 @@
 /**
  * Returns an existing chat corresponding to a known basic group
  */
-internal class TDLib.CreateBasicGroupChat : TDObject {
+public class TDLib.CreateBasicGroupChat : TDObject {
 
     /**
      * Basic group identifier

@@ -32,7 +32,7 @@ public class TDLib.EmailAddressAuthenticationCode : EmailAddressAuthentication {
     /**
      * The code
      */
-    public string code { get; construct set; }
+    public new string code { get; construct set; }
 
     public EmailAddressAuthenticationCode (
         string code

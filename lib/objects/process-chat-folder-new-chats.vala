@@ -22,7 +22,7 @@
 /**
  * Process new chats added to a shareable chat folder by its owner
  */
-internal class TDLib.ProcessChatFolderNewChats : TDObject {
+public class TDLib.ProcessChatFolderNewChats : TDObject {
 
     /**
      * Chat folder identifier

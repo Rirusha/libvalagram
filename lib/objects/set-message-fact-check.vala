@@ -23,7 +23,7 @@
  * Changes the fact-check of a message. Can be only used if
  * messageProperties.can_set_fact_check == true
  */
-internal class TDLib.SetMessageFactCheck : TDObject {
+public class TDLib.SetMessageFactCheck : TDObject {
 
     /**
      * The channel chat the message belongs to
@@ -38,7 +38,7 @@ internal class TDLib.SetMessageFactCheck : TDObject {
     /**
      * New text of the fact-check; 0-getOption("fact_check_length_max")
      * characters; pass null to remove it. Only Bold, Italic, and TextUrl
-     * entities with https://t.me/ links are supported
+     * entities with [[https://t.me/]] links are supported
      */
     public FormattedText text { get; construct set; }
 

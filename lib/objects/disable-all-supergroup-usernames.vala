@@ -23,7 +23,7 @@
  * Disables all active non-editable usernames of a supergroup or channel,
  * requires owner privileges in the supergroup or channel
  */
-internal class TDLib.DisableAllSupergroupUsernames : TDObject {
+public class TDLib.DisableAllSupergroupUsernames : TDObject {
 
     /**
      * Identifier of the supergroup or channel

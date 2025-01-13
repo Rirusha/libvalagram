@@ -23,7 +23,7 @@
  * Returns all scheduled messages in a chat. The messages are returned in
  * reverse chronological order (i.e., in order of decreasing message_id)
  */
-internal class TDLib.GetChatScheduledMessages : TDObject {
+public class TDLib.GetChatScheduledMessages : TDObject {
 
     /**
      * Chat identifier

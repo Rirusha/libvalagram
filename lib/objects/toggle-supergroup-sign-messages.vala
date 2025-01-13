@@ -23,7 +23,7 @@
  * Toggles whether sender signature or link to the account is added to
  * sent messages in a channel; requires can_change_info member right
  */
-internal class TDLib.ToggleSupergroupSignMessages : TDObject {
+public class TDLib.ToggleSupergroupSignMessages : TDObject {
 
     /**
      * Identifier of the channel

@@ -24,7 +24,7 @@
  * supergroups, use supergroupFullInfo.can_set_location to check whether
  * the method is allowed to use
  */
-internal class TDLib.SetChatLocation : TDObject {
+public class TDLib.SetChatLocation : TDObject {
 
     /**
      * Chat identifier

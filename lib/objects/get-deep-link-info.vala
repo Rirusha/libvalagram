@@ -20,12 +20,12 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a tg:// deep link. Use
- * "tg://need_update_for_some_feature" or "tg:some_unsupported_feature"
- * for testing. Returns a 404 error for unknown links. Can be called
- * before authorization
+ * Returns information about a [[tg://]] deep link. Use
+ * "[[tg://need_update_for_some_feature"]] or
+ * "tg:some_unsupported_feature" for testing. Returns a 404 error for
+ * unknown links. Can be called before authorization
  */
-internal class TDLib.GetDeepLinkInfo : TDObject {
+public class TDLib.GetDeepLinkInfo : TDObject {
 
     /**
      * The link

@@ -26,7 +26,7 @@
  * For each bot, a confirmation alert about data sent to the bot must be
  * shown once
  */
-internal class TDLib.OpenWebApp : TDObject {
+public class TDLib.OpenWebApp : TDObject {
 
     /**
      * Identifier of the chat in which the Web App is opened. The Web App

@@ -23,7 +23,7 @@
  * Sets default background for chats; adds the background to the list of
  * installed backgrounds
  */
-internal class TDLib.SetDefaultBackground : TDObject {
+public class TDLib.SetDefaultBackground : TDObject {
 
     /**
      * The input background to use; pass null to create a new filled

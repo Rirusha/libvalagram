@@ -22,7 +22,7 @@
 /**
  * Marks all reactions in a forum topic as read
  */
-internal class TDLib.ReadAllMessageThreadReactions : TDObject {
+public class TDLib.ReadAllMessageThreadReactions : TDObject {
 
     /**
      * Chat identifier

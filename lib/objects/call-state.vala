@@ -129,7 +129,8 @@ public class TDLib.CallStateReady : CallState {
 }
 
 /**
- * The call is hanging up after discardCall has been called
+ * The call is hanging up after {@link Client.discard_call} has been
+ * called
  */
 public class TDLib.CallStateHangingUp : CallState {
 

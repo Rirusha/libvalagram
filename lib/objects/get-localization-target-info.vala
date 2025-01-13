@@ -24,7 +24,7 @@
  * offline request if only_local is true. Can be called before
  * authorization
  */
-internal class TDLib.GetLocalizationTargetInfo : TDObject {
+public class TDLib.GetLocalizationTargetInfo : TDObject {
 
     /**
      * Pass true to get only locally available information without sending

@@ -23,7 +23,7 @@
  * Returns the specified error and ensures that the Error object is used;
  * for testing only. Can be called synchronously
  */
-internal class TDLib.TestReturnError : TDObject {
+public class TDLib.TestReturnError : TDObject {
 
     /**
      * The error to be returned

@@ -22,7 +22,7 @@
 /**
  * Returns the total number of imported contacts
  */
-internal class TDLib.GetImportedContactCount : TDObject {
+public class TDLib.GetImportedContactCount : TDObject {
 
     public GetImportedContactCount () {
         Object (

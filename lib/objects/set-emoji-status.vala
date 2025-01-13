@@ -23,7 +23,7 @@
  * Changes the emoji status of the current user; for Telegram Premium
  * users only
  */
-internal class TDLib.SetEmojiStatus : TDObject {
+public class TDLib.SetEmojiStatus : TDObject {
 
     /**
      * New emoji status; pass null to switch to the default badge

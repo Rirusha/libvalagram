@@ -23,7 +23,7 @@
  * Returns the list of chats with non-default notification settings for
  * stories
  */
-internal class TDLib.GetStoryNotificationSettingsExceptions : TDObject {
+public class TDLib.GetStoryNotificationSettingsExceptions : TDObject {
 
     public GetStoryNotificationSettingsExceptions () {
         Object (

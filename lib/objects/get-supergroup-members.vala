@@ -25,7 +25,7 @@
  * true; additionally, administrator privileges may be required for some
  * filters
  */
-internal class TDLib.GetSupergroupMembers : TDObject {
+public class TDLib.GetSupergroupMembers : TDObject {
 
     /**
      * Identifier of the supergroup or channel

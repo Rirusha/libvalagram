@@ -22,7 +22,7 @@
 /**
  * Returns information about a sticker set by its identifier
  */
-internal class TDLib.GetStickerSet : TDObject {
+public class TDLib.GetStickerSet : TDObject {
 
     /**
      * Identifier of the sticker set

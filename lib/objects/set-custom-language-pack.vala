@@ -23,7 +23,7 @@
  * Adds or changes a custom local language pack to the current
  * localization target
  */
-internal class TDLib.SetCustomLanguagePack : TDObject {
+public class TDLib.SetCustomLanguagePack : TDObject {
 
     /**
      * Information about the language pack. Language pack identifier must

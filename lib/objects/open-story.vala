@@ -22,7 +22,7 @@
 /**
  * Informs TDLib that a story is opened and is being viewed by the user
  */
-internal class TDLib.OpenStory : TDObject {
+public class TDLib.OpenStory : TDObject {
 
     /**
      * The identifier of the sender of the opened story

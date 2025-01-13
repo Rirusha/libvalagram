@@ -23,7 +23,7 @@
  * Reports a chat photo to the Telegram moderators. A chat photo can be
  * reported only if chat.can_be_reported
  */
-internal class TDLib.ReportChatPhoto : TDObject {
+public class TDLib.ReportChatPhoto : TDObject {
 
     /**
      * Chat identifier

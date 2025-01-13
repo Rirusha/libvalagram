@@ -24,7 +24,7 @@
  * the given language. Can be called only if userTypeBot.can_be_edited ==
  * true
  */
-internal class TDLib.GetBotInfoDescription : TDObject {
+public class TDLib.GetBotInfoDescription : TDObject {
 
     /**
      * Identifier of the target bot

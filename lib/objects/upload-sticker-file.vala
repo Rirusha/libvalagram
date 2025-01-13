@@ -22,7 +22,7 @@
 /**
  * Uploads a file with a sticker; returns the uploaded file
  */
-internal class TDLib.UploadStickerFile : TDObject {
+public class TDLib.UploadStickerFile : TDObject {
 
     /**
      * Sticker file owner; ignored for regular users
@@ -38,7 +38,8 @@ internal class TDLib.UploadStickerFile : TDObject {
      * File file to upload; must fit in a 512x512 square. For WEBP stickers
      * the file must be in WEBP or PNG format, which will be converted to
      * WEBP server-side.
-     * See https://core.telegram.org/animated_stickers#technical-requirements
+     * See
+     * [[https://core.telegram.org/animated_stickers#technical-requirements]]
      * for technical requirements
      */
     public InputFile sticker { get; construct set; }

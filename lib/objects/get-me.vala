@@ -22,7 +22,7 @@
 /**
  * Returns the current user
  */
-internal class TDLib.GetMe : TDObject {
+public class TDLib.GetMe : TDObject {
 
     public GetMe () {
         Object (

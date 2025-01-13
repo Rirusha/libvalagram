@@ -22,7 +22,7 @@
 /**
  * Changes the order of pinned chats
  */
-internal class TDLib.SetPinnedChats : TDObject {
+public class TDLib.SetPinnedChats : TDObject {
 
     /**
      * Chat list in which to change the order of pinned chats

@@ -22,7 +22,7 @@
 /**
  * Returns file downloaded prefix size from a given offset, in bytes
  */
-internal class TDLib.GetFileDownloadedPrefixSize : TDObject {
+public class TDLib.GetFileDownloadedPrefixSize : TDObject {
 
     /**
      * Identifier of the file

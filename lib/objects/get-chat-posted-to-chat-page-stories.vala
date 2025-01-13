@@ -26,7 +26,7 @@
  * order of decreasing story_id). For optimal performance, the number of
  * returned stories is chosen by TDLib
  */
-internal class TDLib.GetChatPostedToChatPageStories : TDObject {
+public class TDLib.GetChatPostedToChatPageStories : TDObject {
 
     /**
      * Chat identifier

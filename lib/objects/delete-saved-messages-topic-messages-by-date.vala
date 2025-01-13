@@ -23,7 +23,7 @@
  * Deletes all messages between the specified dates in a Saved Messages
  * topic. Messages sent in the last 30 seconds will not be deleted
  */
-internal class TDLib.DeleteSavedMessagesTopicMessagesByDate : TDObject {
+public class TDLib.DeleteSavedMessagesTopicMessagesByDate : TDObject {
 
     /**
      * Identifier of Saved Messages topic which messages will be deleted

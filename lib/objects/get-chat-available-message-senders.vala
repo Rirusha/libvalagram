@@ -23,7 +23,7 @@
  * Returns the list of message sender identifiers, which can be used to
  * send messages in a chat
  */
-internal class TDLib.GetChatAvailableMessageSenders : TDObject {
+public class TDLib.GetChatAvailableMessageSenders : TDObject {
 
     /**
      * Chat identifier

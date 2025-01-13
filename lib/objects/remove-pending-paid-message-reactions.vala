@@ -22,7 +22,7 @@
 /**
  * Removes all pending paid reactions on a message
  */
-internal class TDLib.RemovePendingPaidMessageReactions : TDObject {
+public class TDLib.RemovePendingPaidMessageReactions : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs
