@@ -13,6 +13,7 @@ License: GPL-3.0-or-later
 Group: System/Libraries
 Url: https://github.com/Rirusha/libvalagram
 Vcs: https://github.com/Rirusha/libvalagram.git
+ExcludeArch: i586
 
 Source: %name-%version.tar
 
