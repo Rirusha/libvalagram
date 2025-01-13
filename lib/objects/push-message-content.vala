@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -476,6 +476,28 @@ public class TDLib.PushMessageContentGift : PushMessageContent {
         Object (
             star_count: star_count,
             tdlib_type: "pushMessageContentGift",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A message with an upgraded gift
+ */
+public class TDLib.PushMessageContentUpgradedGift : PushMessageContent {
+
+    /**
+     * True, if the gift was obtained by upgrading of a previously received
+     * gift; otherwise, this is a transferred gift
+     */
+    public bool is_upgrade { get; construct set; }
+
+    public PushMessageContentUpgradedGift (
+        bool is_upgrade
+    ) {
+        Object (
+            is_upgrade: is_upgrade,
+            tdlib_type: "pushMessageContentUpgradedGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

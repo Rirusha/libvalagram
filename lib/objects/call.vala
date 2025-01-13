@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,12 +49,20 @@ public class TDLib.Call : Error {
      */
     public CallState state { get; construct set; }
 
+    /**
+     * Identifier of the group call associated with the call; 0 if the group
+     * call isn't created yet. The group call can be received through the
+     * method getGroupCall
+     */
+    public int32 group_call_id { get; construct set; }
+
     public Call (
         int32 id_,
         int64 user_id,
         bool is_outgoing,
         bool is_video,
-        CallState state
+        CallState state,
+        int32 group_call_id
     ) {
         Object (
             id_: id_,
@@ -62,6 +70,7 @@ public class TDLib.Call : Error {
             is_outgoing: is_outgoing,
             is_video: is_video,
             state: state,
+            group_call_id: group_call_id,
             tdlib_type: "call",
             tdlib_extra: Uuid.string_random ()
         );

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,9 +30,9 @@ public class TDLib.ChatFolderInfo : Error {
     public int32 id_ { get; construct set; }
 
     /**
-     * The title of the folder; 1-12 characters without line feeds
+     * The name of the folder
      */
-    public string title { get; construct set; }
+    public ChatFolderName name { get; construct set; }
 
     /**
      * The chosen or default icon for the chat folder
@@ -57,7 +57,7 @@ public class TDLib.ChatFolderInfo : Error {
 
     public ChatFolderInfo (
         int32 id_,
-        string title,
+        ChatFolderName name,
         ChatFolderIcon icon,
         int32 color_id,
         bool is_shareable,
@@ -65,7 +65,7 @@ public class TDLib.ChatFolderInfo : Error {
     ) {
         Object (
             id_: id_,
-            title: title,
+            name: name,
             icon: icon,
             color_id: color_id,
             is_shareable: is_shareable,

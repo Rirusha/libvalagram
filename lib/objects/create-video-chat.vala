@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,8 +44,7 @@ internal class TDLib.CreateVideoChat : TDObject {
     public int32 start_date { get; construct set; }
 
     /**
-     * Pass true to create an RTMP stream instead of an ordinary video chat;
-     * requires owner privileges
+     * Pass true to create an RTMP stream instead of an ordinary video chat
      */
     public bool is_rtmp_stream { get; construct set; }
 

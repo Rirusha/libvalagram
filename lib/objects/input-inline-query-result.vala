@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -137,11 +137,6 @@ public class TDLib.InputInlineQueryResultArticle : InputInlineQueryResult {
     public string url { get; construct set; }
 
     /**
-     * True, if the URL must be not shown
-     */
-    public bool hide_url { get; construct set; }
-
-    /**
      * Title of the result
      */
     public string title { get; construct set; }
@@ -182,7 +177,6 @@ public class TDLib.InputInlineQueryResultArticle : InputInlineQueryResult {
     public InputInlineQueryResultArticle (
         string id_,
         string url,
-        bool hide_url,
         string title,
         string description,
         string thumbnail_url,
@@ -194,7 +188,6 @@ public class TDLib.InputInlineQueryResultArticle : InputInlineQueryResult {
         Object (
             id_: id_,
             url: url,
-            hide_url: hide_url,
             title: title,
             description: description,
             thumbnail_url: thumbnail_url,

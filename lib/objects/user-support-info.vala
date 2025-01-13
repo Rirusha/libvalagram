@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ public class TDLib.UserSupportInfo : Error {
     /**
      * Information message
      */
-    public FormattedText message { get; construct set; }
+    public new FormattedText message { get; construct set; }
 
     /**
      * Information author

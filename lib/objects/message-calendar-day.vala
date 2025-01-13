@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ public class TDLib.MessageCalendarDay : Error {
     /**
      * First message sent on the day
      */
-    public Message message { get; construct set; }
+    public new Message message { get; construct set; }
 
     public MessageCalendarDay (
         int32 total_count,

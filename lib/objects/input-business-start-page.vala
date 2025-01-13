@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ public class TDLib.InputBusinessStartPage : Error {
      * Message text of the start page;
      * 0-getOption("business_start_page_message_length_max") characters
      */
-    public string message { get; construct set; }
+    public new string message { get; construct set; }
 
     /**
      * Greeting sticker of the start page; pass null if none. The sticker

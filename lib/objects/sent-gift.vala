@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,47 +20,47 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes type of object, for which statistics are provided
+ * Represents a gift received by a user
  */
-public abstract class TDLib.ChatStatisticsObjectTypeV : Error {}
+public abstract class TDLib.SentGift : Error {}
 
 /**
- * Describes a message sent in the chat
+ * Regular gift
  */
-public class TDLib.ChatStatisticsObjectTypeMessage : ChatStatisticsObjectTypeV {
+public class TDLib.SentGiftRegular : SentGift {
 
     /**
-     * Message identifier
+     * The gift
      */
-    public int64 message_id { get; construct set; }
+    public Gift gift { get; construct set; }
 
-    public ChatStatisticsObjectTypeMessage (
-        int64 message_id
+    public SentGiftRegular (
+        Gift gift
     ) {
         Object (
-            message_id: message_id,
-            tdlib_type: "chatStatisticsObjectTypeMessage",
+            gift: gift,
+            tdlib_type: "sentGiftRegular",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * Describes a story sent by the chat
+ * Upgraded gift
  */
-public class TDLib.ChatStatisticsObjectTypeStory : ChatStatisticsObjectTypeV {
+public class TDLib.SentGiftUpgraded : SentGift {
 
     /**
-     * Story identifier
+     * The gift
      */
-    public int32 story_id { get; construct set; }
+    public UpgradedGift gift { get; construct set; }
 
-    public ChatStatisticsObjectTypeStory (
-        int32 story_id
+    public SentGiftUpgraded (
+        UpgradedGift gift
     ) {
         Object (
-            story_id: story_id,
-            tdlib_type: "chatStatisticsObjectTypeStory",
+            gift: gift,
+            tdlib_type: "sentGiftUpgraded",
             tdlib_extra: Uuid.string_random ()
         );
     }

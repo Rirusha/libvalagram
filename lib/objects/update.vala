@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -3206,7 +3206,7 @@ public class TDLib.UpdateAccentColors : Update {
     /**
      * The list of accent color identifiers, which can be set through
      * setAccentColor and setChatAccentColor. The colors must be shown in the
-     * specififed order
+     * specified order
      */
     public Gee.ArrayList<int32?> available_accent_color_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
@@ -3236,7 +3236,7 @@ public class TDLib.UpdateProfileAccentColors : Update {
     /**
      * The list of accent color identifiers, which can be set through
      * setProfileAccentColor and setChatProfileAccentColor. The colors must
-     * be shown in the specififed order
+     * be shown in the specified order
      */
     public Gee.ArrayList<int32?> available_accent_color_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
@@ -3534,15 +3534,15 @@ public class TDLib.UpdateActiveLiveLocationMessages : Update {
 public class TDLib.UpdateOwnedStarCount : Update {
 
     /**
-     * The new number of Telegram Stars owned
+     * The new amount of owned Telegram Stars
      */
-    public int64 star_count { get; construct set; }
+    public StarAmount star_amount { get; construct set; }
 
     public UpdateOwnedStarCount (
-        int64 star_count
+        StarAmount star_amount
     ) {
         Object (
-            star_count: star_count,
+            star_amount: star_amount,
             tdlib_type: "updateOwnedStarCount",
             tdlib_extra: Uuid.string_random ()
         );

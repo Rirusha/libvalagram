@@ -3,32 +3,49 @@
 
 set -e
 
-current_api_version=$(python3 auto-update/print_api_version.py)
-tag_name="v$current_api_version"
-
-if [ $tag_name = $(git describe --tags --abbrev=0) ]; then
-    echo "Nothing to do"
-    exit 0
-fi
-
-rm -rf auto-update/altrepo2vala/
+rm -rf auto-update/tdlib2vala/
 rm -rf lib/client.vala lib/objects/*
-git clone https://github.com/Rirusha/altrepo2vala.git auto-update/altrepo2vala
-echo "*" >> auto-update/altrepo2vala/.gitignore
+git clone https://github.com/Rirusha/tdlib2vala.git auto-update/tdlib2vala
+echo "*" >> auto-update/tdlib2vala/.gitignore
 
-python3.12 auto-update/altrepo2vala/generator.py 'Vladimir Vaskov' lib
+owd="$(pwd)"
+
+cd auto-update/tdlib2vala
+python3.12 generator.py 'Vladimir Vaskov' $owd
+cd $owd
 python3.12 auto-update/update_meson.py lib/meson.build
 
+echo "*" >> auto-update/tdlib2vala/.gitignore
+
+last_tag=$(git describe --tags --abbrev=0)
+
+version=$(echo $last_tag | sed 's/^v.//')
+IFS='.' read -r major minor patch <<< "$version"
+
+deleted_files=$(git ls-files --deleted)
+
+if [ -z "$deleted_files" ]; then
+    patch=$((patch + 1))
+else
+    minor=$((minor + 1))
+    patch=0
+fi
+
+new_version="$major.$minor.$patch"
+new_tag="v.$major.$minor.$patch"
+
 git add .
-if git commit -m "update: regular lib update" ; then
-    python3.12 auto-update/update_main_meson.py meson.build $current_api_version
+if git commit -m "update: Regular lib update" ; then
+    python3.12 auto-update/update_main_meson.py meson.build "$new_version"
 
     git add .
-    git commit -m "chore: bump version to $current_api_version"
-    git push
+    if  git commit -m "Bump version to $new_version" ; then
+        git push
 
-    git tag $tag_name
-    git push origin $tag_name
-else
-    echo "Nothing to do"
+        git tag $tag_name
+        git push origin $tag_name
+        exit 0
+    fi
 fi
+
+echo "Nothing to do"

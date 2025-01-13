@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 public abstract class TDLib.TargetChat : Error {}
 
 /**
- * The currently opened chat needs to be kept
+ * The currently opened chat and forum topic must be kept
  */
 public class TDLib.TargetChatCurrent : TargetChat {
 

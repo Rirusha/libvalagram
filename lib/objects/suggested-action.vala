@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -188,6 +188,19 @@ public class TDLib.SuggestedActionSetBirthdate : SuggestedAction {
     public SuggestedActionSetBirthdate () {
         Object (
             tdlib_type: "suggestedActionSetBirthdate",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Suggests the user to set profile photo
+ */
+public class TDLib.SuggestedActionSetProfilePhoto : SuggestedAction {
+
+    public SuggestedActionSetProfilePhoto () {
+        Object (
+            tdlib_type: "suggestedActionSetProfilePhoto",
             tdlib_extra: Uuid.string_random ()
         );
     }

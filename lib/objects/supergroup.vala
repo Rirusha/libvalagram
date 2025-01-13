@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -133,9 +133,10 @@ public class TDLib.Supergroup : Error {
     public bool is_forum { get; construct set; }
 
     /**
-     * True, if the supergroup or channel is verified
+     * Information about verification status of the supergroup or channel;
+     * may be null if none
      */
-    public bool is_verified { get; construct set; }
+    public VerificationStatus? verification_status { get; construct set; }
 
     /**
      * True, if content of media messages in the supergroup or channel chat
@@ -148,17 +149,6 @@ public class TDLib.Supergroup : Error {
      * access to this supergroup or channel must be restricted
      */
     public string restriction_reason { get; construct set; }
-
-    /**
-     * True, if many users reported this supergroup or channel as a scam
-     */
-    public bool is_scam { get; construct set; }
-
-    /**
-     * True, if many users reported this supergroup or channel as a fake
-     * account
-     */
-    public bool is_fake { get; construct set; }
 
     /**
      * True, if the supergroup or channel has non-expired stories available
@@ -189,11 +179,9 @@ public class TDLib.Supergroup : Error {
         bool is_channel,
         bool is_broadcast_group,
         bool is_forum,
-        bool is_verified,
+        VerificationStatus? verification_status,
         bool has_sensitive_content,
         string restriction_reason,
-        bool is_scam,
-        bool is_fake,
         bool has_active_stories,
         bool has_unread_active_stories
     ) {
@@ -214,11 +202,9 @@ public class TDLib.Supergroup : Error {
             is_channel: is_channel,
             is_broadcast_group: is_broadcast_group,
             is_forum: is_forum,
-            is_verified: is_verified,
+            verification_status: verification_status,
             has_sensitive_content: has_sensitive_content,
             restriction_reason: restriction_reason,
-            is_scam: is_scam,
-            is_fake: is_fake,
             has_active_stories: has_active_stories,
             has_unread_active_stories: has_unread_active_stories,
             tdlib_type: "supergroup",

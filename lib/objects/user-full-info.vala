@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -132,6 +132,12 @@ public class TDLib.UserFullInfo : Error {
     public int32 group_in_common_count { get; construct set; }
 
     /**
+     * Information about verification status of the user provided by a bot;
+     * may be null if none or unknown
+     */
+    public BotVerification? bot_verification { get; construct set; }
+
+    /**
      * Information about business settings for Telegram Business accounts;
      * may be null if none
      */
@@ -162,6 +168,7 @@ public class TDLib.UserFullInfo : Error {
         int64 personal_chat_id,
         int32 gift_count,
         int32 group_in_common_count,
+        BotVerification? bot_verification,
         BusinessInfo? business_info,
         BotInfo? bot_info
     ) {
@@ -184,6 +191,7 @@ public class TDLib.UserFullInfo : Error {
             personal_chat_id: personal_chat_id,
             gift_count: gift_count,
             group_in_common_count: group_in_common_count,
+            bot_verification: bot_verification,
             business_info: business_info,
             bot_info: bot_info,
             tdlib_type: "userFullInfo",

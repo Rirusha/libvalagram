@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,17 +48,25 @@ internal class TDLib.SendGift : TDObject {
      */
     public bool is_private { get; construct set; }
 
+    /**
+     * Pass true to additionally pay for the gift upgrade and allow the
+     * receiver to upgrade it for free
+     */
+    public bool pay_for_upgrade { get; construct set; }
+
     public SendGift (
         int64 gift_id,
         int64 user_id,
         FormattedText text,
-        bool is_private
+        bool is_private,
+        bool pay_for_upgrade
     ) {
         Object (
             gift_id: gift_id,
             user_id: user_id,
             text: text,
             is_private: is_private,
+            pay_for_upgrade: pay_for_upgrade,
             tdlib_type: "sendGift",
             tdlib_extra: Uuid.string_random ()
         );

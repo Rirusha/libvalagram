@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -204,6 +204,12 @@ public class TDLib.SupergroupFullInfo : Error {
     public Gee.ArrayList<BotCommands?> bot_commands { get; construct set; default = new Gee.ArrayList<BotCommands?> (); }
 
     /**
+     * Information about verification status of the supergroup or the channel
+     * provided by a bot; may be null if none or unknown
+     */
+    public BotVerification? bot_verification { get; construct set; }
+
+    /**
      * Identifier of the basic group from which supergroup was upgraded; 0 if
      * none
      */
@@ -247,6 +253,7 @@ public class TDLib.SupergroupFullInfo : Error {
         ChatLocation? location,
         ChatInviteLink? invite_link,
         Gee.ArrayList<BotCommands?> bot_commands,
+        BotVerification? bot_verification,
         int64 upgraded_from_basic_group_id,
         int64 upgraded_from_max_message_id
     ) {
@@ -282,6 +289,7 @@ public class TDLib.SupergroupFullInfo : Error {
             location: location,
             invite_link: invite_link,
             bot_commands: bot_commands,
+            bot_verification: bot_verification,
             upgraded_from_basic_group_id: upgraded_from_basic_group_id,
             upgraded_from_max_message_id: upgraded_from_max_message_id,
             tdlib_type: "supergroupFullInfo",

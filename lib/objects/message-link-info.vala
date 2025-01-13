@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ public class TDLib.MessageLinkInfo : Error {
     /**
      * If found, the linked message; may be null
      */
-    public Message? message { get; construct set; }
+    public new Message? message { get; construct set; }
 
     /**
      * Timestamp from which the video/audio/video note/voice note/story

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,10 +41,16 @@ public class TDLib.Gift : Error {
 
     /**
      * Number of Telegram Stars that can be claimed by the receiver instead
-     * of the gift by default. If the gift was paid with just bought Telegram
-     * Stars, then full value can be claimed
+     * of the regular gift by default. If the gift was paid with just bought
+     * Telegram Stars, then full value can be claimed
      */
     public int64 default_sell_star_count { get; construct set; }
+
+    /**
+     * Number of Telegram Stars that must be paid to upgrade the gift; 0 if
+     * upgrade isn't possible
+     */
+    public int64 upgrade_star_count { get; construct set; }
 
     /**
      * True, if the gift is a birthday gift
@@ -80,6 +86,7 @@ public class TDLib.Gift : Error {
         Sticker sticker,
         int64 star_count,
         int64 default_sell_star_count,
+        int64 upgrade_star_count,
         bool is_for_birthday,
         int32 remaining_count,
         int32 total_count,
@@ -91,6 +98,7 @@ public class TDLib.Gift : Error {
             sticker: sticker,
             star_count: star_count,
             default_sell_star_count: default_sell_star_count,
+            upgrade_star_count: upgrade_star_count,
             is_for_birthday: is_for_birthday,
             remaining_count: remaining_count,
             total_count: total_count,

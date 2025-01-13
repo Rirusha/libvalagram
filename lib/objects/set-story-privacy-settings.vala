@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ internal class TDLib.SetStoryPrivacySettings : TDObject {
     public int32 story_id { get; construct set; }
 
     /**
-     * The new privacy settigs for the story
+     * The new privacy settings for the story
      */
     public StoryPrivacySettings privacy_settings { get; construct set; }
 

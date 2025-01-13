@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,11 +36,6 @@ internal class TDLib.SearchMessages : TDObject {
     public ChatList chat_list { get; construct set; }
 
     /**
-     * Pass true to search only for messages in channels
-     */
-    public bool only_in_channels { get; construct set; }
-
-    /**
      * Query to search for
      */
     public string query { get; construct set; }
@@ -68,6 +63,12 @@ internal class TDLib.SearchMessages : TDObject {
     public SearchMessagesFilter filter { get; construct set; }
 
     /**
+     * Additional filter for type of the chat of the searched messages; pass
+     * null to search for messages in all chats
+     */
+    public SearchMessagesChatTypeFilter chat_type_filter { get; construct set; }
+
+    /**
      * If not 0, the minimum date of the messages to return
      */
     public int32 min_date { get; construct set; }
@@ -79,21 +80,21 @@ internal class TDLib.SearchMessages : TDObject {
 
     public SearchMessages (
         ChatList chat_list,
-        bool only_in_channels,
         string query,
         string offset,
         int32 limit,
         SearchMessagesFilter filter,
+        SearchMessagesChatTypeFilter chat_type_filter,
         int32 min_date,
         int32 max_date
     ) {
         Object (
             chat_list: chat_list,
-            only_in_channels: only_in_channels,
             query: query,
             offset: offset,
             limit: limit,
             filter: filter,
+            chat_type_filter: chat_type_filter,
             min_date: min_date,
             max_date: max_date,
             tdlib_type: "searchMessages",

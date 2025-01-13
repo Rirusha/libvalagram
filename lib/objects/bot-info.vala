@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -77,6 +77,12 @@ public class TDLib.BotInfo : Error {
     public ChatAdministratorRights? default_channel_administrator_rights { get; construct set; }
 
     /**
+     * Information about the affiliate program of the bot; may be null if
+     * none
+     */
+    public AffiliateProgramInfo? affiliate_program { get; construct set; }
+
+    /**
      * Default light background color for bot Web Apps; -1 if not specified
      */
     public int32 web_app_background_light_color { get; construct set; }
@@ -95,6 +101,12 @@ public class TDLib.BotInfo : Error {
      * Default dark header color for bot Web Apps; -1 if not specified
      */
     public int32 web_app_header_dark_color { get; construct set; }
+
+    /**
+     * Parameters of the verification that can be provided by the bot; may be
+     * null if none or the current user isn't the owner of the bot
+     */
+    public BotVerificationParameters? verification_parameters { get; construct set; }
 
     /**
      * True, if the bot's revenue statistics are available to the current
@@ -144,10 +156,12 @@ public class TDLib.BotInfo : Error {
         string privacy_policy_url,
         ChatAdministratorRights? default_group_administrator_rights,
         ChatAdministratorRights? default_channel_administrator_rights,
+        AffiliateProgramInfo? affiliate_program,
         int32 web_app_background_light_color,
         int32 web_app_background_dark_color,
         int32 web_app_header_light_color,
         int32 web_app_header_dark_color,
+        BotVerificationParameters? verification_parameters,
         bool can_get_revenue_statistics,
         bool can_manage_emoji_status,
         bool has_media_previews,
@@ -166,10 +180,12 @@ public class TDLib.BotInfo : Error {
             privacy_policy_url: privacy_policy_url,
             default_group_administrator_rights: default_group_administrator_rights,
             default_channel_administrator_rights: default_channel_administrator_rights,
+            affiliate_program: affiliate_program,
             web_app_background_light_color: web_app_background_light_color,
             web_app_background_dark_color: web_app_background_dark_color,
             web_app_header_light_color: web_app_header_light_color,
             web_app_header_dark_color: web_app_header_dark_color,
+            verification_parameters: verification_parameters,
             can_get_revenue_statistics: can_get_revenue_statistics,
             can_manage_emoji_status: can_manage_emoji_status,
             has_media_previews: has_media_previews,

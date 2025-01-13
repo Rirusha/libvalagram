@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -91,19 +91,9 @@ public class TDLib.ChatInviteLinkInfo : Error {
     public bool is_public { get; construct set; }
 
     /**
-     * True, if the chat is verified
+     * Information about verification status of the chat; may be null if none
      */
-    public bool is_verified { get; construct set; }
-
-    /**
-     * True, if many users reported this chat as a scam
-     */
-    public bool is_scam { get; construct set; }
-
-    /**
-     * True, if many users reported this chat as a fake account
-     */
-    public bool is_fake { get; construct set; }
+    public VerificationStatus? verification_status { get; construct set; }
 
     public ChatInviteLinkInfo (
         int64 chat_id,
@@ -118,9 +108,7 @@ public class TDLib.ChatInviteLinkInfo : Error {
         ChatInviteLinkSubscriptionInfo? subscription_info,
         bool creates_join_request,
         bool is_public,
-        bool is_verified,
-        bool is_scam,
-        bool is_fake
+        VerificationStatus? verification_status
     ) {
         Object (
             chat_id: chat_id,
@@ -135,9 +123,7 @@ public class TDLib.ChatInviteLinkInfo : Error {
             subscription_info: subscription_info,
             creates_join_request: creates_join_request,
             is_public: is_public,
-            is_verified: is_verified,
-            is_scam: is_scam,
-            is_fake: is_fake,
+            verification_status: verification_status,
             tdlib_type: "chatInviteLinkInfo",
             tdlib_extra: Uuid.string_random ()
         );

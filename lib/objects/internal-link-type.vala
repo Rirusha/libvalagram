@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -329,6 +329,35 @@ public class TDLib.InternalLinkTypeChangePhoneNumber : InternalLinkType {
     public InternalLinkTypeChangePhoneNumber () {
         Object (
             tdlib_type: "internalLinkTypeChangePhoneNumber",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is an affiliate program link. Call searchChatAffiliateProgram
+ * with the given username and referrer to process the link
+ */
+public class TDLib.InternalLinkTypeChatAffiliateProgram : InternalLinkType {
+
+    /**
+     * Username to be passed to searchChatAffiliateProgram
+     */
+    public string username { get; construct set; }
+
+    /**
+     * Referrer to be passed to searchChatAffiliateProgram
+     */
+    public string referrer { get; construct set; }
+
+    public InternalLinkTypeChatAffiliateProgram (
+        string username,
+        string referrer
+    ) {
+        Object (
+            username: username,
+            referrer: referrer,
+            tdlib_type: "internalLinkTypeChatAffiliateProgram",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -164,6 +164,58 @@ public class TDLib.FileTypeSecure : FileType {
     public FileTypeSecure () {
         Object (
             tdlib_type: "fileTypeSecure",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The file is a self-destructing photo in a private chat
+ */
+public class TDLib.FileTypeSelfDestructingPhoto : FileType {
+
+    public FileTypeSelfDestructingPhoto () {
+        Object (
+            tdlib_type: "fileTypeSelfDestructingPhoto",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The file is a self-destructing video in a private chat
+ */
+public class TDLib.FileTypeSelfDestructingVideo : FileType {
+
+    public FileTypeSelfDestructingVideo () {
+        Object (
+            tdlib_type: "fileTypeSelfDestructingVideo",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The file is a self-destructing video note in a private chat
+ */
+public class TDLib.FileTypeSelfDestructingVideoNote : FileType {
+
+    public FileTypeSelfDestructingVideoNote () {
+        Object (
+            tdlib_type: "fileTypeSelfDestructingVideoNote",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The file is a self-destructing voice note in a private chat
+ */
+public class TDLib.FileTypeSelfDestructingVoiceNote : FileType {
+
+    public FileTypeSelfDestructingVoiceNote () {
+        Object (
+            tdlib_type: "fileTypeSelfDestructingVoiceNote",
             tdlib_extra: Uuid.string_random ()
         );
     }

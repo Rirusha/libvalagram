@@ -1,0 +1,776 @@
+/*
+ * Copyright (C) 2024-2025 Vladimir Vaskov
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// THIS FILE WAS GENERATED, DON'T MODIFY IT
+
+/**
+ * Describes type of transaction with Telegram Stars
+ */
+public abstract class TDLib.StarTransactionType : Error {}
+
+/**
+ * The transaction is a deposit of Telegram Stars from the Premium bot;
+ * for regular users only
+ */
+public class TDLib.StarTransactionTypePremiumBotDeposit : StarTransactionType {
+
+    public StarTransactionTypePremiumBotDeposit () {
+        Object (
+            tdlib_type: "starTransactionTypePremiumBotDeposit",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a deposit of Telegram Stars from App Store; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypeAppStoreDeposit : StarTransactionType {
+
+    public StarTransactionTypeAppStoreDeposit () {
+        Object (
+            tdlib_type: "starTransactionTypeAppStoreDeposit",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a deposit of Telegram Stars from Google Play; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypeGooglePlayDeposit : StarTransactionType {
+
+    public StarTransactionTypeGooglePlayDeposit () {
+        Object (
+            tdlib_type: "starTransactionTypeGooglePlayDeposit",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a deposit of Telegram Stars from Fragment; for
+ * regular users and bots only
+ */
+public class TDLib.StarTransactionTypeFragmentDeposit : StarTransactionType {
+
+    public StarTransactionTypeFragmentDeposit () {
+        Object (
+            tdlib_type: "starTransactionTypeFragmentDeposit",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a deposit of Telegram Stars by another user; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypeUserDeposit : StarTransactionType {
+
+    /**
+     * Identifier of the user that gifted Telegram Stars; 0 if the user was
+     * anonymous
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The sticker to be shown in the transaction information; may be null if
+     * unknown
+     */
+    public Sticker? sticker { get; construct set; }
+
+    public StarTransactionTypeUserDeposit (
+        int64 user_id,
+        Sticker? sticker
+    ) {
+        Object (
+            user_id: user_id,
+            sticker: sticker,
+            tdlib_type: "starTransactionTypeUserDeposit",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a deposit of Telegram Stars from a giveaway; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypeGiveawayDeposit : StarTransactionType {
+
+    /**
+     * Identifier of a supergroup or a channel chat that created the giveaway
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Identifier of the message with the giveaway; can be 0 or an identifier
+     * of a deleted message
+     */
+    public int64 giveaway_message_id { get; construct set; }
+
+    public StarTransactionTypeGiveawayDeposit (
+        int64 chat_id,
+        int64 giveaway_message_id
+    ) {
+        Object (
+            chat_id: chat_id,
+            giveaway_message_id: giveaway_message_id,
+            tdlib_type: "starTransactionTypeGiveawayDeposit",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a withdrawal of earned Telegram Stars to Fragment;
+ * for bots and channel chats only
+ */
+public class TDLib.StarTransactionTypeFragmentWithdrawal : StarTransactionType {
+
+    /**
+     * State of the withdrawal; may be null for refunds from Fragment
+     */
+    public RevenueWithdrawalState? withdrawal_state { get; construct set; }
+
+    public StarTransactionTypeFragmentWithdrawal (
+        RevenueWithdrawalState? withdrawal_state
+    ) {
+        Object (
+            withdrawal_state: withdrawal_state,
+            tdlib_type: "starTransactionTypeFragmentWithdrawal",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a withdrawal of earned Telegram Stars to Telegram
+ * Ad platform; for bots and channel chats only
+ */
+public class TDLib.StarTransactionTypeTelegramAdsWithdrawal : StarTransactionType {
+
+    public StarTransactionTypeTelegramAdsWithdrawal () {
+        Object (
+            tdlib_type: "starTransactionTypeTelegramAdsWithdrawal",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a payment for Telegram API usage; for bots only
+ */
+public class TDLib.StarTransactionTypeTelegramApiUsage : StarTransactionType {
+
+    /**
+     * The number of billed requests
+     */
+    public int32 request_count { get; construct set; }
+
+    public StarTransactionTypeTelegramApiUsage (
+        int32 request_count
+    ) {
+        Object (
+            request_count: request_count,
+            tdlib_type: "starTransactionTypeTelegramApiUsage",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a purchase of paid media from a bot or a business
+ * account by the current user; for regular users only
+ */
+public class TDLib.StarTransactionTypeBotPaidMediaPurchase : StarTransactionType {
+
+    /**
+     * Identifier of the bot or the business account user that sent the paid
+     * media
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The bought media if the transaction wasn't refunded
+     */
+    public Gee.ArrayList<PaidMedia?> media { get; construct set; default = new Gee.ArrayList<PaidMedia?> (); }
+
+    public StarTransactionTypeBotPaidMediaPurchase (
+        int64 user_id,
+        Gee.ArrayList<PaidMedia?> media
+    ) {
+        Object (
+            user_id: user_id,
+            media: media,
+            tdlib_type: "starTransactionTypeBotPaidMediaPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of paid media by the bot or a business
+ * account managed by the bot; for bots only
+ */
+public class TDLib.StarTransactionTypeBotPaidMediaSale : StarTransactionType {
+
+    /**
+     * Identifier of the user that bought the media
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The bought media
+     */
+    public Gee.ArrayList<PaidMedia?> media { get; construct set; default = new Gee.ArrayList<PaidMedia?> (); }
+
+    /**
+     * Bot-provided payload
+     */
+    public string payload { get; construct set; }
+
+    /**
+     * Information about the affiliate which received commission from the
+     * transaction; may be null if none
+     */
+    public AffiliateInfo? affiliate { get; construct set; }
+
+    public StarTransactionTypeBotPaidMediaSale (
+        int64 user_id,
+        Gee.ArrayList<PaidMedia?> media,
+        string payload,
+        AffiliateInfo? affiliate
+    ) {
+        Object (
+            user_id: user_id,
+            media: media,
+            payload: payload,
+            affiliate: affiliate,
+            tdlib_type: "starTransactionTypeBotPaidMediaSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a purchase of paid media from a channel by the
+ * current user; for regular users only
+ */
+public class TDLib.StarTransactionTypeChannelPaidMediaPurchase : StarTransactionType {
+
+    /**
+     * Identifier of the channel chat that sent the paid media
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Identifier of the corresponding message with paid media; can be 0 or
+     * an identifier of a deleted message
+     */
+    public int64 message_id { get; construct set; }
+
+    /**
+     * The bought media if the transaction wasn't refunded
+     */
+    public Gee.ArrayList<PaidMedia?> media { get; construct set; default = new Gee.ArrayList<PaidMedia?> (); }
+
+    public StarTransactionTypeChannelPaidMediaPurchase (
+        int64 chat_id,
+        int64 message_id,
+        Gee.ArrayList<PaidMedia?> media
+    ) {
+        Object (
+            chat_id: chat_id,
+            message_id: message_id,
+            media: media,
+            tdlib_type: "starTransactionTypeChannelPaidMediaPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of paid media by the channel chat; for
+ * channel chats only
+ */
+public class TDLib.StarTransactionTypeChannelPaidMediaSale : StarTransactionType {
+
+    /**
+     * Identifier of the user that bought the media
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * Identifier of the corresponding message with paid media; can be 0 or
+     * an identifier of a deleted message
+     */
+    public int64 message_id { get; construct set; }
+
+    /**
+     * The bought media
+     */
+    public Gee.ArrayList<PaidMedia?> media { get; construct set; default = new Gee.ArrayList<PaidMedia?> (); }
+
+    public StarTransactionTypeChannelPaidMediaSale (
+        int64 user_id,
+        int64 message_id,
+        Gee.ArrayList<PaidMedia?> media
+    ) {
+        Object (
+            user_id: user_id,
+            message_id: message_id,
+            media: media,
+            tdlib_type: "starTransactionTypeChannelPaidMediaSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a purchase of a product from a bot or a business
+ * account by the current user; for regular users only
+ */
+public class TDLib.StarTransactionTypeBotInvoicePurchase : StarTransactionType {
+
+    /**
+     * Identifier of the bot or the business account user that created the
+     * invoice
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * Information about the bought product
+     */
+    public ProductInfo product_info { get; construct set; }
+
+    public StarTransactionTypeBotInvoicePurchase (
+        int64 user_id,
+        ProductInfo product_info
+    ) {
+        Object (
+            user_id: user_id,
+            product_info: product_info,
+            tdlib_type: "starTransactionTypeBotInvoicePurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of a product by the bot; for bots only
+ */
+public class TDLib.StarTransactionTypeBotInvoiceSale : StarTransactionType {
+
+    /**
+     * Identifier of the user that bought the product
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * Information about the bought product
+     */
+    public ProductInfo product_info { get; construct set; }
+
+    /**
+     * Invoice payload
+     */
+    public Bytes invoice_payload { get; construct set; }
+
+    /**
+     * Information about the affiliate which received commission from the
+     * transaction; may be null if none
+     */
+    public AffiliateInfo? affiliate { get; construct set; }
+
+    public StarTransactionTypeBotInvoiceSale (
+        int64 user_id,
+        ProductInfo product_info,
+        Bytes invoice_payload,
+        AffiliateInfo? affiliate
+    ) {
+        Object (
+            user_id: user_id,
+            product_info: product_info,
+            invoice_payload: invoice_payload,
+            affiliate: affiliate,
+            tdlib_type: "starTransactionTypeBotInvoiceSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a purchase of a subscription from a bot or a
+ * business account by the current user; for regular users only
+ */
+public class TDLib.StarTransactionTypeBotSubscriptionPurchase : StarTransactionType {
+
+    /**
+     * Identifier of the bot or the business account user that created the
+     * subscription link
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The number of seconds between consecutive Telegram Star debitings
+     */
+    public int32 subscription_period { get; construct set; }
+
+    /**
+     * Information about the bought subscription
+     */
+    public ProductInfo product_info { get; construct set; }
+
+    public StarTransactionTypeBotSubscriptionPurchase (
+        int64 user_id,
+        int32 subscription_period,
+        ProductInfo product_info
+    ) {
+        Object (
+            user_id: user_id,
+            subscription_period: subscription_period,
+            product_info: product_info,
+            tdlib_type: "starTransactionTypeBotSubscriptionPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of a subscription by the bot; for bots only
+ */
+public class TDLib.StarTransactionTypeBotSubscriptionSale : StarTransactionType {
+
+    /**
+     * Identifier of the user that bought the subscription
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The number of seconds between consecutive Telegram Star debitings
+     */
+    public int32 subscription_period { get; construct set; }
+
+    /**
+     * Information about the bought subscription
+     */
+    public ProductInfo product_info { get; construct set; }
+
+    /**
+     * Invoice payload
+     */
+    public Bytes invoice_payload { get; construct set; }
+
+    /**
+     * Information about the affiliate which received commission from the
+     * transaction; may be null if none
+     */
+    public AffiliateInfo? affiliate { get; construct set; }
+
+    public StarTransactionTypeBotSubscriptionSale (
+        int64 user_id,
+        int32 subscription_period,
+        ProductInfo product_info,
+        Bytes invoice_payload,
+        AffiliateInfo? affiliate
+    ) {
+        Object (
+            user_id: user_id,
+            subscription_period: subscription_period,
+            product_info: product_info,
+            invoice_payload: invoice_payload,
+            affiliate: affiliate,
+            tdlib_type: "starTransactionTypeBotSubscriptionSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a purchase of a subscription to a channel chat by
+ * the current user; for regular users only
+ */
+public class TDLib.StarTransactionTypeChannelSubscriptionPurchase : StarTransactionType {
+
+    /**
+     * Identifier of the channel chat that created the subscription
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * The number of seconds between consecutive Telegram Star debitings
+     */
+    public int32 subscription_period { get; construct set; }
+
+    public StarTransactionTypeChannelSubscriptionPurchase (
+        int64 chat_id,
+        int32 subscription_period
+    ) {
+        Object (
+            chat_id: chat_id,
+            subscription_period: subscription_period,
+            tdlib_type: "starTransactionTypeChannelSubscriptionPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of a subscription by the channel chat; for
+ * channel chats only
+ */
+public class TDLib.StarTransactionTypeChannelSubscriptionSale : StarTransactionType {
+
+    /**
+     * Identifier of the user that bought the subscription
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The number of seconds between consecutive Telegram Star debitings
+     */
+    public int32 subscription_period { get; construct set; }
+
+    public StarTransactionTypeChannelSubscriptionSale (
+        int64 user_id,
+        int32 subscription_period
+    ) {
+        Object (
+            user_id: user_id,
+            subscription_period: subscription_period,
+            tdlib_type: "starTransactionTypeChannelSubscriptionSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a purchase of a regular gift to another user; for
+ * regular users and bots only
+ */
+public class TDLib.StarTransactionTypeGiftPurchase : StarTransactionType {
+
+    /**
+     * Identifier of the user that received the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public Gift gift { get; construct set; }
+
+    public StarTransactionTypeGiftPurchase (
+        int64 user_id,
+        Gift gift
+    ) {
+        Object (
+            user_id: user_id,
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a transfer of an upgraded gift to another user; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypeGiftTransfer : StarTransactionType {
+
+    /**
+     * Identifier of the user that received the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public StarTransactionTypeGiftTransfer (
+        int64 user_id,
+        UpgradedGift gift
+    ) {
+        Object (
+            user_id: user_id,
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftTransfer",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of a gift received from another user or bot;
+ * for regular users only
+ */
+public class TDLib.StarTransactionTypeGiftSale : StarTransactionType {
+
+    /**
+     * Identifier of the user that sent the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public Gift gift { get; construct set; }
+
+    public StarTransactionTypeGiftSale (
+        int64 user_id,
+        Gift gift
+    ) {
+        Object (
+            user_id: user_id,
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is an upgrade of a gift; for regular users only
+ */
+public class TDLib.StarTransactionTypeGiftUpgrade : StarTransactionType {
+
+    /**
+     * The upgraded gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public StarTransactionTypeGiftUpgrade (
+        UpgradedGift gift
+    ) {
+        Object (
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftUpgrade",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sending of a paid reaction to a message in a
+ * channel chat by the current user; for regular users only
+ */
+public class TDLib.StarTransactionTypeChannelPaidReactionSend : StarTransactionType {
+
+    /**
+     * Identifier of the channel chat
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Identifier of the reacted message; can be 0 or an identifier of a
+     * deleted message
+     */
+    public int64 message_id { get; construct set; }
+
+    public StarTransactionTypeChannelPaidReactionSend (
+        int64 chat_id,
+        int64 message_id
+    ) {
+        Object (
+            chat_id: chat_id,
+            message_id: message_id,
+            tdlib_type: "starTransactionTypeChannelPaidReactionSend",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a receiving of a paid reaction to a message by the
+ * channel chat; for channel chats only
+ */
+public class TDLib.StarTransactionTypeChannelPaidReactionReceive : StarTransactionType {
+
+    /**
+     * Identifier of the user that added the paid reaction
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * Identifier of the reacted message; can be 0 or an identifier of a
+     * deleted message
+     */
+    public int64 message_id { get; construct set; }
+
+    public StarTransactionTypeChannelPaidReactionReceive (
+        int64 user_id,
+        int64 message_id
+    ) {
+        Object (
+            user_id: user_id,
+            message_id: message_id,
+            tdlib_type: "starTransactionTypeChannelPaidReactionReceive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a receiving of a commission from an affiliate
+ * program; for regular users, bots and channel chats only
+ */
+public class TDLib.StarTransactionTypeAffiliateProgramCommission : StarTransactionType {
+
+    /**
+     * Identifier of the chat that created the affiliate program
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * The number of Telegram Stars received by the affiliate for each 1000
+     * Telegram Stars received by the program owner
+     */
+    public int32 commission_per_mille { get; construct set; }
+
+    public StarTransactionTypeAffiliateProgramCommission (
+        int64 chat_id,
+        int32 commission_per_mille
+    ) {
+        Object (
+            chat_id: chat_id,
+            commission_per_mille: commission_per_mille,
+            tdlib_type: "starTransactionTypeAffiliateProgramCommission",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a transaction of an unsupported type
+ */
+public class TDLib.StarTransactionTypeUnsupported : StarTransactionType {
+
+    public StarTransactionTypeUnsupported () {
+        Object (
+            tdlib_type: "starTransactionTypeUnsupported",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

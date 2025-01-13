@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,19 +25,19 @@
 public class TDLib.StarRevenueStatus : Error {
 
     /**
-     * Total number of Telegram Stars earned
+     * Total amount of Telegram Stars earned
      */
-    public int64 total_count { get; construct set; }
+    public StarAmount total_amount { get; construct set; }
 
     /**
-     * The number of Telegram Stars that aren't withdrawn yet
+     * The amount of Telegram Stars that aren't withdrawn yet
      */
-    public int64 current_count { get; construct set; }
+    public StarAmount current_amount { get; construct set; }
 
     /**
-     * The number of Telegram Stars that are available for withdrawal
+     * The amount of Telegram Stars that are available for withdrawal
      */
-    public int64 available_count { get; construct set; }
+    public StarAmount available_amount { get; construct set; }
 
     /**
      * True, if Telegram Stars can be withdrawn now or later
@@ -51,16 +51,16 @@ public class TDLib.StarRevenueStatus : Error {
     public int32 next_withdrawal_in { get; construct set; }
 
     public StarRevenueStatus (
-        int64 total_count,
-        int64 current_count,
-        int64 available_count,
+        StarAmount total_amount,
+        StarAmount current_amount,
+        StarAmount available_amount,
         bool withdrawal_enabled,
         int32 next_withdrawal_in
     ) {
         Object (
-            total_count: total_count,
-            current_count: current_count,
-            available_count: available_count,
+            total_amount: total_amount,
+            current_amount: current_amount,
+            available_amount: available_amount,
             withdrawal_enabled: withdrawal_enabled,
             next_withdrawal_in: next_withdrawal_in,
             tdlib_type: "starRevenueStatus",

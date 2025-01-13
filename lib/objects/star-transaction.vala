@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@ public class TDLib.StarTransaction : Error {
      * The amount of added owned Telegram Stars; negative for outgoing
      * transactions
      */
-    public int64 star_count { get; construct set; }
+    public StarAmount star_amount { get; construct set; }
 
     /**
      * True, if the transaction is a refund of a previous transaction
@@ -46,24 +46,23 @@ public class TDLib.StarTransaction : Error {
     public int32 date { get; construct set; }
 
     /**
-     * Source of the incoming transaction, or its recipient for outgoing
-     * transactions
+     * Type of the transaction
      */
-    public StarTransactionPartner partner { get; construct set; }
+    public StarTransactionType type_ { get; construct set; }
 
     public StarTransaction (
         string id_,
-        int64 star_count,
+        StarAmount star_amount,
         bool is_refund,
         int32 date,
-        StarTransactionPartner partner
+        StarTransactionType type_
     ) {
         Object (
             id_: id_,
-            star_count: star_count,
+            star_amount: star_amount,
             is_refund: is_refund,
             date: date,
-            partner: partner,
+            type_: type_,
             tdlib_type: "starTransaction",
             tdlib_extra: Uuid.string_random ()
         );

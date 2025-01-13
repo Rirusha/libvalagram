@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,9 +31,25 @@ internal class TDLib.SearchStickers : TDObject {
     public StickerType sticker_type { get; construct set; }
 
     /**
-     * Space-separated list of emojis to search for; must be non-empty
+     * Space-separated list of emojis to search for
      */
     public string emojis { get; construct set; }
+
+    /**
+     * Query to search for; may be empty to search for emoji only
+     */
+    public string query { get; construct set; }
+
+    /**
+     * List of possible IETF language tags of the user's input language; may
+     * be empty if unknown
+     */
+    public Gee.ArrayList<string?> input_language_codes { get; construct set; default = new Gee.ArrayList<string?> (); }
+
+    /**
+     * The offset from which to return the stickers; must be non-negative
+     */
+    public int32 offset { get; construct set; }
 
     /**
      * The maximum number of stickers to be returned; 0-100
@@ -43,11 +59,17 @@ internal class TDLib.SearchStickers : TDObject {
     public SearchStickers (
         StickerType sticker_type,
         string emojis,
+        string query,
+        Gee.ArrayList<string?> input_language_codes,
+        int32 offset,
         int32 limit
     ) {
         Object (
             sticker_type: sticker_type,
             emojis: emojis,
+            query: query,
+            input_language_codes: input_language_codes,
+            offset: offset,
             limit: limit,
             tdlib_type: "searchStickers",
             tdlib_extra: Uuid.string_random ()

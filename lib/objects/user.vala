@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,31 +61,30 @@ public class TDLib.User : Error {
 
     /**
      * Identifier of the accent color for name, and backgrounds of profile
-     * photo, reply header, and link preview. For Telegram Premium users only
+     * photo, reply header, and link preview
      */
     public int32 accent_color_id { get; construct set; }
 
     /**
      * Identifier of a custom emoji to be shown on the reply header and link
-     * preview background; 0 if none. For Telegram Premium users only
+     * preview background; 0 if none
      */
     public int64 background_custom_emoji_id { get; construct set; }
 
     /**
-     * Identifier of the accent color for the user's profile; -1 if none. For
-     * Telegram Premium users only
+     * Identifier of the accent color for the user's profile; -1 if none
      */
     public int32 profile_accent_color_id { get; construct set; }
 
     /**
      * Identifier of a custom emoji to be shown on the background of the
-     * user's profile; 0 if none. For Telegram Premium users only
+     * user's profile; 0 if none
      */
     public int64 profile_background_custom_emoji_id { get; construct set; }
 
     /**
      * Emoji status to be shown instead of the default Telegram Premium
-     * badge; may be null. For Telegram Premium users only
+     * badge; may be null
      */
     public EmojiStatus? emoji_status { get; construct set; }
 
@@ -107,9 +106,9 @@ public class TDLib.User : Error {
     public bool is_close_friend { get; construct set; }
 
     /**
-     * True, if the user is verified
+     * Information about verification status of the user; may be null if none
      */
-    public bool is_verified { get; construct set; }
+    public VerificationStatus? verification_status { get; construct set; }
 
     /**
      * True, if the user is a Telegram Premium user
@@ -126,16 +125,6 @@ public class TDLib.User : Error {
      * why access to this user must be restricted
      */
     public string restriction_reason { get; construct set; }
-
-    /**
-     * True, if many users reported this user as a scam
-     */
-    public bool is_scam { get; construct set; }
-
-    /**
-     * True, if many users reported this user as a fake account
-     */
-    public bool is_fake { get; construct set; }
 
     /**
      * True, if the user has non-expired stories available to the current
@@ -195,12 +184,10 @@ public class TDLib.User : Error {
         bool is_contact,
         bool is_mutual_contact,
         bool is_close_friend,
-        bool is_verified,
+        VerificationStatus? verification_status,
         bool is_premium,
         bool is_support,
         string restriction_reason,
-        bool is_scam,
-        bool is_fake,
         bool has_active_stories,
         bool has_unread_active_stories,
         bool restricts_new_chats,
@@ -225,12 +212,10 @@ public class TDLib.User : Error {
             is_contact: is_contact,
             is_mutual_contact: is_mutual_contact,
             is_close_friend: is_close_friend,
-            is_verified: is_verified,
+            verification_status: verification_status,
             is_premium: is_premium,
             is_support: is_support,
             restriction_reason: restriction_reason,
-            is_scam: is_scam,
-            is_fake: is_fake,
             has_active_stories: has_active_stories,
             has_unread_active_stories: has_unread_active_stories,
             restricts_new_chats: restricts_new_chats,

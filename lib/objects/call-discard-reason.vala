@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 Vladimir Vaskov
+ * Copyright (C) 2024-2025 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -87,6 +87,29 @@ public class TDLib.CallDiscardReasonHungUp : CallDiscardReason {
     public CallDiscardReasonHungUp () {
         Object (
             tdlib_type: "callDiscardReasonHungUp",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The call was ended because it has been used successfully to transfer
+ * private encryption key for the associated group call
+ */
+public class TDLib.CallDiscardReasonAllowGroupCall : CallDiscardReason {
+
+    /**
+     * Encrypted using the call private key encryption key for the associated
+     * group call
+     */
+    public Bytes encrypted_group_call_key { get; construct set; }
+
+    public CallDiscardReasonAllowGroupCall (
+        Bytes encrypted_group_call_key
+    ) {
+        Object (
+            encrypted_group_call_key: encrypted_group_call_key,
+            tdlib_type: "callDiscardReasonAllowGroupCall",
             tdlib_extra: Uuid.string_random ()
         );
     }
