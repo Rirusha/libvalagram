@@ -61,12 +61,11 @@ add_project_arguments(
   language: ['vala'],
 )
 
+subdir('vapi')
 subdir('lib')
 
 if get_option('documentation')
   subdir('doc')
 endif
-
-subdir('vapi')
 
 gnome.post_install()
