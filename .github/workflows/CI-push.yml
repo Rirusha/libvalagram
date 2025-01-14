@@ -68,7 +68,7 @@ jobs:
       - name: Install libs on container
         run: |
           apt-get update
-          apt-get install -y git python3 gcc vala meson libgee0.8-devel glib2-devel libsoup3.0-devel libjson-glib-devel gobject-introspection-devel tdlib-devel valadoc
+          apt-get install -y git python3 gcc vala meson libgee0.8-devel libgee0.8-gir-devel glib2-devel libsoup3.0-devel libjson-glib-devel gobject-introspection-devel tdlib-devel valadoc
           
       - name: Checkout repository
         uses: actions/checkout@v4
