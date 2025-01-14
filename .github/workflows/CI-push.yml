@@ -35,13 +35,13 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: ubuntu:latest
+      image: alt:sisyphus
 
     steps:
       - name: Install git on container
         run: |
           apt-get update
-          apt-get install -y git python3.12
+          apt-get install -y git python3
           
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -68,7 +68,7 @@ jobs:
       - name: Install libs on container
         run: |
           apt-get update
-          apt-get install -y git python3 vala meson libgee0.8-devel glib2-devel libsoup3.0-devel libjson-glib-devel gobject-introspection tdlib-devel valadoc
+          apt-get install -y git python3 gcc vala meson libgee0.8-devel glib2-devel libsoup3.0-devel libjson-glib-devel gobject-introspection tdlib-devel valadoc
           
       - name: Checkout repository
         uses: actions/checkout@v4
