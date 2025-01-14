@@ -35,13 +35,13 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: alt:sisyphus
+      image: ubuntu:latest
 
     steps:
       - name: Install git on container
         run: |
           apt-get update
-          apt-get install -y git python3
+          apt-get install -y git python3.12
           
       - name: Checkout repository
         uses: actions/checkout@v4
