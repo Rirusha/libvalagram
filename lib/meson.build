@@ -1,4 +1,4 @@
-vapi_sources = files(
+vapi_sources += files(
 
 )
 

@@ -44,9 +44,18 @@ Requires: %name = %EVR
 Summary: Development vapi files for %name
 Group: System/Libraries
 
-Requires: %name = %EVR
+Requires: %name-devel = %EVR
 
 %description devel-vala
+%summary.
+
+%package -n tdlib-devel-vala
+Summary: Development vapi files for tdlib
+Group: System/Libraries
+
+Requires: tdlib-devel
+
+%description -n tdlib-devel-vala
 %summary.
 
 %package gir
@@ -91,8 +100,10 @@ Requires: %name = %EVR
 
 %files devel-vala
 %_vapidir/%name.vapi
-%_vapidir/tdjson.vapi
 %_vapidir/%name.deps
+
+%files -n tdlib-devel-vala
+%_vapidir/tdjson.vapi
 
 %files gir
 %_typelibdir/%gir_name.typelib
