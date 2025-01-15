@@ -35,4 +35,4 @@ jobs:
           git config --global --add safe.directory '*'
 
       - name: Setup
-        run: sh auto-update/update.sh
+        run: bash auto-update/update.sh
