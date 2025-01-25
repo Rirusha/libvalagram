@@ -20,20 +20,20 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains a list of custom emoji identifiers for emoji statuses
+ * Contains a list of emoji statuses
  */
 public class TDLib.EmojiStatuses : Error {
 
     /**
-     * The list of custom emoji identifiers
+     * The list of emoji statuses identifiers
      */
-    public Gee.ArrayList<int64?> custom_emoji_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
+    public Gee.ArrayList<EmojiStatus?> emoji_statuses { get; construct set; default = new Gee.ArrayList<EmojiStatus?> (); }
 
     public EmojiStatuses (
-        Gee.ArrayList<int64?> custom_emoji_ids
+        Gee.ArrayList<EmojiStatus?> emoji_statuses
     ) {
         Object (
-            custom_emoji_ids: custom_emoji_ids,
+            emoji_statuses: emoji_statuses,
             tdlib_type: "emojiStatuses",
             tdlib_extra: Uuid.string_random ()
         );

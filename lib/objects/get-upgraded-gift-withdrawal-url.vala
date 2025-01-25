@@ -20,11 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a gift is shown on the current user's or the channel's
- * profile page; requires can_post_messages administrator right in the
- * chat
+ * Returns a URL for upgraded gift withdrawal in the TON blockchain as an
+ * NFT; requires owner privileges for gifts owned by a chat
  */
-public class TDLib.ToggleGiftIsSaved : TDObject {
+public class TDLib.GetUpgradedGiftWithdrawalUrl : TDObject {
 
     /**
      * Identifier of the gift
@@ -32,19 +31,18 @@ public class TDLib.ToggleGiftIsSaved : TDObject {
     public string received_gift_id { get; construct set; }
 
     /**
-     * Pass true to display the gift on the user's or the channel's profile
-     * page; pass false to remove it from the profile page
+     * The 2-step verification password of the current user
      */
-    public bool is_saved { get; construct set; }
+    public string password { get; construct set; }
 
-    public ToggleGiftIsSaved (
+    public GetUpgradedGiftWithdrawalUrl (
         string received_gift_id,
-        bool is_saved
+        string password
     ) {
         Object (
             received_gift_id: received_gift_id,
-            is_saved: is_saved,
-            tdlib_type: "toggleGiftIsSaved",
+            password: password,
+            tdlib_type: "getUpgradedGiftWithdrawalUrl",
             tdlib_extra: Uuid.string_random ()
         );
     }

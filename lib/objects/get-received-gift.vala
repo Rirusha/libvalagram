@@ -20,21 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a gift received or sent by the current user
+ * Returns information about a received gift
  */
-public class TDLib.GetUserGift : TDObject {
+public class TDLib.GetReceivedGift : TDObject {
 
     /**
-     * Identifier of the message with the gift
+     * Identifier of the gift
      */
-    public int64 message_id { get; construct set; }
+    public string received_gift_id { get; construct set; }
 
-    public GetUserGift (
-        int64 message_id
+    public GetReceivedGift (
+        string received_gift_id
     ) {
         Object (
-            message_id: message_id,
-            tdlib_type: "getUserGift",
+            received_gift_id: received_gift_id,
+            tdlib_type: "getReceivedGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

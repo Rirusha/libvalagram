@@ -230,3 +230,24 @@ public class TDLib.InputStoryAreaTypeWeather : InputStoryAreaType {
         );
     }
 }
+
+/**
+ * An area with an upgraded gift
+ */
+public class TDLib.InputStoryAreaTypeUpgradedGift : InputStoryAreaType {
+
+    /**
+     * Unique name of the upgraded gift
+     */
+    public string gift_name { get; construct set; }
+
+    public InputStoryAreaTypeUpgradedGift (
+        string gift_name
+    ) {
+        Object (
+            gift_name: gift_name,
+            tdlib_type: "inputStoryAreaTypeUpgradedGift",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

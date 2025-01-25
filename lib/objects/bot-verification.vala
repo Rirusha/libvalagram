@@ -35,7 +35,9 @@ public class TDLib.BotVerification : Error {
     public int64 icon_custom_emoji_id { get; construct set; }
 
     /**
-     * Custom description of verification reason set by the bot
+     * Custom description of verification reason set by the bot. Can contain
+     * only Mention, Hashtag, Cashtag, PhoneNumber, BankCardNumber, Url, and
+     * EmailAddress entities
      */
     public FormattedText custom_description { get; construct set; }
 

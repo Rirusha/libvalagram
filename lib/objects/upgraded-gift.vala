@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes an upgraded gift that can be gifted to another user or
- * transferred to TON blockchain as an NFT
+ * Describes an upgraded gift that can be transferred to another owner or
+ * transferred to the TON blockchain as an NFT
  */
 public class TDLib.UpgradedGift : Error {
 
@@ -34,6 +34,12 @@ public class TDLib.UpgradedGift : Error {
      * The title of the upgraded gift
      */
     public string title { get; construct set; }
+
+    /**
+     * Unique name of the upgraded gift that can be used with
+     * internalLinkTypeUpgradedGift
+     */
+    public string name { get; construct set; }
 
     /**
      * Unique number of the upgraded gift among gifts upgraded from the same
@@ -52,9 +58,21 @@ public class TDLib.UpgradedGift : Error {
     public int32 max_upgraded_count { get; construct set; }
 
     /**
-     * User identifier of the user that owns the upgraded gift; 0 if none
+     * Identifier of the user or the chat that owns the upgraded gift; may be
+     * null if none or unknown
      */
-    public int64 owner_user_id { get; construct set; }
+    public MessageSender? owner_id { get; construct set; }
+
+    /**
+     * Address of the gift NFT owner in TON blockchain; may be empty if none
+     */
+    public string owner_address { get; construct set; }
+
+    /**
+     * Name of the owner for the case when owner identifier and address
+     * aren't known
+     */
+    public string owner_name { get; construct set; }
 
     /**
      * Model of the upgraded gift
@@ -79,10 +97,13 @@ public class TDLib.UpgradedGift : Error {
     public UpgradedGift (
         int64 id_,
         string title,
+        string name,
         int32 number,
         int32 total_upgraded_count,
         int32 max_upgraded_count,
-        int64 owner_user_id,
+        MessageSender? owner_id,
+        string owner_address,
+        string owner_name,
         UpgradedGiftModel model,
         UpgradedGiftSymbol symbol,
         UpgradedGiftBackdrop backdrop,
@@ -91,10 +112,13 @@ public class TDLib.UpgradedGift : Error {
         Object (
             id_: id_,
             title: title,
+            name: name,
             number: number,
             total_upgraded_count: total_upgraded_count,
             max_upgraded_count: max_upgraded_count,
-            owner_user_id: owner_user_id,
+            owner_id: owner_id,
+            owner_address: owner_address,
+            owner_name: owner_name,
             model: model,
             symbol: symbol,
             backdrop: backdrop,

@@ -122,7 +122,8 @@ public class TDLib.UserFullInfo : Error {
     public int64 personal_chat_id { get; construct set; }
 
     /**
-     * Number of gifts saved to profile by the user
+     * Number of saved to profile gifts for other users or the total number
+     * of received gifts for the current user
      */
     public int32 gift_count { get; construct set; }
 

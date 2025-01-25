@@ -97,11 +97,25 @@ public class TDLib.PaidMediaVideo : PaidMedia {
      */
     public Video video { get; construct set; }
 
+    /**
+     * Cover of the video; may be null if none
+     */
+    public Photo? cover { get; construct set; }
+
+    /**
+     * Timestamp from which the video playing must start, in seconds
+     */
+    public int32 start_timestamp { get; construct set; }
+
     public PaidMediaVideo (
-        Video video
+        Video video,
+        Photo? cover,
+        int32 start_timestamp
     ) {
         Object (
             video: video,
+            cover: cover,
+            start_timestamp: start_timestamp,
             tdlib_type: "paidMediaVideo",
             tdlib_extra: Uuid.string_random ()
         );

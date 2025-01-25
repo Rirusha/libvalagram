@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents a gift received by a user
+ * Represents content of a gift received by a user or a channel chat
  */
 public abstract class TDLib.SentGift : Error {}
 

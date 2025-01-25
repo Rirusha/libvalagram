@@ -30,12 +30,18 @@ public class TDLib.UpgradeGiftResult : Error {
     public UpgradedGift gift { get; construct set; }
 
     /**
-     * True, if the gift is displayed on the user's profile page
+     * Unique identifier of the received gift for the current user
+     */
+    public string received_gift_id { get; construct set; }
+
+    /**
+     * True, if the gift is displayed on the user's or the channel's profile
+     * page
      */
     public bool is_saved { get; construct set; }
 
     /**
-     * True, if the gift can be transferred to another user
+     * True, if the gift can be transferred to another owner
      */
     public bool can_be_transferred { get; construct set; }
 
@@ -46,13 +52,14 @@ public class TDLib.UpgradeGiftResult : Error {
     public int64 transfer_star_count { get; construct set; }
 
     /**
-     * Point in time (Unix timestamp) when the gift can be transferred to TON
-     * blockchain as an NFT
+     * Point in time (Unix timestamp) when the gift can be transferred to the
+     * TON blockchain as an NFT
      */
     public int32 export_date { get; construct set; }
 
     public UpgradeGiftResult (
         UpgradedGift gift,
+        string received_gift_id,
         bool is_saved,
         bool can_be_transferred,
         int64 transfer_star_count,
@@ -60,6 +67,7 @@ public class TDLib.UpgradeGiftResult : Error {
     ) {
         Object (
             gift: gift,
+            received_gift_id: received_gift_id,
             is_saved: is_saved,
             can_be_transferred: can_be_transferred,
             transfer_star_count: transfer_star_count,

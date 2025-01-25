@@ -20,38 +20,42 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns gifts saved to profile by the given user
+ * Describes colors of a backdrop of an upgraded gift
  */
-public class TDLib.GetUserGifts : TDObject {
+public class TDLib.UpgradedGiftBackdropColors : Error {
 
     /**
-     * Identifier of the user
+     * A color in the center of the backdrop in the RGB format
      */
-    public int64 user_id { get; construct set; }
+    public int32 center_color { get; construct set; }
 
     /**
-     * Offset of the first entry to return as received from the previous
-     * request; use empty string to get the first chunk of results
+     * A color on the edges of the backdrop in the RGB format
      */
-    public string offset { get; construct set; }
+    public int32 edge_color { get; construct set; }
 
     /**
-     * The maximum number of gifts to be returned; must be positive and can't
-     * be greater than 100. For optimal performance, the number of returned
-     * objects is chosen by TDLib and can be smaller than the specified limit
+     * A color to be applied for the symbol in the RGB format
      */
-    public int32 limit { get; construct set; }
+    public int32 symbol_color { get; construct set; }
 
-    public GetUserGifts (
-        int64 user_id,
-        string offset,
-        int32 limit
+    /**
+     * A color for the text on the backdrop in the RGB format
+     */
+    public int32 text_color { get; construct set; }
+
+    public UpgradedGiftBackdropColors (
+        int32 center_color,
+        int32 edge_color,
+        int32 symbol_color,
+        int32 text_color
     ) {
         Object (
-            user_id: user_id,
-            offset: offset,
-            limit: limit,
-            tdlib_type: "getUserGifts",
+            center_color: center_color,
+            edge_color: edge_color,
+            symbol_color: symbol_color,
+            text_color: text_color,
+            tdlib_type: "upgradedGiftBackdropColors",
             tdlib_extra: Uuid.string_random ()
         );
     }

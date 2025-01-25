@@ -20,31 +20,31 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a gift is shown on the current user's or the channel's
- * profile page; requires can_post_messages administrator right in the
- * chat
+ * Toggles whether notifications for new gifts received by a channel chat
+ * are sent to the current user; requires can_post_messages administrator
+ * right in the chat
  */
-public class TDLib.ToggleGiftIsSaved : TDObject {
+public class TDLib.ToggleChatGiftNotifications : TDObject {
 
     /**
-     * Identifier of the gift
+     * Identifier of the channel chat
      */
-    public string received_gift_id { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
     /**
-     * Pass true to display the gift on the user's or the channel's profile
-     * page; pass false to remove it from the profile page
+     * Pass true to enable notifications about new gifts owned by the channel
+     * chat; pass false to disable the notifications
      */
-    public bool is_saved { get; construct set; }
+    public bool are_enabled { get; construct set; }
 
-    public ToggleGiftIsSaved (
-        string received_gift_id,
-        bool is_saved
+    public ToggleChatGiftNotifications (
+        int64 chat_id,
+        bool are_enabled
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            is_saved: is_saved,
-            tdlib_type: "toggleGiftIsSaved",
+            chat_id: chat_id,
+            are_enabled: are_enabled,
+            tdlib_type: "toggleChatGiftNotifications",
             tdlib_extra: Uuid.string_random ()
         );
     }

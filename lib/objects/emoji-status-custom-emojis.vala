@@ -20,31 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a gift is shown on the current user's or the channel's
- * profile page; requires can_post_messages administrator right in the
- * chat
+ * Contains a list of custom emoji identifiers for emoji statuses
  */
-public class TDLib.ToggleGiftIsSaved : TDObject {
+public class TDLib.EmojiStatusCustomEmojis : Error {
 
     /**
-     * Identifier of the gift
+     * The list of custom emoji identifiers
      */
-    public string received_gift_id { get; construct set; }
+    public Gee.ArrayList<int64?> custom_emoji_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
 
-    /**
-     * Pass true to display the gift on the user's or the channel's profile
-     * page; pass false to remove it from the profile page
-     */
-    public bool is_saved { get; construct set; }
-
-    public ToggleGiftIsSaved (
-        string received_gift_id,
-        bool is_saved
+    public EmojiStatusCustomEmojis (
+        Gee.ArrayList<int64?> custom_emoji_ids
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            is_saved: is_saved,
-            tdlib_type: "toggleGiftIsSaved",
+            custom_emoji_ids: custom_emoji_ids,
+            tdlib_type: "emojiStatusCustomEmojis",
             tdlib_extra: Uuid.string_random ()
         );
     }

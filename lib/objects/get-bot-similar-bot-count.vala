@@ -20,31 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a gift is shown on the current user's or the channel's
- * profile page; requires can_post_messages administrator right in the
- * chat
+ * Returns approximate number of bots similar to the given bot
  */
-public class TDLib.ToggleGiftIsSaved : TDObject {
+public class TDLib.GetBotSimilarBotCount : TDObject {
 
     /**
-     * Identifier of the gift
+     * User identifier of the target bot
      */
-    public string received_gift_id { get; construct set; }
+    public int64 bot_user_id { get; construct set; }
 
     /**
-     * Pass true to display the gift on the user's or the channel's profile
-     * page; pass false to remove it from the profile page
+     * Pass true to get the number of bots without sending network requests,
+     * or -1 if the number of bots is unknown locally
      */
-    public bool is_saved { get; construct set; }
+    public bool return_local { get; construct set; }
 
-    public ToggleGiftIsSaved (
-        string received_gift_id,
-        bool is_saved
+    public GetBotSimilarBotCount (
+        int64 bot_user_id,
+        bool return_local
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            is_saved: is_saved,
-            tdlib_type: "toggleGiftIsSaved",
+            bot_user_id: bot_user_id,
+            return_local: return_local,
+            tdlib_type: "getBotSimilarBotCount",
             tdlib_extra: Uuid.string_random ()
         );
     }

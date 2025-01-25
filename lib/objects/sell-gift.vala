@@ -20,27 +20,20 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sells a gift received by the current user for Telegram Stars
+ * Sells a gift for Telegram Stars
  */
 public class TDLib.SellGift : TDObject {
 
     /**
-     * Identifier of the user that sent the gift
+     * Identifier of the gift
      */
-    public int64 sender_user_id { get; construct set; }
-
-    /**
-     * Identifier of the message with the gift in the chat with the user
-     */
-    public int64 message_id { get; construct set; }
+    public string received_gift_id { get; construct set; }
 
     public SellGift (
-        int64 sender_user_id,
-        int64 message_id
+        string received_gift_id
     ) {
         Object (
-            sender_user_id: sender_user_id,
-            message_id: message_id,
+            received_gift_id: received_gift_id,
             tdlib_type: "sellGift",
             tdlib_extra: Uuid.string_random ()
         );

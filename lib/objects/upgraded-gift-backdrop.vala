@@ -30,24 +30,9 @@ public class TDLib.UpgradedGiftBackdrop : Error {
     public string name { get; construct set; }
 
     /**
-     * A color in the center of the backdrop in the RGB format
+     * Colors of the backdrop
      */
-    public int32 center_color { get; construct set; }
-
-    /**
-     * A color on the edges of the backdrop in the RGB format
-     */
-    public int32 edge_color { get; construct set; }
-
-    /**
-     * A color to be applied for the symbol in the RGB format
-     */
-    public int32 symbol_color { get; construct set; }
-
-    /**
-     * A color for the text on the backdrop in the RGB format
-     */
-    public int32 text_color { get; construct set; }
+    public UpgradedGiftBackdropColors colors { get; construct set; }
 
     /**
      * The number of upgraded gift that receive this backdrop for each 1000
@@ -57,18 +42,12 @@ public class TDLib.UpgradedGiftBackdrop : Error {
 
     public UpgradedGiftBackdrop (
         string name,
-        int32 center_color,
-        int32 edge_color,
-        int32 symbol_color,
-        int32 text_color,
+        UpgradedGiftBackdropColors colors,
         int32 rarity_per_mille
     ) {
         Object (
             name: name,
-            center_color: center_color,
-            edge_color: edge_color,
-            symbol_color: symbol_color,
-            text_color: text_color,
+            colors: colors,
             rarity_per_mille: rarity_per_mille,
             tdlib_type: "upgradedGiftBackdrop",
             tdlib_extra: Uuid.string_random ()

@@ -20,41 +20,33 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends a gift upgraded by the current user to another user
+ * Sends an upgraded gift to another user or a channel chat
  */
 public class TDLib.TransferGift : TDObject {
 
     /**
-     * Identifier of the user that sent the gift
+     * Identifier of the gift
      */
-    public int64 sender_user_id { get; construct set; }
+    public string received_gift_id { get; construct set; }
 
     /**
-     * Identifier of the message with the upgraded gift in the chat with the
-     * user
+     * Identifier of the user or the channel chat that will receive the gift
      */
-    public int64 message_id { get; construct set; }
+    public MessageSender new_owner_id { get; construct set; }
 
     /**
-     * Identifier of the user that will receive the gift
-     */
-    public int64 receiver_user_id { get; construct set; }
-
-    /**
-     * The amount of Telegram Stars required for the transfer
+     * The amount of Telegram Stars required to pay for the transfer
      */
     public int64 star_count { get; construct set; }
 
     public TransferGift (
-        int64 sender_user_id,
-        int64 message_id,
-        int64 receiver_user_id,
+        string received_gift_id,
+        MessageSender new_owner_id,
         int64 star_count
     ) {
         Object (
-            sender_user_id: sender_user_id,
-            message_id: message_id,
-            receiver_user_id: receiver_user_id,
+            received_gift_id: received_gift_id,
+            new_owner_id: new_owner_id,
             star_count: star_count,
             tdlib_type: "transferGift",
             tdlib_extra: Uuid.string_random ()

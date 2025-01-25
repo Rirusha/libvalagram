@@ -20,31 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a gift is shown on the current user's or the channel's
- * profile page; requires can_post_messages administrator right in the
- * chat
+ * Returns information about an upgraded gift by its name
  */
-public class TDLib.ToggleGiftIsSaved : TDObject {
+public class TDLib.GetUpgradedGift : TDObject {
 
     /**
-     * Identifier of the gift
+     * Unique name of the upgraded gift
      */
-    public string received_gift_id { get; construct set; }
+    public string name { get; construct set; }
 
-    /**
-     * Pass true to display the gift on the user's or the channel's profile
-     * page; pass false to remove it from the profile page
-     */
-    public bool is_saved { get; construct set; }
-
-    public ToggleGiftIsSaved (
-        string received_gift_id,
-        bool is_saved
+    public GetUpgradedGift (
+        string name
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            is_saved: is_saved,
-            tdlib_type: "toggleGiftIsSaved",
+            name: name,
+            tdlib_type: "getUpgradedGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

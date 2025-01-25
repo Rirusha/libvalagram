@@ -1153,6 +1153,29 @@ public class TDLib.InternalLinkTypeUnsupportedProxy : InternalLinkType {
 }
 
 /**
+ * The link is a link to an upgraded gift. Call
+ * {@link Client.get_upgraded_gift} with the given name to process the
+ * link
+ */
+public class TDLib.InternalLinkTypeUpgradedGift : InternalLinkType {
+
+    /**
+     * Name of the unique gift
+     */
+    public string name { get; construct set; }
+
+    public InternalLinkTypeUpgradedGift (
+        string name
+    ) {
+        Object (
+            name: name,
+            tdlib_type: "internalLinkTypeUpgradedGift",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to a user by its phone number. Call
  * {@link Client.search_user_by_phone_number} with the given phone number
  * to process the link.

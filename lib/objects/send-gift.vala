@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends a gift to another user. May return an error with a message
- * "STARGIFT_USAGE_LIMITED" if the gift was sold out
+ * Sends a gift to another user or channel chat. May return an error with
+ * a message "STARGIFT_USAGE_LIMITED" if the gift was sold out
  */
 public class TDLib.SendGift : TDObject {
 
@@ -31,9 +31,9 @@ public class TDLib.SendGift : TDObject {
     public int64 gift_id { get; construct set; }
 
     /**
-     * Identifier of the user that will receive the gift
+     * Identifier of the user or the channel chat that will receive the gift
      */
-    public int64 user_id { get; construct set; }
+    public MessageSender owner_id { get; construct set; }
 
     /**
      * Text to show along with the gift; 0-getOption("gift_text_length_max")
@@ -43,8 +43,8 @@ public class TDLib.SendGift : TDObject {
     public FormattedText text { get; construct set; }
 
     /**
-     * Pass true to show the current user as sender and gift text only to the
-     * gift receiver; otherwise, everyone will be able to see them
+     * Pass true to show gift text and sender only to the gift receiver;
+     * otherwise, everyone will be able to see them
      */
     public bool is_private { get; construct set; }
 
@@ -56,14 +56,14 @@ public class TDLib.SendGift : TDObject {
 
     public SendGift (
         int64 gift_id,
-        int64 user_id,
+        MessageSender owner_id,
         FormattedText text,
         bool is_private,
         bool pay_for_upgrade
     ) {
         Object (
             gift_id: gift_id,
-            user_id: user_id,
+            owner_id: owner_id,
             text: text,
             is_private: is_private,
             pay_for_upgrade: pay_for_upgrade,

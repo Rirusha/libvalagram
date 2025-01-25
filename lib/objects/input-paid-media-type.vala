@@ -45,6 +45,16 @@ public class TDLib.InputPaidMediaTypePhoto : InputPaidMediaType {
 public class TDLib.InputPaidMediaTypeVideo : InputPaidMediaType {
 
     /**
+     * Cover of the video; pass null to skip cover uploading
+     */
+    public InputFile cover { get; construct set; }
+
+    /**
+     * Timestamp from which the video playing must start, in seconds
+     */
+    public int32 start_timestamp { get; construct set; }
+
+    /**
      * Duration of the video, in seconds
      */
     public int32 duration { get; construct set; }
@@ -55,10 +65,14 @@ public class TDLib.InputPaidMediaTypeVideo : InputPaidMediaType {
     public bool supports_streaming { get; construct set; }
 
     public InputPaidMediaTypeVideo (
+        InputFile cover,
+        int32 start_timestamp,
         int32 duration,
         bool supports_streaming
     ) {
         Object (
+            cover: cover,
+            start_timestamp: start_timestamp,
             duration: duration,
             supports_streaming: supports_streaming,
             tdlib_type: "inputPaidMediaTypeVideo",

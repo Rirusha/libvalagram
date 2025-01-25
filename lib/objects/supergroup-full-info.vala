@@ -129,6 +129,12 @@ public class TDLib.SupergroupFullInfo : Error {
     public bool can_get_star_revenue_statistics { get; construct set; }
 
     /**
+     * True, if the user can send a gift to the supergroup or channel using
+     * {@link Client.send_gift} or {@link Client.transfer_gift}
+     */
+    public bool can_send_gift { get; construct set; }
+
+    /**
      * True, if aggressive anti-spam checks can be enabled or disabled in the
      * supergroup
      */
@@ -166,6 +172,13 @@ public class TDLib.SupergroupFullInfo : Error {
      * True, if the supergroup or channel has pinned stories
      */
     public bool has_pinned_stories { get; construct set; }
+
+    /**
+     * Number of saved to profile gifts for channels without
+     * can_post_messages administrator right, otherwise, the total number of
+     * received gifts
+     */
+    public int32 gift_count { get; construct set; }
 
     /**
      * Number of times the current user boosted the supergroup or channel
@@ -243,12 +256,14 @@ public class TDLib.SupergroupFullInfo : Error {
         bool can_get_statistics,
         bool can_get_revenue_statistics,
         bool can_get_star_revenue_statistics,
+        bool can_send_gift,
         bool can_toggle_aggressive_anti_spam,
         bool is_all_history_available,
         bool can_have_sponsored_messages,
         bool has_aggressive_anti_spam_enabled,
         bool has_paid_media_allowed,
         bool has_pinned_stories,
+        int32 gift_count,
         int32 my_boost_count,
         int32 unrestrict_boost_count,
         int64 sticker_set_id,
@@ -279,12 +294,14 @@ public class TDLib.SupergroupFullInfo : Error {
             can_get_statistics: can_get_statistics,
             can_get_revenue_statistics: can_get_revenue_statistics,
             can_get_star_revenue_statistics: can_get_star_revenue_statistics,
+            can_send_gift: can_send_gift,
             can_toggle_aggressive_anti_spam: can_toggle_aggressive_anti_spam,
             is_all_history_available: is_all_history_available,
             can_have_sponsored_messages: can_have_sponsored_messages,
             has_aggressive_anti_spam_enabled: has_aggressive_anti_spam_enabled,
             has_paid_media_allowed: has_paid_media_allowed,
             has_pinned_stories: has_pinned_stories,
+            gift_count: gift_count,
             my_boost_count: my_boost_count,
             unrestrict_boost_count: unrestrict_boost_count,
             sticker_set_id: sticker_set_id,

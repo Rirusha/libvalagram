@@ -565,15 +565,15 @@ public class TDLib.StarTransactionTypeChannelSubscriptionSale : StarTransactionT
 }
 
 /**
- * The transaction is a purchase of a regular gift to another user; for
- * regular users and bots only
+ * The transaction is a purchase of a regular gift; for regular users and
+ * bots only
  */
 public class TDLib.StarTransactionTypeGiftPurchase : StarTransactionType {
 
     /**
-     * Identifier of the user that received the gift
+     * Identifier of the user or the channel that received the gift
      */
-    public int64 user_id { get; construct set; }
+    public MessageSender owner_id { get; construct set; }
 
     /**
      * The gift
@@ -581,11 +581,11 @@ public class TDLib.StarTransactionTypeGiftPurchase : StarTransactionType {
     public Gift gift { get; construct set; }
 
     public StarTransactionTypeGiftPurchase (
-        int64 user_id,
+        MessageSender owner_id,
         Gift gift
     ) {
         Object (
-            user_id: user_id,
+            owner_id: owner_id,
             gift: gift,
             tdlib_type: "starTransactionTypeGiftPurchase",
             tdlib_extra: Uuid.string_random ()
@@ -594,15 +594,15 @@ public class TDLib.StarTransactionTypeGiftPurchase : StarTransactionType {
 }
 
 /**
- * The transaction is a transfer of an upgraded gift to another user; for
- * regular users only
+ * The transaction is a transfer of an upgraded gift; for regular users
+ * only
  */
 public class TDLib.StarTransactionTypeGiftTransfer : StarTransactionType {
 
     /**
-     * Identifier of the user that received the gift
+     * Identifier of the user or the channel that received the gift
      */
-    public int64 user_id { get; construct set; }
+    public MessageSender owner_id { get; construct set; }
 
     /**
      * The gift
@@ -610,11 +610,11 @@ public class TDLib.StarTransactionTypeGiftTransfer : StarTransactionType {
     public UpgradedGift gift { get; construct set; }
 
     public StarTransactionTypeGiftTransfer (
-        int64 user_id,
+        MessageSender owner_id,
         UpgradedGift gift
     ) {
         Object (
-            user_id: user_id,
+            owner_id: owner_id,
             gift: gift,
             tdlib_type: "starTransactionTypeGiftTransfer",
             tdlib_extra: Uuid.string_random ()
@@ -623,8 +623,8 @@ public class TDLib.StarTransactionTypeGiftTransfer : StarTransactionType {
 }
 
 /**
- * The transaction is a sale of a gift received from another user or bot;
- * for regular users only
+ * The transaction is a sale of a received gift; for regular users and
+ * channel chats only
  */
 public class TDLib.StarTransactionTypeGiftSale : StarTransactionType {
 

@@ -25,14 +25,15 @@
 public class TDLib.UpgradedGiftOriginalDetails : Error {
 
     /**
-     * Identifier of the user that sent the gift; 0 if the gift was private
+     * Identifier of the user or the chat that sent the gift; may be null if
+     * the gift was private
      */
-    public int64 sender_user_id { get; construct set; }
+    public MessageSender? sender_id { get; construct set; }
 
     /**
-     * Identifier of the user that received the gift
+     * Identifier of the user or the chat that received the gift
      */
-    public int64 receiver_user_id { get; construct set; }
+    public MessageSender receiver_id { get; construct set; }
 
     /**
      * Message added to the gift
@@ -45,14 +46,14 @@ public class TDLib.UpgradedGiftOriginalDetails : Error {
     public int32 date { get; construct set; }
 
     public UpgradedGiftOriginalDetails (
-        int64 sender_user_id,
-        int64 receiver_user_id,
+        MessageSender? sender_id,
+        MessageSender receiver_id,
         FormattedText text,
         int32 date
     ) {
         Object (
-            sender_user_id: sender_user_id,
-            receiver_user_id: receiver_user_id,
+            sender_id: sender_id,
+            receiver_id: receiver_id,
             text: text,
             date: date,
             tdlib_type: "upgradedGiftOriginalDetails",

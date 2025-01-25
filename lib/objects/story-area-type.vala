@@ -200,3 +200,24 @@ public class TDLib.StoryAreaTypeWeather : StoryAreaType {
         );
     }
 }
+
+/**
+ * An area with an upgraded gift
+ */
+public class TDLib.StoryAreaTypeUpgradedGift : StoryAreaType {
+
+    /**
+     * Unique name of the upgraded gift
+     */
+    public string gift_name { get; construct set; }
+
+    public StoryAreaTypeUpgradedGift (
+        string gift_name
+    ) {
+        Object (
+            gift_name: gift_name,
+            tdlib_type: "storyAreaTypeUpgradedGift",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

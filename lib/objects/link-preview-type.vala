@@ -680,6 +680,27 @@ public class TDLib.LinkPreviewTypeUnsupported : LinkPreviewType {
 }
 
 /**
+ * The link is a link to an upgraded gift
+ */
+public class TDLib.LinkPreviewTypeUpgradedGift : LinkPreviewType {
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public LinkPreviewTypeUpgradedGift (
+        UpgradedGift gift
+    ) {
+        Object (
+            gift: gift,
+            tdlib_type: "linkPreviewTypeUpgradedGift",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to a user
  */
 public class TDLib.LinkPreviewTypeUser : LinkPreviewType {

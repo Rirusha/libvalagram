@@ -305,6 +305,16 @@ public class TDLib.MessageVideo : MessageContent {
     public Gee.ArrayList<AlternativeVideo?> alternative_videos { get; construct set; default = new Gee.ArrayList<AlternativeVideo?> (); }
 
     /**
+     * Cover of the video; may be null if none
+     */
+    public Photo? cover { get; construct set; }
+
+    /**
+     * Timestamp from which the video playing must start, in seconds
+     */
+    public int32 start_timestamp { get; construct set; }
+
+    /**
      * Video caption
      */
     public FormattedText caption { get; construct set; }
@@ -329,6 +339,8 @@ public class TDLib.MessageVideo : MessageContent {
     public MessageVideo (
         Video video,
         Gee.ArrayList<AlternativeVideo?> alternative_videos,
+        Photo? cover,
+        int32 start_timestamp,
         FormattedText caption,
         bool show_caption_above_media,
         bool has_spoiler,
@@ -337,6 +349,8 @@ public class TDLib.MessageVideo : MessageContent {
         Object (
             video: video,
             alternative_videos: alternative_videos,
+            cover: cover,
+            start_timestamp: start_timestamp,
             caption: caption,
             show_caption_above_media: show_caption_above_media,
             has_spoiler: has_spoiler,
@@ -2237,7 +2251,8 @@ public class TDLib.MessageGiveawayPrizeStars : MessageContent {
 }
 
 /**
- * A regular gift was received or sent by the current user
+ * A regular gift was received or sent by the current user, or the
+ * current user was notified about a channel gift
  */
 public class TDLib.MessageGift : MessageContent {
 
@@ -2245,6 +2260,17 @@ public class TDLib.MessageGift : MessageContent {
      * The gift
      */
     public Gift gift { get; construct set; }
+
+    /**
+     * Sender of the gift
+     */
+    public MessageSender sender_id { get; construct set; }
+
+    /**
+     * Unique identifier of the received gift for the current user; only for
+     * the receiver of the gift
+     */
+    public string received_gift_id { get; construct set; }
 
     /**
      * Message added to the gift
@@ -2270,8 +2296,8 @@ public class TDLib.MessageGift : MessageContent {
     public bool is_private { get; construct set; }
 
     /**
-     * True, if the gift is displayed on the user's profile page; only for
-     * the receiver of the gift
+     * True, if the gift is displayed on the user's or the channel's profile
+     * page; only for the receiver of the gift
      */
     public bool is_saved { get; construct set; }
 
@@ -2298,15 +2324,16 @@ public class TDLib.MessageGift : MessageContent {
     public bool was_refunded { get; construct set; }
 
     /**
-     * Identifier of the service message messageUpgradedGift or
-     * messageRefundedUpgradedGift with upgraded version of the gift; can be
-     * 0 if none or an identifier of a deleted message.
-     * Use {@link Client.get_user_gift} to get information about the gift
+     * Identifier of the corresponding upgraded gift; may be empty if
+     * unknown. Use {@link Client.get_received_gift} to get information about
+     * the gift
      */
-    public int64 upgrade_message_id { get; construct set; }
+    public string upgraded_received_gift_id { get; construct set; }
 
     public MessageGift (
         Gift gift,
+        MessageSender sender_id,
+        string received_gift_id,
         FormattedText text,
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
@@ -2316,10 +2343,12 @@ public class TDLib.MessageGift : MessageContent {
         bool was_converted,
         bool was_upgraded,
         bool was_refunded,
-        int64 upgrade_message_id
+        string upgraded_received_gift_id
     ) {
         Object (
             gift: gift,
+            sender_id: sender_id,
+            received_gift_id: received_gift_id,
             text: text,
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
@@ -2329,7 +2358,7 @@ public class TDLib.MessageGift : MessageContent {
             was_converted: was_converted,
             was_upgraded: was_upgraded,
             was_refunded: was_refunded,
-            upgrade_message_id: upgrade_message_id,
+            upgraded_received_gift_id: upgraded_received_gift_id,
             tdlib_type: "messageGift",
             tdlib_extra: Uuid.string_random ()
         );
@@ -2337,7 +2366,8 @@ public class TDLib.MessageGift : MessageContent {
 }
 
 /**
- * An upgraded gift was received or sent by the current user
+ * An upgraded gift was received or sent by the current user, or the
+ * current user was notified about a channel gift
  */
 public class TDLib.MessageUpgradedGift : MessageContent {
 
@@ -2347,25 +2377,36 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     public UpgradedGift gift { get; construct set; }
 
     /**
+     * Sender of the gift; may be null for anonymous gifts
+     */
+    public MessageSender? sender_id { get; construct set; }
+
+    /**
+     * Unique identifier of the received gift for the current user; only for
+     * the receiver of the gift
+     */
+    public string received_gift_id { get; construct set; }
+
+    /**
      * True, if the gift was obtained by upgrading of a previously received
      * gift; otherwise, this is a transferred gift
      */
     public bool is_upgrade { get; construct set; }
 
     /**
-     * True, if the gift is displayed on the user's profile page; only for
-     * the receiver of the gift
+     * True, if the gift is displayed on the user's or the channel's profile
+     * page; only for the receiver of the gift
      */
     public bool is_saved { get; construct set; }
 
     /**
-     * True, if the gift can be transferred to another user; only for the
+     * True, if the gift can be transferred to another owner; only for the
      * receiver of the gift
      */
     public bool can_be_transferred { get; construct set; }
 
     /**
-     * True, if the gift was transferred to another user; only for the
+     * True, if the gift was transferred to another owner; only for the
      * receiver of the gift
      */
     public bool was_transferred { get; construct set; }
@@ -2377,14 +2418,16 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     public int64 transfer_star_count { get; construct set; }
 
     /**
-     * Point in time (Unix timestamp) when the gift can be transferred to TON
-     * blockchain as an NFT; 0 if NFT export isn't possible; only for the
+     * Point in time (Unix timestamp) when the gift can be transferred to the
+     * TON blockchain as an NFT; 0 if NFT export isn't possible; only for the
      * receiver of the gift
      */
     public int32 export_date { get; construct set; }
 
     public MessageUpgradedGift (
         UpgradedGift gift,
+        MessageSender? sender_id,
+        string received_gift_id,
         bool is_upgrade,
         bool is_saved,
         bool can_be_transferred,
@@ -2394,6 +2437,8 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     ) {
         Object (
             gift: gift,
+            sender_id: sender_id,
+            received_gift_id: received_gift_id,
             is_upgrade: is_upgrade,
             is_saved: is_saved,
             can_be_transferred: can_be_transferred,
@@ -2417,6 +2462,11 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
     public Gift gift { get; construct set; }
 
     /**
+     * Sender of the gift
+     */
+    public MessageSender sender_id { get; construct set; }
+
+    /**
      * True, if the gift was obtained by upgrading of a previously received
      * gift
      */
@@ -2424,10 +2474,12 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
 
     public MessageRefundedUpgradedGift (
         Gift gift,
+        MessageSender sender_id,
         bool is_upgrade
     ) {
         Object (
             gift: gift,
+            sender_id: sender_id,
             is_upgrade: is_upgrade,
             tdlib_type: "messageRefundedUpgradedGift",
             tdlib_extra: Uuid.string_random ()

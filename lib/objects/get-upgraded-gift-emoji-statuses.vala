@@ -20,36 +20,13 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents a list of gifts received by a user
+ * Returns available upgraded gift emoji statuses for self status
  */
-public class TDLib.UserGifts : Error {
+public class TDLib.GetUpgradedGiftEmojiStatuses : TDObject {
 
-    /**
-     * The total number of received gifts
-     */
-    public int32 total_count { get; construct set; }
-
-    /**
-     * The list of gifts
-     */
-    public Gee.ArrayList<UserGift?> gifts { get; construct set; default = new Gee.ArrayList<UserGift?> (); }
-
-    /**
-     * The offset for the next request. If empty, then there are no more
-     * results
-     */
-    public string next_offset { get; construct set; }
-
-    public UserGifts (
-        int32 total_count,
-        Gee.ArrayList<UserGift?> gifts,
-        string next_offset
-    ) {
+    public GetUpgradedGiftEmojiStatuses () {
         Object (
-            total_count: total_count,
-            gifts: gifts,
-            next_offset: next_offset,
-            tdlib_type: "userGifts",
+            tdlib_type: "getUpgradedGiftEmojiStatuses",
             tdlib_extra: Uuid.string_random ()
         );
     }

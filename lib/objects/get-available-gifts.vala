@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns gifts that can be sent to other users
+ * Returns gifts that can be sent to other users and channel chats
  */
 public class TDLib.GetAvailableGifts : TDObject {
 

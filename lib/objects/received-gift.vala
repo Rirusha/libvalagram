@@ -20,14 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents a gift received by a user
+ * Represents a gift received by a user or a chat
  */
-public class TDLib.UserGift : Error {
+public class TDLib.ReceivedGift : Error {
 
     /**
-     * Identifier of the user that sent the gift; 0 if unknown
+     * Unique identifier of the received gift for the current user; only for
+     * the receiver of the gift
      */
-    public int64 sender_user_id { get; construct set; }
+    public string received_gift_id { get; construct set; }
+
+    /**
+     * Identifier of a user or a chat that sent the gift; may be null if
+     * unknown
+     */
+    public MessageSender? sender_id { get; construct set; }
 
     /**
      * Message added to the gift
@@ -41,7 +48,7 @@ public class TDLib.UserGift : Error {
     public bool is_private { get; construct set; }
 
     /**
-     * True, if the gift is displayed on the user's profile page; only for
+     * True, if the gift is displayed on the chat's profile page; only for
      * the receiver of the gift
      */
     public bool is_saved { get; construct set; }
@@ -54,7 +61,7 @@ public class TDLib.UserGift : Error {
 
     /**
      * True, if the gift is an upgraded gift that can be transferred to
-     * another user; only for the receiver of the gift
+     * another owner; only for the receiver of the gift
      */
     public bool can_be_transferred { get; construct set; }
 
@@ -72,13 +79,6 @@ public class TDLib.UserGift : Error {
      * The gift
      */
     public SentGift gift { get; construct set; }
-
-    /**
-     * Identifier of the message with the gift in the chat with the sender of
-     * the gift; can be 0 or an identifier of a deleted message; only for the
-     * receiver of the gift
-     */
-    public int64 message_id { get; construct set; }
 
     /**
      * Number of Telegram Stars that can be claimed by the receiver instead
@@ -100,13 +100,14 @@ public class TDLib.UserGift : Error {
 
     /**
      * Point in time (Unix timestamp) when the upgraded gift can be
-     * transferred to TON blockchain as an NFT; 0 if NFT export isn't
+     * transferred to the TON blockchain as an NFT; 0 if NFT export isn't
      * possible; only for the receiver of the gift
      */
     public int32 export_date { get; construct set; }
 
-    public UserGift (
-        int64 sender_user_id,
+    public ReceivedGift (
+        string received_gift_id,
+        MessageSender? sender_id,
         FormattedText text,
         bool is_private,
         bool is_saved,
@@ -115,14 +116,14 @@ public class TDLib.UserGift : Error {
         bool was_refunded,
         int32 date,
         SentGift gift,
-        int64 message_id,
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
         int64 transfer_star_count,
         int32 export_date
     ) {
         Object (
-            sender_user_id: sender_user_id,
+            received_gift_id: received_gift_id,
+            sender_id: sender_id,
             text: text,
             is_private: is_private,
             is_saved: is_saved,
@@ -131,12 +132,11 @@ public class TDLib.UserGift : Error {
             was_refunded: was_refunded,
             date: date,
             gift: gift,
-            message_id: message_id,
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
             transfer_star_count: transfer_star_count,
             export_date: export_date,
-            tdlib_type: "userGift",
+            tdlib_type: "receivedGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

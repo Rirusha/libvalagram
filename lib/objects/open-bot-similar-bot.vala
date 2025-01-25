@@ -20,31 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a gift is shown on the current user's or the channel's
- * profile page; requires can_post_messages administrator right in the
- * chat
+ * Informs TDLib that a bot was opened from the list of similar bots
  */
-public class TDLib.ToggleGiftIsSaved : TDObject {
+public class TDLib.OpenBotSimilarBot : TDObject {
 
     /**
-     * Identifier of the gift
+     * Identifier of the original bot, which similar bots were requested
      */
-    public string received_gift_id { get; construct set; }
+    public int64 bot_user_id { get; construct set; }
 
     /**
-     * Pass true to display the gift on the user's or the channel's profile
-     * page; pass false to remove it from the profile page
+     * Identifier of the opened bot
      */
-    public bool is_saved { get; construct set; }
+    public int64 opened_bot_user_id { get; construct set; }
 
-    public ToggleGiftIsSaved (
-        string received_gift_id,
-        bool is_saved
+    public OpenBotSimilarBot (
+        int64 bot_user_id,
+        int64 opened_bot_user_id
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            is_saved: is_saved,
-            tdlib_type: "toggleGiftIsSaved",
+            bot_user_id: bot_user_id,
+            opened_bot_user_id: opened_bot_user_id,
+            tdlib_type: "openBotSimilarBot",
             tdlib_extra: Uuid.string_random ()
         );
     }

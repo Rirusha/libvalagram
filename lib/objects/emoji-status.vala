@@ -20,15 +20,14 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a custom emoji to be shown instead of the Telegram Premium
- * badge
+ * Describes an emoji to be shown instead of the Telegram Premium badge
  */
 public class TDLib.EmojiStatus : Error {
 
     /**
-     * Identifier of the custom emoji in stickerFormatTgs format
+     * Type of the emoji status
      */
-    public int64 custom_emoji_id { get; construct set; }
+    public EmojiStatusType type_ { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the status will expire; 0 if never
@@ -36,11 +35,11 @@ public class TDLib.EmojiStatus : Error {
     public int32 expiration_date { get; construct set; }
 
     public EmojiStatus (
-        int64 custom_emoji_id,
+        EmojiStatusType type_,
         int32 expiration_date
     ) {
         Object (
-            custom_emoji_id: custom_emoji_id,
+            type_: type_,
             expiration_date: expiration_date,
             tdlib_type: "emojiStatus",
             tdlib_extra: Uuid.string_random ()

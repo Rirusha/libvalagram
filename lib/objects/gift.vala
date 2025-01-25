@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that can be sent to another user
+ * Describes a gift that can be sent to another user or channel chat
  */
 public class TDLib.Gift : Error {
 
@@ -58,14 +58,13 @@ public class TDLib.Gift : Error {
     public bool is_for_birthday { get; construct set; }
 
     /**
-     * Number of remaining times the gift can be purchased by all users; 0 if
-     * not limited or the gift was sold out
+     * Number of remaining times the gift can be purchased; 0 if not limited
+     * or the gift was sold out
      */
     public int32 remaining_count { get; construct set; }
 
     /**
-     * Number of total times the gift can be purchased by all users; 0 if not
-     * limited
+     * Number of total times the gift can be purchased; 0 if not limited
      */
     public int32 total_count { get; construct set; }
 

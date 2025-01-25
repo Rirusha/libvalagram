@@ -20,21 +20,14 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Upgrades a gift received by the current user. Unless the gift has
- * prepaid_upgrade_star_count > 0, the user must pay
- * gift.upgrade_star_count Telegram Stars for the upgrade
+ * Upgrades a regular gift
  */
 public class TDLib.UpgradeGift : TDObject {
 
     /**
-     * Identifier of the user that sent the gift
+     * Identifier of the gift
      */
-    public int64 sender_user_id { get; construct set; }
-
-    /**
-     * Identifier of the message with the gift in the chat with the user
-     */
-    public int64 message_id { get; construct set; }
+    public string received_gift_id { get; construct set; }
 
     /**
      * Pass true to keep the original gift text, sender and receiver in the
@@ -42,15 +35,22 @@ public class TDLib.UpgradeGift : TDObject {
      */
     public bool keep_original_details { get; construct set; }
 
+    /**
+     * The amount of Telegram Stars required to pay for the upgrade. It the
+     * gift has prepaid_upgrade_star_count > 0, then pass 0, otherwise, pass
+     * gift.upgrade_star_count
+     */
+    public int64 star_count { get; construct set; }
+
     public UpgradeGift (
-        int64 sender_user_id,
-        int64 message_id,
-        bool keep_original_details
+        string received_gift_id,
+        bool keep_original_details,
+        int64 star_count
     ) {
         Object (
-            sender_user_id: sender_user_id,
-            message_id: message_id,
+            received_gift_id: received_gift_id,
             keep_original_details: keep_original_details,
+            star_count: star_count,
             tdlib_type: "upgradeGift",
             tdlib_extra: Uuid.string_random ()
         );

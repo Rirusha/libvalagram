@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains a list of gifts that can be sent to another user
+ * Contains a list of gifts that can be sent to another user or channel
+ * chat
  */
 public class TDLib.Gifts : Error {
 

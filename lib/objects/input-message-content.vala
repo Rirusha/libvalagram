@@ -449,6 +449,17 @@ public class TDLib.InputMessageVideo : InputMessageContent {
     public InputThumbnail thumbnail { get; construct set; }
 
     /**
+     * Cover of the video; pass null to skip cover uploading; not supported
+     * in secret chats and for self-destructing messages
+     */
+    public InputFile cover { get; construct set; }
+
+    /**
+     * Timestamp from which the video playing must start, in seconds
+     */
+    public int32 start_timestamp { get; construct set; }
+
+    /**
      * File identifiers of the stickers added to the video, if applicable
      */
     public Gee.ArrayList<int32?> added_sticker_file_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
@@ -499,6 +510,8 @@ public class TDLib.InputMessageVideo : InputMessageContent {
     public InputMessageVideo (
         InputFile video,
         InputThumbnail thumbnail,
+        InputFile cover,
+        int32 start_timestamp,
         Gee.ArrayList<int32?> added_sticker_file_ids,
         int32 duration,
         int32 width,
@@ -512,6 +525,8 @@ public class TDLib.InputMessageVideo : InputMessageContent {
         Object (
             video: video,
             thumbnail: thumbnail,
+            cover: cover,
+            start_timestamp: start_timestamp,
             added_sticker_file_ids: added_sticker_file_ids,
             duration: duration,
             width: width,
@@ -1003,10 +1018,21 @@ public class TDLib.InputMessageForwarded : InputMessageContent {
     public int64 message_id { get; construct set; }
 
     /**
-     * True, if a game message is being shared from a launched game; applies
-     * only to game messages
+     * Pass true if a game message is being shared from a launched game;
+     * applies only to game messages
      */
     public bool in_game_share { get; construct set; }
+
+    /**
+     * Pass true to replace video start timestamp in the forwarded message
+     */
+    public bool replace_video_start_timestamp { get; construct set; }
+
+    /**
+     * The new video start timestamp; ignored if
+     * replace_video_start_timestamp == false
+     */
+    public int32 new_video_start_timestamp { get; construct set; }
 
     /**
      * Options to be used to copy content of the message without reference to
@@ -1018,12 +1044,16 @@ public class TDLib.InputMessageForwarded : InputMessageContent {
         int64 from_chat_id,
         int64 message_id,
         bool in_game_share,
+        bool replace_video_start_timestamp,
+        int32 new_video_start_timestamp,
         MessageCopyOptions copy_options
     ) {
         Object (
             from_chat_id: from_chat_id,
             message_id: message_id,
             in_game_share: in_game_share,
+            replace_video_start_timestamp: replace_video_start_timestamp,
+            new_video_start_timestamp: new_video_start_timestamp,
             copy_options: copy_options,
             tdlib_type: "inputMessageForwarded",
             tdlib_extra: Uuid.string_random ()
