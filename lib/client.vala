@@ -347,6 +347,9 @@ public sealed class TDLib.Client : Object {
         typeof (ReactionTypeEmoji).ensure ();
         typeof (ReactionTypeCustomEmoji).ensure ();
         typeof (ReactionTypePaid).ensure ();
+        typeof (PaidReactionTypeRegular).ensure ();
+        typeof (PaidReactionTypeAnonymous).ensure ();
+        typeof (PaidReactionTypeChat).ensure ();
         typeof (PaidReactor).ensure ();
         typeof (MessageForwardInfo).ensure ();
         typeof (MessageImportInfo).ensure ();
@@ -1660,6 +1663,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateFileDownload).ensure ();
         typeof (UpdateFileRemovedFromDownloads).ensure ();
         typeof (UpdateApplicationVerificationRequired).ensure ();
+        typeof (UpdateApplicationRecaptchaVerificationRequired).ensure ();
         typeof (UpdateCall).ensure ();
         typeof (UpdateGroupCall).ensure ();
         typeof (UpdateGroupCallParticipant).ensure ();
@@ -1695,6 +1699,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateActiveEmojiReactions).ensure ();
         typeof (UpdateAvailableMessageEffects).ensure ();
         typeof (UpdateDefaultReactionType).ensure ();
+        typeof (UpdateDefaultPaidReactionType).ensure ();
         typeof (UpdateSavedMessagesTags).ensure ();
         typeof (UpdateActiveLiveLocationMessages).ensure ();
         typeof (UpdateOwnedStarCount).ensure ();
@@ -12111,6 +12116,52 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns the list of message sender identifiers, which can be used to
+     * send a paid reaction in a chat
+     * @param chat_id Chat identifier
+     */
+    public async MessageSenders get_chat_available_paid_message_reaction_senders (
+        int64 chat_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetChatAvailablePaidMessageReactionSenders (
+            chat_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_chat_available_paid_message_reaction_senders.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (MessageSenders) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Adds the paid message reaction to a message. Use
      * {@link Client.get_message_available_reactions} to check whether the
      * reaction is available for the message
@@ -12119,19 +12170,15 @@ public sealed class TDLib.Client : Object {
      * @param star_count Number of Telegram Stars to be used for the
      * reaction. The total number of pending paid reactions must not exceed
      * getOption("paid_reaction_star_count_max")
-     * @param use_default_is_anonymous Pass true if the user didn't choose
-     * anonymity explicitly, for example, the reaction is set from the
-     * message bubble
-     * @param is_anonymous Pass true to make paid reaction of the user on the
-     * message anonymous; pass false to make the user's profile visible among
-     * top reactors. Ignored if use_default_is_anonymous == true
+     * @param type_ Type of the paid reaction; pass null if the user didn't
+     * choose reaction type explicitly, for example, the reaction is set from
+     * the message bubble
      */
     public async Ok add_pending_paid_message_reaction (
         int64 chat_id,
         int64 message_id,
         int64 star_count,
-        bool use_default_is_anonymous,
-        bool is_anonymous
+        PaidReactionType type_
     ) throws TDLibError {
         try {
 
@@ -12139,8 +12186,7 @@ public sealed class TDLib.Client : Object {
             chat_id,
             message_id,
             star_count,
-            use_default_is_anonymous,
-            is_anonymous
+            type_
         );
         string json_response = "";
 
@@ -12272,25 +12318,23 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes whether the paid message reaction of the user to a message is
-     * anonymous. The message must have paid reaction added by the user
+     * Changes type of paid message reaction of the current user on a
+     * message. The message must have paid reaction added by the current user
      * @param chat_id Identifier of the chat to which the message belongs
      * @param message_id Identifier of the message
-     * @param is_anonymous Pass true to make paid reaction of the user on the
-     * message anonymous; pass false to make the user's profile visible among
-     * top reactors
+     * @param type_ New type of the paid reaction
      */
-    public async Ok toggle_paid_message_reaction_is_anonymous (
+    public async Ok set_paid_message_reaction_type (
         int64 chat_id,
         int64 message_id,
-        bool is_anonymous
+        PaidReactionType type_
     ) throws TDLibError {
         try {
 
-        var obj = new TogglePaidMessageReactionIsAnonymous (
+        var obj = new SetPaidMessageReactionType (
             chat_id,
             message_id,
-            is_anonymous
+            type_
         );
         string json_response = "";
 
@@ -12301,7 +12345,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (toggle_paid_message_reaction_is_anonymous.callback);
+                Idle.add (set_paid_message_reaction_type.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -14733,7 +14777,9 @@ public sealed class TDLib.Client : Object {
      * Returns information needed to open the main Web App of a bot
      * @param chat_id Identifier of the chat in which the Web App is opened;
      * pass 0 if none
-     * @param bot_user_id Identifier of the target bot
+     * @param bot_user_id Identifier of the target bot. If the bot is
+     * restricted for the current user, then show an error instead of calling
+     * the method
      * @param start_parameter Start parameter from internalLinkTypeMainWebApp
      * @param parameters Parameters to use to open the Web App
      */
@@ -14788,7 +14834,9 @@ public sealed class TDLib.Client : Object {
      * Returns an HTTPS URL of a Web App to open from the side menu, a
      * keyboardButtonTypeWebApp button, or an
      * inlineQueryResultsButtonTypeWebApp button
-     * @param bot_user_id Identifier of the target bot
+     * @param bot_user_id Identifier of the target bot. If the bot is
+     * restricted for the current user, then show an error instead of calling
+     * the method
      * @param url The URL from a keyboardButtonTypeWebApp button,
      * inlineQueryResultsButtonTypeWebApp button, or an empty string when the
      * bot is opened from the side menu
@@ -14899,7 +14947,9 @@ public sealed class TDLib.Client : Object {
      * shown once
      * @param chat_id Identifier of the chat in which the Web App is opened.
      * The Web App can't be opened in secret chats
-     * @param bot_user_id Identifier of the bot, providing the Web App
+     * @param bot_user_id Identifier of the bot, providing the Web App. If
+     * the bot is restricted for the current user, then show an error instead
+     * of calling the method
      * @param url The URL from an inlineKeyboardButtonTypeWebApp button, a
      * botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an
      * empty string otherwise
@@ -23571,14 +23621,16 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Application verification has been completed. Can be called before
-     * authorization
+     * Application or reCAPTCHA verification has been completed. Can be
+     * called before authorization
      * @param verification_id Unique identifier for the verification process
-     * as received from updateApplicationVerificationRequired
+     * as received from updateApplicationVerificationRequired or
+     * updateApplicationRecaptchaVerificationRequired
      * @param token Play Integrity API token for the Android application, or
-     * secret from push notification for the iOS application; pass an empty
-     * string to abort verification and receive error VERIFICATION_FAILED for
-     * the request
+     * secret from push notification for the iOS application for application
+     * verification, or reCAPTCHA token for reCAPTCHA verifications; pass an
+     * empty string to abort verification and receive error
+     * VERIFICATION_FAILED for the request
      */
     public async Ok set_application_verification_token (
         int64 verification_id,
@@ -35028,19 +35080,15 @@ public sealed class TDLib.Client : Object {
      * the chat's profile page. Always true for gifts received by other users
      * and channel chats without can_post_messages administrator right
      * @param exclude_saved Pass true to exclude gifts that are saved to the
-     * chat's profile page; for channel chats with can_post_messages
-     * administrator right only
+     * chat's profile page. Always false for gifts received by other users
+     * and channel chats without can_post_messages administrator right
      * @param exclude_unlimited Pass true to exclude gifts that can be
-     * purchased unlimited number of times; for channel chats with
-     * can_post_messages administrator right only
+     * purchased unlimited number of times
      * @param exclude_limited Pass true to exclude gifts that can be
-     * purchased limited number of times; for channel chats with
-     * can_post_messages administrator right only
-     * @param exclude_upgraded Pass true to exclude upgraded gifts; for
-     * channel chats with can_post_messages administrator right only
+     * purchased limited number of times
+     * @param exclude_upgraded Pass true to exclude upgraded gifts
      * @param sort_by_price Pass true to sort results by gift price instead
-     * of send date; for channel chats with can_post_messages administrator
-     * right only
+     * of send date
      * @param offset Offset of the first entry to return as received from the
      * previous request; use empty string to get the first chunk of results
      * @param limit The maximum number of gifts to be returned; must be

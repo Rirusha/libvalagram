@@ -75,6 +75,11 @@ public class TDLib.UpgradedGift : Error {
     public string owner_name { get; construct set; }
 
     /**
+     * Address of the gift NFT in TON blockchain; may be empty if none
+     */
+    public string gift_address { get; construct set; }
+
+    /**
      * Model of the upgraded gift
      */
     public UpgradedGiftModel model { get; construct set; }
@@ -104,6 +109,7 @@ public class TDLib.UpgradedGift : Error {
         MessageSender? owner_id,
         string owner_address,
         string owner_name,
+        string gift_address,
         UpgradedGiftModel model,
         UpgradedGiftSymbol symbol,
         UpgradedGiftBackdrop backdrop,
@@ -119,6 +125,7 @@ public class TDLib.UpgradedGift : Error {
             owner_id: owner_id,
             owner_address: owner_address,
             owner_name: owner_name,
+            gift_address: gift_address,
             model: model,
             symbol: symbol,
             backdrop: backdrop,

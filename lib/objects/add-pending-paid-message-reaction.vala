@@ -44,31 +44,23 @@ public class TDLib.AddPendingPaidMessageReaction : TDObject {
     public int64 star_count { get; construct set; }
 
     /**
-     * Pass true if the user didn't choose anonymity explicitly, for example,
-     * the reaction is set from the message bubble
+     * Type of the paid reaction; pass null if the user didn't choose
+     * reaction type explicitly, for example, the reaction is set from the
+     * message bubble
      */
-    public bool use_default_is_anonymous { get; construct set; }
-
-    /**
-     * Pass true to make paid reaction of the user on the message anonymous;
-     * pass false to make the user's profile visible among top reactors.
-     * Ignored if use_default_is_anonymous == true
-     */
-    public bool is_anonymous { get; construct set; }
+    public PaidReactionType type_ { get; construct set; }
 
     public AddPendingPaidMessageReaction (
         int64 chat_id,
         int64 message_id,
         int64 star_count,
-        bool use_default_is_anonymous,
-        bool is_anonymous
+        PaidReactionType type_
     ) {
         Object (
             chat_id: chat_id,
             message_id: message_id,
             star_count: star_count,
-            use_default_is_anonymous: use_default_is_anonymous,
-            is_anonymous: is_anonymous,
+            type_: type_,
             tdlib_type: "addPendingPaidMessageReaction",
             tdlib_extra: Uuid.string_random ()
         );

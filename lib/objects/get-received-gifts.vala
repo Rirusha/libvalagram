@@ -37,34 +37,31 @@ public class TDLib.GetReceivedGifts : TDObject {
     public bool exclude_unsaved { get; construct set; }
 
     /**
-     * Pass true to exclude gifts that are saved to the chat's profile page;
-     * for channel chats with can_post_messages administrator right only
+     * Pass true to exclude gifts that are saved to the chat's profile page.
+     * Always false for gifts received by other users and channel chats
+     * without can_post_messages administrator right
      */
     public bool exclude_saved { get; construct set; }
 
     /**
      * Pass true to exclude gifts that can be purchased unlimited number of
-     * times; for channel chats with can_post_messages administrator right
-     * only
+     * times
      */
     public bool exclude_unlimited { get; construct set; }
 
     /**
      * Pass true to exclude gifts that can be purchased limited number of
-     * times; for channel chats with can_post_messages administrator right
-     * only
+     * times
      */
     public bool exclude_limited { get; construct set; }
 
     /**
-     * Pass true to exclude upgraded gifts; for channel chats with
-     * can_post_messages administrator right only
+     * Pass true to exclude upgraded gifts
      */
     public bool exclude_upgraded { get; construct set; }
 
     /**
-     * Pass true to sort results by gift price instead of send date; for
-     * channel chats with can_post_messages administrator right only
+     * Pass true to sort results by gift price instead of send date
      */
     public bool sort_by_price { get; construct set; }
 

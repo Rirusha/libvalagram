@@ -27,7 +27,8 @@
 public class TDLib.GetWebAppUrl : TDObject {
 
     /**
-     * Identifier of the target bot
+     * Identifier of the target bot. If the bot is restricted for the current
+     * user, then show an error instead of calling the method
      */
     public int64 bot_user_id { get; construct set; }
 

@@ -35,7 +35,8 @@ public class TDLib.OpenWebApp : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the bot, providing the Web App
+     * Identifier of the bot, providing the Web App. If the bot is restricted
+     * for the current user, then show an error instead of calling the method
      */
     public int64 bot_user_id { get; construct set; }
 

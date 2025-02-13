@@ -20,20 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Application verification has been completed. Can be called before
- * authorization
+ * Application or reCAPTCHA verification has been completed. Can be
+ * called before authorization
  */
 public class TDLib.SetApplicationVerificationToken : TDObject {
 
     /**
      * Unique identifier for the verification process as received from
-     * updateApplicationVerificationRequired
+     * updateApplicationVerificationRequired or
+     * updateApplicationRecaptchaVerificationRequired
      */
     public int64 verification_id { get; construct set; }
 
     /**
      * Play Integrity API token for the Android application, or secret from
-     * push notification for the iOS application;
+     * push notification for the iOS application for application
+     * verification, or reCAPTCHA token for reCAPTCHA verifications;
      * pass an empty string to abort verification and receive error
      * VERIFICATION_FAILED for the request
      */

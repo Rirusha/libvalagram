@@ -20,10 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes whether the paid message reaction of the user to a message is
- * anonymous. The message must have paid reaction added by the user
+ * Changes type of paid message reaction of the current user on a
+ * message. The message must have paid reaction added by the current user
  */
-public class TDLib.TogglePaidMessageReactionIsAnonymous : TDObject {
+public class TDLib.SetPaidMessageReactionType : TDObject {
 
     /**
      * Identifier of the chat to which the message belongs
@@ -36,21 +36,20 @@ public class TDLib.TogglePaidMessageReactionIsAnonymous : TDObject {
     public int64 message_id { get; construct set; }
 
     /**
-     * Pass true to make paid reaction of the user on the message anonymous;
-     * pass false to make the user's profile visible among top reactors
+     * New type of the paid reaction
      */
-    public bool is_anonymous { get; construct set; }
+    public PaidReactionType type_ { get; construct set; }
 
-    public TogglePaidMessageReactionIsAnonymous (
+    public SetPaidMessageReactionType (
         int64 chat_id,
         int64 message_id,
-        bool is_anonymous
+        PaidReactionType type_
     ) {
         Object (
             chat_id: chat_id,
             message_id: message_id,
-            is_anonymous: is_anonymous,
-            tdlib_type: "togglePaidMessageReactionIsAnonymous",
+            type_: type_,
+            tdlib_type: "setPaidMessageReactionType",
             tdlib_extra: Uuid.string_random ()
         );
     }

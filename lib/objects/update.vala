@@ -2527,6 +2527,44 @@ public class TDLib.UpdateApplicationVerificationRequired : Update {
 }
 
 /**
+ * A request can't be completed unless reCAPTCHA verification is
+ * performed; for official mobile applications only.
+ * The method {@link Client.set_application_verification_token} must be
+ * called once the verification is completed or failed
+ */
+public class TDLib.UpdateApplicationRecaptchaVerificationRequired : Update {
+
+    /**
+     * Unique identifier for the verification process
+     */
+    public int64 verification_id { get; construct set; }
+
+    /**
+     * The action for the check
+     */
+    public string action { get; construct set; }
+
+    /**
+     * Identifier of the reCAPTCHA key
+     */
+    public string recaptcha_key_id { get; construct set; }
+
+    public UpdateApplicationRecaptchaVerificationRequired (
+        int64 verification_id,
+        string action,
+        string recaptcha_key_id
+    ) {
+        Object (
+            verification_id: verification_id,
+            action: action,
+            recaptcha_key_id: recaptcha_key_id,
+            tdlib_type: "updateApplicationRecaptchaVerificationRequired",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * New call was created or information about a call was updated
  */
 public class TDLib.UpdateCall : Update {
@@ -3474,6 +3512,27 @@ public class TDLib.UpdateDefaultReactionType : Update {
         Object (
             reaction_type: reaction_type,
             tdlib_type: "updateDefaultReactionType",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The type of default paid reaction has changed
+ */
+public class TDLib.UpdateDefaultPaidReactionType : Update {
+
+    /**
+     * The new type of the default paid reaction
+     */
+    public PaidReactionType type_ { get; construct set; }
+
+    public UpdateDefaultPaidReactionType (
+        PaidReactionType type_
+    ) {
+        Object (
+            type_: type_,
+            tdlib_type: "updateDefaultPaidReactionType",
             tdlib_extra: Uuid.string_random ()
         );
     }

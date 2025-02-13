@@ -20,43 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information needed to open the main Web App of a bot
+ * Returns the list of message sender identifiers, which can be used to
+ * send a paid reaction in a chat
  */
-public class TDLib.GetMainWebApp : TDObject {
+public class TDLib.GetChatAvailablePaidMessageReactionSenders : TDObject {
 
     /**
-     * Identifier of the chat in which the Web App is opened; pass 0 if none
+     * Chat identifier
      */
     public int64 chat_id { get; construct set; }
 
-    /**
-     * Identifier of the target bot. If the bot is restricted for the current
-     * user, then show an error instead of calling the method
-     */
-    public int64 bot_user_id { get; construct set; }
-
-    /**
-     * Start parameter from internalLinkTypeMainWebApp
-     */
-    public string start_parameter { get; construct set; }
-
-    /**
-     * Parameters to use to open the Web App
-     */
-    public WebAppOpenParameters parameters { get; construct set; }
-
-    public GetMainWebApp (
-        int64 chat_id,
-        int64 bot_user_id,
-        string start_parameter,
-        WebAppOpenParameters parameters
+    public GetChatAvailablePaidMessageReactionSenders (
+        int64 chat_id
     ) {
         Object (
             chat_id: chat_id,
-            bot_user_id: bot_user_id,
-            start_parameter: start_parameter,
-            parameters: parameters,
-            tdlib_type: "getMainWebApp",
+            tdlib_type: "getChatAvailablePaidMessageReactionSenders",
             tdlib_extra: Uuid.string_random ()
         );
     }
