@@ -54,6 +54,11 @@ public class TDLib.ReceivedGift : Error {
     public bool is_saved { get; construct set; }
 
     /**
+     * True, if the gift is pinned to the top of the chat's profile page
+     */
+    public bool is_pinned { get; construct set; }
+
+    /**
      * True, if the gift is a regular gift that can be upgraded to a unique
      * gift; only for the receiver of the gift
      */
@@ -111,6 +116,7 @@ public class TDLib.ReceivedGift : Error {
         FormattedText text,
         bool is_private,
         bool is_saved,
+        bool is_pinned,
         bool can_be_upgraded,
         bool can_be_transferred,
         bool was_refunded,
@@ -127,6 +133,7 @@ public class TDLib.ReceivedGift : Error {
             text: text,
             is_private: is_private,
             is_saved: is_saved,
+            is_pinned: is_pinned,
             can_be_upgraded: can_be_upgraded,
             can_be_transferred: can_be_transferred,
             was_refunded: was_refunded,

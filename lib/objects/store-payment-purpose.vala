@@ -55,14 +55,60 @@ public class TDLib.StorePaymentPurposePremiumSubscription : StorePaymentPurpose 
 }
 
 /**
- * The user creating Telegram Premium gift codes for other users
+ * The user gifting Telegram Premium to another user
+ */
+public class TDLib.StorePaymentPurposePremiumGift : StorePaymentPurpose {
+
+    /**
+     * ISO 4217 currency code of the payment currency
+     */
+    public string currency { get; construct set; }
+
+    /**
+     * Paid amount, in the smallest units of the currency
+     */
+    public int64 amount { get; construct set; }
+
+    /**
+     * Identifiers of the user which will receive Telegram Premium
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * Text to show along with the gift codes;
+     * 0-getOption("gift_text_length_max") characters. Only Bold, Italic,
+     * Underline, Strikethrough, Spoiler, and CustomEmoji entities are
+     * allowed
+     */
+    public FormattedText text { get; construct set; }
+
+    public StorePaymentPurposePremiumGift (
+        string currency,
+        int64 amount,
+        int64 user_id,
+        FormattedText text
+    ) {
+        Object (
+            currency: currency,
+            amount: amount,
+            user_id: user_id,
+            text: text,
+            tdlib_type: "storePaymentPurposePremiumGift",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The user boosting a chat by creating Telegram Premium gift codes for
+ * other users
  */
 public class TDLib.StorePaymentPurposePremiumGiftCodes : StorePaymentPurpose {
 
     /**
      * Identifier of the supergroup or channel chat, which will be
      * automatically boosted by the users for duration of the Premium
-     * subscription and which is administered by the user; 0 if none
+     * subscription and which is administered by the user
      */
     public int64 boosted_chat_id { get; construct set; }
 

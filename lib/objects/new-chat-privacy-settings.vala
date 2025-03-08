@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains privacy settings for new chats with non-contacts
+ * Contains privacy settings for chats with non-contacts
  */
 public class TDLib.NewChatPrivacySettings : Error {
 
@@ -31,11 +31,22 @@ public class TDLib.NewChatPrivacySettings : Error {
      */
     public bool allow_new_chats_from_unknown_users { get; construct set; }
 
+    /**
+     * Number of Telegram Stars that must be paid for every incoming private
+     * message by non-contacts; 0-getOption("paid_message_star_count_max").
+     * If positive, then allow_new_chats_from_unknown_users must be true. The
+     * current user will receive getOption("paid_message_earnings_per_mille")
+     * Telegram Stars for each 1000 Telegram Stars paid for message sending
+     */
+    public int64 incoming_paid_message_star_count { get; construct set; }
+
     public NewChatPrivacySettings (
-        bool allow_new_chats_from_unknown_users
+        bool allow_new_chats_from_unknown_users,
+        int64 incoming_paid_message_star_count
     ) {
         Object (
             allow_new_chats_from_unknown_users: allow_new_chats_from_unknown_users,
+            incoming_paid_message_star_count: incoming_paid_message_star_count,
             tdlib_type: "newChatPrivacySettings",
             tdlib_extra: Uuid.string_random ()
         );

@@ -134,6 +134,18 @@ public class TDLib.UserFullInfo : Error {
     public int32 group_in_common_count { get; construct set; }
 
     /**
+     * Number of Telegram Stars that must be paid by the user for each sent
+     * message to the current user
+     */
+    public int64 incoming_paid_message_star_count { get; construct set; }
+
+    /**
+     * Number of Telegram Stars that must be paid by the current user for
+     * each sent message to the user
+     */
+    public int64 outgoing_paid_message_star_count { get; construct set; }
+
+    /**
      * Information about verification status of the user provided by a bot;
      * may be null if none or unknown
      */
@@ -170,6 +182,8 @@ public class TDLib.UserFullInfo : Error {
         int64 personal_chat_id,
         int32 gift_count,
         int32 group_in_common_count,
+        int64 incoming_paid_message_star_count,
+        int64 outgoing_paid_message_star_count,
         BotVerification? bot_verification,
         BusinessInfo? business_info,
         BotInfo? bot_info
@@ -193,6 +207,8 @@ public class TDLib.UserFullInfo : Error {
             personal_chat_id: personal_chat_id,
             gift_count: gift_count,
             group_in_common_count: group_in_common_count,
+            incoming_paid_message_star_count: incoming_paid_message_star_count,
+            outgoing_paid_message_star_count: outgoing_paid_message_star_count,
             bot_verification: bot_verification,
             business_info: business_info,
             bot_info: bot_info,

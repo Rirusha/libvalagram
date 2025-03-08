@@ -20,31 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns an instant view version of a web page if available. This is an
- * offline request if only_local is true. Returns a 404 error if the web
- * page has no instant view page
+ * Contains a number of Telegram Stars
  */
-public class TDLib.GetWebPageInstantView : TDObject {
+public class TDLib.StarCount : Error {
 
     /**
-     * The web page URL
+     * Number of Telegram Stars
      */
-    public string url { get; construct set; }
+    public int64 star_count { get; construct set; }
 
-    /**
-     * Pass true to get only locally available information without sending
-     * network requests
-     */
-    public bool only_local { get; construct set; }
-
-    public GetWebPageInstantView (
-        string url,
-        bool only_local
+    public StarCount (
+        int64 star_count
     ) {
         Object (
-            url: url,
-            only_local: only_local,
-            tdlib_type: "getWebPageInstantView",
+            star_count: star_count,
+            tdlib_type: "starCount",
             tdlib_extra: Uuid.string_random ()
         );
     }

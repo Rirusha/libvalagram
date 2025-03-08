@@ -62,6 +62,12 @@ public class TDLib.JoinGroupCall : TDObject {
      */
     public string invite_hash { get; construct set; }
 
+    /**
+     * Fingerprint of the encryption key for E2E group calls not bound to a
+     * chat; pass 0 for voice chats
+     */
+    public int64 key_fingerprint { get; construct set; }
+
     public JoinGroupCall (
         int32 group_call_id,
         MessageSender participant_id,
@@ -69,7 +75,8 @@ public class TDLib.JoinGroupCall : TDObject {
         string payload,
         bool is_muted,
         bool is_my_video_enabled,
-        string invite_hash
+        string invite_hash,
+        int64 key_fingerprint
     ) {
         Object (
             group_call_id: group_call_id,
@@ -79,6 +86,7 @@ public class TDLib.JoinGroupCall : TDObject {
             is_muted: is_muted,
             is_my_video_enabled: is_my_video_enabled,
             invite_hash: invite_hash,
+            key_fingerprint: key_fingerprint,
             tdlib_type: "joinGroupCall",
             tdlib_extra: Uuid.string_random ()
         );

@@ -25,6 +25,12 @@
 public class TDLib.AlternativeVideo : Error {
 
     /**
+     * Unique identifier of the alternative video, which is used in the HLS
+     * file
+     */
+    public int64 id_ { get; construct set; }
+
+    /**
      * Video width
      */
     public int32 width { get; construct set; }
@@ -51,6 +57,7 @@ public class TDLib.AlternativeVideo : Error {
     public File video { get; construct set; }
 
     public AlternativeVideo (
+        int64 id_,
         int32 width,
         int32 height,
         string codec,
@@ -58,6 +65,7 @@ public class TDLib.AlternativeVideo : Error {
         File video
     ) {
         Object (
+            id_: id_,
             width: width,
             height: height,
             codec: codec,

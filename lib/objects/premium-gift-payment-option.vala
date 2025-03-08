@@ -20,10 +20,11 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes an option for creating of Telegram Star giveaway. Use
- * telegramPaymentPurposeStarGiveaway for out-of-store payments
+ * Describes an option for gifting Telegram Premium to a user. Use
+ * telegramPaymentPurposePremiumGift for out-of-store payments or
+ * payments in Telegram Stars
  */
-public class TDLib.StarGiveawayPaymentOption : Error {
+public class TDLib.PremiumGiftPaymentOption : Error {
 
     /**
      * ISO 4217 currency code for the payment
@@ -36,58 +37,49 @@ public class TDLib.StarGiveawayPaymentOption : Error {
     public int64 amount { get; construct set; }
 
     /**
-     * Number of Telegram Stars that will be distributed among winners
+     * The alternative amount of Telegram Stars to pay; 0 if payment in
+     * Telegram Stars is not possible
      */
     public int64 star_count { get; construct set; }
 
     /**
-     * Identifier of the store product associated with the option; may be
-     * empty if none
+     * The discount associated with this option, as a percentage
+     */
+    public int32 discount_percentage { get; construct set; }
+
+    /**
+     * Number of months the Telegram Premium subscription will be active
+     */
+    public int32 month_count { get; construct set; }
+
+    /**
+     * Identifier of the store product associated with the option
      */
     public string store_product_id { get; construct set; }
 
     /**
-     * Number of times the chat will be boosted for one year if the option is
-     * chosen
+     * A sticker to be shown along with the option; may be null if unknown
      */
-    public int32 yearly_boost_count { get; construct set; }
+    public Sticker? sticker { get; construct set; }
 
-    /**
-     * Allowed options for the number of giveaway winners
-     */
-    public Gee.ArrayList<StarGiveawayWinnerOption?> winner_options { get; construct set; default = new Gee.ArrayList<StarGiveawayWinnerOption?> (); }
-
-    /**
-     * True, if the option must be chosen by default
-     */
-    public bool is_default { get; construct set; }
-
-    /**
-     * True, if the option must be shown only in the full list of payment
-     * options
-     */
-    public bool is_additional { get; construct set; }
-
-    public StarGiveawayPaymentOption (
+    public PremiumGiftPaymentOption (
         string currency,
         int64 amount,
         int64 star_count,
+        int32 discount_percentage,
+        int32 month_count,
         string store_product_id,
-        int32 yearly_boost_count,
-        Gee.ArrayList<StarGiveawayWinnerOption?> winner_options,
-        bool is_default,
-        bool is_additional
+        Sticker? sticker
     ) {
         Object (
             currency: currency,
             amount: amount,
             star_count: star_count,
+            discount_percentage: discount_percentage,
+            month_count: month_count,
             store_product_id: store_product_id,
-            yearly_boost_count: yearly_boost_count,
-            winner_options: winner_options,
-            is_default: is_default,
-            is_additional: is_additional,
-            tdlib_type: "starGiveawayPaymentOption",
+            sticker: sticker,
+            tdlib_type: "premiumGiftPaymentOption",
             tdlib_extra: Uuid.string_random ()
         );
     }

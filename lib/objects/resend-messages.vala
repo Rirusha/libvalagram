@@ -48,15 +48,24 @@ public class TDLib.ResendMessages : TDObject {
      */
     public InputTextQuote quote { get; construct set; }
 
+    /**
+     * The number of Telegram Stars the user agreed to pay to send the
+     * messages. Ignored if
+     * messageSendingStateFailed.required_paid_message_star_count == 0
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
     public ResendMessages (
         int64 chat_id,
         Gee.ArrayList<int64?> message_ids,
-        InputTextQuote quote
+        InputTextQuote quote,
+        int64 paid_message_star_count
     ) {
         Object (
             chat_id: chat_id,
             message_ids: message_ids,
             quote: quote,
+            paid_message_star_count: paid_message_star_count,
             tdlib_type: "resendMessages",
             tdlib_extra: Uuid.string_random ()
         );

@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains a list of options for creating Telegram Star giveaway
+ * Contains a list of options for creating of Telegram Star giveaway
  */
 public class TDLib.StarGiveawayPaymentOptions : Error {
 

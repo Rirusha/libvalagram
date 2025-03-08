@@ -189,3 +189,17 @@ public class TDLib.UserPrivacySettingAutosaveGifts : UserPrivacySetting {
         );
     }
 }
+
+/**
+ * A privacy setting for managing whether the user can receive messages
+ * without additional payment
+ */
+public class TDLib.UserPrivacySettingAllowUnpaidMessages : UserPrivacySetting {
+
+    public UserPrivacySettingAllowUnpaidMessages () {
+        Object (
+            tdlib_type: "userPrivacySettingAllowUnpaidMessages",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

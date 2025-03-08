@@ -20,24 +20,24 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns available options for Telegram Premium gift code or Telegram
- * Premium giveaway creation
+ * Returns available options for creating of Telegram Premium giveaway or
+ * manual distribution of Telegram Premium among chat members
  */
-public class TDLib.GetPremiumGiftCodePaymentOptions : TDObject {
+public class TDLib.GetPremiumGiveawayPaymentOptions : TDObject {
 
     /**
      * Identifier of the supergroup or channel chat, which will be
      * automatically boosted by receivers of the gift codes and which is
-     * administered by the user; 0 if none
+     * administered by the user
      */
     public int64 boosted_chat_id { get; construct set; }
 
-    public GetPremiumGiftCodePaymentOptions (
+    public GetPremiumGiveawayPaymentOptions (
         int64 boosted_chat_id
     ) {
         Object (
             boosted_chat_id: boosted_chat_id,
-            tdlib_type: "getPremiumGiftCodePaymentOptions",
+            tdlib_type: "getPremiumGiveawayPaymentOptions",
             tdlib_extra: Uuid.string_random ()
         );
     }

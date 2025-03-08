@@ -85,11 +85,19 @@ public class TDLib.ChatActionBarReportAddBlock : ChatActionBar {
      */
     public bool can_unarchive { get; construct set; }
 
+    /**
+     * Basic information about the other user in the chat; may be null if
+     * unknown
+     */
+    public AccountInfo? account_info { get; construct set; }
+
     public ChatActionBarReportAddBlock (
-        bool can_unarchive
+        bool can_unarchive,
+        AccountInfo? account_info
     ) {
         Object (
             can_unarchive: can_unarchive,
+            account_info: account_info,
             tdlib_type: "chatActionBarReportAddBlock",
             tdlib_extra: Uuid.string_random ()
         );

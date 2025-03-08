@@ -20,31 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns an instant view version of a web page if available. This is an
- * offline request if only_local is true. Returns a 404 error if the web
- * page has no instant view page
+ * Allows the specified user to send unpaid private messages to the
+ * current user by adding a rule to userPrivacySettingAllowUnpaidMessages
  */
-public class TDLib.GetWebPageInstantView : TDObject {
+public class TDLib.AllowUnpaidMessagesFromUser : TDObject {
 
     /**
-     * The web page URL
+     * Identifier of the user
      */
-    public string url { get; construct set; }
+    public int64 user_id { get; construct set; }
 
     /**
-     * Pass true to get only locally available information without sending
-     * network requests
+     * Pass true to refund the user previously paid messages
      */
-    public bool only_local { get; construct set; }
+    public bool refund_payments { get; construct set; }
 
-    public GetWebPageInstantView (
-        string url,
-        bool only_local
+    public AllowUnpaidMessagesFromUser (
+        int64 user_id,
+        bool refund_payments
     ) {
         Object (
-            url: url,
-            only_local: only_local,
-            tdlib_type: "getWebPageInstantView",
+            user_id: user_id,
+            refund_payments: refund_payments,
+            tdlib_type: "allowUnpaidMessagesFromUser",
             tdlib_extra: Uuid.string_random ()
         );
     }

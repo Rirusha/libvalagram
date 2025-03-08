@@ -22,7 +22,7 @@
 /**
  * Toggles whether a gift is shown on the current user's or the channel's
  * profile page; requires can_post_messages administrator right in the
- * chat
+ * channel chat
  */
 public class TDLib.ToggleGiftIsSaved : TDObject {
 

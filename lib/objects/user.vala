@@ -146,6 +146,14 @@ public class TDLib.User : Error {
     public bool restricts_new_chats { get; construct set; }
 
     /**
+     * Number of Telegram Stars that must be paid by general user for each
+     * sent message to the user. If positive and userFullInfo is unknown, use
+     * {@link Client.can_send_message_to_user} to check whether the current
+     * user must pay
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
+    /**
      * If false, the user is inaccessible, and the only information known
      * about the user is inside this class. Identifier of the user can't be
      * passed to any method
@@ -191,6 +199,7 @@ public class TDLib.User : Error {
         bool has_active_stories,
         bool has_unread_active_stories,
         bool restricts_new_chats,
+        int64 paid_message_star_count,
         bool have_access,
         UserType type_,
         string language_code,
@@ -219,6 +228,7 @@ public class TDLib.User : Error {
             has_active_stories: has_active_stories,
             has_unread_active_stories: has_unread_active_stories,
             restricts_new_chats: restricts_new_chats,
+            paid_message_star_count: paid_message_star_count,
             have_access: have_access,
             type_: type_,
             language_code: language_code,

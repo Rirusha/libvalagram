@@ -204,8 +204,10 @@ public sealed class TDLib.Client : Object {
         typeof (ProductInfo).ensure ();
         typeof (PremiumPaymentOption).ensure ();
         typeof (PremiumStatePaymentOption).ensure ();
-        typeof (PremiumGiftCodePaymentOption).ensure ();
-        typeof (PremiumGiftCodePaymentOptions).ensure ();
+        typeof (PremiumGiftPaymentOption).ensure ();
+        typeof (PremiumGiftPaymentOptions).ensure ();
+        typeof (PremiumGiveawayPaymentOption).ensure ();
+        typeof (PremiumGiveawayPaymentOptions).ensure ();
         typeof (PremiumGiftCodeInfo).ensure ();
         typeof (StarPaymentOption).ensure ();
         typeof (StarPaymentOptions).ensure ();
@@ -254,6 +256,9 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypeChannelPaidReactionSend).ensure ();
         typeof (StarTransactionTypeChannelPaidReactionReceive).ensure ();
         typeof (StarTransactionTypeAffiliateProgramCommission).ensure ();
+        typeof (StarTransactionTypePaidMessageSend).ensure ();
+        typeof (StarTransactionTypePaidMessageReceive).ensure ();
+        typeof (StarTransactionTypePremiumPurchase).ensure ();
         typeof (StarTransactionTypeUnsupported).ensure ();
         typeof (StarTransaction).ensure ();
         typeof (StarTransactions).ensure ();
@@ -447,6 +452,7 @@ public sealed class TDLib.Client : Object {
         typeof (CreatedBasicGroupChat).ensure ();
         typeof (PublicChatTypeHasUsername).ensure ();
         typeof (PublicChatTypeIsLocationBased).ensure ();
+        typeof (AccountInfo).ensure ();
         typeof (ChatActionBarReportSpam).ensure ();
         typeof (ChatActionBarInviteMembers).ensure ();
         typeof (ChatActionBarReportAddBlock).ensure ();
@@ -1197,11 +1203,13 @@ public sealed class TDLib.Client : Object {
         typeof (BusinessFeaturePromotionAnimation).ensure ();
         typeof (PremiumState).ensure ();
         typeof (StorePaymentPurposePremiumSubscription).ensure ();
+        typeof (StorePaymentPurposePremiumGift).ensure ();
         typeof (StorePaymentPurposePremiumGiftCodes).ensure ();
         typeof (StorePaymentPurposePremiumGiveaway).ensure ();
         typeof (StorePaymentPurposeStarGiveaway).ensure ();
         typeof (StorePaymentPurposeStars).ensure ();
         typeof (StorePaymentPurposeGiftedStars).ensure ();
+        typeof (TelegramPaymentPurposePremiumGift).ensure ();
         typeof (TelegramPaymentPurposePremiumGiftCodes).ensure ();
         typeof (TelegramPaymentPurposePremiumGiveaway).ensure ();
         typeof (TelegramPaymentPurposeStars).ensure ();
@@ -1285,6 +1293,9 @@ public sealed class TDLib.Client : Object {
         typeof (PushMessageContentVideoNote).ensure ();
         typeof (PushMessageContentVoiceNote).ensure ();
         typeof (PushMessageContentBasicGroupChatCreate).ensure ();
+        typeof (PushMessageContentVideoChatStarted).ensure ();
+        typeof (PushMessageContentVideoChatEnded).ensure ();
+        typeof (PushMessageContentInviteVideoChatParticipants).ensure ();
         typeof (PushMessageContentChatAddMembers).ensure ();
         typeof (PushMessageContentChatChangePhoto).ensure ();
         typeof (PushMessageContentChatChangeTitle).ensure ();
@@ -1295,6 +1306,7 @@ public sealed class TDLib.Client : Object {
         typeof (PushMessageContentChatJoinByRequest).ensure ();
         typeof (PushMessageContentRecurringPayment).ensure ();
         typeof (PushMessageContentSuggestProfilePhoto).ensure ();
+        typeof (PushMessageContentProximityAlertTriggered).ensure ();
         typeof (PushMessageContentMessageForwards).ensure ();
         typeof (PushMessageContentMediaAlbum).ensure ();
         typeof (NotificationTypeNewMessage).ensure ();
@@ -1348,9 +1360,11 @@ public sealed class TDLib.Client : Object {
         typeof (UserPrivacySettingAllowFindingByPhoneNumber).ensure ();
         typeof (UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages).ensure ();
         typeof (UserPrivacySettingAutosaveGifts).ensure ();
+        typeof (UserPrivacySettingAllowUnpaidMessages).ensure ();
         typeof (ReadDatePrivacySettings).ensure ();
         typeof (NewChatPrivacySettings).ensure ();
         typeof (CanSendMessageToUserResultOk).ensure ();
+        typeof (CanSendMessageToUserResultUserHasPaidMessages).ensure ();
         typeof (CanSendMessageToUserResultUserIsDeleted).ensure ();
         typeof (CanSendMessageToUserResultUserRestrictsNewChats).ensure ();
         typeof (AccountTtl).ensure ();
@@ -1532,6 +1546,7 @@ public sealed class TDLib.Client : Object {
         typeof (Text).ensure ();
         typeof (Seconds).ensure ();
         typeof (FileDownloadedPrefixSize).ensure ();
+        typeof (StarCount).ensure ();
         typeof (DeepLinkInfo).ensure ();
         typeof (TextParseModeMarkdown).ensure ();
         typeof (TextParseModeHTML).ensure ();
@@ -8897,7 +8912,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Sends messages from a quick reply shortcut. Requires Telegram Business
-     * subscription
+     * subscription. Can't be used to send paid messages
      * @param chat_id Identifier of the chat to which to send messages. The
      * chat must be a private chat with a regular user
      * @param shortcut_id Unique identifier of the quick reply shortcut
@@ -8964,18 +8979,23 @@ public sealed class TDLib.Client : Object {
      * @param quote New manually chosen quote from the message to be replied;
      * pass null if none. Ignored if more than one message is re-sent, or if
      * messageSendingStateFailed.need_another_reply_quote == false
+     * @param paid_message_star_count The number of Telegram Stars the user
+     * agreed to pay to send the messages. Ignored if
+     * messageSendingStateFailed.required_paid_message_star_count == 0
      */
     public async Messages resend_messages (
         int64 chat_id,
         Gee.ArrayList<int64?> message_ids,
-        InputTextQuote quote
+        InputTextQuote quote,
+        int64 paid_message_star_count
     ) throws TDLibError {
         try {
 
         var obj = new ResendMessages (
             chat_id,
             message_ids,
-            quote
+            quote,
+            paid_message_star_count
         );
         string json_response = "";
 
@@ -24764,7 +24784,7 @@ public sealed class TDLib.Client : Object {
      * @param is_video Pass true to create a video call
      * @param group_call_id Identifier of the group call to which the user
      * will be added after exchanging private key via the call; pass 0 if
-     * none; currently, ignored
+     * none
      */
     public async CallId create_call (
         int64 user_id,
@@ -25566,6 +25586,8 @@ public sealed class TDLib.Client : Object {
      * @param is_my_video_enabled Pass true if the user's video is enabled
      * @param invite_hash If non-empty, invite hash to be used to join the
      * group call without being muted by administrators
+     * @param key_fingerprint Fingerprint of the encryption key for E2E group
+     * calls not bound to a chat; pass 0 for voice chats
      */
     public async Text join_group_call (
         int32 group_call_id,
@@ -25574,7 +25596,8 @@ public sealed class TDLib.Client : Object {
         string payload,
         bool is_muted,
         bool is_my_video_enabled,
-        string invite_hash
+        string invite_hash,
+        int64 key_fingerprint
     ) throws TDLibError {
         try {
 
@@ -25585,7 +25608,8 @@ public sealed class TDLib.Client : Object {
             payload,
             is_muted,
             is_my_video_enabled,
-            invite_hash
+            invite_hash,
+            key_fingerprint
         );
         string json_response = "";
 
@@ -27339,6 +27363,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Suggests a profile photo to another regular user with common messages
+     * and allowing non-paid messages
      * @param user_id User identifier
      * @param photo Profile photo to suggest; inputChatPhotoPrevious isn't
      * supported in this function
@@ -29693,20 +29718,22 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns an instant view version of a web page if available. Returns a
-     * 404 error if the web page has no instant view page
+     * Returns an instant view version of a web page if available. This is an
+     * offline request if only_local is true. Returns a 404 error if the web
+     * page has no instant view page
      * @param url The web page URL
-     * @param force_full Pass true to get full instant view for the web page
+     * @param only_local Pass true to get only locally available information
+     * without sending network requests
      */
     public async WebPageInstantView get_web_page_instant_view (
         string url,
-        bool force_full
+        bool only_local
     ) throws TDLibError {
         try {
 
         var obj = new GetWebPageInstantView (
             url,
-            force_full
+            only_local
         );
         string json_response = "";
 
@@ -34719,7 +34746,7 @@ public sealed class TDLib.Client : Object {
      * @param text Text to show along with the gift;
      * 0-getOption("gift_text_length_max") characters. Only Bold, Italic,
      * Underline, Strikethrough, Spoiler, and CustomEmoji entities are
-     * allowed
+     * allowed. Must be empty if the receiver enabled paid messages
      * @param is_private Pass true to show gift text and sender only to the
      * gift receiver; otherwise, everyone will be able to see them
      * @param pay_for_upgrade Pass true to additionally pay for the gift
@@ -34822,7 +34849,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Toggles whether a gift is shown on the current user's or the channel's
      * profile page; requires can_post_messages administrator right in the
-     * chat
+     * channel chat
      * @param received_gift_id Identifier of the gift
      * @param is_saved Pass true to display the gift on the user's or the
      * channel's profile page; pass false to remove it from the profile page
@@ -34847,6 +34874,59 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (toggle_gift_is_saved.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes the list of pinned gifts on the current user's or the
+     * channel's profile page; requires can_post_messages administrator right
+     * in the channel chat
+     * @param owner_id Identifier of the user or the channel chat that
+     * received the gifts
+     * @param received_gift_ids New list of pinned gifts. All gifts must be
+     * upgraded and saved on the profile page first. There can be up to
+     * getOption("pinned_gift_count_max") pinned gifts
+     */
+    public async Ok set_pinned_gifts (
+        MessageSender owner_id,
+        Gee.ArrayList<string?> received_gift_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetPinnedGifts (
+            owner_id,
+            received_gift_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_pinned_gifts.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -36687,6 +36767,157 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns the total number of Telegram Stars received by the current
+     * user for paid messages from the given user
+     * @param user_id Identifier of the user
+     */
+    public async StarCount get_paid_message_revenue (
+        int64 user_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetPaidMessageRevenue (
+            user_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_paid_message_revenue.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StarCount) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Allows the specified user to send unpaid private messages to the
+     * current user by adding a rule to userPrivacySettingAllowUnpaidMessages
+     * @param user_id Identifier of the user
+     * @param refund_payments Pass true to refund the user previously paid
+     * messages
+     */
+    public async Ok allow_unpaid_messages_from_user (
+        int64 user_id,
+        bool refund_payments
+    ) throws TDLibError {
+        try {
+
+        var obj = new AllowUnpaidMessagesFromUser (
+            user_id,
+            refund_payments
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (allow_unpaid_messages_from_user.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes the amount of Telegram Stars that must be paid to send a
+     * message to a supergroup chat; requires can_restrict_members
+     * administrator right and supergroupFullInfo.can_enable_paid_messages
+     * @param chat_id Identifier of the supergroup chat
+     * @param paid_message_star_count The new number of Telegram Stars that
+     * must be paid for each message that is sent to the supergroup chat
+     * unless the sender is an administrator of the chat;
+     * 0-getOption("paid_message_star_count_max"). The supergroup will
+     * receive getOption("paid_message_earnings_per_mille") Telegram Stars
+     * for each 1000 Telegram Stars paid for message sending
+     */
+    public async Ok set_chat_paid_message_star_count (
+        int64 chat_id,
+        int64 paid_message_star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetChatPaidMessageStarCount (
+            chat_id,
+            paid_message_star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_chat_paid_message_star_count.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Check whether the current user can message another user or try to
      * create a chat with them
      * @param user_id Identifier of the other user
@@ -37476,8 +37707,9 @@ public sealed class TDLib.Client : Object {
     /**
      * Returns detailed Telegram Star revenue statistics
      * @param owner_id Identifier of the owner of the Telegram Stars; can be
-     * identifier of an owned bot, or identifier of a channel chat with
-     * supergroupFullInfo.can_get_star_revenue_statistics == true
+     * identifier of the current user, an owned bot, or a supergroup or a
+     * channel chat with supergroupFullInfo.can_get_star_revenue_statistics
+     * == true
      * @param is_dark Pass true if a dark theme is used by the application
      */
     public async StarRevenueStatistics get_star_revenue_statistics (
@@ -37526,7 +37758,8 @@ public sealed class TDLib.Client : Object {
     /**
      * Returns a URL for Telegram Star withdrawal
      * @param owner_id Identifier of the owner of the Telegram Stars; can be
-     * identifier of an owned bot, or identifier of an owned channel chat
+     * identifier of the current user, an owned bot, or an owned supergroup
+     * or channel chat
      * @param star_count The number of Telegram Stars to withdraw. Must be at
      * least getOption("star_withdrawal_count_min")
      * @param password The 2-step verification password of the current user
@@ -40380,20 +40613,12 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns available options for Telegram Premium gift code or Telegram
-     * Premium giveaway creation
-     * @param boosted_chat_id Identifier of the supergroup or channel chat,
-     * which will be automatically boosted by receivers of the gift codes and
-     * which is administered by the user; 0 if none
+     * Returns available options for gifting Telegram Premium to a user
      */
-    public async PremiumGiftCodePaymentOptions get_premium_gift_code_payment_options (
-        int64 boosted_chat_id
-    ) throws TDLibError {
+    public async PremiumGiftPaymentOptions get_premium_gift_payment_options () throws TDLibError {
         try {
 
-        var obj = new GetPremiumGiftCodePaymentOptions (
-            boosted_chat_id
-        );
+        var obj = new GetPremiumGiftPaymentOptions ();
         string json_response = "";
 
         string json_string = TDJsoner.serialize (obj, Case.SNAKE);
@@ -40403,7 +40628,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_premium_gift_code_payment_options.callback);
+                Idle.add (get_premium_gift_payment_options.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -40420,7 +40645,55 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (PremiumGiftCodePaymentOptions) jsoner.deserialize_object (null);
+        return (PremiumGiftPaymentOptions) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns available options for creating of Telegram Premium giveaway or
+     * manual distribution of Telegram Premium among chat members
+     * @param boosted_chat_id Identifier of the supergroup or channel chat,
+     * which will be automatically boosted by receivers of the gift codes and
+     * which is administered by the user
+     */
+    public async PremiumGiveawayPaymentOptions get_premium_giveaway_payment_options (
+        int64 boosted_chat_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetPremiumGiveawayPaymentOptions (
+            boosted_chat_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_premium_giveaway_payment_options.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (PremiumGiveawayPaymentOptions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40752,7 +41025,7 @@ public sealed class TDLib.Client : Object {
      * Returns the list of Telegram Star transactions for the specified owner
      * @param owner_id Identifier of the owner of the Telegram Stars; can be
      * the identifier of the current user, identifier of an owned bot, or
-     * identifier of a channel chat with
+     * identifier of a supergroup or a channel chat with
      * supergroupFullInfo.can_get_star_revenue_statistics == true
      * @param subscription_id If non-empty, only transactions related to the
      * Star Subscription will be returned

@@ -21,6 +21,7 @@
 
 /**
  * Suggests a profile photo to another regular user with common messages
+ * and allowing non-paid messages
  */
 public class TDLib.SuggestUserProfilePhoto : TDObject {
 

@@ -76,6 +76,12 @@ public class TDLib.SupergroupFullInfo : Error {
     public double slow_mode_delay_expires_in { get; construct set; }
 
     /**
+     * True, if paid messages can be enabled in the supergroup chat; for
+     * supergroup only
+     */
+    public bool can_enable_paid_messages { get; construct set; }
+
+    /**
      * True, if paid reaction can be enabled in the channel chat; for
      * channels only
      */
@@ -247,6 +253,7 @@ public class TDLib.SupergroupFullInfo : Error {
         int64 linked_chat_id,
         int32 slow_mode_delay,
         double slow_mode_delay_expires_in,
+        bool can_enable_paid_messages,
         bool can_enable_paid_reaction,
         bool can_get_members,
         bool has_hidden_members,
@@ -285,6 +292,7 @@ public class TDLib.SupergroupFullInfo : Error {
             linked_chat_id: linked_chat_id,
             slow_mode_delay: slow_mode_delay,
             slow_mode_delay_expires_in: slow_mode_delay_expires_in,
+            can_enable_paid_messages: can_enable_paid_messages,
             can_enable_paid_reaction: can_enable_paid_reaction,
             can_get_members: can_get_members,
             has_hidden_members: has_hidden_members,

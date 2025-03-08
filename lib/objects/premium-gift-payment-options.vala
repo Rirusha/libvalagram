@@ -20,31 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns an instant view version of a web page if available. This is an
- * offline request if only_local is true. Returns a 404 error if the web
- * page has no instant view page
+ * Contains a list of options for gifting Telegram Premium to a user
  */
-public class TDLib.GetWebPageInstantView : TDObject {
+public class TDLib.PremiumGiftPaymentOptions : Error {
 
     /**
-     * The web page URL
+     * The list of options sorted by Telegram Premium subscription duration
      */
-    public string url { get; construct set; }
+    public Gee.ArrayList<PremiumGiftPaymentOption?> options { get; construct set; default = new Gee.ArrayList<PremiumGiftPaymentOption?> (); }
 
-    /**
-     * Pass true to get only locally available information without sending
-     * network requests
-     */
-    public bool only_local { get; construct set; }
-
-    public GetWebPageInstantView (
-        string url,
-        bool only_local
+    public PremiumGiftPaymentOptions (
+        Gee.ArrayList<PremiumGiftPaymentOption?> options
     ) {
         Object (
-            url: url,
-            only_local: only_local,
-            tdlib_type: "getWebPageInstantView",
+            options: options,
+            tdlib_type: "premiumGiftPaymentOptions",
             tdlib_extra: Uuid.string_random ()
         );
     }

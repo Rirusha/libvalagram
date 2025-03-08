@@ -25,14 +25,68 @@
 public abstract class TDLib.TelegramPaymentPurpose : Error {}
 
 /**
- * The user creating Telegram Premium gift codes for other users
+ * The user gifting Telegram Premium to another user
+ */
+public class TDLib.TelegramPaymentPurposePremiumGift : TelegramPaymentPurpose {
+
+    /**
+     * ISO 4217 currency code of the payment currency
+     */
+    public string currency { get; construct set; }
+
+    /**
+     * Paid amount, in the smallest units of the currency
+     */
+    public int64 amount { get; construct set; }
+
+    /**
+     * Identifier of the user which will receive Telegram Premium
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * Number of months the Telegram Premium subscription will be active for
+     * the user
+     */
+    public int32 month_count { get; construct set; }
+
+    /**
+     * Text to show to the user receiving Telegram Premium;
+     * 0-getOption("gift_text_length_max") characters. Only Bold, Italic,
+     * Underline, Strikethrough, Spoiler, and CustomEmoji entities are
+     * allowed
+     */
+    public FormattedText text { get; construct set; }
+
+    public TelegramPaymentPurposePremiumGift (
+        string currency,
+        int64 amount,
+        int64 user_id,
+        int32 month_count,
+        FormattedText text
+    ) {
+        Object (
+            currency: currency,
+            amount: amount,
+            user_id: user_id,
+            month_count: month_count,
+            text: text,
+            tdlib_type: "telegramPaymentPurposePremiumGift",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The user boosting a chat by creating Telegram Premium gift codes for
+ * other users
  */
 public class TDLib.TelegramPaymentPurposePremiumGiftCodes : TelegramPaymentPurpose {
 
     /**
      * Identifier of the supergroup or channel chat, which will be
      * automatically boosted by the users for duration of the Premium
-     * subscription and which is administered by the user; 0 if none
+     * subscription and which is administered by the user
      */
     public int64 boosted_chat_id { get; construct set; }
 

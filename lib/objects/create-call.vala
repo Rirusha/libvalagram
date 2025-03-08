@@ -41,8 +41,7 @@ public class TDLib.CreateCall : TDObject {
 
     /**
      * Identifier of the group call to which the user will be added after
-     * exchanging private key via the call; pass 0 if none; currently,
-     * ignored
+     * exchanging private key via the call; pass 0 if none
      */
     public int32 group_call_id { get; construct set; }
 

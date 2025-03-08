@@ -30,6 +30,12 @@ public class TDLib.GroupCall : Error {
     public int32 id_ { get; construct set; }
 
     /**
+     * Identifier of one-to-one call from which the group call was created; 0
+     * if unknown
+     */
+    public int32 from_call_id { get; construct set; }
+
+    /**
      * Group call title
      */
     public string title { get; construct set; }
@@ -138,6 +144,7 @@ public class TDLib.GroupCall : Error {
 
     public GroupCall (
         int32 id_,
+        int32 from_call_id,
         string title,
         int32 scheduled_start_date,
         bool enabled_start_notification,
@@ -161,6 +168,7 @@ public class TDLib.GroupCall : Error {
     ) {
         Object (
             id_: id_,
+            from_call_id: from_call_id,
             title: title,
             scheduled_start_date: scheduled_start_date,
             enabled_start_notification: enabled_start_notification,

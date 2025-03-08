@@ -38,6 +38,28 @@ public class TDLib.CanSendMessageToUserResultOk : CanSendMessageToUserResult {
 }
 
 /**
+ * The user can be messaged, but the messages are paid
+ */
+public class TDLib.CanSendMessageToUserResultUserHasPaidMessages : CanSendMessageToUserResult {
+
+    /**
+     * Number of Telegram Stars that must be paid by the current user for
+     * each sent message to the user
+     */
+    public int64 outgoing_paid_message_star_count { get; construct set; }
+
+    public CanSendMessageToUserResultUserHasPaidMessages (
+        int64 outgoing_paid_message_star_count
+    ) {
+        Object (
+            outgoing_paid_message_star_count: outgoing_paid_message_star_count,
+            tdlib_type: "canSendMessageToUserResultUserHasPaidMessages",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The user can't be messaged, because they are deleted or unknown
  */
 public class TDLib.CanSendMessageToUserResultUserIsDeleted : CanSendMessageToUserResult {

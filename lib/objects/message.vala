@@ -192,6 +192,11 @@ public class TDLib.Message : Error {
     public int32 sender_boost_count { get; construct set; }
 
     /**
+     * The number of Telegram Stars the sender paid to send the message
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
+    /**
      * For channel posts and anonymous group messages, optional author
      * signature
      */
@@ -259,6 +264,7 @@ public class TDLib.Message : Error {
         int64 via_bot_user_id,
         int64 sender_business_bot_user_id,
         int32 sender_boost_count,
+        int64 paid_message_star_count,
         string author_signature,
         int64 media_album_id,
         int64 effect_id,
@@ -297,6 +303,7 @@ public class TDLib.Message : Error {
             via_bot_user_id: via_bot_user_id,
             sender_business_bot_user_id: sender_business_bot_user_id,
             sender_boost_count: sender_boost_count,
+            paid_message_star_count: paid_message_star_count,
             author_signature: author_signature,
             media_album_id: media_album_id,
             effect_id: effect_id,

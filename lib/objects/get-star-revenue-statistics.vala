@@ -25,8 +25,8 @@
 public class TDLib.GetStarRevenueStatistics : TDObject {
 
     /**
-     * Identifier of the owner of the Telegram Stars; can be identifier of an
-     * owned bot, or identifier of a channel chat with
+     * Identifier of the owner of the Telegram Stars; can be identifier of
+     * the current user, an owned bot, or a supergroup or a channel chat with
      * supergroupFullInfo.can_get_star_revenue_statistics == true
      */
     public MessageSender owner_id { get; construct set; }

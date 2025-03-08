@@ -20,11 +20,12 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes an option for creating Telegram Premium gift codes or
- * Telegram Premium giveaway. Use telegramPaymentPurposePremiumGiftCodes
- * or telegramPaymentPurposePremiumGiveaway for out-of-store payments
+ * Describes an option for creating of Telegram Premium giveaway or
+ * manual distribution of Telegram Premium among chat members. Use
+ * telegramPaymentPurposePremiumGiftCodes or
+ * telegramPaymentPurposePremiumGiveaway for out-of-store payments
  */
-public class TDLib.PremiumGiftCodePaymentOption : Error {
+public class TDLib.PremiumGiveawayPaymentOption : Error {
 
     /**
      * ISO 4217 currency code for Telegram Premium gift code payment
@@ -35,11 +36,6 @@ public class TDLib.PremiumGiftCodePaymentOption : Error {
      * The amount to pay, in the smallest units of the currency
      */
     public int64 amount { get; construct set; }
-
-    /**
-     * The discount associated with this option, as a percentage
-     */
-    public int32 discount_percentage { get; construct set; }
 
     /**
      * Number of users which will be able to activate the gift codes
@@ -62,31 +58,22 @@ public class TDLib.PremiumGiftCodePaymentOption : Error {
      */
     public int32 store_product_quantity { get; construct set; }
 
-    /**
-     * A sticker to be shown along with the gift code; may be null if unknown
-     */
-    public Sticker? sticker { get; construct set; }
-
-    public PremiumGiftCodePaymentOption (
+    public PremiumGiveawayPaymentOption (
         string currency,
         int64 amount,
-        int32 discount_percentage,
         int32 winner_count,
         int32 month_count,
         string store_product_id,
-        int32 store_product_quantity,
-        Sticker? sticker
+        int32 store_product_quantity
     ) {
         Object (
             currency: currency,
             amount: amount,
-            discount_percentage: discount_percentage,
             winner_count: winner_count,
             month_count: month_count,
             store_product_id: store_product_id,
             store_product_quantity: store_product_quantity,
-            sticker: sticker,
-            tdlib_type: "premiumGiftCodePaymentOption",
+            tdlib_type: "premiumGiveawayPaymentOption",
             tdlib_extra: Uuid.string_random ()
         );
     }

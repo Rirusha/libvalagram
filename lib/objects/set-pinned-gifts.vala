@@ -20,31 +20,32 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns an instant view version of a web page if available. This is an
- * offline request if only_local is true. Returns a 404 error if the web
- * page has no instant view page
+ * Changes the list of pinned gifts on the current user's or the
+ * channel's profile page; requires can_post_messages administrator right
+ * in the channel chat
  */
-public class TDLib.GetWebPageInstantView : TDObject {
+public class TDLib.SetPinnedGifts : TDObject {
 
     /**
-     * The web page URL
+     * Identifier of the user or the channel chat that received the gifts
      */
-    public string url { get; construct set; }
+    public MessageSender owner_id { get; construct set; }
 
     /**
-     * Pass true to get only locally available information without sending
-     * network requests
+     * New list of pinned gifts. All gifts must be upgraded and saved on the
+     * profile page first. There can be up to
+     * getOption("pinned_gift_count_max") pinned gifts
      */
-    public bool only_local { get; construct set; }
+    public Gee.ArrayList<string?> received_gift_ids { get; construct set; default = new Gee.ArrayList<string?> (); }
 
-    public GetWebPageInstantView (
-        string url,
-        bool only_local
+    public SetPinnedGifts (
+        MessageSender owner_id,
+        Gee.ArrayList<string?> received_gift_ids
     ) {
         Object (
-            url: url,
-            only_local: only_local,
-            tdlib_type: "getWebPageInstantView",
+            owner_id: owner_id,
+            received_gift_ids: received_gift_ids,
+            tdlib_type: "setPinnedGifts",
             tdlib_extra: Uuid.string_random ()
         );
     }

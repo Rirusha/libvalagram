@@ -143,7 +143,7 @@ public class TDLib.StarTransactionTypeGiveawayDeposit : StarTransactionType {
 
 /**
  * The transaction is a withdrawal of earned Telegram Stars to Fragment;
- * for bots and channel chats only
+ * for regular users, bots, supergroup and channel chats only
  */
 public class TDLib.StarTransactionTypeFragmentWithdrawal : StarTransactionType {
 
@@ -657,14 +657,21 @@ public class TDLib.StarTransactionTypeGiftSale : StarTransactionType {
 public class TDLib.StarTransactionTypeGiftUpgrade : StarTransactionType {
 
     /**
+     * Identifier of the user that initially sent the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
      * The upgraded gift
      */
     public UpgradedGift gift { get; construct set; }
 
     public StarTransactionTypeGiftUpgrade (
+        int64 user_id,
         UpgradedGift gift
     ) {
         Object (
+            user_id: user_id,
             gift: gift,
             tdlib_type: "starTransactionTypeGiftUpgrade",
             tdlib_extra: Uuid.string_random ()
@@ -757,6 +764,116 @@ public class TDLib.StarTransactionTypeAffiliateProgramCommission : StarTransacti
             chat_id: chat_id,
             commission_per_mille: commission_per_mille,
             tdlib_type: "starTransactionTypeAffiliateProgramCommission",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sending of a paid message; for regular users only
+ */
+public class TDLib.StarTransactionTypePaidMessageSend : StarTransactionType {
+
+    /**
+     * Identifier of the chat that received the payment
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Number of sent paid messages
+     */
+    public int32 message_count { get; construct set; }
+
+    public StarTransactionTypePaidMessageSend (
+        int64 chat_id,
+        int32 message_count
+    ) {
+        Object (
+            chat_id: chat_id,
+            message_count: message_count,
+            tdlib_type: "starTransactionTypePaidMessageSend",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a receiving of a paid message; for regular users
+ * and supergroup chats only
+ */
+public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
+
+    /**
+     * Identifier of the sender of the message
+     */
+    public MessageSender sender_id { get; construct set; }
+
+    /**
+     * Number of received paid messages
+     */
+    public int32 message_count { get; construct set; }
+
+    /**
+     * The number of Telegram Stars received by the Telegram for each 1000
+     * Telegram Stars paid for message sending
+     */
+    public int32 commission_per_mille { get; construct set; }
+
+    /**
+     * The amount of Telegram Stars that were received by Telegram; can be
+     * negative for refunds
+     */
+    public StarAmount commission_star_amount { get; construct set; }
+
+    public StarTransactionTypePaidMessageReceive (
+        MessageSender sender_id,
+        int32 message_count,
+        int32 commission_per_mille,
+        StarAmount commission_star_amount
+    ) {
+        Object (
+            sender_id: sender_id,
+            message_count: message_count,
+            commission_per_mille: commission_per_mille,
+            commission_star_amount: commission_star_amount,
+            tdlib_type: "starTransactionTypePaidMessageReceive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a purchase of Telegram Premium subscription; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypePremiumPurchase : StarTransactionType {
+
+    /**
+     * Identifier of the user that received the Telegram Premium subscription
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * Number of months the Telegram Premium subscription will be active
+     */
+    public int32 month_count { get; construct set; }
+
+    /**
+     * A sticker to be shown in the transaction information; may be null if
+     * unknown
+     */
+    public Sticker? sticker { get; construct set; }
+
+    public StarTransactionTypePremiumPurchase (
+        int64 user_id,
+        int32 month_count,
+        Sticker? sticker
+    ) {
+        Object (
+            user_id: user_id,
+            month_count: month_count,
+            sticker: sticker,
+            tdlib_type: "starTransactionTypePremiumPurchase",
             tdlib_extra: Uuid.string_random ()
         );
     }

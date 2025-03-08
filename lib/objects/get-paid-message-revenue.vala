@@ -20,22 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains a list of options for creating Telegram Premium gift codes or
- * Telegram Premium giveaway
+ * Returns the total number of Telegram Stars received by the current
+ * user for paid messages from the given user
  */
-public class TDLib.PremiumGiftCodePaymentOptions : Error {
+public class TDLib.GetPaidMessageRevenue : TDObject {
 
     /**
-     * The list of options
+     * Identifier of the user
      */
-    public Gee.ArrayList<PremiumGiftCodePaymentOption?> options { get; construct set; default = new Gee.ArrayList<PremiumGiftCodePaymentOption?> (); }
+    public int64 user_id { get; construct set; }
 
-    public PremiumGiftCodePaymentOptions (
-        Gee.ArrayList<PremiumGiftCodePaymentOption?> options
+    public GetPaidMessageRevenue (
+        int64 user_id
     ) {
         Object (
-            options: options,
-            tdlib_type: "premiumGiftCodePaymentOptions",
+            user_id: user_id,
+            tdlib_type: "getPaidMessageRevenue",
             tdlib_extra: Uuid.string_random ()
         );
     }

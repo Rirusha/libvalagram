@@ -837,7 +837,7 @@ public class TDLib.InternalLinkTypePremiumFeatures : InternalLinkType {
 /**
  * The link is a link to the screen for gifting Telegram Premium
  * subscriptions to friends via inputInvoiceTelegram with
- * telegramPaymentPurposePremiumGiftCodes payments or in-store purchases
+ * telegramPaymentPurposePremiumGift payments or in-store purchases
  */
 public class TDLib.InternalLinkTypePremiumGift : InternalLinkType {
 

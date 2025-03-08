@@ -47,6 +47,12 @@ public class TDLib.MessageSendOptions : Error {
     public bool allow_paid_broadcast { get; construct set; }
 
     /**
+     * The number of Telegram Stars the user agreed to pay to send the
+     * messages
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
+    /**
      * Pass true if the user explicitly chosen a sticker or a custom emoji
      * from an installed sticker set; applicable only to
      * {@link Client.send_message} and {@link Client.send_message_album}
@@ -55,8 +61,8 @@ public class TDLib.MessageSendOptions : Error {
 
     /**
      * Message scheduling state; pass null to send message immediately.
-     * Messages sent to a secret chat, live location messages and
-     * self-destructing messages can't be scheduled
+     * Messages sent to a secret chat, to a chat with paid messages, live
+     * location messages and self-destructing messages can't be scheduled
      */
     public MessageSchedulingState scheduling_state { get; construct set; }
 
@@ -84,6 +90,7 @@ public class TDLib.MessageSendOptions : Error {
         bool from_background,
         bool protect_content,
         bool allow_paid_broadcast,
+        int64 paid_message_star_count,
         bool update_order_of_installed_sticker_sets,
         MessageSchedulingState scheduling_state,
         int64 effect_id,
@@ -95,6 +102,7 @@ public class TDLib.MessageSendOptions : Error {
             from_background: from_background,
             protect_content: protect_content,
             allow_paid_broadcast: allow_paid_broadcast,
+            paid_message_star_count: paid_message_star_count,
             update_order_of_installed_sticker_sets: update_order_of_installed_sticker_sets,
             scheduling_state: scheduling_state,
             effect_id: effect_id,

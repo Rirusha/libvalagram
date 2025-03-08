@@ -84,6 +84,12 @@ public class TDLib.MessageSendingStateFailed : MessageSendingState {
     public bool need_drop_reply { get; construct set; }
 
     /**
+     * The number of Telegram Stars that must be paid to send the message; 0
+     * if the current amount is correct
+     */
+    public int64 required_paid_message_star_count { get; construct set; }
+
+    /**
      * Time left before the message can be re-sent, in seconds. No update is
      * sent when this field changes
      */
@@ -95,6 +101,7 @@ public class TDLib.MessageSendingStateFailed : MessageSendingState {
         bool need_another_sender,
         bool need_another_reply_quote,
         bool need_drop_reply,
+        int64 required_paid_message_star_count,
         double retry_after
     ) {
         Object (
@@ -103,6 +110,7 @@ public class TDLib.MessageSendingStateFailed : MessageSendingState {
             need_another_sender: need_another_sender,
             need_another_reply_quote: need_another_reply_quote,
             need_drop_reply: need_drop_reply,
+            required_paid_message_star_count: required_paid_message_star_count,
             retry_after: retry_after,
             tdlib_type: "messageSendingStateFailed",
             tdlib_extra: Uuid.string_random ()

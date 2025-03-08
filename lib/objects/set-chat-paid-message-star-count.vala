@@ -20,39 +20,35 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends messages from a quick reply shortcut. Requires Telegram Business
- * subscription. Can't be used to send paid messages
+ * Changes the amount of Telegram Stars that must be paid to send a
+ * message to a supergroup chat; requires can_restrict_members
+ * administrator right and supergroupFullInfo.can_enable_paid_messages
  */
-public class TDLib.SendQuickReplyShortcutMessages : TDObject {
+public class TDLib.SetChatPaidMessageStarCount : TDObject {
 
     /**
-     * Identifier of the chat to which to send messages. The chat must be a
-     * private chat with a regular user
+     * Identifier of the supergroup chat
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Unique identifier of the quick reply shortcut
+     * The new number of Telegram Stars that must be paid for each message
+     * that is sent to the supergroup chat unless the sender is an
+     * administrator of the chat; 0-getOption("paid_message_star_count_max").
+     * The supergroup will receive
+     * getOption("paid_message_earnings_per_mille") Telegram Stars for each
+     * 1000 Telegram Stars paid for message sending
      */
-    public int32 shortcut_id { get; construct set; }
+    public int64 paid_message_star_count { get; construct set; }
 
-    /**
-     * Non-persistent identifier, which will be returned back in
-     * messageSendingStatePending object and can be used to match sent
-     * messages and corresponding updateNewMessage updates
-     */
-    public int32 sending_id { get; construct set; }
-
-    public SendQuickReplyShortcutMessages (
+    public SetChatPaidMessageStarCount (
         int64 chat_id,
-        int32 shortcut_id,
-        int32 sending_id
+        int64 paid_message_star_count
     ) {
         Object (
             chat_id: chat_id,
-            shortcut_id: shortcut_id,
-            sending_id: sending_id,
-            tdlib_type: "sendQuickReplyShortcutMessages",
+            paid_message_star_count: paid_message_star_count,
+            tdlib_type: "setChatPaidMessageStarCount",
             tdlib_extra: Uuid.string_random ()
         );
     }

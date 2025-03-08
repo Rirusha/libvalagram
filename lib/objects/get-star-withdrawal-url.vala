@@ -25,8 +25,8 @@
 public class TDLib.GetStarWithdrawalUrl : TDObject {
 
     /**
-     * Identifier of the owner of the Telegram Stars; can be identifier of an
-     * owned bot, or identifier of an owned channel chat
+     * Identifier of the owner of the Telegram Stars; can be identifier of
+     * the current user, an owned bot, or an owned supergroup or channel chat
      */
     public MessageSender owner_id { get; construct set; }
 

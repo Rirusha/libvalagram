@@ -557,14 +557,21 @@ public class TDLib.PushMessageContentSticker : PushMessageContent {
 public class TDLib.PushMessageContentStory : PushMessageContent {
 
     /**
+     * True, if the user was mentioned in the story
+     */
+    public bool is_mention { get; construct set; }
+
+    /**
      * True, if the message is a pinned message with the specified content
      */
     public bool is_pinned { get; construct set; }
 
     public PushMessageContentStory (
+        bool is_mention,
         bool is_pinned
     ) {
         Object (
+            is_mention: is_mention,
             is_pinned: is_pinned,
             tdlib_type: "pushMessageContentStory",
             tdlib_extra: Uuid.string_random ()
@@ -706,6 +713,54 @@ public class TDLib.PushMessageContentBasicGroupChatCreate : PushMessageContent {
     public PushMessageContentBasicGroupChatCreate () {
         Object (
             tdlib_type: "pushMessageContentBasicGroupChatCreate",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A video chat or live stream was started
+ */
+public class TDLib.PushMessageContentVideoChatStarted : PushMessageContent {
+
+    public PushMessageContentVideoChatStarted () {
+        Object (
+            tdlib_type: "pushMessageContentVideoChatStarted",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A video chat or live stream has ended
+ */
+public class TDLib.PushMessageContentVideoChatEnded : PushMessageContent {
+
+    public PushMessageContentVideoChatEnded () {
+        Object (
+            tdlib_type: "pushMessageContentVideoChatEnded",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * An invitation of participants to a video chat or live stream
+ */
+public class TDLib.PushMessageContentInviteVideoChatParticipants : PushMessageContent {
+
+    /**
+     * True, if the current user was invited to the video chat or the live
+     * stream
+     */
+    public bool is_current_user { get; construct set; }
+
+    public PushMessageContentInviteVideoChatParticipants (
+        bool is_current_user
+    ) {
+        Object (
+            is_current_user: is_current_user,
+            tdlib_type: "pushMessageContentInviteVideoChatParticipants",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -914,6 +969,28 @@ public class TDLib.PushMessageContentSuggestProfilePhoto : PushMessageContent {
     public PushMessageContentSuggestProfilePhoto () {
         Object (
             tdlib_type: "pushMessageContentSuggestProfilePhoto",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A user in the chat came within proximity alert range from the current
+ * user
+ */
+public class TDLib.PushMessageContentProximityAlertTriggered : PushMessageContent {
+
+    /**
+     * The distance to the user
+     */
+    public int32 distance { get; construct set; }
+
+    public PushMessageContentProximityAlertTriggered (
+        int32 distance
+    ) {
+        Object (
+            distance: distance,
+            tdlib_type: "pushMessageContentProximityAlertTriggered",
             tdlib_extra: Uuid.string_random ()
         );
     }
