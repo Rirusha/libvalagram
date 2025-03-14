@@ -21,7 +21,7 @@
 
 /**
  * Returns an HTTPS link to a topic in a forum chat. This is an offline
- * request
+ * method
  */
 public class TDLib.GetForumTopicLink : TDObject {
 

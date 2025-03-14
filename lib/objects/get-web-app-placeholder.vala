@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns a default placeholder for Web Apps of a bot; this is an
- * offline request. Returns a 404 error if the placeholder isn't known
+ * Returns a default placeholder for Web Apps of a bot. This is an
+ * offline method. Returns a 404 error if the placeholder isn't known
  */
 public class TDLib.GetWebAppPlaceholder : TDObject {
 

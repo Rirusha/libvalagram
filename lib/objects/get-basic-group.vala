@@ -21,7 +21,7 @@
 
 /**
  * Returns information about a basic group by its identifier. This is an
- * offline request if the current user is not a bot
+ * offline method if the current user is not a bot
  */
 public class TDLib.GetBasicGroup : TDObject {
 

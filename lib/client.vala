@@ -1781,7 +1781,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns the current authorization state; this is an offline request.
+     * Returns the current authorization state. This is an offline method.
      * For informational purposes only. Use updateAuthorizationState instead
      * to maintain the current authorization state. Can be called before
      * initialization
@@ -3740,7 +3740,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a user by their identifier. This is an
-     * offline request if the current user is not a bot
+     * offline method if the current user is not a bot
      * @param user_id User identifier
      */
     public async User get_user (
@@ -3831,7 +3831,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a basic group by its identifier. This is an
-     * offline request if the current user is not a bot
+     * offline method if the current user is not a bot
      * @param basic_group_id Basic group identifier
      */
     public async BasicGroup get_basic_group (
@@ -3922,7 +3922,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a supergroup or a channel by its identifier.
-     * This is an offline request if the current user is not a bot
+     * This is an offline method if the current user is not a bot
      * @param supergroup_id Supergroup or channel identifier
      */
     public async Supergroup get_supergroup (
@@ -4014,7 +4014,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a secret chat by its identifier. This is an
-     * offline request
+     * offline method
      * @param secret_chat_id Secret chat identifier
      */
     public async SecretChat get_secret_chat (
@@ -4059,8 +4059,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns information about a chat by its identifier; this is an offline
-     * request if the current user is not a bot
+     * Returns information about a chat by its identifier. This is an offline
+     * method if the current user is not a bot
      * @param chat_id Chat identifier
      */
     public async Chat get_chat (
@@ -4156,7 +4156,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Returns information about a message, if it is available without
      * sending network request. Returns a 404 error if message isn't
-     * available locally. This is an offline request
+     * available locally. This is an offline method
      * @param chat_id Identifier of the chat the message belongs to
      * @param message_id Identifier of the message to get
      */
@@ -4407,7 +4407,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns properties of a message; this is an offline request
+     * Returns properties of a message. This is an offline method
      * @param chat_id Chat identifier
      * @param message_id Identifier of the message
      */
@@ -4604,7 +4604,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns information about a file; this is an offline request
+     * Returns information about a file. This is an offline method
      * @param file_id Identifier of the file to get
      */
     public async File get_file (
@@ -4649,8 +4649,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns information about a file by its remote identifier; this is an
-     * offline request. Can be used to register a URL as a file for further
+     * Returns information about a file by its remote identifier. This is an
+     * offline method. Can be used to register a URL as a file for further
      * uploading, or sending as a message. Even the request succeeds, the
      * file can be used only if it is still accessible to the user.
      * For example, if the file is from a message, then the message must be
@@ -4908,7 +4908,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Searches for the specified query in the title and username of already
-     * known chats; this is an offline request. Returns chats in the order
+     * known chats. This is an offline method. Returns chats in the order
      * seen in the main chat list
      * @param query Query to search for. If the query is empty, returns up to
      * 50 recently found chats
@@ -5438,7 +5438,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Searches for the specified query in the title and username of up to 50
-     * recently found chats; this is an offline request
+     * recently found chats. This is an offline method
      * @param query Query to search for
      * @param limit The maximum number of chats to be returned
      */
@@ -5618,7 +5618,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns recently opened chats; this is an offline request. Returns
+     * Returns recently opened chats. This is an offline method. Returns
      * chats in the order of last opening
      * @param limit The maximum number of chats to be returned
      */
@@ -6354,7 +6354,7 @@ public sealed class TDLib.Client : Object {
      * Returns messages in a chat. The messages are returned in reverse
      * chronological order (i.e., in order of decreasing message_id).
      * For optimal performance, the number of returned messages is chosen by
-     * TDLib. This is an offline request if only_local is true
+     * TDLib. This is an offline method if only_local is true
      * @param chat_id Chat identifier
      * @param from_message_id Identifier of the message starting from which
      * history must be fetched; use 0 to get results from the last message
@@ -8095,7 +8095,7 @@ public sealed class TDLib.Client : Object {
      * Returns an HTTPS link to a message in a chat. Available only if
      * messageProperties.can_get_link, or if
      * messageProperties.can_get_media_timestamp_links and a media timestamp
-     * link is generated. This is an offline request
+     * link is generated. This is an offline method
      * @param chat_id Identifier of the chat to which the message belongs
      * @param message_id Identifier of the message
      * @param media_timestamp If not 0, timestamp from which the
@@ -11415,7 +11415,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns an HTTPS link to a topic in a forum chat. This is an offline
-     * request
+     * method
      * @param chat_id Identifier of the chat
      * @param message_thread_id Message thread identifier of the forum topic
      */
@@ -14685,8 +14685,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns a default placeholder for Web Apps of a bot; this is an
-     * offline request. Returns a 404 error if the placeholder isn't known
+     * Returns a default placeholder for Web Apps of a bot. This is an
+     * offline method. Returns a 404 error if the placeholder isn't known
      * @param bot_user_id Identifier of the target bot
      */
     public async Outline get_web_app_placeholder (
@@ -16778,7 +16778,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns chat lists to which the chat can be added. This is an offline
-     * request
+     * method
      * @param chat_id Chat identifier
      */
     public async ChatLists get_chat_lists_to_add_chat (
@@ -21886,7 +21886,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns the list of features available on the specific chat boost
-     * level; this is an offline request
+     * level. This is an offline method
      * @param is_channel Pass true to get the list of features for channels;
      * pass false to get the list of features for supergroups
      * @param level Chat boost level
@@ -21936,7 +21936,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns the list of features available for different chat boost
-     * levels; this is an offline request
+     * levels. This is an offline method
      * @param is_channel Pass true to get the list of features for channels;
      * pass false to get the list of features for supergroups
      */
@@ -27660,8 +27660,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns outline of a sticker; this is an offline request. Returns a
-     * 404 error if the outline isn't known
+     * Returns outline of a sticker. This is an offline method. Returns a 404
+     * error if the outline isn't known
      * @param sticker_file_id File identifier of the sticker
      * @param for_animated_emoji Pass true to get the outline scaled for
      * animated emoji
@@ -29719,7 +29719,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns an instant view version of a web page if available. This is an
-     * offline request if only_local is true. Returns a 404 error if the web
+     * offline method if only_local is true. Returns a 404 error if the web
      * page has no instant view page
      * @param url The web page URL
      * @param only_local Pass true to get only locally available information
@@ -35837,7 +35837,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about the current localization target. This is an
-     * offline request if only_local is true. Can be called before
+     * offline method if only_local is true. Can be called before
      * authorization
      * @param only_local Pass true to get only locally available information
      * without sending network requests

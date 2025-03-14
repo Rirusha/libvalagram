@@ -21,7 +21,7 @@
 
 /**
  * Returns the list of features available on the specific chat boost
- * level; this is an offline request
+ * level. This is an offline method
  */
 public class TDLib.GetChatBoostLevelFeatures : TDObject {
 

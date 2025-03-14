@@ -21,7 +21,7 @@
 
 /**
  * Returns information about the current localization target. This is an
- * offline request if only_local is true. Can be called before
+ * offline method if only_local is true. Can be called before
  * authorization
  */
 public class TDLib.GetLocalizationTargetInfo : TDObject {

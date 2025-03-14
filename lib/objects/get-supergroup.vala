@@ -21,7 +21,7 @@
 
 /**
  * Returns information about a supergroup or a channel by its identifier.
- * This is an offline request if the current user is not a bot
+ * This is an offline method if the current user is not a bot
  */
 public class TDLib.GetSupergroup : TDObject {
 

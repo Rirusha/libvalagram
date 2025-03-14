@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns the current authorization state; this is an offline request.
+ * Returns the current authorization state. This is an offline method.
  * For informational purposes only. Use updateAuthorizationState instead
  * to maintain the current authorization state. Can be called before
  * initialization

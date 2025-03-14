@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns properties of a message; this is an offline request
+ * Returns properties of a message. This is an offline method
  */
 public class TDLib.GetMessageProperties : TDObject {
 

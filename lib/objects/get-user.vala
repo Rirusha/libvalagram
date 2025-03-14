@@ -21,7 +21,7 @@
 
 /**
  * Returns information about a user by their identifier. This is an
- * offline request if the current user is not a bot
+ * offline method if the current user is not a bot
  */
 public class TDLib.GetUser : TDObject {
 

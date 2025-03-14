@@ -23,7 +23,7 @@
  * Returns an HTTPS link to a message in a chat. Available only if
  * messageProperties.can_get_link, or if
  * messageProperties.can_get_media_timestamp_links and a media timestamp
- * link is generated. This is an offline request
+ * link is generated. This is an offline method
  */
 public class TDLib.GetMessageLink : TDObject {
 

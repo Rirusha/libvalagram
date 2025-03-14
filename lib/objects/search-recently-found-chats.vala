@@ -21,7 +21,7 @@
 
 /**
  * Searches for the specified query in the title and username of up to 50
- * recently found chats; this is an offline request
+ * recently found chats. This is an offline method
  */
 public class TDLib.SearchRecentlyFoundChats : TDObject {
 

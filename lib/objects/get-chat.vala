@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a chat by its identifier; this is an offline
- * request if the current user is not a bot
+ * Returns information about a chat by its identifier. This is an offline
+ * method if the current user is not a bot
  */
 public class TDLib.GetChat : TDObject {
 

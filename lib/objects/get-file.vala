@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a file; this is an offline request
+ * Returns information about a file. This is an offline method
  */
 public class TDLib.GetFile : TDObject {
 

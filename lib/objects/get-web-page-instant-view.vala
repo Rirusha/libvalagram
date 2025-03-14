@@ -21,7 +21,7 @@
 
 /**
  * Returns an instant view version of a web page if available. This is an
- * offline request if only_local is true. Returns a 404 error if the web
+ * offline method if only_local is true. Returns a 404 error if the web
  * page has no instant view page
  */
 public class TDLib.GetWebPageInstantView : TDObject {
