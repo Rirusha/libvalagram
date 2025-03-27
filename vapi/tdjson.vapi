@@ -1,4 +1,9 @@
-[CCode (cheader_filename = "td/telegram/td_json_client.h", lower_case_cprefix = "td_")] // Name translation (Eg: td_send -> send, td_receive -> receive)
+[
+CCode(
+	cheader_filename = "td/telegram/td_json_client.h",
+	lower_case_cprefix = "td_" // Name translation (Eg: td_send -> send, td_receive -> receive)
+)
+]
 namespace TDJsonApi {
 	// TDJson API
 	public static int create_client_id();
