@@ -20,36 +20,36 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Changes a profile photo of a business account; for bots only
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.SetBusinessAccountProfilePhoto : TDObject {
 
     /**
-     * Name of the symbol
+     * Unique identifier of business connection
      */
-    public string name { get; construct set; }
+    public string business_connection_id { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * Profile photo to set; pass null to remove the photo
      */
-    public Sticker sticker { get; construct set; }
+    public InputChatPhoto photo { get; construct set; }
 
     /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
+     * Pass true to set the public photo, which will be visible even the main
+     * photo is hidden by privacy settings
      */
-    public int32 rarity_per_mille { get; construct set; }
+    public bool is_public { get; construct set; }
 
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public SetBusinessAccountProfilePhoto (
+        string business_connection_id,
+        InputChatPhoto photo,
+        bool is_public
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            business_connection_id: business_connection_id,
+            photo: photo,
+            is_public: is_public,
+            tdlib_type: "setBusinessAccountProfilePhoto",
             tdlib_extra: Uuid.string_random ()
         );
     }

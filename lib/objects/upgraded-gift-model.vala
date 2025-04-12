@@ -35,7 +35,7 @@ public class TDLib.UpgradedGiftModel : Error {
     public Sticker sticker { get; construct set; }
 
     /**
-     * The number of upgraded gift that receive this model for each 1000
+     * The number of upgraded gifts that receive this model for each 1000
      * gifts upgraded
      */
     public int32 rarity_per_mille { get; construct set; }

@@ -30,7 +30,7 @@ public class TDLib.SetProfilePhoto : TDObject {
     public InputChatPhoto photo { get; construct set; }
 
     /**
-     * Pass true to set a public photo, which will be visible even the main
+     * Pass true to set the public photo, which will be visible even the main
      * photo is hidden by privacy settings
      */
     public bool is_public { get; construct set; }

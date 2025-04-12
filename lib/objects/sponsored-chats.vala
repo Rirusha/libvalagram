@@ -20,36 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Contains a list of sponsored chats
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.SponsoredChats : Error {
 
     /**
-     * Name of the symbol
+     * List of sponsored chats
      */
-    public string name { get; construct set; }
+    public Gee.ArrayList<SponsoredChat?> chats { get; construct set; default = new Gee.ArrayList<SponsoredChat?> (); }
 
-    /**
-     * The sticker representing the symbol
-     */
-    public Sticker sticker { get; construct set; }
-
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public SponsoredChats (
+        Gee.ArrayList<SponsoredChat?> chats
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            chats: chats,
+            tdlib_type: "sponsoredChats",
             tdlib_extra: Uuid.string_random ()
         );
     }

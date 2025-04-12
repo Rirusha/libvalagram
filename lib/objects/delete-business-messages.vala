@@ -20,36 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Deletes messages on behalf of a business account; for bots only
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.DeleteBusinessMessages : TDObject {
 
     /**
-     * Name of the symbol
+     * Unique identifier of business connection through which the messages
+     * were received
      */
-    public string name { get; construct set; }
+    public string business_connection_id { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * Identifier of the messages
      */
-    public Sticker sticker { get; construct set; }
+    public Gee.ArrayList<int64?> message_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
 
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public DeleteBusinessMessages (
+        string business_connection_id,
+        Gee.ArrayList<int64?> message_ids
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            business_connection_id: business_connection_id,
+            message_ids: message_ids,
+            tdlib_type: "deleteBusinessMessages",
             tdlib_extra: Uuid.string_random ()
         );
     }

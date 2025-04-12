@@ -30,7 +30,8 @@ public abstract class TDLib.TelegramPaymentPurpose : Error {}
 public class TDLib.TelegramPaymentPurposePremiumGift : TelegramPaymentPurpose {
 
     /**
-     * ISO 4217 currency code of the payment currency
+     * ISO 4217 currency code of the payment currency, or "XTR" for payments
+     * in Telegram Stars
      */
     public string currency { get; construct set; }
 

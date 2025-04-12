@@ -25,6 +25,12 @@
 public class TDLib.GetReceivedGifts : TDObject {
 
     /**
+     * Unique identifier of business connection on behalf of which to send
+     * the request; for bots only
+     */
+    public string business_connection_id { get; construct set; }
+
+    /**
      * Identifier of the gift receiver
      */
     public MessageSender owner_id { get; construct set; }
@@ -79,6 +85,7 @@ public class TDLib.GetReceivedGifts : TDObject {
     public int32 limit { get; construct set; }
 
     public GetReceivedGifts (
+        string business_connection_id,
         MessageSender owner_id,
         bool exclude_unsaved,
         bool exclude_saved,
@@ -90,6 +97,7 @@ public class TDLib.GetReceivedGifts : TDObject {
         int32 limit
     ) {
         Object (
+            business_connection_id: business_connection_id,
             owner_id: owner_id,
             exclude_unsaved: exclude_unsaved,
             exclude_saved: exclude_saved,

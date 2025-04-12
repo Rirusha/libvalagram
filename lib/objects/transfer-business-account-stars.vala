@@ -20,36 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Transfer Telegram Stars from the business account to the business bot;
+ * for bots only
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.TransferBusinessAccountStars : TDObject {
 
     /**
-     * Name of the symbol
+     * Unique identifier of business connection
      */
-    public string name { get; construct set; }
+    public string business_connection_id { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * Number of Telegram Stars to transfer
      */
-    public Sticker sticker { get; construct set; }
+    public int64 star_count { get; construct set; }
 
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public TransferBusinessAccountStars (
+        string business_connection_id,
+        int64 star_count
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            business_connection_id: business_connection_id,
+            star_count: star_count,
+            tdlib_type: "transferBusinessAccountStars",
             tdlib_extra: Uuid.string_random ()
         );
     }

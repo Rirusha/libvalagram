@@ -35,6 +35,12 @@ public class TDLib.ForumTopic : Error {
     public Message? last_message { get; construct set; }
 
     /**
+     * A parameter used to determine order of the topic in the topic list.
+     * Topics must be sorted by the order in descending order
+     */
+    public int64 order { get; construct set; }
+
+    /**
      * True, if the topic is pinned in the topic list
      */
     public bool is_pinned { get; construct set; }
@@ -77,6 +83,7 @@ public class TDLib.ForumTopic : Error {
     public ForumTopic (
         ForumTopicInfo info,
         Message? last_message,
+        int64 order,
         bool is_pinned,
         int32 unread_count,
         int64 last_read_inbox_message_id,
@@ -89,6 +96,7 @@ public class TDLib.ForumTopic : Error {
         Object (
             info: info,
             last_message: last_message,
+            order: order,
             is_pinned: is_pinned,
             unread_count: unread_count,
             last_read_inbox_message_id: last_read_inbox_message_id,

@@ -20,36 +20,36 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Reads a message on behalf of a business account; for bots only
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.ReadBusinessMessage : TDObject {
 
     /**
-     * Name of the symbol
+     * Unique identifier of business connection through which the message was
+     * received
      */
-    public string name { get; construct set; }
+    public string business_connection_id { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * The chat the message belongs to
      */
-    public Sticker sticker { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
     /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
+     * Identifier of the message
      */
-    public int32 rarity_per_mille { get; construct set; }
+    public int64 message_id { get; construct set; }
 
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public ReadBusinessMessage (
+        string business_connection_id,
+        int64 chat_id,
+        int64 message_id
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            business_connection_id: business_connection_id,
+            chat_id: chat_id,
+            message_id: message_id,
+            tdlib_type: "readBusinessMessage",
             tdlib_extra: Uuid.string_random ()
         );
     }

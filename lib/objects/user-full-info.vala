@@ -146,6 +146,11 @@ public class TDLib.UserFullInfo : Error {
     public int64 outgoing_paid_message_star_count { get; construct set; }
 
     /**
+     * Settings for gift receiving for the user
+     */
+    public GiftSettings gift_settings { get; construct set; }
+
+    /**
      * Information about verification status of the user provided by a bot;
      * may be null if none or unknown
      */
@@ -184,6 +189,7 @@ public class TDLib.UserFullInfo : Error {
         int32 group_in_common_count,
         int64 incoming_paid_message_star_count,
         int64 outgoing_paid_message_star_count,
+        GiftSettings gift_settings,
         BotVerification? bot_verification,
         BusinessInfo? business_info,
         BotInfo? bot_info
@@ -209,6 +215,7 @@ public class TDLib.UserFullInfo : Error {
             group_in_common_count: group_in_common_count,
             incoming_paid_message_star_count: incoming_paid_message_star_count,
             outgoing_paid_message_star_count: outgoing_paid_message_star_count,
+            gift_settings: gift_settings,
             bot_verification: bot_verification,
             business_info: business_info,
             bot_info: bot_info,

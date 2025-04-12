@@ -1704,23 +1704,65 @@ public class TDLib.UpdateQuickReplyShortcutMessages : Update {
 public class TDLib.UpdateForumTopicInfo : Update {
 
     /**
-     * Chat identifier
-     */
-    public int64 chat_id { get; construct set; }
-
-    /**
      * New information about the topic
      */
     public ForumTopicInfo info { get; construct set; }
 
     public UpdateForumTopicInfo (
-        int64 chat_id,
         ForumTopicInfo info
     ) {
         Object (
-            chat_id: chat_id,
             info: info,
             tdlib_type: "updateForumTopicInfo",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Information about a topic in a forum chat was changed
+ */
+public class TDLib.UpdateForumTopic : Update {
+
+    /**
+     * Chat identifier
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Message thread identifier of the topic
+     */
+    public int64 message_thread_id { get; construct set; }
+
+    /**
+     * True, if the topic is pinned in the topic list
+     */
+    public bool is_pinned { get; construct set; }
+
+    /**
+     * Identifier of the last read outgoing message
+     */
+    public int64 last_read_outbox_message_id { get; construct set; }
+
+    /**
+     * Notification settings for the topic
+     */
+    public ChatNotificationSettings notification_settings { get; construct set; }
+
+    public UpdateForumTopic (
+        int64 chat_id,
+        int64 message_thread_id,
+        bool is_pinned,
+        int64 last_read_outbox_message_id,
+        ChatNotificationSettings notification_settings
+    ) {
+        Object (
+            chat_id: chat_id,
+            message_thread_id: message_thread_id,
+            is_pinned: is_pinned,
+            last_read_outbox_message_id: last_read_outbox_message_id,
+            notification_settings: notification_settings,
+            tdlib_type: "updateForumTopic",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -3347,6 +3389,50 @@ public class TDLib.UpdateConnectionState : Update {
         Object (
             state: state,
             tdlib_type: "updateConnectionState",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The freeze state of the current user's account has changed
+ */
+public class TDLib.UpdateFreezeState : Update {
+
+    /**
+     * True, if the account is frozen
+     */
+    public bool is_frozen { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the account was frozen; 0 if the
+     * account isn't frozen
+     */
+    public int32 freezing_date { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the account will be deleted and
+     * can't be unfrozen; 0 if the account isn't frozen
+     */
+    public int32 deletion_date { get; construct set; }
+
+    /**
+     * The link to open to send an appeal to unfreeze the account
+     */
+    public string appeal_link { get; construct set; }
+
+    public UpdateFreezeState (
+        bool is_frozen,
+        int32 freezing_date,
+        int32 deletion_date,
+        string appeal_link
+    ) {
+        Object (
+            is_frozen: is_frozen,
+            freezing_date: freezing_date,
+            deletion_date: deletion_date,
+            appeal_link: appeal_link,
+            tdlib_type: "updateFreezeState",
             tdlib_extra: Uuid.string_random ()
         );
     }

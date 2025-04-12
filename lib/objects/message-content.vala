@@ -2488,6 +2488,56 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
 }
 
 /**
+ * Paid messages were refunded
+ */
+public class TDLib.MessagePaidMessagesRefunded : MessageContent {
+
+    /**
+     * The number of refunded messages
+     */
+    public int32 message_count { get; construct set; }
+
+    /**
+     * The number of refunded Telegram Stars
+     */
+    public int64 star_count { get; construct set; }
+
+    public MessagePaidMessagesRefunded (
+        int32 message_count,
+        int64 star_count
+    ) {
+        Object (
+            message_count: message_count,
+            star_count: star_count,
+            tdlib_type: "messagePaidMessagesRefunded",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A price for paid messages was changed in the supergroup chat
+ */
+public class TDLib.MessagePaidMessagePriceChanged : MessageContent {
+
+    /**
+     * The new number of Telegram Stars that must be paid by
+     * non-administrator users of the supergroup chat for each sent message
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
+    public MessagePaidMessagePriceChanged (
+        int64 paid_message_star_count
+    ) {
+        Object (
+            paid_message_star_count: paid_message_star_count,
+            tdlib_type: "messagePaidMessagePriceChanged",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A contact has registered with Telegram
  */
 public class TDLib.MessageContactRegistered : MessageContent {

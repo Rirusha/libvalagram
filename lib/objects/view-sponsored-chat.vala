@@ -20,36 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Informs TDLib that the user fully viewed a sponsored chat
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.ViewSponsoredChat : TDObject {
 
     /**
-     * Name of the symbol
+     * Unique identifier of the sponsored chat
      */
-    public string name { get; construct set; }
+    public int64 sponsored_chat_unique_id { get; construct set; }
 
-    /**
-     * The sticker representing the symbol
-     */
-    public Sticker sticker { get; construct set; }
-
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public ViewSponsoredChat (
+        int64 sponsored_chat_unique_id
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            sponsored_chat_unique_id: sponsored_chat_unique_id,
+            tdlib_type: "viewSponsoredChat",
             tdlib_extra: Uuid.string_random ()
         );
     }

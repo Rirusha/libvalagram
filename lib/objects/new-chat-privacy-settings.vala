@@ -36,7 +36,8 @@ public class TDLib.NewChatPrivacySettings : Error {
      * message by non-contacts; 0-getOption("paid_message_star_count_max").
      * If positive, then allow_new_chats_from_unknown_users must be true. The
      * current user will receive getOption("paid_message_earnings_per_mille")
-     * Telegram Stars for each 1000 Telegram Stars paid for message sending
+     * Telegram Stars for each 1000 Telegram Stars paid for message sending.
+     * Can be positive, only if getOption("can_enable_paid_messages") is true
      */
     public int64 incoming_paid_message_star_count { get; construct set; }
 

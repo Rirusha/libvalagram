@@ -56,6 +56,29 @@ public class TDLib.AuthorizationStateWaitPhoneNumber : AuthorizationState {
 }
 
 /**
+ * The user must buy Telegram Premium as an in-store purchase to log in.
+ * Call {@link Client.check_authentication_premium_purchase} and then
+ * {@link Client.set_authentication_premium_purchase_transaction}
+ */
+public class TDLib.AuthorizationStateWaitPremiumPurchase : AuthorizationState {
+
+    /**
+     * Identifier of the store product that must be bought
+     */
+    public string store_product_id { get; construct set; }
+
+    public AuthorizationStateWaitPremiumPurchase (
+        string store_product_id
+    ) {
+        Object (
+            store_product_id: store_product_id,
+            tdlib_type: "authorizationStateWaitPremiumPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * TDLib needs the user's email address to authorize. Call
  * {@link Client.set_authentication_email_address} to provide the email
  * address, or directly call

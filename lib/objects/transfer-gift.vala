@@ -25,6 +25,12 @@
 public class TDLib.TransferGift : TDObject {
 
     /**
+     * Unique identifier of business connection on behalf of which to send
+     * the request; for bots only
+     */
+    public string business_connection_id { get; construct set; }
+
+    /**
      * Identifier of the gift
      */
     public string received_gift_id { get; construct set; }
@@ -40,11 +46,13 @@ public class TDLib.TransferGift : TDObject {
     public int64 star_count { get; construct set; }
 
     public TransferGift (
+        string business_connection_id,
         string received_gift_id,
         MessageSender new_owner_id,
         int64 star_count
     ) {
         Object (
+            business_connection_id: business_connection_id,
             received_gift_id: received_gift_id,
             new_owner_id: new_owner_id,
             star_count: star_count,

@@ -20,18 +20,18 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes result of sponsored message report
+ * Describes result of sponsored message or chat report
  */
-public abstract class TDLib.ReportChatSponsoredMessageResult : Error {}
+public abstract class TDLib.ReportSponsoredResult : Error {}
 
 /**
  * The message was reported successfully
  */
-public class TDLib.ReportChatSponsoredMessageResultOk : ReportChatSponsoredMessageResult {
+public class TDLib.ReportSponsoredResultOk : ReportSponsoredResult {
 
-    public ReportChatSponsoredMessageResultOk () {
+    public ReportSponsoredResultOk () {
         Object (
-            tdlib_type: "reportChatSponsoredMessageResultOk",
+            tdlib_type: "reportSponsoredResultOk",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -40,11 +40,11 @@ public class TDLib.ReportChatSponsoredMessageResultOk : ReportChatSponsoredMessa
 /**
  * The sponsored message is too old or not found
  */
-public class TDLib.ReportChatSponsoredMessageResultFailed : ReportChatSponsoredMessageResult {
+public class TDLib.ReportSponsoredResultFailed : ReportSponsoredResult {
 
-    public ReportChatSponsoredMessageResultFailed () {
+    public ReportSponsoredResultFailed () {
         Object (
-            tdlib_type: "reportChatSponsoredMessageResultFailed",
+            tdlib_type: "reportSponsoredResultFailed",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -54,7 +54,7 @@ public class TDLib.ReportChatSponsoredMessageResultFailed : ReportChatSponsoredM
  * The user must choose an option to report the message and repeat
  * request with the chosen option
  */
-public class TDLib.ReportChatSponsoredMessageResultOptionRequired : ReportChatSponsoredMessageResult {
+public class TDLib.ReportSponsoredResultOptionRequired : ReportSponsoredResult {
 
     /**
      * Title for the option choice
@@ -66,14 +66,14 @@ public class TDLib.ReportChatSponsoredMessageResultOptionRequired : ReportChatSp
      */
     public Gee.ArrayList<ReportOption?> options { get; construct set; default = new Gee.ArrayList<ReportOption?> (); }
 
-    public ReportChatSponsoredMessageResultOptionRequired (
+    public ReportSponsoredResultOptionRequired (
         string title,
         Gee.ArrayList<ReportOption?> options
     ) {
         Object (
             title: title,
             options: options,
-            tdlib_type: "reportChatSponsoredMessageResultOptionRequired",
+            tdlib_type: "reportSponsoredResultOptionRequired",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -82,11 +82,11 @@ public class TDLib.ReportChatSponsoredMessageResultOptionRequired : ReportChatSp
 /**
  * Sponsored messages were hidden for the user in all chats
  */
-public class TDLib.ReportChatSponsoredMessageResultAdsHidden : ReportChatSponsoredMessageResult {
+public class TDLib.ReportSponsoredResultAdsHidden : ReportSponsoredResult {
 
-    public ReportChatSponsoredMessageResultAdsHidden () {
+    public ReportSponsoredResultAdsHidden () {
         Object (
-            tdlib_type: "reportChatSponsoredMessageResultAdsHidden",
+            tdlib_type: "reportSponsoredResultAdsHidden",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -96,11 +96,11 @@ public class TDLib.ReportChatSponsoredMessageResultAdsHidden : ReportChatSponsor
  * The user asked to hide sponsored messages, but Telegram Premium is
  * required for this
  */
-public class TDLib.ReportChatSponsoredMessageResultPremiumRequired : ReportChatSponsoredMessageResult {
+public class TDLib.ReportSponsoredResultPremiumRequired : ReportSponsoredResult {
 
-    public ReportChatSponsoredMessageResultPremiumRequired () {
+    public ReportSponsoredResultPremiumRequired () {
         Object (
-            tdlib_type: "reportChatSponsoredMessageResultPremiumRequired",
+            tdlib_type: "reportSponsoredResultPremiumRequired",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,36 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Changes the first and last name of a business account; for bots only
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.SetBusinessAccountName : TDObject {
 
     /**
-     * Name of the symbol
+     * Unique identifier of business connection
      */
-    public string name { get; construct set; }
+    public string business_connection_id { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * The new value of the first name for the business account; 1-64
+     * characters
      */
-    public Sticker sticker { get; construct set; }
+    public string first_name { get; construct set; }
 
     /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
+     * The new value of the optional last name for the business account; 0-64
+     * characters
      */
-    public int32 rarity_per_mille { get; construct set; }
+    public string last_name { get; construct set; }
 
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public SetBusinessAccountName (
+        string business_connection_id,
+        string first_name,
+        string last_name
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            business_connection_id: business_connection_id,
+            first_name: first_name,
+            last_name: last_name,
+            tdlib_type: "setBusinessAccountName",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,36 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Changes settings for gift receiving for the current user
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.SetGiftSettings : TDObject {
 
     /**
-     * Name of the symbol
+     * The new settings
      */
-    public string name { get; construct set; }
+    public GiftSettings settings { get; construct set; }
 
-    /**
-     * The sticker representing the symbol
-     */
-    public Sticker sticker { get; construct set; }
-
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public SetGiftSettings (
+        GiftSettings settings
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            settings: settings,
+            tdlib_type: "setGiftSettings",
             tdlib_extra: Uuid.string_random ()
         );
     }

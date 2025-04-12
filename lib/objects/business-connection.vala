@@ -45,10 +45,9 @@ public class TDLib.BusinessConnection : Error {
     public int32 date { get; construct set; }
 
     /**
-     * True, if the bot can send messages to the connected user; false
-     * otherwise
+     * Rights of the bot; may be null if the connection was disabled
      */
-    public bool can_reply { get; construct set; }
+    public BusinessBotRights? rights { get; construct set; }
 
     /**
      * True, if the connection is enabled; false otherwise
@@ -60,7 +59,7 @@ public class TDLib.BusinessConnection : Error {
         int64 user_id,
         int64 user_chat_id,
         int32 date,
-        bool can_reply,
+        BusinessBotRights? rights,
         bool is_enabled
     ) {
         Object (
@@ -68,7 +67,7 @@ public class TDLib.BusinessConnection : Error {
             user_id: user_id,
             user_chat_id: user_chat_id,
             date: date,
-            can_reply: can_reply,
+            rights: rights,
             is_enabled: is_enabled,
             tdlib_type: "businessConnection",
             tdlib_extra: Uuid.string_random ()

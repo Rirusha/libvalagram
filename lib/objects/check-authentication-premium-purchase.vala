@@ -20,36 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Checks whether an in-store purchase of Telegram Premium is possible
+ * before authorization. Works only when the current authorization state
+ * is authorizationStateWaitPremiumPurchase
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.CheckAuthenticationPremiumPurchase : TDObject {
 
     /**
-     * Name of the symbol
+     * ISO 4217 currency code of the payment currency
      */
-    public string name { get; construct set; }
+    public string currency { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * Paid amount, in the smallest units of the currency
      */
-    public Sticker sticker { get; construct set; }
+    public int64 amount { get; construct set; }
 
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public CheckAuthenticationPremiumPurchase (
+        string currency,
+        int64 amount
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            currency: currency,
+            amount: amount,
+            tdlib_type: "checkAuthenticationPremiumPurchase",
             tdlib_extra: Uuid.string_random ()
         );
     }

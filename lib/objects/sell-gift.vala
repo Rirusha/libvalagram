@@ -25,14 +25,22 @@
 public class TDLib.SellGift : TDObject {
 
     /**
+     * Unique identifier of business connection on behalf of which to send
+     * the request; for bots only
+     */
+    public string business_connection_id { get; construct set; }
+
+    /**
      * Identifier of the gift
      */
     public string received_gift_id { get; construct set; }
 
     public SellGift (
+        string business_connection_id,
         string received_gift_id
     ) {
         Object (
+            business_connection_id: business_connection_id,
             received_gift_id: received_gift_id,
             tdlib_type: "sellGift",
             tdlib_extra: Uuid.string_random ()

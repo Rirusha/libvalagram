@@ -68,6 +68,7 @@ public sealed class TDLib.Client : Object {
         typeof (TermsOfService).ensure ();
         typeof (AuthorizationStateWaitTdlibParameters).ensure ();
         typeof (AuthorizationStateWaitPhoneNumber).ensure ();
+        typeof (AuthorizationStateWaitPremiumPurchase).ensure ();
         typeof (AuthorizationStateWaitEmailAddress).ensure ();
         typeof (AuthorizationStateWaitEmailCode).ensure ();
         typeof (AuthorizationStateWaitCode).ensure ();
@@ -160,6 +161,7 @@ public sealed class TDLib.Client : Object {
         typeof (BusinessRecipients).ensure ();
         typeof (BusinessAwayMessageSettings).ensure ();
         typeof (BusinessGreetingMessageSettings).ensure ();
+        typeof (BusinessBotRights).ensure ();
         typeof (BusinessConnectedBot).ensure ();
         typeof (BusinessStartPage).ensure ();
         typeof (InputBusinessStartPage).ensure ();
@@ -214,6 +216,8 @@ public sealed class TDLib.Client : Object {
         typeof (StarGiveawayWinnerOption).ensure ();
         typeof (StarGiveawayPaymentOption).ensure ();
         typeof (StarGiveawayPaymentOptions).ensure ();
+        typeof (AcceptedGiftTypes).ensure ();
+        typeof (GiftSettings).ensure ();
         typeof (UpgradedGiftModel).ensure ();
         typeof (UpgradedGiftSymbol).ensure ();
         typeof (UpgradedGiftBackdropColors).ensure ();
@@ -259,6 +263,8 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypePaidMessageSend).ensure ();
         typeof (StarTransactionTypePaidMessageReceive).ensure ();
         typeof (StarTransactionTypePremiumPurchase).ensure ();
+        typeof (StarTransactionTypeBusinessBotTransferSend).ensure ();
+        typeof (StarTransactionTypeBusinessBotTransferReceive).ensure ();
         typeof (StarTransactionTypeUnsupported).ensure ();
         typeof (StarTransaction).ensure ();
         typeof (StarTransactions).ensure ();
@@ -399,12 +405,14 @@ public sealed class TDLib.Client : Object {
         typeof (MessageSponsor).ensure ();
         typeof (SponsoredMessage).ensure ();
         typeof (SponsoredMessages).ensure ();
+        typeof (SponsoredChat).ensure ();
+        typeof (SponsoredChats).ensure ();
         typeof (ReportOption).ensure ();
-        typeof (ReportChatSponsoredMessageResultOk).ensure ();
-        typeof (ReportChatSponsoredMessageResultFailed).ensure ();
-        typeof (ReportChatSponsoredMessageResultOptionRequired).ensure ();
-        typeof (ReportChatSponsoredMessageResultAdsHidden).ensure ();
-        typeof (ReportChatSponsoredMessageResultPremiumRequired).ensure ();
+        typeof (ReportSponsoredResultOk).ensure ();
+        typeof (ReportSponsoredResultFailed).ensure ();
+        typeof (ReportSponsoredResultOptionRequired).ensure ();
+        typeof (ReportSponsoredResultAdsHidden).ensure ();
+        typeof (ReportSponsoredResultPremiumRequired).ensure ();
         typeof (FileDownload).ensure ();
         typeof (DownloadedFileCounts).ensure ();
         typeof (FoundFileDownloads).ensure ();
@@ -776,6 +784,8 @@ public sealed class TDLib.Client : Object {
         typeof (MessageGift).ensure ();
         typeof (MessageUpgradedGift).ensure ();
         typeof (MessageRefundedUpgradedGift).ensure ();
+        typeof (MessagePaidMessagesRefunded).ensure ();
+        typeof (MessagePaidMessagePriceChanged).ensure ();
         typeof (MessageContactRegistered).ensure ();
         typeof (MessageUsersShared).ensure ();
         typeof (MessageChatShared).ensure ();
@@ -1209,6 +1219,8 @@ public sealed class TDLib.Client : Object {
         typeof (StorePaymentPurposeStarGiveaway).ensure ();
         typeof (StorePaymentPurposeStars).ensure ();
         typeof (StorePaymentPurposeGiftedStars).ensure ();
+        typeof (StoreTransactionAppStore).ensure ();
+        typeof (StoreTransactionGooglePlay).ensure ();
         typeof (TelegramPaymentPurposePremiumGift).ensure ();
         typeof (TelegramPaymentPurposePremiumGiftCodes).ensure ();
         typeof (TelegramPaymentPurposePremiumGiveaway).ensure ();
@@ -1653,6 +1665,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateQuickReplyShortcuts).ensure ();
         typeof (UpdateQuickReplyShortcutMessages).ensure ();
         typeof (UpdateForumTopicInfo).ensure ();
+        typeof (UpdateForumTopic).ensure ();
         typeof (UpdateScopeNotificationSettings).ensure ();
         typeof (UpdateReactionNotificationSettings).ensure ();
         typeof (UpdateNotification).ensure ();
@@ -1707,6 +1720,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateProfileAccentColors).ensure ();
         typeof (UpdateLanguagePackStrings).ensure ();
         typeof (UpdateConnectionState).ensure ();
+        typeof (UpdateFreezeState).ensure ();
         typeof (UpdateTermsOfService).ensure ();
         typeof (UpdateUnconfirmedSession).ensure ();
         typeof (UpdateAttachmentMenuBots).ensure ();
@@ -1928,7 +1942,8 @@ public sealed class TDLib.Client : Object {
      * the user. Works only when the current authorization state is
      * authorizationStateWaitPhoneNumber,
      * or if there is no pending authentication query and the current
-     * authorization state is authorizationStateWaitEmailAddress,
+     * authorization state is authorizationStateWaitPremiumPurchase,
+     * authorizationStateWaitEmailAddress,
      * authorizationStateWaitEmailCode, authorizationStateWaitCode,
      * authorizationStateWaitRegistration, or authorizationStateWaitPassword
      * @param phone_number The phone number of the user, in international
@@ -1956,6 +1971,113 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (set_authentication_phone_number.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Checks whether an in-store purchase of Telegram Premium is possible
+     * before authorization. Works only when the current authorization state
+     * is authorizationStateWaitPremiumPurchase
+     * @param currency ISO 4217 currency code of the payment currency
+     * @param amount Paid amount, in the smallest units of the currency
+     */
+    public async Ok check_authentication_premium_purchase (
+        string currency,
+        int64 amount
+    ) throws TDLibError {
+        try {
+
+        var obj = new CheckAuthenticationPremiumPurchase (
+            currency,
+            amount
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (check_authentication_premium_purchase.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Informs server about an in-store purchase of Telegram Premium before
+     * authorization. Works only when the current authorization state is
+     * authorizationStateWaitPremiumPurchase
+     * @param transaction Information about the transaction
+     * @param is_restore Pass true if this is a restore of a Telegram Premium
+     * purchase; only for App Store
+     * @param currency ISO 4217 currency code of the payment currency
+     * @param amount Paid amount, in the smallest units of the currency
+     */
+    public async Ok set_authentication_premium_purchase_transaction (
+        StoreTransaction transaction,
+        bool is_restore,
+        string currency,
+        int64 amount
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetAuthenticationPremiumPurchaseTransaction (
+            transaction,
+            is_restore,
+            currency,
+            amount
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_authentication_premium_purchase_transaction.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -2172,7 +2294,8 @@ public sealed class TDLib.Client : Object {
      * logged in device. Works only when the current authorization state is
      * authorizationStateWaitPhoneNumber,
      * or if there is no pending authentication query and the current
-     * authorization state is authorizationStateWaitEmailAddress,
+     * authorization state is authorizationStateWaitPremiumPurchase,
+     * authorizationStateWaitEmailAddress,
      * authorizationStateWaitEmailCode, authorizationStateWaitCode,
      * authorizationStateWaitRegistration, or authorizationStateWaitPassword
      * @param other_user_ids List of user identifiers of other users
@@ -7946,7 +8069,7 @@ public sealed class TDLib.Client : Object {
      * @param option_id Option identifier chosen by the user; leave empty for
      * the initial request
      */
-    public async ReportChatSponsoredMessageResult report_chat_sponsored_message (
+    public async ReportSponsoredResult report_chat_sponsored_message (
         int64 chat_id,
         int64 message_id,
         Bytes option_id
@@ -7984,7 +8107,194 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (ReportChatSponsoredMessageResult) jsoner.deserialize_object (null);
+        return (ReportSponsoredResult) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns sponsored chats to be shown in the search results
+     * @param query Query the user searches for
+     */
+    public async SponsoredChats get_search_sponsored_chats (
+        string query
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetSearchSponsoredChats (
+            query
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_search_sponsored_chats.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (SponsoredChats) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Informs TDLib that the user fully viewed a sponsored chat
+     * @param sponsored_chat_unique_id Unique identifier of the sponsored
+     * chat
+     */
+    public async Ok view_sponsored_chat (
+        int64 sponsored_chat_unique_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ViewSponsoredChat (
+            sponsored_chat_unique_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (view_sponsored_chat.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Informs TDLib that the user opened a sponsored chat
+     * @param sponsored_chat_unique_id Unique identifier of the sponsored
+     * chat
+     */
+    public async Ok open_sponsored_chat (
+        int64 sponsored_chat_unique_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new OpenSponsoredChat (
+            sponsored_chat_unique_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (open_sponsored_chat.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Reports a sponsored chat to Telegram moderators
+     * @param sponsored_chat_unique_id Unique identifier of the sponsored
+     * chat
+     * @param option_id Option identifier chosen by the user; leave empty for
+     * the initial request
+     */
+    public async ReportSponsoredResult report_sponsored_chat (
+        int64 sponsored_chat_unique_id,
+        Bytes option_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReportSponsoredChat (
+            sponsored_chat_unique_id,
+            option_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (report_sponsored_chat.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (ReportSponsoredResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -10521,6 +10831,565 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (set_business_message_is_pinned.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Reads a message on behalf of a business account; for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * through which the message was received
+     * @param chat_id The chat the message belongs to
+     * @param message_id Identifier of the message
+     */
+    public async Ok read_business_message (
+        string business_connection_id,
+        int64 chat_id,
+        int64 message_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReadBusinessMessage (
+            business_connection_id,
+            chat_id,
+            message_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (read_business_message.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Deletes messages on behalf of a business account; for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * through which the messages were received
+     * @param message_ids Identifier of the messages
+     */
+    public async Ok delete_business_messages (
+        string business_connection_id,
+        Gee.ArrayList<int64?> message_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeleteBusinessMessages (
+            business_connection_id,
+            message_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (delete_business_messages.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes a story sent by the bot on behalf of a business account; for
+     * bots only
+     * @param story_sender_chat_id Identifier of the chat that posted the
+     * story
+     * @param story_id Identifier of the story to edit
+     * @param content New content of the story
+     * @param areas New clickable rectangle areas to be shown on the story
+     * media
+     * @param caption New story caption
+     * @param privacy_settings The new privacy settings for the story
+     */
+    public async Story edit_business_story (
+        int64 story_sender_chat_id,
+        int32 story_id,
+        InputStoryContent content,
+        InputStoryAreas areas,
+        FormattedText caption,
+        StoryPrivacySettings privacy_settings
+    ) throws TDLibError {
+        try {
+
+        var obj = new EditBusinessStory (
+            story_sender_chat_id,
+            story_id,
+            content,
+            areas,
+            caption,
+            privacy_settings
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (edit_business_story.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Story) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Deletes a story sent by the bot on behalf of a business account; for
+     * bots only
+     * @param business_connection_id Unique identifier of business connection
+     * @param story_id Identifier of the story to delete
+     */
+    public async Ok delete_business_story (
+        string business_connection_id,
+        int32 story_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeleteBusinessStory (
+            business_connection_id,
+            story_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (delete_business_story.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes the first and last name of a business account; for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * @param first_name The new value of the first name for the business
+     * account; 1-64 characters
+     * @param last_name The new value of the optional last name for the
+     * business account; 0-64 characters
+     */
+    public async Ok set_business_account_name (
+        string business_connection_id,
+        string first_name,
+        string last_name
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetBusinessAccountName (
+            business_connection_id,
+            first_name,
+            last_name
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_business_account_name.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes the bio of a business account; for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * @param bio The new value of the bio; 0-getOption("bio_length_max")
+     * characters without line feeds
+     */
+    public async Ok set_business_account_bio (
+        string business_connection_id,
+        string bio
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetBusinessAccountBio (
+            business_connection_id,
+            bio
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_business_account_bio.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes a profile photo of a business account; for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * @param photo Profile photo to set; pass null to remove the photo
+     * @param is_public Pass true to set the public photo, which will be
+     * visible even the main photo is hidden by privacy settings
+     */
+    public async Ok set_business_account_profile_photo (
+        string business_connection_id,
+        InputChatPhoto photo,
+        bool is_public
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetBusinessAccountProfilePhoto (
+            business_connection_id,
+            photo,
+            is_public
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_business_account_profile_photo.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes the editable username of a business account; for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * @param username The new value of the username
+     */
+    public async Ok set_business_account_username (
+        string business_connection_id,
+        string username
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetBusinessAccountUsername (
+            business_connection_id,
+            username
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_business_account_username.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes settings for gift receiving of a business account; for bots
+     * only
+     * @param business_connection_id Unique identifier of business connection
+     * @param settings The new settings
+     */
+    public async Ok set_business_account_gift_settings (
+        string business_connection_id,
+        GiftSettings settings
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetBusinessAccountGiftSettings (
+            business_connection_id,
+            settings
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_business_account_gift_settings.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the amount of Telegram Stars owned by a business account; for
+     * bots only
+     * @param business_connection_id Unique identifier of business connection
+     */
+    public async StarAmount get_business_account_star_amount (
+        string business_connection_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetBusinessAccountStarAmount (
+            business_connection_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_business_account_star_amount.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StarAmount) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Transfer Telegram Stars from the business account to the business bot;
+     * for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * @param star_count Number of Telegram Stars to transfer
+     */
+    public async Ok transfer_business_account_stars (
+        string business_connection_id,
+        int64 star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new TransferBusinessAccountStars (
+            business_connection_id,
+            star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (transfer_business_account_stars.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -29771,7 +30640,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Changes a profile photo for the current user
      * @param photo Profile photo to set
-     * @param is_public Pass true to set a public photo, which will be
+     * @param is_public Pass true to set the public photo, which will be
      * visible even the main photo is hidden by privacy settings
      */
     public async Ok set_profile_photo (
@@ -34698,6 +35567,51 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Changes settings for gift receiving for the current user
+     * @param settings The new settings
+     */
+    public async Ok set_gift_settings (
+        GiftSettings settings
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetGiftSettings (
+            settings
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_gift_settings.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Returns gifts that can be sent to other users and channel chats
      */
     public async Gifts get_available_gifts () throws TDLibError {
@@ -34803,14 +35717,18 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Sells a gift for Telegram Stars
+     * @param business_connection_id Unique identifier of business connection
+     * on behalf of which to send the request; for bots only
      * @param received_gift_id Identifier of the gift
      */
     public async Ok sell_gift (
+        string business_connection_id,
         string received_gift_id
     ) throws TDLibError {
         try {
 
         var obj = new SellGift (
+            business_connection_id,
             received_gift_id
         );
         string json_response = "";
@@ -35048,6 +35966,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Upgrades a regular gift
+     * @param business_connection_id Unique identifier of business connection
+     * on behalf of which to send the request; for bots only
      * @param received_gift_id Identifier of the gift
      * @param keep_original_details Pass true to keep the original gift text,
      * sender and receiver in the upgraded gift
@@ -35056,6 +35976,7 @@ public sealed class TDLib.Client : Object {
      * otherwise, pass gift.upgrade_star_count
      */
     public async UpgradeGiftResult upgrade_gift (
+        string business_connection_id,
         string received_gift_id,
         bool keep_original_details,
         int64 star_count
@@ -35063,6 +35984,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new UpgradeGift (
+            business_connection_id,
             received_gift_id,
             keep_original_details,
             star_count
@@ -35102,6 +36024,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Sends an upgraded gift to another user or a channel chat
+     * @param business_connection_id Unique identifier of business connection
+     * on behalf of which to send the request; for bots only
      * @param received_gift_id Identifier of the gift
      * @param new_owner_id Identifier of the user or the channel chat that
      * will receive the gift
@@ -35109,6 +36033,7 @@ public sealed class TDLib.Client : Object {
      * transfer
      */
     public async Ok transfer_gift (
+        string business_connection_id,
         string received_gift_id,
         MessageSender new_owner_id,
         int64 star_count
@@ -35116,6 +36041,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new TransferGift (
+            business_connection_id,
             received_gift_id,
             new_owner_id,
             star_count
@@ -35155,6 +36081,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns gifts received by the given user or chat
+     * @param business_connection_id Unique identifier of business connection
+     * on behalf of which to send the request; for bots only
      * @param owner_id Identifier of the gift receiver
      * @param exclude_unsaved Pass true to exclude gifts that aren't saved to
      * the chat's profile page. Always true for gifts received by other users
@@ -35177,6 +36105,7 @@ public sealed class TDLib.Client : Object {
      * the specified limit
      */
     public async ReceivedGifts get_received_gifts (
+        string business_connection_id,
         MessageSender owner_id,
         bool exclude_unsaved,
         bool exclude_saved,
@@ -35190,6 +36119,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new GetReceivedGifts (
+            business_connection_id,
             owner_id,
             exclude_unsaved,
             exclude_saved,
@@ -40791,6 +41721,66 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Allows to buy a Telegram Premium subscription for another user with
+     * payment in Telegram Stars; for bots only
+     * @param user_id Identifier of the user which will receive Telegram
+     * Premium
+     * @param star_count The number of Telegram Stars to pay for subscription
+     * @param month_count Number of months the Telegram Premium subscription
+     * will be active for the user
+     * @param text Text to show to the user receiving Telegram Premium;
+     * 0-getOption("gift_text_length_max") characters. Only Bold, Italic,
+     * Underline, Strikethrough, Spoiler, and CustomEmoji entities are
+     * allowed
+     */
+    public async Ok gift_premium_with_stars (
+        int64 user_id,
+        int64 star_count,
+        int32 month_count,
+        FormattedText text
+    ) throws TDLibError {
+        try {
+
+        var obj = new GiftPremiumWithStars (
+            user_id,
+            star_count,
+            month_count,
+            text
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (gift_premium_with_stars.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Launches a prepaid giveaway
      * @param giveaway_id Unique identifier of the prepaid giveaway
      * @param parameters Giveaway parameters
@@ -41138,7 +42128,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Checks whether an in-store purchase is possible. Must be called before
-     * any in-store purchase
+     * any in-store purchase. For official applications only
      * @param purpose Transaction purpose
      */
     public async Ok can_purchase_from_store (
@@ -41183,19 +42173,19 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Informs server about a purchase through App Store. For official
-     * applications only
-     * @param receipt App Store receipt
+     * Informs server about an in-store purchase. For official applications
+     * only
+     * @param transaction Information about the transaction
      * @param purpose Transaction purpose
      */
-    public async Ok assign_app_store_transaction (
-        Bytes receipt,
+    public async Ok assign_store_transaction (
+        StoreTransaction transaction,
         StorePaymentPurpose purpose
     ) throws TDLibError {
         try {
 
-        var obj = new AssignAppStoreTransaction (
-            receipt,
+        var obj = new AssignStoreTransaction (
+            transaction,
             purpose
         );
         string json_response = "";
@@ -41207,62 +42197,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (assign_app_store_transaction.callback);
-            }
-        });
-        TDJsonApi.send (client_id, json_string);
-
-        yield;
-        SignalHandler.disconnect (request_manager, conid);
-
-        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
-        string tdlib_type = jsoner.deserialize_value ().get_string ();
-
-        if (tdlib_type == "error") {
-            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
-            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
-        }
-
-        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Ok) jsoner.deserialize_object (null);
-
-        } catch (JsonError e) {
-            throw new TDLibError.COMMON ("Error while parsing json");
-        }
-    }
-
-    /**
-     * Informs server about a purchase through Google Play. For official
-     * applications only
-     * @param package_name Application package name
-     * @param store_product_id Identifier of the purchased store product
-     * @param purchase_token Google Play purchase token
-     * @param purpose Transaction purpose
-     */
-    public async Ok assign_google_play_transaction (
-        string package_name,
-        string store_product_id,
-        string purchase_token,
-        StorePaymentPurpose purpose
-    ) throws TDLibError {
-        try {
-
-        var obj = new AssignGooglePlayTransaction (
-            package_name,
-            store_product_id,
-            purchase_token,
-            purpose
-        );
-        string json_response = "";
-
-        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
-
-        GLib.debug ("send %d %s", client_id, json_string);
-
-        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
-            if (request_extra == obj.tdlib_extra) {
-                json_response = response;
-                Idle.add (assign_google_play_transaction.callback);
+                Idle.add (assign_store_transaction.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);

@@ -25,6 +25,11 @@
 public class TDLib.ForumTopicInfo : Error {
 
     /**
+     * Identifier of the forum chat to which the topic belongs
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
      * Message thread identifier of the topic
      */
     public int64 message_thread_id { get; construct set; }
@@ -71,6 +76,7 @@ public class TDLib.ForumTopicInfo : Error {
     public bool is_hidden { get; construct set; }
 
     public ForumTopicInfo (
+        int64 chat_id,
         int64 message_thread_id,
         string name,
         ForumTopicIcon icon,
@@ -82,6 +88,7 @@ public class TDLib.ForumTopicInfo : Error {
         bool is_hidden
     ) {
         Object (
+            chat_id: chat_id,
             message_thread_id: message_thread_id,
             name: name,
             icon: icon,

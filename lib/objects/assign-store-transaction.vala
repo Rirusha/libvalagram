@@ -20,43 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Informs server about a purchase through Google Play. For official
- * applications only
+ * Informs server about an in-store purchase. For official applications
+ * only
  */
-public class TDLib.AssignGooglePlayTransaction : TDObject {
+public class TDLib.AssignStoreTransaction : TDObject {
 
     /**
-     * Application package name
+     * Information about the transaction
      */
-    public string package_name { get; construct set; }
-
-    /**
-     * Identifier of the purchased store product
-     */
-    public string store_product_id { get; construct set; }
-
-    /**
-     * Google Play purchase token
-     */
-    public string purchase_token { get; construct set; }
+    public StoreTransaction transaction { get; construct set; }
 
     /**
      * Transaction purpose
      */
     public StorePaymentPurpose purpose { get; construct set; }
 
-    public AssignGooglePlayTransaction (
-        string package_name,
-        string store_product_id,
-        string purchase_token,
+    public AssignStoreTransaction (
+        StoreTransaction transaction,
         StorePaymentPurpose purpose
     ) {
         Object (
-            package_name: package_name,
-            store_product_id: store_product_id,
-            purchase_token: purchase_token,
+            transaction: transaction,
             purpose: purpose,
-            tdlib_type: "assignGooglePlayTransaction",
+            tdlib_type: "assignStoreTransaction",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,36 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Contains settings for gift receiving for a user
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.GiftSettings : Error {
 
     /**
-     * Name of the symbol
+     * True, if a button for sending a gift to the user or by the user must
+     * always be shown in the input field
      */
-    public string name { get; construct set; }
+    public bool show_gift_button { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * Types of gifts accepted by the user; for Telegram Premium users only
      */
-    public Sticker sticker { get; construct set; }
+    public AcceptedGiftTypes accepted_gift_types { get; construct set; }
 
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public GiftSettings (
+        bool show_gift_button,
+        AcceptedGiftTypes accepted_gift_types
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            show_gift_button: show_gift_button,
+            accepted_gift_types: accepted_gift_types,
+            tdlib_type: "giftSettings",
             tdlib_extra: Uuid.string_random ()
         );
     }

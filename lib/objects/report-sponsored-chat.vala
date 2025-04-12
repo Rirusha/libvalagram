@@ -20,36 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a symbol shown on the pattern of an upgraded gift
+ * Reports a sponsored chat to Telegram moderators
  */
-public class TDLib.UpgradedGiftSymbol : Error {
+public class TDLib.ReportSponsoredChat : TDObject {
 
     /**
-     * Name of the symbol
+     * Unique identifier of the sponsored chat
      */
-    public string name { get; construct set; }
+    public int64 sponsored_chat_unique_id { get; construct set; }
 
     /**
-     * The sticker representing the symbol
+     * Option identifier chosen by the user; leave empty for the initial
+     * request
      */
-    public Sticker sticker { get; construct set; }
+    public Bytes option_id { get; construct set; }
 
-    /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftSymbol (
-        string name,
-        Sticker sticker,
-        int32 rarity_per_mille
+    public ReportSponsoredChat (
+        int64 sponsored_chat_unique_id,
+        Bytes option_id
     ) {
         Object (
-            name: name,
-            sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftSymbol",
+            sponsored_chat_unique_id: sponsored_chat_unique_id,
+            option_id: option_id,
+            tdlib_type: "reportSponsoredChat",
             tdlib_extra: Uuid.string_random ()
         );
     }

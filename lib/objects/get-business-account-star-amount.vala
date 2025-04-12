@@ -20,29 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Informs server about a purchase through App Store. For official
- * applications only
+ * Returns the amount of Telegram Stars owned by a business account; for
+ * bots only
  */
-public class TDLib.AssignAppStoreTransaction : TDObject {
+public class TDLib.GetBusinessAccountStarAmount : TDObject {
 
     /**
-     * App Store receipt
+     * Unique identifier of business connection
      */
-    public Bytes receipt { get; construct set; }
+    public string business_connection_id { get; construct set; }
 
-    /**
-     * Transaction purpose
-     */
-    public StorePaymentPurpose purpose { get; construct set; }
-
-    public AssignAppStoreTransaction (
-        Bytes receipt,
-        StorePaymentPurpose purpose
+    public GetBusinessAccountStarAmount (
+        string business_connection_id
     ) {
         Object (
-            receipt: receipt,
-            purpose: purpose,
-            tdlib_type: "assignAppStoreTransaction",
+            business_connection_id: business_connection_id,
+            tdlib_type: "getBusinessAccountStarAmount",
             tdlib_extra: Uuid.string_random ()
         );
     }

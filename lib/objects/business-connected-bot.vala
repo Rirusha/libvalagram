@@ -35,20 +35,19 @@ public class TDLib.BusinessConnectedBot : Error {
     public BusinessRecipients recipients { get; construct set; }
 
     /**
-     * True, if the bot can send messages to the private chats; false
-     * otherwise
+     * Rights of the bot
      */
-    public bool can_reply { get; construct set; }
+    public BusinessBotRights rights { get; construct set; }
 
     public BusinessConnectedBot (
         int64 bot_user_id,
         BusinessRecipients recipients,
-        bool can_reply
+        BusinessBotRights rights
     ) {
         Object (
             bot_user_id: bot_user_id,
             recipients: recipients,
-            can_reply: can_reply,
+            rights: rights,
             tdlib_type: "businessConnectedBot",
             tdlib_extra: Uuid.string_random ()
         );

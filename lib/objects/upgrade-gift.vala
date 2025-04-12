@@ -25,6 +25,12 @@
 public class TDLib.UpgradeGift : TDObject {
 
     /**
+     * Unique identifier of business connection on behalf of which to send
+     * the request; for bots only
+     */
+    public string business_connection_id { get; construct set; }
+
+    /**
      * Identifier of the gift
      */
     public string received_gift_id { get; construct set; }
@@ -43,11 +49,13 @@ public class TDLib.UpgradeGift : TDObject {
     public int64 star_count { get; construct set; }
 
     public UpgradeGift (
+        string business_connection_id,
         string received_gift_id,
         bool keep_original_details,
         int64 star_count
     ) {
         Object (
+            business_connection_id: business_connection_id,
             received_gift_id: received_gift_id,
             keep_original_details: keep_original_details,
             star_count: star_count,

@@ -844,7 +844,7 @@ public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
 
 /**
  * The transaction is a purchase of Telegram Premium subscription; for
- * regular users only
+ * regular users and bots only
  */
 public class TDLib.StarTransactionTypePremiumPurchase : StarTransactionType {
 
@@ -874,6 +874,50 @@ public class TDLib.StarTransactionTypePremiumPurchase : StarTransactionType {
             month_count: month_count,
             sticker: sticker,
             tdlib_type: "starTransactionTypePremiumPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a transfer of Telegram Stars to a business bot; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypeBusinessBotTransferSend : StarTransactionType {
+
+    /**
+     * Identifier of the bot that received Telegram Stars
+     */
+    public int64 user_id { get; construct set; }
+
+    public StarTransactionTypeBusinessBotTransferSend (
+        int64 user_id
+    ) {
+        Object (
+            user_id: user_id,
+            tdlib_type: "starTransactionTypeBusinessBotTransferSend",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a transfer of Telegram Stars from a business
+ * account; for bots only
+ */
+public class TDLib.StarTransactionTypeBusinessBotTransferReceive : StarTransactionType {
+
+    /**
+     * Identifier of the user that sent Telegram Stars
+     */
+    public int64 user_id { get; construct set; }
+
+    public StarTransactionTypeBusinessBotTransferReceive (
+        int64 user_id
+    ) {
+        Object (
+            user_id: user_id,
+            tdlib_type: "starTransactionTypeBusinessBotTransferReceive",
             tdlib_extra: Uuid.string_random ()
         );
     }

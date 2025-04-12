@@ -24,7 +24,8 @@
  * logged in device. Works only when the current authorization state is
  * authorizationStateWaitPhoneNumber,
  * or if there is no pending authentication query and the current
- * authorization state is authorizationStateWaitEmailAddress,
+ * authorization state is authorizationStateWaitPremiumPurchase,
+ * authorizationStateWaitEmailAddress,
  * authorizationStateWaitEmailCode, authorizationStateWaitCode,
  * authorizationStateWaitRegistration, or authorizationStateWaitPassword
  */
