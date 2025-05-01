@@ -27,9 +27,9 @@
 public class TDLib.GetChatStoryInteractions : TDObject {
 
     /**
-     * The identifier of the sender of the story
+     * The identifier of the poster of the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Story identifier
@@ -62,7 +62,7 @@ public class TDLib.GetChatStoryInteractions : TDObject {
     public int32 limit { get; construct set; }
 
     public GetChatStoryInteractions (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         ReactionType reaction_type,
         bool prefer_forwards,
@@ -70,7 +70,7 @@ public class TDLib.GetChatStoryInteractions : TDObject {
         int32 limit
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             reaction_type: reaction_type,
             prefer_forwards: prefer_forwards,

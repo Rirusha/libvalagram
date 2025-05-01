@@ -28,7 +28,7 @@ public class TDLib.EditStory : TDObject {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Identifier of the story to edit
@@ -53,14 +53,14 @@ public class TDLib.EditStory : TDObject {
     public FormattedText caption { get; construct set; }
 
     public EditStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         InputStoryContent content,
         InputStoryAreas areas,
         FormattedText caption
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             content: content,
             areas: areas,

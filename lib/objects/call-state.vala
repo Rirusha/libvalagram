@@ -101,6 +101,12 @@ public class TDLib.CallStateReady : CallState {
     public bool allow_p2p { get; construct set; }
 
     /**
+     * True, if the other party supports upgrading of the call to a group
+     * call
+     */
+    public bool is_group_call_supported { get; construct set; }
+
+    /**
      * Custom JSON-encoded call parameters to be passed to tgcalls
      */
     public string custom_parameters { get; construct set; }
@@ -112,6 +118,7 @@ public class TDLib.CallStateReady : CallState {
         Bytes encryption_key,
         Gee.ArrayList<string?> emojis,
         bool allow_p2p,
+        bool is_group_call_supported,
         string custom_parameters
     ) {
         Object (
@@ -121,6 +128,7 @@ public class TDLib.CallStateReady : CallState {
             encryption_key: encryption_key,
             emojis: emojis,
             allow_p2p: allow_p2p,
+            is_group_call_supported: is_group_call_supported,
             custom_parameters: custom_parameters,
             tdlib_type: "callStateReady",
             tdlib_extra: Uuid.string_random ()

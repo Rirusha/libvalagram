@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * The content of a story to send
+ * The content of a story to post
  */
 public abstract class TDLib.InputStoryContent : Error {}
 

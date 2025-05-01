@@ -20,16 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns supergroup and channel chats in which the current user has the
- * right to post stories. The chats must be rechecked with
- * {@link Client.can_send_story} before actually trying to post a story
- * there
+ * Declines an invitation to an active group call via messageGroupCall.
+ * Can be called both by the sender and the receiver of the invitation
  */
-public class TDLib.GetChatsToSendStories : TDObject {
+public class TDLib.DeclineGroupCallInvitation : TDObject {
 
-    public GetChatsToSendStories () {
+    /**
+     * Identifier of the chat with the message
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Identifier of the message of the type messageGroupCall
+     */
+    public int64 message_id { get; construct set; }
+
+    public DeclineGroupCallInvitation (
+        int64 chat_id,
+        int64 message_id
+    ) {
         Object (
-            tdlib_type: "getChatsToSendStories",
+            chat_id: chat_id,
+            message_id: message_id,
+            tdlib_type: "declineGroupCallInvitation",
             tdlib_extra: Uuid.string_random ()
         );
     }

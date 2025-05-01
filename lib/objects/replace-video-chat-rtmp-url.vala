@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Replaces the current RTMP URL for streaming to the chat; requires
- * owner privileges
+ * Replaces the current RTMP URL for streaming to the video chat of a
+ * chat; requires owner privileges in the chat
  */
 public class TDLib.ReplaceVideoChatRtmpUrl : TDObject {
 

@@ -20,22 +20,23 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns RTMP URL for streaming to the video chat of a chat; requires
- * can_manage_video_chats administrator right
+ * Checks whether the current user can post a story on behalf of a chat;
+ * requires can_post_stories right for supergroup and channel chats
  */
-public class TDLib.GetVideoChatRtmpUrl : TDObject {
+public class TDLib.CanPostStory : TDObject {
 
     /**
-     * Chat identifier
+     * Chat identifier. Pass Saved Messages chat identifier when posting a
+     * story on behalf of the current user
      */
     public int64 chat_id { get; construct set; }
 
-    public GetVideoChatRtmpUrl (
+    public CanPostStory (
         int64 chat_id
     ) {
         Object (
             chat_id: chat_id,
-            tdlib_type: "getVideoChatRtmpUrl",
+            tdlib_type: "canPostStory",
             tdlib_extra: Uuid.string_random ()
         );
     }

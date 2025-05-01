@@ -21,7 +21,8 @@
 
 /**
  * Revokes invite link for a group call. Requires
- * groupCall.can_be_managed group call flag
+ * groupCall.can_be_managed right for video chats or groupCall.is_owned
+ * otherwise
  */
 public class TDLib.RevokeGroupCallInviteLink : TDObject {
 

@@ -65,7 +65,8 @@ public class TDLib.PhoneNumberAuthenticationSettings : Error {
 
     /**
      * List of up to 20 authentication tokens, recently received in
-     * updateOption("authentication_token") in previously logged out sessions
+     * updateOption("authentication_token") in previously logged out
+     * sessions; for {@link Client.set_authentication_phone_number} only
      */
     public Gee.ArrayList<string?> authentication_tokens { get; construct set; default = new Gee.ArrayList<string?> (); }
 

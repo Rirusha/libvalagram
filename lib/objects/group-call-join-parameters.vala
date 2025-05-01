@@ -20,37 +20,42 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes an available stream in a group call
+ * Describes parameters used to join a group call
  */
-public class TDLib.GroupCallStream : Error {
+public class TDLib.GroupCallJoinParameters : Error {
 
     /**
-     * Identifier of an audio/video channel
+     * Audio channel synchronization source identifier; received from tgcalls
      */
-    public int32 channel_id { get; construct set; }
+    public int32 audio_source_id { get; construct set; }
 
     /**
-     * Scale of segment durations in the stream. The duration is
-     * 1000/(2**scale) milliseconds
+     * Group call join payload; received from tgcalls
      */
-    public int32 scale { get; construct set; }
+    public string payload { get; construct set; }
 
     /**
-     * Point in time when the stream currently ends; Unix timestamp in
-     * milliseconds
+     * Pass true to join the call with muted microphone
      */
-    public int64 time_offset { get; construct set; }
+    public bool is_muted { get; construct set; }
 
-    public GroupCallStream (
-        int32 channel_id,
-        int32 scale,
-        int64 time_offset
+    /**
+     * Pass true if the user's video is enabled
+     */
+    public bool is_my_video_enabled { get; construct set; }
+
+    public GroupCallJoinParameters (
+        int32 audio_source_id,
+        string payload,
+        bool is_muted,
+        bool is_my_video_enabled
     ) {
         Object (
-            channel_id: channel_id,
-            scale: scale,
-            time_offset: time_offset,
-            tdlib_type: "groupCallStream",
+            audio_source_id: audio_source_id,
+            payload: payload,
+            is_muted: is_muted,
+            is_my_video_enabled: is_my_video_enabled,
+            tdlib_type: "groupCallJoinParameters",
             tdlib_extra: Uuid.string_random ()
         );
     }

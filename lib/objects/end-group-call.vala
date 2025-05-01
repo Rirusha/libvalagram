@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed
+ * Ends a group call. Requires groupCall.can_be_managed right for video
+ * chats or groupCall.is_owned otherwise
  */
 public class TDLib.EndGroupCall : TDObject {
 

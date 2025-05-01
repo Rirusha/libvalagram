@@ -20,11 +20,11 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether new participants of a group call can be unmuted only
- * by administrators of the group call. Requires
- * groupCall.can_toggle_mute_new_participants group call flag
+ * Toggles whether new participants of a video chat can be unmuted only
+ * by administrators of the video chat. Requires
+ * groupCall.can_toggle_mute_new_participants right
  */
-public class TDLib.ToggleGroupCallMuteNewParticipants : TDObject {
+public class TDLib.ToggleVideoChatMuteNewParticipants : TDObject {
 
     /**
      * Group call identifier
@@ -36,14 +36,14 @@ public class TDLib.ToggleGroupCallMuteNewParticipants : TDObject {
      */
     public bool mute_new_participants { get; construct set; }
 
-    public ToggleGroupCallMuteNewParticipants (
+    public ToggleVideoChatMuteNewParticipants (
         int32 group_call_id,
         bool mute_new_participants
     ) {
         Object (
             group_call_id: group_call_id,
             mute_new_participants: mute_new_participants,
-            tdlib_type: "toggleGroupCallMuteNewParticipants",
+            tdlib_type: "toggleVideoChatMuteNewParticipants",
             tdlib_extra: Uuid.string_random ()
         );
     }

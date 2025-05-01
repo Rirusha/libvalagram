@@ -20,21 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains a part of a file
+ * Contains some binary data
  */
-public class TDLib.FilePart : Error {
+public class TDLib.Data : Error {
 
     /**
-     * File bytes
+     * Data
      */
     public Bytes data { get; construct set; }
 
-    public FilePart (
+    public Data (
         Bytes data
     ) {
         Object (
             data: data,
-            tdlib_type: "filePart",
+            tdlib_type: "data",
             tdlib_extra: Uuid.string_random ()
         );
     }

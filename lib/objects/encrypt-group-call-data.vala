@@ -20,29 +20,43 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Invites users to an active group call. Sends a service message of type
- * messageInviteVideoChatParticipants for video chats
+ * Encrypts group call data before sending them over network using
+ * tgcalls
  */
-public class TDLib.InviteGroupCallParticipants : TDObject {
+public class TDLib.EncryptGroupCallData : TDObject {
 
     /**
-     * Group call identifier
+     * Group call identifier. The call must not be a video chat
      */
     public int32 group_call_id { get; construct set; }
 
     /**
-     * User identifiers. At most 10 users can be invited simultaneously
+     * Data channel for which data is encrypted
      */
-    public Gee.ArrayList<int64?> user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
+    public GroupCallDataChannel data_channel { get; construct set; }
 
-    public InviteGroupCallParticipants (
+    /**
+     * Data to encrypt
+     */
+    public Bytes data { get; construct set; }
+
+    /**
+     * Size of data prefix that must be kept unencrypted
+     */
+    public int32 unencrypted_prefix_size { get; construct set; }
+
+    public EncryptGroupCallData (
         int32 group_call_id,
-        Gee.ArrayList<int64?> user_ids
+        GroupCallDataChannel data_channel,
+        Bytes data,
+        int32 unencrypted_prefix_size
     ) {
         Object (
             group_call_id: group_call_id,
-            user_ids: user_ids,
-            tdlib_type: "inviteGroupCallParticipants",
+            data_channel: data_channel,
+            data: data,
+            unencrypted_prefix_size: unencrypted_prefix_size,
+            tdlib_type: "encryptGroupCallData",
             tdlib_extra: Uuid.string_random ()
         );
     }

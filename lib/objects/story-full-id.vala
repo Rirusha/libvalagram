@@ -20,26 +20,27 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains identifier of a story along with identifier of its sender
+ * Contains identifier of a story along with identifier of the chat that
+ * posted it
  */
 public class TDLib.StoryFullId : Error {
 
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 sender_chat_id { get; construct set; }
+    public int64 poster_chat_id { get; construct set; }
 
     /**
-     * Unique story identifier among stories of the given sender
+     * Unique story identifier among stories of the chat
      */
     public int32 story_id { get; construct set; }
 
     public StoryFullId (
-        int64 sender_chat_id,
+        int64 poster_chat_id,
         int32 story_id
     ) {
         Object (
-            sender_chat_id: sender_chat_id,
+            poster_chat_id: poster_chat_id,
             story_id: story_id,
             tdlib_type: "storyFullId",
             tdlib_extra: Uuid.string_random ()

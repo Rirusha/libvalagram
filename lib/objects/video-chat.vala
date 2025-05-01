@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a video chat
+ * Describes a video chat, i.e. a group call bound to a chat
  */
 public class TDLib.VideoChat : Error {
 

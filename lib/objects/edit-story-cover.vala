@@ -28,7 +28,7 @@ public class TDLib.EditStoryCover : TDObject {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Identifier of the story to edit
@@ -41,12 +41,12 @@ public class TDLib.EditStoryCover : TDObject {
     public double cover_frame_timestamp { get; construct set; }
 
     public EditStoryCover (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         double cover_frame_timestamp
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             cover_frame_timestamp: cover_frame_timestamp,
             tdlib_type: "editStoryCover",

@@ -973,7 +973,7 @@ public class TDLib.InputMessagePoll : InputMessageContent {
 }
 
 /**
- * A message with a forwarded story. Stories can't be sent to secret
+ * A message with a forwarded story. Stories can't be forwarded to secret
  * chats. A story can be forwarded only if story.can_be_forwarded
  */
 public class TDLib.InputMessageStory : InputMessageContent {
@@ -981,7 +981,7 @@ public class TDLib.InputMessageStory : InputMessageContent {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Story identifier
@@ -989,11 +989,11 @@ public class TDLib.InputMessageStory : InputMessageContent {
     public int32 story_id { get; construct set; }
 
     public InputMessageStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             tdlib_type: "inputMessageStory",
             tdlib_extra: Uuid.string_random ()

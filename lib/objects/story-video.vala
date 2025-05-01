@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a video file sent in a story
+ * Describes a video file posted as a story
  */
 public class TDLib.StoryVideo : Error {
 

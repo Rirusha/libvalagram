@@ -20,22 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns RTMP URL for streaming to the video chat of a chat; requires
- * can_manage_video_chats administrator right
+ * Sets title of a video chat; requires groupCall.can_be_managed right
  */
-public class TDLib.GetVideoChatRtmpUrl : TDObject {
+public class TDLib.SetVideoChatTitle : TDObject {
 
     /**
-     * Chat identifier
+     * Group call identifier
      */
-    public int64 chat_id { get; construct set; }
+    public int32 group_call_id { get; construct set; }
 
-    public GetVideoChatRtmpUrl (
-        int64 chat_id
+    /**
+     * New group call title; 1-64 characters
+     */
+    public string title { get; construct set; }
+
+    public SetVideoChatTitle (
+        int32 group_call_id,
+        string title
     ) {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "getVideoChatRtmpUrl",
+            group_call_id: group_call_id,
+            title: title,
+            tdlib_type: "setVideoChatTitle",
             tdlib_extra: Uuid.string_random ()
         );
     }

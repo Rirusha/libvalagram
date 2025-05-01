@@ -586,6 +586,7 @@ public sealed class TDLib.Client : Object {
         typeof (LinkPreviewTypeEmbeddedVideoPlayer).ensure ();
         typeof (LinkPreviewTypeExternalAudio).ensure ();
         typeof (LinkPreviewTypeExternalVideo).ensure ();
+        typeof (LinkPreviewTypeGroupCall).ensure ();
         typeof (LinkPreviewTypeInvoice).ensure ();
         typeof (LinkPreviewTypeMessage).ensure ();
         typeof (LinkPreviewTypePhoto).ensure ();
@@ -742,6 +743,7 @@ public sealed class TDLib.Client : Object {
         typeof (MessageStory).ensure ();
         typeof (MessageInvoice).ensure ();
         typeof (MessageCall).ensure ();
+        typeof (MessageGroupCall).ensure ();
         typeof (MessageVideoChatScheduled).ensure ();
         typeof (MessageVideoChatStarted).ensure ();
         typeof (MessageVideoChatEnded).ensure ();
@@ -976,7 +978,7 @@ public sealed class TDLib.Client : Object {
         typeof (CallDiscardReasonDeclined).ensure ();
         typeof (CallDiscardReasonDisconnected).ensure ();
         typeof (CallDiscardReasonHungUp).ensure ();
-        typeof (CallDiscardReasonAllowGroupCall).ensure ();
+        typeof (CallDiscardReasonUpgradeToGroupCall).ensure ();
         typeof (CallProtocol).ensure ();
         typeof (CallServerTypeTelegramReflector).ensure ();
         typeof (CallServerTypeWebrtc).ensure ();
@@ -989,17 +991,28 @@ public sealed class TDLib.Client : Object {
         typeof (CallStateHangingUp).ensure ();
         typeof (CallStateDiscarded).ensure ();
         typeof (CallStateError).ensure ();
+        typeof (GroupCallJoinParameters).ensure ();
         typeof (GroupCallVideoQualityThumbnail).ensure ();
         typeof (GroupCallVideoQualityMedium).ensure ();
         typeof (GroupCallVideoQualityFull).ensure ();
-        typeof (GroupCallStream).ensure ();
-        typeof (GroupCallStreams).ensure ();
+        typeof (VideoChatStream).ensure ();
+        typeof (VideoChatStreams).ensure ();
         typeof (RtmpUrl).ensure ();
         typeof (GroupCallRecentSpeaker).ensure ();
         typeof (GroupCall).ensure ();
         typeof (GroupCallVideoSourceGroup).ensure ();
         typeof (GroupCallParticipantVideoInfo).ensure ();
         typeof (GroupCallParticipant).ensure ();
+        typeof (GroupCallParticipants).ensure ();
+        typeof (GroupCallInfo).ensure ();
+        typeof (InviteGroupCallParticipantResultUserPrivacyRestricted).ensure ();
+        typeof (InviteGroupCallParticipantResultUserAlreadyParticipant).ensure ();
+        typeof (InviteGroupCallParticipantResultUserWasBanned).ensure ();
+        typeof (InviteGroupCallParticipantResultSuccess).ensure ();
+        typeof (GroupCallDataChannelMain).ensure ();
+        typeof (GroupCallDataChannelScreenSharing).ensure ();
+        typeof (InputGroupCallLink).ensure ();
+        typeof (InputGroupCallMessage).ensure ();
         typeof (CallProblemEcho).ensure ();
         typeof (CallProblemNoise).ensure ();
         typeof (CallProblemInterruptions).ensure ();
@@ -1153,8 +1166,8 @@ public sealed class TDLib.Client : Object {
         typeof (PremiumLimitTypeChatFolderInviteLinkCount).ensure ();
         typeof (PremiumLimitTypeShareableChatFolderCount).ensure ();
         typeof (PremiumLimitTypeActiveStoryCount).ensure ();
-        typeof (PremiumLimitTypeWeeklySentStoryCount).ensure ();
-        typeof (PremiumLimitTypeMonthlySentStoryCount).ensure ();
+        typeof (PremiumLimitTypeWeeklyPostedStoryCount).ensure ();
+        typeof (PremiumLimitTypeMonthlyPostedStoryCount).ensure ();
         typeof (PremiumLimitTypeStoryCaptionLength).ensure ();
         typeof (PremiumLimitTypeStorySuggestedReactionAreaCount).ensure ();
         typeof (PremiumLimitTypeSimilarChatCount).ensure ();
@@ -1255,12 +1268,12 @@ public sealed class TDLib.Client : Object {
         typeof (TimeZone).ensure ();
         typeof (TimeZones).ensure ();
         typeof (Hashtags).ensure ();
-        typeof (CanSendStoryResultOk).ensure ();
-        typeof (CanSendStoryResultPremiumNeeded).ensure ();
-        typeof (CanSendStoryResultBoostNeeded).ensure ();
-        typeof (CanSendStoryResultActiveStoryLimitExceeded).ensure ();
-        typeof (CanSendStoryResultWeeklyLimitExceeded).ensure ();
-        typeof (CanSendStoryResultMonthlyLimitExceeded).ensure ();
+        typeof (CanPostStoryResultOk).ensure ();
+        typeof (CanPostStoryResultPremiumNeeded).ensure ();
+        typeof (CanPostStoryResultBoostNeeded).ensure ();
+        typeof (CanPostStoryResultActiveStoryLimitExceeded).ensure ();
+        typeof (CanPostStoryResultWeeklyLimitExceeded).ensure ();
+        typeof (CanPostStoryResultMonthlyLimitExceeded).ensure ();
         typeof (CanTransferOwnershipResultOk).ensure ();
         typeof (CanTransferOwnershipResultPasswordNeeded).ensure ();
         typeof (CanTransferOwnershipResultPasswordTooFresh).ensure ();
@@ -1438,6 +1451,7 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeDefaultMessageAutoDeleteTimerSettings).ensure ();
         typeof (InternalLinkTypeEditProfileSettings).ensure ();
         typeof (InternalLinkTypeGame).ensure ();
+        typeof (InternalLinkTypeGroupCall).ensure ();
         typeof (InternalLinkTypeInstantView).ensure ();
         typeof (InternalLinkTypeInvoice).ensure ();
         typeof (InternalLinkTypeLanguagePack).ensure ();
@@ -1473,7 +1487,6 @@ public sealed class TDLib.Client : Object {
         typeof (ChatBoostLinkInfo).ensure ();
         typeof (BlockListMain).ensure ();
         typeof (BlockListStories).ensure ();
-        typeof (FilePart).ensure ();
         typeof (FileTypeNone).ensure ();
         typeof (FileTypeAnimation).ensure ();
         typeof (FileTypeAudio).ensure ();
@@ -1556,6 +1569,7 @@ public sealed class TDLib.Client : Object {
         typeof (SuggestedActionExtendStarSubscriptions).ensure ();
         typeof (Count).ensure ();
         typeof (Text).ensure ();
+        typeof (Data).ensure ();
         typeof (Seconds).ensure ();
         typeof (FileDownloadedPrefixSize).ensure ();
         typeof (StarCount).ensure ();
@@ -1695,14 +1709,16 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateCall).ensure ();
         typeof (UpdateGroupCall).ensure ();
         typeof (UpdateGroupCallParticipant).ensure ();
+        typeof (UpdateGroupCallParticipants).ensure ();
+        typeof (UpdateGroupCallVerificationState).ensure ();
         typeof (UpdateNewCallSignalingData).ensure ();
         typeof (UpdateUserPrivacySettingRules).ensure ();
         typeof (UpdateUnreadMessageCount).ensure ();
         typeof (UpdateUnreadChatCount).ensure ();
         typeof (UpdateStory).ensure ();
         typeof (UpdateStoryDeleted).ensure ();
-        typeof (UpdateStorySendSucceeded).ensure ();
-        typeof (UpdateStorySendFailed).ensure ();
+        typeof (UpdateStoryPostSucceeded).ensure ();
+        typeof (UpdateStoryPostFailed).ensure ();
         typeof (UpdateChatActiveStories).ensure ();
         typeof (UpdateStoryListChatCount).ensure ();
         typeof (UpdateStoryStealthMode).ensure ();
@@ -7027,9 +7043,9 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Searches for call messages. Returns the results in reverse
-     * chronological order (i.e., in order of decreasing message_id). For
-     * optimal performance, the number of returned messages is chosen by
+     * Searches for call and group call messages. Returns the results in
+     * reverse chronological order (i.e., in order of decreasing message_id).
+     * For optimal performance, the number of returned messages is chosen by
      * TDLib
      * @param offset Offset of the first entry to return as received from the
      * previous request; use empty string to get the first chunk of results
@@ -7195,7 +7211,7 @@ public sealed class TDLib.Client : Object {
      * Searches for public stories containing the given hashtag or cashtag.
      * For optimal performance, the number of returned stories is chosen by
      * TDLib and can be smaller than the specified limit
-     * @param story_sender_chat_id Identifier of the chat that posted the
+     * @param story_poster_chat_id Identifier of the chat that posted the
      * stories to search for; pass 0 to search stories in all chats
      * @param tag Hashtag or cashtag to search for
      * @param offset Offset of the first entry to return as received from the
@@ -7205,7 +7221,7 @@ public sealed class TDLib.Client : Object {
      * TDLib and can be smaller than the specified limit
      */
     public async FoundStories search_public_stories_by_tag (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         string tag,
         string offset,
         int32 limit
@@ -7213,7 +7229,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new SearchPublicStoriesByTag (
-            story_sender_chat_id,
+            story_poster_chat_id,
             tag,
             offset,
             limit
@@ -10956,9 +10972,9 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes a story sent by the bot on behalf of a business account; for
+     * Changes a story posted by the bot on behalf of a business account; for
      * bots only
-     * @param story_sender_chat_id Identifier of the chat that posted the
+     * @param story_poster_chat_id Identifier of the chat that posted the
      * story
      * @param story_id Identifier of the story to edit
      * @param content New content of the story
@@ -10968,7 +10984,7 @@ public sealed class TDLib.Client : Object {
      * @param privacy_settings The new privacy settings for the story
      */
     public async Story edit_business_story (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         InputStoryContent content,
         InputStoryAreas areas,
@@ -10978,7 +10994,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new EditBusinessStory (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             content,
             areas,
@@ -11019,7 +11035,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Deletes a story sent by the bot on behalf of a business account; for
+     * Deletes a story posted by the bot on behalf of a business account; for
      * bots only
      * @param business_connection_id Unique identifier of business connection
      * @param story_id Identifier of the story to delete
@@ -21406,21 +21422,21 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns a story
-     * @param story_sender_chat_id Identifier of the chat that posted the
+     * @param story_poster_chat_id Identifier of the chat that posted the
      * story
      * @param story_id Story identifier
      * @param only_local Pass true to get only locally available information
      * without sending network requests
      */
     public async Story get_story (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         bool only_local
     ) throws TDLibError {
         try {
 
         var obj = new GetStory (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             only_local
         );
@@ -21460,13 +21476,13 @@ public sealed class TDLib.Client : Object {
     /**
      * Returns supergroup and channel chats in which the current user has the
      * right to post stories. The chats must be rechecked with
-     * {@link Client.can_send_story} before actually trying to post a story
+     * {@link Client.can_post_story} before actually trying to post a story
      * there
      */
-    public async Chats get_chats_to_send_stories () throws TDLibError {
+    public async Chats get_chats_to_post_stories () throws TDLibError {
         try {
 
-        var obj = new GetChatsToSendStories ();
+        var obj = new GetChatsToPostStories ();
         string json_response = "";
 
         string json_string = TDJsoner.serialize (obj, Case.SNAKE);
@@ -21476,7 +21492,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_chats_to_send_stories.callback);
+                Idle.add (get_chats_to_post_stories.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -21501,17 +21517,17 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Checks whether the current user can send a story on behalf of a chat;
+     * Checks whether the current user can post a story on behalf of a chat;
      * requires can_post_stories right for supergroup and channel chats
      * @param chat_id Chat identifier. Pass Saved Messages chat identifier
      * when posting a story on behalf of the current user
      */
-    public async CanSendStoryResult can_send_story (
+    public async CanPostStoryResult can_post_story (
         int64 chat_id
     ) throws TDLibError {
         try {
 
-        var obj = new CanSendStory (
+        var obj = new CanPostStory (
             chat_id
         );
         string json_response = "";
@@ -21523,7 +21539,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (can_send_story.callback);
+                Idle.add (can_post_story.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -21540,7 +21556,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (CanSendStoryResult) jsoner.deserialize_object (null);
+        return (CanPostStoryResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -21548,8 +21564,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Sends a new story to a chat; requires can_post_stories right for
-     * supergroup and channel chats. Returns a temporary story
+     * Posts a new story on behalf of a chat; requires can_post_stories right
+     * for supergroup and channel chats. Returns a temporary story
      * @param chat_id Identifier of the chat that will post the story. Pass
      * Saved Messages chat identifier when posting a story on behalf of the
      * current user
@@ -21560,7 +21576,7 @@ public sealed class TDLib.Client : Object {
      * 0-getOption("story_caption_length_max") characters; can have entities
      * only if getOption("can_use_text_entities_in_story_caption")
      * @param privacy_settings The privacy settings for the story; ignored
-     * for stories sent to supergroup and channel chats
+     * for stories posted on behalf of supergroup and channel chats
      * @param active_period Period after which the story is moved to archive,
      * in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400
      * for Telegram Premium users, and 86400 otherwise
@@ -21572,7 +21588,7 @@ public sealed class TDLib.Client : Object {
      * @param protect_content Pass true if the content of the story must be
      * protected from forwarding and screenshotting
      */
-    public async Story send_story (
+    public async Story post_story (
         int64 chat_id,
         InputStoryContent content,
         InputStoryAreas areas,
@@ -21585,7 +21601,7 @@ public sealed class TDLib.Client : Object {
     ) throws TDLibError {
         try {
 
-        var obj = new SendStory (
+        var obj = new PostStory (
             chat_id,
             content,
             areas,
@@ -21605,7 +21621,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (send_story.callback);
+                Idle.add (post_story.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -21632,7 +21648,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Changes content and caption of a story. Can be called only if
      * story.can_be_edited == true
-     * @param story_sender_chat_id Identifier of the chat that posted the
+     * @param story_poster_chat_id Identifier of the chat that posted the
      * story
      * @param story_id Identifier of the story to edit
      * @param content New content of the story; pass null to keep the current
@@ -21644,7 +21660,7 @@ public sealed class TDLib.Client : Object {
      * caption
      */
     public async Ok edit_story (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         InputStoryContent content,
         InputStoryAreas areas,
@@ -21653,7 +21669,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new EditStory (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             content,
             areas,
@@ -21695,21 +21711,21 @@ public sealed class TDLib.Client : Object {
     /**
      * Changes cover of a video story. Can be called only if
      * story.can_be_edited == true and the story isn't being edited now
-     * @param story_sender_chat_id Identifier of the chat that posted the
+     * @param story_poster_chat_id Identifier of the chat that posted the
      * story
      * @param story_id Identifier of the story to edit
      * @param cover_frame_timestamp New timestamp of the frame, which will be
      * used as video thumbnail
      */
     public async Ok edit_story_cover (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         double cover_frame_timestamp
     ) throws TDLibError {
         try {
 
         var obj = new EditStoryCover (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             cover_frame_timestamp
         );
@@ -21799,21 +21815,21 @@ public sealed class TDLib.Client : Object {
     /**
      * Toggles whether a story is accessible after expiration. Can be called
      * only if story.can_toggle_is_posted_to_chat_page == true
-     * @param story_sender_chat_id Identifier of the chat that posted the
+     * @param story_poster_chat_id Identifier of the chat that posted the
      * story
      * @param story_id Identifier of the story
      * @param is_posted_to_chat_page Pass true to make the story accessible
      * after expiration; pass false to make it private
      */
     public async Ok toggle_story_is_posted_to_chat_page (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         bool is_posted_to_chat_page
     ) throws TDLibError {
         try {
 
         var obj = new ToggleStoryIsPostedToChatPage (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             is_posted_to_chat_page
         );
@@ -21851,20 +21867,20 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Deletes a previously sent story. Can be called only if
+     * Deletes a previously posted story. Can be called only if
      * story.can_be_deleted == true
-     * @param story_sender_chat_id Identifier of the chat that posted the
+     * @param story_poster_chat_id Identifier of the chat that posted the
      * story
      * @param story_id Identifier of the story to delete
      */
     public async Ok delete_story (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) throws TDLibError {
         try {
 
         var obj = new DeleteStory (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id
         );
         string json_response = "";
@@ -21944,7 +21960,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Loads more active stories from a story list. The loaded stories will
      * be sent through updates. Active stories are sorted by
-     * the pair (active_stories.order, active_stories.story_sender_chat_id)
+     * the pair (active_stories.order, active_stories.story_poster_chat_id)
      * in descending order. Returns a 404 error if all active stories have
      * been loaded
      * @param story_list The story list in which to load active stories
@@ -22253,18 +22269,18 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Informs TDLib that a story is opened and is being viewed by the user
-     * @param story_sender_chat_id The identifier of the sender of the opened
-     * story
+     * @param story_poster_chat_id The identifier of the chat that posted the
+     * opened story
      * @param story_id The identifier of the story
      */
     public async Ok open_story (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) throws TDLibError {
         try {
 
         var obj = new OpenStory (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id
         );
         string json_response = "";
@@ -22302,18 +22318,18 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Informs TDLib that a story is closed by the user
-     * @param story_sender_chat_id The identifier of the sender of the story
+     * @param story_poster_chat_id The identifier of the poster of the story
      * to {@link Client.close}
      * @param story_id The identifier of the story
      */
     public async Ok close_story (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) throws TDLibError {
         try {
 
         var obj = new CloseStory (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id
         );
         string json_response = "";
@@ -22396,7 +22412,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes chosen reaction on a story that has already been sent
-     * @param story_sender_chat_id The identifier of the sender of the story
+     * @param story_poster_chat_id The identifier of the poster of the story
      * @param story_id The identifier of the story
      * @param reaction_type Type of the reaction to set; pass null to remove
      * the reaction. Custom emoji reactions can be used only by Telegram
@@ -22405,7 +22421,7 @@ public sealed class TDLib.Client : Object {
      * added to recent reactions
      */
     public async Ok set_story_reaction (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         ReactionType reaction_type,
         bool update_recent_reactions
@@ -22413,7 +22429,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new SetStoryReaction (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             reaction_type,
             update_recent_reactions
@@ -22526,7 +22542,7 @@ public sealed class TDLib.Client : Object {
      * Returns interactions with a story posted in a chat. Can be used only
      * if story is posted on behalf of a chat and the user is an
      * administrator in the chat
-     * @param story_sender_chat_id The identifier of the sender of the story
+     * @param story_poster_chat_id The identifier of the poster of the story
      * @param story_id Story identifier
      * @param reaction_type Pass the default heart reaction or a suggested
      * reaction type to receive only interactions with the specified reaction
@@ -22540,7 +22556,7 @@ public sealed class TDLib.Client : Object {
      * @param limit The maximum number of story interactions to return
      */
     public async StoryInteractions get_chat_story_interactions (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         ReactionType reaction_type,
         bool prefer_forwards,
@@ -22550,7 +22566,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new GetChatStoryInteractions (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             reaction_type,
             prefer_forwards,
@@ -22592,7 +22608,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Reports a story to the Telegram moderators
-     * @param story_sender_chat_id The identifier of the sender of the story
+     * @param story_poster_chat_id The identifier of the poster of the story
      * to report
      * @param story_id The identifier of the story to report
      * @param option_id Option identifier chosen by the user; leave empty for
@@ -22601,7 +22617,7 @@ public sealed class TDLib.Client : Object {
      * for the initial request
      */
     public async ReportStoryResult report_story (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         Bytes option_id,
         string text
@@ -22609,7 +22625,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new ReportStory (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             option_id,
             text
@@ -22697,7 +22713,7 @@ public sealed class TDLib.Client : Object {
      * of the current user or story.can_get_statistics == true.
      * For optimal performance, the number of returned messages and stories
      * is chosen by TDLib
-     * @param story_sender_chat_id The identifier of the sender of the story
+     * @param story_poster_chat_id The identifier of the poster of the story
      * @param story_id The identifier of the story
      * @param offset Offset of the first entry to return as received from the
      * previous request; use empty string to get the first chunk of results
@@ -22707,7 +22723,7 @@ public sealed class TDLib.Client : Object {
      * be smaller than the specified limit
      */
     public async PublicForwards get_story_public_forwards (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         string offset,
         int32 limit
@@ -22715,7 +22731,7 @@ public sealed class TDLib.Client : Object {
         try {
 
         var obj = new GetStoryPublicForwards (
-            story_sender_chat_id,
+            story_poster_chat_id,
             story_id,
             offset,
             limit
@@ -24098,7 +24114,7 @@ public sealed class TDLib.Client : Object {
      * position. Pass 0 to read all available data from the specified
      * position
      */
-    public async FilePart read_file_part (
+    public async Data read_file_part (
         int32 file_id,
         int64 offset,
         int64 count
@@ -24136,7 +24152,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (FilePart) jsoner.deserialize_object (null);
+        return (Data) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -25651,23 +25667,18 @@ public sealed class TDLib.Client : Object {
      * @param user_id Identifier of the user to be called
      * @param protocol The call protocols supported by the application
      * @param is_video Pass true to create a video call
-     * @param group_call_id Identifier of the group call to which the user
-     * will be added after exchanging private key via the call; pass 0 if
-     * none
      */
     public async CallId create_call (
         int64 user_id,
         CallProtocol protocol,
-        bool is_video,
-        int32 group_call_id
+        bool is_video
     ) throws TDLibError {
         try {
 
         var obj = new CreateCall (
             user_id,
             protocol,
-            is_video,
-            group_call_id
+            is_video
         );
         string json_response = "";
 
@@ -25802,6 +25813,8 @@ public sealed class TDLib.Client : Object {
      * Discards a call
      * @param call_id Call identifier
      * @param is_disconnected Pass true if the user was disconnected
+     * @param invite_link If the call was upgraded to a group call, pass
+     * invite link to the group call
      * @param duration The call duration, in seconds
      * @param is_video Pass true if the call was a video call
      * @param connection_id Identifier of the connection used during the call
@@ -25809,6 +25822,7 @@ public sealed class TDLib.Client : Object {
     public async Ok discard_call (
         int32 call_id,
         bool is_disconnected,
+        string invite_link,
         int32 duration,
         bool is_video,
         int64 connection_id
@@ -25818,6 +25832,7 @@ public sealed class TDLib.Client : Object {
         var obj = new DiscardCall (
             call_id,
             is_disconnected,
+            invite_link,
             duration,
             is_video,
             connection_id
@@ -26166,16 +26181,17 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Creates a group call from a one-to-one call
-     * @param call_id Call identifier
+     * Creates a new group call that isn't bound to a chat
+     * @param join_parameters Parameters to join the call; pass null to only
+     * create call link without joining the call
      */
-    public async Ok create_group_call (
-        int32 call_id
+    public async GroupCallInfo create_group_call (
+        GroupCallJoinParameters join_parameters
     ) throws TDLibError {
         try {
 
         var obj = new CreateGroupCall (
-            call_id
+            join_parameters
         );
         string json_response = "";
 
@@ -26203,7 +26219,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Ok) jsoner.deserialize_object (null);
+        return (GroupCallInfo) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -26211,7 +26227,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns RTMP URL for streaming to the chat; requires
+     * Returns RTMP URL for streaming to the video chat of a chat; requires
      * can_manage_video_chats administrator right
      * @param chat_id Chat identifier
      */
@@ -26257,8 +26273,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Replaces the current RTMP URL for streaming to the chat; requires
-     * owner privileges
+     * Replaces the current RTMP URL for streaming to the video chat of a
+     * chat; requires owner privileges in the chat
      * @param chat_id Chat identifier
      */
     public async RtmpUrl replace_video_chat_rtmp_url (
@@ -26348,15 +26364,15 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Starts a scheduled group call
-     * @param group_call_id Group call identifier
+     * Starts a scheduled video chat
+     * @param group_call_id Group call identifier of the video chat
      */
-    public async Ok start_scheduled_group_call (
+    public async Ok start_scheduled_video_chat (
         int32 group_call_id
     ) throws TDLibError {
         try {
 
-        var obj = new StartScheduledGroupCall (
+        var obj = new StartScheduledVideoChat (
             group_call_id
         );
         string json_response = "";
@@ -26368,7 +26384,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (start_scheduled_group_call.callback);
+                Idle.add (start_scheduled_video_chat.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -26394,18 +26410,18 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Toggles whether the current user will receive a notification when the
-     * group call starts; scheduled group calls only
+     * video chat starts; for scheduled video chats only
      * @param group_call_id Group call identifier
      * @param enabled_start_notification New value of the
      * enabled_start_notification setting
      */
-    public async Ok toggle_group_call_enabled_start_notification (
+    public async Ok toggle_video_chat_enabled_start_notification (
         int32 group_call_id,
         bool enabled_start_notification
     ) throws TDLibError {
         try {
 
-        var obj = new ToggleGroupCallEnabledStartNotification (
+        var obj = new ToggleVideoChatEnabledStartNotification (
             group_call_id,
             enabled_start_notification
         );
@@ -26418,7 +26434,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (toggle_group_call_enabled_start_notification.callback);
+                Idle.add (toggle_video_chat_enabled_start_notification.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -26443,42 +26459,19 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Joins an active group call. Returns join response payload for tgcalls
-     * @param group_call_id Group call identifier
-     * @param participant_id Identifier of a group call participant, which
-     * will be used to join the call; pass null to join as self; video chats
-     * only
-     * @param audio_source_id Caller audio channel synchronization source
-     * identifier; received from tgcalls
-     * @param payload Group call join payload; received from tgcalls
-     * @param is_muted Pass true to join the call with muted microphone
-     * @param is_my_video_enabled Pass true if the user's video is enabled
-     * @param invite_hash If non-empty, invite hash to be used to join the
-     * group call without being muted by administrators
-     * @param key_fingerprint Fingerprint of the encryption key for E2E group
-     * calls not bound to a chat; pass 0 for voice chats
+     * Joins a group call that is not bound to a chat
+     * @param input_group_call The group call to join
+     * @param join_parameters Parameters to join the call
      */
-    public async Text join_group_call (
-        int32 group_call_id,
-        MessageSender participant_id,
-        int32 audio_source_id,
-        string payload,
-        bool is_muted,
-        bool is_my_video_enabled,
-        string invite_hash,
-        int64 key_fingerprint
+    public async GroupCallInfo join_group_call (
+        InputGroupCall input_group_call,
+        GroupCallJoinParameters join_parameters
     ) throws TDLibError {
         try {
 
         var obj = new JoinGroupCall (
-            group_call_id,
-            participant_id,
-            audio_source_id,
-            payload,
-            is_muted,
-            is_my_video_enabled,
-            invite_hash,
-            key_fingerprint
+            input_group_call,
+            join_parameters
         );
         string json_response = "";
 
@@ -26490,6 +26483,63 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (join_group_call.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GroupCallInfo) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Joins an active video chat. Returns join response payload for tgcalls
+     * @param group_call_id Group call identifier
+     * @param participant_id Identifier of a group call participant, which
+     * will be used to join the call; pass null to join as self; video chats
+     * only
+     * @param join_parameters Parameters to join the call
+     * @param invite_hash Invite hash as received from
+     * internalLinkTypeVideoChat
+     */
+    public async Text join_video_chat (
+        int32 group_call_id,
+        MessageSender participant_id,
+        GroupCallJoinParameters join_parameters,
+        string invite_hash
+    ) throws TDLibError {
+        try {
+
+        var obj = new JoinVideoChat (
+            group_call_id,
+            participant_id,
+            join_parameters,
+            invite_hash
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (join_video_chat.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -26661,18 +26711,17 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Sets group call title. Requires groupCall.can_be_managed group call
-     * flag
+     * Sets title of a video chat; requires groupCall.can_be_managed right
      * @param group_call_id Group call identifier
      * @param title New group call title; 1-64 characters
      */
-    public async Ok set_group_call_title (
+    public async Ok set_video_chat_title (
         int32 group_call_id,
         string title
     ) throws TDLibError {
         try {
 
-        var obj = new SetGroupCallTitle (
+        var obj = new SetVideoChatTitle (
             group_call_id,
             title
         );
@@ -26685,7 +26734,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (set_group_call_title.callback);
+                Idle.add (set_video_chat_title.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -26710,20 +26759,20 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Toggles whether new participants of a group call can be unmuted only
-     * by administrators of the group call. Requires
-     * groupCall.can_toggle_mute_new_participants group call flag
+     * Toggles whether new participants of a video chat can be unmuted only
+     * by administrators of the video chat. Requires
+     * groupCall.can_toggle_mute_new_participants right
      * @param group_call_id Group call identifier
      * @param mute_new_participants New value of the mute_new_participants
      * setting
      */
-    public async Ok toggle_group_call_mute_new_participants (
+    public async Ok toggle_video_chat_mute_new_participants (
         int32 group_call_id,
         bool mute_new_participants
     ) throws TDLibError {
         try {
 
-        var obj = new ToggleGroupCallMuteNewParticipants (
+        var obj = new ToggleVideoChatMuteNewParticipants (
             group_call_id,
             mute_new_participants
         );
@@ -26736,7 +26785,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (toggle_group_call_mute_new_participants.callback);
+                Idle.add (toggle_video_chat_mute_new_participants.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -26761,19 +26810,125 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Invites users to an active group call. Sends a service message of type
-     * messageInviteVideoChatParticipants for video chats
+     * Invites a user to an active group call; for group calls not bound to a
+     * chat only. Sends a service message of the type messageGroupCall.
+     * The group call can have at most
+     * getOption("group_call_participant_count_max") participants
      * @param group_call_id Group call identifier
-     * @param user_ids User identifiers. At most 10 users can be invited
-     * simultaneously
+     * @param user_id User identifier
+     * @param is_video Pass true if the group call is a video call
      */
-    public async Ok invite_group_call_participants (
+    public async InviteGroupCallParticipantResult invite_group_call_participant (
+        int32 group_call_id,
+        int64 user_id,
+        bool is_video
+    ) throws TDLibError {
+        try {
+
+        var obj = new InviteGroupCallParticipant (
+            group_call_id,
+            user_id,
+            is_video
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (invite_group_call_participant.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (InviteGroupCallParticipantResult) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Declines an invitation to an active group call via messageGroupCall.
+     * Can be called both by the sender and the receiver of the invitation
+     * @param chat_id Identifier of the chat with the message
+     * @param message_id Identifier of the message of the type
+     * messageGroupCall
+     */
+    public async Ok decline_group_call_invitation (
+        int64 chat_id,
+        int64 message_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeclineGroupCallInvitation (
+            chat_id,
+            message_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (decline_group_call_invitation.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Bans users from a group call not bound to a chat; requires
+     * groupCall.is_owned. Only the owner of the group call can invite the
+     * banned users back
+     * @param group_call_id Group call identifier
+     * @param user_ids Identifiers of group call participants to ban;
+     * identifiers of unknown users from the update
+     * updateGroupCallParticipants can be also passed to the method
+     */
+    public async Ok ban_group_call_participants (
         int32 group_call_id,
         Gee.ArrayList<int64?> user_ids
     ) throws TDLibError {
         try {
 
-        var obj = new InviteGroupCallParticipants (
+        var obj = new BanGroupCallParticipants (
             group_call_id,
             user_ids
         );
@@ -26786,7 +26941,58 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (invite_group_call_participants.callback);
+                Idle.add (ban_group_call_participants.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Invites users to an active video chat. Sends a service message of the
+     * type messageInviteVideoChatParticipants to the chat bound to the group
+     * call
+     * @param group_call_id Group call identifier
+     * @param user_ids User identifiers. At most 10 users can be invited
+     * simultaneously
+     */
+    public async Ok invite_video_chat_participants (
+        int32 group_call_id,
+        Gee.ArrayList<int64?> user_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new InviteVideoChatParticipants (
+            group_call_id,
+            user_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (invite_video_chat_participants.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -26814,17 +27020,17 @@ public sealed class TDLib.Client : Object {
      * Returns invite link to a video chat in a public chat
      * @param group_call_id Group call identifier
      * @param can_self_unmute Pass true if the invite link needs to contain
-     * an invite hash, passing which to {@link Client.join_group_call} would
+     * an invite hash, passing which to {@link Client.join_video_chat} would
      * allow the invited user to unmute themselves. Requires
-     * groupCall.can_be_managed group call flag
+     * groupCall.can_be_managed right
      */
-    public async HttpUrl get_group_call_invite_link (
+    public async HttpUrl get_video_chat_invite_link (
         int32 group_call_id,
         bool can_self_unmute
     ) throws TDLibError {
         try {
 
-        var obj = new GetGroupCallInviteLink (
+        var obj = new GetVideoChatInviteLink (
             group_call_id,
             can_self_unmute
         );
@@ -26837,7 +27043,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_group_call_invite_link.callback);
+                Idle.add (get_video_chat_invite_link.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -26863,7 +27069,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Revokes invite link for a group call. Requires
-     * groupCall.can_be_managed group call flag
+     * groupCall.can_be_managed right for video chats or groupCall.is_owned
+     * otherwise
      * @param group_call_id Group call identifier
      */
     public async Ok revoke_group_call_invite_link (
@@ -26908,8 +27115,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Starts recording of an active group call. Requires
-     * groupCall.can_be_managed group call flag
+     * Starts recording of an active group call; for video chats only.
+     * Requires groupCall.can_be_managed right
      * @param group_call_id Group call identifier
      * @param title Group call recording title; 0-64 characters
      * @param record_video Pass true to record a video file instead of an
@@ -26965,8 +27172,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Ends recording of an active group call. Requires
-     * groupCall.can_be_managed group call flag
+     * Ends recording of an active group call; for video chats only. Requires
+     * groupCall.can_be_managed right
      * @param group_call_id Group call identifier
      */
     public async Ok end_group_call_recording (
@@ -27110,7 +27317,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Informs TDLib that speaking state of a participant of an active group
-     * has changed
+     * call has changed
      * @param group_call_id Group call identifier
      * @param audio_source Group call participant's synchronization audio
      * source identifier, or 0 for the current user
@@ -27215,8 +27422,10 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes volume level of a participant of an active group call. If the
-     * current user can manage the group call, then the participant's volume
-     * level will be changed for all users with the default volume level
+     * current user can manage the group call or is the owner of the group
+     * call,
+     * then the participant's volume level will be changed for all users with
+     * the default volume level
      * @param group_call_id Group call identifier
      * @param participant_id Participant identifier
      * @param volume_level New participant's volume level; 1-20000 in
@@ -27268,12 +27477,13 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Toggles whether a group call participant hand is rased
+     * Toggles whether a group call participant hand is rased; for video
+     * chats only
      * @param group_call_id Group call identifier
      * @param participant_id Participant identifier
      * @param is_hand_raised Pass true if the user's hand needs to be raised.
-     * Only self hand can be raised. Requires groupCall.can_be_managed group
-     * call flag to lower other's hand
+     * Only self hand can be raised. Requires groupCall.can_be_managed right
+     * to lower other's hand
      */
     public async Ok toggle_group_call_participant_is_hand_raised (
         int32 group_call_id,
@@ -27314,6 +27524,57 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns information about participants of a non-joined group call that
+     * is not bound to a chat
+     * @param input_group_call The group call which participants will be
+     * returned
+     * @param limit The maximum number of participants to return; must be
+     * positive
+     */
+    public async GroupCallParticipants get_group_call_participants (
+        InputGroupCall input_group_call,
+        int32 limit
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetGroupCallParticipants (
+            input_group_call,
+            limit
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_group_call_participants.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GroupCallParticipants) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27419,7 +27680,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Ends a group call. Requires groupCall.can_be_managed
+     * Ends a group call. Requires groupCall.can_be_managed right for video
+     * chats or groupCall.is_owned otherwise
      * @param group_call_id Group call identifier
      */
     public async Ok end_group_call (
@@ -27464,15 +27726,15 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns information about available group call streams
+     * Returns information about available video chat streams
      * @param group_call_id Group call identifier
      */
-    public async GroupCallStreams get_group_call_streams (
+    public async VideoChatStreams get_video_chat_streams (
         int32 group_call_id
     ) throws TDLibError {
         try {
 
-        var obj = new GetGroupCallStreams (
+        var obj = new GetVideoChatStreams (
             group_call_id
         );
         string json_response = "";
@@ -27484,7 +27746,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_group_call_streams.callback);
+                Idle.add (get_video_chat_streams.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -27501,7 +27763,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (GroupCallStreams) jsoner.deserialize_object (null);
+        return (VideoChatStreams) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -27509,7 +27771,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns a file with a segment of a group call stream in a modified OGG
+     * Returns a file with a segment of a video chat stream in a modified OGG
      * format for audio or MPEG-4 format for video
      * @param group_call_id Group call identifier
      * @param time_offset Point in time when the stream segment begins; Unix
@@ -27521,7 +27783,7 @@ public sealed class TDLib.Client : Object {
      * @param video_quality Video quality as received from tgcalls; pass null
      * to get the worst available quality
      */
-    public async FilePart get_group_call_stream_segment (
+    public async Data get_video_chat_stream_segment (
         int32 group_call_id,
         int64 time_offset,
         int32 scale,
@@ -27530,7 +27792,7 @@ public sealed class TDLib.Client : Object {
     ) throws TDLibError {
         try {
 
-        var obj = new GetGroupCallStreamSegment (
+        var obj = new GetVideoChatStreamSegment (
             group_call_id,
             time_offset,
             scale,
@@ -27546,7 +27808,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_group_call_stream_segment.callback);
+                Idle.add (get_video_chat_stream_segment.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -27563,7 +27825,121 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (FilePart) jsoner.deserialize_object (null);
+        return (Data) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Encrypts group call data before sending them over network using
+     * tgcalls
+     * @param group_call_id Group call identifier. The call must not be a
+     * video chat
+     * @param data_channel Data channel for which data is encrypted
+     * @param data Data to encrypt
+     * @param unencrypted_prefix_size Size of data prefix that must be kept
+     * unencrypted
+     */
+    public async Data encrypt_group_call_data (
+        int32 group_call_id,
+        GroupCallDataChannel data_channel,
+        Bytes data,
+        int32 unencrypted_prefix_size
+    ) throws TDLibError {
+        try {
+
+        var obj = new EncryptGroupCallData (
+            group_call_id,
+            data_channel,
+            data,
+            unencrypted_prefix_size
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (encrypt_group_call_data.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Data) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Decrypts group call data received by tgcalls
+     * @param group_call_id Group call identifier. The call must not be a
+     * video chat
+     * @param participant_id Identifier of the group call participant, which
+     * sent the data
+     * @param data_channel Data channel for which data was encrypted; pass
+     * null if unknown
+     * @param data Data to decrypt
+     */
+    public async Data decrypt_group_call_data (
+        int32 group_call_id,
+        MessageSender participant_id,
+        GroupCallDataChannel data_channel,
+        Bytes data
+    ) throws TDLibError {
+        try {
+
+        var obj = new DecryptGroupCallData (
+            group_call_id,
+            participant_id,
+            data_channel,
+            data
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (decrypt_group_call_data.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Data) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");

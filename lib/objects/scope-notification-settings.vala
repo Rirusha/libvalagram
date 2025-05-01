@@ -58,9 +58,10 @@ public class TDLib.ScopeNotificationSettings : Error {
     public int64 story_sound_id { get; construct set; }
 
     /**
-     * True, if the sender of stories must be displayed in notifications
+     * True, if the chat that posted a story must be displayed in
+     * notifications
      */
-    public bool show_story_sender { get; construct set; }
+    public bool show_story_poster { get; construct set; }
 
     /**
      * True, if notifications for incoming pinned messages will be created as
@@ -81,7 +82,7 @@ public class TDLib.ScopeNotificationSettings : Error {
         bool use_default_mute_stories,
         bool mute_stories,
         int64 story_sound_id,
-        bool show_story_sender,
+        bool show_story_poster,
         bool disable_pinned_message_notifications,
         bool disable_mention_notifications
     ) {
@@ -92,7 +93,7 @@ public class TDLib.ScopeNotificationSettings : Error {
             use_default_mute_stories: use_default_mute_stories,
             mute_stories: mute_stories,
             story_sound_id: story_sound_id,
-            show_story_sender: show_story_sender,
+            show_story_poster: show_story_poster,
             disable_pinned_message_notifications: disable_pinned_message_notifications,
             disable_mention_notifications: disable_mention_notifications,
             tdlib_type: "scopeNotificationSettings",

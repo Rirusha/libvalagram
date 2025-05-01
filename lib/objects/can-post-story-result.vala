@@ -20,19 +20,19 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents result of checking whether the current user can send a
- * story in the specific chat
+ * Represents result of checking whether the current user can post a
+ * story on behalf of the specific chat
  */
-public abstract class TDLib.CanSendStoryResult : Error {}
+public abstract class TDLib.CanPostStoryResult : Error {}
 
 /**
  * A story can be sent
  */
-public class TDLib.CanSendStoryResultOk : CanSendStoryResult {
+public class TDLib.CanPostStoryResultOk : CanPostStoryResult {
 
-    public CanSendStoryResultOk () {
+    public CanPostStoryResultOk () {
         Object (
-            tdlib_type: "canSendStoryResultOk",
+            tdlib_type: "canPostStoryResultOk",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -41,11 +41,11 @@ public class TDLib.CanSendStoryResultOk : CanSendStoryResult {
 /**
  * The user must subscribe to Telegram Premium to be able to post stories
  */
-public class TDLib.CanSendStoryResultPremiumNeeded : CanSendStoryResult {
+public class TDLib.CanPostStoryResultPremiumNeeded : CanPostStoryResult {
 
-    public CanSendStoryResultPremiumNeeded () {
+    public CanPostStoryResultPremiumNeeded () {
         Object (
-            tdlib_type: "canSendStoryResultPremiumNeeded",
+            tdlib_type: "canPostStoryResultPremiumNeeded",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -56,11 +56,11 @@ public class TDLib.CanSendStoryResultPremiumNeeded : CanSendStoryResult {
  * more stories. Call {@link Client.get_chat_boost_status} to get current
  * boost status of the chat
  */
-public class TDLib.CanSendStoryResultBoostNeeded : CanSendStoryResult {
+public class TDLib.CanPostStoryResultBoostNeeded : CanPostStoryResult {
 
-    public CanSendStoryResultBoostNeeded () {
+    public CanPostStoryResultBoostNeeded () {
         Object (
-            tdlib_type: "canSendStoryResultBoostNeeded",
+            tdlib_type: "canPostStoryResultBoostNeeded",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -71,11 +71,11 @@ public class TDLib.CanSendStoryResultBoostNeeded : CanSendStoryResult {
  * Telegram Premium, delete an active story, or wait for the oldest story
  * to expire
  */
-public class TDLib.CanSendStoryResultActiveStoryLimitExceeded : CanSendStoryResult {
+public class TDLib.CanPostStoryResultActiveStoryLimitExceeded : CanPostStoryResult {
 
-    public CanSendStoryResultActiveStoryLimitExceeded () {
+    public CanPostStoryResultActiveStoryLimitExceeded () {
         Object (
-            tdlib_type: "canSendStoryResultActiveStoryLimitExceeded",
+            tdlib_type: "canPostStoryResultActiveStoryLimitExceeded",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -85,19 +85,19 @@ public class TDLib.CanSendStoryResultActiveStoryLimitExceeded : CanSendStoryResu
  * The weekly limit for the number of posted stories exceeded. The user
  * needs to buy Telegram Premium or wait specified time
  */
-public class TDLib.CanSendStoryResultWeeklyLimitExceeded : CanSendStoryResult {
+public class TDLib.CanPostStoryResultWeeklyLimitExceeded : CanPostStoryResult {
 
     /**
-     * Time left before the user can send the next story
+     * Time left before the user can post the next story
      */
     public int32 retry_after { get; construct set; }
 
-    public CanSendStoryResultWeeklyLimitExceeded (
+    public CanPostStoryResultWeeklyLimitExceeded (
         int32 retry_after
     ) {
         Object (
             retry_after: retry_after,
-            tdlib_type: "canSendStoryResultWeeklyLimitExceeded",
+            tdlib_type: "canPostStoryResultWeeklyLimitExceeded",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -107,19 +107,19 @@ public class TDLib.CanSendStoryResultWeeklyLimitExceeded : CanSendStoryResult {
  * The monthly limit for the number of posted stories exceeded. The user
  * needs to buy Telegram Premium or wait specified time
  */
-public class TDLib.CanSendStoryResultMonthlyLimitExceeded : CanSendStoryResult {
+public class TDLib.CanPostStoryResultMonthlyLimitExceeded : CanPostStoryResult {
 
     /**
-     * Time left before the user can send the next story
+     * Time left before the user can post the next story
      */
     public int32 retry_after { get; construct set; }
 
-    public CanSendStoryResultMonthlyLimitExceeded (
+    public CanPostStoryResultMonthlyLimitExceeded (
         int32 retry_after
     ) {
         Object (
             retry_after: retry_after,
-            tdlib_type: "canSendStoryResultMonthlyLimitExceeded",
+            tdlib_type: "canPostStoryResultMonthlyLimitExceeded",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,22 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns RTMP URL for streaming to the video chat of a chat; requires
- * can_manage_video_chats administrator right
+ * Represents a list of video chat streams
  */
-public class TDLib.GetVideoChatRtmpUrl : TDObject {
+public class TDLib.VideoChatStreams : Error {
 
     /**
-     * Chat identifier
+     * A list of video chat streams
      */
-    public int64 chat_id { get; construct set; }
+    public Gee.ArrayList<VideoChatStream?> streams { get; construct set; default = new Gee.ArrayList<VideoChatStream?> (); }
 
-    public GetVideoChatRtmpUrl (
-        int64 chat_id
+    public VideoChatStreams (
+        Gee.ArrayList<VideoChatStream?> streams
     ) {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "getVideoChatRtmpUrl",
+            streams: streams,
+            tdlib_type: "videoChatStreams",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,21 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Starts a scheduled group call
+ * Returns invite link to a video chat in a public chat
  */
-public class TDLib.StartScheduledGroupCall : TDObject {
+public class TDLib.GetVideoChatInviteLink : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public StartScheduledGroupCall (
-        int32 group_call_id
+    /**
+     * Pass true if the invite link needs to contain an invite hash, passing
+     * which to {@link Client.join_video_chat} would allow the invited user
+     * to unmute themselves. Requires groupCall.can_be_managed right
+     */
+    public bool can_self_unmute { get; construct set; }
+
+    public GetVideoChatInviteLink (
+        int32 group_call_id,
+        bool can_self_unmute
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "startScheduledGroupCall",
+            can_self_unmute: can_self_unmute,
+            tdlib_type: "getVideoChatInviteLink",
             tdlib_extra: Uuid.string_random ()
         );
     }

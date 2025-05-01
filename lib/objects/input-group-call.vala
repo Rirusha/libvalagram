@@ -20,54 +20,55 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains information about the origin of a story that was reposted
+ * Describes a non-joined group call that isn't bound to a chat
  */
-public abstract class TDLib.StoryOrigin : Error {}
+public abstract class TDLib.InputGroupCall : Error {}
 
 /**
- * The original story was a public story that was posted by a known chat
+ * The group call is accessible through a link
  */
-public class TDLib.StoryOriginPublicStory : StoryOrigin {
+public class TDLib.InputGroupCallLink : InputGroupCall {
 
     /**
-     * Identifier of the chat that posted original story
+     * The link for the group call
      */
-    public int64 chat_id { get; construct set; }
+    public string link { get; construct set; }
 
-    /**
-     * Story identifier of the original story
-     */
-    public int32 story_id { get; construct set; }
-
-    public StoryOriginPublicStory (
-        int64 chat_id,
-        int32 story_id
+    public InputGroupCallLink (
+        string link
     ) {
         Object (
-            chat_id: chat_id,
-            story_id: story_id,
-            tdlib_type: "storyOriginPublicStory",
+            link: link,
+            tdlib_type: "inputGroupCallLink",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * The original story was posted by an unknown user
+ * The group call is accessible through a message of the type
+ * messageGroupCall
  */
-public class TDLib.StoryOriginHiddenUser : StoryOrigin {
+public class TDLib.InputGroupCallMessage : InputGroupCall {
 
     /**
-     * Name of the user or the chat that posted the story
+     * Identifier of the chat with the message
      */
-    public string poster_name { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
-    public StoryOriginHiddenUser (
-        string poster_name
+    /**
+     * Identifier of the message of the type messageGroupCall
+     */
+    public int64 message_id { get; construct set; }
+
+    public InputGroupCallMessage (
+        int64 chat_id,
+        int64 message_id
     ) {
         Object (
-            poster_name: poster_name,
-            tdlib_type: "storyOriginHiddenUser",
+            chat_id: chat_id,
+            message_id: message_id,
+            tdlib_type: "inputGroupCallMessage",
             tdlib_extra: Uuid.string_random ()
         );
     }

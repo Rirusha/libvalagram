@@ -208,33 +208,33 @@ public class TDLib.PremiumLimitTypeActiveStoryCount : PremiumLimitType {
 }
 
 /**
- * The maximum number of stories sent per week
+ * The maximum number of stories posted per week
  */
-public class TDLib.PremiumLimitTypeWeeklySentStoryCount : PremiumLimitType {
+public class TDLib.PremiumLimitTypeWeeklyPostedStoryCount : PremiumLimitType {
 
-    public PremiumLimitTypeWeeklySentStoryCount () {
+    public PremiumLimitTypeWeeklyPostedStoryCount () {
         Object (
-            tdlib_type: "premiumLimitTypeWeeklySentStoryCount",
+            tdlib_type: "premiumLimitTypeWeeklyPostedStoryCount",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * The maximum number of stories sent per month
+ * The maximum number of stories posted per month
  */
-public class TDLib.PremiumLimitTypeMonthlySentStoryCount : PremiumLimitType {
+public class TDLib.PremiumLimitTypeMonthlyPostedStoryCount : PremiumLimitType {
 
-    public PremiumLimitTypeMonthlySentStoryCount () {
+    public PremiumLimitTypeMonthlyPostedStoryCount () {
         Object (
-            tdlib_type: "premiumLimitTypeMonthlySentStoryCount",
+            tdlib_type: "premiumLimitTypeMonthlyPostedStoryCount",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * The maximum length of captions of sent stories
+ * The maximum length of captions of posted stories
  */
 public class TDLib.PremiumLimitTypeStoryCaptionLength : PremiumLimitType {
 

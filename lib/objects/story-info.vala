@@ -25,7 +25,7 @@
 public class TDLib.StoryInfo : Error {
 
     /**
-     * Unique story identifier among stories of the given sender
+     * Unique story identifier among stories of the chat
      */
     public int32 story_id { get; construct set; }
 

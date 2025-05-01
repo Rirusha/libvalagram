@@ -20,22 +20,31 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns RTMP URL for streaming to the video chat of a chat; requires
- * can_manage_video_chats administrator right
+ * Describes data channel for a group call
  */
-public class TDLib.GetVideoChatRtmpUrl : TDObject {
+public abstract class TDLib.GroupCallDataChannel : Error {}
 
-    /**
-     * Chat identifier
-     */
-    public int64 chat_id { get; construct set; }
+/**
+ * The main data channel for audio and video data
+ */
+public class TDLib.GroupCallDataChannelMain : GroupCallDataChannel {
 
-    public GetVideoChatRtmpUrl (
-        int64 chat_id
-    ) {
+    public GroupCallDataChannelMain () {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "getVideoChatRtmpUrl",
+            tdlib_type: "groupCallDataChannelMain",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The data channel for screen sharing
+ */
+public class TDLib.GroupCallDataChannelScreenSharing : GroupCallDataChannel {
+
+    public GroupCallDataChannelScreenSharing () {
+        Object (
+            tdlib_type: "groupCallDataChannelScreenSharing",
             tdlib_extra: Uuid.string_random ()
         );
     }

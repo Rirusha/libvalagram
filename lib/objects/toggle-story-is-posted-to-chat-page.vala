@@ -28,7 +28,7 @@ public class TDLib.ToggleStoryIsPostedToChatPage : TDObject {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Identifier of the story
@@ -42,12 +42,12 @@ public class TDLib.ToggleStoryIsPostedToChatPage : TDObject {
     public bool is_posted_to_chat_page { get; construct set; }
 
     public ToggleStoryIsPostedToChatPage (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         bool is_posted_to_chat_page
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             is_posted_to_chat_page: is_posted_to_chat_page,
             tdlib_type: "toggleStoryIsPostedToChatPage",

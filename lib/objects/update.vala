@@ -1740,6 +1740,11 @@ public class TDLib.UpdateForumTopic : Update {
     public bool is_pinned { get; construct set; }
 
     /**
+     * Identifier of the last read incoming message
+     */
+    public int64 last_read_inbox_message_id { get; construct set; }
+
+    /**
      * Identifier of the last read outgoing message
      */
     public int64 last_read_outbox_message_id { get; construct set; }
@@ -1753,6 +1758,7 @@ public class TDLib.UpdateForumTopic : Update {
         int64 chat_id,
         int64 message_thread_id,
         bool is_pinned,
+        int64 last_read_inbox_message_id,
         int64 last_read_outbox_message_id,
         ChatNotificationSettings notification_settings
     ) {
@@ -1760,6 +1766,7 @@ public class TDLib.UpdateForumTopic : Update {
             chat_id: chat_id,
             message_thread_id: message_thread_id,
             is_pinned: is_pinned,
+            last_read_inbox_message_id: last_read_inbox_message_id,
             last_read_outbox_message_id: last_read_outbox_message_id,
             notification_settings: notification_settings,
             tdlib_type: "updateForumTopic",
@@ -2633,7 +2640,7 @@ public class TDLib.UpdateCall : Update {
 public class TDLib.UpdateGroupCall : Update {
 
     /**
-     * New data about a group call
+     * New data about the group call
      */
     public GroupCall group_call { get; construct set; }
 
@@ -2657,12 +2664,12 @@ public class TDLib.UpdateGroupCall : Update {
 public class TDLib.UpdateGroupCallParticipant : Update {
 
     /**
-     * Identifier of group call
+     * Identifier of the group call
      */
     public int32 group_call_id { get; construct set; }
 
     /**
-     * New data about a participant
+     * New data about the participant
      */
     public GroupCallParticipant participant { get; construct set; }
 
@@ -2674,6 +2681,78 @@ public class TDLib.UpdateGroupCallParticipant : Update {
             group_call_id: group_call_id,
             participant: participant,
             tdlib_type: "updateGroupCallParticipant",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The list of group call participants that can send and receive
+ * encrypted call data has changed; for group calls not bound to a chat
+ * only
+ */
+public class TDLib.UpdateGroupCallParticipants : Update {
+
+    /**
+     * Identifier of the group call
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * New list of group call participant user identifiers. The identifiers
+     * may be invalid or the corresponding users may be unknown.
+     * The participants must be shown in the list of group call participants
+     * even there is no information about them
+     */
+    public Gee.ArrayList<int64?> participant_user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
+
+    public UpdateGroupCallParticipants (
+        int32 group_call_id,
+        Gee.ArrayList<int64?> participant_user_ids
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            participant_user_ids: participant_user_ids,
+            tdlib_type: "updateGroupCallParticipants",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The verification state of an encrypted group call has changed; for
+ * group calls not bound to a chat only
+ */
+public class TDLib.UpdateGroupCallVerificationState : Update {
+
+    /**
+     * Identifier of the group call
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * The call state generation to which the emoji corresponds. If
+     * generation is different for two users, then their emoji may be also
+     * different
+     */
+    public int32 generation { get; construct set; }
+
+    /**
+     * Group call state fingerprint represented as 4 emoji; may be empty if
+     * the state isn't verified yet
+     */
+    public Gee.ArrayList<string?> emojis { get; construct set; default = new Gee.ArrayList<string?> (); }
+
+    public UpdateGroupCallVerificationState (
+        int32 group_call_id,
+        int32 generation,
+        Gee.ArrayList<string?> emojis
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            generation: generation,
+            emojis: emojis,
+            tdlib_type: "updateGroupCallVerificationState",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -2857,7 +2936,7 @@ public class TDLib.UpdateStoryDeleted : Update {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Story identifier
@@ -2865,11 +2944,11 @@ public class TDLib.UpdateStoryDeleted : Update {
     public int32 story_id { get; construct set; }
 
     public UpdateStoryDeleted (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             tdlib_type: "updateStoryDeleted",
             tdlib_extra: Uuid.string_random ()
@@ -2878,12 +2957,12 @@ public class TDLib.UpdateStoryDeleted : Update {
 }
 
 /**
- * A story has been successfully sent
+ * A story has been successfully posted
  */
-public class TDLib.UpdateStorySendSucceeded : Update {
+public class TDLib.UpdateStoryPostSucceeded : Update {
 
     /**
-     * The sent story
+     * The posted story
      */
     public Story story { get; construct set; }
 
@@ -2892,50 +2971,50 @@ public class TDLib.UpdateStorySendSucceeded : Update {
      */
     public int32 old_story_id { get; construct set; }
 
-    public UpdateStorySendSucceeded (
+    public UpdateStoryPostSucceeded (
         Story story,
         int32 old_story_id
     ) {
         Object (
             story: story,
             old_story_id: old_story_id,
-            tdlib_type: "updateStorySendSucceeded",
+            tdlib_type: "updateStoryPostSucceeded",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * A story failed to send. If the story sending is canceled, then
+ * A story failed to post. If the story posting is canceled, then
  * updateStoryDeleted will be received instead of this update
  */
-public class TDLib.UpdateStorySendFailed : Update {
+public class TDLib.UpdateStoryPostFailed : Update {
 
     /**
-     * The failed to send story
+     * The failed to post story
      */
     public Story story { get; construct set; }
 
     /**
-     * The cause of the story sending failure
+     * The cause of the story posting failure
      */
     public Error error { get; construct set; }
 
     /**
      * Type of the error; may be null if unknown
      */
-    public CanSendStoryResult? error_type { get; construct set; }
+    public CanPostStoryResult? error_type { get; construct set; }
 
-    public UpdateStorySendFailed (
+    public UpdateStoryPostFailed (
         Story story,
         Error error,
-        CanSendStoryResult? error_type
+        CanPostStoryResult? error_type
     ) {
         Object (
             story: story,
             error: error,
             error_type: error_type,
-            tdlib_type: "updateStorySendFailed",
+            tdlib_type: "updateStoryPostFailed",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -39,23 +39,15 @@ public class TDLib.CreateCall : TDObject {
      */
     public bool is_video { get; construct set; }
 
-    /**
-     * Identifier of the group call to which the user will be added after
-     * exchanging private key via the call; pass 0 if none
-     */
-    public int32 group_call_id { get; construct set; }
-
     public CreateCall (
         int64 user_id,
         CallProtocol protocol,
-        bool is_video,
-        int32 group_call_id
+        bool is_video
     ) {
         Object (
             user_id: user_id,
             protocol: protocol,
             is_video: is_video,
-            group_call_id: group_call_id,
             tdlib_type: "createCall",
             tdlib_extra: Uuid.string_random ()
         );

@@ -20,10 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends a new story to a chat; requires can_post_stories right for
- * supergroup and channel chats. Returns a temporary story
+ * Posts a new story on behalf of a chat; requires can_post_stories right
+ * for supergroup and channel chats. Returns a temporary story
  */
-public class TDLib.SendStory : TDObject {
+public class TDLib.PostStory : TDObject {
 
     /**
      * Identifier of the chat that will post the story. Pass Saved Messages
@@ -50,8 +50,8 @@ public class TDLib.SendStory : TDObject {
     public FormattedText caption { get; construct set; }
 
     /**
-     * The privacy settings for the story; ignored for stories sent to
-     * supergroup and channel chats
+     * The privacy settings for the story; ignored for stories posted on
+     * behalf of supergroup and channel chats
      */
     public StoryPrivacySettings privacy_settings { get; construct set; }
 
@@ -79,7 +79,7 @@ public class TDLib.SendStory : TDObject {
      */
     public bool protect_content { get; construct set; }
 
-    public SendStory (
+    public PostStory (
         int64 chat_id,
         InputStoryContent content,
         InputStoryAreas areas,
@@ -100,7 +100,7 @@ public class TDLib.SendStory : TDObject {
             from_story_full_id: from_story_full_id,
             is_posted_to_chat_page: is_posted_to_chat_page,
             protect_content: protect_content,
-            tdlib_type: "sendStory",
+            tdlib_type: "postStory",
             tdlib_extra: Uuid.string_random ()
         );
     }

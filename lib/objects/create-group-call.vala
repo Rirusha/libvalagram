@@ -20,20 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Creates a group call from a one-to-one call
+ * Creates a new group call that isn't bound to a chat
  */
 public class TDLib.CreateGroupCall : TDObject {
 
     /**
-     * Call identifier
+     * Parameters to join the call; pass null to only create call link
+     * without joining the call
      */
-    public int32 call_id { get; construct set; }
+    public GroupCallJoinParameters join_parameters { get; construct set; }
 
     public CreateGroupCall (
-        int32 call_id
+        GroupCallJoinParameters join_parameters
     ) {
         Object (
-            call_id: call_id,
+            join_parameters: join_parameters,
             tdlib_type: "createGroupCall",
             tdlib_extra: Uuid.string_random ()
         );

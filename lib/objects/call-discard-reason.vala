@@ -93,23 +93,21 @@ public class TDLib.CallDiscardReasonHungUp : CallDiscardReason {
 }
 
 /**
- * The call was ended because it has been used successfully to transfer
- * private encryption key for the associated group call
+ * The call was ended because it has been upgraded to a group call
  */
-public class TDLib.CallDiscardReasonAllowGroupCall : CallDiscardReason {
+public class TDLib.CallDiscardReasonUpgradeToGroupCall : CallDiscardReason {
 
     /**
-     * Encrypted using the call private key encryption key for the associated
-     * group call
+     * Invite link for the group call
      */
-    public Bytes encrypted_group_call_key { get; construct set; }
+    public string invite_link { get; construct set; }
 
-    public CallDiscardReasonAllowGroupCall (
-        Bytes encrypted_group_call_key
+    public CallDiscardReasonUpgradeToGroupCall (
+        string invite_link
     ) {
         Object (
-            encrypted_group_call_key: encrypted_group_call_key,
-            tdlib_type: "callDiscardReasonAllowGroupCall",
+            invite_link: invite_link,
+            tdlib_type: "callDiscardReasonUpgradeToGroupCall",
             tdlib_extra: Uuid.string_random ()
         );
     }

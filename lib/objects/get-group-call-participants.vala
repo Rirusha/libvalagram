@@ -20,22 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns RTMP URL for streaming to the video chat of a chat; requires
- * can_manage_video_chats administrator right
+ * Returns information about participants of a non-joined group call that
+ * is not bound to a chat
  */
-public class TDLib.GetVideoChatRtmpUrl : TDObject {
+public class TDLib.GetGroupCallParticipants : TDObject {
 
     /**
-     * Chat identifier
+     * The group call which participants will be returned
      */
-    public int64 chat_id { get; construct set; }
+    public InputGroupCall input_group_call { get; construct set; }
 
-    public GetVideoChatRtmpUrl (
-        int64 chat_id
+    /**
+     * The maximum number of participants to return; must be positive
+     */
+    public int32 limit { get; construct set; }
+
+    public GetGroupCallParticipants (
+        InputGroupCall input_group_call,
+        int32 limit
     ) {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "getVideoChatRtmpUrl",
+            input_group_call: input_group_call,
+            limit: limit,
+            tdlib_type: "getGroupCallParticipants",
             tdlib_extra: Uuid.string_random ()
         );
     }

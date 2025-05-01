@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a group call participant hand is rased
+ * Toggles whether a group call participant hand is rased; for video
+ * chats only
  */
 public class TDLib.ToggleGroupCallParticipantIsHandRaised : TDObject {
 
@@ -36,8 +37,7 @@ public class TDLib.ToggleGroupCallParticipantIsHandRaised : TDObject {
 
     /**
      * Pass true if the user's hand needs to be raised. Only self hand can be
-     * raised. Requires groupCall.can_be_managed group call flag to lower
-     * other's hand
+     * raised. Requires groupCall.can_be_managed right to lower other's hand
      */
     public bool is_hand_raised { get; construct set; }
 

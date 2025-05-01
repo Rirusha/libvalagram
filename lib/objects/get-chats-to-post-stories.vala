@@ -20,22 +20,16 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns RTMP URL for streaming to the video chat of a chat; requires
- * can_manage_video_chats administrator right
+ * Returns supergroup and channel chats in which the current user has the
+ * right to post stories. The chats must be rechecked with
+ * {@link Client.can_post_story} before actually trying to post a story
+ * there
  */
-public class TDLib.GetVideoChatRtmpUrl : TDObject {
+public class TDLib.GetChatsToPostStories : TDObject {
 
-    /**
-     * Chat identifier
-     */
-    public int64 chat_id { get; construct set; }
-
-    public GetVideoChatRtmpUrl (
-        int64 chat_id
-    ) {
+    public GetChatsToPostStories () {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "getVideoChatRtmpUrl",
+            tdlib_type: "getChatsToPostStories",
             tdlib_extra: Uuid.string_random ()
         );
     }

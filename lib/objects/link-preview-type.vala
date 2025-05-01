@@ -474,6 +474,19 @@ public class TDLib.LinkPreviewTypeExternalVideo : LinkPreviewType {
 }
 
 /**
+ * The link is a link to a group call that isn't bound to a chat
+ */
+public class TDLib.LinkPreviewTypeGroupCall : LinkPreviewType {
+
+    public LinkPreviewTypeGroupCall () {
+        Object (
+            tdlib_type: "linkPreviewTypeGroupCall",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to an invoice
  */
 public class TDLib.LinkPreviewTypeInvoice : LinkPreviewType {
@@ -597,7 +610,7 @@ public class TDLib.LinkPreviewTypeStory : LinkPreviewType {
     /**
      * The identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Story identifier
@@ -605,11 +618,11 @@ public class TDLib.LinkPreviewTypeStory : LinkPreviewType {
     public int32 story_id { get; construct set; }
 
     public LinkPreviewTypeStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             tdlib_type: "linkPreviewTypeStory",
             tdlib_extra: Uuid.string_random ()

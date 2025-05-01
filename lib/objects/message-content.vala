@@ -714,7 +714,7 @@ public class TDLib.MessageStory : MessageContent {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Story identifier
@@ -728,12 +728,12 @@ public class TDLib.MessageStory : MessageContent {
     public bool via_mention { get; construct set; }
 
     public MessageStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         bool via_mention
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             via_mention: via_mention,
             tdlib_type: "messageStory",
@@ -853,6 +853,63 @@ public class TDLib.MessageCall : MessageContent {
             discard_reason: discard_reason,
             duration: duration,
             tdlib_type: "messageCall",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A message with information about a group call not bound to a chat. If
+ * the message is incoming, the call isn't active, isn't missed, and has
+ * no duration,
+ * and getOption("can_accept_calls") is true, then incoming call screen
+ * must be shown to the user. Use {@link Client.join_group_call} to
+ * accept the call or {@link Client.decline_group_call_invitation} to
+ * decline it.
+ * If the call become active or missed, then the call screen must be
+ * hidden
+ */
+public class TDLib.MessageGroupCall : MessageContent {
+
+    /**
+     * True, if the call is active, i.e. the called user joined the call
+     */
+    public bool is_active { get; construct set; }
+
+    /**
+     * True, if the called user missed or declined the call
+     */
+    public bool was_missed { get; construct set; }
+
+    /**
+     * True, if the call is a video call
+     */
+    public bool is_video { get; construct set; }
+
+    /**
+     * Call duration, in seconds; for left calls only
+     */
+    public int32 duration { get; construct set; }
+
+    /**
+     * Identifiers of some other call participants
+     */
+    public Gee.ArrayList<MessageSender?> other_participant_ids { get; construct set; default = new Gee.ArrayList<MessageSender?> (); }
+
+    public MessageGroupCall (
+        bool is_active,
+        bool was_missed,
+        bool is_video,
+        int32 duration,
+        Gee.ArrayList<MessageSender?> other_participant_ids
+    ) {
+        Object (
+            is_active: is_active,
+            was_missed: was_missed,
+            is_video: is_video,
+            duration: duration,
+            other_participant_ids: other_participant_ids,
+            tdlib_type: "messageGroupCall",
             tdlib_extra: Uuid.string_random ()
         );
     }

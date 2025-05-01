@@ -20,73 +20,27 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Joins an active group call. Returns join response payload for tgcalls
+ * Joins a group call that is not bound to a chat
  */
 public class TDLib.JoinGroupCall : TDObject {
 
     /**
-     * Group call identifier
+     * The group call to join
      */
-    public int32 group_call_id { get; construct set; }
+    public InputGroupCall input_group_call { get; construct set; }
 
     /**
-     * Identifier of a group call participant, which will be used to join the
-     * call; pass null to join as self; video chats only
+     * Parameters to join the call
      */
-    public MessageSender participant_id { get; construct set; }
-
-    /**
-     * Caller audio channel synchronization source identifier; received from
-     * tgcalls
-     */
-    public int32 audio_source_id { get; construct set; }
-
-    /**
-     * Group call join payload; received from tgcalls
-     */
-    public string payload { get; construct set; }
-
-    /**
-     * Pass true to join the call with muted microphone
-     */
-    public bool is_muted { get; construct set; }
-
-    /**
-     * Pass true if the user's video is enabled
-     */
-    public bool is_my_video_enabled { get; construct set; }
-
-    /**
-     * If non-empty, invite hash to be used to join the group call without
-     * being muted by administrators
-     */
-    public string invite_hash { get; construct set; }
-
-    /**
-     * Fingerprint of the encryption key for E2E group calls not bound to a
-     * chat; pass 0 for voice chats
-     */
-    public int64 key_fingerprint { get; construct set; }
+    public GroupCallJoinParameters join_parameters { get; construct set; }
 
     public JoinGroupCall (
-        int32 group_call_id,
-        MessageSender participant_id,
-        int32 audio_source_id,
-        string payload,
-        bool is_muted,
-        bool is_my_video_enabled,
-        string invite_hash,
-        int64 key_fingerprint
+        InputGroupCall input_group_call,
+        GroupCallJoinParameters join_parameters
     ) {
         Object (
-            group_call_id: group_call_id,
-            participant_id: participant_id,
-            audio_source_id: audio_source_id,
-            payload: payload,
-            is_muted: is_muted,
-            is_my_video_enabled: is_my_video_enabled,
-            invite_hash: invite_hash,
-            key_fingerprint: key_fingerprint,
+            input_group_call: input_group_call,
+            join_parameters: join_parameters,
             tdlib_type: "joinGroupCall",
             tdlib_extra: Uuid.string_random ()
         );

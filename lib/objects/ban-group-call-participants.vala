@@ -20,21 +20,32 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents a list of group call streams
+ * Bans users from a group call not bound to a chat; requires
+ * groupCall.is_owned. Only the owner of the group call can invite the
+ * banned users back
  */
-public class TDLib.GroupCallStreams : Error {
+public class TDLib.BanGroupCallParticipants : TDObject {
 
     /**
-     * A list of group call streams
+     * Group call identifier
      */
-    public Gee.ArrayList<GroupCallStream?> streams { get; construct set; default = new Gee.ArrayList<GroupCallStream?> (); }
+    public int32 group_call_id { get; construct set; }
 
-    public GroupCallStreams (
-        Gee.ArrayList<GroupCallStream?> streams
+    /**
+     * Identifiers of group call participants to ban; identifiers of unknown
+     * users from the update updateGroupCallParticipants can be also passed
+     * to the method
+     */
+    public Gee.ArrayList<int64?> user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
+
+    public BanGroupCallParticipants (
+        int32 group_call_id,
+        Gee.ArrayList<int64?> user_ids
     ) {
         Object (
-            streams: streams,
-            tdlib_type: "groupCallStreams",
+            group_call_id: group_call_id,
+            user_ids: user_ids,
+            tdlib_type: "banGroupCallParticipants",
             tdlib_extra: Uuid.string_random ()
         );
     }

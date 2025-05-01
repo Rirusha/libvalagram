@@ -182,17 +182,18 @@ public class TDLib.ChatStatisticsChannel : ChatStatistics {
     public StatisticalValue mean_message_reaction_count { get; construct set; }
 
     /**
-     * Mean number of times the recently sent stories were viewed
+     * Mean number of times the recently posted stories were viewed
      */
     public StatisticalValue mean_story_view_count { get; construct set; }
 
     /**
-     * Mean number of times the recently sent stories were shared
+     * Mean number of times the recently posted stories were shared
      */
     public StatisticalValue mean_story_share_count { get; construct set; }
 
     /**
-     * Mean number of times reactions were added to the recently sent stories
+     * Mean number of times reactions were added to the recently posted
+     * stories
      */
     public StatisticalValue mean_story_reaction_count { get; construct set; }
 
@@ -265,7 +266,7 @@ public class TDLib.ChatStatisticsChannel : ChatStatistics {
 
     /**
      * Detailed statistics about number of views and shares of recently sent
-     * messages and stories
+     * messages and posted stories
      */
     public Gee.ArrayList<ChatStatisticsInteractionInfo?> recent_interactions { get; construct set; default = new Gee.ArrayList<ChatStatisticsInteractionInfo?> (); }
 

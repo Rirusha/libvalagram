@@ -101,9 +101,9 @@ public class TDLib.MessageReplyToMessage : MessageReplyTo {
 public class TDLib.MessageReplyToStory : MessageReplyTo {
 
     /**
-     * The identifier of the sender of the story
+     * The identifier of the poster of the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * The identifier of the story
@@ -111,11 +111,11 @@ public class TDLib.MessageReplyToStory : MessageReplyTo {
     public int32 story_id { get; construct set; }
 
     public MessageReplyToStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             tdlib_type: "messageReplyToStory",
             tdlib_extra: Uuid.string_random ()

@@ -30,25 +30,27 @@ public class TDLib.GroupCall : Error {
     public int32 id_ { get; construct set; }
 
     /**
-     * Identifier of one-to-one call from which the group call was created; 0
-     * if unknown
-     */
-    public int32 from_call_id { get; construct set; }
-
-    /**
-     * Group call title
+     * Group call title; for video chats only
      */
     public string title { get; construct set; }
 
     /**
+     * Invite link for the group call; for group calls that aren't bound to a
+     * chat. For video chats call {@link Client.get_video_chat_invite_link}
+     * to get the link
+     */
+    public string invite_link { get; construct set; }
+
+    /**
      * Point in time (Unix timestamp) when the group call is expected to be
-     * started by an administrator; 0 if it is already active or was ended
+     * started by an administrator; 0 if it is already active or was ended;
+     * for video chats only
      */
     public int32 scheduled_start_date { get; construct set; }
 
     /**
      * True, if the group call is scheduled and the current user will receive
-     * a notification when the group call starts
+     * a notification when the group call starts; for video chats only
      */
     public bool enabled_start_notification { get; construct set; }
 
@@ -58,7 +60,13 @@ public class TDLib.GroupCall : Error {
     public bool is_active { get; construct set; }
 
     /**
-     * True, if the chat is an RTMP stream instead of an ordinary video chat
+     * True, if the call is bound to a chat
+     */
+    public bool is_video_chat { get; construct set; }
+
+    /**
+     * True, if the call is an RTMP stream instead of an ordinary video chat;
+     * for video chats only
      */
     public bool is_rtmp_stream { get; construct set; }
 
@@ -74,7 +82,15 @@ public class TDLib.GroupCall : Error {
     public bool need_rejoin { get; construct set; }
 
     /**
-     * True, if the current user can manage the group call
+     * True, if the user is the owner of the call and can end the call,
+     * change volume level of other users, or ban users there; for group
+     * calls that aren't bound to a chat
+     */
+    public bool is_owned { get; construct set; }
+
+    /**
+     * True, if the current user can manage the group call; for video chats
+     * only
      */
     public bool can_be_managed { get; construct set; }
 
@@ -85,7 +101,7 @@ public class TDLib.GroupCall : Error {
 
     /**
      * True, if group call participants, which are muted, aren't returned in
-     * participant list
+     * participant list; for video chats only
      */
     public bool has_hidden_listeners { get; construct set; }
 
@@ -115,13 +131,14 @@ public class TDLib.GroupCall : Error {
     public bool can_enable_video { get; construct set; }
 
     /**
-     * True, if only group call administrators can unmute new participants
+     * True, if only group call administrators can unmute new participants;
+     * for video chats only
      */
     public bool mute_new_participants { get; construct set; }
 
     /**
      * True, if the current user can enable or disable mute_new_participants
-     * setting
+     * setting; for video chats only
      */
     public bool can_toggle_mute_new_participants { get; construct set; }
 
@@ -144,14 +161,16 @@ public class TDLib.GroupCall : Error {
 
     public GroupCall (
         int32 id_,
-        int32 from_call_id,
         string title,
+        string invite_link,
         int32 scheduled_start_date,
         bool enabled_start_notification,
         bool is_active,
+        bool is_video_chat,
         bool is_rtmp_stream,
         bool is_joined,
         bool need_rejoin,
+        bool is_owned,
         bool can_be_managed,
         int32 participant_count,
         bool has_hidden_listeners,
@@ -168,14 +187,16 @@ public class TDLib.GroupCall : Error {
     ) {
         Object (
             id_: id_,
-            from_call_id: from_call_id,
             title: title,
+            invite_link: invite_link,
             scheduled_start_date: scheduled_start_date,
             enabled_start_notification: enabled_start_notification,
             is_active: is_active,
+            is_video_chat: is_video_chat,
             is_rtmp_stream: is_rtmp_stream,
             is_joined: is_joined,
             need_rejoin: need_rejoin,
+            is_owned: is_owned,
             can_be_managed: can_be_managed,
             participant_count: participant_count,
             has_hidden_listeners: has_hidden_listeners,

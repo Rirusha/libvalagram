@@ -20,21 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about available group call streams
+ * Starts a scheduled video chat
  */
-public class TDLib.GetGroupCallStreams : TDObject {
+public class TDLib.StartScheduledVideoChat : TDObject {
 
     /**
-     * Group call identifier
+     * Group call identifier of the video chat
      */
     public int32 group_call_id { get; construct set; }
 
-    public GetGroupCallStreams (
+    public StartScheduledVideoChat (
         int32 group_call_id
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "getGroupCallStreams",
+            tdlib_type: "startScheduledVideoChat",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -97,7 +97,7 @@ public class TDLib.BusinessBotRights : Error {
     public bool can_transfer_stars { get; construct set; }
 
     /**
-     * True, if the bot can send, edit and delete stories
+     * True, if the bot can post, edit and delete stories
      */
     public bool can_manage_stories { get; construct set; }
 

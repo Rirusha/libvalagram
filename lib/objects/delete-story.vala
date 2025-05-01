@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Deletes a previously sent story. Can be called only if
+ * Deletes a previously posted story. Can be called only if
  * story.can_be_deleted == true
  */
 public class TDLib.DeleteStory : TDObject {
@@ -28,7 +28,7 @@ public class TDLib.DeleteStory : TDObject {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Identifier of the story to delete
@@ -36,11 +36,11 @@ public class TDLib.DeleteStory : TDObject {
     public int32 story_id { get; construct set; }
 
     public DeleteStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             tdlib_type: "deleteStory",
             tdlib_extra: Uuid.string_random ()

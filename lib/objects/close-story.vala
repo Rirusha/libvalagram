@@ -25,9 +25,9 @@
 public class TDLib.CloseStory : TDObject {
 
     /**
-     * The identifier of the sender of the story to {@link Client.close}
+     * The identifier of the poster of the story to {@link Client.close}
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * The identifier of the story
@@ -35,11 +35,11 @@ public class TDLib.CloseStory : TDObject {
     public int32 story_id { get; construct set; }
 
     public CloseStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             tdlib_type: "closeStory",
             tdlib_extra: Uuid.string_random ()

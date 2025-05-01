@@ -20,10 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Informs TDLib that speaking state of a participant of an active group
- * call has changed
+ * Joins an active video chat. Returns join response payload for tgcalls
  */
-public class TDLib.SetGroupCallParticipantIsSpeaking : TDObject {
+public class TDLib.JoinVideoChat : TDObject {
 
     /**
      * Group call identifier
@@ -31,26 +30,33 @@ public class TDLib.SetGroupCallParticipantIsSpeaking : TDObject {
     public int32 group_call_id { get; construct set; }
 
     /**
-     * Group call participant's synchronization audio source identifier, or 0
-     * for the current user
+     * Identifier of a group call participant, which will be used to join the
+     * call; pass null to join as self; video chats only
      */
-    public int32 audio_source { get; construct set; }
+    public MessageSender participant_id { get; construct set; }
 
     /**
-     * Pass true if the user is speaking
+     * Parameters to join the call
      */
-    public bool is_speaking { get; construct set; }
+    public GroupCallJoinParameters join_parameters { get; construct set; }
 
-    public SetGroupCallParticipantIsSpeaking (
+    /**
+     * Invite hash as received from internalLinkTypeVideoChat
+     */
+    public string invite_hash { get; construct set; }
+
+    public JoinVideoChat (
         int32 group_call_id,
-        int32 audio_source,
-        bool is_speaking
+        MessageSender participant_id,
+        GroupCallJoinParameters join_parameters,
+        string invite_hash
     ) {
         Object (
             group_call_id: group_call_id,
-            audio_source: audio_source,
-            is_speaking: is_speaking,
-            tdlib_type: "setGroupCallParticipantIsSpeaking",
+            participant_id: participant_id,
+            join_parameters: join_parameters,
+            invite_hash: invite_hash,
+            tdlib_type: "joinVideoChat",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,29 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether the current user will receive a notification when the
- * group call starts; scheduled group calls only
+ * Returns information about available video chat streams
  */
-public class TDLib.ToggleGroupCallEnabledStartNotification : TDObject {
+public class TDLib.GetVideoChatStreams : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    /**
-     * New value of the enabled_start_notification setting
-     */
-    public bool enabled_start_notification { get; construct set; }
-
-    public ToggleGroupCallEnabledStartNotification (
-        int32 group_call_id,
-        bool enabled_start_notification
+    public GetVideoChatStreams (
+        int32 group_call_id
     ) {
         Object (
             group_call_id: group_call_id,
-            enabled_start_notification: enabled_start_notification,
-            tdlib_type: "toggleGroupCallEnabledStartNotification",
+            tdlib_type: "getVideoChatStreams",
             tdlib_extra: Uuid.string_random ()
         );
     }

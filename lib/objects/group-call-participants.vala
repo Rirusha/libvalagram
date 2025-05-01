@@ -20,23 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Checks whether the current user can send a story on behalf of a chat;
- * requires can_post_stories right for supergroup and channel chats
+ * Contains identifiers of group call participants
  */
-public class TDLib.CanSendStory : TDObject {
+public class TDLib.GroupCallParticipants : Error {
 
     /**
-     * Chat identifier. Pass Saved Messages chat identifier when posting a
-     * story on behalf of the current user
+     * Total number of group call participants
      */
-    public int64 chat_id { get; construct set; }
+    public int32 total_count { get; construct set; }
 
-    public CanSendStory (
-        int64 chat_id
+    /**
+     * Identifiers of the participants
+     */
+    public Gee.ArrayList<MessageSender?> participant_ids { get; construct set; default = new Gee.ArrayList<MessageSender?> (); }
+
+    public GroupCallParticipants (
+        int32 total_count,
+        Gee.ArrayList<MessageSender?> participant_ids
     ) {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "canSendStory",
+            total_count: total_count,
+            participant_ids: participant_ids,
+            tdlib_type: "groupCallParticipants",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -25,20 +25,20 @@
 public class TDLib.Story : Error {
 
     /**
-     * Unique story identifier among stories of the given sender
+     * Unique story identifier among stories posted by the given chat
      */
     public int32 id_ { get; construct set; }
 
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 sender_chat_id { get; construct set; }
+    public int64 poster_chat_id { get; construct set; }
 
     /**
-     * Identifier of the sender of the story; may be null if the story is
-     * posted on behalf of the sender_chat_id
+     * Identifier of the user or chat that posted the story; may be null if
+     * the story is posted on behalf of the poster_chat_id
      */
-    public MessageSender? sender_id { get; construct set; }
+    public MessageSender? poster_id { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the story was published
@@ -46,9 +46,9 @@ public class TDLib.Story : Error {
     public int32 date { get; construct set; }
 
     /**
-     * True, if the story is being sent by the current user
+     * True, if the story is being posted by the current user
      */
-    public bool is_being_sent { get; construct set; }
+    public bool is_being_posted { get; construct set; }
 
     /**
      * True, if the story is being edited by the current user
@@ -61,8 +61,8 @@ public class TDLib.Story : Error {
     public bool is_edited { get; construct set; }
 
     /**
-     * True, if the story is saved in the sender's profile and will be
-     * available there after expiration
+     * True, if the story is saved in the profile of the chat that posted it
+     * and will be available there after expiration
      */
     public bool is_posted_to_chat_page { get; construct set; }
 
@@ -88,7 +88,8 @@ public class TDLib.Story : Error {
     public bool can_be_forwarded { get; construct set; }
 
     /**
-     * True, if the story can be replied in the chat with the story sender
+     * True, if the story can be replied in the chat with the user that
+     * posted the story
      */
     public bool can_be_replied { get; construct set; }
 
@@ -156,10 +157,10 @@ public class TDLib.Story : Error {
 
     public Story (
         int32 id_,
-        int64 sender_chat_id,
-        MessageSender? sender_id,
+        int64 poster_chat_id,
+        MessageSender? poster_id,
         int32 date,
-        bool is_being_sent,
+        bool is_being_posted,
         bool is_being_edited,
         bool is_edited,
         bool is_posted_to_chat_page,
@@ -182,10 +183,10 @@ public class TDLib.Story : Error {
     ) {
         Object (
             id_: id_,
-            sender_chat_id: sender_chat_id,
-            sender_id: sender_id,
+            poster_chat_id: poster_chat_id,
+            poster_id: poster_id,
             date: date,
-            is_being_sent: is_being_sent,
+            is_being_posted: is_being_posted,
             is_being_edited: is_being_edited,
             is_edited: is_edited,
             is_posted_to_chat_page: is_posted_to_chat_page,

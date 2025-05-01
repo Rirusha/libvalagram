@@ -29,9 +29,9 @@
 public class TDLib.GetStoryPublicForwards : TDObject {
 
     /**
-     * The identifier of the sender of the story
+     * The identifier of the poster of the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * The identifier of the story
@@ -53,13 +53,13 @@ public class TDLib.GetStoryPublicForwards : TDObject {
     public int32 limit { get; construct set; }
 
     public GetStoryPublicForwards (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         string offset,
         int32 limit
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             offset: offset,
             limit: limit,

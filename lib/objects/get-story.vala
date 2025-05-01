@@ -27,7 +27,7 @@ public class TDLib.GetStory : TDObject {
     /**
      * Identifier of the chat that posted the story
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Story identifier
@@ -41,12 +41,12 @@ public class TDLib.GetStory : TDObject {
     public bool only_local { get; construct set; }
 
     public GetStory (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         int32 story_id,
         bool only_local
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             only_local: only_local,
             tdlib_type: "getStory",

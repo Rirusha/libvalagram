@@ -84,14 +84,15 @@ public class TDLib.ChatNotificationSettings : Error {
 
     /**
      * If true, the value for the relevant type of chat is used instead of
-     * show_story_sender
+     * show_story_poster
      */
-    public bool use_default_show_story_sender { get; construct set; }
+    public bool use_default_show_story_poster { get; construct set; }
 
     /**
-     * True, if the sender of stories must be displayed in notifications
+     * True, if the chat that posted a story must be displayed in
+     * notifications
      */
-    public bool show_story_sender { get; construct set; }
+    public bool show_story_poster { get; construct set; }
 
     /**
      * If true, the value for the relevant type of chat or the forum chat is
@@ -128,8 +129,8 @@ public class TDLib.ChatNotificationSettings : Error {
         bool mute_stories,
         bool use_default_story_sound,
         int64 story_sound_id,
-        bool use_default_show_story_sender,
-        bool show_story_sender,
+        bool use_default_show_story_poster,
+        bool show_story_poster,
         bool use_default_disable_pinned_message_notifications,
         bool disable_pinned_message_notifications,
         bool use_default_disable_mention_notifications,
@@ -146,8 +147,8 @@ public class TDLib.ChatNotificationSettings : Error {
             mute_stories: mute_stories,
             use_default_story_sound: use_default_story_sound,
             story_sound_id: story_sound_id,
-            use_default_show_story_sender: use_default_show_story_sender,
-            show_story_sender: show_story_sender,
+            use_default_show_story_poster: use_default_show_story_poster,
+            show_story_poster: show_story_poster,
             use_default_disable_pinned_message_notifications: use_default_disable_pinned_message_notifications,
             disable_pinned_message_notifications: disable_pinned_message_notifications,
             use_default_disable_mention_notifications: use_default_disable_mention_notifications,

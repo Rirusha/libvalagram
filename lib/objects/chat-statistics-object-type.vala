@@ -46,7 +46,7 @@ public class TDLib.ChatStatisticsObjectTypeMessage : ChatStatisticsObjectType {
 }
 
 /**
- * Describes a story sent by the chat
+ * Describes a story posted on behalf of the chat
  */
 public class TDLib.ChatStatisticsObjectTypeStory : ChatStatisticsObjectType {
 

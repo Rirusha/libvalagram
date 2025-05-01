@@ -20,9 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns invite link to a video chat in a public chat
+ * Toggles whether the current user will receive a notification when the
+ * video chat starts; for scheduled video chats only
  */
-public class TDLib.GetGroupCallInviteLink : TDObject {
+public class TDLib.ToggleVideoChatEnabledStartNotification : TDObject {
 
     /**
      * Group call identifier
@@ -30,21 +31,18 @@ public class TDLib.GetGroupCallInviteLink : TDObject {
     public int32 group_call_id { get; construct set; }
 
     /**
-     * Pass true if the invite link needs to contain an invite hash, passing
-     * which to {@link Client.join_group_call} would allow the invited user
-     * to unmute themselves. Requires groupCall.can_be_managed group call
-     * flag
+     * New value of the enabled_start_notification setting
      */
-    public bool can_self_unmute { get; construct set; }
+    public bool enabled_start_notification { get; construct set; }
 
-    public GetGroupCallInviteLink (
+    public ToggleVideoChatEnabledStartNotification (
         int32 group_call_id,
-        bool can_self_unmute
+        bool enabled_start_notification
     ) {
         Object (
             group_call_id: group_call_id,
-            can_self_unmute: can_self_unmute,
-            tdlib_type: "getGroupCallInviteLink",
+            enabled_start_notification: enabled_start_notification,
+            tdlib_type: "toggleVideoChatEnabledStartNotification",
             tdlib_extra: Uuid.string_random ()
         );
     }

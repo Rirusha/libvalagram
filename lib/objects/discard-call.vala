@@ -35,6 +35,12 @@ public class TDLib.DiscardCall : TDObject {
     public bool is_disconnected { get; construct set; }
 
     /**
+     * If the call was upgraded to a group call, pass invite link to the
+     * group call
+     */
+    public string invite_link { get; construct set; }
+
+    /**
      * The call duration, in seconds
      */
     public int32 duration { get; construct set; }
@@ -52,6 +58,7 @@ public class TDLib.DiscardCall : TDObject {
     public DiscardCall (
         int32 call_id,
         bool is_disconnected,
+        string invite_link,
         int32 duration,
         bool is_video,
         int64 connection_id
@@ -59,6 +66,7 @@ public class TDLib.DiscardCall : TDObject {
         Object (
             call_id: call_id,
             is_disconnected: is_disconnected,
+            invite_link: invite_link,
             duration: duration,
             is_video: is_video,
             connection_id: connection_id,

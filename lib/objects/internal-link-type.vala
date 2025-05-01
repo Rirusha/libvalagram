@@ -524,6 +524,28 @@ public class TDLib.InternalLinkTypeGame : InternalLinkType {
 }
 
 /**
+ * The link is a link to a group call that isn't bound to a chat. Call
+ * {@link Client.join_group_call} with the given invite_link
+ */
+public class TDLib.InternalLinkTypeGroupCall : InternalLinkType {
+
+    /**
+     * Internal representation of the invite link
+     */
+    public string invite_link { get; construct set; }
+
+    public InternalLinkTypeGroupCall (
+        string invite_link
+    ) {
+        Object (
+            invite_link: invite_link,
+            tdlib_type: "internalLinkTypeGroupCall",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link must be opened in an Instant View. Call
  * {@link Client.get_web_page_instant_view} with the given URL to process
  * the link.
@@ -1053,16 +1075,16 @@ public class TDLib.InternalLinkTypeStickerSet : InternalLinkType {
 
 /**
  * The link is a link to a story. Call {@link Client.search_public_chat}
- * with the given sender username, then call {@link Client.get_story}
+ * with the given poster username, then call {@link Client.get_story}
  * with the received chat identifier and the given story identifier, then
  * show the story if received
  */
 public class TDLib.InternalLinkTypeStory : InternalLinkType {
 
     /**
-     * Username of the sender of the story
+     * Username of the poster of the story
      */
-    public string story_sender_username { get; construct set; }
+    public string story_poster_username { get; construct set; }
 
     /**
      * Story identifier
@@ -1070,11 +1092,11 @@ public class TDLib.InternalLinkTypeStory : InternalLinkType {
     public int32 story_id { get; construct set; }
 
     public InternalLinkTypeStory (
-        string story_sender_username,
+        string story_poster_username,
         int32 story_id
     ) {
         Object (
-            story_sender_username: story_sender_username,
+            story_poster_username: story_poster_username,
             story_id: story_id,
             tdlib_type: "internalLinkTypeStory",
             tdlib_extra: Uuid.string_random ()
@@ -1244,7 +1266,7 @@ public class TDLib.InternalLinkTypeUserToken : InternalLinkType {
 /**
  * The link is a link to a video chat. Call
  * {@link Client.search_public_chat} with the given chat username, and
- * then {@link Client.join_group_call} with the given invite hash to
+ * then {@link Client.join_video_chat} with the given invite hash to
  * process the link
  */
 public class TDLib.InternalLinkTypeVideoChat : InternalLinkType {

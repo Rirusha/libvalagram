@@ -38,7 +38,7 @@ public class TDLib.ChatActiveStories : Error {
     /**
      * A parameter used to determine order of the stories in the story list;
      * 0 if the stories doesn't need to be shown in the story list. Stories
-     * must be sorted by the pair (order, story_sender_chat_id) in descending
+     * must be sorted by the pair (order, story_poster_chat_id) in descending
      * order
      */
     public int64 order { get; construct set; }

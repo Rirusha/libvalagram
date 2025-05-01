@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Deletes a story sent by the bot on behalf of a business account; for
+ * Deletes a story posted by the bot on behalf of a business account; for
  * bots only
  */
 public class TDLib.DeleteBusinessStory : TDObject {

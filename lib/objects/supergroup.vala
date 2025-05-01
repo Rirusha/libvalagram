@@ -59,7 +59,7 @@ public class TDLib.Supergroup : Error {
      * Currently, it is guaranteed to be known only if the supergroup or
      * channel was received through
      * {@link Client.get_chat_similar_chats}
-     * {@link Client.get_chats_to_send_stories}
+     * {@link Client.get_chats_to_post_stories}
      * {@link Client.get_created_public_chats}
      * {@link Client.get_groups_in_common}
      * {@link Client.get_inactive_supergroup_chats}

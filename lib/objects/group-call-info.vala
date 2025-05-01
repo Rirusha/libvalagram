@@ -20,29 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sets group call title. Requires groupCall.can_be_managed group call
- * flag
+ * Contains information about a just created or just joined group call
  */
-public class TDLib.SetGroupCallTitle : TDObject {
+public class TDLib.GroupCallInfo : Error {
 
     /**
-     * Group call identifier
+     * Identifier of the group call
      */
     public int32 group_call_id { get; construct set; }
 
     /**
-     * New group call title; 1-64 characters
+     * Join response payload for tgcalls; empty if the call isn't joined
      */
-    public string title { get; construct set; }
+    public string join_payload { get; construct set; }
 
-    public SetGroupCallTitle (
+    public GroupCallInfo (
         int32 group_call_id,
-        string title
+        string join_payload
     ) {
         Object (
             group_call_id: group_call_id,
-            title: title,
-            tdlib_type: "setGroupCallTitle",
+            join_payload: join_payload,
+            tdlib_type: "groupCallInfo",
             tdlib_extra: Uuid.string_random ()
         );
     }

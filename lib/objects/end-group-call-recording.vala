@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends recording of an active group call. Requires
- * groupCall.can_be_managed group call flag
+ * Ends recording of an active group call; for video chats only. Requires
+ * groupCall.can_be_managed right
  */
 public class TDLib.EndGroupCallRecording : TDObject {
 

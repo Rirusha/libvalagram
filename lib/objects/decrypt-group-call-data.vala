@@ -20,44 +20,42 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Reports a story to the Telegram moderators
+ * Decrypts group call data received by tgcalls
  */
-public class TDLib.ReportStory : TDObject {
+public class TDLib.DecryptGroupCallData : TDObject {
 
     /**
-     * The identifier of the poster of the story to report
+     * Group call identifier. The call must not be a video chat
      */
-    public int64 story_poster_chat_id { get; construct set; }
+    public int32 group_call_id { get; construct set; }
 
     /**
-     * The identifier of the story to report
+     * Identifier of the group call participant, which sent the data
      */
-    public int32 story_id { get; construct set; }
+    public MessageSender participant_id { get; construct set; }
 
     /**
-     * Option identifier chosen by the user; leave empty for the initial
-     * request
+     * Data channel for which data was encrypted; pass null if unknown
      */
-    public Bytes option_id { get; construct set; }
+    public GroupCallDataChannel data_channel { get; construct set; }
 
     /**
-     * Additional report details; 0-1024 characters; leave empty for the
-     * initial request
+     * Data to decrypt
      */
-    public string text { get; construct set; }
+    public Bytes data { get; construct set; }
 
-    public ReportStory (
-        int64 story_poster_chat_id,
-        int32 story_id,
-        Bytes option_id,
-        string text
+    public DecryptGroupCallData (
+        int32 group_call_id,
+        MessageSender participant_id,
+        GroupCallDataChannel data_channel,
+        Bytes data
     ) {
         Object (
-            story_poster_chat_id: story_poster_chat_id,
-            story_id: story_id,
-            option_id: option_id,
-            text: text,
-            tdlib_type: "reportStory",
+            group_call_id: group_call_id,
+            participant_id: participant_id,
+            data_channel: data_channel,
+            data: data,
+            tdlib_type: "decryptGroupCallData",
             tdlib_extra: Uuid.string_random ()
         );
     }

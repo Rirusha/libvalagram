@@ -20,9 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Searches for call messages. Returns the results in reverse
- * chronological order (i.e., in order of decreasing message_id). For
- * optimal performance, the number of returned messages is chosen by
+ * Searches for call and group call messages. Returns the results in
+ * reverse chronological order (i.e., in order of decreasing message_id).
+ * For optimal performance, the number of returned messages is chosen by
  * TDLib
  */
 public class TDLib.SearchCallMessages : TDObject {

@@ -30,7 +30,7 @@ public class TDLib.SearchPublicStoriesByTag : TDObject {
      * Identifier of the chat that posted the stories to search for; pass 0
      * to search stories in all chats
      */
-    public int64 story_sender_chat_id { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
      * Hashtag or cashtag to search for
@@ -51,13 +51,13 @@ public class TDLib.SearchPublicStoriesByTag : TDObject {
     public int32 limit { get; construct set; }
 
     public SearchPublicStoriesByTag (
-        int64 story_sender_chat_id,
+        int64 story_poster_chat_id,
         string tag,
         string offset,
         int32 limit
     ) {
         Object (
-            story_sender_chat_id: story_sender_chat_id,
+            story_poster_chat_id: story_poster_chat_id,
             tag: tag,
             offset: offset,
             limit: limit,

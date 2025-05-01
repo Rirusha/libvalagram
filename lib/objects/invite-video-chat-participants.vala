@@ -20,22 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns RTMP URL for streaming to the video chat of a chat; requires
- * can_manage_video_chats administrator right
+ * Invites users to an active video chat. Sends a service message of the
+ * type messageInviteVideoChatParticipants to the chat bound to the group
+ * call
  */
-public class TDLib.GetVideoChatRtmpUrl : TDObject {
+public class TDLib.InviteVideoChatParticipants : TDObject {
 
     /**
-     * Chat identifier
+     * Group call identifier
      */
-    public int64 chat_id { get; construct set; }
+    public int32 group_call_id { get; construct set; }
 
-    public GetVideoChatRtmpUrl (
-        int64 chat_id
+    /**
+     * User identifiers. At most 10 users can be invited simultaneously
+     */
+    public Gee.ArrayList<int64?> user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
+
+    public InviteVideoChatParticipants (
+        int32 group_call_id,
+        Gee.ArrayList<int64?> user_ids
     ) {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "getVideoChatRtmpUrl",
+            group_call_id: group_call_id,
+            user_ids: user_ids,
+            tdlib_type: "inviteVideoChatParticipants",
             tdlib_extra: Uuid.string_random ()
         );
     }

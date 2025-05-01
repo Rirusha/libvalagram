@@ -20,44 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Reports a story to the Telegram moderators
+ * Describes an available stream in a video chat
  */
-public class TDLib.ReportStory : TDObject {
+public class TDLib.VideoChatStream : Error {
 
     /**
-     * The identifier of the poster of the story to report
+     * Identifier of an audio/video channel
      */
-    public int64 story_poster_chat_id { get; construct set; }
+    public int32 channel_id { get; construct set; }
 
     /**
-     * The identifier of the story to report
+     * Scale of segment durations in the stream. The duration is
+     * 1000/(2**scale) milliseconds
      */
-    public int32 story_id { get; construct set; }
+    public int32 scale { get; construct set; }
 
     /**
-     * Option identifier chosen by the user; leave empty for the initial
-     * request
+     * Point in time when the stream currently ends; Unix timestamp in
+     * milliseconds
      */
-    public Bytes option_id { get; construct set; }
+    public int64 time_offset { get; construct set; }
 
-    /**
-     * Additional report details; 0-1024 characters; leave empty for the
-     * initial request
-     */
-    public string text { get; construct set; }
-
-    public ReportStory (
-        int64 story_poster_chat_id,
-        int32 story_id,
-        Bytes option_id,
-        string text
+    public VideoChatStream (
+        int32 channel_id,
+        int32 scale,
+        int64 time_offset
     ) {
         Object (
-            story_poster_chat_id: story_poster_chat_id,
-            story_id: story_id,
-            option_id: option_id,
-            text: text,
-            tdlib_type: "reportStory",
+            channel_id: channel_id,
+            scale: scale,
+            time_offset: time_offset,
+            tdlib_type: "videoChatStream",
             tdlib_extra: Uuid.string_random ()
         );
     }

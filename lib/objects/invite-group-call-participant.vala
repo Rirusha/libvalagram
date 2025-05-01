@@ -20,44 +20,38 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Reports a story to the Telegram moderators
+ * Invites a user to an active group call; for group calls not bound to a
+ * chat only. Sends a service message of the type messageGroupCall.
+ * The group call can have at most
+ * getOption("group_call_participant_count_max") participants
  */
-public class TDLib.ReportStory : TDObject {
+public class TDLib.InviteGroupCallParticipant : TDObject {
 
     /**
-     * The identifier of the poster of the story to report
+     * Group call identifier
      */
-    public int64 story_poster_chat_id { get; construct set; }
+    public int32 group_call_id { get; construct set; }
 
     /**
-     * The identifier of the story to report
+     * User identifier
      */
-    public int32 story_id { get; construct set; }
+    public int64 user_id { get; construct set; }
 
     /**
-     * Option identifier chosen by the user; leave empty for the initial
-     * request
+     * Pass true if the group call is a video call
      */
-    public Bytes option_id { get; construct set; }
+    public bool is_video { get; construct set; }
 
-    /**
-     * Additional report details; 0-1024 characters; leave empty for the
-     * initial request
-     */
-    public string text { get; construct set; }
-
-    public ReportStory (
-        int64 story_poster_chat_id,
-        int32 story_id,
-        Bytes option_id,
-        string text
+    public InviteGroupCallParticipant (
+        int32 group_call_id,
+        int64 user_id,
+        bool is_video
     ) {
         Object (
-            story_poster_chat_id: story_poster_chat_id,
-            story_id: story_id,
-            option_id: option_id,
-            text: text,
-            tdlib_type: "reportStory",
+            group_call_id: group_call_id,
+            user_id: user_id,
+            is_video: is_video,
+            tdlib_type: "inviteGroupCallParticipant",
             tdlib_extra: Uuid.string_random ()
         );
     }
