@@ -20,43 +20,38 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a backdrop of an upgraded gift
+ * Sends an upgraded gift that is available for resale to another user or
+ * channel chat; gifts already owned by the current user
+ * must be transferred using {@link Client.transfer_gift} and can't be
+ * passed to the method
  */
-public class TDLib.UpgradedGiftBackdrop : Error {
+public class TDLib.SendResoldGift : TDObject {
 
     /**
-     * Unique identifier of the backdrop
+     * Name of the upgraded gift to send
      */
-    public int32 id_ { get; construct set; }
+    public string gift_name { get; construct set; }
 
     /**
-     * Name of the backdrop
+     * Identifier of the user or the channel chat that will receive the gift
      */
-    public string name { get; construct set; }
+    public MessageSender owner_id { get; construct set; }
 
     /**
-     * Colors of the backdrop
+     * The amount of Telegram Stars required to pay for the gift
      */
-    public UpgradedGiftBackdropColors colors { get; construct set; }
+    public int64 star_count { get; construct set; }
 
-    /**
-     * The number of upgraded gifts that receive this backdrop for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftBackdrop (
-        int32 id_,
-        string name,
-        UpgradedGiftBackdropColors colors,
-        int32 rarity_per_mille
+    public SendResoldGift (
+        string gift_name,
+        MessageSender owner_id,
+        int64 star_count
     ) {
         Object (
-            id_: id_,
-            name: name,
-            colors: colors,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftBackdrop",
+            gift_name: gift_name,
+            owner_id: owner_id,
+            star_count: star_count,
+            tdlib_type: "sendResoldGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

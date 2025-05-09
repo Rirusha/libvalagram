@@ -20,43 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a backdrop of an upgraded gift
+ * Describes a model of an upgraded gift with the number of gifts found
  */
-public class TDLib.UpgradedGiftBackdrop : Error {
+public class TDLib.UpgradedGiftModelCount : Error {
 
     /**
-     * Unique identifier of the backdrop
+     * The model
      */
-    public int32 id_ { get; construct set; }
+    public UpgradedGiftModel model { get; construct set; }
 
     /**
-     * Name of the backdrop
+     * Total number of gifts with the model
      */
-    public string name { get; construct set; }
+    public int32 total_count { get; construct set; }
 
-    /**
-     * Colors of the backdrop
-     */
-    public UpgradedGiftBackdropColors colors { get; construct set; }
-
-    /**
-     * The number of upgraded gifts that receive this backdrop for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftBackdrop (
-        int32 id_,
-        string name,
-        UpgradedGiftBackdropColors colors,
-        int32 rarity_per_mille
+    public UpgradedGiftModelCount (
+        UpgradedGiftModel model,
+        int32 total_count
     ) {
         Object (
-            id_: id_,
-            name: name,
-            colors: colors,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftBackdrop",
+            model: model,
+            total_count: total_count,
+            tdlib_type: "upgradedGiftModelCount",
             tdlib_extra: Uuid.string_random ()
         );
     }

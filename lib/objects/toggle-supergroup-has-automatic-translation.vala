@@ -20,43 +20,32 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a backdrop of an upgraded gift
+ * Toggles whether messages are automatically translated in the channel
+ * chat; requires can_change_info administrator right in the channel.
+ * The chat must have at least
+ * chatBoostFeatures.min_automatic_translation_boost_level boost level to
+ * enable automatic translation
  */
-public class TDLib.UpgradedGiftBackdrop : Error {
+public class TDLib.ToggleSupergroupHasAutomaticTranslation : TDObject {
 
     /**
-     * Unique identifier of the backdrop
+     * The identifier of the channel
      */
-    public int32 id_ { get; construct set; }
+    public int64 supergroup_id { get; construct set; }
 
     /**
-     * Name of the backdrop
+     * The new value of has_automatic_translation
      */
-    public string name { get; construct set; }
+    public bool has_automatic_translation { get; construct set; }
 
-    /**
-     * Colors of the backdrop
-     */
-    public UpgradedGiftBackdropColors colors { get; construct set; }
-
-    /**
-     * The number of upgraded gifts that receive this backdrop for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftBackdrop (
-        int32 id_,
-        string name,
-        UpgradedGiftBackdropColors colors,
-        int32 rarity_per_mille
+    public ToggleSupergroupHasAutomaticTranslation (
+        int64 supergroup_id,
+        bool has_automatic_translation
     ) {
         Object (
-            id_: id_,
-            name: name,
-            colors: colors,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftBackdrop",
+            supergroup_id: supergroup_id,
+            has_automatic_translation: has_automatic_translation,
+            tdlib_type: "toggleSupergroupHasAutomaticTranslation",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,22 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains a list of gifts that can be sent to another user or channel
- * chat
+ * Describes a gift available for resale
  */
-public class TDLib.Gifts : Error {
+public class TDLib.GiftForResale : Error {
 
     /**
-     * The list of gifts
+     * The gift
      */
-    public Gee.ArrayList<Gift?> gifts { get; construct set; default = new Gee.ArrayList<Gift?> (); }
+    public UpgradedGift gift { get; construct set; }
 
-    public Gifts (
-        Gee.ArrayList<Gift?> gifts
+    /**
+     * Unique identifier of the received gift for the current user; only for
+     * the gifts owned by the current user
+     */
+    public string received_gift_id { get; construct set; }
+
+    public GiftForResale (
+        UpgradedGift gift,
+        string received_gift_id
     ) {
         Object (
-            gifts: gifts,
-            tdlib_type: "gifts",
+            gift: gift,
+            received_gift_id: received_gift_id,
+            tdlib_type: "giftForResale",
             tdlib_extra: Uuid.string_random ()
         );
     }

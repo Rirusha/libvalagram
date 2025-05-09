@@ -680,6 +680,70 @@ public class TDLib.StarTransactionTypeGiftUpgrade : StarTransactionType {
 }
 
 /**
+ * The transaction is a purchase of an upgraded gift for some user or
+ * channel; for regular users only
+ */
+public class TDLib.StarTransactionTypeUpgradedGiftPurchase : StarTransactionType {
+
+    /**
+     * Identifier of the user that sold the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public StarTransactionTypeUpgradedGiftPurchase (
+        int64 user_id,
+        UpgradedGift gift
+    ) {
+        Object (
+            user_id: user_id,
+            gift: gift,
+            tdlib_type: "starTransactionTypeUpgradedGiftPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of an upgraded gift; for regular users only
+ */
+public class TDLib.StarTransactionTypeUpgradedGiftSale : StarTransactionType {
+
+    /**
+     * Identifier of the user that bought the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    /**
+     * Information about commission received by Telegram from the transaction
+     */
+    public AffiliateInfo affiliate { get; construct set; }
+
+    public StarTransactionTypeUpgradedGiftSale (
+        int64 user_id,
+        UpgradedGift gift,
+        AffiliateInfo affiliate
+    ) {
+        Object (
+            user_id: user_id,
+            gift: gift,
+            affiliate: affiliate,
+            tdlib_type: "starTransactionTypeUpgradedGiftSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a sending of a paid reaction to a message in a
  * channel chat by the current user; for regular users only
  */

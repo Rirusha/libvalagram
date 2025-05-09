@@ -37,7 +37,7 @@ public class TDLib.UpgradedGift : Error {
 
     /**
      * Unique name of the upgraded gift that can be used with
-     * internalLinkTypeUpgradedGift
+     * internalLinkTypeUpgradedGift or {@link Client.send_resold_gift}
      */
     public string name { get; construct set; }
 
@@ -103,6 +103,12 @@ public class TDLib.UpgradedGift : Error {
      */
     public UpgradedGiftOriginalDetails? original_details { get; construct set; }
 
+    /**
+     * Number of Telegram Stars that must be paid to buy the gift and send it
+     * to someone else; 0 if resale isn't possible
+     */
+    public int64 resale_star_count { get; construct set; }
+
     public UpgradedGift (
         int64 id_,
         string title,
@@ -117,7 +123,8 @@ public class TDLib.UpgradedGift : Error {
         UpgradedGiftModel model,
         UpgradedGiftSymbol symbol,
         UpgradedGiftBackdrop backdrop,
-        UpgradedGiftOriginalDetails? original_details
+        UpgradedGiftOriginalDetails? original_details,
+        int64 resale_star_count
     ) {
         Object (
             id_: id_,
@@ -134,6 +141,7 @@ public class TDLib.UpgradedGift : Error {
             symbol: symbol,
             backdrop: backdrop,
             original_details: original_details,
+            resale_star_count: resale_star_count,
             tdlib_type: "upgradedGift",
             tdlib_extra: Uuid.string_random ()
         );

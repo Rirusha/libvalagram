@@ -104,6 +104,19 @@ public class TDLib.ReceivedGift : Error {
     public int64 transfer_star_count { get; construct set; }
 
     /**
+     * Point in time (Unix timestamp) when the gift can be transferred to
+     * another owner; 0 if the gift can be transferred immediately or
+     * transfer isn't possible; only for the receiver of the gift
+     */
+    public int32 next_transfer_date { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the gift can be resold to another
+     * user; 0 if the gift can't be resold; only for the receiver of the gift
+     */
+    public int32 next_resale_date { get; construct set; }
+
+    /**
      * Point in time (Unix timestamp) when the upgraded gift can be
      * transferred to the TON blockchain as an NFT; 0 if NFT export isn't
      * possible; only for the receiver of the gift
@@ -125,6 +138,8 @@ public class TDLib.ReceivedGift : Error {
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
         int64 transfer_star_count,
+        int32 next_transfer_date,
+        int32 next_resale_date,
         int32 export_date
     ) {
         Object (
@@ -142,6 +157,8 @@ public class TDLib.ReceivedGift : Error {
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
             transfer_star_count: transfer_star_count,
+            next_transfer_date: next_transfer_date,
+            next_resale_date: next_resale_date,
             export_date: export_date,
             tdlib_type: "receivedGift",
             tdlib_extra: Uuid.string_random ()

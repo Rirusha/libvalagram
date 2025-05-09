@@ -20,43 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a backdrop of an upgraded gift
+ * Contains a list of gifts that can be sent to another user or channel
+ * chat
  */
-public class TDLib.UpgradedGiftBackdrop : Error {
+public class TDLib.AvailableGifts : Error {
 
     /**
-     * Unique identifier of the backdrop
+     * The list of gifts
      */
-    public int32 id_ { get; construct set; }
+    public Gee.ArrayList<AvailableGift?> gifts { get; construct set; default = new Gee.ArrayList<AvailableGift?> (); }
 
-    /**
-     * Name of the backdrop
-     */
-    public string name { get; construct set; }
-
-    /**
-     * Colors of the backdrop
-     */
-    public UpgradedGiftBackdropColors colors { get; construct set; }
-
-    /**
-     * The number of upgraded gifts that receive this backdrop for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftBackdrop (
-        int32 id_,
-        string name,
-        UpgradedGiftBackdropColors colors,
-        int32 rarity_per_mille
+    public AvailableGifts (
+        Gee.ArrayList<AvailableGift?> gifts
     ) {
         Object (
-            id_: id_,
-            name: name,
-            colors: colors,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftBackdrop",
+            gifts: gifts,
+            tdlib_type: "availableGifts",
             tdlib_extra: Uuid.string_random ()
         );
     }

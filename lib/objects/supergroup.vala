@@ -81,6 +81,11 @@ public class TDLib.Supergroup : Error {
     public int32 boost_level { get; construct set; }
 
     /**
+     * True, if automatic translation of messages is enabled in the channel
+     */
+    public bool has_automatic_translation { get; construct set; }
+
+    /**
      * True, if the channel has a discussion group, or the supergroup is the
      * designated discussion group for a channel
      */
@@ -181,6 +186,7 @@ public class TDLib.Supergroup : Error {
         ChatMemberStatus status,
         int32 member_count,
         int32 boost_level,
+        bool has_automatic_translation,
         bool has_linked_chat,
         bool has_location,
         bool sign_messages,
@@ -205,6 +211,7 @@ public class TDLib.Supergroup : Error {
             status: status,
             member_count: member_count,
             boost_level: boost_level,
+            has_automatic_translation: has_automatic_translation,
             has_linked_chat: has_linked_chat,
             has_location: has_location,
             sign_messages: sign_messages,

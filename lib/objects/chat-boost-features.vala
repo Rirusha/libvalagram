@@ -64,6 +64,12 @@ public class TDLib.ChatBoostFeatures : Error {
     public int32 min_custom_emoji_sticker_set_boost_level { get; construct set; }
 
     /**
+     * The minimum boost level allowing to enable automatic translation of
+     * messages for non-Premium users; for channel chats only
+     */
+    public int32 min_automatic_translation_boost_level { get; construct set; }
+
+    /**
      * The minimum boost level allowing to recognize speech in video note and
      * voice note messages for non-Premium users; for supergroup chats only
      */
@@ -83,6 +89,7 @@ public class TDLib.ChatBoostFeatures : Error {
         int32 min_chat_theme_background_boost_level,
         int32 min_custom_background_boost_level,
         int32 min_custom_emoji_sticker_set_boost_level,
+        int32 min_automatic_translation_boost_level,
         int32 min_speech_recognition_boost_level,
         int32 min_sponsored_message_disable_boost_level
     ) {
@@ -94,6 +101,7 @@ public class TDLib.ChatBoostFeatures : Error {
             min_chat_theme_background_boost_level: min_chat_theme_background_boost_level,
             min_custom_background_boost_level: min_custom_background_boost_level,
             min_custom_emoji_sticker_set_boost_level: min_custom_emoji_sticker_set_boost_level,
+            min_automatic_translation_boost_level: min_automatic_translation_boost_level,
             min_speech_recognition_boost_level: min_speech_recognition_boost_level,
             min_sponsored_message_disable_boost_level: min_sponsored_message_disable_boost_level,
             tdlib_type: "chatBoostFeatures",

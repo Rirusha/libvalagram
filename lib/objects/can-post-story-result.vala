@@ -30,8 +30,16 @@ public abstract class TDLib.CanPostStoryResult : Error {}
  */
 public class TDLib.CanPostStoryResultOk : CanPostStoryResult {
 
-    public CanPostStoryResultOk () {
+    /**
+     * Number of stories that can be posted by the user
+     */
+    public int32 story_count { get; construct set; }
+
+    public CanPostStoryResultOk (
+        int32 story_count
+    ) {
         Object (
+            story_count: story_count,
             tdlib_type: "canPostStoryResultOk",
             tdlib_extra: Uuid.string_random ()
         );

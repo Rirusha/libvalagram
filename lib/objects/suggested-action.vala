@@ -244,3 +244,45 @@ public class TDLib.SuggestedActionExtendStarSubscriptions : SuggestedAction {
         );
     }
 }
+
+/**
+ * A custom suggestion to be shown at the top of the chat list
+ */
+public class TDLib.SuggestedActionCustom : SuggestedAction {
+
+    /**
+     * Unique name of the suggestion
+     */
+    public string name { get; construct set; }
+
+    /**
+     * Title of the suggestion
+     */
+    public FormattedText title { get; construct set; }
+
+    /**
+     * Description of the suggestion
+     */
+    public FormattedText description { get; construct set; }
+
+    /**
+     * The link to open when the suggestion is clicked
+     */
+    public string url { get; construct set; }
+
+    public SuggestedActionCustom (
+        string name,
+        FormattedText title,
+        FormattedText description,
+        string url
+    ) {
+        Object (
+            name: name,
+            title: title,
+            description: description,
+            url: url,
+            tdlib_type: "suggestedActionCustom",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

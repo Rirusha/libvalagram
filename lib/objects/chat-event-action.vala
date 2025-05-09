@@ -995,6 +995,27 @@ public class TDLib.ChatEventShowMessageSenderToggled : ChatEventAction {
 }
 
 /**
+ * The has_automatic_translation setting of a channel was toggled
+ */
+public class TDLib.ChatEventAutomaticTranslationToggled : ChatEventAction {
+
+    /**
+     * New value of has_automatic_translation
+     */
+    public bool has_automatic_translation { get; construct set; }
+
+    public ChatEventAutomaticTranslationToggled (
+        bool has_automatic_translation
+    ) {
+        Object (
+            has_automatic_translation: has_automatic_translation,
+            tdlib_type: "chatEventAutomaticTranslationToggled",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A chat invite link was edited
  */
 public class TDLib.ChatEventInviteLinkEdited : ChatEventAction {

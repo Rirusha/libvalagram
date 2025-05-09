@@ -20,43 +20,44 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a backdrop of an upgraded gift
+ * Describes a gift that is available for purchase
  */
-public class TDLib.UpgradedGiftBackdrop : Error {
+public class TDLib.AvailableGift : Error {
 
     /**
-     * Unique identifier of the backdrop
+     * The gift
      */
-    public int32 id_ { get; construct set; }
+    public Gift gift { get; construct set; }
 
     /**
-     * Name of the backdrop
+     * Number of gifts that are available for resale
      */
-    public string name { get; construct set; }
+    public int32 resale_count { get; construct set; }
 
     /**
-     * Colors of the backdrop
+     * The minimum price for the gifts available for resale; 0 if there are
+     * no such gifts
      */
-    public UpgradedGiftBackdropColors colors { get; construct set; }
+    public int64 min_resale_star_count { get; construct set; }
 
     /**
-     * The number of upgraded gifts that receive this backdrop for each 1000
-     * gifts upgraded
+     * The title of the upgraded gift; empty if the gift isn't available for
+     * resale
      */
-    public int32 rarity_per_mille { get; construct set; }
+    public string title { get; construct set; }
 
-    public UpgradedGiftBackdrop (
-        int32 id_,
-        string name,
-        UpgradedGiftBackdropColors colors,
-        int32 rarity_per_mille
+    public AvailableGift (
+        Gift gift,
+        int32 resale_count,
+        int64 min_resale_star_count,
+        string title
     ) {
         Object (
-            id_: id_,
-            name: name,
-            colors: colors,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftBackdrop",
+            gift: gift,
+            resale_count: resale_count,
+            min_resale_star_count: min_resale_star_count,
+            title: title,
+            tdlib_type: "availableGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

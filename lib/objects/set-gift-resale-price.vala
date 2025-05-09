@@ -20,43 +20,33 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a backdrop of an upgraded gift
+ * Changes resale price of a unique gift owned by the current user
  */
-public class TDLib.UpgradedGiftBackdrop : Error {
+public class TDLib.SetGiftResalePrice : TDObject {
 
     /**
-     * Unique identifier of the backdrop
+     * Identifier of the unique gift
      */
-    public int32 id_ { get; construct set; }
+    public string received_gift_id { get; construct set; }
 
     /**
-     * Name of the backdrop
+     * The new price for the unique gift; 0 or
+     * getOption("gift_resale_star_count_min")-getOption("gift_resale_star_count_max").
+     * Pass 0 to disallow gift resale.
+     * The current user will receive
+     * getOption("gift_resale_earnings_per_mille") Telegram Stars for each
+     * 1000 Telegram Stars paid for the gift
      */
-    public string name { get; construct set; }
+    public int64 resale_star_count { get; construct set; }
 
-    /**
-     * Colors of the backdrop
-     */
-    public UpgradedGiftBackdropColors colors { get; construct set; }
-
-    /**
-     * The number of upgraded gifts that receive this backdrop for each 1000
-     * gifts upgraded
-     */
-    public int32 rarity_per_mille { get; construct set; }
-
-    public UpgradedGiftBackdrop (
-        int32 id_,
-        string name,
-        UpgradedGiftBackdropColors colors,
-        int32 rarity_per_mille
+    public SetGiftResalePrice (
+        string received_gift_id,
+        int64 resale_star_count
     ) {
         Object (
-            id_: id_,
-            name: name,
-            colors: colors,
-            rarity_per_mille: rarity_per_mille,
-            tdlib_type: "upgradedGiftBackdrop",
+            received_gift_id: received_gift_id,
+            resale_star_count: resale_star_count,
+            tdlib_type: "setGiftResalePrice",
             tdlib_extra: Uuid.string_random ()
         );
     }

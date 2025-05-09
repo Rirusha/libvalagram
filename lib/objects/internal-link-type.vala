@@ -741,6 +741,20 @@ public class TDLib.InternalLinkTypeMessageDraft : InternalLinkType {
 }
 
 /**
+ * The link is a link to the screen with information about Telegram Star
+ * balance and transactions of the current user
+ */
+public class TDLib.InternalLinkTypeMyStars : InternalLinkType {
+
+    public InternalLinkTypeMyStars () {
+        Object (
+            tdlib_type: "internalLinkTypeMyStars",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link contains a request of Telegram passport data. Call
  * {@link Client.get_passport_authorization_form} with the given
  * parameters to process the link if the link was received from outside

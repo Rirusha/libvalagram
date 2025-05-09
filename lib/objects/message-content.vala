@@ -2446,7 +2446,7 @@ public class TDLib.MessageUpgradedGift : MessageContent {
 
     /**
      * True, if the gift was obtained by upgrading of a previously received
-     * gift; otherwise, this is a transferred gift
+     * gift; otherwise, this is a transferred or resold gift
      */
     public bool is_upgrade { get; construct set; }
 
@@ -2469,10 +2469,29 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     public bool was_transferred { get; construct set; }
 
     /**
+     * Number of Telegram Stars that were paid by the sender for the gift; 0
+     * if the gift was upgraded or transferred
+     */
+    public int64 last_resale_star_count { get; construct set; }
+
+    /**
      * Number of Telegram Stars that must be paid to transfer the upgraded
      * gift; only for the receiver of the gift
      */
     public int64 transfer_star_count { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the gift can be transferred to
+     * another owner; 0 if the gift can be transferred immediately or
+     * transfer isn't possible; only for the receiver of the gift
+     */
+    public int32 next_transfer_date { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the gift can be resold to another
+     * user; 0 if the gift can't be resold; only for the receiver of the gift
+     */
+    public int32 next_resale_date { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the gift can be transferred to the
@@ -2489,7 +2508,10 @@ public class TDLib.MessageUpgradedGift : MessageContent {
         bool is_saved,
         bool can_be_transferred,
         bool was_transferred,
+        int64 last_resale_star_count,
         int64 transfer_star_count,
+        int32 next_transfer_date,
+        int32 next_resale_date,
         int32 export_date
     ) {
         Object (
@@ -2500,7 +2522,10 @@ public class TDLib.MessageUpgradedGift : MessageContent {
             is_saved: is_saved,
             can_be_transferred: can_be_transferred,
             was_transferred: was_transferred,
+            last_resale_star_count: last_resale_star_count,
             transfer_star_count: transfer_star_count,
+            next_transfer_date: next_transfer_date,
+            next_resale_date: next_resale_date,
             export_date: export_date,
             tdlib_type: "messageUpgradedGift",
             tdlib_extra: Uuid.string_random ()
@@ -2525,7 +2550,7 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
 
     /**
      * True, if the gift was obtained by upgrading of a previously received
-     * gift
+     * gift; otherwise, this is a transferred or resold gift
      */
     public bool is_upgrade { get; construct set; }
 

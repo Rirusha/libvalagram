@@ -488,7 +488,7 @@ public class TDLib.PushMessageContentUpgradedGift : PushMessageContent {
 
     /**
      * True, if the gift was obtained by upgrading of a previously received
-     * gift; otherwise, this is a transferred gift
+     * gift; otherwise, this is a transferred or resold gift
      */
     public bool is_upgrade { get; construct set; }
 

@@ -88,6 +88,11 @@ public class TDLib.ChatBoostLevelFeatures : Error {
     public bool can_set_custom_emoji_sticker_set { get; construct set; }
 
     /**
+     * True, if automatic translation of messages can be enabled in the chat
+     */
+    public bool can_enable_automatic_translation { get; construct set; }
+
+    /**
      * True, if speech recognition can be used for video note and voice note
      * messages by all users
      */
@@ -111,6 +116,7 @@ public class TDLib.ChatBoostLevelFeatures : Error {
         int32 chat_theme_background_count,
         bool can_set_custom_background,
         bool can_set_custom_emoji_sticker_set,
+        bool can_enable_automatic_translation,
         bool can_recognize_speech,
         bool can_disable_sponsored_messages
     ) {
@@ -127,6 +133,7 @@ public class TDLib.ChatBoostLevelFeatures : Error {
             chat_theme_background_count: chat_theme_background_count,
             can_set_custom_background: can_set_custom_background,
             can_set_custom_emoji_sticker_set: can_set_custom_emoji_sticker_set,
+            can_enable_automatic_translation: can_enable_automatic_translation,
             can_recognize_speech: can_recognize_speech,
             can_disable_sponsored_messages: can_disable_sponsored_messages,
             tdlib_type: "chatBoostLevelFeatures",
