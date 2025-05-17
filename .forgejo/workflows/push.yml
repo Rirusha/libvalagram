@@ -1,4 +1,4 @@
-name: CI Push
+name: Push
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
     branches:
       - 'main'
   workflow_run:
-    workflows: ["CI Auto Update"]
+    workflows: ["Auto Update"]
     types:
       - completed
 
@@ -18,30 +18,26 @@ permissions:
 jobs:
   lint-vala:
     name: Lint vala files
-    runs-on: ubuntu-latest
-
+    runs-on: alt-sisyphus
     container:
-      image: valalang/lint
+      image: altlinux.space/alt-gnome/vala-linter-image:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Lint Vala
-        run: io.elementary.vala-lint -d . -c vala-lint.conf
+      - name: Lint files
+        uses: alt-gnome/linters-actions/vala@main
 
   checkers:
     name: Run checkers
-    runs-on: ubuntu-latest
-
-    container:
-      image: ubuntu:latest
+    runs-on: alt-sisyphus
 
     steps:
       - name: Install git on container
         run: |
           apt-get update
-          apt-get install -y git python3.12
+          apt-get install -y git python3
           
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -49,20 +45,17 @@ jobs:
           submodules: true
 
       - name: Run indentation checker
-        run: python3.12 ./vala-checkers/indentation_checker.py .
+        run: python3 ./vala-checkers/indentation_checker.py .
 
       - name: Run empty lines checker
-        run: python3.12 ./vala-checkers/empty_lines_checker.py .
+        run: python3 ./vala-checkers/empty_lines_checker.py .
 
   test-build:
     name: Test Build
-    runs-on: ubuntu-latest
+    runs-on: alt-sisyphus
     needs:
       - checkers
       - lint-vala
-
-    container:
-      image: alt:sisyphus
 
     steps:
       - name: Install libs on container
@@ -79,24 +72,8 @@ jobs:
       - name: Build
         run: ninja install -C _build
         
-      - name: Upload doc
-        id: deployment
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _build/doc/valagram-1-vala
-
-  deploy:
-    name: Deploy documentation
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs:
-      - test-build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Upload doc
+      #   id: deployment
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: _build/doc/valagram-1-vala
