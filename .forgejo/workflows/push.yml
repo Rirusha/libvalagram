@@ -78,6 +78,9 @@ jobs:
           git config --global user.name "publisher"
 
           git clone https://placeholder:$GITHUB_TOKEN@altlinux.space/$GITHUB_REPOSITORY -b pages pages-repo
+          cd pages-repo
+          git rm -rf .
+          cd ..
           cp -af _build/doc/valagram-1-vala/. pages-repo/
           cd pages-repo
 
