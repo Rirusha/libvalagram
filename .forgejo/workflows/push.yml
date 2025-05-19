@@ -77,7 +77,7 @@ jobs:
           git config --global user.email "ci@altlinux.space"
           git config --global user.name "publisher"
 
-          git clone https://altlinux.space/$GITHUB_REPOSITORY.git -b pages pages-repo
+          git clone https://placeholder:$GITHUB_TOKEN@altlinux.space/$GITHUB_REPOSITORY -b pages pages-repo
           rm -rf 
           cp -a _build/doc/valagram-1-vala/. pages-repo/
           cd pages-repo
