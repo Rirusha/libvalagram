@@ -50,6 +50,7 @@ gee_girdir = gee_dep.get_variable('datadir') / 'gir-1.0'
 add_project_arguments(
   # GCC14 COMPILE ERROR
   '-Wno-int-conversion',
+  '-w',
   language: ['c'],
 )
 
