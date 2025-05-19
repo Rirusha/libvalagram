@@ -82,5 +82,6 @@ jobs:
           cp -a _build/doc/valagram-1-vala/. pages-repo/
           cd pages-repo
 
+          git add .
           git commit -m "Auto update"
           git push
