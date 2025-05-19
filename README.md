@@ -1,2 +1,2 @@
 # libvalagram
-[Documentation here](https://rirusha.github.io/libvalagram/valagram-1/index.htm)
+[Documentation here](https://rirusha.altlinux.team/libvalagram/)
