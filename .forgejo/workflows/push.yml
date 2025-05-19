@@ -85,5 +85,6 @@ jobs:
           cd pages-repo
 
           git add .
-          git commit -m "Auto update"
-          git push
+          if git commit -m "Auto update" ; then
+            git push
+          fi
