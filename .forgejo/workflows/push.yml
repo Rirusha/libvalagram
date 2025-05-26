@@ -72,19 +72,8 @@ jobs:
       - name: Build
         run: ninja install -C _build
 
-      - name: Upload doc
-        run: |
-          git config --global user.email "ci@altlinux.space"
-          git config --global user.name "publisher"
-
-          git clone https://placeholder:$GITHUB_TOKEN@altlinux.space/$GITHUB_REPOSITORY -b pages pages-repo
-          cd pages-repo
-          git rm -rf .
-          cd ..
-          cp -af _build/doc/valagram-1-vala/. pages-repo/
-          cd pages-repo
-
-          git add .
-          if git commit -m "Auto update" ; then
-            git push
-          fi
+      - name: Checkout repository
+        uses: actions/deploy-pages@v1
+        with:
+          directory: ./_build/doc/valagram-1-vala
+          pages-repository: ${{ github.repository }}
