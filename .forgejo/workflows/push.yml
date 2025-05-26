@@ -77,3 +77,4 @@ jobs:
         with:
           directory: ./_build/doc/valagram-1-vala
           pages-repository: ${{ github.repository }}
+          pages-repository-token: $GITHUB_TOKEN
