@@ -903,7 +903,7 @@ public class TDLib.InputMessageInvoice : InputMessageContent {
 
 /**
  * A message with a poll. Polls can't be sent to secret chats. Polls can
- * be sent only to a private chat with a bot
+ * be sent only to a private chat with a bot or the Saved Messages chat
  */
 public class TDLib.InputMessagePoll : InputMessageContent {
 
@@ -915,7 +915,7 @@ public class TDLib.InputMessagePoll : InputMessageContent {
     public FormattedText question { get; construct set; }
 
     /**
-     * List of poll answer options, 2-10 strings 1-100 characters each. Only
+     * List of poll answer options, 2-12 strings 1-100 characters each. Only
      * custom emoji entities are allowed to be added and only by Premium
      * users
      */
