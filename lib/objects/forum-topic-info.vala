@@ -30,6 +30,11 @@ public class TDLib.ForumTopicInfo : Error {
     public int64 chat_id { get; construct set; }
 
     /**
+     * Forum topic identifier of the topic
+     */
+    public int64 forum_topic_id { get; construct set; }
+
+    /**
      * Message thread identifier of the topic
      */
     public int64 message_thread_id { get; construct set; }
@@ -77,6 +82,7 @@ public class TDLib.ForumTopicInfo : Error {
 
     public ForumTopicInfo (
         int64 chat_id,
+        int64 forum_topic_id,
         int64 message_thread_id,
         string name,
         ForumTopicIcon icon,
@@ -89,6 +95,7 @@ public class TDLib.ForumTopicInfo : Error {
     ) {
         Object (
             chat_id: chat_id,
+            forum_topic_id: forum_topic_id,
             message_thread_id: message_thread_id,
             name: name,
             icon: icon,

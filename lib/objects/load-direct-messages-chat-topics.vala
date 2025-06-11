@@ -20,36 +20,34 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether the supergroup is a forum; requires owner privileges
- * in the supergroup. Discussion supergroups can't be converted to forums
+ * Loads more topics in a channel direct messages chat administered by
+ * the current user. The loaded topics will be sent through
+ * updateDirectMessagesChatTopic.
+ * Topics are sorted by their topic.order in descending order. Returns a
+ * 404 error if all topics have been loaded
  */
-public class TDLib.ToggleSupergroupIsForum : TDObject {
+public class TDLib.LoadDirectMessagesChatTopics : TDObject {
 
     /**
-     * Identifier of the supergroup
+     * Chat identifier of the channel direct messages chat
      */
-    public int64 supergroup_id { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
     /**
-     * New value of is_forum
+     * The maximum number of topics to be loaded. For optimal performance,
+     * the number of loaded topics is chosen by TDLib and can be smaller than
+     * the specified limit, even if the end of the list is not reached
      */
-    public bool is_forum { get; construct set; }
+    public int32 limit { get; construct set; }
 
-    /**
-     * New value of has_forum_tabs; ignored if is_forum is false
-     */
-    public bool has_forum_tabs { get; construct set; }
-
-    public ToggleSupergroupIsForum (
-        int64 supergroup_id,
-        bool is_forum,
-        bool has_forum_tabs
+    public LoadDirectMessagesChatTopics (
+        int64 chat_id,
+        int32 limit
     ) {
         Object (
-            supergroup_id: supergroup_id,
-            is_forum: is_forum,
-            has_forum_tabs: has_forum_tabs,
-            tdlib_type: "toggleSupergroupIsForum",
+            chat_id: chat_id,
+            limit: limit,
+            tdlib_type: "loadDirectMessagesChatTopics",
             tdlib_extra: Uuid.string_random ()
         );
     }

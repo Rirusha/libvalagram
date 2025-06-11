@@ -902,8 +902,9 @@ public class TDLib.InputMessageInvoice : InputMessageContent {
 }
 
 /**
- * A message with a poll. Polls can't be sent to secret chats. Polls can
- * be sent only to a private chat with a bot or the Saved Messages chat
+ * A message with a poll. Polls can't be sent to secret chats and channel
+ * direct messages chats. Polls can be sent to a private chat only if the
+ * chat is a chat with a bot or the Saved Messages chat
  */
 public class TDLib.InputMessagePoll : InputMessageContent {
 
@@ -915,9 +916,9 @@ public class TDLib.InputMessagePoll : InputMessageContent {
     public FormattedText question { get; construct set; }
 
     /**
-     * List of poll answer options, 2-12 strings 1-100 characters each. Only
-     * custom emoji entities are allowed to be added and only by Premium
-     * users
+     * List of poll answer options, 2-getOption("poll_answer_count_max")
+     * strings 1-100 characters each. Only custom emoji entities are allowed
+     * to be added and only by Premium users
      */
     public Gee.ArrayList<FormattedText?> options { get; construct set; default = new Gee.ArrayList<FormattedText?> (); }
 

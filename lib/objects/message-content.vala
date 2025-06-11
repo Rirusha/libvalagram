@@ -863,11 +863,12 @@ public class TDLib.MessageCall : MessageContent {
  * the message is incoming, the call isn't active, isn't missed, and has
  * no duration,
  * and getOption("can_accept_calls") is true, then incoming call screen
- * must be shown to the user. Use {@link Client.join_group_call} to
- * accept the call or {@link Client.decline_group_call_invitation} to
- * decline it.
- * If the call become active or missed, then the call screen must be
- * hidden
+ * must be shown to the user. Use
+ * {@link Client.get_group_call_participants} to show current group call
+ * participants on the screen.
+ * Use {@link Client.join_group_call} to accept the call or
+ * {@link Client.decline_group_call_invitation} to decline it. If the
+ * call become active or missed, then the call screen must be hidden
  */
 public class TDLib.MessageGroupCall : MessageContent {
 
@@ -2324,6 +2325,11 @@ public class TDLib.MessageGift : MessageContent {
     public MessageSender sender_id { get; construct set; }
 
     /**
+     * Receiver of the gift
+     */
+    public MessageSender receiver_id { get; construct set; }
+
+    /**
      * Unique identifier of the received gift for the current user; only for
      * the receiver of the gift
      */
@@ -2390,6 +2396,7 @@ public class TDLib.MessageGift : MessageContent {
     public MessageGift (
         Gift gift,
         MessageSender sender_id,
+        MessageSender receiver_id,
         string received_gift_id,
         FormattedText text,
         int64 sell_star_count,
@@ -2405,6 +2412,7 @@ public class TDLib.MessageGift : MessageContent {
         Object (
             gift: gift,
             sender_id: sender_id,
+            receiver_id: receiver_id,
             received_gift_id: received_gift_id,
             text: text,
             sell_star_count: sell_star_count,
@@ -2437,6 +2445,11 @@ public class TDLib.MessageUpgradedGift : MessageContent {
      * Sender of the gift; may be null for anonymous gifts
      */
     public MessageSender? sender_id { get; construct set; }
+
+    /**
+     * Receiver of the gift
+     */
+    public MessageSender receiver_id { get; construct set; }
 
     /**
      * Unique identifier of the received gift for the current user; only for
@@ -2503,6 +2516,7 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     public MessageUpgradedGift (
         UpgradedGift gift,
         MessageSender? sender_id,
+        MessageSender receiver_id,
         string received_gift_id,
         bool is_upgrade,
         bool is_saved,
@@ -2517,6 +2531,7 @@ public class TDLib.MessageUpgradedGift : MessageContent {
         Object (
             gift: gift,
             sender_id: sender_id,
+            receiver_id: receiver_id,
             received_gift_id: received_gift_id,
             is_upgrade: is_upgrade,
             is_saved: is_saved,
@@ -2549,6 +2564,11 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
     public MessageSender sender_id { get; construct set; }
 
     /**
+     * Receiver of the gift
+     */
+    public MessageSender receiver_id { get; construct set; }
+
+    /**
      * True, if the gift was obtained by upgrading of a previously received
      * gift; otherwise, this is a transferred or resold gift
      */
@@ -2557,11 +2577,13 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
     public MessageRefundedUpgradedGift (
         Gift gift,
         MessageSender sender_id,
+        MessageSender receiver_id,
         bool is_upgrade
     ) {
         Object (
             gift: gift,
             sender_id: sender_id,
+            receiver_id: receiver_id,
             is_upgrade: is_upgrade,
             tdlib_type: "messageRefundedUpgradedGift",
             tdlib_extra: Uuid.string_random ()
@@ -2614,6 +2636,38 @@ public class TDLib.MessagePaidMessagePriceChanged : MessageContent {
         Object (
             paid_message_star_count: paid_message_star_count,
             tdlib_type: "messagePaidMessagePriceChanged",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A price for direct messages was changed in the channel chat
+ */
+public class TDLib.MessageDirectMessagePriceChanged : MessageContent {
+
+    /**
+     * True, if direct messages group was enabled for the channel; false
+     * otherwise
+     */
+    public bool is_enabled { get; construct set; }
+
+    /**
+     * The new number of Telegram Stars that must be paid by
+     * non-administrator users of the channel chat for each message sent to
+     * the direct messages group;
+     * 0 if the direct messages group was disabled or the messages are free
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
+    public MessageDirectMessagePriceChanged (
+        bool is_enabled,
+        int64 paid_message_star_count
+    ) {
+        Object (
+            is_enabled: is_enabled,
+            paid_message_star_count: paid_message_star_count,
+            tdlib_type: "messageDirectMessagePriceChanged",
             tdlib_extra: Uuid.string_random ()
         );
     }

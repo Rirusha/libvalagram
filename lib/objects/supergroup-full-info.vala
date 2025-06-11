@@ -63,6 +63,13 @@ public class TDLib.SupergroupFullInfo : Error {
     public int64 linked_chat_id { get; construct set; }
 
     /**
+     * Chat identifier of a direct messages group for the channel, or a
+     * channel, for which the supergroup is the designated direct messages
+     * group; 0 if none
+     */
+    public int64 direct_messages_chat_id { get; construct set; }
+
+    /**
      * Delay between consecutive sent messages for non-administrator
      * supergroup members, in seconds
      */
@@ -251,6 +258,7 @@ public class TDLib.SupergroupFullInfo : Error {
         int32 restricted_count,
         int32 banned_count,
         int64 linked_chat_id,
+        int64 direct_messages_chat_id,
         int32 slow_mode_delay,
         double slow_mode_delay_expires_in,
         bool can_enable_paid_messages,
@@ -290,6 +298,7 @@ public class TDLib.SupergroupFullInfo : Error {
             restricted_count: restricted_count,
             banned_count: banned_count,
             linked_chat_id: linked_chat_id,
+            direct_messages_chat_id: direct_messages_chat_id,
             slow_mode_delay: slow_mode_delay,
             slow_mode_delay_expires_in: slow_mode_delay_expires_in,
             can_enable_paid_messages: can_enable_paid_messages,

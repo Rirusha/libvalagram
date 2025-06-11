@@ -26,6 +26,13 @@
 public class TDLib.MessageProperties : Error {
 
     /**
+     * True, if content of the message can be copied using
+     * inputMessageForwarded or {@link Client.forward_messages} with copy
+     * options
+     */
+    public bool can_be_copied { get; construct set; }
+
+    /**
      * True, if content of the message can be copied to a secret chat using
      * inputMessageForwarded or {@link Client.forward_messages} with copy
      * options
@@ -57,7 +64,7 @@ public class TDLib.MessageProperties : Error {
 
     /**
      * True, if the message can be forwarded using inputMessageForwarded or
-     * {@link Client.forward_messages}
+     * {@link Client.forward_messages} without copy options
      */
     public bool can_be_forwarded { get; construct set; }
 
@@ -85,9 +92,7 @@ public class TDLib.MessageProperties : Error {
     public bool can_be_replied_in_another_chat { get; construct set; }
 
     /**
-     * True, if content of the message can be saved locally or copied using
-     * inputMessageForwarded or {@link Client.forward_messages} with copy
-     * options
+     * True, if content of the message can be saved locally
      */
     public bool can_be_saved { get; construct set; }
 
@@ -107,6 +112,12 @@ public class TDLib.MessageProperties : Error {
      * True, if scheduling state of the message can be edited
      */
     public bool can_edit_scheduling_state { get; construct set; }
+
+    /**
+     * True, if author of the message sent on behalf of a chat can be
+     * received through {@link Client.get_message_author}
+     */
+    public bool can_get_author { get; construct set; }
 
     /**
      * True, if code for message embedding can be received using
@@ -189,6 +200,7 @@ public class TDLib.MessageProperties : Error {
     public bool need_show_statistics { get; construct set; }
 
     public MessageProperties (
+        bool can_be_copied,
         bool can_be_copied_to_secret_chat,
         bool can_be_deleted_only_for_self,
         bool can_be_deleted_for_all_users,
@@ -202,6 +214,7 @@ public class TDLib.MessageProperties : Error {
         bool can_be_shared_in_story,
         bool can_edit_media,
         bool can_edit_scheduling_state,
+        bool can_get_author,
         bool can_get_embedding_code,
         bool can_get_link,
         bool can_get_media_timestamp_links,
@@ -217,6 +230,7 @@ public class TDLib.MessageProperties : Error {
         bool need_show_statistics
     ) {
         Object (
+            can_be_copied: can_be_copied,
             can_be_copied_to_secret_chat: can_be_copied_to_secret_chat,
             can_be_deleted_only_for_self: can_be_deleted_only_for_self,
             can_be_deleted_for_all_users: can_be_deleted_for_all_users,
@@ -230,6 +244,7 @@ public class TDLib.MessageProperties : Error {
             can_be_shared_in_story: can_be_shared_in_story,
             can_edit_media: can_edit_media,
             can_edit_scheduling_state: can_edit_scheduling_state,
+            can_get_author: can_get_author,
             can_get_embedding_code: can_get_embedding_code,
             can_get_link: can_get_link,
             can_get_media_timestamp_links: can_get_media_timestamp_links,

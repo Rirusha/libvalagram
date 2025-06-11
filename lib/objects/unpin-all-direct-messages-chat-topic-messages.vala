@@ -20,16 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns a list of recently inactive supergroups and channels. Can be
- * used when user reaches limit on the number of joined supergroups and
- * channels and receives the error "CHANNELS_TOO_MUCH". Also, the limit
- * can be increased with Telegram Premium
+ * Removes all pinned messages from the topic in a channel direct
+ * messages chat administered by the current user
  */
-public class TDLib.GetInactiveSupergroupChats : TDObject {
+public class TDLib.UnpinAllDirectMessagesChatTopicMessages : TDObject {
 
-    public GetInactiveSupergroupChats () {
+    /**
+     * Identifier of the chat
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Topic identifier
+     */
+    public int64 topic_id { get; construct set; }
+
+    public UnpinAllDirectMessagesChatTopicMessages (
+        int64 chat_id,
+        int64 topic_id
+    ) {
         Object (
-            tdlib_type: "getInactiveSupergroupChats",
+            chat_id: chat_id,
+            topic_id: topic_id,
+            tdlib_type: "unpinAllDirectMessagesChatTopicMessages",
             tdlib_extra: Uuid.string_random ()
         );
     }

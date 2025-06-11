@@ -27,9 +27,9 @@
  * without an enabled message database. For optimal performance, the
  * number of returned messages is chosen by TDLib and can be smaller than
  * the specified limit.
- * A combination of query, sender_id, filter and message_thread_id search
- * criteria is expected to be supported, only if it is required for
- * Telegram official application implementation
+ * A combination of query, sender_id, filter and topic_id search criteria
+ * is expected to be supported, only if it is required for Telegram
+ * official application implementation
  */
 public class TDLib.SearchChatMessages : TDObject {
 
@@ -37,6 +37,12 @@ public class TDLib.SearchChatMessages : TDObject {
      * Identifier of the chat in which to search messages
      */
     public int64 chat_id { get; construct set; }
+
+    /**
+     * Pass topic identifier to search messages only in specific topic; pass
+     * null to search for messages in all topics
+     */
+    public MessageTopic topic_id { get; construct set; }
 
     /**
      * Query to search for
@@ -76,40 +82,25 @@ public class TDLib.SearchChatMessages : TDObject {
      */
     public SearchMessagesFilter filter { get; construct set; }
 
-    /**
-     * If not 0, only messages in the specified thread will be returned;
-     * supergroups only
-     */
-    public int64 message_thread_id { get; construct set; }
-
-    /**
-     * If not 0, only messages in the specified Saved Messages topic will be
-     * returned; pass 0 to return all messages, or for chats other than Saved
-     * Messages
-     */
-    public int64 saved_messages_topic_id { get; construct set; }
-
     public SearchChatMessages (
         int64 chat_id,
+        MessageTopic topic_id,
         string query,
         MessageSender sender_id,
         int64 from_message_id,
         int32 offset,
         int32 limit,
-        SearchMessagesFilter filter,
-        int64 message_thread_id,
-        int64 saved_messages_topic_id
+        SearchMessagesFilter filter
     ) {
         Object (
             chat_id: chat_id,
+            topic_id: topic_id,
             query: query,
             sender_id: sender_id,
             from_message_id: from_message_id,
             offset: offset,
             limit: limit,
             filter: filter,
-            message_thread_id: message_thread_id,
-            saved_messages_topic_id: saved_messages_topic_id,
             tdlib_type: "searchChatMessages",
             tdlib_extra: Uuid.string_random ()
         );

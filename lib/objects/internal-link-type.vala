@@ -524,8 +524,11 @@ public class TDLib.InternalLinkTypeGame : InternalLinkType {
 }
 
 /**
- * The link is a link to a group call that isn't bound to a chat. Call
- * {@link Client.join_group_call} with the given invite_link
+ * The link is a link to a group call that isn't bound to a chat. Use
+ * {@link Client.get_group_call_participants} to get the list of group
+ * call participants and show them on the join group call screen.
+ * Call {@link Client.join_group_call} with the given invite_link to join
+ * the call
  */
 public class TDLib.InternalLinkTypeGroupCall : InternalLinkType {
 

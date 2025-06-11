@@ -20,46 +20,38 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns approximate number of messages of the specified type in the
- * chat or its topic
+ * Changes the draft message in the topic in a channel direct messages
+ * chat administered by the current user
  */
-public class TDLib.GetChatMessageCount : TDObject {
+public class TDLib.SetDirectMessagesChatTopicDraftMessage : TDObject {
 
     /**
-     * Identifier of the chat in which to count messages
+     * Chat identifier
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Pass topic identifier to get number of messages only in specific
-     * topic; pass null to get number of messages in all topics
+     * Topic identifier
      */
-    public MessageTopic topic_id { get; construct set; }
+    public int64 topic_id { get; construct set; }
 
     /**
-     * Filter for message content; searchMessagesFilterEmpty is unsupported
-     * in this function
+     * New draft message; pass null to remove the draft. All files in draft
+     * message content must be of the type inputFileLocal. Media thumbnails
+     * and captions are ignored
      */
-    public SearchMessagesFilter filter { get; construct set; }
+    public DraftMessage draft_message { get; construct set; }
 
-    /**
-     * Pass true to get the number of messages without sending network
-     * requests, or -1 if the number of messages is unknown locally
-     */
-    public bool return_local { get; construct set; }
-
-    public GetChatMessageCount (
+    public SetDirectMessagesChatTopicDraftMessage (
         int64 chat_id,
-        MessageTopic topic_id,
-        SearchMessagesFilter filter,
-        bool return_local
+        int64 topic_id,
+        DraftMessage draft_message
     ) {
         Object (
             chat_id: chat_id,
             topic_id: topic_id,
-            filter: filter,
-            return_local: return_local,
-            tdlib_type: "getChatMessageCount",
+            draft_message: draft_message,
+            tdlib_type: "setDirectMessagesChatTopicDraftMessage",
             tdlib_extra: Uuid.string_random ()
         );
     }

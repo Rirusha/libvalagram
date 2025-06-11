@@ -21,7 +21,7 @@
 
 /**
  * Informs TDLib that speaking state of a participant of an active group
- * call has changed
+ * call has changed. Returns identifier of the participant if it is found
  */
 public class TDLib.SetGroupCallParticipantIsSpeaking : TDObject {
 

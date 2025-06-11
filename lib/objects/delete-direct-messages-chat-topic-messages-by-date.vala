@@ -20,47 +20,44 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns approximate 1-based position of a message among messages,
- * which can be found by the specified filter in the chat and topic.
- * Cannot be used in secret chats
+ * Deletes all messages between the specified dates in the topic in a
+ * channel direct messages chat administered by the current user.
+ * Messages sent in the last 30 seconds will not be deleted
  */
-public class TDLib.GetChatMessagePosition : TDObject {
+public class TDLib.DeleteDirectMessagesChatTopicMessagesByDate : TDObject {
 
     /**
-     * Identifier of the chat in which to find message position
+     * Chat identifier of the channel direct messages chat
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Pass topic identifier to get position among messages only in specific
-     * topic; pass null to get position among all chat messages
+     * Identifier of the topic which messages will be deleted
      */
-    public MessageTopic topic_id { get; construct set; }
+    public int64 topic_id { get; construct set; }
 
     /**
-     * Filter for message content; searchMessagesFilterEmpty,
-     * searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction,
-     * and searchMessagesFilterFailedToSend are unsupported in this function
+     * The minimum date of the messages to delete
      */
-    public SearchMessagesFilter filter { get; construct set; }
+    public int32 min_date { get; construct set; }
 
     /**
-     * Message identifier
+     * The maximum date of the messages to delete
      */
-    public int64 message_id { get; construct set; }
+    public int32 max_date { get; construct set; }
 
-    public GetChatMessagePosition (
+    public DeleteDirectMessagesChatTopicMessagesByDate (
         int64 chat_id,
-        MessageTopic topic_id,
-        SearchMessagesFilter filter,
-        int64 message_id
+        int64 topic_id,
+        int32 min_date,
+        int32 max_date
     ) {
         Object (
             chat_id: chat_id,
             topic_id: topic_id,
-            filter: filter,
-            message_id: message_id,
-            tdlib_type: "getChatMessagePosition",
+            min_date: min_date,
+            max_date: max_date,
+            tdlib_type: "deleteDirectMessagesChatTopicMessagesByDate",
             tdlib_extra: Uuid.string_random ()
         );
     }

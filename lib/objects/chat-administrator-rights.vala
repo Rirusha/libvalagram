@@ -27,8 +27,10 @@ public class TDLib.ChatAdministratorRights : Error {
     /**
      * True, if the administrator can access the chat event log, get boost
      * list, see hidden supergroup and channel members, report supergroup
-     * spam messages and ignore slow mode. Implied by any other privilege;
-     * applicable to supergroups and channels only
+     * spam messages,
+     * ignore slow mode, and send messages to the chat without paying
+     * Telegram Stars. Implied by any other privilege; applicable to
+     * supergroups and channels only
      */
     public bool can_manage_chat { get; construct set; }
 
@@ -39,8 +41,9 @@ public class TDLib.ChatAdministratorRights : Error {
     public bool can_change_info { get; construct set; }
 
     /**
-     * True, if the administrator can create channel posts or view channel
-     * statistics; applicable to channels only
+     * True, if the administrator can create channel posts, answer to channel
+     * direct messages, or view channel statistics; applicable to channels
+     * only
      */
     public bool can_post_messages { get; construct set; }
 

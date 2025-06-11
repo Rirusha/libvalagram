@@ -20,16 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns a list of recently inactive supergroups and channels. Can be
- * used when user reaches limit on the number of joined supergroups and
- * channels and receives the error "CHANNELS_TOO_MUCH". Also, the limit
- * can be increased with Telegram Premium
+ * Returns information about actual author of a message sent on behalf of
+ * a channel. The method can be called if
+ * messageProperties.can_get_author == true
  */
-public class TDLib.GetInactiveSupergroupChats : TDObject {
+public class TDLib.GetMessageAuthor : TDObject {
 
-    public GetInactiveSupergroupChats () {
+    /**
+     * Chat identifier
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Identifier of the message
+     */
+    public int64 message_id { get; construct set; }
+
+    public GetMessageAuthor (
+        int64 chat_id,
+        int64 message_id
+    ) {
         Object (
-            tdlib_type: "getInactiveSupergroupChats",
+            chat_id: chat_id,
+            message_id: message_id,
+            tdlib_type: "getMessageAuthor",
             tdlib_extra: Uuid.string_random ()
         );
     }

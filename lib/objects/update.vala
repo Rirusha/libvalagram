@@ -1605,6 +1605,67 @@ public class TDLib.UpdateSavedMessagesTopicCount : Update {
 }
 
 /**
+ * Basic information about a topic in a channel direct messages chat
+ * administered by the current user has changed. This update is
+ * guaranteed to come before the topic identifier is returned to the
+ * application
+ */
+public class TDLib.UpdateDirectMessagesChatTopic : Update {
+
+    /**
+     * New data about the topic
+     */
+    public DirectMessagesChatTopic topic { get; construct set; }
+
+    public UpdateDirectMessagesChatTopic (
+        DirectMessagesChatTopic topic
+    ) {
+        Object (
+            topic: topic,
+            tdlib_type: "updateDirectMessagesChatTopic",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Number of messages in a topic has changed; for Saved Messages and
+ * channel direct messages chat topics only
+ */
+public class TDLib.UpdateTopicMessageCount : Update {
+
+    /**
+     * Identifier of the chat in topic of which the number of messages has
+     * changed
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Identifier of the topic
+     */
+    public MessageTopic topic_id { get; construct set; }
+
+    /**
+     * Approximate number of messages in the topics
+     */
+    public int32 message_count { get; construct set; }
+
+    public UpdateTopicMessageCount (
+        int64 chat_id,
+        MessageTopic topic_id,
+        int32 message_count
+    ) {
+        Object (
+            chat_id: chat_id,
+            topic_id: topic_id,
+            message_count: message_count,
+            tdlib_type: "updateTopicMessageCount",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * Basic information about a quick reply shortcut has changed. This
  * update is guaranteed to come before the quick shortcut name is
  * returned to the application
@@ -1750,6 +1811,16 @@ public class TDLib.UpdateForumTopic : Update {
     public int64 last_read_outbox_message_id { get; construct set; }
 
     /**
+     * Number of unread messages with a mention/reply in the topic
+     */
+    public int32 unread_mention_count { get; construct set; }
+
+    /**
+     * Number of messages with unread reactions in the topic
+     */
+    public int32 unread_reaction_count { get; construct set; }
+
+    /**
      * Notification settings for the topic
      */
     public ChatNotificationSettings notification_settings { get; construct set; }
@@ -1760,6 +1831,8 @@ public class TDLib.UpdateForumTopic : Update {
         bool is_pinned,
         int64 last_read_inbox_message_id,
         int64 last_read_outbox_message_id,
+        int32 unread_mention_count,
+        int32 unread_reaction_count,
         ChatNotificationSettings notification_settings
     ) {
         Object (
@@ -1768,6 +1841,8 @@ public class TDLib.UpdateForumTopic : Update {
             is_pinned: is_pinned,
             last_read_inbox_message_id: last_read_inbox_message_id,
             last_read_outbox_message_id: last_read_outbox_message_id,
+            unread_mention_count: unread_mention_count,
+            unread_reaction_count: unread_reaction_count,
             notification_settings: notification_settings,
             tdlib_type: "updateForumTopic",
             tdlib_extra: Uuid.string_random ()

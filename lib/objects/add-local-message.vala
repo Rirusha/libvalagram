@@ -27,7 +27,7 @@
 public class TDLib.AddLocalMessage : TDObject {
 
     /**
-     * Target chat
+     * Target chat; channel direct messages chats aren't supported
      */
     public int64 chat_id { get; construct set; }
 

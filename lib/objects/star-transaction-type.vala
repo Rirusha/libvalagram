@@ -862,8 +862,8 @@ public class TDLib.StarTransactionTypePaidMessageSend : StarTransactionType {
 }
 
 /**
- * The transaction is a receiving of a paid message; for regular users
- * and supergroup chats only
+ * The transaction is a receiving of a paid message; for regular users,
+ * supergroup and channel chats only
  */
 public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
 

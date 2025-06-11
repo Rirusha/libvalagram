@@ -33,6 +33,12 @@ public class TDLib.GetChatMessageCalendar : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
+     * Pass topic identifier to get the result only in specific topic; pass
+     * null to get the result in all topics; forum topics aren't supported
+     */
+    public MessageTopic topic_id { get; construct set; }
+
+    /**
      * Filter for message content. Filters searchMessagesFilterEmpty,
      * searchMessagesFilterMention, searchMessagesFilterUnreadMention, and
      * searchMessagesFilterUnreadReaction are unsupported in this function
@@ -45,24 +51,17 @@ public class TDLib.GetChatMessageCalendar : TDObject {
      */
     public int64 from_message_id { get; construct set; }
 
-    /**
-     * If not0, only messages in the specified Saved Messages topic will be
-     * considered; pass 0 to consider all messages, or for chats other than
-     * Saved Messages
-     */
-    public int64 saved_messages_topic_id { get; construct set; }
-
     public GetChatMessageCalendar (
         int64 chat_id,
+        MessageTopic topic_id,
         SearchMessagesFilter filter,
-        int64 from_message_id,
-        int64 saved_messages_topic_id
+        int64 from_message_id
     ) {
         Object (
             chat_id: chat_id,
+            topic_id: topic_id,
             filter: filter,
             from_message_id: from_message_id,
-            saved_messages_topic_id: saved_messages_topic_id,
             tdlib_type: "getChatMessageCalendar",
             tdlib_extra: Uuid.string_random ()
         );

@@ -144,10 +144,32 @@ public class TDLib.Supergroup : Error {
     public bool is_forum { get; construct set; }
 
     /**
+     * True, if the supergroup is a direct message group for a channel chat
+     */
+    public bool is_direct_messages_group { get; construct set; }
+
+    /**
+     * True, if the supergroup is a direct messages group for a channel chat
+     * that is administered by the current user
+     */
+    public bool is_administered_direct_messages_group { get; construct set; }
+
+    /**
      * Information about verification status of the supergroup or channel;
      * may be null if none
      */
     public VerificationStatus? verification_status { get; construct set; }
+
+    /**
+     * True, if the channel has direct messages group
+     */
+    public bool has_direct_messages_group { get; construct set; }
+
+    /**
+     * True, if the supergroup is a forum, which topics are shown in the same
+     * way as in channel direct messages groups
+     */
+    public bool has_forum_tabs { get; construct set; }
 
     /**
      * True, if content of media messages in the supergroup or channel chat
@@ -197,7 +219,11 @@ public class TDLib.Supergroup : Error {
         bool is_channel,
         bool is_broadcast_group,
         bool is_forum,
+        bool is_direct_messages_group,
+        bool is_administered_direct_messages_group,
         VerificationStatus? verification_status,
+        bool has_direct_messages_group,
+        bool has_forum_tabs,
         bool has_sensitive_content,
         string restriction_reason,
         int64 paid_message_star_count,
@@ -222,7 +248,11 @@ public class TDLib.Supergroup : Error {
             is_channel: is_channel,
             is_broadcast_group: is_broadcast_group,
             is_forum: is_forum,
+            is_direct_messages_group: is_direct_messages_group,
+            is_administered_direct_messages_group: is_administered_direct_messages_group,
             verification_status: verification_status,
+            has_direct_messages_group: has_direct_messages_group,
+            has_forum_tabs: has_forum_tabs,
             has_sensitive_content: has_sensitive_content,
             restriction_reason: restriction_reason,
             paid_message_star_count: paid_message_star_count,

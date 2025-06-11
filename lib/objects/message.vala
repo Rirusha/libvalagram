@@ -68,9 +68,7 @@ public class TDLib.Message : Error {
     public bool is_from_offline { get; construct set; }
 
     /**
-     * True, if content of the message can be saved locally or copied using
-     * inputMessageForwarded or {@link Client.forward_messages} with copy
-     * options
+     * True, if content of the message can be saved locally
      */
     public bool can_be_saved { get; construct set; }
 
@@ -85,11 +83,6 @@ public class TDLib.Message : Error {
      * channel posts, all other messages are not channel posts
      */
     public bool is_channel_post { get; construct set; }
-
-    /**
-     * True, if the message is a forum topic message
-     */
-    public bool is_topic_message { get; construct set; }
 
     /**
      * True, if the message contains an unread mention for the current user
@@ -149,10 +142,10 @@ public class TDLib.Message : Error {
     public int64 message_thread_id { get; construct set; }
 
     /**
-     * Identifier of the Saved Messages topic for the message; 0 for messages
-     * not from Saved Messages
+     * Identifier of the topic within the chat to which the message belongs;
+     * may be null if none
      */
-    public int64 saved_messages_topic_id { get; construct set; }
+    public MessageTopic? topic_id { get; construct set; }
 
     /**
      * The message's self-destruct type; may be null if none
@@ -246,7 +239,6 @@ public class TDLib.Message : Error {
         bool can_be_saved,
         bool has_timestamped_media,
         bool is_channel_post,
-        bool is_topic_message,
         bool contains_unread_mention,
         int32 date,
         int32 edit_date,
@@ -257,7 +249,7 @@ public class TDLib.Message : Error {
         FactCheck? fact_check,
         MessageReplyTo? reply_to,
         int64 message_thread_id,
-        int64 saved_messages_topic_id,
+        MessageTopic? topic_id,
         MessageSelfDestructType? self_destruct_type,
         double self_destruct_in,
         double auto_delete_in,
@@ -285,7 +277,6 @@ public class TDLib.Message : Error {
             can_be_saved: can_be_saved,
             has_timestamped_media: has_timestamped_media,
             is_channel_post: is_channel_post,
-            is_topic_message: is_topic_message,
             contains_unread_mention: contains_unread_mention,
             date: date,
             edit_date: edit_date,
@@ -296,7 +287,7 @@ public class TDLib.Message : Error {
             fact_check: fact_check,
             reply_to: reply_to,
             message_thread_id: message_thread_id,
-            saved_messages_topic_id: saved_messages_topic_id,
+            topic_id: topic_id,
             self_destruct_type: self_destruct_type,
             self_destruct_in: self_destruct_in,
             auto_delete_in: auto_delete_in,

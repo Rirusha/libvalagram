@@ -38,7 +38,7 @@ public class TDLib.MessageSourceChatHistory : MessageSource {
 }
 
 /**
- * The message is from a message thread history
+ * The message is from history of a message thread
  */
 public class TDLib.MessageSourceMessageThreadHistory : MessageSource {
 
@@ -51,13 +51,27 @@ public class TDLib.MessageSourceMessageThreadHistory : MessageSource {
 }
 
 /**
- * The message is from a forum topic history
+ * The message is from history of a forum topic
  */
 public class TDLib.MessageSourceForumTopicHistory : MessageSource {
 
     public MessageSourceForumTopicHistory () {
         Object (
             tdlib_type: "messageSourceForumTopicHistory",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The message is from history of a topic in a channel direct messages
+ * chat administered by the current user
+ */
+public class TDLib.MessageSourceDirectMessagesChatTopicHistory : MessageSource {
+
+    public MessageSourceDirectMessagesChatTopicHistory () {
+        Object (
+            tdlib_type: "messageSourceDirectMessagesChatTopicHistory",
             tdlib_extra: Uuid.string_random ()
         );
     }

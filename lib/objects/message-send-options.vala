@@ -25,6 +25,13 @@
 public class TDLib.MessageSendOptions : Error {
 
     /**
+     * Unique identifier of the topic in a channel direct messages chat
+     * administered by the current user; pass 0 if the chat isn't a channel
+     * direct messages chat administered by the current user
+     */
+    public int64 direct_messages_chat_topic_id { get; construct set; }
+
+    /**
      * Pass true to disable notification for the message
      */
     public bool disable_notification { get; construct set; }
@@ -61,8 +68,10 @@ public class TDLib.MessageSendOptions : Error {
 
     /**
      * Message scheduling state; pass null to send message immediately.
-     * Messages sent to a secret chat, to a chat with paid messages, live
-     * location messages and self-destructing messages can't be scheduled
+     * Messages sent to a secret chat, to a chat with paid messages, to a
+     * channel direct messages chat,
+     * live location messages and self-destructing messages can't be
+     * scheduled
      */
     public MessageSchedulingState scheduling_state { get; construct set; }
 
@@ -86,6 +95,7 @@ public class TDLib.MessageSendOptions : Error {
     public bool only_preview { get; construct set; }
 
     public MessageSendOptions (
+        int64 direct_messages_chat_topic_id,
         bool disable_notification,
         bool from_background,
         bool protect_content,
@@ -98,6 +108,7 @@ public class TDLib.MessageSendOptions : Error {
         bool only_preview
     ) {
         Object (
+            direct_messages_chat_topic_id: direct_messages_chat_topic_id,
             disable_notification: disable_notification,
             from_background: from_background,
             protect_content: protect_content,

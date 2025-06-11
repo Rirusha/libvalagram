@@ -44,7 +44,8 @@ public class TDLib.ResendCodeReasonVerificationFailed : ResendCodeReason {
 
     /**
      * Cause of the verification failure, for example,
-     * PLAY_SERVICES_NOT_AVAILABLE, APNS_RECEIVE_TIMEOUT, or APNS_INIT_FAILED
+     * "PLAY_SERVICES_NOT_AVAILABLE", "APNS_RECEIVE_TIMEOUT", or
+     * "APNS_INIT_FAILED"
      */
     public string error_message { get; construct set; }
 

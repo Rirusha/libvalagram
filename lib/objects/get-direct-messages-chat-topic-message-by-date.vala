@@ -20,46 +20,38 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns approximate number of messages of the specified type in the
- * chat or its topic
+ * Returns the last message sent in the topic in a channel direct
+ * messages chat administered by the current user no later than the
+ * specified date
  */
-public class TDLib.GetChatMessageCount : TDObject {
+public class TDLib.GetDirectMessagesChatTopicMessageByDate : TDObject {
 
     /**
-     * Identifier of the chat in which to count messages
+     * Chat identifier of the channel direct messages chat
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Pass topic identifier to get number of messages only in specific
-     * topic; pass null to get number of messages in all topics
+     * Identifier of the topic which messages will be fetched
      */
-    public MessageTopic topic_id { get; construct set; }
+    public int64 topic_id { get; construct set; }
 
     /**
-     * Filter for message content; searchMessagesFilterEmpty is unsupported
-     * in this function
+     * Point in time (Unix timestamp) relative to which to search for
+     * messages
      */
-    public SearchMessagesFilter filter { get; construct set; }
+    public int32 date { get; construct set; }
 
-    /**
-     * Pass true to get the number of messages without sending network
-     * requests, or -1 if the number of messages is unknown locally
-     */
-    public bool return_local { get; construct set; }
-
-    public GetChatMessageCount (
+    public GetDirectMessagesChatTopicMessageByDate (
         int64 chat_id,
-        MessageTopic topic_id,
-        SearchMessagesFilter filter,
-        bool return_local
+        int64 topic_id,
+        int32 date
     ) {
         Object (
             chat_id: chat_id,
             topic_id: topic_id,
-            filter: filter,
-            return_local: return_local,
-            tdlib_type: "getChatMessageCount",
+            date: date,
+            tdlib_type: "getDirectMessagesChatTopicMessageByDate",
             tdlib_extra: Uuid.string_random ()
         );
     }
