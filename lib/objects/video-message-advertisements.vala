@@ -20,36 +20,36 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Information about the sponsor of a message
+ * Contains a list of advertisements to be shown while a video from a
+ * message is watched
  */
-public class TDLib.MessageSponsor : Error {
+public class TDLib.VideoMessageAdvertisements : Error {
 
     /**
-     * URL of the sponsor to be opened when the message is clicked
+     * List of advertisements
      */
-    public string url { get; construct set; }
+    public Gee.ArrayList<VideoMessageAdvertisement?> advertisements { get; construct set; default = new Gee.ArrayList<VideoMessageAdvertisement?> (); }
 
     /**
-     * Photo of the sponsor; may be null if must not be shown
+     * Delay before the first advertisement is shown, in seconds
      */
-    public Photo? photo { get; construct set; }
+    public int32 start_delay { get; construct set; }
 
     /**
-     * Additional optional information about the sponsor to be shown along
-     * with the message
+     * Delay between consecutive advertisements, in seconds
      */
-    public string info { get; construct set; }
+    public int32 between_delay { get; construct set; }
 
-    public MessageSponsor (
-        string url,
-        Photo? photo,
-        string info
+    public VideoMessageAdvertisements (
+        Gee.ArrayList<VideoMessageAdvertisement?> advertisements,
+        int32 start_delay,
+        int32 between_delay
     ) {
         Object (
-            url: url,
-            photo: photo,
-            info: info,
-            tdlib_type: "messageSponsor",
+            advertisements: advertisements,
+            start_delay: start_delay,
+            between_delay: between_delay,
+            tdlib_type: "videoMessageAdvertisements",
             tdlib_extra: Uuid.string_random ()
         );
     }

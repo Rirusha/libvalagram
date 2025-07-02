@@ -47,6 +47,12 @@ public class TDLib.DirectMessagesChatTopic : Error {
     public int64 order { get; construct set; }
 
     /**
+     * True, if the other party can send unpaid messages even if the chat has
+     * paid messages enabled
+     */
+    public bool can_send_unpaid_messages { get; construct set; }
+
+    /**
      * True, if the forum topic is marked as unread
      */
     public bool is_marked_as_unread { get; construct set; }
@@ -86,6 +92,7 @@ public class TDLib.DirectMessagesChatTopic : Error {
         int64 id_,
         MessageSender sender_id,
         int64 order,
+        bool can_send_unpaid_messages,
         bool is_marked_as_unread,
         int64 unread_count,
         int64 last_read_inbox_message_id,
@@ -99,6 +106,7 @@ public class TDLib.DirectMessagesChatTopic : Error {
             id_: id_,
             sender_id: sender_id,
             order: order,
+            can_send_unpaid_messages: can_send_unpaid_messages,
             is_marked_as_unread: is_marked_as_unread,
             unread_count: unread_count,
             last_read_inbox_message_id: last_read_inbox_message_id,

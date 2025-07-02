@@ -205,6 +205,12 @@ public class TDLib.SupergroupFullInfo : Error {
     public int32 unrestrict_boost_count { get; construct set; }
 
     /**
+     * Number of Telegram Stars that must be paid by the current user for
+     * each sent message to the supergroup
+     */
+    public int64 outgoing_paid_message_star_count { get; construct set; }
+
+    /**
      * Identifier of the supergroup sticker set that must be shown before
      * user sticker sets; 0 if none
      */
@@ -281,6 +287,7 @@ public class TDLib.SupergroupFullInfo : Error {
         int32 gift_count,
         int32 my_boost_count,
         int32 unrestrict_boost_count,
+        int64 outgoing_paid_message_star_count,
         int64 sticker_set_id,
         int64 custom_emoji_sticker_set_id,
         ChatLocation? location,
@@ -321,6 +328,7 @@ public class TDLib.SupergroupFullInfo : Error {
             gift_count: gift_count,
             my_boost_count: my_boost_count,
             unrestrict_boost_count: unrestrict_boost_count,
+            outgoing_paid_message_star_count: outgoing_paid_message_star_count,
             sticker_set_id: sticker_set_id,
             custom_emoji_sticker_set_id: custom_emoji_sticker_set_id,
             location: location,

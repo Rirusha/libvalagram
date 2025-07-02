@@ -608,6 +608,34 @@ public class TDLib.PushMessageContentText : PushMessageContent {
 }
 
 /**
+ * A message with a checklist
+ */
+public class TDLib.PushMessageContentChecklist : PushMessageContent {
+
+    /**
+     * Checklist title
+     */
+    public string title { get; construct set; }
+
+    /**
+     * True, if the message is a pinned message with the specified content
+     */
+    public bool is_pinned { get; construct set; }
+
+    public PushMessageContentChecklist (
+        string title,
+        bool is_pinned
+    ) {
+        Object (
+            title: title,
+            is_pinned: is_pinned,
+            tdlib_type: "pushMessageContentChecklist",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A video message
  */
 public class TDLib.PushMessageContentVideo : PushMessageContent {
@@ -991,6 +1019,48 @@ public class TDLib.PushMessageContentProximityAlertTriggered : PushMessageConten
         Object (
             distance: distance,
             tdlib_type: "pushMessageContentProximityAlertTriggered",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Some tasks were added to a checklist
+ */
+public class TDLib.PushMessageContentChecklistTasksAdded : PushMessageContent {
+
+    /**
+     * Number of added tasks
+     */
+    public int32 task_count { get; construct set; }
+
+    public PushMessageContentChecklistTasksAdded (
+        int32 task_count
+    ) {
+        Object (
+            task_count: task_count,
+            tdlib_type: "pushMessageContentChecklistTasksAdded",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Some tasks from a checklist were marked as done or not done
+ */
+public class TDLib.PushMessageContentChecklistTasksDone : PushMessageContent {
+
+    /**
+     * Number of changed tasks
+     */
+    public int32 task_count { get; construct set; }
+
+    public PushMessageContentChecklistTasksDone (
+        int32 task_count
+    ) {
+        Object (
+            task_count: task_count,
+            tdlib_type: "pushMessageContentChecklistTasksDone",
             tdlib_extra: Uuid.string_random ()
         );
     }

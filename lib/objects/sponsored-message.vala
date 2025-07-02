@@ -52,7 +52,7 @@ public class TDLib.SponsoredMessage : Error {
     /**
      * Information about the sponsor of the message
      */
-    public MessageSponsor sponsor { get; construct set; }
+    public AdvertisementSponsor sponsor { get; construct set; }
 
     /**
      * Title of the sponsored message
@@ -87,7 +87,7 @@ public class TDLib.SponsoredMessage : Error {
         bool is_recommended,
         bool can_be_reported,
         MessageContent content,
-        MessageSponsor sponsor,
+        AdvertisementSponsor sponsor,
         string title,
         string button_text,
         int32 accent_color_id,

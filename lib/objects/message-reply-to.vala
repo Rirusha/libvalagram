@@ -65,11 +65,12 @@ public class TDLib.MessageReplyToMessage : MessageReplyTo {
      * topic; may be null for messages from the same chat and messages
      * without media.
      * Can be only one of the following types: messageAnimation,
-     * messageAudio, messageContact, messageDice, messageDocument,
-     * messageGame, messageGiveaway, messageGiveawayWinners,
-     * messageInvoice, messageLocation, messagePaidMedia, messagePhoto,
-     * messagePoll, messageSticker, messageStory, messageText (for link
-     * preview), messageVenue, messageVideo,
+     * messageAudio, messageChecklist, messageContact, messageDice,
+     * messageDocument, messageGame,
+     * messageGiveaway, messageGiveawayWinners, messageInvoice,
+     * messageLocation, messagePaidMedia, messagePhoto, messagePoll,
+     * messageSticker, messageStory,
+     * messageText (for link preview), messageVenue, messageVideo,
      * messageVideoNote, or messageVoiceNote
      */
     public MessageContent? content { get; construct set; }

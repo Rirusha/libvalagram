@@ -20,38 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a non-bundled message that is replied by a
- * given message. Also, returns the pinned message, the game message, the
- * invoice message,
- * the message with a previously set same background, the giveaway
- * message, the checklist message, and the topic creation message for
- * messages of the types
- * messagePinMessage, messageGameScore, messagePaymentSuccessful,
- * messageChatSetBackground, messageGiveawayCompleted,
- * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
- * messages without non-bundled replied message respectively.
- * Returns a 404 error if the message doesn't exist
+ * Returns advertisements to be shown while a video from a message is
+ * watched. Available only if
+ * messageProperties.can_get_video_advertisements
  */
-public class TDLib.GetRepliedMessage : TDObject {
+public class TDLib.GetVideoMessageAdvertisements : TDObject {
 
     /**
-     * Identifier of the chat the message belongs to
+     * Identifier of the chat with the message
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the reply message
+     * Identifier of the message
      */
     public int64 message_id { get; construct set; }
 
-    public GetRepliedMessage (
+    public GetVideoMessageAdvertisements (
         int64 chat_id,
         int64 message_id
     ) {
         Object (
             chat_id: chat_id,
             message_id: message_id,
-            tdlib_type: "getRepliedMessage",
+            tdlib_type: "getVideoMessageAdvertisements",
             tdlib_extra: Uuid.string_random ()
         );
     }

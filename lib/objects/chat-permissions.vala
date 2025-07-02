@@ -61,7 +61,7 @@ public class TDLib.ChatPermissions : Error {
     public bool can_send_voice_notes { get; construct set; }
 
     /**
-     * True, if the user can send polls
+     * True, if the user can send polls and checklists
      */
     public bool can_send_polls { get; construct set; }
 

@@ -20,38 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a non-bundled message that is replied by a
- * given message. Also, returns the pinned message, the game message, the
- * invoice message,
- * the message with a previously set same background, the giveaway
- * message, the checklist message, and the topic creation message for
- * messages of the types
- * messagePinMessage, messageGameScore, messagePaymentSuccessful,
- * messageChatSetBackground, messageGiveawayCompleted,
- * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
- * messages without non-bundled replied message respectively.
- * Returns a 404 error if the message doesn't exist
+ * Adds tasks to a checklist in a message
  */
-public class TDLib.GetRepliedMessage : TDObject {
+public class TDLib.AddChecklistTasks : TDObject {
 
     /**
-     * Identifier of the chat the message belongs to
+     * Identifier of the chat with the message
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the reply message
+     * Identifier of the message containing the checklist. Use
+     * messageProperties.can_add_tasks to check whether the tasks can be
+     * added
      */
     public int64 message_id { get; construct set; }
 
-    public GetRepliedMessage (
+    /**
+     * List of added tasks
+     */
+    public Gee.ArrayList<InputChecklistTask?> tasks { get; construct set; default = new Gee.ArrayList<InputChecklistTask?> (); }
+
+    public AddChecklistTasks (
         int64 chat_id,
-        int64 message_id
+        int64 message_id,
+        Gee.ArrayList<InputChecklistTask?> tasks
     ) {
         Object (
             chat_id: chat_id,
             message_id: message_id,
-            tdlib_type: "getRepliedMessage",
+            tasks: tasks,
+            tdlib_type: "addChecklistTasks",
             tdlib_extra: Uuid.string_random ()
         );
     }

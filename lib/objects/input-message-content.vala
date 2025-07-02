@@ -1003,6 +1003,29 @@ public class TDLib.InputMessageStory : InputMessageContent {
 }
 
 /**
+ * A message with a checklist. Checklists can't be sent to secret chats,
+ * channel chats and channel direct messages chats; for Telegram Premium
+ * users only
+ */
+public class TDLib.InputMessageChecklist : InputMessageContent {
+
+    /**
+     * The checklist to send
+     */
+    public InputChecklist checklist { get; construct set; }
+
+    public InputMessageChecklist (
+        InputChecklist checklist
+    ) {
+        Object (
+            checklist: checklist,
+            tdlib_type: "inputMessageChecklist",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A forwarded message
  */
 public class TDLib.InputMessageForwarded : InputMessageContent {

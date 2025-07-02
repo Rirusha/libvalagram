@@ -26,6 +26,13 @@
 public class TDLib.MessageProperties : Error {
 
     /**
+     * True, if tasks can be added to the message's checklist using
+     * {@link Client.add_checklist_tasks} if the current user has Telegram
+     * Premium subscription
+     */
+    public bool can_add_tasks { get; construct set; }
+
+    /**
      * True, if content of the message can be copied using
      * inputMessageForwarded or {@link Client.forward_messages} with copy
      * options
@@ -56,9 +63,10 @@ public class TDLib.MessageProperties : Error {
      * True, if the message can be edited using the methods
      * {@link Client.edit_message_text} {@link Client.edit_message_caption}
      * or {@link Client.edit_message_reply_markup}
-     * For live location and poll messages this fields shows whether
-     * {@link Client.edit_message_live_location} or {@link Client.stop_poll}
-     * can be used with this message
+     * For live location, poll, and checklist messages this fields shows
+     * whether {@link Client.edit_message_live_location}
+     * {@link Client.stop_poll} or {@link Client.edit_message_checklist}
+     * respectively can be used with this message
      */
     public bool can_be_edited { get; construct set; }
 
@@ -159,10 +167,23 @@ public class TDLib.MessageProperties : Error {
     public bool can_get_statistics { get; construct set; }
 
     /**
+     * True, if advertisements for video of the message can be received
+     * though {@link Client.get_video_message_advertisements}
+     */
+    public bool can_get_video_advertisements { get; construct set; }
+
+    /**
      * True, if chat members already viewed the message can be received
      * through {@link Client.get_message_viewers}
      */
     public bool can_get_viewers { get; construct set; }
+
+    /**
+     * True, if tasks can be marked as done or not done in the message's
+     * checklist using {@link Client.mark_checklist_tasks_as_done} if the
+     * current user has Telegram Premium subscription
+     */
+    public bool can_mark_tasks_as_done { get; construct set; }
 
     /**
      * True, if speech can be recognized for the message through
@@ -200,6 +221,7 @@ public class TDLib.MessageProperties : Error {
     public bool need_show_statistics { get; construct set; }
 
     public MessageProperties (
+        bool can_add_tasks,
         bool can_be_copied,
         bool can_be_copied_to_secret_chat,
         bool can_be_deleted_only_for_self,
@@ -221,7 +243,9 @@ public class TDLib.MessageProperties : Error {
         bool can_get_message_thread,
         bool can_get_read_date,
         bool can_get_statistics,
+        bool can_get_video_advertisements,
         bool can_get_viewers,
+        bool can_mark_tasks_as_done,
         bool can_recognize_speech,
         bool can_report_chat,
         bool can_report_reactions,
@@ -230,6 +254,7 @@ public class TDLib.MessageProperties : Error {
         bool need_show_statistics
     ) {
         Object (
+            can_add_tasks: can_add_tasks,
             can_be_copied: can_be_copied,
             can_be_copied_to_secret_chat: can_be_copied_to_secret_chat,
             can_be_deleted_only_for_self: can_be_deleted_only_for_self,
@@ -251,7 +276,9 @@ public class TDLib.MessageProperties : Error {
             can_get_message_thread: can_get_message_thread,
             can_get_read_date: can_get_read_date,
             can_get_statistics: can_get_statistics,
+            can_get_video_advertisements: can_get_video_advertisements,
             can_get_viewers: can_get_viewers,
+            can_mark_tasks_as_done: can_mark_tasks_as_done,
             can_recognize_speech: can_recognize_speech,
             can_report_chat: can_report_chat,
             can_report_reactions: can_report_reactions,

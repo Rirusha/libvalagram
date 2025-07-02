@@ -20,38 +20,45 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a non-bundled message that is replied by a
- * given message. Also, returns the pinned message, the game message, the
- * invoice message,
- * the message with a previously set same background, the giveaway
- * message, the checklist message, and the topic creation message for
- * messages of the types
- * messagePinMessage, messageGameScore, messagePaymentSuccessful,
- * messageChatSetBackground, messageGiveawayCompleted,
- * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
- * messages without non-bundled replied message respectively.
- * Returns a 404 error if the message doesn't exist
+ * Edits the message content of a checklist. Returns the edited message
+ * after the edit is completed on the server side
  */
-public class TDLib.GetRepliedMessage : TDObject {
+public class TDLib.EditMessageChecklist : TDObject {
 
     /**
-     * Identifier of the chat the message belongs to
+     * The chat the message belongs to
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the reply message
+     * Identifier of the message. Use messageProperties.can_be_edited to
+     * check whether the message can be edited
      */
     public int64 message_id { get; construct set; }
 
-    public GetRepliedMessage (
+    /**
+     * The new message reply markup; pass null if none; for bots only
+     */
+    public ReplyMarkup reply_markup { get; construct set; }
+
+    /**
+     * The new checklist. If some tasks were completed, this information will
+     * be kept
+     */
+    public InputChecklist checklist { get; construct set; }
+
+    public EditMessageChecklist (
         int64 chat_id,
-        int64 message_id
+        int64 message_id,
+        ReplyMarkup reply_markup,
+        InputChecklist checklist
     ) {
         Object (
             chat_id: chat_id,
             message_id: message_id,
-            tdlib_type: "getRepliedMessage",
+            reply_markup: reply_markup,
+            checklist: checklist,
+            tdlib_type: "editMessageChecklist",
             tdlib_extra: Uuid.string_random ()
         );
     }

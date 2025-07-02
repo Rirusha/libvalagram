@@ -20,38 +20,44 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a non-bundled message that is replied by a
- * given message. Also, returns the pinned message, the game message, the
- * invoice message,
- * the message with a previously set same background, the giveaway
- * message, the checklist message, and the topic creation message for
- * messages of the types
- * messagePinMessage, messageGameScore, messagePaymentSuccessful,
- * messageChatSetBackground, messageGiveawayCompleted,
- * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
- * messages without non-bundled replied message respectively.
- * Returns a 404 error if the message doesn't exist
+ * Allows to send unpaid messages to the given topic of the channel
+ * direct messages chat administered by the current user
  */
-public class TDLib.GetRepliedMessage : TDObject {
+public class TDLib.ToggleDirectMessagesChatTopicCanSendUnpaidMessages : TDObject {
 
     /**
-     * Identifier of the chat the message belongs to
+     * Chat identifier
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the reply message
+     * Identifier of the topic
      */
-    public int64 message_id { get; construct set; }
+    public int64 topic_id { get; construct set; }
 
-    public GetRepliedMessage (
+    /**
+     * Pass true to allow unpaid messages; pass false to disallow unpaid
+     * messages
+     */
+    public bool can_send_unpaid_messages { get; construct set; }
+
+    /**
+     * Pass true to refund the user previously paid messages
+     */
+    public bool refund_payments { get; construct set; }
+
+    public ToggleDirectMessagesChatTopicCanSendUnpaidMessages (
         int64 chat_id,
-        int64 message_id
+        int64 topic_id,
+        bool can_send_unpaid_messages,
+        bool refund_payments
     ) {
         Object (
             chat_id: chat_id,
-            message_id: message_id,
-            tdlib_type: "getRepliedMessage",
+            topic_id: topic_id,
+            can_send_unpaid_messages: can_send_unpaid_messages,
+            refund_payments: refund_payments,
+            tdlib_type: "toggleDirectMessagesChatTopicCanSendUnpaidMessages",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,38 +20,44 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a non-bundled message that is replied by a
- * given message. Also, returns the pinned message, the game message, the
- * invoice message,
- * the message with a previously set same background, the giveaway
- * message, the checklist message, and the topic creation message for
- * messages of the types
- * messagePinMessage, messageGameScore, messagePaymentSuccessful,
- * messageChatSetBackground, messageGiveawayCompleted,
- * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
- * messages without non-bundled replied message respectively.
- * Returns a 404 error if the message doesn't exist
+ * Adds tasks of a checklist in a message as done or not done
  */
-public class TDLib.GetRepliedMessage : TDObject {
+public class TDLib.MarkChecklistTasksAsDone : TDObject {
 
     /**
-     * Identifier of the chat the message belongs to
+     * Identifier of the chat with the message
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the reply message
+     * Identifier of the message containing the checklist. Use
+     * messageProperties.can_mark_tasks_as_done to check whether the tasks
+     * can be marked as done or not done
      */
     public int64 message_id { get; construct set; }
 
-    public GetRepliedMessage (
+    /**
+     * Identifiers of tasks that were marked as done
+     */
+    public Gee.ArrayList<int32?> marked_as_done_task_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
+    /**
+     * Identifiers of tasks that were marked as not done
+     */
+    public Gee.ArrayList<int32?> marked_as_not_done_task_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
+    public MarkChecklistTasksAsDone (
         int64 chat_id,
-        int64 message_id
+        int64 message_id,
+        Gee.ArrayList<int32?> marked_as_done_task_ids,
+        Gee.ArrayList<int32?> marked_as_not_done_task_ids
     ) {
         Object (
             chat_id: chat_id,
             message_id: message_id,
-            tdlib_type: "getRepliedMessage",
+            marked_as_done_task_ids: marked_as_done_task_ids,
+            marked_as_not_done_task_ids: marked_as_not_done_task_ids,
+            tdlib_type: "markChecklistTasksAsDone",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -342,3 +342,16 @@ public class TDLib.PremiumFeatureMessageEffects : PremiumFeature {
         );
     }
 }
+
+/**
+ * The ability to create and use checklist messages
+ */
+public class TDLib.PremiumFeatureChecklists : PremiumFeature {
+
+    public PremiumFeatureChecklists () {
+        Object (
+            tdlib_type: "premiumFeatureChecklists",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

@@ -305,6 +305,11 @@ public class TDLib.MessageVideo : MessageContent {
     public Gee.ArrayList<AlternativeVideo?> alternative_videos { get; construct set; default = new Gee.ArrayList<AlternativeVideo?> (); }
 
     /**
+     * Available storyboards for the video
+     */
+    public Gee.ArrayList<VideoStoryboard?> storyboards { get; construct set; default = new Gee.ArrayList<VideoStoryboard?> (); }
+
+    /**
      * Cover of the video; may be null if none
      */
     public Photo? cover { get; construct set; }
@@ -339,6 +344,7 @@ public class TDLib.MessageVideo : MessageContent {
     public MessageVideo (
         Video video,
         Gee.ArrayList<AlternativeVideo?> alternative_videos,
+        Gee.ArrayList<VideoStoryboard?> storyboards,
         Photo? cover,
         int32 start_timestamp,
         FormattedText caption,
@@ -349,6 +355,7 @@ public class TDLib.MessageVideo : MessageContent {
         Object (
             video: video,
             alternative_videos: alternative_videos,
+            storyboards: storyboards,
             cover: cover,
             start_timestamp: start_timestamp,
             caption: caption,
@@ -737,6 +744,27 @@ public class TDLib.MessageStory : MessageContent {
             story_id: story_id,
             via_mention: via_mention,
             tdlib_type: "messageStory",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A message with a checklist
+ */
+public class TDLib.MessageChecklist : MessageContent {
+
+    /**
+     * The checklist description
+     */
+    public Checklist list { get; construct set; }
+
+    public MessageChecklist (
+        Checklist list
+    ) {
+        Object (
+            list: list,
+            tdlib_type: "messageChecklist",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -2668,6 +2696,71 @@ public class TDLib.MessageDirectMessagePriceChanged : MessageContent {
             is_enabled: is_enabled,
             paid_message_star_count: paid_message_star_count,
             tdlib_type: "messageDirectMessagePriceChanged",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Some tasks from a checklist were marked as done or not done
+ */
+public class TDLib.MessageChecklistTasksDone : MessageContent {
+
+    /**
+     * Identifier of the message with the checklist; can be 0 if the message
+     * was deleted
+     */
+    public int64 checklist_message_id { get; construct set; }
+
+    /**
+     * Identifiers of tasks that were marked as done
+     */
+    public Gee.ArrayList<int32?> marked_as_done_task_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
+    /**
+     * Identifiers of tasks that were marked as not done
+     */
+    public Gee.ArrayList<int32?> marked_as_not_done_task_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
+    public MessageChecklistTasksDone (
+        int64 checklist_message_id,
+        Gee.ArrayList<int32?> marked_as_done_task_ids,
+        Gee.ArrayList<int32?> marked_as_not_done_task_ids
+    ) {
+        Object (
+            checklist_message_id: checklist_message_id,
+            marked_as_done_task_ids: marked_as_done_task_ids,
+            marked_as_not_done_task_ids: marked_as_not_done_task_ids,
+            tdlib_type: "messageChecklistTasksDone",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Some tasks were added to a checklist
+ */
+public class TDLib.MessageChecklistTasksAdded : MessageContent {
+
+    /**
+     * Identifier of the message with the checklist; can be 0 if the message
+     * was deleted
+     */
+    public int64 checklist_message_id { get; construct set; }
+
+    /**
+     * List of tasks added to the checklist
+     */
+    public Gee.ArrayList<ChecklistTask?> tasks { get; construct set; default = new Gee.ArrayList<ChecklistTask?> (); }
+
+    public MessageChecklistTasksAdded (
+        int64 checklist_message_id,
+        Gee.ArrayList<ChecklistTask?> tasks
+    ) {
+        Object (
+            checklist_message_id: checklist_message_id,
+            tasks: tasks,
+            tdlib_type: "messageChecklistTasksAdded",
             tdlib_extra: Uuid.string_random ()
         );
     }

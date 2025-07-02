@@ -20,38 +20,52 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a non-bundled message that is replied by a
- * given message. Also, returns the pinned message, the game message, the
- * invoice message,
- * the message with a previously set same background, the giveaway
- * message, the checklist message, and the topic creation message for
- * messages of the types
- * messagePinMessage, messageGameScore, messagePaymentSuccessful,
- * messageChatSetBackground, messageGiveawayCompleted,
- * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
- * messages without non-bundled replied message respectively.
- * Returns a 404 error if the message doesn't exist
+ * Edits the content of a checklist in a message sent on behalf of a
+ * business account; for bots only
  */
-public class TDLib.GetRepliedMessage : TDObject {
+public class TDLib.EditBusinessMessageChecklist : TDObject {
 
     /**
-     * Identifier of the chat the message belongs to
+     * Unique identifier of business connection on behalf of which the
+     * message was sent
+     */
+    public string business_connection_id { get; construct set; }
+
+    /**
+     * The chat the message belongs to
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the reply message
+     * Identifier of the message
      */
     public int64 message_id { get; construct set; }
 
-    public GetRepliedMessage (
+    /**
+     * The new message reply markup; pass null if none
+     */
+    public ReplyMarkup reply_markup { get; construct set; }
+
+    /**
+     * The new checklist. If some tasks were completed, this information will
+     * be kept
+     */
+    public InputChecklist checklist { get; construct set; }
+
+    public EditBusinessMessageChecklist (
+        string business_connection_id,
         int64 chat_id,
-        int64 message_id
+        int64 message_id,
+        ReplyMarkup reply_markup,
+        InputChecklist checklist
     ) {
         Object (
+            business_connection_id: business_connection_id,
             chat_id: chat_id,
             message_id: message_id,
-            tdlib_type: "getRepliedMessage",
+            reply_markup: reply_markup,
+            checklist: checklist,
+            tdlib_type: "editBusinessMessageChecklist",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -120,6 +120,10 @@ public sealed class TDLib.Client : Object {
         typeof (PollOption).ensure ();
         typeof (PollTypeRegular).ensure ();
         typeof (PollTypeQuiz).ensure ();
+        typeof (ChecklistTask).ensure ();
+        typeof (InputChecklistTask).ensure ();
+        typeof (Checklist).ensure ();
+        typeof (InputChecklist).ensure ();
         typeof (Animation).ensure ();
         typeof (Audio).ensure ();
         typeof (Document).ensure ();
@@ -136,6 +140,7 @@ public sealed class TDLib.Client : Object {
         typeof (WebApp).ensure ();
         typeof (Poll).ensure ();
         typeof (AlternativeVideo).ensure ();
+        typeof (VideoStoryboard).ensure ();
         typeof (Background).ensure ();
         typeof (Backgrounds).ensure ();
         typeof (ChatBackground).ensure ();
@@ -420,11 +425,13 @@ public sealed class TDLib.Client : Object {
         typeof (MessageSourceNotification).ensure ();
         typeof (MessageSourceScreenshot).ensure ();
         typeof (MessageSourceOther).ensure ();
-        typeof (MessageSponsor).ensure ();
+        typeof (AdvertisementSponsor).ensure ();
         typeof (SponsoredMessage).ensure ();
         typeof (SponsoredMessages).ensure ();
         typeof (SponsoredChat).ensure ();
         typeof (SponsoredChats).ensure ();
+        typeof (VideoMessageAdvertisement).ensure ();
+        typeof (VideoMessageAdvertisements).ensure ();
         typeof (ReportOption).ensure ();
         typeof (ReportSponsoredResultOk).ensure ();
         typeof (ReportSponsoredResultFailed).ensure ();
@@ -760,6 +767,7 @@ public sealed class TDLib.Client : Object {
         typeof (MessageGame).ensure ();
         typeof (MessagePoll).ensure ();
         typeof (MessageStory).ensure ();
+        typeof (MessageChecklist).ensure ();
         typeof (MessageInvoice).ensure ();
         typeof (MessageCall).ensure ();
         typeof (MessageGroupCall).ensure ();
@@ -808,6 +816,8 @@ public sealed class TDLib.Client : Object {
         typeof (MessagePaidMessagesRefunded).ensure ();
         typeof (MessagePaidMessagePriceChanged).ensure ();
         typeof (MessageDirectMessagePriceChanged).ensure ();
+        typeof (MessageChecklistTasksDone).ensure ();
+        typeof (MessageChecklistTasksAdded).ensure ();
         typeof (MessageContactRegistered).ensure ();
         typeof (MessageUsersShared).ensure ();
         typeof (MessageChatShared).ensure ();
@@ -869,6 +879,7 @@ public sealed class TDLib.Client : Object {
         typeof (InputMessageInvoice).ensure ();
         typeof (InputMessagePoll).ensure ();
         typeof (InputMessageStory).ensure ();
+        typeof (InputMessageChecklist).ensure ();
         typeof (InputMessageForwarded).ensure ();
         typeof (MessageProperties).ensure ();
         typeof (SearchMessagesFilterEmpty).ensure ();
@@ -1216,6 +1227,7 @@ public sealed class TDLib.Client : Object {
         typeof (PremiumFeatureLastSeenTimes).ensure ();
         typeof (PremiumFeatureBusiness).ensure ();
         typeof (PremiumFeatureMessageEffects).ensure ();
+        typeof (PremiumFeatureChecklists).ensure ();
         typeof (BusinessFeatureLocation).ensure ();
         typeof (BusinessFeatureOpeningHours).ensure ();
         typeof (BusinessFeatureQuickReplies).ensure ();
@@ -1335,6 +1347,7 @@ public sealed class TDLib.Client : Object {
         typeof (PushMessageContentSticker).ensure ();
         typeof (PushMessageContentStory).ensure ();
         typeof (PushMessageContentText).ensure ();
+        typeof (PushMessageContentChecklist).ensure ();
         typeof (PushMessageContentVideo).ensure ();
         typeof (PushMessageContentVideoNote).ensure ();
         typeof (PushMessageContentVoiceNote).ensure ();
@@ -1353,6 +1366,8 @@ public sealed class TDLib.Client : Object {
         typeof (PushMessageContentRecurringPayment).ensure ();
         typeof (PushMessageContentSuggestProfilePhoto).ensure ();
         typeof (PushMessageContentProximityAlertTriggered).ensure ();
+        typeof (PushMessageContentChecklistTasksAdded).ensure ();
+        typeof (PushMessageContentChecklistTasksDone).ensure ();
         typeof (PushMessageContentMessageForwards).ensure ();
         typeof (PushMessageContentMediaAlbum).ensure ();
         typeof (NotificationTypeNewMessage).ensure ();
@@ -4372,10 +4387,12 @@ public sealed class TDLib.Client : Object {
      * given message. Also, returns the pinned message, the game message, the
      * invoice message,
      * the message with a previously set same background, the giveaway
-     * message, and the topic creation message for messages of the types
+     * message, the checklist message, and the topic creation message for
+     * messages of the types
      * messagePinMessage, messageGameScore, messagePaymentSuccessful,
-     * messageChatSetBackground, messageGiveawayCompleted and topic messages
-     * without non-bundled replied message respectively.
+     * messageChatSetBackground, messageGiveawayCompleted,
+     * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
+     * messages without non-bundled replied message respectively.
      * Returns a 404 error if the message doesn't exist
      * @param chat_id Identifier of the chat the message belongs to
      * @param message_id Identifier of the reply message
@@ -6683,6 +6700,113 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns the total number of Telegram Stars received by the channel
+     * chat for direct messages from the given topic
+     * @param chat_id Chat identifier of the channel direct messages chat
+     * administered by the current user
+     * @param topic_id Identifier of the topic
+     */
+    public async StarCount get_direct_messages_chat_topic_revenue (
+        int64 chat_id,
+        int64 topic_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetDirectMessagesChatTopicRevenue (
+            chat_id,
+            topic_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_direct_messages_chat_topic_revenue.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StarCount) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Allows to send unpaid messages to the given topic of the channel
+     * direct messages chat administered by the current user
+     * @param chat_id Chat identifier
+     * @param topic_id Identifier of the topic
+     * @param can_send_unpaid_messages Pass true to allow unpaid messages;
+     * pass false to disallow unpaid messages
+     * @param refund_payments Pass true to refund the user previously paid
+     * messages
+     */
+    public async Ok toggle_direct_messages_chat_topic_can_send_unpaid_messages (
+        int64 chat_id,
+        int64 topic_id,
+        bool can_send_unpaid_messages,
+        bool refund_payments
+    ) throws TDLibError {
+        try {
+
+        var obj = new ToggleDirectMessagesChatTopicCanSendUnpaidMessages (
+            chat_id,
+            topic_id,
+            can_send_unpaid_messages,
+            refund_payments
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (toggle_direct_messages_chat_topic_can_send_unpaid_messages.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Loads more Saved Messages topics. The loaded topics will be sent
      * through updateSavedMessagesTopic. Topics are sorted by their
      * topic.order in descending order. Returns a 404 error if all topics
@@ -8916,6 +9040,195 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns advertisements to be shown while a video from a message is
+     * watched. Available only if
+     * messageProperties.can_get_video_advertisements
+     * @param chat_id Identifier of the chat with the message
+     * @param message_id Identifier of the message
+     */
+    public async VideoMessageAdvertisements get_video_message_advertisements (
+        int64 chat_id,
+        int64 message_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetVideoMessageAdvertisements (
+            chat_id,
+            message_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_video_message_advertisements.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (VideoMessageAdvertisements) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Informs TDLib that the user viewed a video message advertisement
+     * @param advertisement_unique_id Unique identifier of the advertisement
+     */
+    public async Ok view_video_message_advertisement (
+        int64 advertisement_unique_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ViewVideoMessageAdvertisement (
+            advertisement_unique_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (view_video_message_advertisement.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Informs TDLib that the user clicked a video message advertisement
+     * @param advertisement_unique_id Unique identifier of the advertisement
+     */
+    public async Ok click_video_message_advertisement (
+        int64 advertisement_unique_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ClickVideoMessageAdvertisement (
+            advertisement_unique_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (click_video_message_advertisement.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Reports a video message advertisement to Telegram moderators
+     * @param advertisement_unique_id Unique identifier of the advertisement
+     * @param option_id Option identifier chosen by the user; leave empty for
+     * the initial request
+     */
+    public async ReportSponsoredResult report_video_message_advertisement (
+        int64 advertisement_unique_id,
+        Bytes option_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReportVideoMessageAdvertisement (
+            advertisement_unique_id,
+            option_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (report_video_message_advertisement.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (ReportSponsoredResult) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Removes an active notification from notification list. Needs to be
      * called only if the notification is removed by the current user
      * @param notification_group_id Identifier of notification group to which
@@ -10315,6 +10628,65 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Edits the message content of a checklist. Returns the edited message
+     * after the edit is completed on the server side
+     * @param chat_id The chat the message belongs to
+     * @param message_id Identifier of the message. Use
+     * messageProperties.can_be_edited to check whether the message can be
+     * edited
+     * @param reply_markup The new message reply markup; pass null if none;
+     * for bots only
+     * @param checklist The new checklist. If some tasks were completed, this
+     * information will be kept
+     */
+    public async Message edit_message_checklist (
+        int64 chat_id,
+        int64 message_id,
+        ReplyMarkup reply_markup,
+        InputChecklist checklist
+    ) throws TDLibError {
+        try {
+
+        var obj = new EditMessageChecklist (
+            chat_id,
+            message_id,
+            reply_markup,
+            checklist
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (edit_message_checklist.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Message) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Edits the media content of a message, including message caption. If
      * only the caption needs to be edited, use
      * {@link Client.edit_message_caption} instead.
@@ -11151,6 +11523,66 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (edit_business_message_live_location.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (BusinessMessage) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Edits the content of a checklist in a message sent on behalf of a
+     * business account; for bots only
+     * @param business_connection_id Unique identifier of business connection
+     * on behalf of which the message was sent
+     * @param chat_id The chat the message belongs to
+     * @param message_id Identifier of the message
+     * @param reply_markup The new message reply markup; pass null if none
+     * @param checklist The new checklist. If some tasks were completed, this
+     * information will be kept
+     */
+    public async BusinessMessage edit_business_message_checklist (
+        string business_connection_id,
+        int64 chat_id,
+        int64 message_id,
+        ReplyMarkup reply_markup,
+        InputChecklist checklist
+    ) throws TDLibError {
+        try {
+
+        var obj = new EditBusinessMessageChecklist (
+            business_connection_id,
+            chat_id,
+            message_id,
+            reply_markup,
+            checklist
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (edit_business_message_checklist.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -12398,8 +12830,8 @@ public sealed class TDLib.Client : Object {
      * @param reply_to_message_id Identifier of a quick reply message in the
      * same shortcut to be replied; pass 0 if none
      * @param input_message_content The content of the message to be added;
-     * inputMessagePoll, inputMessageForwarded and inputMessageLocation with
-     * live_period aren't supported
+     * inputMessagePaidMedia, inputMessageForwarded and inputMessageLocation
+     * with live_period aren't supported
      */
     public async QuickReplyMessage add_quick_reply_shortcut_message (
         string shortcut_name,
@@ -12631,16 +13063,17 @@ public sealed class TDLib.Client : Object {
      * Asynchronously edits the text, media or caption of a quick reply
      * message. Use quickReplyMessage.can_be_edited to check whether a
      * message can be edited.
-     * Media message can be edited only to a media message. The type of
-     * message content in an album can't be changed with exception of
-     * replacing a photo with a video or vice versa
+     * Media message can be edited only to a media message. Checklist
+     * messages can be edited only to a checklist message.
+     * The type of message content in an album can't be changed with
+     * exception of replacing a photo with a video or vice versa
      * @param shortcut_id Unique identifier of the quick reply shortcut with
      * the message
      * @param message_id Identifier of the message
      * @param input_message_content New content of the message. Must be one
-     * of the following types: inputMessageText, inputMessageAnimation,
-     * inputMessageAudio, inputMessageDocument, inputMessagePhoto or
-     * inputMessageVideo
+     * of the following types: inputMessageAnimation, inputMessageAudio,
+     * inputMessageChecklist, inputMessageDocument, inputMessagePhoto,
+     * inputMessageText, or inputMessageVideo
      */
     public async Ok edit_quick_reply_message (
         int32 shortcut_id,
@@ -15450,6 +15883,117 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (stop_poll.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Adds tasks to a checklist in a message
+     * @param chat_id Identifier of the chat with the message
+     * @param message_id Identifier of the message containing the checklist.
+     * Use messageProperties.can_add_tasks to check whether the tasks can be
+     * added
+     * @param tasks List of added tasks
+     */
+    public async Ok add_checklist_tasks (
+        int64 chat_id,
+        int64 message_id,
+        Gee.ArrayList<InputChecklistTask?> tasks
+    ) throws TDLibError {
+        try {
+
+        var obj = new AddChecklistTasks (
+            chat_id,
+            message_id,
+            tasks
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (add_checklist_tasks.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Adds tasks of a checklist in a message as done or not done
+     * @param chat_id Identifier of the chat with the message
+     * @param message_id Identifier of the message containing the checklist.
+     * Use messageProperties.can_mark_tasks_as_done to check whether the
+     * tasks can be marked as done or not done
+     * @param marked_as_done_task_ids Identifiers of tasks that were marked
+     * as done
+     * @param marked_as_not_done_task_ids Identifiers of tasks that were
+     * marked as not done
+     */
+    public async Ok mark_checklist_tasks_as_done (
+        int64 chat_id,
+        int64 message_id,
+        Gee.ArrayList<int32?> marked_as_done_task_ids,
+        Gee.ArrayList<int32?> marked_as_not_done_task_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new MarkChecklistTasksAsDone (
+            chat_id,
+            message_id,
+            marked_as_done_task_ids,
+            marked_as_not_done_task_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (mark_checklist_tasks_as_done.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);

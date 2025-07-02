@@ -41,7 +41,7 @@ public class TDLib.AddQuickReplyShortcutMessage : TDObject {
     public int64 reply_to_message_id { get; construct set; }
 
     /**
-     * The content of the message to be added; inputMessagePoll,
+     * The content of the message to be added; inputMessagePaidMedia,
      * inputMessageForwarded and inputMessageLocation with live_period aren't
      * supported
      */
