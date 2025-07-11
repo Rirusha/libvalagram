@@ -47,7 +47,7 @@ public class TDLib.ViewMessages : TDObject {
     public MessageSource source { get; construct set; }
 
     /**
-     * Pass true to mark as read the specified messages even the chat is
+     * Pass true to mark as read the specified messages even if the chat is
      * closed
      */
     public bool force_read { get; construct set; }

@@ -17861,7 +17861,7 @@ public sealed class TDLib.Client : Object {
      * @param source Source of the message view; pass null to guess the
      * source based on chat open state
      * @param force_read Pass true to mark as read the specified messages
-     * even the chat is closed
+     * even if the chat is closed
      */
     public async Ok view_messages (
         int64 chat_id,

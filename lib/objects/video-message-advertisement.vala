@@ -36,13 +36,13 @@ public class TDLib.VideoMessageAdvertisement : Error {
     public string text { get; construct set; }
 
     /**
-     * The minimum amount of time the advertisement must be dispalyed before
+     * The minimum amount of time the advertisement must be displayed before
      * it can be hidden by the user, in seconds
      */
     public int32 min_display_duration { get; construct set; }
 
     /**
-     * The maximum amount of time the advertisement must be dispalyed before
+     * The maximum amount of time the advertisement must be displayed before
      * it must be automatically hidden, in seconds
      */
     public int32 max_display_duration { get; construct set; }
