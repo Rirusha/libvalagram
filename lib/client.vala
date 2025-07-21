@@ -12221,7 +12221,7 @@ public sealed class TDLib.Client : Object {
      * @param business_connection_id Unique identifier of business connection
      * @param photo Profile photo to set; pass null to remove the photo
      * @param is_public Pass true to set the public photo, which will be
-     * visible even the main photo is hidden by privacy settings
+     * visible even if the main photo is hidden by privacy settings
      */
     public async Ok set_business_account_profile_photo (
         string business_connection_id,
@@ -24792,7 +24792,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns the list of emoji statuses, which can't be used as chat emoji
-     * status, even they are from a sticker set with
+     * status, even if they are from a sticker set with
      * is_allowed_as_chat_emoji_status == true
      */
     public async EmojiStatusCustomEmojis get_disallowed_chat_emoji_statuses () throws TDLibError {
@@ -32224,7 +32224,7 @@ public sealed class TDLib.Client : Object {
      * Changes a profile photo for the current user
      * @param photo Profile photo to set
      * @param is_public Pass true to set the public photo, which will be
-     * visible even the main photo is hidden by privacy settings
+     * visible even if the main photo is hidden by privacy settings
      */
     public async Ok set_profile_photo (
         InputChatPhoto photo,

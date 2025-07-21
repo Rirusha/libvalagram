@@ -2777,7 +2777,7 @@ public class TDLib.UpdateGroupCallParticipants : Update {
      * New list of group call participant user identifiers. The identifiers
      * may be invalid or the corresponding users may be unknown.
      * The participants must be shown in the list of group call participants
-     * even there is no information about them
+     * even if there is no information about them
      */
     public Gee.ArrayList<int64?> participant_user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
 

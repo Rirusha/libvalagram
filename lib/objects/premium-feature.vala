@@ -304,8 +304,8 @@ public class TDLib.PremiumFeatureMessagePrivacy : PremiumFeature {
 }
 
 /**
- * The ability to view last seen and read times of other users even they
- * can't view last seen or read time for the current user
+ * The ability to view last seen and read times of other users even if
+ * they can't view last seen or read time for the current user
  */
 public class TDLib.PremiumFeatureLastSeenTimes : PremiumFeature {
 

@@ -52,7 +52,7 @@ public class TDLib.ChatPhoto : Error {
 
     /**
      * A small (160x160) animated variant of the photo in MPEG4 format; may
-     * be null even the big animation is available
+     * be null even if the big animation is available
      */
     public AnimatedChatPhoto? small_animation { get; construct set; }
 
