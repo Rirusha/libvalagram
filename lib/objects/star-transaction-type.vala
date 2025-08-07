@@ -907,6 +907,50 @@ public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
 }
 
 /**
+ * The transaction is a payment for a suggested post; for regular users
+ * only
+ */
+public class TDLib.StarTransactionTypeSuggestedPostPaymentSend : StarTransactionType {
+
+    /**
+     * Identifier of the channel chat that posted the post
+     */
+    public int64 chat_id { get; construct set; }
+
+    public StarTransactionTypeSuggestedPostPaymentSend (
+        int64 chat_id
+    ) {
+        Object (
+            chat_id: chat_id,
+            tdlib_type: "starTransactionTypeSuggestedPostPaymentSend",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a receiving of a payment for a suggested post by
+ * the channel chat; for channel chats only
+ */
+public class TDLib.StarTransactionTypeSuggestedPostPaymentReceive : StarTransactionType {
+
+    /**
+     * Identifier of the user that paid for the suggested post
+     */
+    public int64 user_id { get; construct set; }
+
+    public StarTransactionTypeSuggestedPostPaymentReceive (
+        int64 user_id
+    ) {
+        Object (
+            user_id: user_id,
+            tdlib_type: "starTransactionTypeSuggestedPostPaymentReceive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a purchase of Telegram Premium subscription; for
  * regular users and bots only
  */

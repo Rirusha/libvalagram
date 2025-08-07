@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns upgraded gifts that can be bought from other owners
+ * Returns upgraded gifts that can be bought from other owners using
+ * {@link Client.send_resold_gift}
  */
 public class TDLib.SearchGiftsForResale : TDObject {
 

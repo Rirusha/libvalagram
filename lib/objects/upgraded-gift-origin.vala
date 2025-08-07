@@ -1,0 +1,81 @@
+/*
+ * Copyright (C) 2024-2025 Vladimir Vaskov
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// THIS FILE WAS GENERATED, DON'T MODIFY IT
+
+/**
+ * Describes origin from which the upgraded gift was obtained
+ */
+public abstract class TDLib.UpgradedGiftOrigin : Error {}
+
+/**
+ * The gift was obtained by upgrading of a previously received gift
+ */
+public class TDLib.UpgradedGiftOriginUpgrade : UpgradedGiftOrigin {
+
+    /**
+     * Identifier of the message with the regular gift that was upgraded; can
+     * be 0 or an identifier of a deleted message
+     */
+    public int64 gift_message_id { get; construct set; }
+
+    public UpgradedGiftOriginUpgrade (
+        int64 gift_message_id
+    ) {
+        Object (
+            gift_message_id: gift_message_id,
+            tdlib_type: "upgradedGiftOriginUpgrade",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The gift was transferred from another owner
+ */
+public class TDLib.UpgradedGiftOriginTransfer : UpgradedGiftOrigin {
+
+    public UpgradedGiftOriginTransfer () {
+        Object (
+            tdlib_type: "upgradedGiftOriginTransfer",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The gift was bought from another user
+ */
+public class TDLib.UpgradedGiftOriginResale : UpgradedGiftOrigin {
+
+    /**
+     * Number of Telegram Stars that were paid by the sender for the gift
+     */
+    public int64 star_count { get; construct set; }
+
+    public UpgradedGiftOriginResale (
+        int64 star_count
+    ) {
+        Object (
+            star_count: star_count,
+            tdlib_type: "upgradedGiftOriginResale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

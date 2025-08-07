@@ -30,6 +30,11 @@ public class TDLib.Gift : Error {
     public int64 id_ { get; construct set; }
 
     /**
+     * Identifier of the chat that published the gift; 0 if none
+     */
+    public int64 publisher_chat_id { get; construct set; }
+
+    /**
      * The sticker representing the gift
      */
     public Sticker sticker { get; construct set; }
@@ -82,6 +87,7 @@ public class TDLib.Gift : Error {
 
     public Gift (
         int64 id_,
+        int64 publisher_chat_id,
         Sticker sticker,
         int64 star_count,
         int64 default_sell_star_count,
@@ -94,6 +100,7 @@ public class TDLib.Gift : Error {
     ) {
         Object (
             id_: id_,
+            publisher_chat_id: publisher_chat_id,
             sticker: sticker,
             star_count: star_count,
             default_sell_star_count: default_sell_star_count,

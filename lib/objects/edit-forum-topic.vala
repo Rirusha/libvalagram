@@ -21,8 +21,8 @@
 
 /**
  * Edits title and icon of a topic in a forum supergroup chat; requires
- * can_manage_topics right in the supergroup unless the user is creator
- * of the topic
+ * can_manage_topics administrator right in the supergroup unless the
+ * user is creator of the topic
  */
 public class TDLib.EditForumTopic : TDObject {
 

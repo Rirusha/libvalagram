@@ -29,8 +29,8 @@ public class TDLib.GiveawayParameters : Error {
      * automatically boosted by the winners of the giveaway for duration of
      * the Telegram Premium subscription,
      * or for the specified time. If the chat is a channel, then
-     * can_post_messages right is required in the channel, otherwise, the
-     * user must be an administrator in the supergroup
+     * can_post_messages administrator right is required in the channel,
+     * otherwise, the user must be an administrator in the supergroup
      */
     public int64 boosted_chat_id { get; construct set; }
 

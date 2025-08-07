@@ -758,6 +758,20 @@ public class TDLib.InternalLinkTypeMyStars : InternalLinkType {
 }
 
 /**
+ * The link is a link to the screen with information about Toncoin
+ * balance and transactions of the current user
+ */
+public class TDLib.InternalLinkTypeMyToncoins : InternalLinkType {
+
+    public InternalLinkTypeMyToncoins () {
+        Object (
+            tdlib_type: "internalLinkTypeMyToncoins",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link contains a request of Telegram passport data. Call
  * {@link Client.get_passport_authorization_form} with the given
  * parameters to process the link if the link was received from outside

@@ -20,37 +20,49 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains a list of chat revenue transactions
+ * Represents a transaction changing the amount of owned Toncoins
  */
-public class TDLib.ChatRevenueTransactions : Error {
+public class TDLib.TonTransaction : Error {
 
     /**
-     * The amount of owned Toncoins; in the smallest units of the
-     * cryptocurrency
+     * Unique identifier of the transaction
+     */
+    public string id_ { get; construct set; }
+
+    /**
+     * The amount of added owned Toncoins; negative for outgoing transactions
      */
     public int64 ton_amount { get; construct set; }
 
     /**
-     * List of transactions
+     * True, if the transaction is a refund of a previous transaction
      */
-    public Gee.ArrayList<ChatRevenueTransaction?> transactions { get; construct set; default = new Gee.ArrayList<ChatRevenueTransaction?> (); }
+    public bool is_refund { get; construct set; }
 
     /**
-     * The offset for the next request. If empty, then there are no more
-     * results
+     * Point in time (Unix timestamp) when the transaction was completed
      */
-    public string next_offset { get; construct set; }
+    public int32 date { get; construct set; }
 
-    public ChatRevenueTransactions (
+    /**
+     * Type of the transaction
+     */
+    public TonTransactionType type_ { get; construct set; }
+
+    public TonTransaction (
+        string id_,
         int64 ton_amount,
-        Gee.ArrayList<ChatRevenueTransaction?> transactions,
-        string next_offset
+        bool is_refund,
+        int32 date,
+        TonTransactionType type_
     ) {
         Object (
+            id_: id_,
             ton_amount: ton_amount,
-            transactions: transactions,
-            next_offset: next_offset,
-            tdlib_type: "chatRevenueTransactions",
+            is_refund: is_refund,
+            date: date,
+            type_: type_,
+            tdlib_type: "tonTransaction",
             tdlib_extra: Uuid.string_random ()
         );
     }

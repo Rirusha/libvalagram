@@ -20,30 +20,33 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a General topic is hidden in a forum supergroup chat;
- * requires can_manage_topics administrator right in the supergroup
+ * Describes reason for refund of the payment for a suggested post
  */
-public class TDLib.ToggleGeneralForumTopicIsHidden : TDObject {
+public abstract class TDLib.SuggestedPostRefundReason : Error {}
 
-    /**
-     * Identifier of the chat
-     */
-    public int64 chat_id { get; construct set; }
+/**
+ * The post was refunded, because it was deleted by channel
+ * administrators in less than getOption("suggested_post_lifetime_min")
+ * seconds
+ */
+public class TDLib.SuggestedPostRefundReasonPostDeleted : SuggestedPostRefundReason {
 
-    /**
-     * Pass true to hide and {@link Client.close} the General topic; pass
-     * false to unhide it
-     */
-    public bool is_hidden { get; construct set; }
-
-    public ToggleGeneralForumTopicIsHidden (
-        int64 chat_id,
-        bool is_hidden
-    ) {
+    public SuggestedPostRefundReasonPostDeleted () {
         Object (
-            chat_id: chat_id,
-            is_hidden: is_hidden,
-            tdlib_type: "toggleGeneralForumTopicIsHidden",
+            tdlib_type: "suggestedPostRefundReasonPostDeleted",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The post was refunded, because the payment for the post was refunded
+ */
+public class TDLib.SuggestedPostRefundReasonPaymentRefunded : SuggestedPostRefundReason {
+
+    public SuggestedPostRefundReasonPaymentRefunded () {
+        Object (
+            tdlib_type: "suggestedPostRefundReasonPaymentRefunded",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -26,10 +26,23 @@
 public abstract class TDLib.ChatRevenueTransactionType : Error {}
 
 /**
+ * Describes an unsupported transaction
+ */
+public class TDLib.ChatRevenueTransactionTypeUnsupported : ChatRevenueTransactionType {
+
+    public ChatRevenueTransactionTypeUnsupported () {
+        Object (
+            tdlib_type: "chatRevenueTransactionTypeUnsupported",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * Describes earnings from sponsored messages in a chat in some time
  * frame
  */
-public class TDLib.ChatRevenueTransactionTypeEarnings : ChatRevenueTransactionType {
+public class TDLib.ChatRevenueTransactionTypeSponsoredMessageEarnings : ChatRevenueTransactionType {
 
     /**
      * Point in time (Unix timestamp) when the earnings started
@@ -41,23 +54,44 @@ public class TDLib.ChatRevenueTransactionTypeEarnings : ChatRevenueTransactionTy
      */
     public int32 end_date { get; construct set; }
 
-    public ChatRevenueTransactionTypeEarnings (
+    public ChatRevenueTransactionTypeSponsoredMessageEarnings (
         int32 start_date,
         int32 end_date
     ) {
         Object (
             start_date: start_date,
             end_date: end_date,
-            tdlib_type: "chatRevenueTransactionTypeEarnings",
+            tdlib_type: "chatRevenueTransactionTypeSponsoredMessageEarnings",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * Describes a withdrawal of earnings
+ * Describes earnings from a published suggested post
  */
-public class TDLib.ChatRevenueTransactionTypeWithdrawal : ChatRevenueTransactionType {
+public class TDLib.ChatRevenueTransactionTypeSuggestedPostEarnings : ChatRevenueTransactionType {
+
+    /**
+     * Identifier of the user that paid for the suggested post
+     */
+    public int64 user_id { get; construct set; }
+
+    public ChatRevenueTransactionTypeSuggestedPostEarnings (
+        int64 user_id
+    ) {
+        Object (
+            user_id: user_id,
+            tdlib_type: "chatRevenueTransactionTypeSuggestedPostEarnings",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Describes a withdrawal of earnings through Fragment
+ */
+public class TDLib.ChatRevenueTransactionTypeFragmentWithdrawal : ChatRevenueTransactionType {
 
     /**
      * Point in time (Unix timestamp) when the earnings withdrawal started
@@ -65,53 +99,39 @@ public class TDLib.ChatRevenueTransactionTypeWithdrawal : ChatRevenueTransaction
     public int32 withdrawal_date { get; construct set; }
 
     /**
-     * Name of the payment provider
-     */
-    public string provider { get; construct set; }
-
-    /**
      * State of the withdrawal
      */
     public RevenueWithdrawalState state { get; construct set; }
 
-    public ChatRevenueTransactionTypeWithdrawal (
+    public ChatRevenueTransactionTypeFragmentWithdrawal (
         int32 withdrawal_date,
-        string provider,
         RevenueWithdrawalState state
     ) {
         Object (
             withdrawal_date: withdrawal_date,
-            provider: provider,
             state: state,
-            tdlib_type: "chatRevenueTransactionTypeWithdrawal",
+            tdlib_type: "chatRevenueTransactionTypeFragmentWithdrawal",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * Describes a refund for failed withdrawal of earnings
+ * Describes a refund for failed withdrawal of earnings through Fragment
  */
-public class TDLib.ChatRevenueTransactionTypeRefund : ChatRevenueTransactionType {
+public class TDLib.ChatRevenueTransactionTypeFragmentRefund : ChatRevenueTransactionType {
 
     /**
      * Point in time (Unix timestamp) when the transaction was refunded
      */
     public int32 refund_date { get; construct set; }
 
-    /**
-     * Name of the payment provider
-     */
-    public string provider { get; construct set; }
-
-    public ChatRevenueTransactionTypeRefund (
-        int32 refund_date,
-        string provider
+    public ChatRevenueTransactionTypeFragmentRefund (
+        int32 refund_date
     ) {
         Object (
             refund_date: refund_date,
-            provider: provider,
-            tdlib_type: "chatRevenueTransactionTypeRefund",
+            tdlib_type: "chatRevenueTransactionTypeFragmentRefund",
             tdlib_extra: Uuid.string_random ()
         );
     }

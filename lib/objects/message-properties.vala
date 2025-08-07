@@ -26,11 +26,23 @@
 public class TDLib.MessageProperties : Error {
 
     /**
+     * True, if an offer can be added to the message using
+     * {@link Client.add_offer}
+     */
+    public bool can_add_offer { get; construct set; }
+
+    /**
      * True, if tasks can be added to the message's checklist using
      * {@link Client.add_checklist_tasks} if the current user has Telegram
      * Premium subscription
      */
     public bool can_add_tasks { get; construct set; }
+
+    /**
+     * True, if the message is a suggested post that can be approved by the
+     * user using {@link Client.approve_suggested_post}
+     */
+    public bool can_be_approved { get; construct set; }
 
     /**
      * True, if content of the message can be copied using
@@ -45,6 +57,12 @@ public class TDLib.MessageProperties : Error {
      * options
      */
     public bool can_be_copied_to_secret_chat { get; construct set; }
+
+    /**
+     * True, if the message is a suggested post that can be declined by the
+     * user using {@link Client.decline_suggested_post}
+     */
+    public bool can_be_declined { get; construct set; }
 
     /**
      * True, if the message can be deleted only for the current user while
@@ -120,6 +138,12 @@ public class TDLib.MessageProperties : Error {
      * True, if scheduling state of the message can be edited
      */
     public bool can_edit_scheduling_state { get; construct set; }
+
+    /**
+     * True, if another price or post send time can be suggested using
+     * {@link Client.add_offer}
+     */
+    public bool can_edit_suggested_post_info { get; construct set; }
 
     /**
      * True, if author of the message sent on behalf of a chat can be
@@ -221,9 +245,12 @@ public class TDLib.MessageProperties : Error {
     public bool need_show_statistics { get; construct set; }
 
     public MessageProperties (
+        bool can_add_offer,
         bool can_add_tasks,
+        bool can_be_approved,
         bool can_be_copied,
         bool can_be_copied_to_secret_chat,
+        bool can_be_declined,
         bool can_be_deleted_only_for_self,
         bool can_be_deleted_for_all_users,
         bool can_be_edited,
@@ -236,6 +263,7 @@ public class TDLib.MessageProperties : Error {
         bool can_be_shared_in_story,
         bool can_edit_media,
         bool can_edit_scheduling_state,
+        bool can_edit_suggested_post_info,
         bool can_get_author,
         bool can_get_embedding_code,
         bool can_get_link,
@@ -254,9 +282,12 @@ public class TDLib.MessageProperties : Error {
         bool need_show_statistics
     ) {
         Object (
+            can_add_offer: can_add_offer,
             can_add_tasks: can_add_tasks,
+            can_be_approved: can_be_approved,
             can_be_copied: can_be_copied,
             can_be_copied_to_secret_chat: can_be_copied_to_secret_chat,
+            can_be_declined: can_be_declined,
             can_be_deleted_only_for_self: can_be_deleted_only_for_self,
             can_be_deleted_for_all_users: can_be_deleted_for_all_users,
             can_be_edited: can_be_edited,
@@ -269,6 +300,7 @@ public class TDLib.MessageProperties : Error {
             can_be_shared_in_story: can_be_shared_in_story,
             can_edit_media: can_edit_media,
             can_edit_scheduling_state: can_edit_scheduling_state,
+            can_edit_suggested_post_info: can_edit_suggested_post_info,
             can_get_author: can_get_author,
             can_get_embedding_code: can_get_embedding_code,
             can_get_link: can_get_link,

@@ -42,13 +42,21 @@ public class TDLib.InputMessageReplyToMessage : InputMessageReplyTo {
      */
     public InputTextQuote quote { get; construct set; }
 
+    /**
+     * Identifier of the checklist task in the message to be replied; pass 0
+     * to reply to the whole message
+     */
+    public int32 checklist_task_id { get; construct set; }
+
     public InputMessageReplyToMessage (
         int64 message_id,
-        InputTextQuote quote
+        InputTextQuote quote,
+        int32 checklist_task_id
     ) {
         Object (
             message_id: message_id,
             quote: quote,
+            checklist_task_id: checklist_task_id,
             tdlib_type: "inputMessageReplyToMessage",
             tdlib_extra: Uuid.string_random ()
         );
@@ -78,15 +86,23 @@ public class TDLib.InputMessageReplyToExternalMessage : InputMessageReplyTo {
      */
     public InputTextQuote quote { get; construct set; }
 
+    /**
+     * Identifier of the checklist task in the message to be replied; pass 0
+     * to reply to the whole message
+     */
+    public int32 checklist_task_id { get; construct set; }
+
     public InputMessageReplyToExternalMessage (
         int64 chat_id,
         int64 message_id,
-        InputTextQuote quote
+        InputTextQuote quote,
+        int32 checklist_task_id
     ) {
         Object (
             chat_id: chat_id,
             message_id: message_id,
             quote: quote,
+            checklist_task_id: checklist_task_id,
             tdlib_type: "inputMessageReplyToExternalMessage",
             tdlib_extra: Uuid.string_random ()
         );

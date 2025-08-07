@@ -21,7 +21,7 @@
 
 /**
  * Changes the order of pinned forum topics; requires can_manage_topics
- * right in the supergroup
+ * administrator right in the supergroup
  */
 public class TDLib.SetPinnedForumTopics : TDObject {
 

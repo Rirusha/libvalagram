@@ -20,30 +20,31 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether a General topic is hidden in a forum supergroup chat;
- * requires can_manage_topics administrator right in the supergroup
+ * Describes direction of transactions in a transaction list
  */
-public class TDLib.ToggleGeneralForumTopicIsHidden : TDObject {
+public abstract class TDLib.TransactionDirection : Error {}
 
-    /**
-     * Identifier of the chat
-     */
-    public int64 chat_id { get; construct set; }
+/**
+ * The transaction is incoming and increases the amount of owned currency
+ */
+public class TDLib.TransactionDirectionIncoming : TransactionDirection {
 
-    /**
-     * Pass true to hide and {@link Client.close} the General topic; pass
-     * false to unhide it
-     */
-    public bool is_hidden { get; construct set; }
-
-    public ToggleGeneralForumTopicIsHidden (
-        int64 chat_id,
-        bool is_hidden
-    ) {
+    public TransactionDirectionIncoming () {
         Object (
-            chat_id: chat_id,
-            is_hidden: is_hidden,
-            tdlib_type: "toggleGeneralForumTopicIsHidden",
+            tdlib_type: "transactionDirectionIncoming",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is outgoing and decreases the amount of owned currency
+ */
+public class TDLib.TransactionDirectionOutgoing : TransactionDirection {
+
+    public TransactionDirectionOutgoing () {
+        Object (
+            tdlib_type: "transactionDirectionOutgoing",
             tdlib_extra: Uuid.string_random ()
         );
     }

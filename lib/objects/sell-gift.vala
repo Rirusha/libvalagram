@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sells a gift for Telegram Stars
+ * Sells a gift for Telegram Stars; requires owner privileges for gifts
+ * owned by a chat
  */
 public class TDLib.SellGift : TDObject {
 

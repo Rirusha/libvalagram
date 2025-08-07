@@ -20,33 +20,36 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes direction of a transaction with Telegram Stars
+ * Represents a list of Toncoin transactions
  */
-public abstract class TDLib.StarTransactionDirection : Error {}
+public class TDLib.TonTransactions : Error {
 
-/**
- * The transaction is incoming and increases the number of owned Telegram
- * Stars
- */
-public class TDLib.StarTransactionDirectionIncoming : StarTransactionDirection {
+    /**
+     * The total amount of owned Toncoins
+     */
+    public int64 ton_amount { get; construct set; }
 
-    public StarTransactionDirectionIncoming () {
+    /**
+     * List of Toncoin transactions
+     */
+    public Gee.ArrayList<TonTransaction?> transactions { get; construct set; default = new Gee.ArrayList<TonTransaction?> (); }
+
+    /**
+     * The offset for the next request. If empty, then there are no more
+     * results
+     */
+    public string next_offset { get; construct set; }
+
+    public TonTransactions (
+        int64 ton_amount,
+        Gee.ArrayList<TonTransaction?> transactions,
+        string next_offset
+    ) {
         Object (
-            tdlib_type: "starTransactionDirectionIncoming",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
- * The transaction is outgoing and decreases the number of owned Telegram
- * Stars
- */
-public class TDLib.StarTransactionDirectionOutgoing : StarTransactionDirection {
-
-    public StarTransactionDirectionOutgoing () {
-        Object (
-            tdlib_type: "starTransactionDirectionOutgoing",
+            ton_amount: ton_amount,
+            transactions: transactions,
+            next_offset: next_offset,
+            tdlib_type: "tonTransactions",
             tdlib_extra: Uuid.string_random ()
         );
     }

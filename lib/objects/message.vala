@@ -85,6 +85,21 @@ public class TDLib.Message : Error {
     public bool is_channel_post { get; construct set; }
 
     /**
+     * True, if the message is a suggested channel post which was paid in
+     * Telegram Stars; a warning must be shown if the message is deleted in
+     * less than getOption("suggested_post_lifetime_min") seconds after
+     * sending
+     */
+    public bool is_paid_star_suggested_post { get; construct set; }
+
+    /**
+     * True, if the message is a suggested channel post which was paid in
+     * Toncoins; a warning must be shown if the message is deleted in less
+     * than getOption("suggested_post_lifetime_min") seconds after sending
+     */
+    public bool is_paid_ton_suggested_post { get; construct set; }
+
+    /**
      * True, if the message contains an unread mention for the current user
      */
     public bool contains_unread_mention { get; construct set; }
@@ -128,6 +143,12 @@ public class TDLib.Message : Error {
      * Information about fact-check added to the message; may be null if none
      */
     public FactCheck? fact_check { get; construct set; }
+
+    /**
+     * Information about the suggested post; may be null if the message isn't
+     * a suggested post
+     */
+    public SuggestedPostInfo? suggested_post_info { get; construct set; }
 
     /**
      * Information about the message or the story this message is replying
@@ -239,6 +260,8 @@ public class TDLib.Message : Error {
         bool can_be_saved,
         bool has_timestamped_media,
         bool is_channel_post,
+        bool is_paid_star_suggested_post,
+        bool is_paid_ton_suggested_post,
         bool contains_unread_mention,
         int32 date,
         int32 edit_date,
@@ -247,6 +270,7 @@ public class TDLib.Message : Error {
         MessageInteractionInfo? interaction_info,
         Gee.ArrayList<UnreadReaction?> unread_reactions,
         FactCheck? fact_check,
+        SuggestedPostInfo? suggested_post_info,
         MessageReplyTo? reply_to,
         int64 message_thread_id,
         MessageTopic? topic_id,
@@ -277,6 +301,8 @@ public class TDLib.Message : Error {
             can_be_saved: can_be_saved,
             has_timestamped_media: has_timestamped_media,
             is_channel_post: is_channel_post,
+            is_paid_star_suggested_post: is_paid_star_suggested_post,
+            is_paid_ton_suggested_post: is_paid_ton_suggested_post,
             contains_unread_mention: contains_unread_mention,
             date: date,
             edit_date: edit_date,
@@ -285,6 +311,7 @@ public class TDLib.Message : Error {
             interaction_info: interaction_info,
             unread_reactions: unread_reactions,
             fact_check: fact_check,
+            suggested_post_info: suggested_post_info,
             reply_to: reply_to,
             message_thread_id: message_thread_id,
             topic_id: topic_id,

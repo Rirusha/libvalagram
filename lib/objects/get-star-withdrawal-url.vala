@@ -31,8 +31,9 @@ public class TDLib.GetStarWithdrawalUrl : TDObject {
     public MessageSender owner_id { get; construct set; }
 
     /**
-     * The number of Telegram Stars to withdraw. Must be at least
-     * getOption("star_withdrawal_count_min")
+     * The number of Telegram Stars to withdraw; must be between
+     * getOption("star_withdrawal_count_min") and
+     * getOption("star_withdrawal_count_max")
      */
     public int64 star_count { get; construct set; }
 

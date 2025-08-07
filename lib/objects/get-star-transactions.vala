@@ -42,7 +42,7 @@ public class TDLib.GetStarTransactions : TDObject {
      * Direction of the transactions to receive; pass null to get all
      * transactions
      */
-    public StarTransactionDirection direction { get; construct set; }
+    public TransactionDirection direction { get; construct set; }
 
     /**
      * Offset of the first transaction to return as received from the
@@ -58,7 +58,7 @@ public class TDLib.GetStarTransactions : TDObject {
     public GetStarTransactions (
         MessageSender owner_id,
         string subscription_id,
-        StarTransactionDirection direction,
+        TransactionDirection direction,
         string offset,
         int32 limit
     ) {

@@ -456,6 +456,41 @@ public class TDLib.UpdateMessageFactCheck : Update {
 }
 
 /**
+ * Information about suggested post of a message was changed
+ */
+public class TDLib.UpdateMessageSuggestedPostInfo : Update {
+
+    /**
+     * Chat identifier
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Message identifier
+     */
+    public int64 message_id { get; construct set; }
+
+    /**
+     * The new information about the suggested post
+     */
+    public SuggestedPostInfo suggested_post_info { get; construct set; }
+
+    public UpdateMessageSuggestedPostInfo (
+        int64 chat_id,
+        int64 message_id,
+        SuggestedPostInfo suggested_post_info
+    ) {
+        Object (
+            chat_id: chat_id,
+            message_id: message_id,
+            suggested_post_info: suggested_post_info,
+            tdlib_type: "updateMessageSuggestedPostInfo",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A message with a live location was viewed. When the update is
  * received, the application is expected to update the live location
  */
@@ -3846,6 +3881,28 @@ public class TDLib.UpdateOwnedStarCount : Update {
         Object (
             star_amount: star_amount,
             tdlib_type: "updateOwnedStarCount",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The number of Toncoins owned by the current user has changed
+ */
+public class TDLib.UpdateOwnedTonCount : Update {
+
+    /**
+     * The new amount of owned Toncoins; in the smallest units of the
+     * cryptocurrency
+     */
+    public int64 ton_amount { get; construct set; }
+
+    public UpdateOwnedTonCount (
+        int64 ton_amount
+    ) {
+        Object (
+            ton_amount: ton_amount,
+            tdlib_type: "updateOwnedTonCount",
             tdlib_extra: Uuid.string_random ()
         );
     }

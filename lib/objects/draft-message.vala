@@ -47,17 +47,24 @@ public class TDLib.DraftMessage : Error {
      */
     public int64 effect_id { get; construct set; }
 
+    /**
+     * Information about the suggested post; may be null if none
+     */
+    public InputSuggestedPostInfo? suggested_post_info { get; construct set; }
+
     public DraftMessage (
         InputMessageReplyTo? reply_to,
         int32 date,
         InputMessageContent input_message_text,
-        int64 effect_id
+        int64 effect_id,
+        InputSuggestedPostInfo? suggested_post_info
     ) {
         Object (
             reply_to: reply_to,
             date: date,
             input_message_text: input_message_text,
             effect_id: effect_id,
+            suggested_post_info: suggested_post_info,
             tdlib_type: "draftMessage",
             tdlib_extra: Uuid.string_random ()
         );

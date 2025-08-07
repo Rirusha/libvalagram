@@ -48,6 +48,12 @@ public class TDLib.MessageReplyToMessage : MessageReplyTo {
     public TextQuote? quote { get; construct set; }
 
     /**
+     * Identifier of the checklist task in the original message that was
+     * replied; 0 if none
+     */
+    public int32 checklist_task_id { get; construct set; }
+
+    /**
      * Information about origin of the message if the message was from
      * another chat or topic; may be null for messages from the same chat
      */
@@ -79,6 +85,7 @@ public class TDLib.MessageReplyToMessage : MessageReplyTo {
         int64 chat_id,
         int64 message_id,
         TextQuote? quote,
+        int32 checklist_task_id,
         MessageOrigin? origin,
         int32 origin_send_date,
         MessageContent? content
@@ -87,6 +94,7 @@ public class TDLib.MessageReplyToMessage : MessageReplyTo {
             chat_id: chat_id,
             message_id: message_id,
             quote: quote,
+            checklist_task_id: checklist_task_id,
             origin: origin,
             origin_send_date: origin_send_date,
             content: content,

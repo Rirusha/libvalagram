@@ -2278,6 +2278,58 @@ public class TDLib.MessageGiftedStars : MessageContent {
 }
 
 /**
+ * Toncoins were gifted to a user
+ */
+public class TDLib.MessageGiftedTon : MessageContent {
+
+    /**
+     * The identifier of a user that gifted Toncoins; 0 if the gift was
+     * anonymous or is outgoing
+     */
+    public int64 gifter_user_id { get; construct set; }
+
+    /**
+     * The identifier of a user that received Toncoins; 0 if the gift is
+     * incoming
+     */
+    public int64 receiver_user_id { get; construct set; }
+
+    /**
+     * The received amount of Toncoins, in the smallest units of the
+     * cryptocurrency
+     */
+    public int64 ton_amount { get; construct set; }
+
+    /**
+     * Identifier of the transaction for Toncoin credit; for receiver only
+     */
+    public string transaction_id { get; construct set; }
+
+    /**
+     * A sticker to be shown in the message; may be null if unknown
+     */
+    public Sticker? sticker { get; construct set; }
+
+    public MessageGiftedTon (
+        int64 gifter_user_id,
+        int64 receiver_user_id,
+        int64 ton_amount,
+        string transaction_id,
+        Sticker? sticker
+    ) {
+        Object (
+            gifter_user_id: gifter_user_id,
+            receiver_user_id: receiver_user_id,
+            ton_amount: ton_amount,
+            transaction_id: transaction_id,
+            sticker: sticker,
+            tdlib_type: "messageGiftedTon",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A Telegram Stars were received by the current user from a giveaway
  */
 public class TDLib.MessageGiveawayPrizeStars : MessageContent {
@@ -2480,16 +2532,15 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     public MessageSender receiver_id { get; construct set; }
 
     /**
+     * Origin of the upgraded gift
+     */
+    public UpgradedGiftOrigin origin { get; construct set; }
+
+    /**
      * Unique identifier of the received gift for the current user; only for
      * the receiver of the gift
      */
     public string received_gift_id { get; construct set; }
-
-    /**
-     * True, if the gift was obtained by upgrading of a previously received
-     * gift; otherwise, this is a transferred or resold gift
-     */
-    public bool is_upgrade { get; construct set; }
 
     /**
      * True, if the gift is displayed on the user's or the channel's profile
@@ -2504,16 +2555,10 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     public bool can_be_transferred { get; construct set; }
 
     /**
-     * True, if the gift was transferred to another owner; only for the
-     * receiver of the gift
+     * True, if the gift has already been transferred to another owner; only
+     * for the receiver of the gift
      */
     public bool was_transferred { get; construct set; }
-
-    /**
-     * Number of Telegram Stars that were paid by the sender for the gift; 0
-     * if the gift was upgraded or transferred
-     */
-    public int64 last_resale_star_count { get; construct set; }
 
     /**
      * Number of Telegram Stars that must be paid to transfer the upgraded
@@ -2545,12 +2590,11 @@ public class TDLib.MessageUpgradedGift : MessageContent {
         UpgradedGift gift,
         MessageSender? sender_id,
         MessageSender receiver_id,
+        UpgradedGiftOrigin origin,
         string received_gift_id,
-        bool is_upgrade,
         bool is_saved,
         bool can_be_transferred,
         bool was_transferred,
-        int64 last_resale_star_count,
         int64 transfer_star_count,
         int32 next_transfer_date,
         int32 next_resale_date,
@@ -2560,12 +2604,11 @@ public class TDLib.MessageUpgradedGift : MessageContent {
             gift: gift,
             sender_id: sender_id,
             receiver_id: receiver_id,
+            origin: origin,
             received_gift_id: received_gift_id,
-            is_upgrade: is_upgrade,
             is_saved: is_saved,
             can_be_transferred: can_be_transferred,
             was_transferred: was_transferred,
-            last_resale_star_count: last_resale_star_count,
             transfer_star_count: transfer_star_count,
             next_transfer_date: next_transfer_date,
             next_resale_date: next_resale_date,
@@ -2761,6 +2804,171 @@ public class TDLib.MessageChecklistTasksAdded : MessageContent {
             checklist_message_id: checklist_message_id,
             tasks: tasks,
             tdlib_type: "messageChecklistTasksAdded",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Approval of suggested post has failed, because the user which proposed
+ * the post had no enough funds
+ */
+public class TDLib.MessageSuggestedPostApprovalFailed : MessageContent {
+
+    /**
+     * Identifier of the message with the suggested post; can be 0 if the
+     * message was deleted
+     */
+    public int64 suggested_post_message_id { get; construct set; }
+
+    /**
+     * Price of the suggested post
+     */
+    public SuggestedPostPrice price { get; construct set; }
+
+    public MessageSuggestedPostApprovalFailed (
+        int64 suggested_post_message_id,
+        SuggestedPostPrice price
+    ) {
+        Object (
+            suggested_post_message_id: suggested_post_message_id,
+            price: price,
+            tdlib_type: "messageSuggestedPostApprovalFailed",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A suggested post was approved
+ */
+public class TDLib.MessageSuggestedPostApproved : MessageContent {
+
+    /**
+     * Identifier of the message with the suggested post; can be 0 if the
+     * message was deleted
+     */
+    public int64 suggested_post_message_id { get; construct set; }
+
+    /**
+     * Price of the suggested post; may be null if the post is non-paid
+     */
+    public SuggestedPostPrice? price { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the post is expected to be
+     * published
+     */
+    public int32 send_date { get; construct set; }
+
+    public MessageSuggestedPostApproved (
+        int64 suggested_post_message_id,
+        SuggestedPostPrice? price,
+        int32 send_date
+    ) {
+        Object (
+            suggested_post_message_id: suggested_post_message_id,
+            price: price,
+            send_date: send_date,
+            tdlib_type: "messageSuggestedPostApproved",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A suggested post was declined
+ */
+public class TDLib.MessageSuggestedPostDeclined : MessageContent {
+
+    /**
+     * Identifier of the message with the suggested post; can be 0 if the
+     * message was deleted
+     */
+    public int64 suggested_post_message_id { get; construct set; }
+
+    /**
+     * Comment added by administrator of the channel when the post was
+     * declined
+     */
+    public string comment { get; construct set; }
+
+    public MessageSuggestedPostDeclined (
+        int64 suggested_post_message_id,
+        string comment
+    ) {
+        Object (
+            suggested_post_message_id: suggested_post_message_id,
+            comment: comment,
+            tdlib_type: "messageSuggestedPostDeclined",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A suggested post was published for
+ * getOption("suggested_post_lifetime_min") seconds and payment for the
+ * post was received
+ */
+public class TDLib.MessageSuggestedPostPaid : MessageContent {
+
+    /**
+     * Identifier of the message with the suggested post; can be 0 if the
+     * message was deleted
+     */
+    public int64 suggested_post_message_id { get; construct set; }
+
+    /**
+     * The amount of received Telegram Stars
+     */
+    public StarAmount star_amount { get; construct set; }
+
+    /**
+     * The amount of received Toncoins; in the smallest units of the
+     * cryptocurrency
+     */
+    public int64 ton_amount { get; construct set; }
+
+    public MessageSuggestedPostPaid (
+        int64 suggested_post_message_id,
+        StarAmount star_amount,
+        int64 ton_amount
+    ) {
+        Object (
+            suggested_post_message_id: suggested_post_message_id,
+            star_amount: star_amount,
+            ton_amount: ton_amount,
+            tdlib_type: "messageSuggestedPostPaid",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A suggested post was refunded
+ */
+public class TDLib.MessageSuggestedPostRefunded : MessageContent {
+
+    /**
+     * Identifier of the message with the suggested post; can be 0 if the
+     * message was deleted
+     */
+    public int64 suggested_post_message_id { get; construct set; }
+
+    /**
+     * Reason of the refund
+     */
+    public SuggestedPostRefundReason reason { get; construct set; }
+
+    public MessageSuggestedPostRefunded (
+        int64 suggested_post_message_id,
+        SuggestedPostRefundReason reason
+    ) {
+        Object (
+            suggested_post_message_id: suggested_post_message_id,
+            reason: reason,
+            tdlib_type: "messageSuggestedPostRefunded",
             tdlib_extra: Uuid.string_random ()
         );
     }

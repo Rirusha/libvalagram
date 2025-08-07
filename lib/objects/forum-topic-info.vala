@@ -70,7 +70,9 @@ public class TDLib.ForumTopicInfo : Error {
     public bool is_outgoing { get; construct set; }
 
     /**
-     * True, if the topic is closed
+     * True, if the topic is closed. If the topic is closed, then the user
+     * must have can_manage_topics administrator right in the supergroup or
+     * must be the creator of the topic to send messages there
      */
     public bool is_closed { get; construct set; }
 

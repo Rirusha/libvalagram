@@ -792,13 +792,21 @@ public class TDLib.LinkPreviewTypeVideoChat : LinkPreviewType {
      */
     public bool is_live_stream { get; construct set; }
 
+    /**
+     * True, if the user can use the link to join the video chat without
+     * being muted by administrators
+     */
+    public bool joins_as_speaker { get; construct set; }
+
     public LinkPreviewTypeVideoChat (
         ChatPhoto? photo,
-        bool is_live_stream
+        bool is_live_stream,
+        bool joins_as_speaker
     ) {
         Object (
             photo: photo,
             is_live_stream: is_live_stream,
+            joins_as_speaker: joins_as_speaker,
             tdlib_type: "linkPreviewTypeVideoChat",
             tdlib_extra: Uuid.string_random ()
         );

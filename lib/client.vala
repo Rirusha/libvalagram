@@ -189,6 +189,15 @@ public sealed class TDLib.Client : Object {
         typeof (InputChatPhotoSticker).ensure ();
         typeof (ChatPermissions).ensure ();
         typeof (ChatAdministratorRights).ensure ();
+        typeof (SuggestedPostPriceStar).ensure ();
+        typeof (SuggestedPostPriceTon).ensure ();
+        typeof (SuggestedPostStatePending).ensure ();
+        typeof (SuggestedPostStateApproved).ensure ();
+        typeof (SuggestedPostStateDeclined).ensure ();
+        typeof (SuggestedPostInfo).ensure ();
+        typeof (InputSuggestedPostInfo).ensure ();
+        typeof (SuggestedPostRefundReasonPostDeleted).ensure ();
+        typeof (SuggestedPostRefundReasonPaymentRefunded).ensure ();
         typeof (StarAmount).ensure ();
         typeof (StarSubscriptionTypeChannel).ensure ();
         typeof (StarSubscriptionTypeBot).ensure ();
@@ -223,6 +232,9 @@ public sealed class TDLib.Client : Object {
         typeof (StarGiveawayPaymentOptions).ensure ();
         typeof (AcceptedGiftTypes).ensure ();
         typeof (GiftSettings).ensure ();
+        typeof (UpgradedGiftOriginUpgrade).ensure ();
+        typeof (UpgradedGiftOriginTransfer).ensure ();
+        typeof (UpgradedGiftOriginResale).ensure ();
         typeof (UpgradedGiftModel).ensure ();
         typeof (UpgradedGiftSymbol).ensure ();
         typeof (UpgradedGiftBackdropColors).ensure ();
@@ -249,8 +261,8 @@ public sealed class TDLib.Client : Object {
         typeof (ReceivedGift).ensure ();
         typeof (ReceivedGifts).ensure ();
         typeof (GiftUpgradePreview).ensure ();
-        typeof (StarTransactionDirectionIncoming).ensure ();
-        typeof (StarTransactionDirectionOutgoing).ensure ();
+        typeof (TransactionDirectionIncoming).ensure ();
+        typeof (TransactionDirectionOutgoing).ensure ();
         typeof (StarTransactionTypePremiumBotDeposit).ensure ();
         typeof (StarTransactionTypeAppStoreDeposit).ensure ();
         typeof (StarTransactionTypeGooglePlayDeposit).ensure ();
@@ -281,12 +293,19 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypeAffiliateProgramCommission).ensure ();
         typeof (StarTransactionTypePaidMessageSend).ensure ();
         typeof (StarTransactionTypePaidMessageReceive).ensure ();
+        typeof (StarTransactionTypeSuggestedPostPaymentSend).ensure ();
+        typeof (StarTransactionTypeSuggestedPostPaymentReceive).ensure ();
         typeof (StarTransactionTypePremiumPurchase).ensure ();
         typeof (StarTransactionTypeBusinessBotTransferSend).ensure ();
         typeof (StarTransactionTypeBusinessBotTransferReceive).ensure ();
         typeof (StarTransactionTypeUnsupported).ensure ();
         typeof (StarTransaction).ensure ();
         typeof (StarTransactions).ensure ();
+        typeof (TonTransactionTypeFragmentDeposit).ensure ();
+        typeof (TonTransactionTypeSuggestedPostPayment).ensure ();
+        typeof (TonTransactionTypeUnsupported).ensure ();
+        typeof (TonTransaction).ensure ();
+        typeof (TonTransactions).ensure ();
         typeof (GiveawayParticipantStatusEligible).ensure ();
         typeof (GiveawayParticipantStatusParticipating).ensure ();
         typeof (GiveawayParticipantStatusAlreadyWasMember).ensure ();
@@ -809,6 +828,7 @@ public sealed class TDLib.Client : Object {
         typeof (MessageGiveawayCompleted).ensure ();
         typeof (MessageGiveawayWinners).ensure ();
         typeof (MessageGiftedStars).ensure ();
+        typeof (MessageGiftedTon).ensure ();
         typeof (MessageGiveawayPrizeStars).ensure ();
         typeof (MessageGift).ensure ();
         typeof (MessageUpgradedGift).ensure ();
@@ -818,6 +838,11 @@ public sealed class TDLib.Client : Object {
         typeof (MessageDirectMessagePriceChanged).ensure ();
         typeof (MessageChecklistTasksDone).ensure ();
         typeof (MessageChecklistTasksAdded).ensure ();
+        typeof (MessageSuggestedPostApprovalFailed).ensure ();
+        typeof (MessageSuggestedPostApproved).ensure ();
+        typeof (MessageSuggestedPostDeclined).ensure ();
+        typeof (MessageSuggestedPostPaid).ensure ();
+        typeof (MessageSuggestedPostRefunded).ensure ();
         typeof (MessageContactRegistered).ensure ();
         typeof (MessageUsersShared).ensure ();
         typeof (MessageChatShared).ensure ();
@@ -1496,6 +1521,7 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeMessage).ensure ();
         typeof (InternalLinkTypeMessageDraft).ensure ();
         typeof (InternalLinkTypeMyStars).ensure ();
+        typeof (InternalLinkTypeMyToncoins).ensure ();
         typeof (InternalLinkTypePassportDataRequest).ensure ();
         typeof (InternalLinkTypePhoneNumberConfirmation).ensure ();
         typeof (InternalLinkTypePremiumFeatures).ensure ();
@@ -1640,9 +1666,11 @@ public sealed class TDLib.Client : Object {
         typeof (RevenueWithdrawalStatePending).ensure ();
         typeof (RevenueWithdrawalStateSucceeded).ensure ();
         typeof (RevenueWithdrawalStateFailed).ensure ();
-        typeof (ChatRevenueTransactionTypeEarnings).ensure ();
-        typeof (ChatRevenueTransactionTypeWithdrawal).ensure ();
-        typeof (ChatRevenueTransactionTypeRefund).ensure ();
+        typeof (ChatRevenueTransactionTypeUnsupported).ensure ();
+        typeof (ChatRevenueTransactionTypeSponsoredMessageEarnings).ensure ();
+        typeof (ChatRevenueTransactionTypeSuggestedPostEarnings).ensure ();
+        typeof (ChatRevenueTransactionTypeFragmentWithdrawal).ensure ();
+        typeof (ChatRevenueTransactionTypeFragmentRefund).ensure ();
         typeof (ChatRevenueTransaction).ensure ();
         typeof (ChatRevenueTransactions).ensure ();
         typeof (StarRevenueStatus).ensure ();
@@ -1673,6 +1701,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateMessageMentionRead).ensure ();
         typeof (UpdateMessageUnreadReactions).ensure ();
         typeof (UpdateMessageFactCheck).ensure ();
+        typeof (UpdateMessageSuggestedPostInfo).ensure ();
         typeof (UpdateMessageLiveLocationViewed).ensure ();
         typeof (UpdateVideoPublished).ensure ();
         typeof (UpdateNewChat).ensure ();
@@ -1788,6 +1817,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateSavedMessagesTags).ensure ();
         typeof (UpdateActiveLiveLocationMessages).ensure ();
         typeof (UpdateOwnedStarCount).ensure ();
+        typeof (UpdateOwnedTonCount).ensure ();
         typeof (UpdateChatRevenueAmount).ensure ();
         typeof (UpdateStarRevenueStatus).ensure ();
         typeof (UpdateSpeechRecognitionTrial).ensure ();
@@ -4384,16 +4414,20 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns information about a non-bundled message that is replied by a
-     * given message. Also, returns the pinned message, the game message, the
-     * invoice message,
-     * the message with a previously set same background, the giveaway
-     * message, the checklist message, and the topic creation message for
-     * messages of the types
-     * messagePinMessage, messageGameScore, messagePaymentSuccessful,
-     * messageChatSetBackground, messageGiveawayCompleted,
-     * messageChecklistTasksDone and messageChecklistTasksAdded, and topic
-     * messages without non-bundled replied message respectively.
-     * Returns a 404 error if the message doesn't exist
+     * given message. Also, returns the pinned message for messagePinMessage,
+     * the game message for messageGameScore, the invoice message for
+     * messagePaymentSuccessful, the message with a previously set same
+     * background for messageChatSetBackground,
+     * the giveaway message for messageGiveawayCompleted, the checklist
+     * message for messageChecklistTasksDone, messageChecklistTasksAdded, the
+     * message with suggested post information
+     * for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved,
+     * messageSuggestedPostDeclined, messageSuggestedPostPaid,
+     * messageSuggestedPostRefunded,
+     * the message with the regular gift that was upgraded for
+     * messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
+     * and the topic creation message for topic messages without non-bundled
+     * replied message. Returns a 404 error if the message doesn't exist
      * @param chat_id Identifier of the chat the message belongs to
      * @param message_id Identifier of the reply message
      */
@@ -13219,8 +13253,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Edits title and icon of a topic in a forum supergroup chat; requires
-     * can_manage_topics right in the supergroup unless the user is creator
-     * of the topic
+     * can_manage_topics administrator right in the supergroup unless the
+     * user is creator of the topic
      * @param chat_id Identifier of the chat
      * @param message_thread_id Message thread identifier of the forum topic
      * @param name New name of the topic; 0-128 characters. If empty, the
@@ -13501,8 +13535,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Toggles whether a topic is closed in a forum supergroup chat; requires
-     * can_manage_topics right in the supergroup unless the user is creator
-     * of the topic
+     * can_manage_topics administrator right in the supergroup unless the
+     * user is creator of the topic
      * @param chat_id Identifier of the chat
      * @param message_thread_id Message thread identifier of the forum topic
      * @param is_closed Pass true to {@link Client.close} the topic; pass
@@ -13555,7 +13589,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Toggles whether a General topic is hidden in a forum supergroup chat;
-     * requires can_manage_topics right in the supergroup
+     * requires can_manage_topics administrator right in the supergroup
      * @param chat_id Identifier of the chat
      * @param is_hidden Pass true to hide and {@link Client.close} the
      * General topic; pass false to unhide it
@@ -13605,7 +13639,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes the pinned state of a forum topic; requires can_manage_topics
-     * right in the supergroup. There can be up to
+     * administrator right in the supergroup. There can be up to
      * getOption("pinned_forum_topic_count_max") pinned forum topics
      * @param chat_id Chat identifier
      * @param message_thread_id Message thread identifier of the forum topic
@@ -13658,7 +13692,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes the order of pinned forum topics; requires can_manage_topics
-     * right in the supergroup
+     * administrator right in the supergroup
      * @param chat_id Chat identifier
      * @param message_thread_ids The new list of pinned forum topics
      */
@@ -26870,6 +26904,173 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Approves a suggested post in a channel direct messages chat
+     * @param chat_id Chat identifier of the channel direct messages chat
+     * @param message_id Identifier of the message with the suggested post.
+     * Use messageProperties.can_be_approved to check whether the suggested
+     * post can be approved
+     * @param send_date Point in time (Unix timestamp) when the post is
+     * expected to be published; pass 0 if the date has already been chosen
+     */
+    public async Ok approve_suggested_post (
+        int64 chat_id,
+        int64 message_id,
+        int32 send_date
+    ) throws TDLibError {
+        try {
+
+        var obj = new ApproveSuggestedPost (
+            chat_id,
+            message_id,
+            send_date
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (approve_suggested_post.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Declines a suggested post in a channel direct messages chat
+     * @param chat_id Chat identifier of the channel direct messages chat
+     * @param message_id Identifier of the message with the suggested post.
+     * Use messageProperties.can_be_declined to check whether the suggested
+     * post can be declined
+     * @param comment Comment for the creator of the suggested post; 0-128
+     * characters
+     */
+    public async Ok decline_suggested_post (
+        int64 chat_id,
+        int64 message_id,
+        string comment
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeclineSuggestedPost (
+            chat_id,
+            message_id,
+            comment
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (decline_suggested_post.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Sent a suggested post based on a previously sent message in a channel
+     * direct messages chat. Can be also used to suggest price or time change
+     * for an existing suggested post.
+     * Returns the sent message
+     * @param chat_id Identifier of the channel direct messages chat
+     * @param message_id Identifier of the message in the chat which will be
+     * sent as suggested post. Use messageProperties.can_add_offer to check
+     * whether an offer can be added or
+     * messageProperties.can_edit_suggested_post_info to check whether price
+     * or time of sending of the post can be changed
+     * @param options Options to be used to send the message. New information
+     * about the suggested post must always be specified
+     */
+    public async Message add_offer (
+        int64 chat_id,
+        int64 message_id,
+        MessageSendOptions options
+    ) throws TDLibError {
+        try {
+
+        var obj = new AddOffer (
+            chat_id,
+            message_id,
+            options
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (add_offer.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Message) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Creates a new call
      * @param user_id Identifier of the user to be called
      * @param protocol The call protocols supported by the application
@@ -37356,7 +37557,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Sells a gift for Telegram Stars
+     * Sells a gift for Telegram Stars; requires owner privileges for gifts
+     * owned by a chat
      * @param business_connection_id Unique identifier of business connection
      * on behalf of which to send the request; for bots only
      * @param received_gift_id Identifier of the gift
@@ -38051,7 +38253,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns upgraded gifts that can be bought from other owners
+     * Returns upgraded gifts that can be bought from other owners using
+     * {@link Client.send_resold_gift}
      * @param gift_id Identifier of the regular gift that was upgraded to a
      * unique gift
      * @param order Order in which the results will be sorted
@@ -40396,13 +40599,15 @@ public sealed class TDLib.Client : Object {
      * for channels if supergroupFullInfo.can_get_revenue_statistics == true
      * or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
      * @param chat_id Chat identifier
-     * @param offset Number of transactions to skip
+     * @param offset Offset of the first transaction to return as received
+     * from the previous request; use empty string to get the first chunk of
+     * results
      * @param limit The maximum number of transactions to be returned; up to
-     * 200
+     * 100
      */
     public async ChatRevenueTransactions get_chat_revenue_transactions (
         int64 chat_id,
-        int32 offset,
+        string offset,
         int32 limit
     ) throws TDLibError {
         try {
@@ -40439,6 +40644,60 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (ChatRevenueTransactions) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the list of Toncoin transactions of the current user
+     * @param direction Direction of the transactions to receive; pass null
+     * to get all transactions
+     * @param offset Offset of the first transaction to return as received
+     * from the previous request; use empty string to get the first chunk of
+     * results
+     * @param limit The maximum number of transactions to return
+     */
+    public async TonTransactions get_ton_transactions (
+        TransactionDirection direction,
+        string offset,
+        int32 limit
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetTonTransactions (
+            direction,
+            offset,
+            limit
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_ton_transactions.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (TonTransactions) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40501,8 +40760,9 @@ public sealed class TDLib.Client : Object {
      * @param owner_id Identifier of the owner of the Telegram Stars; can be
      * identifier of the current user, an owned bot, or an owned supergroup
      * or channel chat
-     * @param star_count The number of Telegram Stars to withdraw. Must be at
-     * least getOption("star_withdrawal_count_min")
+     * @param star_count The number of Telegram Stars to withdraw; must be
+     * between getOption("star_withdrawal_count_min") and
+     * getOption("star_withdrawal_count_max")
      * @param password The 2-step verification password of the current user
      */
     public async HttpUrl get_star_withdrawal_url (
@@ -43840,7 +44100,7 @@ public sealed class TDLib.Client : Object {
     public async StarTransactions get_star_transactions (
         MessageSender owner_id,
         string subscription_id,
-        StarTransactionDirection direction,
+        TransactionDirection direction,
         string offset,
         int32 limit
     ) throws TDLibError {

@@ -111,7 +111,8 @@ public class TDLib.Supergroup : Error {
 
     /**
      * True, if users need to join the supergroup before they can send
-     * messages. Always true for channels and non-discussion supergroups
+     * messages. May be false only for discussion supergroups and channel
+     * direct messages groups
      */
     public bool join_to_send_messages { get; construct set; }
 

@@ -31,6 +31,11 @@ public class TDLib.UpgradedGift : Error {
     public int64 id_ { get; construct set; }
 
     /**
+     * Identifier of the chat that published the gift; 0 if none
+     */
+    public int64 publisher_chat_id { get; construct set; }
+
+    /**
      * The title of the upgraded gift
      */
     public string title { get; construct set; }
@@ -111,6 +116,7 @@ public class TDLib.UpgradedGift : Error {
 
     public UpgradedGift (
         int64 id_,
+        int64 publisher_chat_id,
         string title,
         string name,
         int32 number,
@@ -128,6 +134,7 @@ public class TDLib.UpgradedGift : Error {
     ) {
         Object (
             id_: id_,
+            publisher_chat_id: publisher_chat_id,
             title: title,
             name: name,
             number: number,

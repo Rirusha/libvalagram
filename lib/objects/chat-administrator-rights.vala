@@ -41,9 +41,8 @@ public class TDLib.ChatAdministratorRights : Error {
     public bool can_change_info { get; construct set; }
 
     /**
-     * True, if the administrator can create channel posts, answer to channel
-     * direct messages, or view channel statistics; applicable to channels
-     * only
+     * True, if the administrator can create channel posts, approve suggested
+     * channel posts, or view channel statistics; applicable to channels only
      */
     public bool can_post_messages { get; construct set; }
 
@@ -114,6 +113,12 @@ public class TDLib.ChatAdministratorRights : Error {
     public bool can_delete_stories { get; construct set; }
 
     /**
+     * True, if the administrator can answer to channel direct messages;
+     * applicable to channels only
+     */
+    public bool can_manage_direct_messages { get; construct set; }
+
+    /**
      * True, if the administrator isn't shown in the chat member list and
      * sends messages anonymously; applicable to supergroups only
      */
@@ -134,6 +139,7 @@ public class TDLib.ChatAdministratorRights : Error {
         bool can_post_stories,
         bool can_edit_stories,
         bool can_delete_stories,
+        bool can_manage_direct_messages,
         bool is_anonymous
     ) {
         Object (
@@ -151,6 +157,7 @@ public class TDLib.ChatAdministratorRights : Error {
             can_post_stories: can_post_stories,
             can_edit_stories: can_edit_stories,
             can_delete_stories: can_delete_stories,
+            can_manage_direct_messages: can_manage_direct_messages,
             is_anonymous: is_anonymous,
             tdlib_type: "chatAdministratorRights",
             tdlib_extra: Uuid.string_random ()

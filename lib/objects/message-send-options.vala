@@ -32,6 +32,13 @@ public class TDLib.MessageSendOptions : Error {
     public int64 direct_messages_chat_topic_id { get; construct set; }
 
     /**
+     * Information about the suggested post; pass null if none. For messages
+     * to channel direct messages chat only. Applicable only to
+     * {@link Client.send_message} and {@link Client.add_offer}
+     */
+    public InputSuggestedPostInfo suggested_post_info { get; construct set; }
+
+    /**
      * Pass true to disable notification for the message
      */
     public bool disable_notification { get; construct set; }
@@ -96,6 +103,7 @@ public class TDLib.MessageSendOptions : Error {
 
     public MessageSendOptions (
         int64 direct_messages_chat_topic_id,
+        InputSuggestedPostInfo suggested_post_info,
         bool disable_notification,
         bool from_background,
         bool protect_content,
@@ -109,6 +117,7 @@ public class TDLib.MessageSendOptions : Error {
     ) {
         Object (
             direct_messages_chat_topic_id: direct_messages_chat_topic_id,
+            suggested_post_info: suggested_post_info,
             disable_notification: disable_notification,
             from_background: from_background,
             protect_content: protect_content,

@@ -20,17 +20,15 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns the list of revenue transactions for a chat. Currently, this
- * method can be used only
- * for channels if supergroupFullInfo.can_get_revenue_statistics == true
- * or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
+ * Returns the list of Toncoin transactions of the current user
  */
-public class TDLib.GetChatRevenueTransactions : TDObject {
+public class TDLib.GetTonTransactions : TDObject {
 
     /**
-     * Chat identifier
+     * Direction of the transactions to receive; pass null to get all
+     * transactions
      */
-    public int64 chat_id { get; construct set; }
+    public TransactionDirection direction { get; construct set; }
 
     /**
      * Offset of the first transaction to return as received from the
@@ -39,20 +37,20 @@ public class TDLib.GetChatRevenueTransactions : TDObject {
     public string offset { get; construct set; }
 
     /**
-     * The maximum number of transactions to be returned; up to 100
+     * The maximum number of transactions to return
      */
     public int32 limit { get; construct set; }
 
-    public GetChatRevenueTransactions (
-        int64 chat_id,
+    public GetTonTransactions (
+        TransactionDirection direction,
         string offset,
         int32 limit
     ) {
         Object (
-            chat_id: chat_id,
+            direction: direction,
             offset: offset,
             limit: limit,
-            tdlib_type: "getChatRevenueTransactions",
+            tdlib_type: "getTonTransactions",
             tdlib_extra: Uuid.string_random ()
         );
     }

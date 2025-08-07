@@ -20,39 +20,38 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns the list of revenue transactions for a chat. Currently, this
- * method can be used only
- * for channels if supergroupFullInfo.can_get_revenue_statistics == true
- * or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
+ * Approves a suggested post in a channel direct messages chat
  */
-public class TDLib.GetChatRevenueTransactions : TDObject {
+public class TDLib.ApproveSuggestedPost : TDObject {
 
     /**
-     * Chat identifier
+     * Chat identifier of the channel direct messages chat
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Offset of the first transaction to return as received from the
-     * previous request; use empty string to get the first chunk of results
+     * Identifier of the message with the suggested post. Use
+     * messageProperties.can_be_approved to check whether the suggested post
+     * can be approved
      */
-    public string offset { get; construct set; }
+    public int64 message_id { get; construct set; }
 
     /**
-     * The maximum number of transactions to be returned; up to 100
+     * Point in time (Unix timestamp) when the post is expected to be
+     * published; pass 0 if the date has already been chosen
      */
-    public int32 limit { get; construct set; }
+    public int32 send_date { get; construct set; }
 
-    public GetChatRevenueTransactions (
+    public ApproveSuggestedPost (
         int64 chat_id,
-        string offset,
-        int32 limit
+        int64 message_id,
+        int32 send_date
     ) {
         Object (
             chat_id: chat_id,
-            offset: offset,
-            limit: limit,
-            tdlib_type: "getChatRevenueTransactions",
+            message_id: message_id,
+            send_date: send_date,
+            tdlib_type: "approveSuggestedPost",
             tdlib_extra: Uuid.string_random ()
         );
     }

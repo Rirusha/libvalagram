@@ -20,39 +20,43 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns the list of revenue transactions for a chat. Currently, this
- * method can be used only
- * for channels if supergroupFullInfo.can_get_revenue_statistics == true
- * or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
+ * Sent a suggested post based on a previously sent message in a channel
+ * direct messages chat. Can be also used to suggest price or time change
+ * for an existing suggested post.
+ * Returns the sent message
  */
-public class TDLib.GetChatRevenueTransactions : TDObject {
+public class TDLib.AddOffer : TDObject {
 
     /**
-     * Chat identifier
+     * Identifier of the channel direct messages chat
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Offset of the first transaction to return as received from the
-     * previous request; use empty string to get the first chunk of results
+     * Identifier of the message in the chat which will be sent as suggested
+     * post. Use messageProperties.can_add_offer to check whether an offer
+     * can be added
+     * or messageProperties.can_edit_suggested_post_info to check whether
+     * price or time of sending of the post can be changed
      */
-    public string offset { get; construct set; }
+    public int64 message_id { get; construct set; }
 
     /**
-     * The maximum number of transactions to be returned; up to 100
+     * Options to be used to send the message. New information about the
+     * suggested post must always be specified
      */
-    public int32 limit { get; construct set; }
+    public MessageSendOptions options { get; construct set; }
 
-    public GetChatRevenueTransactions (
+    public AddOffer (
         int64 chat_id,
-        string offset,
-        int32 limit
+        int64 message_id,
+        MessageSendOptions options
     ) {
         Object (
             chat_id: chat_id,
-            offset: offset,
-            limit: limit,
-            tdlib_type: "getChatRevenueTransactions",
+            message_id: message_id,
+            options: options,
+            tdlib_type: "addOffer",
             tdlib_extra: Uuid.string_random ()
         );
     }
