@@ -63,14 +63,14 @@ public class TDLib.SearchChatMessages : TDObject {
 
     /**
      * Specify 0 to get results from exactly the message from_message_id or a
-     * negative offset to get the specified message and some newer messages
+     * negative number to get the specified message and some newer messages
      */
     public int32 offset { get; construct set; }
 
     /**
      * The maximum number of messages to be returned; must be positive and
-     * can't be greater than 100. If the offset is negative, the limit must
-     * be greater than -offset.
+     * can't be greater than 100. If the offset is negative, then the limit
+     * must be greater than -offset.
      * For optimal performance, the number of returned messages is chosen by
      * TDLib and can be smaller than the specified limit
      */

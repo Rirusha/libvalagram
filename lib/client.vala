@@ -6313,11 +6313,11 @@ public sealed class TDLib.Client : Object {
      * @param from_message_id Identifier of the message starting from which
      * messages must be fetched; use 0 to get results from the last message
      * @param offset Specify 0 to get results from exactly the message
-     * from_message_id or a negative offset up to 99 to get additionally some
-     * newer messages
+     * from_message_id or a negative number from -99 to -1 to get
+     * additionally -offset newer messages
      * @param limit The maximum number of messages to be returned; must be
-     * positive and can't be greater than 100. If the offset is negative, the
-     * limit must be greater than or equal to -offset. For optimal
+     * positive and can't be greater than 100. If the offset is negative,
+     * then the limit must be greater than or equal to -offset. For optimal
      * performance, the number of returned messages is chosen by TDLib and
      * can be smaller than the specified limit
      */
@@ -6900,11 +6900,11 @@ public sealed class TDLib.Client : Object {
      * @param from_message_id Identifier of the message starting from which
      * messages must be fetched; use 0 to get results from the last message
      * @param offset Specify 0 to get results from exactly the message
-     * from_message_id or a negative offset up to 99 to get additionally some
-     * newer messages
+     * from_message_id or a negative number from -99 to -1 to get
+     * additionally -offset newer messages
      * @param limit The maximum number of messages to be returned; must be
-     * positive and can't be greater than 100. If the offset is negative, the
-     * limit must be greater than or equal to -offset. For optimal
+     * positive and can't be greater than 100. If the offset is negative,
+     * then the limit must be greater than or equal to -offset. For optimal
      * performance, the number of returned messages is chosen by TDLib and
      * can be smaller than the specified limit
      */
@@ -7264,11 +7264,11 @@ public sealed class TDLib.Client : Object {
      * @param from_message_id Identifier of the message starting from which
      * history must be fetched; use 0 to get results from the last message
      * @param offset Specify 0 to get results from exactly the message
-     * from_message_id or a negative offset up to 99 to get additionally some
-     * newer messages
+     * from_message_id or a negative number from -99 to -1 to get
+     * additionally -offset newer messages
      * @param limit The maximum number of messages to be returned; must be
-     * positive and can't be greater than 100. If the offset is negative, the
-     * limit must be greater than or equal to -offset. For optimal
+     * positive and can't be greater than 100. If the offset is negative,
+     * then the limit must be greater than or equal to -offset. For optimal
      * performance, the number of returned messages is chosen by TDLib and
      * can be smaller than the specified limit
      * @param only_local Pass true to get only messages that are available
@@ -7336,11 +7336,11 @@ public sealed class TDLib.Client : Object {
      * @param from_message_id Identifier of the message starting from which
      * history must be fetched; use 0 to get results from the last message
      * @param offset Specify 0 to get results from exactly the message
-     * from_message_id or a negative offset up to 99 to get additionally some
-     * newer messages
+     * from_message_id or a negative number from -99 to -1 to get
+     * additionally -offset newer messages
      * @param limit The maximum number of messages to be returned; must be
-     * positive and can't be greater than 100. If the offset is negative, the
-     * limit must be greater than or equal to -offset. For optimal
+     * positive and can't be greater than 100. If the offset is negative,
+     * then the limit must be greater than or equal to -offset. For optimal
      * performance, the number of returned messages is chosen by TDLib and
      * can be smaller than the specified limit
      */
@@ -7518,13 +7518,13 @@ public sealed class TDLib.Client : Object {
      * @param from_message_id Identifier of the message starting from which
      * history must be fetched; use 0 to get results from the last message
      * @param offset Specify 0 to get results from exactly the message
-     * from_message_id or a negative offset to get the specified message and
+     * from_message_id or a negative number to get the specified message and
      * some newer messages
      * @param limit The maximum number of messages to be returned; must be
-     * positive and can't be greater than 100. If the offset is negative, the
-     * limit must be greater than -offset. For optimal performance, the
-     * number of returned messages is chosen by TDLib and can be smaller than
-     * the specified limit
+     * positive and can't be greater than 100. If the offset is negative,
+     * then the limit must be greater than -offset. For optimal performance,
+     * the number of returned messages is chosen by TDLib and can be smaller
+     * than the specified limit
      * @param filter Additional filter for messages to search; pass null to
      * search for all messages
      */
@@ -7744,13 +7744,13 @@ public sealed class TDLib.Client : Object {
      * @param from_message_id Identifier of the message starting from which
      * messages must be fetched; use 0 to get results from the last message
      * @param offset Specify 0 to get results from exactly the message
-     * from_message_id or a negative offset to get the specified message and
+     * from_message_id or a negative number to get the specified message and
      * some newer messages
      * @param limit The maximum number of messages to be returned; must be
-     * positive and can't be greater than 100. If the offset is negative, the
-     * limit must be greater than -offset. For optimal performance, the
-     * number of returned messages is chosen by TDLib and can be smaller than
-     * the specified limit
+     * positive and can't be greater than 100. If the offset is negative,
+     * then the limit must be greater than -offset. For optimal performance,
+     * the number of returned messages is chosen by TDLib and can be smaller
+     * than the specified limit
      */
     public async FoundChatMessages search_saved_messages (
         int64 saved_messages_topic_id,
