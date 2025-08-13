@@ -38,7 +38,9 @@ public class TDLib.ApproveSuggestedPost : TDObject {
 
     /**
      * Point in time (Unix timestamp) when the post is expected to be
-     * published; pass 0 if the date has already been chosen
+     * published; pass 0 if the date has already been chosen. If specified,
+     * then the date must be in the future, but at most
+     * getOption("suggested_post_send_delay_max") seconds in the future
      */
     public int32 send_date { get; construct set; }
 

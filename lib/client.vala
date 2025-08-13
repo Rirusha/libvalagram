@@ -26910,7 +26910,9 @@ public sealed class TDLib.Client : Object {
      * Use messageProperties.can_be_approved to check whether the suggested
      * post can be approved
      * @param send_date Point in time (Unix timestamp) when the post is
-     * expected to be published; pass 0 if the date has already been chosen
+     * expected to be published; pass 0 if the date has already been chosen.
+     * If specified, then the date must be in the future, but at most
+     * getOption("suggested_post_send_delay_max") seconds in the future
      */
     public async Ok approve_suggested_post (
         int64 chat_id,
