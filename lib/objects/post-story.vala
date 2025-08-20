@@ -20,8 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Posts a new story on behalf of a chat; requires can_post_stories right
- * for supergroup and channel chats. Returns a temporary story
+ * Posts a new story on behalf of a chat; requires can_post_stories
+ * administrator right for supergroup and channel chats. Returns a
+ * temporary story
  */
 public class TDLib.PostStory : TDObject {
 

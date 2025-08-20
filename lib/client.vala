@@ -21179,7 +21179,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes the slow mode delay of a chat. Available only for supergroups;
-     * requires can_restrict_members right
+     * requires can_restrict_members administrator right
      * @param chat_id Chat identifier
      * @param slow_mode_delay New slow mode delay for the chat, in seconds;
      * must be one of 0, 10, 30, 60, 300, 900, 3600
@@ -22759,7 +22759,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Checks whether the current user can post a story on behalf of a chat;
-     * requires can_post_stories right for supergroup and channel chats
+     * requires can_post_stories administrator right for supergroup and
+     * channel chats
      * @param chat_id Chat identifier. Pass Saved Messages chat identifier
      * when posting a story on behalf of the current user
      */
@@ -22805,8 +22806,9 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Posts a new story on behalf of a chat; requires can_post_stories right
-     * for supergroup and channel chats. Returns a temporary story
+     * Posts a new story on behalf of a chat; requires can_post_stories
+     * administrator right for supergroup and channel chats. Returns a
+     * temporary story
      * @param chat_id Identifier of the chat that will post the story. Pass
      * Saved Messages chat identifier when posting a story on behalf of the
      * current user
@@ -23401,7 +23403,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns the list of all stories posted by the given chat; requires
-     * can_edit_stories right in the chat.
+     * can_edit_stories administrator right in the chat.
      * The stories are returned in reverse chronological order (i.e., in
      * order of decreasing story_id). For optimal performance, the number of
      * returned stories is chosen by TDLib
@@ -23459,7 +23461,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes the list of pinned stories on a chat page; requires
-     * can_edit_stories right in the chat
+     * can_edit_stories administrator right in the chat
      * @param chat_id Identifier of the chat that posted the stories
      * @param story_ids New list of pinned stories. All stories must be
      * posted to the chat page first. There can be up to

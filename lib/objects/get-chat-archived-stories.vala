@@ -21,7 +21,7 @@
 
 /**
  * Returns the list of all stories posted by the given chat; requires
- * can_edit_stories right in the chat.
+ * can_edit_stories administrator right in the chat.
  * The stories are returned in reverse chronological order (i.e., in
  * order of decreasing story_id). For optimal performance, the number of
  * returned stories is chosen by TDLib

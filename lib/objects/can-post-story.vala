@@ -21,7 +21,8 @@
 
 /**
  * Checks whether the current user can post a story on behalf of a chat;
- * requires can_post_stories right for supergroup and channel chats
+ * requires can_post_stories administrator right for supergroup and
+ * channel chats
  */
 public class TDLib.CanPostStory : TDObject {
 
