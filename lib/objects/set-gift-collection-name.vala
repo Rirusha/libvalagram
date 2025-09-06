@@ -20,44 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that is available for purchase
+ * Changes name of a gift collection. If the collection is owned by a
+ * channel chat, then requires can_post_messages administrator right in
+ * the channel chat. Returns the changed collection
  */
-public class TDLib.AvailableGift : Error {
+public class TDLib.SetGiftCollectionName : TDObject {
 
     /**
-     * The gift
+     * Identifier of the user or the channel chat that owns the collection
      */
-    public Gift gift { get; construct set; }
+    public MessageSender owner_id { get; construct set; }
 
     /**
-     * Number of gifts that are available for resale
+     * Identifier of the gift collection
      */
-    public int32 resale_count { get; construct set; }
+    public int32 collection_id { get; construct set; }
 
     /**
-     * The minimum price for the gifts available for resale in Telegram Star
-     * equivalent; 0 if there are no such gifts
+     * New name of the collection; 1-12 characters
      */
-    public int64 min_resale_star_count { get; construct set; }
+    public string name { get; construct set; }
 
-    /**
-     * The title of the upgraded gift; empty if the gift isn't available for
-     * resale
-     */
-    public string title { get; construct set; }
-
-    public AvailableGift (
-        Gift gift,
-        int32 resale_count,
-        int64 min_resale_star_count,
-        string title
+    public SetGiftCollectionName (
+        MessageSender owner_id,
+        int32 collection_id,
+        string name
     ) {
         Object (
-            gift: gift,
-            resale_count: resale_count,
-            min_resale_star_count: min_resale_star_count,
-            title: title,
-            tdlib_type: "availableGift",
+            owner_id: owner_id,
+            collection_id: collection_id,
+            name: name,
+            tdlib_type: "setGiftCollectionName",
             tdlib_extra: Uuid.string_random ()
         );
     }

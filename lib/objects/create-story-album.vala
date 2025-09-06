@@ -20,44 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that is available for purchase
+ * Creates an album of stories; requires can_edit_stories administrator
+ * right for supergroup and channel chats
  */
-public class TDLib.AvailableGift : Error {
+public class TDLib.CreateStoryAlbum : TDObject {
 
     /**
-     * The gift
+     * Identifier of the chat that posted the stories
      */
-    public Gift gift { get; construct set; }
+    public int64 story_poster_chat_id { get; construct set; }
 
     /**
-     * Number of gifts that are available for resale
+     * Name of the album; 1-12 characters
      */
-    public int32 resale_count { get; construct set; }
+    public string name { get; construct set; }
 
     /**
-     * The minimum price for the gifts available for resale in Telegram Star
-     * equivalent; 0 if there are no such gifts
+     * Identifiers of stories to add to the album;
+     * 0-getOption("story_album_story_count_max") identifiers
      */
-    public int64 min_resale_star_count { get; construct set; }
+    public Gee.ArrayList<int32?> story_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
-    /**
-     * The title of the upgraded gift; empty if the gift isn't available for
-     * resale
-     */
-    public string title { get; construct set; }
-
-    public AvailableGift (
-        Gift gift,
-        int32 resale_count,
-        int64 min_resale_star_count,
-        string title
+    public CreateStoryAlbum (
+        int64 story_poster_chat_id,
+        string name,
+        Gee.ArrayList<int32?> story_ids
     ) {
         Object (
-            gift: gift,
-            resale_count: resale_count,
-            min_resale_star_count: min_resale_star_count,
-            title: title,
-            tdlib_type: "availableGift",
+            story_poster_chat_id: story_poster_chat_id,
+            name: name,
+            story_ids: story_ids,
+            tdlib_type: "createStoryAlbum",
             tdlib_extra: Uuid.string_random ()
         );
     }

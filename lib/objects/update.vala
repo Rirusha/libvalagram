@@ -1681,7 +1681,7 @@ public class TDLib.UpdateTopicMessageCount : Update {
     public MessageTopic topic_id { get; construct set; }
 
     /**
-     * Approximate number of messages in the topics
+     * Approximate number of messages in the topic
      */
     public int32 message_count { get; construct set; }
 
@@ -3622,6 +3622,29 @@ public class TDLib.UpdateFreezeState : Update {
             deletion_date: deletion_date,
             appeal_link: appeal_link,
             tdlib_type: "updateFreezeState",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The parameters for age verification of the current user's account has
+ * changed
+ */
+public class TDLib.UpdateAgeVerificationParameters : Update {
+
+    /**
+     * Parameters for the age verification; may be null if age verification
+     * isn't needed
+     */
+    public AgeVerificationParameters? parameters { get; construct set; }
+
+    public UpdateAgeVerificationParameters (
+        AgeVerificationParameters? parameters
+    ) {
+        Object (
+            parameters: parameters,
+            tdlib_type: "updateAgeVerificationParameters",
             tdlib_extra: Uuid.string_random ()
         );
     }

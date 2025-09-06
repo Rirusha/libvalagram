@@ -20,38 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends an upgraded gift that is available for resale to another user or
- * channel chat; gifts already owned by the current user
- * must be transferred using {@link Client.transfer_gift} and can't be
- * passed to the method
+ * Removes gifts from a collection. If the collection is owned by a
+ * channel chat, then requires can_post_messages administrator right in
+ * the channel chat. Returns the changed collection
  */
-public class TDLib.SendResoldGift : TDObject {
+public class TDLib.RemoveGiftCollectionGifts : TDObject {
 
     /**
-     * Name of the upgraded gift to send
-     */
-    public string gift_name { get; construct set; }
-
-    /**
-     * Identifier of the user or the channel chat that will receive the gift
+     * Identifier of the user or the channel chat that owns the collection
      */
     public MessageSender owner_id { get; construct set; }
 
     /**
-     * The price that the user agreed to pay for the gift
+     * Identifier of the gift collection
      */
-    public GiftResalePrice price { get; construct set; }
+    public int32 collection_id { get; construct set; }
 
-    public SendResoldGift (
-        string gift_name,
+    /**
+     * Identifier of the gifts to remove from the collection
+     */
+    public Gee.ArrayList<string?> received_gift_ids { get; construct set; default = new Gee.ArrayList<string?> (); }
+
+    public RemoveGiftCollectionGifts (
         MessageSender owner_id,
-        GiftResalePrice price
+        int32 collection_id,
+        Gee.ArrayList<string?> received_gift_ids
     ) {
         Object (
-            gift_name: gift_name,
             owner_id: owner_id,
-            price: price,
-            tdlib_type: "sendResoldGift",
+            collection_id: collection_id,
+            received_gift_ids: received_gift_ids,
+            tdlib_type: "removeGiftCollectionGifts",
             tdlib_extra: Uuid.string_random ()
         );
     }

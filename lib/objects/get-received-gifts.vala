@@ -36,6 +36,12 @@ public class TDLib.GetReceivedGifts : TDObject {
     public MessageSender owner_id { get; construct set; }
 
     /**
+     * Pass collection identifier to get gifts only from the specified
+     * collection; pass 0 to get gifts regardless of collections
+     */
+    public int32 collection_id { get; construct set; }
+
+    /**
      * Pass true to exclude gifts that aren't saved to the chat's profile
      * page. Always true for gifts received by other users and channel chats
      * without can_post_messages administrator right
@@ -87,6 +93,7 @@ public class TDLib.GetReceivedGifts : TDObject {
     public GetReceivedGifts (
         string business_connection_id,
         MessageSender owner_id,
+        int32 collection_id,
         bool exclude_unsaved,
         bool exclude_saved,
         bool exclude_unlimited,
@@ -99,6 +106,7 @@ public class TDLib.GetReceivedGifts : TDObject {
         Object (
             business_connection_id: business_connection_id,
             owner_id: owner_id,
+            collection_id: collection_id,
             exclude_unsaved: exclude_unsaved,
             exclude_saved: exclude_saved,
             exclude_unlimited: exclude_unlimited,

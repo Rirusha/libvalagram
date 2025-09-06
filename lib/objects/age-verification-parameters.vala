@@ -20,44 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that is available for purchase
+ * Describes parameters for age verification of the current user
  */
-public class TDLib.AvailableGift : Error {
+public class TDLib.AgeVerificationParameters : Error {
 
     /**
-     * The gift
+     * The minimum age required to view restricted content
      */
-    public Gift gift { get; construct set; }
+    public int32 min_age { get; construct set; }
 
     /**
-     * Number of gifts that are available for resale
+     * Username of the bot which main Web App may be used to verify age of
+     * the user
      */
-    public int32 resale_count { get; construct set; }
+    public string verification_bot_username { get; construct set; }
 
     /**
-     * The minimum price for the gifts available for resale in Telegram Star
-     * equivalent; 0 if there are no such gifts
+     * Unique name for the country or region, which legislation required age
+     * verification. May be used to get the corresponding localization key
      */
-    public int64 min_resale_star_count { get; construct set; }
+    public string country { get; construct set; }
 
-    /**
-     * The title of the upgraded gift; empty if the gift isn't available for
-     * resale
-     */
-    public string title { get; construct set; }
-
-    public AvailableGift (
-        Gift gift,
-        int32 resale_count,
-        int64 min_resale_star_count,
-        string title
+    public AgeVerificationParameters (
+        int32 min_age,
+        string verification_bot_username,
+        string country
     ) {
         Object (
-            gift: gift,
-            resale_count: resale_count,
-            min_resale_star_count: min_resale_star_count,
-            title: title,
-            tdlib_type: "availableGift",
+            min_age: min_age,
+            verification_bot_username: verification_bot_username,
+            country: country,
+            tdlib_type: "ageVerificationParameters",
             tdlib_extra: Uuid.string_random ()
         );
     }

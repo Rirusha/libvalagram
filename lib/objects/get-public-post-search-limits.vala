@@ -20,38 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends an upgraded gift that is available for resale to another user or
- * channel chat; gifts already owned by the current user
- * must be transferred using {@link Client.transfer_gift} and can't be
- * passed to the method
+ * Checks public post search limits without actually performing the
+ * search
  */
-public class TDLib.SendResoldGift : TDObject {
+public class TDLib.GetPublicPostSearchLimits : TDObject {
 
     /**
-     * Name of the upgraded gift to send
+     * Query that will be searched for
      */
-    public string gift_name { get; construct set; }
+    public string query { get; construct set; }
 
-    /**
-     * Identifier of the user or the channel chat that will receive the gift
-     */
-    public MessageSender owner_id { get; construct set; }
-
-    /**
-     * The price that the user agreed to pay for the gift
-     */
-    public GiftResalePrice price { get; construct set; }
-
-    public SendResoldGift (
-        string gift_name,
-        MessageSender owner_id,
-        GiftResalePrice price
+    public GetPublicPostSearchLimits (
+        string query
     ) {
         Object (
-            gift_name: gift_name,
-            owner_id: owner_id,
-            price: price,
-            tdlib_type: "sendResoldGift",
+            query: query,
+            tdlib_type: "getPublicPostSearchLimits",
             tdlib_extra: Uuid.string_random ()
         );
     }

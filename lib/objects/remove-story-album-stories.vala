@@ -20,44 +20,38 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that is available for purchase
+ * Removes stories from an album. If the album is owned by a supergroup
+ * or a channel chat, then
+ * requires can_edit_stories administrator right in the chat. Returns the
+ * changed album
  */
-public class TDLib.AvailableGift : Error {
+public class TDLib.RemoveStoryAlbumStories : TDObject {
 
     /**
-     * The gift
+     * Identifier of the chat that owns the stories
      */
-    public Gift gift { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
     /**
-     * Number of gifts that are available for resale
+     * Identifier of the story album
      */
-    public int32 resale_count { get; construct set; }
+    public int32 story_album_id { get; construct set; }
 
     /**
-     * The minimum price for the gifts available for resale in Telegram Star
-     * equivalent; 0 if there are no such gifts
+     * Identifier of the stories to remove from the album
      */
-    public int64 min_resale_star_count { get; construct set; }
+    public Gee.ArrayList<int32?> story_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
-    /**
-     * The title of the upgraded gift; empty if the gift isn't available for
-     * resale
-     */
-    public string title { get; construct set; }
-
-    public AvailableGift (
-        Gift gift,
-        int32 resale_count,
-        int64 min_resale_star_count,
-        string title
+    public RemoveStoryAlbumStories (
+        int64 chat_id,
+        int32 story_album_id,
+        Gee.ArrayList<int32?> story_ids
     ) {
         Object (
-            gift: gift,
-            resale_count: resale_count,
-            min_resale_star_count: min_resale_star_count,
-            title: title,
-            tdlib_type: "availableGift",
+            chat_id: chat_id,
+            story_album_id: story_album_id,
+            story_ids: story_ids,
+            tdlib_type: "removeStoryAlbumStories",
             tdlib_extra: Uuid.string_random ()
         );
     }

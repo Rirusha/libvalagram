@@ -20,34 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes resale price of a unique gift owned by the current user
+ * Changes order of story albums. If the albums are owned by a supergroup
+ * or a channel chat, then requires can_edit_stories administrator right
+ * in the chat
  */
-public class TDLib.SetGiftResalePrice : TDObject {
+public class TDLib.ReorderStoryAlbums : TDObject {
 
     /**
-     * Identifier of the unique gift
+     * Identifier of the chat that owns the stories
      */
-    public string received_gift_id { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
     /**
-     * The new price for the unique gift; pass null to disallow gift resale.
-     * The current user will receive
-     * getOption("gift_resale_star_earnings_per_mille") Telegram Stars for
-     * each 1000 Telegram Stars paid for the gift if the gift price is in
-     * Telegram Stars or
-     * getOption("gift_resale_ton_earnings_per_mille") Toncoins for each 1000
-     * Toncoins paid for the gift if the gift price is in Toncoins
+     * New order of story albums
      */
-    public GiftResalePrice price { get; construct set; }
+    public Gee.ArrayList<int32?> story_album_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
-    public SetGiftResalePrice (
-        string received_gift_id,
-        GiftResalePrice price
+    public ReorderStoryAlbums (
+        int64 chat_id,
+        Gee.ArrayList<int32?> story_album_ids
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            price: price,
-            tdlib_type: "setGiftResalePrice",
+            chat_id: chat_id,
+            story_album_ids: story_album_ids,
+            tdlib_type: "reorderStoryAlbums",
             tdlib_extra: Uuid.string_random ()
         );
     }

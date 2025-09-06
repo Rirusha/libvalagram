@@ -65,15 +65,15 @@ public class TDLib.UpgradedGiftOriginTransfer : UpgradedGiftOrigin {
 public class TDLib.UpgradedGiftOriginResale : UpgradedGiftOrigin {
 
     /**
-     * Number of Telegram Stars that were paid by the sender for the gift
+     * Price paid by the sender for the gift
      */
-    public int64 star_count { get; construct set; }
+    public GiftResalePrice price { get; construct set; }
 
     public UpgradedGiftOriginResale (
-        int64 star_count
+        GiftResalePrice price
     ) {
         Object (
-            star_count: star_count,
+            price: price,
             tdlib_type: "upgradedGiftOriginResale",
             tdlib_extra: Uuid.string_random ()
         );

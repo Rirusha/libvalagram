@@ -75,6 +75,79 @@ public class TDLib.TonTransactionTypeSuggestedPostPayment : TonTransactionType {
 }
 
 /**
+ * The transaction is a purchase of an upgraded gift for some user or
+ * channel; for regular users only
+ */
+public class TDLib.TonTransactionTypeUpgradedGiftPurchase : TonTransactionType {
+
+    /**
+     * Identifier of the user that sold the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public TonTransactionTypeUpgradedGiftPurchase (
+        int64 user_id,
+        UpgradedGift gift
+    ) {
+        Object (
+            user_id: user_id,
+            gift: gift,
+            tdlib_type: "tonTransactionTypeUpgradedGiftPurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sale of an upgraded gift; for regular users only
+ */
+public class TDLib.TonTransactionTypeUpgradedGiftSale : TonTransactionType {
+
+    /**
+     * Identifier of the user that bought the gift
+     */
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    /**
+     * The number of Toncoins received by the Telegram for each 1000 Toncoins
+     * received by the seller of the gift
+     */
+    public int32 commission_per_mille { get; construct set; }
+
+    /**
+     * The amount of Toncoins that were received by the Telegram; in the
+     * smallest units of the currency
+     */
+    public int64 commission_toncoin_amount { get; construct set; }
+
+    public TonTransactionTypeUpgradedGiftSale (
+        int64 user_id,
+        UpgradedGift gift,
+        int32 commission_per_mille,
+        int64 commission_toncoin_amount
+    ) {
+        Object (
+            user_id: user_id,
+            gift: gift,
+            commission_per_mille: commission_per_mille,
+            commission_toncoin_amount: commission_toncoin_amount,
+            tdlib_type: "tonTransactionTypeUpgradedGiftSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a transaction of an unsupported type
  */
 public class TDLib.TonTransactionTypeUnsupported : TonTransactionType {

@@ -189,6 +189,8 @@ public sealed class TDLib.Client : Object {
         typeof (InputChatPhotoSticker).ensure ();
         typeof (ChatPermissions).ensure ();
         typeof (ChatAdministratorRights).ensure ();
+        typeof (GiftResalePriceStar).ensure ();
+        typeof (GiftResalePriceTon).ensure ();
         typeof (SuggestedPostPriceStar).ensure ();
         typeof (SuggestedPostPriceTon).ensure ();
         typeof (SuggestedPostStatePending).ensure ();
@@ -232,6 +234,10 @@ public sealed class TDLib.Client : Object {
         typeof (StarGiveawayPaymentOptions).ensure ();
         typeof (AcceptedGiftTypes).ensure ();
         typeof (GiftSettings).ensure ();
+        typeof (GiftPurchaseLimits).ensure ();
+        typeof (GiftResaleParameters).ensure ();
+        typeof (GiftCollection).ensure ();
+        typeof (GiftCollections).ensure ();
         typeof (UpgradedGiftOriginUpgrade).ensure ();
         typeof (UpgradedGiftOriginTransfer).ensure ();
         typeof (UpgradedGiftOriginResale).ensure ();
@@ -256,6 +262,8 @@ public sealed class TDLib.Client : Object {
         typeof (GiftForResaleOrderNumber).ensure ();
         typeof (GiftForResale).ensure ();
         typeof (GiftsForResale).ensure ();
+        typeof (GiftResaleResultOk).ensure ();
+        typeof (GiftResaleResultPriceIncreased).ensure ();
         typeof (SentGiftRegular).ensure ();
         typeof (SentGiftUpgraded).ensure ();
         typeof (ReceivedGift).ensure ();
@@ -298,11 +306,14 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypePremiumPurchase).ensure ();
         typeof (StarTransactionTypeBusinessBotTransferSend).ensure ();
         typeof (StarTransactionTypeBusinessBotTransferReceive).ensure ();
+        typeof (StarTransactionTypePublicPostSearch).ensure ();
         typeof (StarTransactionTypeUnsupported).ensure ();
         typeof (StarTransaction).ensure ();
         typeof (StarTransactions).ensure ();
         typeof (TonTransactionTypeFragmentDeposit).ensure ();
         typeof (TonTransactionTypeSuggestedPostPayment).ensure ();
+        typeof (TonTransactionTypeUpgradedGiftPurchase).ensure ();
+        typeof (TonTransactionTypeUpgradedGiftSale).ensure ();
         typeof (TonTransactionTypeUnsupported).ensure ();
         typeof (TonTransaction).ensure ();
         typeof (TonTransactions).ensure ();
@@ -318,6 +329,8 @@ public sealed class TDLib.Client : Object {
         typeof (AccentColor).ensure ();
         typeof (ProfileAccentColors).ensure ();
         typeof (ProfileAccentColor).ensure ();
+        typeof (UserRating).ensure ();
+        typeof (RestrictionInfo).ensure ();
         typeof (EmojiStatusTypeCustomEmoji).ensure ();
         typeof (EmojiStatusTypeUpgradedGift).ensure ();
         typeof (EmojiStatus).ensure ();
@@ -376,6 +389,7 @@ public sealed class TDLib.Client : Object {
         typeof (SecretChatStateReady).ensure ();
         typeof (SecretChatStateClosed).ensure ();
         typeof (SecretChat).ensure ();
+        typeof (PublicPostSearchLimits).ensure ();
         typeof (MessageSenderUser).ensure ();
         typeof (MessageSenderChat).ensure ();
         typeof (MessageSenders).ensure ();
@@ -427,6 +441,7 @@ public sealed class TDLib.Client : Object {
         typeof (Messages).ensure ();
         typeof (FoundMessages).ensure ();
         typeof (FoundChatMessages).ensure ();
+        typeof (FoundPublicPosts).ensure ();
         typeof (MessagePosition).ensure ();
         typeof (MessagePositions).ensure ();
         typeof (MessageCalendarDay).ensure ();
@@ -625,12 +640,14 @@ public sealed class TDLib.Client : Object {
         typeof (LinkPreviewTypeBackground).ensure ();
         typeof (LinkPreviewTypeChannelBoost).ensure ();
         typeof (LinkPreviewTypeChat).ensure ();
+        typeof (LinkPreviewTypeDirectMessagesChat).ensure ();
         typeof (LinkPreviewTypeDocument).ensure ();
         typeof (LinkPreviewTypeEmbeddedAnimationPlayer).ensure ();
         typeof (LinkPreviewTypeEmbeddedAudioPlayer).ensure ();
         typeof (LinkPreviewTypeEmbeddedVideoPlayer).ensure ();
         typeof (LinkPreviewTypeExternalAudio).ensure ();
         typeof (LinkPreviewTypeExternalVideo).ensure ();
+        typeof (LinkPreviewTypeGiftCollection).ensure ();
         typeof (LinkPreviewTypeGroupCall).ensure ();
         typeof (LinkPreviewTypeInvoice).ensure ();
         typeof (LinkPreviewTypeMessage).ensure ();
@@ -640,6 +657,7 @@ public sealed class TDLib.Client : Object {
         typeof (LinkPreviewTypeSticker).ensure ();
         typeof (LinkPreviewTypeStickerSet).ensure ();
         typeof (LinkPreviewTypeStory).ensure ();
+        typeof (LinkPreviewTypeStoryAlbum).ensure ();
         typeof (LinkPreviewTypeSupergroupBoost).ensure ();
         typeof (LinkPreviewTypeTheme).ensure ();
         typeof (LinkPreviewTypeUnsupported).ensure ();
@@ -999,6 +1017,8 @@ public sealed class TDLib.Client : Object {
         typeof (Story).ensure ();
         typeof (Stories).ensure ();
         typeof (FoundStories).ensure ();
+        typeof (StoryAlbum).ensure ();
+        typeof (StoryAlbums).ensure ();
         typeof (StoryFullId).ensure ();
         typeof (StoryInfo).ensure ();
         typeof (ChatActiveStories).ensure ();
@@ -1510,8 +1530,10 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeChatFolderSettings).ensure ();
         typeof (InternalLinkTypeChatInvite).ensure ();
         typeof (InternalLinkTypeDefaultMessageAutoDeleteTimerSettings).ensure ();
+        typeof (InternalLinkTypeDirectMessagesChat).ensure ();
         typeof (InternalLinkTypeEditProfileSettings).ensure ();
         typeof (InternalLinkTypeGame).ensure ();
+        typeof (InternalLinkTypeGiftCollection).ensure ();
         typeof (InternalLinkTypeGroupCall).ensure ();
         typeof (InternalLinkTypeInstantView).ensure ();
         typeof (InternalLinkTypeInvoice).ensure ();
@@ -1535,6 +1557,7 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeSettings).ensure ();
         typeof (InternalLinkTypeStickerSet).ensure ();
         typeof (InternalLinkTypeStory).ensure ();
+        typeof (InternalLinkTypeStoryAlbum).ensure ();
         typeof (InternalLinkTypeTheme).ensure ();
         typeof (InternalLinkTypeThemeSettings).ensure ();
         typeof (InternalLinkTypeUnknownDeepLink).ensure ();
@@ -1600,6 +1623,7 @@ public sealed class TDLib.Client : Object {
         typeof (ConnectionStateConnecting).ensure ();
         typeof (ConnectionStateUpdating).ensure ();
         typeof (ConnectionStateReady).ensure ();
+        typeof (AgeVerificationParameters).ensure ();
         typeof (TopChatCategoryUsers).ensure ();
         typeof (TopChatCategoryBots).ensure ();
         typeof (TopChatCategoryGroups).ensure ();
@@ -1806,6 +1830,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateLanguagePackStrings).ensure ();
         typeof (UpdateConnectionState).ensure ();
         typeof (UpdateFreezeState).ensure ();
+        typeof (UpdateAgeVerificationParameters).ensure ();
         typeof (UpdateTermsOfService).ensure ();
         typeof (UpdateUnconfirmedSession).ensure ();
         typeof (UpdateAttachmentMenuBots).ensure ();
@@ -7906,6 +7931,112 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (FoundMessages) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Checks public post search limits without actually performing the
+     * search
+     * @param query Query that will be searched for
+     */
+    public async PublicPostSearchLimits get_public_post_search_limits (
+        string query
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetPublicPostSearchLimits (
+            query
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_public_post_search_limits.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (PublicPostSearchLimits) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Searches for public channel posts using the given query. For optimal
+     * performance, the number of returned messages is chosen by TDLib and
+     * can be smaller than the specified limit
+     * @param query Query to search for
+     * @param offset Offset of the first entry to return as received from the
+     * previous request; use empty string to get the first chunk of results
+     * @param limit The maximum number of messages to be returned; up to 100.
+     * For optimal performance, the number of returned messages is chosen by
+     * TDLib and can be smaller than the specified limit
+     * @param star_count The amount of Telegram Stars the user agreed to pay
+     * for the search; pass 0 for free searches
+     */
+    public async FoundPublicPosts search_public_posts (
+        string query,
+        string offset,
+        int32 limit,
+        int64 star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new SearchPublicPosts (
+            query,
+            offset,
+            limit,
+            star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (search_public_posts.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (FoundPublicPosts) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -22820,6 +22951,9 @@ public sealed class TDLib.Client : Object {
      * only if getOption("can_use_text_entities_in_story_caption")
      * @param privacy_settings The privacy settings for the story; ignored
      * for stories posted on behalf of supergroup and channel chats
+     * @param album_ids Identifiers of story albums to which the story will
+     * be added upon posting. An album can have up to
+     * getOption("story_album_story_count_max")
      * @param active_period Period after which the story is moved to archive,
      * in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400
      * for Telegram Premium users, and 86400 otherwise
@@ -22837,6 +22971,7 @@ public sealed class TDLib.Client : Object {
         InputStoryAreas areas,
         FormattedText caption,
         StoryPrivacySettings privacy_settings,
+        Gee.ArrayList<int32?> album_ids,
         int32 active_period,
         StoryFullId from_story_full_id,
         bool is_posted_to_chat_page,
@@ -22850,6 +22985,7 @@ public sealed class TDLib.Client : Object {
             areas,
             caption,
             privacy_settings,
+            album_ids,
             active_period,
             from_story_full_id,
             is_posted_to_chat_page,
@@ -24006,6 +24142,484 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (PublicForwards) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the list of story albums owned by the given chat
+     * @param chat_id Chat identifier
+     */
+    public async StoryAlbums get_chat_story_albums (
+        int64 chat_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetChatStoryAlbums (
+            chat_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_chat_story_albums.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StoryAlbums) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the list of stories added to the given story album. For
+     * optimal performance, the number of returned stories is chosen by TDLib
+     * @param chat_id Chat identifier
+     * @param story_album_id Story album identifier
+     * @param offset Offset of the first entry to return; use 0 to get
+     * results from the first album story
+     * @param limit The maximum number of stories to be returned. For optimal
+     * performance, the number of returned stories is chosen by TDLib and can
+     * be smaller than the specified limit
+     */
+    public async Stories get_story_album_stories (
+        int64 chat_id,
+        int32 story_album_id,
+        int32 offset,
+        int32 limit
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetStoryAlbumStories (
+            chat_id,
+            story_album_id,
+            offset,
+            limit
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_story_album_stories.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Stories) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Creates an album of stories; requires can_edit_stories administrator
+     * right for supergroup and channel chats
+     * @param story_poster_chat_id Identifier of the chat that posted the
+     * stories
+     * @param name Name of the album; 1-12 characters
+     * @param story_ids Identifiers of stories to add to the album;
+     * 0-getOption("story_album_story_count_max") identifiers
+     */
+    public async StoryAlbum create_story_album (
+        int64 story_poster_chat_id,
+        string name,
+        Gee.ArrayList<int32?> story_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new CreateStoryAlbum (
+            story_poster_chat_id,
+            name,
+            story_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (create_story_album.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StoryAlbum) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes order of story albums. If the albums are owned by a supergroup
+     * or a channel chat, then requires can_edit_stories administrator right
+     * in the chat
+     * @param chat_id Identifier of the chat that owns the stories
+     * @param story_album_ids New order of story albums
+     */
+    public async Ok reorder_story_albums (
+        int64 chat_id,
+        Gee.ArrayList<int32?> story_album_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReorderStoryAlbums (
+            chat_id,
+            story_album_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (reorder_story_albums.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Deletes a story album. If the album is owned by a supergroup or a
+     * channel chat, then requires can_edit_stories administrator right in
+     * the chat
+     * @param chat_id Identifier of the chat that owns the stories
+     * @param story_album_id Identifier of the story album
+     */
+    public async Ok delete_story_album (
+        int64 chat_id,
+        int32 story_album_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeleteStoryAlbum (
+            chat_id,
+            story_album_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (delete_story_album.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes name of an album of stories. If the album is owned by a
+     * supergroup or a channel chat, then requires can_edit_stories
+     * administrator right in the chat. Returns the changed album
+     * @param chat_id Identifier of the chat that owns the stories
+     * @param story_album_id Identifier of the story album
+     * @param name New name of the album; 1-12 characters
+     */
+    public async StoryAlbum set_story_album_name (
+        int64 chat_id,
+        int32 story_album_id,
+        string name
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetStoryAlbumName (
+            chat_id,
+            story_album_id,
+            name
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_story_album_name.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StoryAlbum) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Adds stories to the beginning of a previously created story album. If
+     * the album is owned by a supergroup or a channel chat, then
+     * requires can_edit_stories administrator right in the chat. Returns the
+     * changed album
+     * @param chat_id Identifier of the chat that owns the stories
+     * @param story_album_id Identifier of the story album
+     * @param story_ids Identifier of the stories to add to the album;
+     * 1-getOption("story_album_story_count_max") identifiers. If after
+     * addition the album has more than
+     * getOption("story_album_story_count_max") stories, then the last one
+     * are removed from the album
+     */
+    public async StoryAlbum add_story_album_stories (
+        int64 chat_id,
+        int32 story_album_id,
+        Gee.ArrayList<int32?> story_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new AddStoryAlbumStories (
+            chat_id,
+            story_album_id,
+            story_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (add_story_album_stories.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StoryAlbum) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Removes stories from an album. If the album is owned by a supergroup
+     * or a channel chat, then
+     * requires can_edit_stories administrator right in the chat. Returns the
+     * changed album
+     * @param chat_id Identifier of the chat that owns the stories
+     * @param story_album_id Identifier of the story album
+     * @param story_ids Identifier of the stories to remove from the album
+     */
+    public async StoryAlbum remove_story_album_stories (
+        int64 chat_id,
+        int32 story_album_id,
+        Gee.ArrayList<int32?> story_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new RemoveStoryAlbumStories (
+            chat_id,
+            story_album_id,
+            story_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (remove_story_album_stories.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StoryAlbum) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes order of stories in an album. If the album is owned by a
+     * supergroup or a channel chat, then
+     * requires can_edit_stories administrator right in the chat. Returns the
+     * changed album
+     * @param chat_id Identifier of the chat that owns the stories
+     * @param story_album_id Identifier of the story album
+     * @param story_ids Identifier of the stories to move to the beginning of
+     * the album. All other stories are placed in the current order after the
+     * specified stories
+     */
+    public async StoryAlbum reorder_story_album_stories (
+        int64 chat_id,
+        int32 story_album_id,
+        Gee.ArrayList<int32?> story_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReorderStoryAlbumStories (
+            chat_id,
+            story_album_id,
+            story_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (reorder_story_album_stories.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StoryAlbum) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37933,20 +38547,19 @@ public sealed class TDLib.Client : Object {
      * @param gift_name Name of the upgraded gift to send
      * @param owner_id Identifier of the user or the channel chat that will
      * receive the gift
-     * @param star_count The amount of Telegram Stars required to pay for the
-     * gift
+     * @param price The price that the user agreed to pay for the gift
      */
-    public async Ok send_resold_gift (
+    public async GiftResaleResult send_resold_gift (
         string gift_name,
         MessageSender owner_id,
-        int64 star_count
+        GiftResalePrice price
     ) throws TDLibError {
         try {
 
         var obj = new SendResoldGift (
             gift_name,
             owner_id,
-            star_count
+            price
         );
         string json_response = "";
 
@@ -37974,7 +38587,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Ok) jsoner.deserialize_object (null);
+        return (GiftResaleResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -37986,6 +38599,9 @@ public sealed class TDLib.Client : Object {
      * @param business_connection_id Unique identifier of business connection
      * on behalf of which to send the request; for bots only
      * @param owner_id Identifier of the gift receiver
+     * @param collection_id Pass collection identifier to get gifts only from
+     * the specified collection; pass 0 to get gifts regardless of
+     * collections
      * @param exclude_unsaved Pass true to exclude gifts that aren't saved to
      * the chat's profile page. Always true for gifts received by other users
      * and channel chats without can_post_messages administrator right
@@ -38009,6 +38625,7 @@ public sealed class TDLib.Client : Object {
     public async ReceivedGifts get_received_gifts (
         string business_connection_id,
         MessageSender owner_id,
+        int32 collection_id,
         bool exclude_unsaved,
         bool exclude_saved,
         bool exclude_unlimited,
@@ -38023,6 +38640,7 @@ public sealed class TDLib.Client : Object {
         var obj = new GetReceivedGifts (
             business_connection_id,
             owner_id,
+            collection_id,
             exclude_unsaved,
             exclude_saved,
             exclude_unlimited,
@@ -38207,21 +38825,23 @@ public sealed class TDLib.Client : Object {
     /**
      * Changes resale price of a unique gift owned by the current user
      * @param received_gift_id Identifier of the unique gift
-     * @param resale_star_count The new price for the unique gift; 0 or
-     * getOption("gift_resale_star_count_min")-getOption("gift_resale_star_count_max").
-     * Pass 0 to disallow gift resale. The current user will receive
-     * getOption("gift_resale_earnings_per_mille") Telegram Stars for each
-     * 1000 Telegram Stars paid for the gift
+     * @param price The new price for the unique gift; pass null to disallow
+     * gift resale. The current user will receive
+     * getOption("gift_resale_star_earnings_per_mille") Telegram Stars for
+     * each 1000 Telegram Stars paid for the gift if the gift price is in
+     * Telegram Stars or getOption("gift_resale_ton_earnings_per_mille")
+     * Toncoins for each 1000 Toncoins paid for the gift if the gift price is
+     * in Toncoins
      */
     public async Ok set_gift_resale_price (
         string received_gift_id,
-        int64 resale_star_count
+        GiftResalePrice price
     ) throws TDLibError {
         try {
 
         var obj = new SetGiftResalePrice (
             received_gift_id,
-            resale_star_count
+            price
         );
         string json_response = "";
 
@@ -38314,6 +38934,436 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (GiftsForResale) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns collections of gifts owned by the given user or chat
+     * @param owner_id Identifier of the user or the channel chat that
+     * received the gifts
+     */
+    public async GiftCollections get_gift_collections (
+        MessageSender owner_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetGiftCollections (
+            owner_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_gift_collections.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftCollections) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Creates a collection from gifts on the current user's or a channel's
+     * profile page; requires can_post_messages administrator right in the
+     * channel chat.
+     * An owner can have up to getOption("gift_collection_count_max") gift
+     * collections. The new collection will be added to the end of the gift
+     * collection list of the owner. Returns the created collection
+     * @param owner_id Identifier of the user or the channel chat that
+     * received the gifts
+     * @param name Name of the collection; 1-12 characters
+     * @param received_gift_ids Identifier of the gifts to add to the
+     * collection; 0-getOption("gift_collection_gift_count_max") identifiers
+     */
+    public async GiftCollection create_gift_collection (
+        MessageSender owner_id,
+        string name,
+        Gee.ArrayList<string?> received_gift_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new CreateGiftCollection (
+            owner_id,
+            name,
+            received_gift_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (create_gift_collection.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftCollection) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes order of gift collections. If the collections are owned by a
+     * channel chat, then requires can_post_messages administrator right in
+     * the channel chat
+     * @param owner_id Identifier of the user or the channel chat that owns
+     * the collection
+     * @param collection_ids New order of gift collections
+     */
+    public async Ok reorder_gift_collections (
+        MessageSender owner_id,
+        Gee.ArrayList<int32?> collection_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReorderGiftCollections (
+            owner_id,
+            collection_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (reorder_gift_collections.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Deletes a gift collection. If the collection is owned by a channel
+     * chat, then requires can_post_messages administrator right in the
+     * channel chat
+     * @param owner_id Identifier of the user or the channel chat that owns
+     * the collection
+     * @param collection_id Identifier of the gift collection
+     */
+    public async Ok delete_gift_collection (
+        MessageSender owner_id,
+        int32 collection_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeleteGiftCollection (
+            owner_id,
+            collection_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (delete_gift_collection.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes name of a gift collection. If the collection is owned by a
+     * channel chat, then requires can_post_messages administrator right in
+     * the channel chat. Returns the changed collection
+     * @param owner_id Identifier of the user or the channel chat that owns
+     * the collection
+     * @param collection_id Identifier of the gift collection
+     * @param name New name of the collection; 1-12 characters
+     */
+    public async GiftCollection set_gift_collection_name (
+        MessageSender owner_id,
+        int32 collection_id,
+        string name
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetGiftCollectionName (
+            owner_id,
+            collection_id,
+            name
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_gift_collection_name.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftCollection) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Adds gifts to the beginning of a previously created collection. If the
+     * collection is owned by a channel chat, then requires can_post_messages
+     * administrator right in the channel chat. Returns the changed
+     * collection
+     * @param owner_id Identifier of the user or the channel chat that owns
+     * the collection
+     * @param collection_id Identifier of the gift collection
+     * @param received_gift_ids Identifier of the gifts to add to the
+     * collection; 1-getOption("gift_collection_gift_count_max") identifiers.
+     * If after addition the collection has more than
+     * getOption("gift_collection_gift_count_max") gifts, then the last one
+     * are removed from the collection
+     */
+    public async GiftCollection add_gift_collection_gifts (
+        MessageSender owner_id,
+        int32 collection_id,
+        Gee.ArrayList<string?> received_gift_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new AddGiftCollectionGifts (
+            owner_id,
+            collection_id,
+            received_gift_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (add_gift_collection_gifts.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftCollection) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Removes gifts from a collection. If the collection is owned by a
+     * channel chat, then requires can_post_messages administrator right in
+     * the channel chat. Returns the changed collection
+     * @param owner_id Identifier of the user or the channel chat that owns
+     * the collection
+     * @param collection_id Identifier of the gift collection
+     * @param received_gift_ids Identifier of the gifts to remove from the
+     * collection
+     */
+    public async GiftCollection remove_gift_collection_gifts (
+        MessageSender owner_id,
+        int32 collection_id,
+        Gee.ArrayList<string?> received_gift_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new RemoveGiftCollectionGifts (
+            owner_id,
+            collection_id,
+            received_gift_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (remove_gift_collection_gifts.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftCollection) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes order of gifts in a collection. If the collection is owned by
+     * a channel chat, then requires can_post_messages administrator right in
+     * the channel chat. Returns the changed collection
+     * @param owner_id Identifier of the user or the channel chat that owns
+     * the collection
+     * @param collection_id Identifier of the gift collection
+     * @param received_gift_ids Identifier of the gifts to move to the
+     * beginning of the collection. All other gifts are placed in the current
+     * order after the specified gifts
+     */
+    public async GiftCollection reorder_gift_collection_gifts (
+        MessageSender owner_id,
+        int32 collection_id,
+        Gee.ArrayList<string?> received_gift_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReorderGiftCollectionGifts (
+            owner_id,
+            collection_id,
+            received_gift_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (reorder_gift_collection_gifts.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftCollection) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");

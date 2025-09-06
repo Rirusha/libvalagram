@@ -20,34 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes resale price of a unique gift owned by the current user
+ * Deletes a story album. If the album is owned by a supergroup or a
+ * channel chat, then requires can_edit_stories administrator right in
+ * the chat
  */
-public class TDLib.SetGiftResalePrice : TDObject {
+public class TDLib.DeleteStoryAlbum : TDObject {
 
     /**
-     * Identifier of the unique gift
+     * Identifier of the chat that owns the stories
      */
-    public string received_gift_id { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
     /**
-     * The new price for the unique gift; pass null to disallow gift resale.
-     * The current user will receive
-     * getOption("gift_resale_star_earnings_per_mille") Telegram Stars for
-     * each 1000 Telegram Stars paid for the gift if the gift price is in
-     * Telegram Stars or
-     * getOption("gift_resale_ton_earnings_per_mille") Toncoins for each 1000
-     * Toncoins paid for the gift if the gift price is in Toncoins
+     * Identifier of the story album
      */
-    public GiftResalePrice price { get; construct set; }
+    public int32 story_album_id { get; construct set; }
 
-    public SetGiftResalePrice (
-        string received_gift_id,
-        GiftResalePrice price
+    public DeleteStoryAlbum (
+        int64 chat_id,
+        int32 story_album_id
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            price: price,
-            tdlib_type: "setGiftResalePrice",
+            chat_id: chat_id,
+            story_album_id: story_album_id,
+            tdlib_type: "deleteStoryAlbum",
             tdlib_extra: Uuid.string_random ()
         );
     }

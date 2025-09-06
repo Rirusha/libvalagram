@@ -157,6 +157,24 @@ public class TDLib.UserFullInfo : Error {
     public BotVerification? bot_verification { get; construct set; }
 
     /**
+     * The current rating of the user; may be null if none
+     */
+    public UserRating? rating { get; construct set; }
+
+    /**
+     * The rating of the user after the next change; may be null if the user
+     * isn't the current user or there are no pending rating changes
+     */
+    public UserRating? pending_rating { get; construct set; }
+
+    /**
+     * Unix timestamp when rating of the user will change to pending_rating;
+     * 0 if the user isn't the current user or there are no pending rating
+     * changes
+     */
+    public int32 pending_rating_date { get; construct set; }
+
+    /**
      * Information about business settings for Telegram Business accounts;
      * may be null if none
      */
@@ -191,6 +209,9 @@ public class TDLib.UserFullInfo : Error {
         int64 outgoing_paid_message_star_count,
         GiftSettings gift_settings,
         BotVerification? bot_verification,
+        UserRating? rating,
+        UserRating? pending_rating,
+        int32 pending_rating_date,
         BusinessInfo? business_info,
         BotInfo? bot_info
     ) {
@@ -217,6 +238,9 @@ public class TDLib.UserFullInfo : Error {
             outgoing_paid_message_star_count: outgoing_paid_message_star_count,
             gift_settings: gift_settings,
             bot_verification: bot_verification,
+            rating: rating,
+            pending_rating: pending_rating,
+            pending_rating_date: pending_rating_date,
             business_info: business_info,
             bot_info: bot_info,
             tdlib_type: "userFullInfo",

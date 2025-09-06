@@ -72,6 +72,11 @@ public class TDLib.Story : Error {
     public bool is_visible_only_for_self { get; construct set; }
 
     /**
+     * True, if the story can be added to an album
+     */
+    public bool can_be_added_to_album { get; construct set; }
+
+    /**
      * True, if the story can be deleted
      */
     public bool can_be_deleted { get; construct set; }
@@ -155,6 +160,12 @@ public class TDLib.Story : Error {
      */
     public FormattedText caption { get; construct set; }
 
+    /**
+     * Identifiers of story albums to which the story is added; only for
+     * manageable stories
+     */
+    public Gee.ArrayList<int32?> album_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
     public Story (
         int32 id_,
         int64 poster_chat_id,
@@ -165,6 +176,7 @@ public class TDLib.Story : Error {
         bool is_edited,
         bool is_posted_to_chat_page,
         bool is_visible_only_for_self,
+        bool can_be_added_to_album,
         bool can_be_deleted,
         bool can_be_edited,
         bool can_be_forwarded,
@@ -179,7 +191,8 @@ public class TDLib.Story : Error {
         StoryPrivacySettings privacy_settings,
         StoryContent content,
         Gee.ArrayList<StoryArea?> areas,
-        FormattedText caption
+        FormattedText caption,
+        Gee.ArrayList<int32?> album_ids
     ) {
         Object (
             id_: id_,
@@ -191,6 +204,7 @@ public class TDLib.Story : Error {
             is_edited: is_edited,
             is_posted_to_chat_page: is_posted_to_chat_page,
             is_visible_only_for_self: is_visible_only_for_self,
+            can_be_added_to_album: can_be_added_to_album,
             can_be_deleted: can_be_deleted,
             can_be_edited: can_be_edited,
             can_be_forwarded: can_be_forwarded,
@@ -206,6 +220,7 @@ public class TDLib.Story : Error {
             content: content,
             areas: areas,
             caption: caption,
+            album_ids: album_ids,
             tdlib_type: "story",
             tdlib_extra: Uuid.string_random ()
         );

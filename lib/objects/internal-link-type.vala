@@ -479,6 +479,31 @@ public class TDLib.InternalLinkTypeDefaultMessageAutoDeleteTimerSettings : Inter
 }
 
 /**
+ * The link is a link to a channel direct messages chat by username of
+ * the channel. Call {@link Client.search_public_chat} with the given
+ * chat username to process the link.
+ * If the chat is found and is channel, open the direct messages chat of
+ * the channel
+ */
+public class TDLib.InternalLinkTypeDirectMessagesChat : InternalLinkType {
+
+    /**
+     * Username of the channel
+     */
+    public string channel_username { get; construct set; }
+
+    public InternalLinkTypeDirectMessagesChat (
+        string channel_username
+    ) {
+        Object (
+            channel_username: channel_username,
+            tdlib_type: "internalLinkTypeDirectMessagesChat",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to the edit profile section of the application
  * settings
  */
@@ -518,6 +543,39 @@ public class TDLib.InternalLinkTypeGame : InternalLinkType {
             bot_username: bot_username,
             game_short_name: game_short_name,
             tdlib_type: "internalLinkTypeGame",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to a gift collection. Call
+ * {@link Client.search_public_chat} with the given username, then call
+ * {@link Client.get_received_gifts} with the received gift owner
+ * identifier
+ * and the given collection identifier, then show the collection if
+ * received
+ */
+public class TDLib.InternalLinkTypeGiftCollection : InternalLinkType {
+
+    /**
+     * Username of the owner of the gift collection
+     */
+    public string gift_owner_username { get; construct set; }
+
+    /**
+     * Gift collection identifier
+     */
+    public int32 collection_id { get; construct set; }
+
+    public InternalLinkTypeGiftCollection (
+        string gift_owner_username,
+        int32 collection_id
+    ) {
+        Object (
+            gift_owner_username: gift_owner_username,
+            collection_id: collection_id,
+            tdlib_type: "internalLinkTypeGiftCollection",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -1130,6 +1188,39 @@ public class TDLib.InternalLinkTypeStory : InternalLinkType {
             story_poster_username: story_poster_username,
             story_id: story_id,
             tdlib_type: "internalLinkTypeStory",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to an album of stories. Call
+ * {@link Client.search_public_chat} with the given username, then call
+ * {@link Client.get_story_album_stories} with the received chat
+ * identifier
+ * and the given story album identifier, then show the story album if
+ * received
+ */
+public class TDLib.InternalLinkTypeStoryAlbum : InternalLinkType {
+
+    /**
+     * Username of the owner of the story album
+     */
+    public string story_album_owner_username { get; construct set; }
+
+    /**
+     * Story album identifier
+     */
+    public int32 story_album_id { get; construct set; }
+
+    public InternalLinkTypeStoryAlbum (
+        string story_album_owner_username,
+        int32 story_album_id
+    ) {
+        Object (
+            story_album_owner_username: story_album_owner_username,
+            story_album_id: story_album_id,
+            tdlib_type: "internalLinkTypeStoryAlbum",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,44 +20,42 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that is available for purchase
+ * Describes album of stories
  */
-public class TDLib.AvailableGift : Error {
+public class TDLib.StoryAlbum : Error {
 
     /**
-     * The gift
+     * Unique identifier of the album
      */
-    public Gift gift { get; construct set; }
+    public int32 id_ { get; construct set; }
 
     /**
-     * Number of gifts that are available for resale
+     * Name of the album
      */
-    public int32 resale_count { get; construct set; }
+    public string name { get; construct set; }
 
     /**
-     * The minimum price for the gifts available for resale in Telegram Star
-     * equivalent; 0 if there are no such gifts
+     * Icon of the album; may be null if none
      */
-    public int64 min_resale_star_count { get; construct set; }
+    public Photo? photo_icon { get; construct set; }
 
     /**
-     * The title of the upgraded gift; empty if the gift isn't available for
-     * resale
+     * Video icon of the album; may be null if none
      */
-    public string title { get; construct set; }
+    public Video? video_icon { get; construct set; }
 
-    public AvailableGift (
-        Gift gift,
-        int32 resale_count,
-        int64 min_resale_star_count,
-        string title
+    public StoryAlbum (
+        int32 id_,
+        string name,
+        Photo? photo_icon,
+        Video? video_icon
     ) {
         Object (
-            gift: gift,
-            resale_count: resale_count,
-            min_resale_star_count: min_resale_star_count,
-            title: title,
-            tdlib_type: "availableGift",
+            id_: id_,
+            name: name,
+            photo_icon: photo_icon,
+            video_icon: video_icon,
+            tdlib_type: "storyAlbum",
             tdlib_extra: Uuid.string_random ()
         );
     }

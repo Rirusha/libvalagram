@@ -222,6 +222,27 @@ public class TDLib.LinkPreviewTypeChat : LinkPreviewType {
 }
 
 /**
+ * The link is a link to a direct messages chat of a channel
+ */
+public class TDLib.LinkPreviewTypeDirectMessagesChat : LinkPreviewType {
+
+    /**
+     * Photo of the channel chat; may be null
+     */
+    public ChatPhoto? photo { get; construct set; }
+
+    public LinkPreviewTypeDirectMessagesChat (
+        ChatPhoto? photo
+    ) {
+        Object (
+            photo: photo,
+            tdlib_type: "linkPreviewTypeDirectMessagesChat",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to a general file
  */
 public class TDLib.LinkPreviewTypeDocument : LinkPreviewType {
@@ -474,6 +495,27 @@ public class TDLib.LinkPreviewTypeExternalVideo : LinkPreviewType {
 }
 
 /**
+ * The link is a link to a gift collection
+ */
+public class TDLib.LinkPreviewTypeGiftCollection : LinkPreviewType {
+
+    /**
+     * Icons for some gifts from the collection; may be empty
+     */
+    public Gee.ArrayList<Sticker?> icons { get; construct set; default = new Gee.ArrayList<Sticker?> (); }
+
+    public LinkPreviewTypeGiftCollection (
+        Gee.ArrayList<Sticker?> icons
+    ) {
+        Object (
+            icons: icons,
+            tdlib_type: "linkPreviewTypeGiftCollection",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to a group call that isn't bound to a chat
  */
 public class TDLib.LinkPreviewTypeGroupCall : LinkPreviewType {
@@ -625,6 +667,34 @@ public class TDLib.LinkPreviewTypeStory : LinkPreviewType {
             story_poster_chat_id: story_poster_chat_id,
             story_id: story_id,
             tdlib_type: "linkPreviewTypeStory",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to an album of stories
+ */
+public class TDLib.LinkPreviewTypeStoryAlbum : LinkPreviewType {
+
+    /**
+     * Icon of the album; may be null if none
+     */
+    public Photo? photo_icon { get; construct set; }
+
+    /**
+     * Video icon of the album; may be null if none
+     */
+    public Video? video_icon { get; construct set; }
+
+    public LinkPreviewTypeStoryAlbum (
+        Photo? photo_icon,
+        Video? video_icon
+    ) {
+        Object (
+            photo_icon: photo_icon,
+            video_icon: video_icon,
+            tdlib_type: "linkPreviewTypeStoryAlbum",
             tdlib_extra: Uuid.string_random ()
         );
     }

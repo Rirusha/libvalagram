@@ -20,44 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that is available for purchase
+ * Changes name of an album of stories. If the album is owned by a
+ * supergroup or a channel chat, then requires can_edit_stories
+ * administrator right in the chat. Returns the changed album
  */
-public class TDLib.AvailableGift : Error {
+public class TDLib.SetStoryAlbumName : TDObject {
 
     /**
-     * The gift
+     * Identifier of the chat that owns the stories
      */
-    public Gift gift { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
     /**
-     * Number of gifts that are available for resale
+     * Identifier of the story album
      */
-    public int32 resale_count { get; construct set; }
+    public int32 story_album_id { get; construct set; }
 
     /**
-     * The minimum price for the gifts available for resale in Telegram Star
-     * equivalent; 0 if there are no such gifts
+     * New name of the album; 1-12 characters
      */
-    public int64 min_resale_star_count { get; construct set; }
+    public string name { get; construct set; }
 
-    /**
-     * The title of the upgraded gift; empty if the gift isn't available for
-     * resale
-     */
-    public string title { get; construct set; }
-
-    public AvailableGift (
-        Gift gift,
-        int32 resale_count,
-        int64 min_resale_star_count,
-        string title
+    public SetStoryAlbumName (
+        int64 chat_id,
+        int32 story_album_id,
+        string name
     ) {
         Object (
-            gift: gift,
-            resale_count: resale_count,
-            min_resale_star_count: min_resale_star_count,
-            title: title,
-            tdlib_type: "availableGift",
+            chat_id: chat_id,
+            story_album_id: story_album_id,
+            name: name,
+            tdlib_type: "setStoryAlbumName",
             tdlib_extra: Uuid.string_random ()
         );
     }

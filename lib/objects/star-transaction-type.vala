@@ -724,19 +724,28 @@ public class TDLib.StarTransactionTypeUpgradedGiftSale : StarTransactionType {
     public UpgradedGift gift { get; construct set; }
 
     /**
-     * Information about commission received by Telegram from the transaction
+     * The number of Telegram Stars received by the Telegram for each 1000
+     * Telegram Stars received by the seller of the gift
      */
-    public AffiliateInfo affiliate { get; construct set; }
+    public int32 commission_per_mille { get; construct set; }
+
+    /**
+     * The amount of Telegram Stars that were received by Telegram; can be
+     * negative for refunds
+     */
+    public StarAmount commission_star_amount { get; construct set; }
 
     public StarTransactionTypeUpgradedGiftSale (
         int64 user_id,
         UpgradedGift gift,
-        AffiliateInfo affiliate
+        int32 commission_per_mille,
+        StarAmount commission_star_amount
     ) {
         Object (
             user_id: user_id,
             gift: gift,
-            affiliate: affiliate,
+            commission_per_mille: commission_per_mille,
+            commission_star_amount: commission_star_amount,
             tdlib_type: "starTransactionTypeUpgradedGiftSale",
             tdlib_extra: Uuid.string_random ()
         );
@@ -1026,6 +1035,20 @@ public class TDLib.StarTransactionTypeBusinessBotTransferReceive : StarTransacti
         Object (
             user_id: user_id,
             tdlib_type: "starTransactionTypeBusinessBotTransferReceive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a payment for search of posts in public Telegram
+ * channels; for regular users only
+ */
+public class TDLib.StarTransactionTypePublicPostSearch : StarTransactionType {
+
+    public StarTransactionTypePublicPostSearch () {
+        Object (
+            tdlib_type: "starTransactionTypePublicPostSearch",
             tdlib_extra: Uuid.string_random ()
         );
     }

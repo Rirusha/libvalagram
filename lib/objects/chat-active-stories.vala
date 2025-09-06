@@ -44,6 +44,16 @@ public class TDLib.ChatActiveStories : Error {
     public int64 order { get; construct set; }
 
     /**
+     * True, if the stories are shown in the main story list and can be
+     * archived; otherwise, the stories can be hidden from the main story
+     * list
+     * only by calling {@link Client.remove_top_chat} with
+     * topChatCategoryUsers and the chat_id. Stories of the current user
+     * can't be archived nor hidden using {@link Client.remove_top_chat}
+     */
+    public bool can_be_archived { get; construct set; }
+
+    /**
      * Identifier of the last read active story
      */
     public int32 max_read_story_id { get; construct set; }
@@ -59,6 +69,7 @@ public class TDLib.ChatActiveStories : Error {
         int64 chat_id,
         StoryList? list,
         int64 order,
+        bool can_be_archived,
         int32 max_read_story_id,
         Gee.ArrayList<StoryInfo?> stories
     ) {
@@ -66,6 +77,7 @@ public class TDLib.ChatActiveStories : Error {
             chat_id: chat_id,
             list: list,
             order: order,
+            can_be_archived: can_be_archived,
             max_read_story_id: max_read_story_id,
             stories: stories,
             tdlib_type: "chatActiveStories",

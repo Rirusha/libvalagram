@@ -20,44 +20,35 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a gift that is available for purchase
+ * Describes parameters of a unique gift available for resale
  */
-public class TDLib.AvailableGift : Error {
+public class TDLib.GiftResaleParameters : Error {
 
     /**
-     * The gift
+     * Resale price of the gift in Telegram Stars
      */
-    public Gift gift { get; construct set; }
+    public int64 star_count { get; construct set; }
 
     /**
-     * Number of gifts that are available for resale
+     * Resale price of the gift in 1/100 of Toncoin
      */
-    public int32 resale_count { get; construct set; }
+    public int64 toncoin_cent_count { get; construct set; }
 
     /**
-     * The minimum price for the gifts available for resale in Telegram Star
-     * equivalent; 0 if there are no such gifts
+     * True, if the gift can be bought only using Toncoins
      */
-    public int64 min_resale_star_count { get; construct set; }
+    public bool toncoin_only { get; construct set; }
 
-    /**
-     * The title of the upgraded gift; empty if the gift isn't available for
-     * resale
-     */
-    public string title { get; construct set; }
-
-    public AvailableGift (
-        Gift gift,
-        int32 resale_count,
-        int64 min_resale_star_count,
-        string title
+    public GiftResaleParameters (
+        int64 star_count,
+        int64 toncoin_cent_count,
+        bool toncoin_only
     ) {
         Object (
-            gift: gift,
-            resale_count: resale_count,
-            min_resale_star_count: min_resale_star_count,
-            title: title,
-            tdlib_type: "availableGift",
+            star_count: star_count,
+            toncoin_cent_count: toncoin_cent_count,
+            toncoin_only: toncoin_only,
+            tdlib_type: "giftResaleParameters",
             tdlib_extra: Uuid.string_random ()
         );
     }

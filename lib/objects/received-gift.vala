@@ -86,6 +86,12 @@ public class TDLib.ReceivedGift : Error {
     public SentGift gift { get; construct set; }
 
     /**
+     * Identifiers of collections to which the gift is added; only for the
+     * receiver of the gift
+     */
+    public Gee.ArrayList<int32?> collection_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
+    /**
      * Number of Telegram Stars that can be claimed by the receiver instead
      * of the regular gift; 0 if the gift can't be sold by the current user
      */
@@ -135,6 +141,7 @@ public class TDLib.ReceivedGift : Error {
         bool was_refunded,
         int32 date,
         SentGift gift,
+        Gee.ArrayList<int32?> collection_ids,
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
         int64 transfer_star_count,
@@ -154,6 +161,7 @@ public class TDLib.ReceivedGift : Error {
             was_refunded: was_refunded,
             date: date,
             gift: gift,
+            collection_ids: collection_ids,
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
             transfer_star_count: transfer_star_count,

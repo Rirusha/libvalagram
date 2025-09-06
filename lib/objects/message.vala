@@ -228,15 +228,10 @@ public class TDLib.Message : Error {
     public int64 effect_id { get; construct set; }
 
     /**
-     * True, if media content of the message must be hidden with 18+ spoiler
+     * Information about the restrictions that must be applied to the message
+     * content; may be null if none
      */
-    public bool has_sensitive_content { get; construct set; }
-
-    /**
-     * If non-empty, contains a human-readable description of the reason why
-     * access to this message must be restricted
-     */
-    public string restriction_reason { get; construct set; }
+    public RestrictionInfo? restriction_info { get; construct set; }
 
     /**
      * Content of the message
@@ -284,8 +279,7 @@ public class TDLib.Message : Error {
         string author_signature,
         int64 media_album_id,
         int64 effect_id,
-        bool has_sensitive_content,
-        string restriction_reason,
+        RestrictionInfo? restriction_info,
         MessageContent content,
         ReplyMarkup? reply_markup
     ) {
@@ -325,8 +319,7 @@ public class TDLib.Message : Error {
             author_signature: author_signature,
             media_album_id: media_album_id,
             effect_id: effect_id,
-            has_sensitive_content: has_sensitive_content,
-            restriction_reason: restriction_reason,
+            restriction_info: restriction_info,
             content: content,
             reply_markup: reply_markup,
             tdlib_type: "message",

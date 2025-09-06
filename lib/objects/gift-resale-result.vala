@@ -20,34 +20,40 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes resale price of a unique gift owned by the current user
+ * Describes result of sending a resold gift
  */
-public class TDLib.SetGiftResalePrice : TDObject {
+public abstract class TDLib.GiftResaleResult : Error {}
+
+/**
+ * Operation was successfully completed
+ */
+public class TDLib.GiftResaleResultOk : GiftResaleResult {
+
+    public GiftResaleResultOk () {
+        Object (
+            tdlib_type: "giftResaleResultOk",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Operation has failed, because price has increased. If the price has
+ * decreased, then the buying will succeed anyway
+ */
+public class TDLib.GiftResaleResultPriceIncreased : GiftResaleResult {
 
     /**
-     * Identifier of the unique gift
-     */
-    public string received_gift_id { get; construct set; }
-
-    /**
-     * The new price for the unique gift; pass null to disallow gift resale.
-     * The current user will receive
-     * getOption("gift_resale_star_earnings_per_mille") Telegram Stars for
-     * each 1000 Telegram Stars paid for the gift if the gift price is in
-     * Telegram Stars or
-     * getOption("gift_resale_ton_earnings_per_mille") Toncoins for each 1000
-     * Toncoins paid for the gift if the gift price is in Toncoins
+     * New price for the gift
      */
     public GiftResalePrice price { get; construct set; }
 
-    public SetGiftResalePrice (
-        string received_gift_id,
+    public GiftResaleResultPriceIncreased (
         GiftResalePrice price
     ) {
         Object (
-            received_gift_id: received_gift_id,
             price: price,
-            tdlib_type: "setGiftResalePrice",
+            tdlib_type: "giftResaleResultPriceIncreased",
             tdlib_extra: Uuid.string_random ()
         );
     }

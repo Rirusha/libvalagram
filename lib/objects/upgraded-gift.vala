@@ -63,6 +63,12 @@ public class TDLib.UpgradedGift : Error {
     public int32 max_upgraded_count { get; construct set; }
 
     /**
+     * True, if the original gift could have been bought only by Telegram
+     * Premium subscribers
+     */
+    public bool is_premium { get; construct set; }
+
+    /**
      * Identifier of the user or the chat that owns the upgraded gift; may be
      * null if none or unknown
      */
@@ -109,10 +115,9 @@ public class TDLib.UpgradedGift : Error {
     public UpgradedGiftOriginalDetails? original_details { get; construct set; }
 
     /**
-     * Number of Telegram Stars that must be paid to buy the gift and send it
-     * to someone else; 0 if resale isn't possible
+     * Resale parameters of the gift; may be null if resale isn't possible
      */
-    public int64 resale_star_count { get; construct set; }
+    public GiftResaleParameters? resale_parameters { get; construct set; }
 
     public UpgradedGift (
         int64 id_,
@@ -122,6 +127,7 @@ public class TDLib.UpgradedGift : Error {
         int32 number,
         int32 total_upgraded_count,
         int32 max_upgraded_count,
+        bool is_premium,
         MessageSender? owner_id,
         string owner_address,
         string owner_name,
@@ -130,7 +136,7 @@ public class TDLib.UpgradedGift : Error {
         UpgradedGiftSymbol symbol,
         UpgradedGiftBackdrop backdrop,
         UpgradedGiftOriginalDetails? original_details,
-        int64 resale_star_count
+        GiftResaleParameters? resale_parameters
     ) {
         Object (
             id_: id_,
@@ -140,6 +146,7 @@ public class TDLib.UpgradedGift : Error {
             number: number,
             total_upgraded_count: total_upgraded_count,
             max_upgraded_count: max_upgraded_count,
+            is_premium: is_premium,
             owner_id: owner_id,
             owner_address: owner_address,
             owner_name: owner_name,
@@ -148,7 +155,7 @@ public class TDLib.UpgradedGift : Error {
             symbol: symbol,
             backdrop: backdrop,
             original_details: original_details,
-            resale_star_count: resale_star_count,
+            resale_parameters: resale_parameters,
             tdlib_type: "upgradedGift",
             tdlib_extra: Uuid.string_random ()
         );

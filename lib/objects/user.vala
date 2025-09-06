@@ -121,10 +121,10 @@ public class TDLib.User : Error {
     public bool is_support { get; construct set; }
 
     /**
-     * If non-empty, it contains a human-readable description of the reason
-     * why access to this user must be restricted
+     * Information about restrictions that must be applied to the
+     * corresponding private chat; may be null if none
      */
-    public string restriction_reason { get; construct set; }
+    public RestrictionInfo? restriction_info { get; construct set; }
 
     /**
      * True, if the user has non-expired stories available to the current
@@ -195,7 +195,7 @@ public class TDLib.User : Error {
         VerificationStatus? verification_status,
         bool is_premium,
         bool is_support,
-        string restriction_reason,
+        RestrictionInfo? restriction_info,
         bool has_active_stories,
         bool has_unread_active_stories,
         bool restricts_new_chats,
@@ -224,7 +224,7 @@ public class TDLib.User : Error {
             verification_status: verification_status,
             is_premium: is_premium,
             is_support: is_support,
-            restriction_reason: restriction_reason,
+            restriction_info: restriction_info,
             has_active_stories: has_active_stories,
             has_unread_active_stories: has_unread_active_stories,
             restricts_new_chats: restricts_new_chats,

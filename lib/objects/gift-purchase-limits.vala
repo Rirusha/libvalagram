@@ -20,34 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes resale price of a unique gift owned by the current user
+ * Describes the maximum number of times that a specific gift can be
+ * purchased
  */
-public class TDLib.SetGiftResalePrice : TDObject {
+public class TDLib.GiftPurchaseLimits : Error {
 
     /**
-     * Identifier of the unique gift
+     * The maximum number of times the gifts can be purchased
      */
-    public string received_gift_id { get; construct set; }
+    public int32 total_count { get; construct set; }
 
     /**
-     * The new price for the unique gift; pass null to disallow gift resale.
-     * The current user will receive
-     * getOption("gift_resale_star_earnings_per_mille") Telegram Stars for
-     * each 1000 Telegram Stars paid for the gift if the gift price is in
-     * Telegram Stars or
-     * getOption("gift_resale_ton_earnings_per_mille") Toncoins for each 1000
-     * Toncoins paid for the gift if the gift price is in Toncoins
+     * Number of remaining times the gift can be purchased
      */
-    public GiftResalePrice price { get; construct set; }
+    public int32 remaining_count { get; construct set; }
 
-    public SetGiftResalePrice (
-        string received_gift_id,
-        GiftResalePrice price
+    public GiftPurchaseLimits (
+        int32 total_count,
+        int32 remaining_count
     ) {
         Object (
-            received_gift_id: received_gift_id,
-            price: price,
-            tdlib_type: "setGiftResalePrice",
+            total_count: total_count,
+            remaining_count: remaining_count,
+            tdlib_type: "giftPurchaseLimits",
             tdlib_extra: Uuid.string_random ()
         );
     }

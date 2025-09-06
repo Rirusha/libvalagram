@@ -63,15 +63,21 @@ public class TDLib.Gift : Error {
     public bool is_for_birthday { get; construct set; }
 
     /**
-     * Number of remaining times the gift can be purchased; 0 if not limited
-     * or the gift was sold out
+     * True, if the gift can be bought only by Telegram Premium subscribers
      */
-    public int32 remaining_count { get; construct set; }
+    public bool is_premium { get; construct set; }
 
     /**
-     * Number of total times the gift can be purchased; 0 if not limited
+     * Number of times the gift can be purchased by the current user; may be
+     * null if not limited
      */
-    public int32 total_count { get; construct set; }
+    public GiftPurchaseLimits? user_limits { get; construct set; }
+
+    /**
+     * Number of times the gift can be purchased all users; may be null if
+     * not limited
+     */
+    public GiftPurchaseLimits? overall_limits { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the gift was send for the first
@@ -93,8 +99,9 @@ public class TDLib.Gift : Error {
         int64 default_sell_star_count,
         int64 upgrade_star_count,
         bool is_for_birthday,
-        int32 remaining_count,
-        int32 total_count,
+        bool is_premium,
+        GiftPurchaseLimits? user_limits,
+        GiftPurchaseLimits? overall_limits,
         int32 first_send_date,
         int32 last_send_date
     ) {
@@ -106,8 +113,9 @@ public class TDLib.Gift : Error {
             default_sell_star_count: default_sell_star_count,
             upgrade_star_count: upgrade_star_count,
             is_for_birthday: is_for_birthday,
-            remaining_count: remaining_count,
-            total_count: total_count,
+            is_premium: is_premium,
+            user_limits: user_limits,
+            overall_limits: overall_limits,
             first_send_date: first_send_date,
             last_send_date: last_send_date,
             tdlib_type: "gift",

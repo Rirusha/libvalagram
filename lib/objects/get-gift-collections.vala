@@ -20,38 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends an upgraded gift that is available for resale to another user or
- * channel chat; gifts already owned by the current user
- * must be transferred using {@link Client.transfer_gift} and can't be
- * passed to the method
+ * Returns collections of gifts owned by the given user or chat
  */
-public class TDLib.SendResoldGift : TDObject {
+public class TDLib.GetGiftCollections : TDObject {
 
     /**
-     * Name of the upgraded gift to send
-     */
-    public string gift_name { get; construct set; }
-
-    /**
-     * Identifier of the user or the channel chat that will receive the gift
+     * Identifier of the user or the channel chat that received the gifts
      */
     public MessageSender owner_id { get; construct set; }
 
-    /**
-     * The price that the user agreed to pay for the gift
-     */
-    public GiftResalePrice price { get; construct set; }
-
-    public SendResoldGift (
-        string gift_name,
-        MessageSender owner_id,
-        GiftResalePrice price
+    public GetGiftCollections (
+        MessageSender owner_id
     ) {
         Object (
-            gift_name: gift_name,
             owner_id: owner_id,
-            price: price,
-            tdlib_type: "sendResoldGift",
+            tdlib_type: "getGiftCollections",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -173,16 +173,10 @@ public class TDLib.Supergroup : Error {
     public bool has_forum_tabs { get; construct set; }
 
     /**
-     * True, if content of media messages in the supergroup or channel chat
-     * must be hidden with 18+ spoiler
+     * Information about the restrictions that must be applied to the
+     * corresponding supergroup or channel chat; may be null if none
      */
-    public bool has_sensitive_content { get; construct set; }
-
-    /**
-     * If non-empty, contains a human-readable description of the reason why
-     * access to this supergroup or channel must be restricted
-     */
-    public string restriction_reason { get; construct set; }
+    public RestrictionInfo? restriction_info { get; construct set; }
 
     /**
      * Number of Telegram Stars that must be paid by non-administrator users
@@ -225,8 +219,7 @@ public class TDLib.Supergroup : Error {
         VerificationStatus? verification_status,
         bool has_direct_messages_group,
         bool has_forum_tabs,
-        bool has_sensitive_content,
-        string restriction_reason,
+        RestrictionInfo? restriction_info,
         int64 paid_message_star_count,
         bool has_active_stories,
         bool has_unread_active_stories
@@ -254,8 +247,7 @@ public class TDLib.Supergroup : Error {
             verification_status: verification_status,
             has_direct_messages_group: has_direct_messages_group,
             has_forum_tabs: has_forum_tabs,
-            has_sensitive_content: has_sensitive_content,
-            restriction_reason: restriction_reason,
+            restriction_info: restriction_info,
             paid_message_star_count: paid_message_star_count,
             has_active_stories: has_active_stories,
             has_unread_active_stories: has_unread_active_stories,

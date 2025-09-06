@@ -57,6 +57,13 @@ public class TDLib.PostStory : TDObject {
     public StoryPrivacySettings privacy_settings { get; construct set; }
 
     /**
+     * Identifiers of story albums to which the story will be added upon
+     * posting. An album can have up to
+     * getOption("story_album_story_count_max")
+     */
+    public Gee.ArrayList<int32?> album_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
+    /**
      * Period after which the story is moved to archive, in seconds; must be
      * one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400 for Telegram Premium
      * users, and 86400 otherwise
@@ -86,6 +93,7 @@ public class TDLib.PostStory : TDObject {
         InputStoryAreas areas,
         FormattedText caption,
         StoryPrivacySettings privacy_settings,
+        Gee.ArrayList<int32?> album_ids,
         int32 active_period,
         StoryFullId from_story_full_id,
         bool is_posted_to_chat_page,
@@ -97,6 +105,7 @@ public class TDLib.PostStory : TDObject {
             areas: areas,
             caption: caption,
             privacy_settings: privacy_settings,
+            album_ids: album_ids,
             active_period: active_period,
             from_story_full_id: from_story_full_id,
             is_posted_to_chat_page: is_posted_to_chat_page,

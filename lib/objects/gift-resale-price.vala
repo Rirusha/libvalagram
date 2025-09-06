@@ -20,49 +20,54 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes price of a suggested post
+ * Describes price of a resold gift
  */
-public abstract class TDLib.SuggestedPostPrice : Error {}
+public abstract class TDLib.GiftResalePrice : Error {}
 
 /**
- * Describes price of a suggested post in Telegram Stars
+ * Describes price of a resold gift in Telegram Stars
  */
-public class TDLib.SuggestedPostPriceStar : SuggestedPostPrice {
+public class TDLib.GiftResalePriceStar : GiftResalePrice {
 
     /**
-     * The amount of Telegram Stars expected to be paid for the post;
-     * getOption("suggested_post_star_count_min")-getOption("suggested_post_star_count_max")
+     * The amount of Telegram Stars expected to be paid for the gift. Must be
+     * in range
+     * 
+     * getOption("gift_resale_star_count_min")-getOption("gift_resale_star_count_max")
+     * for gifts put for resale
      */
     public int64 star_count { get; construct set; }
 
-    public SuggestedPostPriceStar (
+    public GiftResalePriceStar (
         int64 star_count
     ) {
         Object (
             star_count: star_count,
-            tdlib_type: "suggestedPostPriceStar",
+            tdlib_type: "giftResalePriceStar",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * Describes price of a suggested post in Toncoins
+ * Describes price of a resold gift in Toncoins
  */
-public class TDLib.SuggestedPostPriceTon : SuggestedPostPrice {
+public class TDLib.GiftResalePriceTon : GiftResalePrice {
 
     /**
-     * The amount of 1/100 of Toncoin expected to be paid for the post;
-     * getOption("suggested_post_toncoin_cent_count_min")-getOption("suggested_post_toncoin_cent_count_max")
+     * The amount of 1/100 of Toncoin expected to be paid for the gift. Must
+     * be in range
+     * 
+     * getOption("gift_resale_toncoin_cent_count_min")-getOption("gift_resale_toncoin_cent_count_max")
      */
     public int64 toncoin_cent_count { get; construct set; }
 
-    public SuggestedPostPriceTon (
+    public GiftResalePriceTon (
         int64 toncoin_cent_count
     ) {
         Object (
             toncoin_cent_count: toncoin_cent_count,
-            tdlib_type: "suggestedPostPriceTon",
+            tdlib_type: "giftResalePriceTon",
             tdlib_extra: Uuid.string_random ()
         );
     }
