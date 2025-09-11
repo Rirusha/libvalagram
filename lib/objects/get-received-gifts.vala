@@ -63,9 +63,15 @@ public class TDLib.GetReceivedGifts : TDObject {
 
     /**
      * Pass true to exclude gifts that can be purchased limited number of
-     * times
+     * times and can be upgraded
      */
-    public bool exclude_limited { get; construct set; }
+    public bool exclude_upgradable { get; construct set; }
+
+    /**
+     * Pass true to exclude gifts that can be purchased limited number of
+     * times and can't be upgraded
+     */
+    public bool exclude_non_upgradable { get; construct set; }
 
     /**
      * Pass true to exclude upgraded gifts
@@ -97,7 +103,8 @@ public class TDLib.GetReceivedGifts : TDObject {
         bool exclude_unsaved,
         bool exclude_saved,
         bool exclude_unlimited,
-        bool exclude_limited,
+        bool exclude_upgradable,
+        bool exclude_non_upgradable,
         bool exclude_upgraded,
         bool sort_by_price,
         string offset,
@@ -110,7 +117,8 @@ public class TDLib.GetReceivedGifts : TDObject {
             exclude_unsaved: exclude_unsaved,
             exclude_saved: exclude_saved,
             exclude_unlimited: exclude_unlimited,
-            exclude_limited: exclude_limited,
+            exclude_upgradable: exclude_upgradable,
+            exclude_non_upgradable: exclude_non_upgradable,
             exclude_upgraded: exclude_upgraded,
             sort_by_price: sort_by_price,
             offset: offset,

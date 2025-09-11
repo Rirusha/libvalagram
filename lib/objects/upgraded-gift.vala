@@ -31,6 +31,13 @@ public class TDLib.UpgradedGift : Error {
     public int64 id_ { get; construct set; }
 
     /**
+     * Unique identifier of the regular gift from which the gift was
+     * upgraded; may be 0 for short period of time for old gifts from
+     * database
+     */
+    public int64 regular_gift_id { get; construct set; }
+
+    /**
      * Identifier of the chat that published the gift; 0 if none
      */
     public int64 publisher_chat_id { get; construct set; }
@@ -119,8 +126,21 @@ public class TDLib.UpgradedGift : Error {
      */
     public GiftResaleParameters? resale_parameters { get; construct set; }
 
+    /**
+     * ISO 4217 currency code of the currency in which value of the gift is
+     * represented; may be empty if unavailable
+     */
+    public string value_currency { get; construct set; }
+
+    /**
+     * Estimated value of the gift; in the smallest units of the currency; 0
+     * if unavailable
+     */
+    public int64 value_amount { get; construct set; }
+
     public UpgradedGift (
         int64 id_,
+        int64 regular_gift_id,
         int64 publisher_chat_id,
         string title,
         string name,
@@ -136,10 +156,13 @@ public class TDLib.UpgradedGift : Error {
         UpgradedGiftSymbol symbol,
         UpgradedGiftBackdrop backdrop,
         UpgradedGiftOriginalDetails? original_details,
-        GiftResaleParameters? resale_parameters
+        GiftResaleParameters? resale_parameters,
+        string value_currency,
+        int64 value_amount
     ) {
         Object (
             id_: id_,
+            regular_gift_id: regular_gift_id,
             publisher_chat_id: publisher_chat_id,
             title: title,
             name: name,
@@ -156,6 +179,8 @@ public class TDLib.UpgradedGift : Error {
             backdrop: backdrop,
             original_details: original_details,
             resale_parameters: resale_parameters,
+            value_currency: value_currency,
+            value_amount: value_amount,
             tdlib_type: "upgradedGift",
             tdlib_extra: Uuid.string_random ()
         );

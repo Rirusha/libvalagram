@@ -31,7 +31,8 @@ public class TDLib.SendGift : TDObject {
     public int64 gift_id { get; construct set; }
 
     /**
-     * Identifier of the user or the channel chat that will receive the gift
+     * Identifier of the user or the channel chat that will receive the gift;
+     * limited gifts can't be sent to channel chats
      */
     public MessageSender owner_id { get; construct set; }
 

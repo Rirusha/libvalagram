@@ -680,6 +680,35 @@ public class TDLib.StarTransactionTypeGiftUpgrade : StarTransactionType {
 }
 
 /**
+ * The transaction is a purchase of an upgrade of a gift owned by another
+ * user or channel; for regular users only
+ */
+public class TDLib.StarTransactionTypeGiftUpgradePurchase : StarTransactionType {
+
+    /**
+     * Owner of the upgraded gift
+     */
+    public MessageSender owner_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public Gift gift { get; construct set; }
+
+    public StarTransactionTypeGiftUpgradePurchase (
+        MessageSender owner_id,
+        Gift gift
+    ) {
+        Object (
+            owner_id: owner_id,
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftUpgradePurchase",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a purchase of an upgraded gift for some user or
  * channel; for regular users only
  */

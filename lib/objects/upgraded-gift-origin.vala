@@ -79,3 +79,17 @@ public class TDLib.UpgradedGiftOriginResale : UpgradedGiftOrigin {
         );
     }
 }
+
+/**
+ * The sender or receiver of the message has paid for upgraid of the
+ * gift, which has been completed
+ */
+public class TDLib.UpgradedGiftOriginPrepaidUpgrade : UpgradedGiftOrigin {
+
+    public UpgradedGiftOriginPrepaidUpgrade () {
+        Object (
+            tdlib_type: "upgradedGiftOriginPrepaidUpgrade",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

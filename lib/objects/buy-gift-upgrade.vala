@@ -20,43 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sends an upgraded gift to another user or channel chat
+ * Pays for upgrade of a regular gift that is owned by another user or
+ * channel chat
  */
-public class TDLib.TransferGift : TDObject {
+public class TDLib.BuyGiftUpgrade : TDObject {
 
     /**
-     * Unique identifier of business connection on behalf of which to send
-     * the request; for bots only
+     * Identifier of the user or the channel chat that owns the gift
      */
-    public string business_connection_id { get; construct set; }
+    public MessageSender owner_id { get; construct set; }
 
     /**
-     * Identifier of the gift
+     * Prepaid upgrade hash as received along with the gift
      */
-    public string received_gift_id { get; construct set; }
+    public string prepaid_upgrade_hash { get; construct set; }
 
     /**
-     * Identifier of the user or the channel chat that will receive the gift
-     */
-    public MessageSender new_owner_id { get; construct set; }
-
-    /**
-     * The amount of Telegram Stars required to pay for the transfer
+     * The amount of Telegram Stars the user agreed to pay for the upgrade;
+     * must be equal to gift.upgrade_star_count
      */
     public int64 star_count { get; construct set; }
 
-    public TransferGift (
-        string business_connection_id,
-        string received_gift_id,
-        MessageSender new_owner_id,
+    public BuyGiftUpgrade (
+        MessageSender owner_id,
+        string prepaid_upgrade_hash,
         int64 star_count
     ) {
         Object (
-            business_connection_id: business_connection_id,
-            received_gift_id: received_gift_id,
-            new_owner_id: new_owner_id,
+            owner_id: owner_id,
+            prepaid_upgrade_hash: prepaid_upgrade_hash,
             star_count: star_count,
-            tdlib_type: "transferGift",
+            tdlib_type: "buyGiftUpgrade",
             tdlib_extra: Uuid.string_random ()
         );
     }

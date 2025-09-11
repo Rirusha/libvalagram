@@ -2400,9 +2400,10 @@ public class TDLib.MessageGift : MessageContent {
     public Gift gift { get; construct set; }
 
     /**
-     * Sender of the gift
+     * Sender of the gift; may be null for outgoing messages about prepaid
+     * upgrade of gifts from unknown users
      */
-    public MessageSender sender_id { get; construct set; }
+    public MessageSender? sender_id { get; construct set; }
 
     /**
      * Receiver of the gift
@@ -2445,6 +2446,12 @@ public class TDLib.MessageGift : MessageContent {
     public bool is_saved { get; construct set; }
 
     /**
+     * True, if the message is about prepaid upgrade of the gift by another
+     * user
+     */
+    public bool is_prepaid_upgrade { get; construct set; }
+
+    /**
      * True, if the gift can be upgraded to a unique gift; only for the
      * receiver of the gift
      */
@@ -2473,9 +2480,15 @@ public class TDLib.MessageGift : MessageContent {
      */
     public string upgraded_received_gift_id { get; construct set; }
 
+    /**
+     * If non-empty, then the user can pay for an upgrade of the gift using
+     * {@link Client.buy_gift_upgrade}
+     */
+    public string prepaid_upgrade_hash { get; construct set; }
+
     public MessageGift (
         Gift gift,
-        MessageSender sender_id,
+        MessageSender? sender_id,
         MessageSender receiver_id,
         string received_gift_id,
         FormattedText text,
@@ -2483,11 +2496,13 @@ public class TDLib.MessageGift : MessageContent {
         int64 prepaid_upgrade_star_count,
         bool is_private,
         bool is_saved,
+        bool is_prepaid_upgrade,
         bool can_be_upgraded,
         bool was_converted,
         bool was_upgraded,
         bool was_refunded,
-        string upgraded_received_gift_id
+        string upgraded_received_gift_id,
+        string prepaid_upgrade_hash
     ) {
         Object (
             gift: gift,
@@ -2499,11 +2514,13 @@ public class TDLib.MessageGift : MessageContent {
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
             is_private: is_private,
             is_saved: is_saved,
+            is_prepaid_upgrade: is_prepaid_upgrade,
             can_be_upgraded: can_be_upgraded,
             was_converted: was_converted,
             was_upgraded: was_upgraded,
             was_refunded: was_refunded,
             upgraded_received_gift_id: upgraded_received_gift_id,
+            prepaid_upgrade_hash: prepaid_upgrade_hash,
             tdlib_type: "messageGift",
             tdlib_extra: Uuid.string_random ()
         );
@@ -2568,21 +2585,23 @@ public class TDLib.MessageUpgradedGift : MessageContent {
 
     /**
      * Point in time (Unix timestamp) when the gift can be transferred to
-     * another owner; 0 if the gift can be transferred immediately or
-     * transfer isn't possible; only for the receiver of the gift
+     * another owner; can be in the past; 0 if the gift can be transferred
+     * immediately or transfer isn't possible; only for the receiver of the
+     * gift
      */
     public int32 next_transfer_date { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the gift can be resold to another
-     * user; 0 if the gift can't be resold; only for the receiver of the gift
+     * user; can be in the past; 0 if the gift can't be resold; only for the
+     * receiver of the gift
      */
     public int32 next_resale_date { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the gift can be transferred to the
-     * TON blockchain as an NFT; 0 if NFT export isn't possible; only for the
-     * receiver of the gift
+     * TON blockchain as an NFT; can be in the past; 0 if NFT export isn't
+     * possible; only for the receiver of the gift
      */
     public int32 export_date { get; construct set; }
 
