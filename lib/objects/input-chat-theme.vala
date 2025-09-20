@@ -20,48 +20,50 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a chat theme
+ * Describes a chat theme to set
  */
-public abstract class TDLib.ChatTheme : Error {}
+public abstract class TDLib.InputChatTheme : Error {}
 
 /**
- * A chat theme based on an emoji
+ * A theme based on an emoji
  */
-public class TDLib.ChatThemeEmoji : ChatTheme {
+public class TDLib.InputChatThemeEmoji : InputChatTheme {
 
     /**
-     * Name of the theme; full theme description is received through
-     * updateEmojiChatThemes
+     * Name of the theme
      */
     public string name { get; construct set; }
 
-    public ChatThemeEmoji (
+    public InputChatThemeEmoji (
         string name
     ) {
         Object (
             name: name,
-            tdlib_type: "chatThemeEmoji",
+            tdlib_type: "inputChatThemeEmoji",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * A chat theme based on an upgraded gift
+ * A theme based on an upgraded gift
  */
-public class TDLib.ChatThemeGift : ChatTheme {
+public class TDLib.InputChatThemeGift : InputChatTheme {
 
     /**
-     * The chat theme
+     * Name of the upgraded gift. A gift can be used only in one chat in a
+     * time.
+     * When the same gift is used in another chat, theme in the previous chat
+     * is reset to default
      */
-    public GiftChatTheme gift_theme { get; construct set; }
+    public string name { get; construct set; }
 
-    public ChatThemeGift (
-        GiftChatTheme gift_theme
+    public InputChatThemeGift (
+        string name
     ) {
         Object (
-            gift_theme: gift_theme,
-            tdlib_type: "chatThemeGift",
+            name: name,
+            tdlib_type: "inputChatThemeGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

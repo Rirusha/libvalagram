@@ -76,6 +76,17 @@ public class TDLib.UpgradedGift : Error {
     public bool is_premium { get; construct set; }
 
     /**
+     * True, if the gift can be used to set a theme in a chat
+     */
+    public bool is_theme_available { get; construct set; }
+
+    /**
+     * Identifier of the chat for which the gift is used to set a theme; 0 if
+     * none or the gift isn't owned by the current user
+     */
+    public int64 used_theme_chat_id { get; construct set; }
+
+    /**
      * Identifier of the user or the chat that owns the upgraded gift; may be
      * null if none or unknown
      */
@@ -148,6 +159,8 @@ public class TDLib.UpgradedGift : Error {
         int32 total_upgraded_count,
         int32 max_upgraded_count,
         bool is_premium,
+        bool is_theme_available,
+        int64 used_theme_chat_id,
         MessageSender? owner_id,
         string owner_address,
         string owner_name,
@@ -170,6 +183,8 @@ public class TDLib.UpgradedGift : Error {
             total_upgraded_count: total_upgraded_count,
             max_upgraded_count: max_upgraded_count,
             is_premium: is_premium,
+            is_theme_available: is_theme_available,
+            used_theme_chat_id: used_theme_chat_id,
             owner_id: owner_id,
             owner_address: owner_address,
             owner_name: owner_name,

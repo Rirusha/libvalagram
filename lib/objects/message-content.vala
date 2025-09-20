@@ -1345,16 +1345,16 @@ public class TDLib.MessageChatSetBackground : MessageContent {
 public class TDLib.MessageChatSetTheme : MessageContent {
 
     /**
-     * If non-empty, name of a new theme, set for the chat. Otherwise, chat
-     * theme was reset to the default one
+     * New theme for the chat; may be null if chat theme was reset to the
+     * default one
      */
-    public string theme_name { get; construct set; }
+    public ChatTheme? theme { get; construct set; }
 
     public MessageChatSetTheme (
-        string theme_name
+        ChatTheme? theme
     ) {
         Object (
-            theme_name: theme_name,
+            theme: theme,
             tdlib_type: "messageChatSetTheme",
             tdlib_extra: Uuid.string_random ()
         );
@@ -2434,6 +2434,12 @@ public class TDLib.MessageGift : MessageContent {
     public int64 prepaid_upgrade_star_count { get; construct set; }
 
     /**
+     * True, if the upgrade was bought after the gift was sent. In this case,
+     * prepaid upgrade cost must not be added to the gift cost
+     */
+    public bool is_upgrade_separate { get; construct set; }
+
+    /**
      * True, if the sender and gift text are shown only to the gift receiver;
      * otherwise, everyone will be able to see them
      */
@@ -2494,6 +2500,7 @@ public class TDLib.MessageGift : MessageContent {
         FormattedText text,
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
+        bool is_upgrade_separate,
         bool is_private,
         bool is_saved,
         bool is_prepaid_upgrade,
@@ -2512,6 +2519,7 @@ public class TDLib.MessageGift : MessageContent {
             text: text,
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
+            is_upgrade_separate: is_upgrade_separate,
             is_private: is_private,
             is_saved: is_saved,
             is_prepaid_upgrade: is_prepaid_upgrade,
@@ -2659,22 +2667,21 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
     public MessageSender receiver_id { get; construct set; }
 
     /**
-     * True, if the gift was obtained by upgrading of a previously received
-     * gift; otherwise, this is a transferred or resold gift
+     * Origin of the upgraded gift
      */
-    public bool is_upgrade { get; construct set; }
+    public UpgradedGiftOrigin origin { get; construct set; }
 
     public MessageRefundedUpgradedGift (
         Gift gift,
         MessageSender sender_id,
         MessageSender receiver_id,
-        bool is_upgrade
+        UpgradedGiftOrigin origin
     ) {
         Object (
             gift: gift,
             sender_id: sender_id,
             receiver_id: receiver_id,
-            is_upgrade: is_upgrade,
+            origin: origin,
             tdlib_type: "messageRefundedUpgradedGift",
             tdlib_extra: Uuid.string_random ()
         );

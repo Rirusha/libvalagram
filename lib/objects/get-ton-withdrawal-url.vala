@@ -20,35 +20,23 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Returns a URL for Toncoin withdrawal from the current user's account.
+ * The user must have at least 10 toncoins to withdraw
+ * and can withdraw up to 100000 Toncoins in one transaction
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.GetTonWithdrawalUrl : TDObject {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * The 2-step verification password of the current user
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public string password { get; construct set; }
 
-    /**
-     * Telegram Star revenue status
-     */
-    public StarRevenueStatus status { get; construct set; }
-
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public GetTonWithdrawalUrl (
+        string password
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            password: password,
+            tdlib_type: "getTonWithdrawalUrl",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -141,8 +141,16 @@ public class TDLib.PushMessageContentContact : PushMessageContent {
  */
 public class TDLib.PushMessageContentContactRegistered : PushMessageContent {
 
-    public PushMessageContentContactRegistered () {
+    /**
+     * True, if the user joined Telegram as a Telegram Premium account
+     */
+    public bool as_premium_account { get; construct set; }
+
+    public PushMessageContentContactRegistered (
+        bool as_premium_account
+    ) {
         Object (
+            as_premium_account: as_premium_account,
             tdlib_type: "pushMessageContentContactRegistered",
             tdlib_extra: Uuid.string_random ()
         );
@@ -470,11 +478,19 @@ public class TDLib.PushMessageContentGift : PushMessageContent {
      */
     public int64 star_count { get; construct set; }
 
+    /**
+     * True, if the message is about prepaid upgrade of the gift by another
+     * user instead of actual receiving of a new gift
+     */
+    public bool is_prepaid_upgrade { get; construct set; }
+
     public PushMessageContentGift (
-        int64 star_count
+        int64 star_count,
+        bool is_prepaid_upgrade
     ) {
         Object (
             star_count: star_count,
+            is_prepaid_upgrade: is_prepaid_upgrade,
             tdlib_type: "pushMessageContentGift",
             tdlib_extra: Uuid.string_random ()
         );
@@ -488,15 +504,24 @@ public class TDLib.PushMessageContentUpgradedGift : PushMessageContent {
 
     /**
      * True, if the gift was obtained by upgrading of a previously received
-     * gift; otherwise, this is a transferred or resold gift
+     * gift; otherwise, if is_prepaid_upgrade == false, then this is a
+     * transferred or resold gift
      */
     public bool is_upgrade { get; construct set; }
 
+    /**
+     * True, if the message is about completion of prepaid upgrade of the
+     * gift instead of actual receiving of a new gift
+     */
+    public bool is_prepaid_upgrade { get; construct set; }
+
     public PushMessageContentUpgradedGift (
-        bool is_upgrade
+        bool is_upgrade,
+        bool is_prepaid_upgrade
     ) {
         Object (
             is_upgrade: is_upgrade,
+            is_prepaid_upgrade: is_prepaid_upgrade,
             tdlib_type: "pushMessageContentUpgradedGift",
             tdlib_extra: Uuid.string_random ()
         );
@@ -891,16 +916,16 @@ public class TDLib.PushMessageContentChatSetBackground : PushMessageContent {
 public class TDLib.PushMessageContentChatSetTheme : PushMessageContent {
 
     /**
-     * If non-empty, name of a new theme, set for the chat. Otherwise, the
+     * If non-empty, human-readable name of the new theme. Otherwise, the
      * chat theme was reset to the default one
      */
-    public string theme_name { get; construct set; }
+    public string name { get; construct set; }
 
     public PushMessageContentChatSetTheme (
-        string theme_name
+        string name
     ) {
         Object (
-            theme_name: theme_name,
+            name: name,
             tdlib_type: "pushMessageContentChatSetTheme",
             tdlib_extra: Uuid.string_random ()
         );

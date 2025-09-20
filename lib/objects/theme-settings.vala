@@ -25,6 +25,11 @@
 public class TDLib.ThemeSettings : Error {
 
     /**
+     * Base theme for this theme
+     */
+    public BuiltInTheme base_theme { get; construct set; }
+
+    /**
      * Theme accent color in ARGB format
      */
     public int32 accent_color { get; construct set; }
@@ -35,9 +40,10 @@ public class TDLib.ThemeSettings : Error {
     public Background? background { get; construct set; }
 
     /**
-     * The fill to be used as a background for outgoing messages
+     * The fill to be used as a background for outgoing messages; may be null
+     * if the fill from the base theme must be used instead
      */
-    public BackgroundFill outgoing_message_fill { get; construct set; }
+    public BackgroundFill? outgoing_message_fill { get; construct set; }
 
     /**
      * If true, the freeform gradient fill needs to be animated on every sent
@@ -51,13 +57,15 @@ public class TDLib.ThemeSettings : Error {
     public int32 outgoing_message_accent_color { get; construct set; }
 
     public ThemeSettings (
+        BuiltInTheme base_theme,
         int32 accent_color,
         Background? background,
-        BackgroundFill outgoing_message_fill,
+        BackgroundFill? outgoing_message_fill,
         bool animate_outgoing_message_fill,
         int32 outgoing_message_accent_color
     ) {
         Object (
+            base_theme: base_theme,
             accent_color: accent_color,
             background: background,
             outgoing_message_fill: outgoing_message_fill,

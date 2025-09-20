@@ -104,6 +104,12 @@ public class TDLib.ReceivedGift : Error {
     public int64 prepaid_upgrade_star_count { get; construct set; }
 
     /**
+     * True, if the upgrade was bought after the gift was sent. In this case,
+     * prepaid upgrade cost must not be added to the gift cost
+     */
+    public bool is_upgrade_separate { get; construct set; }
+
+    /**
      * Number of Telegram Stars that must be paid to transfer the upgraded
      * gift; only for the receiver of the gift
      */
@@ -152,6 +158,7 @@ public class TDLib.ReceivedGift : Error {
         Gee.ArrayList<int32?> collection_ids,
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
+        bool is_upgrade_separate,
         int64 transfer_star_count,
         int32 next_transfer_date,
         int32 next_resale_date,
@@ -173,6 +180,7 @@ public class TDLib.ReceivedGift : Error {
             collection_ids: collection_ids,
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
+            is_upgrade_separate: is_upgrade_separate,
             transfer_star_count: transfer_star_count,
             next_transfer_date: next_transfer_date,
             next_resale_date: next_resale_date,

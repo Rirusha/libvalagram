@@ -20,35 +20,32 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Changes position of an audio file in the profile audio files of the
+ * current user
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.SetProfileAudioPosition : TDObject {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Identifier of the file from profile audio files, which position will
+     * be changed
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public int32 file_id { get; construct set; }
 
     /**
-     * Telegram Star revenue status
+     * Identifier of the file from profile audio files after which the file
+     * will be positioned; pass 0 to move the file to the beginning of the
+     * list
      */
-    public StarRevenueStatus status { get; construct set; }
+    public int32 after_file_id { get; construct set; }
 
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public SetProfileAudioPosition (
+        int32 file_id,
+        int32 after_file_id
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            file_id: file_id,
+            after_file_id: after_file_id,
+            tdlib_type: "setProfileAudioPosition",
             tdlib_extra: Uuid.string_random ()
         );
     }

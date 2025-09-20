@@ -20,50 +20,45 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains information about Telegram Stars earned by a user or a chat
+ * Contains information about Toncoins earned by the current user
  */
-public class TDLib.StarRevenueStatus : Error {
+public class TDLib.TonRevenueStatus : Error {
 
     /**
-     * Total amount of Telegram Stars earned
+     * Total amount of Toncoins earned; in the smallest units of the
+     * cryptocurrency
      */
-    public StarAmount total_amount { get; construct set; }
+    public int64 total_amount { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that aren't withdrawn yet
+     * Amount of Toncoins that aren't withdrawn yet; in the smallest units of
+     * the cryptocurrency
      */
-    public StarAmount current_amount { get; construct set; }
+    public int64 balance_amount { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that are available for withdrawal
+     * Amount of Toncoins that are available for withdrawal; in the smallest
+     * units of the cryptocurrency
      */
-    public StarAmount available_amount { get; construct set; }
+    public int64 available_amount { get; construct set; }
 
     /**
-     * True, if Telegram Stars can be withdrawn now or later
+     * True, if Toncoins can be withdrawn
      */
     public bool withdrawal_enabled { get; construct set; }
 
-    /**
-     * Time left before the next withdrawal can be started, in seconds; 0 if
-     * withdrawal can be started now
-     */
-    public int32 next_withdrawal_in { get; construct set; }
-
-    public StarRevenueStatus (
-        StarAmount total_amount,
-        StarAmount current_amount,
-        StarAmount available_amount,
-        bool withdrawal_enabled,
-        int32 next_withdrawal_in
+    public TonRevenueStatus (
+        int64 total_amount,
+        int64 balance_amount,
+        int64 available_amount,
+        bool withdrawal_enabled
     ) {
         Object (
             total_amount: total_amount,
-            current_amount: current_amount,
+            balance_amount: balance_amount,
             available_amount: available_amount,
             withdrawal_enabled: withdrawal_enabled,
-            next_withdrawal_in: next_withdrawal_in,
-            tdlib_type: "starRevenueStatus",
+            tdlib_type: "tonRevenueStatus",
             tdlib_extra: Uuid.string_random ()
         );
     }

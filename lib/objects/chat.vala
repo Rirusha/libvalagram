@@ -208,9 +208,9 @@ public class TDLib.Chat : Error {
     public ChatBackground? background { get; construct set; }
 
     /**
-     * If non-empty, name of a theme, set for the chat
+     * Theme set for the chat; may be null if none
      */
-    public string theme_name { get; construct set; }
+    public ChatTheme? theme { get; construct set; }
 
     /**
      * Information about actions which must be possible to do through the
@@ -286,7 +286,7 @@ public class TDLib.Chat : Error {
         int32 message_auto_delete_time,
         EmojiStatus? emoji_status,
         ChatBackground? background,
-        string theme_name,
+        ChatTheme? theme,
         ChatActionBar? action_bar,
         BusinessBotManageBar? business_bot_manage_bar,
         VideoChat video_chat,
@@ -329,7 +329,7 @@ public class TDLib.Chat : Error {
             message_auto_delete_time: message_auto_delete_time,
             emoji_status: emoji_status,
             background: background,
-            theme_name: theme_name,
+            theme: theme,
             action_bar: action_bar,
             business_bot_manage_bar: business_bot_manage_bar,
             video_chat: video_chat,

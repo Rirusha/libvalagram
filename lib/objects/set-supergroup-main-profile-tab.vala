@@ -20,35 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Changes the main profile tab of the channel; requires can_change_info
+ * administrator right
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.SetSupergroupMainProfileTab : TDObject {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Identifier of the channel
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public int64 supergroup_id { get; construct set; }
 
     /**
-     * Telegram Star revenue status
+     * The new value of the main profile tab
      */
-    public StarRevenueStatus status { get; construct set; }
+    public ProfileTab main_profile_tab { get; construct set; }
 
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public SetSupergroupMainProfileTab (
+        int64 supergroup_id,
+        ProfileTab main_profile_tab
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            supergroup_id: supergroup_id,
+            main_profile_tab: main_profile_tab,
+            tdlib_type: "setSupergroupMainProfileTab",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -126,6 +126,7 @@ public sealed class TDLib.Client : Object {
         typeof (InputChecklist).ensure ();
         typeof (Animation).ensure ();
         typeof (Audio).ensure ();
+        typeof (Audios).ensure ();
         typeof (Document).ensure ();
         typeof (Photo).ensure ();
         typeof (Sticker).ensure ();
@@ -146,6 +147,14 @@ public sealed class TDLib.Client : Object {
         typeof (ChatBackground).ensure ();
         typeof (ProfilePhoto).ensure ();
         typeof (ChatPhotoInfo).ensure ();
+        typeof (ProfileTabPosts).ensure ();
+        typeof (ProfileTabGifts).ensure ();
+        typeof (ProfileTabMedia).ensure ();
+        typeof (ProfileTabFiles).ensure ();
+        typeof (ProfileTabLinks).ensure ();
+        typeof (ProfileTabMusic).ensure ();
+        typeof (ProfileTabVoice).ensure ();
+        typeof (ProfileTabGifs).ensure ();
         typeof (UserTypeRegular).ensure ();
         typeof (UserTypeDeleted).ensure ();
         typeof (UserTypeBot).ensure ();
@@ -238,6 +247,8 @@ public sealed class TDLib.Client : Object {
         typeof (GiftResaleParameters).ensure ();
         typeof (GiftCollection).ensure ();
         typeof (GiftCollections).ensure ();
+        typeof (CanSendGiftResultOk).ensure ();
+        typeof (CanSendGiftResultFail).ensure ();
         typeof (UpgradedGiftOriginUpgrade).ensure ();
         typeof (UpgradedGiftOriginTransfer).ensure ();
         typeof (UpgradedGiftOriginResale).ensure ();
@@ -575,6 +586,11 @@ public sealed class TDLib.Client : Object {
         typeof (LinkPreviewOptions).ensure ();
         typeof (SharedUser).ensure ();
         typeof (SharedChat).ensure ();
+        typeof (BuiltInThemeClassic).ensure ();
+        typeof (BuiltInThemeDay).ensure ();
+        typeof (BuiltInThemeNight).ensure ();
+        typeof (BuiltInThemeTinted).ensure ();
+        typeof (BuiltInThemeArctic).ensure ();
         typeof (ThemeSettings).ensure ();
         typeof (RichTextPlain).ensure ();
         typeof (RichTextBold).ensure ();
@@ -1345,7 +1361,13 @@ public sealed class TDLib.Client : Object {
         typeof (InputBackgroundLocal).ensure ();
         typeof (InputBackgroundRemote).ensure ();
         typeof (InputBackgroundPrevious).ensure ();
-        typeof (ChatTheme).ensure ();
+        typeof (EmojiChatTheme).ensure ();
+        typeof (GiftChatTheme).ensure ();
+        typeof (GiftChatThemes).ensure ();
+        typeof (ChatThemeEmoji).ensure ();
+        typeof (ChatThemeGift).ensure ();
+        typeof (InputChatThemeEmoji).ensure ();
+        typeof (InputChatThemeGift).ensure ();
         typeof (TimeZone).ensure ();
         typeof (TimeZones).ensure ();
         typeof (Hashtags).ensure ();
@@ -1702,6 +1724,8 @@ public sealed class TDLib.Client : Object {
         typeof (ChatRevenueTransactions).ensure ();
         typeof (StarRevenueStatus).ensure ();
         typeof (StarRevenueStatistics).ensure ();
+        typeof (TonRevenueStatus).ensure ();
+        typeof (TonRevenueStatistics).ensure ();
         typeof (Point).ensure ();
         typeof (VectorPathCommandLine).ensure ();
         typeof (VectorPathCommandCubicBezierCurve).ensure ();
@@ -1827,7 +1851,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateSavedAnimations).ensure ();
         typeof (UpdateSavedNotificationSounds).ensure ();
         typeof (UpdateDefaultBackground).ensure ();
-        typeof (UpdateChatThemes).ensure ();
+        typeof (UpdateEmojiChatThemes).ensure ();
         typeof (UpdateAccentColors).ensure ();
         typeof (UpdateProfileAccentColors).ensure ();
         typeof (UpdateLanguagePackStrings).ensure ();
@@ -1848,6 +1872,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateOwnedTonCount).ensure ();
         typeof (UpdateChatRevenueAmount).ensure ();
         typeof (UpdateStarRevenueStatus).ensure ();
+        typeof (UpdateTonRevenueStatus).ensure ();
         typeof (UpdateSpeechRecognitionTrial).ensure ();
         typeof (UpdateDiceEmojis).ensure ();
         typeof (UpdateAnimatedEmojiMessageClicked).ensure ();
@@ -20598,20 +20623,68 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns available to the current user gift chat themes
+     * @param offset Offset of the first entry to return as received from the
+     * previous request; use empty string to get the first chunk of results
+     * @param limit The maximum number of chat themes to return
+     */
+    public async GiftChatThemes get_gift_chat_themes (
+        string offset,
+        int32 limit
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetGiftChatThemes (
+            offset,
+            limit
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_gift_chat_themes.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftChatThemes) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Changes the chat theme. Supported only in private and secret chats
      * @param chat_id Chat identifier
-     * @param theme_name Name of the new chat theme; pass an empty string to
-     * return the default theme
+     * @param theme New chat theme; pass null to return the default theme
      */
     public async Ok set_chat_theme (
         int64 chat_id,
-        string theme_name
+        InputChatTheme theme
     ) throws TDLibError {
         try {
 
         var obj = new SetChatTheme (
             chat_id,
-            theme_name
+            theme
         );
         string json_response = "";
 
@@ -30934,6 +31007,248 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns the list of profile audio files of a user
+     * @param user_id User identifier
+     * @param offset The number of audio files to skip; must be non-negative
+     * @param limit The maximum number of audio files to be returned; up to
+     * 100
+     */
+    public async Audios get_user_profile_audios (
+        int64 user_id,
+        int32 offset,
+        int32 limit
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetUserProfileAudios (
+            user_id,
+            offset,
+            limit
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_user_profile_audios.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Audios) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Checks whether a file is in the profile audio files of the current
+     * user. Returns a 404 error if it isn't
+     * @param file_id Identifier of the audio file to check
+     */
+    public async Ok is_profile_audio (
+        int32 file_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new IsProfileAudio (
+            file_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (is_profile_audio.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Adds an audio file to the beginning of the profile audio files of the
+     * current user
+     * @param file_id Identifier of the audio file to be added. The file must
+     * have been uploaded to the server
+     */
+    public async Ok add_profile_audio (
+        int32 file_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new AddProfileAudio (
+            file_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (add_profile_audio.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes position of an audio file in the profile audio files of the
+     * current user
+     * @param file_id Identifier of the file from profile audio files, which
+     * position will be changed
+     * @param after_file_id Identifier of the file from profile audio files
+     * after which the file will be positioned; pass 0 to move the file to
+     * the beginning of the list
+     */
+    public async Ok set_profile_audio_position (
+        int32 file_id,
+        int32 after_file_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetProfileAudioPosition (
+            file_id,
+            after_file_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_profile_audio_position.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Removes an audio file from the profile audio files of the current user
+     * @param file_id Identifier of the audio file to be removed
+     */
+    public async Ok remove_profile_audio (
+        int32 file_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new RemoveProfileAudio (
+            file_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (remove_profile_audio.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Returns outline of a sticker. This is an offline method. Returns a 404
      * error if the outline isn't known
      * @param sticker_file_id File identifier of the sticker
@@ -33501,6 +33816,51 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (set_birthdate.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Changes the main profile tab of the current user
+     * @param main_profile_tab The new value of the main profile tab
+     */
+    public async Ok set_main_profile_tab (
+        ProfileTab main_profile_tab
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetMainProfileTab (
+            main_profile_tab
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_main_profile_tab.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -36868,6 +37228,55 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Changes the main profile tab of the channel; requires can_change_info
+     * administrator right
+     * @param supergroup_id Identifier of the channel
+     * @param main_profile_tab The new value of the main profile tab
+     */
+    public async Ok set_supergroup_main_profile_tab (
+        int64 supergroup_id,
+        ProfileTab main_profile_tab
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetSupergroupMainProfileTab (
+            supergroup_id,
+            main_profile_tab
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_supergroup_main_profile_tab.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Toggles whether sender signature or link to the account is added to
      * sent messages in a channel; requires can_change_info member right
      * @param supergroup_id Identifier of the channel
@@ -38107,6 +38516,52 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (AvailableGifts) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Checks whether a gift with next_send_date in the future can be sent
+     * already
+     * @param gift_id Identifier of the gift to send
+     */
+    public async CanSendGiftResult can_send_gift (
+        int64 gift_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new CanSendGift (
+            gift_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (can_send_gift.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (CanSendGiftResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41995,6 +42450,98 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (get_star_ad_account_url.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (HttpUrl) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns detailed Toncoin revenue statistics of the current user
+     * @param is_dark Pass true if a dark theme is used by the application
+     */
+    public async TonRevenueStatistics get_ton_revenue_statistics (
+        bool is_dark
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetTonRevenueStatistics (
+            is_dark
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_ton_revenue_statistics.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (TonRevenueStatistics) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns a URL for Toncoin withdrawal from the current user's account.
+     * The user must have at least 10 toncoins to withdraw
+     * and can withdraw up to 100000 Toncoins in one transaction
+     * @param password The 2-step verification password of the current user
+     */
+    public async HttpUrl get_ton_withdrawal_url (
+        string password
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetTonWithdrawalUrl (
+            password
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_ton_withdrawal_url.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);

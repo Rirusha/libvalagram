@@ -30,18 +30,17 @@ public class TDLib.SetChatTheme : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Name of the new chat theme; pass an empty string to return the default
-     * theme
+     * New chat theme; pass null to return the default theme
      */
-    public string theme_name { get; construct set; }
+    public InputChatTheme theme { get; construct set; }
 
     public SetChatTheme (
         int64 chat_id,
-        string theme_name
+        InputChatTheme theme
     ) {
         Object (
             chat_id: chat_id,
-            theme_name: theme_name,
+            theme: theme,
             tdlib_type: "setChatTheme",
             tdlib_extra: Uuid.string_random ()
         );

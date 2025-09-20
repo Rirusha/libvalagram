@@ -157,6 +157,16 @@ public class TDLib.UserFullInfo : Error {
     public BotVerification? bot_verification { get; construct set; }
 
     /**
+     * The main tab chosen by the user; may be null if not chosen manually
+     */
+    public ProfileTab? main_profile_tab { get; construct set; }
+
+    /**
+     * The first audio file added to the user's profile; may be null if none
+     */
+    public Audio? first_profile_audio { get; construct set; }
+
+    /**
      * The current rating of the user; may be null if none
      */
     public UserRating? rating { get; construct set; }
@@ -209,6 +219,8 @@ public class TDLib.UserFullInfo : Error {
         int64 outgoing_paid_message_star_count,
         GiftSettings gift_settings,
         BotVerification? bot_verification,
+        ProfileTab? main_profile_tab,
+        Audio? first_profile_audio,
         UserRating? rating,
         UserRating? pending_rating,
         int32 pending_rating_date,
@@ -238,6 +250,8 @@ public class TDLib.UserFullInfo : Error {
             outgoing_paid_message_star_count: outgoing_paid_message_star_count,
             gift_settings: gift_settings,
             bot_verification: bot_verification,
+            main_profile_tab: main_profile_tab,
+            first_profile_audio: first_profile_audio,
             rating: rating,
             pending_rating: pending_rating,
             pending_rating_date: pending_rating_date,

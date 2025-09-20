@@ -20,35 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Contains a list of chat themes based on upgraded gifts
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.GiftChatThemes : Error {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * A list of chat themes
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public Gee.ArrayList<GiftChatTheme?> themes { get; construct set; default = new Gee.ArrayList<GiftChatTheme?> (); }
 
     /**
-     * Telegram Star revenue status
+     * The offset for the next request. If empty, then there are no more
+     * results
      */
-    public StarRevenueStatus status { get; construct set; }
+    public string next_offset { get; construct set; }
 
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public GiftChatThemes (
+        Gee.ArrayList<GiftChatTheme?> themes,
+        string next_offset
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            themes: themes,
+            next_offset: next_offset,
+            tdlib_type: "giftChatThemes",
             tdlib_extra: Uuid.string_random ()
         );
     }

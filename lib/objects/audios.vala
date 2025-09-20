@@ -20,35 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Contains a list of audio files
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.Audios : Error {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Approximate total number of audio files found
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public int32 total_count { get; construct set; }
 
     /**
-     * Telegram Star revenue status
+     * List of audio files
      */
-    public StarRevenueStatus status { get; construct set; }
+    public Gee.ArrayList<Audio?> audios { get; construct set; default = new Gee.ArrayList<Audio?> (); }
 
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public Audios (
+        int32 total_count,
+        Gee.ArrayList<Audio?> audios
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            total_count: total_count,
+            audios: audios,
+            tdlib_type: "audios",
             tdlib_extra: Uuid.string_random ()
         );
     }

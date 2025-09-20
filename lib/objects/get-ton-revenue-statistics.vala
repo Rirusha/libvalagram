@@ -20,35 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Returns detailed Toncoin revenue statistics of the current user
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.GetTonRevenueStatistics : TDObject {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Pass true if a dark theme is used by the application
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public bool is_dark { get; construct set; }
 
-    /**
-     * Telegram Star revenue status
-     */
-    public StarRevenueStatus status { get; construct set; }
-
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public GetTonRevenueStatistics (
+        bool is_dark
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            is_dark: is_dark,
+            tdlib_type: "getTonRevenueStatistics",
             tdlib_extra: Uuid.string_random ()
         );
     }

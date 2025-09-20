@@ -123,13 +123,13 @@ public class TDLib.BackgroundTypeFill : BackgroundType {
 }
 
 /**
- * A background from a chat theme; can be used only as a chat background
- * in channels
+ * A background from a chat theme based on an emoji; can be used only as
+ * a chat background in channels
  */
 public class TDLib.BackgroundTypeChatTheme : BackgroundType {
 
     /**
-     * Name of the chat theme
+     * Name of the emoji chat theme
      */
     public string theme_name { get; construct set; }
 

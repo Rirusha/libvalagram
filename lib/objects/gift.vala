@@ -68,6 +68,14 @@ public class TDLib.Gift : Error {
     public bool is_premium { get; construct set; }
 
     /**
+     * Point in time (Unix timestamp) when the gift can be sent next time by
+     * the current user; can be 0 or a date in the past.
+     * If the date is in the future, then call {@link Client.can_send_gift}
+     * to get the reason, why the gift can't be sent now
+     */
+    public int32 next_send_date { get; construct set; }
+
+    /**
      * Number of times the gift can be purchased by the current user; may be
      * null if not limited
      */
@@ -100,6 +108,7 @@ public class TDLib.Gift : Error {
         int64 upgrade_star_count,
         bool is_for_birthday,
         bool is_premium,
+        int32 next_send_date,
         GiftPurchaseLimits? user_limits,
         GiftPurchaseLimits? overall_limits,
         int32 first_send_date,
@@ -114,6 +123,7 @@ public class TDLib.Gift : Error {
             upgrade_star_count: upgrade_star_count,
             is_for_birthday: is_for_birthday,
             is_premium: is_premium,
+            next_send_date: next_send_date,
             user_limits: user_limits,
             overall_limits: overall_limits,
             first_send_date: first_send_date,

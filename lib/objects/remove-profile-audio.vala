@@ -20,35 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Removes an audio file from the profile audio files of the current user
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.RemoveProfileAudio : TDObject {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Identifier of the audio file to be removed
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public int32 file_id { get; construct set; }
 
-    /**
-     * Telegram Star revenue status
-     */
-    public StarRevenueStatus status { get; construct set; }
-
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public RemoveProfileAudio (
+        int32 file_id
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            file_id: file_id,
+            tdlib_type: "removeProfileAudio",
             tdlib_extra: Uuid.string_random ()
         );
     }

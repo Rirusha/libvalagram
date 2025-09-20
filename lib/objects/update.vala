@@ -1229,18 +1229,17 @@ public class TDLib.UpdateChatTheme : Update {
     public int64 chat_id { get; construct set; }
 
     /**
-     * The new name of the chat theme; may be empty if theme was reset to
-     * default
+     * The new theme of the chat; may be null if theme was reset to default
      */
-    public string theme_name { get; construct set; }
+    public ChatTheme? theme { get; construct set; }
 
     public UpdateChatTheme (
         int64 chat_id,
-        string theme_name
+        ChatTheme? theme
     ) {
         Object (
             chat_id: chat_id,
-            theme_name: theme_name,
+            theme: theme,
             tdlib_type: "updateChatTheme",
             tdlib_extra: Uuid.string_random ()
         );
@@ -3439,21 +3438,21 @@ public class TDLib.UpdateDefaultBackground : Update {
 }
 
 /**
- * The list of available chat themes has changed
+ * The list of available emoji chat themes has changed
  */
-public class TDLib.UpdateChatThemes : Update {
+public class TDLib.UpdateEmojiChatThemes : Update {
 
     /**
-     * The new list of chat themes
+     * The new list of emoji chat themes
      */
-    public Gee.ArrayList<ChatTheme?> chat_themes { get; construct set; default = new Gee.ArrayList<ChatTheme?> (); }
+    public Gee.ArrayList<EmojiChatTheme?> chat_themes { get; construct set; default = new Gee.ArrayList<EmojiChatTheme?> (); }
 
-    public UpdateChatThemes (
-        Gee.ArrayList<ChatTheme?> chat_themes
+    public UpdateEmojiChatThemes (
+        Gee.ArrayList<EmojiChatTheme?> chat_themes
     ) {
         Object (
             chat_themes: chat_themes,
-            tdlib_type: "updateChatThemes",
+            tdlib_type: "updateEmojiChatThemes",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -3963,7 +3962,7 @@ public class TDLib.UpdateChatRevenueAmount : Update {
 }
 
 /**
- * The Telegram Star revenue earned by a bot or a chat has changed. If
+ * The Telegram Star revenue earned by a user or a chat has changed. If
  * Telegram Star transaction screen of the chat is opened, then
  * {@link Client.get_star_transactions} may be called to fetch new
  * transactions
@@ -3988,6 +3987,30 @@ public class TDLib.UpdateStarRevenueStatus : Update {
             owner_id: owner_id,
             status: status,
             tdlib_type: "updateStarRevenueStatus",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The Toncoin revenue earned by the current user has changed. If Toncoin
+ * transaction screen of the chat is opened, then
+ * {@link Client.get_ton_transactions} may be called to fetch new
+ * transactions
+ */
+public class TDLib.UpdateTonRevenueStatus : Update {
+
+    /**
+     * New Toncoin revenue status
+     */
+    public TonRevenueStatus status { get; construct set; }
+
+    public UpdateTonRevenueStatus (
+        TonRevenueStatus status
+    ) {
+        Object (
+            status: status,
+            tdlib_type: "updateTonRevenueStatus",
             tdlib_extra: Uuid.string_random ()
         );
     }

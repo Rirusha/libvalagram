@@ -67,11 +67,26 @@ public class TDLib.AuthorizationStateWaitPremiumPurchase : AuthorizationState {
      */
     public string store_product_id { get; construct set; }
 
+    /**
+     * Email address to use for support if the user has issues with Telegram
+     * Premium purchase
+     */
+    public string support_email_address { get; construct set; }
+
+    /**
+     * Subject for the email sent to the support email address
+     */
+    public string support_email_subject { get; construct set; }
+
     public AuthorizationStateWaitPremiumPurchase (
-        string store_product_id
+        string store_product_id,
+        string support_email_address,
+        string support_email_subject
     ) {
         Object (
             store_product_id: store_product_id,
+            support_email_address: support_email_address,
+            support_email_subject: support_email_subject,
             tdlib_type: "authorizationStateWaitPremiumPurchase",
             tdlib_extra: Uuid.string_random ()
         );

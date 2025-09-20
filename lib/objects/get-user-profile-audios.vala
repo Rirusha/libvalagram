@@ -20,35 +20,35 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Returns the list of profile audio files of a user
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.GetUserProfileAudios : TDObject {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * User identifier
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public int64 user_id { get; construct set; }
 
     /**
-     * Telegram Star revenue status
+     * The number of audio files to skip; must be non-negative
      */
-    public StarRevenueStatus status { get; construct set; }
+    public int32 offset { get; construct set; }
 
     /**
-     * Current conversion rate of a Telegram Star to USD
+     * The maximum number of audio files to be returned; up to 100
      */
-    public double usd_rate { get; construct set; }
+    public int32 limit { get; construct set; }
 
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public GetUserProfileAudios (
+        int64 user_id,
+        int32 offset,
+        int32 limit
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            user_id: user_id,
+            offset: offset,
+            limit: limit,
+            tdlib_type: "getUserProfileAudios",
             tdlib_extra: Uuid.string_random ()
         );
     }

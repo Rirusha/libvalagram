@@ -211,15 +211,23 @@ public class TDLib.TelegramPaymentPurposeStars : TelegramPaymentPurpose {
      */
     public int64 star_count { get; construct set; }
 
+    /**
+     * Identifier of the chat that is supposed to receive the Telegram Stars;
+     * pass 0 if none
+     */
+    public int64 chat_id { get; construct set; }
+
     public TelegramPaymentPurposeStars (
         string currency,
         int64 amount,
-        int64 star_count
+        int64 star_count,
+        int64 chat_id
     ) {
         Object (
             currency: currency,
             amount: amount,
             star_count: star_count,
+            chat_id: chat_id,
             tdlib_type: "telegramPaymentPurposeStars",
             tdlib_extra: Uuid.string_random ()
         );

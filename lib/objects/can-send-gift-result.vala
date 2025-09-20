@@ -20,35 +20,39 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Describes whether a gift can be sent now by the current user
  */
-public class TDLib.StarRevenueStatistics : Error {
+public abstract class TDLib.CanSendGiftResult : Error {}
+
+/**
+ * The gift can be sent now by the current user
+ */
+public class TDLib.CanSendGiftResultOk : CanSendGiftResult {
+
+    public CanSendGiftResultOk () {
+        Object (
+            tdlib_type: "canSendGiftResultOk",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The gift can't be sent now by the current user
+ */
+public class TDLib.CanSendGiftResultFail : CanSendGiftResult {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Reason to be shown to the user
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public FormattedText reason { get; construct set; }
 
-    /**
-     * Telegram Star revenue status
-     */
-    public StarRevenueStatus status { get; construct set; }
-
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public CanSendGiftResultFail (
+        FormattedText reason
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            reason: reason,
+            tdlib_type: "canSendGiftResultFail",
             tdlib_extra: Uuid.string_random ()
         );
     }

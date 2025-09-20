@@ -20,35 +20,35 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Describes a chat theme based on an emoji
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.EmojiChatTheme : Error {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Theme name
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public string name { get; construct set; }
 
     /**
-     * Telegram Star revenue status
+     * Theme settings for a light chat theme
      */
-    public StarRevenueStatus status { get; construct set; }
+    public ThemeSettings light_settings { get; construct set; }
 
     /**
-     * Current conversion rate of a Telegram Star to USD
+     * Theme settings for a dark chat theme
      */
-    public double usd_rate { get; construct set; }
+    public ThemeSettings dark_settings { get; construct set; }
 
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public EmojiChatTheme (
+        string name,
+        ThemeSettings light_settings,
+        ThemeSettings dark_settings
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            name: name,
+            light_settings: light_settings,
+            dark_settings: dark_settings,
+            tdlib_type: "emojiChatTheme",
             tdlib_extra: Uuid.string_random ()
         );
     }

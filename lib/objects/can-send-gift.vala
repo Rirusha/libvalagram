@@ -20,35 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * A detailed statistics about Telegram Stars earned by a user or a chat
+ * Checks whether a gift with next_send_date in the future can be sent
+ * already
  */
-public class TDLib.StarRevenueStatistics : Error {
+public class TDLib.CanSendGift : TDObject {
 
     /**
-     * A graph containing amount of revenue in a given day
+     * Identifier of the gift to send
      */
-    public StatisticalGraph revenue_by_day_graph { get; construct set; }
+    public int64 gift_id { get; construct set; }
 
-    /**
-     * Telegram Star revenue status
-     */
-    public StarRevenueStatus status { get; construct set; }
-
-    /**
-     * Current conversion rate of a Telegram Star to USD
-     */
-    public double usd_rate { get; construct set; }
-
-    public StarRevenueStatistics (
-        StatisticalGraph revenue_by_day_graph,
-        StarRevenueStatus status,
-        double usd_rate
+    public CanSendGift (
+        int64 gift_id
     ) {
         Object (
-            revenue_by_day_graph: revenue_by_day_graph,
-            status: status,
-            usd_rate: usd_rate,
-            tdlib_type: "starRevenueStatistics",
+            gift_id: gift_id,
+            tdlib_type: "canSendGift",
             tdlib_extra: Uuid.string_random ()
         );
     }
