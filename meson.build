@@ -1,7 +1,7 @@
 project(
   'libvalagram',
   ['c', 'vala'],
-  version: '1.10.6',
+  version: '1.11.0',
   meson_version: '>= 1.0.0',
   license: 'GPL-3.0-or-later',
 )
