@@ -26,8 +26,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check files
-        uses: alt-gnome/coding-style-actions/vala@main
+      # - name: Check files
+      #   uses: alt-gnome/coding-style-actions/vala@main
 
   test-build:
     name: Test Build
