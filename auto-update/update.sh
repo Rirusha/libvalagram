@@ -11,9 +11,9 @@ echo "*" >> auto-update/tdlib2vala/.gitignore
 owd="$(pwd)"
 
 cd auto-update/tdlib2vala
-python3.12 generator.py 'Vladimir Vaskov' $owd
+python3 generator.py 'Vladimir Vaskov' $owd
 cd $owd
-python3.12 auto-update/update_meson.py lib/meson.build
+python3 auto-update/update_meson.py lib/meson.build
 
 echo "*" >> auto-update/tdlib2vala/.gitignore
 
@@ -38,7 +38,7 @@ rm -rf auto-update/tdlib2vala/
 
 git add .
 if git commit -m "update: Regular lib update" ; then
-    python3.12 auto-update/update_main_meson.py meson.build "$new_version"
+    python3 auto-update/update_main_meson.py meson.build "$new_version"
 
     git add .
     if  git commit -m "Bump version to $new_version" ; then
