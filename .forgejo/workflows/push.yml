@@ -17,38 +17,17 @@ permissions:
 
 jobs:
   lint-vala:
-    name: Lint vala files
+    name: Check vala files
     runs-on: alt-sisyphus
     container:
-      image: altlinux.space/alt-gnome/vala-linter-image:latest
+      image: altlinux.space/alt-gnome/coding-style-image:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Lint files
-        uses: alt-gnome/linters-actions/vala@main
-
-  checkers:
-    name: Run checkers
-    runs-on: alt-sisyphus
-
-    steps:
-      - name: Install git on container
-        run: |
-          apt-get update
-          apt-get install -y git python3
-          
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Run indentation checker
-        run: python3 ./vala-checkers/indentation_checker.py .
-
-      - name: Run empty lines checker
-        run: python3 ./vala-checkers/empty_lines_checker.py .
+      - name: Check files
+        uses: alt-gnome/coding-style-actions/vala@main
 
   test-build:
     name: Test Build
