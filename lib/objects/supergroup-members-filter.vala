@@ -149,17 +149,18 @@ public class TDLib.SupergroupMembersFilterMention : SupergroupMembersFilter {
     public string query { get; construct set; }
 
     /**
-     * If non-zero, the identifier of the current message thread
+     * Identifier of the topic in which the users will be mentioned; pass
+     * null if none
      */
-    public int64 message_thread_id { get; construct set; }
+    public MessageTopic topic_id { get; construct set; }
 
     public SupergroupMembersFilterMention (
         string query,
-        int64 message_thread_id
+        MessageTopic topic_id
     ) {
         Object (
             query: query,
-            message_thread_id: message_thread_id,
+            topic_id: topic_id,
             tdlib_type: "supergroupMembersFilterMention",
             tdlib_extra: Uuid.string_random ()
         );

@@ -20,8 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the order of pinned forum topics; requires can_manage_topics
- * administrator right in the supergroup
+ * Changes the order of pinned topics in a forum supergroup chat or a
+ * chat with a bot with topics; requires can_manage_topics administrator
+ * right in the supergroup
  */
 public class TDLib.SetPinnedForumTopics : TDObject {
 
@@ -31,17 +32,17 @@ public class TDLib.SetPinnedForumTopics : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * The new list of pinned forum topics
+     * The new list of identifiers of the pinned forum topics
      */
-    public Gee.ArrayList<int64?> message_thread_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
+    public Gee.ArrayList<int32?> forum_topic_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
     public SetPinnedForumTopics (
         int64 chat_id,
-        Gee.ArrayList<int64?> message_thread_ids
+        Gee.ArrayList<int32?> forum_topic_ids
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_ids: message_thread_ids,
+            forum_topic_ids: forum_topic_ids,
             tdlib_type: "setPinnedForumTopics",
             tdlib_extra: Uuid.string_random ()
         );

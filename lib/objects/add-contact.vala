@@ -26,10 +26,15 @@
 public class TDLib.AddContact : TDObject {
 
     /**
-     * The contact to add or edit; phone number may be empty and needs to be
-     * specified only if known, vCard is ignored
+     * Identifier of the user
      */
-    public Contact contact { get; construct set; }
+    public int64 user_id { get; construct set; }
+
+    /**
+     * The contact to add or edit; phone number may be empty and needs to be
+     * specified only if known
+     */
+    public ImportedContact contact { get; construct set; }
 
     /**
      * Pass true to share the current user's phone number with the new
@@ -42,10 +47,12 @@ public class TDLib.AddContact : TDObject {
     public bool share_phone_number { get; construct set; }
 
     public AddContact (
-        Contact contact,
+        int64 user_id,
+        ImportedContact contact,
         bool share_phone_number
     ) {
         Object (
+            user_id: user_id,
             contact: contact,
             share_phone_number: share_phone_number,
             tdlib_type: "addContact",

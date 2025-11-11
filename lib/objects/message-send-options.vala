@@ -25,13 +25,6 @@
 public class TDLib.MessageSendOptions : Error {
 
     /**
-     * Unique identifier of the topic in a channel direct messages chat
-     * administered by the current user; pass 0 if the chat isn't a channel
-     * direct messages chat administered by the current user
-     */
-    public int64 direct_messages_chat_topic_id { get; construct set; }
-
-    /**
      * Information about the suggested post; pass null if none. For messages
      * to channel direct messages chat only. Applicable only to
      * {@link Client.send_message} and {@link Client.add_offer}
@@ -102,7 +95,6 @@ public class TDLib.MessageSendOptions : Error {
     public bool only_preview { get; construct set; }
 
     public MessageSendOptions (
-        int64 direct_messages_chat_topic_id,
         InputSuggestedPostInfo suggested_post_info,
         bool disable_notification,
         bool from_background,
@@ -116,7 +108,6 @@ public class TDLib.MessageSendOptions : Error {
         bool only_preview
     ) {
         Object (
-            direct_messages_chat_topic_id: direct_messages_chat_topic_id,
             suggested_post_info: suggested_post_info,
             disable_notification: disable_notification,
             from_background: from_background,

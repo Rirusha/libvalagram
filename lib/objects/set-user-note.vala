@@ -20,28 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Marks all mentions in a forum topic as read
+ * Changes a note of a contact user
  */
-public class TDLib.ReadAllMessageThreadMentions : TDObject {
+public class TDLib.SetUserNote : TDObject {
 
     /**
-     * Chat identifier
+     * User identifier
      */
-    public int64 chat_id { get; construct set; }
+    public int64 user_id { get; construct set; }
 
     /**
-     * Message thread identifier in which mentions are marked as read
+     * Note to set for the user; 0-getOption("user_note_text_length_max")
+     * characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and
+     * CustomEmoji entities are allowed
      */
-    public int64 message_thread_id { get; construct set; }
+    public FormattedText note { get; construct set; }
 
-    public ReadAllMessageThreadMentions (
-        int64 chat_id,
-        int64 message_thread_id
+    public SetUserNote (
+        int64 user_id,
+        FormattedText note
     ) {
         Object (
-            chat_id: chat_id,
-            message_thread_id: message_thread_id,
-            tdlib_type: "readAllMessageThreadMentions",
+            user_id: user_id,
+            note: note,
+            tdlib_type: "setUserNote",
             tdlib_extra: Uuid.string_random ()
         );
     }

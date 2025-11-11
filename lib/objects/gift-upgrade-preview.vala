@@ -43,15 +43,31 @@ public class TDLib.GiftUpgradePreview : Error {
      */
     public Gee.ArrayList<UpgradedGiftBackdrop?> backdrops { get; construct set; default = new Gee.ArrayList<UpgradedGiftBackdrop?> (); }
 
+    /**
+     * Examples of price for gift upgrade from the maximum price to the
+     * minimum price
+     */
+    public Gee.ArrayList<GiftUpgradePrice?> prices { get; construct set; default = new Gee.ArrayList<GiftUpgradePrice?> (); }
+
+    /**
+     * Next changes for the price for gift upgrade with more granularity than
+     * in prices
+     */
+    public Gee.ArrayList<GiftUpgradePrice?> next_prices { get; construct set; default = new Gee.ArrayList<GiftUpgradePrice?> (); }
+
     public GiftUpgradePreview (
         Gee.ArrayList<UpgradedGiftModel?> models,
         Gee.ArrayList<UpgradedGiftSymbol?> symbols,
-        Gee.ArrayList<UpgradedGiftBackdrop?> backdrops
+        Gee.ArrayList<UpgradedGiftBackdrop?> backdrops,
+        Gee.ArrayList<GiftUpgradePrice?> prices,
+        Gee.ArrayList<GiftUpgradePrice?> next_prices
     ) {
         Object (
             models: models,
             symbols: symbols,
             backdrops: backdrops,
+            prices: prices,
+            next_prices: next_prices,
             tdlib_type: "giftUpgradePreview",
             tdlib_extra: Uuid.string_random ()
         );

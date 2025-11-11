@@ -20,9 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a contact of a user
+ * Describes a contact to import
  */
-public class TDLib.Contact : Error {
+public class TDLib.ImportedContact : Error {
 
     /**
      * Phone number of the user
@@ -40,30 +40,25 @@ public class TDLib.Contact : Error {
     public string last_name { get; construct set; }
 
     /**
-     * Additional data about the user in a form of vCard; 0-2048 bytes in
-     * length
+     * Note to add about the user; 0-getOption("user_note_text_length_max")
+     * characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and
+     * CustomEmoji entities are allowed;
+     * pass null to keep the current user's note
      */
-    public string vcard { get; construct set; }
+    public FormattedText note { get; construct set; }
 
-    /**
-     * Identifier of the user, if known; 0 otherwise
-     */
-    public int64 user_id { get; construct set; }
-
-    public Contact (
+    public ImportedContact (
         string phone_number,
         string first_name,
         string last_name,
-        string vcard,
-        int64 user_id
+        FormattedText note
     ) {
         Object (
             phone_number: phone_number,
             first_name: first_name,
             last_name: last_name,
-            vcard: vcard,
-            user_id: user_id,
-            tdlib_type: "contact",
+            note: note,
+            tdlib_type: "importedContact",
             tdlib_extra: Uuid.string_random ()
         );
     }

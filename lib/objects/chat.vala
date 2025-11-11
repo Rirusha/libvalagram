@@ -58,6 +58,12 @@ public class TDLib.Chat : Error {
     public int64 background_custom_emoji_id { get; construct set; }
 
     /**
+     * Color scheme based on an upgraded gift to be used for the chat instead
+     * of accent_color_id and background_custom_emoji_id; may be null if none
+     */
+    public UpgradedGiftColors? upgraded_gift_colors { get; construct set; }
+
+    /**
      * Identifier of the profile accent color for the chat's profile; -1 if
      * none
      */
@@ -259,6 +265,7 @@ public class TDLib.Chat : Error {
         ChatPhotoInfo? photo,
         int32 accent_color_id,
         int64 background_custom_emoji_id,
+        UpgradedGiftColors? upgraded_gift_colors,
         int32 profile_accent_color_id,
         int64 profile_background_custom_emoji_id,
         ChatPermissions permissions,
@@ -302,6 +309,7 @@ public class TDLib.Chat : Error {
             photo: photo,
             accent_color_id: accent_color_id,
             background_custom_emoji_id: background_custom_emoji_id,
+            upgraded_gift_colors: upgraded_gift_colors,
             profile_accent_color_id: profile_accent_color_id,
             profile_background_custom_emoji_id: profile_background_custom_emoji_id,
             permissions: permissions,

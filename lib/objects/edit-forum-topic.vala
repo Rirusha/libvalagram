@@ -20,9 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Edits title and icon of a topic in a forum supergroup chat; requires
- * can_manage_topics administrator right in the supergroup unless the
- * user is creator of the topic
+ * Edits title and icon of a topic in a forum supergroup chat or a chat
+ * with a bot with topics; for supergroup chats requires
+ * can_manage_topics administrator right
+ * unless the user is creator of the topic
  */
 public class TDLib.EditForumTopic : TDObject {
 
@@ -32,9 +33,9 @@ public class TDLib.EditForumTopic : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Message thread identifier of the forum topic
+     * Forum topic identifier
      */
-    public int64 message_thread_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
     /**
      * New name of the topic; 0-128 characters. If empty, the previous topic
@@ -58,14 +59,14 @@ public class TDLib.EditForumTopic : TDObject {
 
     public EditForumTopic (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         string name,
         bool edit_icon_custom_emoji,
         int64 icon_custom_emoji_id
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            forum_topic_id: forum_topic_id,
             name: name,
             edit_icon_custom_emoji: edit_icon_custom_emoji,
             icon_custom_emoji_id: icon_custom_emoji_id,

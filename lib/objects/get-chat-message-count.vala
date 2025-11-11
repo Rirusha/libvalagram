@@ -32,7 +32,8 @@ public class TDLib.GetChatMessageCount : TDObject {
 
     /**
      * Pass topic identifier to get number of messages only in specific
-     * topic; pass null to get number of messages in all topics
+     * topic; pass null to get number of messages in all topics; message
+     * threads aren't supported
      */
     public MessageTopic topic_id { get; construct set; }
 

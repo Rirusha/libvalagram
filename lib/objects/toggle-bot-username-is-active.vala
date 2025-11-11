@@ -21,10 +21,10 @@
 
 /**
  * Changes active state for a username of a bot. The editable username
- * can't be disabled. May return an error with a message
- * "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames
- * has been reached. Can be called only if userTypeBot.can_be_edited ==
- * true
+ * can be disabled only if there are other active usernames.
+ * May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the
+ * maximum number of active usernames has been reached. Can be called
+ * only if userTypeBot.can_be_edited == true
  */
 public class TDLib.ToggleBotUsernameIsActive : TDObject {
 

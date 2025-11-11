@@ -20,13 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the pinned state of a topic in a forum supergroup chat or a
- * chat with a bot with topics; requires can_manage_topics administrator
- * right in the supergroup.
- * There can be up to getOption("pinned_forum_topic_count_max") pinned
- * forum topics
+ * Sends a draft for a being generated text message; for bots only
  */
-public class TDLib.ToggleForumTopicIsPinned : TDObject {
+public class TDLib.SendTextMessageDraft : TDObject {
 
     /**
      * Chat identifier
@@ -34,25 +30,33 @@ public class TDLib.ToggleForumTopicIsPinned : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Forum topic identifier
+     * The forum topic identifier in which the message will be sent; pass 0
+     * if none
      */
     public int32 forum_topic_id { get; construct set; }
 
     /**
-     * Pass true to pin the topic; pass false to unpin it
+     * Unique identifier of the draft
      */
-    public bool is_pinned { get; construct set; }
+    public int64 draft_id { get; construct set; }
 
-    public ToggleForumTopicIsPinned (
+    /**
+     * Draft text of the message
+     */
+    public FormattedText text { get; construct set; }
+
+    public SendTextMessageDraft (
         int64 chat_id,
         int32 forum_topic_id,
-        bool is_pinned
+        int64 draft_id,
+        FormattedText text
     ) {
         Object (
             chat_id: chat_id,
             forum_topic_id: forum_topic_id,
-            is_pinned: is_pinned,
-            tdlib_type: "toggleForumTopicIsPinned",
+            draft_id: draft_id,
+            text: text,
+            tdlib_type: "sendTextMessageDraft",
             tdlib_extra: Uuid.string_random ()
         );
     }

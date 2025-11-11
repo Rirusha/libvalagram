@@ -52,6 +52,12 @@ public class TDLib.UpgradeGiftResult : Error {
     public int64 transfer_star_count { get; construct set; }
 
     /**
+     * Number of Telegram Stars that must be paid to drop original details of
+     * the upgraded gift; 0 if not available
+     */
+    public int64 drop_original_details_star_count { get; construct set; }
+
+    /**
      * Point in time (Unix timestamp) when the gift can be transferred to
      * another owner; can be in the past; 0 if the gift can be transferred
      * immediately or transfer isn't possible
@@ -77,6 +83,7 @@ public class TDLib.UpgradeGiftResult : Error {
         bool is_saved,
         bool can_be_transferred,
         int64 transfer_star_count,
+        int64 drop_original_details_star_count,
         int32 next_transfer_date,
         int32 next_resale_date,
         int32 export_date
@@ -87,6 +94,7 @@ public class TDLib.UpgradeGiftResult : Error {
             is_saved: is_saved,
             can_be_transferred: can_be_transferred,
             transfer_star_count: transfer_star_count,
+            drop_original_details_star_count: drop_original_details_star_count,
             next_transfer_date: next_transfer_date,
             next_resale_date: next_resale_date,
             export_date: export_date,

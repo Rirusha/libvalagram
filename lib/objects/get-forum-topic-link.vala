@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns an HTTPS link to a topic in a forum chat. This is an offline
- * method
+ * Returns an HTTPS link to a topic in a forum supergroup chat. This is
+ * an offline method
  */
 public class TDLib.GetForumTopicLink : TDObject {
 
@@ -31,17 +31,17 @@ public class TDLib.GetForumTopicLink : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Message thread identifier of the forum topic
+     * Forum topic identifier
      */
-    public int64 message_thread_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
     public GetForumTopicLink (
         int64 chat_id,
-        int64 message_thread_id
+        int32 forum_topic_id
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            forum_topic_id: forum_topic_id,
             tdlib_type: "getForumTopicLink",
             tdlib_extra: Uuid.string_random ()
         );

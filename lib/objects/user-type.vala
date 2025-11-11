@@ -86,6 +86,11 @@ public class TDLib.UserTypeBot : UserType {
     public bool has_main_web_app { get; construct set; }
 
     /**
+     * True, if the bot has topics
+     */
+    public bool has_topics { get; construct set; }
+
+    /**
      * True, if the bot supports inline queries
      */
     public bool is_inline { get; construct set; }
@@ -122,6 +127,7 @@ public class TDLib.UserTypeBot : UserType {
         bool can_join_groups,
         bool can_read_all_group_messages,
         bool has_main_web_app,
+        bool has_topics,
         bool is_inline,
         string inline_query_placeholder,
         bool need_location,
@@ -134,6 +140,7 @@ public class TDLib.UserTypeBot : UserType {
             can_join_groups: can_join_groups,
             can_read_all_group_messages: can_read_all_group_messages,
             has_main_web_app: has_main_web_app,
+            has_topics: has_topics,
             is_inline: is_inline,
             inline_query_placeholder: inline_query_placeholder,
             need_location: need_location,

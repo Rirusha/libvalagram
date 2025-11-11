@@ -116,6 +116,13 @@ public class TDLib.ReceivedGift : Error {
     public int64 transfer_star_count { get; construct set; }
 
     /**
+     * Number of Telegram Stars that must be paid to drop original details of
+     * the upgraded gift; 0 if not available; only for the receiver of the
+     * gift
+     */
+    public int64 drop_original_details_star_count { get; construct set; }
+
+    /**
      * Point in time (Unix timestamp) when the gift can be transferred to
      * another owner; can be in the past; 0 if the gift can be transferred
      * immediately or transfer isn't possible; only for the receiver of the
@@ -160,6 +167,7 @@ public class TDLib.ReceivedGift : Error {
         int64 prepaid_upgrade_star_count,
         bool is_upgrade_separate,
         int64 transfer_star_count,
+        int64 drop_original_details_star_count,
         int32 next_transfer_date,
         int32 next_resale_date,
         int32 export_date,
@@ -182,6 +190,7 @@ public class TDLib.ReceivedGift : Error {
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
             is_upgrade_separate: is_upgrade_separate,
             transfer_star_count: transfer_star_count,
+            drop_original_details_star_count: drop_original_details_star_count,
             next_transfer_date: next_transfer_date,
             next_resale_date: next_resale_date,
             export_date: export_date,

@@ -33,7 +33,8 @@ public class TDLib.GetChatMessagePosition : TDObject {
 
     /**
      * Pass topic identifier to get position among messages only in specific
-     * topic; pass null to get position among all chat messages
+     * topic; pass null to get position among all chat messages; message
+     * threads aren't supported
      */
     public MessageTopic topic_id { get; construct set; }
 

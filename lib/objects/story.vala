@@ -87,8 +87,9 @@ public class TDLib.Story : Error {
     public bool can_be_edited { get; construct set; }
 
     /**
-     * True, if the story can be forwarded as a message. Otherwise,
-     * screenshots and saving of the story content must be also forbidden
+     * True, if the story can be forwarded as a message or reposted as a
+     * story. Otherwise, screenshotting and saving of the story content must
+     * be also forbidden
      */
     public bool can_be_forwarded { get; construct set; }
 

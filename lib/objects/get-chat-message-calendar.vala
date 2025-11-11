@@ -34,7 +34,8 @@ public class TDLib.GetChatMessageCalendar : TDObject {
 
     /**
      * Pass topic identifier to get the result only in specific topic; pass
-     * null to get the result in all topics; forum topics aren't supported
+     * null to get the result in all topics; forum topics and message threads
+     * aren't supported
      */
     public MessageTopic topic_id { get; construct set; }
 

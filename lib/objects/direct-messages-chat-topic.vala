@@ -53,7 +53,7 @@ public class TDLib.DirectMessagesChatTopic : Error {
     public bool can_send_unpaid_messages { get; construct set; }
 
     /**
-     * True, if the forum topic is marked as unread
+     * True, if the topic is marked as unread
      */
     public bool is_marked_as_unread { get; construct set; }
 

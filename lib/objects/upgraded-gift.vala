@@ -87,6 +87,12 @@ public class TDLib.UpgradedGift : Error {
     public int64 used_theme_chat_id { get; construct set; }
 
     /**
+     * Identifier of the user or the chat to which the upgraded gift was
+     * assigned from blockchain; may be null if none or unknown
+     */
+    public MessageSender? host_id { get; construct set; }
+
+    /**
      * Identifier of the user or the chat that owns the upgraded gift; may be
      * null if none or unknown
      */
@@ -133,6 +139,12 @@ public class TDLib.UpgradedGift : Error {
     public UpgradedGiftOriginalDetails? original_details { get; construct set; }
 
     /**
+     * Colors that can be set for user's name, background of empty chat
+     * photo, replies to messages and link previews; may be null if none
+     */
+    public UpgradedGiftColors? colors { get; construct set; }
+
+    /**
      * Resale parameters of the gift; may be null if resale isn't possible
      */
     public GiftResaleParameters? resale_parameters { get; construct set; }
@@ -161,6 +173,7 @@ public class TDLib.UpgradedGift : Error {
         bool is_premium,
         bool is_theme_available,
         int64 used_theme_chat_id,
+        MessageSender? host_id,
         MessageSender? owner_id,
         string owner_address,
         string owner_name,
@@ -169,6 +182,7 @@ public class TDLib.UpgradedGift : Error {
         UpgradedGiftSymbol symbol,
         UpgradedGiftBackdrop backdrop,
         UpgradedGiftOriginalDetails? original_details,
+        UpgradedGiftColors? colors,
         GiftResaleParameters? resale_parameters,
         string value_currency,
         int64 value_amount
@@ -185,6 +199,7 @@ public class TDLib.UpgradedGift : Error {
             is_premium: is_premium,
             is_theme_available: is_theme_available,
             used_theme_chat_id: used_theme_chat_id,
+            host_id: host_id,
             owner_id: owner_id,
             owner_address: owner_address,
             owner_name: owner_name,
@@ -193,6 +208,7 @@ public class TDLib.UpgradedGift : Error {
             symbol: symbol,
             backdrop: backdrop,
             original_details: original_details,
+            colors: colors,
             resale_parameters: resale_parameters,
             value_currency: value_currency,
             value_amount: value_amount,

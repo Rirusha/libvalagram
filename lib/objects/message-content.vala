@@ -1423,16 +1423,23 @@ public class TDLib.MessageForumTopicCreated : MessageContent {
     public string name { get; construct set; }
 
     /**
+     * True, if the name of the topic wasn't added explicitly
+     */
+    public bool is_name_implicit { get; construct set; }
+
+    /**
      * Icon of the topic
      */
     public ForumTopicIcon icon { get; construct set; }
 
     public MessageForumTopicCreated (
         string name,
+        bool is_name_implicit,
         ForumTopicIcon icon
     ) {
         Object (
             name: name,
+            is_name_implicit: is_name_implicit,
             icon: icon,
             tdlib_type: "messageForumTopicCreated",
             tdlib_extra: Uuid.string_random ()
@@ -1536,6 +1543,28 @@ public class TDLib.MessageSuggestProfilePhoto : MessageContent {
         Object (
             photo: photo,
             tdlib_type: "messageSuggestProfilePhoto",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A birthdate was suggested to be set
+ */
+public class TDLib.MessageSuggestBirthdate : MessageContent {
+
+    /**
+     * The suggested birthdate. Use the method {@link Client.set_birthdate}
+     * to apply the birthdate
+     */
+    public Birthdate birthdate { get; construct set; }
+
+    public MessageSuggestBirthdate (
+        Birthdate birthdate
+    ) {
+        Object (
+            birthdate: birthdate,
+            tdlib_type: "messageSuggestBirthdate",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -2592,6 +2621,13 @@ public class TDLib.MessageUpgradedGift : MessageContent {
     public int64 transfer_star_count { get; construct set; }
 
     /**
+     * Number of Telegram Stars that must be paid to drop original details of
+     * the upgraded gift; 0 if not available; only for the receiver of the
+     * gift
+     */
+    public int64 drop_original_details_star_count { get; construct set; }
+
+    /**
      * Point in time (Unix timestamp) when the gift can be transferred to
      * another owner; can be in the past; 0 if the gift can be transferred
      * immediately or transfer isn't possible; only for the receiver of the
@@ -2623,6 +2659,7 @@ public class TDLib.MessageUpgradedGift : MessageContent {
         bool can_be_transferred,
         bool was_transferred,
         int64 transfer_star_count,
+        int64 drop_original_details_star_count,
         int32 next_transfer_date,
         int32 next_resale_date,
         int32 export_date
@@ -2637,6 +2674,7 @@ public class TDLib.MessageUpgradedGift : MessageContent {
             can_be_transferred: can_be_transferred,
             was_transferred: was_transferred,
             transfer_star_count: transfer_star_count,
+            drop_original_details_star_count: drop_original_details_star_count,
             next_transfer_date: next_transfer_date,
             next_resale_date: next_resale_date,
             export_date: export_date,

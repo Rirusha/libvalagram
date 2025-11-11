@@ -30,10 +30,9 @@ public class TDLib.SendChatAction : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * If not 0, the message thread identifier in which the action was
-     * performed
+     * Identifier of the topic in which the action is performed
      */
-    public int64 message_thread_id { get; construct set; }
+    public MessageTopic topic_id { get; construct set; }
 
     /**
      * Unique identifier of business connection on behalf of which to send
@@ -49,13 +48,13 @@ public class TDLib.SendChatAction : TDObject {
 
     public SendChatAction (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         string business_connection_id,
         ChatAction action
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            topic_id: topic_id,
             business_connection_id: business_connection_id,
             action: action,
             tdlib_type: "sendChatAction",

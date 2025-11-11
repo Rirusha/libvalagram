@@ -29,13 +29,12 @@
 public class TDLib.ChangeImportedContacts : TDObject {
 
     /**
-     * The new list of contacts, contact's vCard are ignored and are not
-     * imported
+     * The new list of contacts to import
      */
-    public Gee.ArrayList<Contact?> contacts { get; construct set; default = new Gee.ArrayList<Contact?> (); }
+    public Gee.ArrayList<ImportedContact?> contacts { get; construct set; default = new Gee.ArrayList<ImportedContact?> (); }
 
     public ChangeImportedContacts (
-        Gee.ArrayList<Contact?> contacts
+        Gee.ArrayList<ImportedContact?> contacts
     ) {
         Object (
             contacts: contacts,

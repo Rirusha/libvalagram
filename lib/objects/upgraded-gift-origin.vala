@@ -81,6 +81,20 @@ public class TDLib.UpgradedGiftOriginResale : UpgradedGiftOrigin {
 }
 
 /**
+ * The gift was assigned from blockchain and isn't owned by the current
+ * user. The gift can't be transferred, resold or withdrawn to blockchain
+ */
+public class TDLib.UpgradedGiftOriginBlockchain : UpgradedGiftOrigin {
+
+    public UpgradedGiftOriginBlockchain () {
+        Object (
+            tdlib_type: "upgradedGiftOriginBlockchain",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The sender or receiver of the message has paid for upgraid of the
  * gift, which has been completed
  */

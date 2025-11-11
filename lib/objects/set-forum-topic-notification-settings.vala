@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the notification settings of a forum topic
+ * Changes the notification settings of a forum topic in a forum
+ * supergroup chat or a chat with a bot with topics
  */
 public class TDLib.SetForumTopicNotificationSettings : TDObject {
 
@@ -30,9 +31,9 @@ public class TDLib.SetForumTopicNotificationSettings : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Message thread identifier of the forum topic
+     * Forum topic identifier
      */
-    public int64 message_thread_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
     /**
      * New notification settings for the forum topic. If the topic is muted
@@ -42,12 +43,12 @@ public class TDLib.SetForumTopicNotificationSettings : TDObject {
 
     public SetForumTopicNotificationSettings (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         ChatNotificationSettings notification_settings
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            forum_topic_id: forum_topic_id,
             notification_settings: notification_settings,
             tdlib_type: "setForumTopicNotificationSettings",
             tdlib_extra: Uuid.string_random ()

@@ -58,6 +58,12 @@ public class TDLib.Gift : Error {
     public int64 upgrade_star_count { get; construct set; }
 
     /**
+     * True, if the gift can be used to customize the user's name, and
+     * backgrounds of profile photo, reply header, and link preview
+     */
+    public bool has_colors { get; construct set; }
+
+    /**
      * True, if the gift is a birthday gift
      */
     public bool is_for_birthday { get; construct set; }
@@ -106,6 +112,7 @@ public class TDLib.Gift : Error {
         int64 star_count,
         int64 default_sell_star_count,
         int64 upgrade_star_count,
+        bool has_colors,
         bool is_for_birthday,
         bool is_premium,
         int32 next_send_date,
@@ -121,6 +128,7 @@ public class TDLib.Gift : Error {
             star_count: star_count,
             default_sell_star_count: default_sell_star_count,
             upgrade_star_count: upgrade_star_count,
+            has_colors: has_colors,
             is_for_birthday: is_for_birthday,
             is_premium: is_premium,
             next_send_date: next_send_date,

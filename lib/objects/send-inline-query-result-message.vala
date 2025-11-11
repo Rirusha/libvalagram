@@ -31,10 +31,9 @@ public class TDLib.SendInlineQueryResultMessage : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * If not 0, the message thread identifier in which the message will be
-     * sent
+     * Topic in which the message will be sent; pass null if none
      */
-    public int64 message_thread_id { get; construct set; }
+    public MessageTopic topic_id { get; construct set; }
 
     /**
      * Information about the message or story to be replied; pass null if
@@ -68,7 +67,7 @@ public class TDLib.SendInlineQueryResultMessage : TDObject {
 
     public SendInlineQueryResultMessage (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         InputMessageReplyTo reply_to,
         MessageSendOptions options,
         int64 query_id,
@@ -77,7 +76,7 @@ public class TDLib.SendInlineQueryResultMessage : TDObject {
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            topic_id: topic_id,
             reply_to: reply_to,
             options: options,
             query_id: query_id,

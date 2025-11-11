@@ -649,6 +649,12 @@ public class TDLib.UpdateChatAccentColors : Update {
     public int64 background_custom_emoji_id { get; construct set; }
 
     /**
+     * Color scheme based on an upgraded gift to be used for the chat instead
+     * of accent_color_id and background_custom_emoji_id; may be null if none
+     */
+    public UpgradedGiftColors? upgraded_gift_colors { get; construct set; }
+
+    /**
      * The new chat profile accent color identifier; -1 if none
      */
     public int32 profile_accent_color_id { get; construct set; }
@@ -663,6 +669,7 @@ public class TDLib.UpdateChatAccentColors : Update {
         int64 chat_id,
         int32 accent_color_id,
         int64 background_custom_emoji_id,
+        UpgradedGiftColors? upgraded_gift_colors,
         int32 profile_accent_color_id,
         int64 profile_background_custom_emoji_id
     ) {
@@ -670,6 +677,7 @@ public class TDLib.UpdateChatAccentColors : Update {
             chat_id: chat_id,
             accent_color_id: accent_color_id,
             background_custom_emoji_id: background_custom_emoji_id,
+            upgraded_gift_colors: upgraded_gift_colors,
             profile_accent_color_id: profile_accent_color_id,
             profile_background_custom_emoji_id: profile_background_custom_emoji_id,
             tdlib_type: "updateChatAccentColors",
@@ -1825,9 +1833,9 @@ public class TDLib.UpdateForumTopic : Update {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Message thread identifier of the topic
+     * Forum topic identifier of the topic
      */
-    public int64 message_thread_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
     /**
      * True, if the topic is pinned in the topic list
@@ -1861,7 +1869,7 @@ public class TDLib.UpdateForumTopic : Update {
 
     public UpdateForumTopic (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         bool is_pinned,
         int64 last_read_inbox_message_id,
         int64 last_read_outbox_message_id,
@@ -1871,7 +1879,7 @@ public class TDLib.UpdateForumTopic : Update {
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            forum_topic_id: forum_topic_id,
             is_pinned: is_pinned,
             last_read_inbox_message_id: last_read_inbox_message_id,
             last_read_outbox_message_id: last_read_outbox_message_id,
@@ -2146,10 +2154,10 @@ public class TDLib.UpdateChatAction : Update {
     public int64 chat_id { get; construct set; }
 
     /**
-     * If not 0, the message thread identifier in which the action was
-     * performed
+     * Identifier of the specific topic in which the action was performed;
+     * may be null if none
      */
-    public int64 message_thread_id { get; construct set; }
+    public MessageTopic? topic_id { get; construct set; }
 
     /**
      * Identifier of a message sender performing the action
@@ -2163,16 +2171,64 @@ public class TDLib.UpdateChatAction : Update {
 
     public UpdateChatAction (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic? topic_id,
         MessageSender sender_id,
         ChatAction action
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            topic_id: topic_id,
             sender_id: sender_id,
             action: action,
             tdlib_type: "updateChatAction",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A new pending text message was received in a chat with a bot. The
+ * message must be shown in the chat for at most
+ * getOption("pending_text_message_period") seconds,
+ * replace any other pending message with the same draft_id, and be
+ * deleted whenever any incoming message from the bot in the message
+ * thread is received
+ */
+public class TDLib.UpdatePendingTextMessage : Update {
+
+    /**
+     * Chat identifier
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * The forum topic identifier in which the message will be sent; 0 if
+     * none
+     */
+    public int32 forum_topic_id { get; construct set; }
+
+    /**
+     * Unique identifier of the message draft within the message thread
+     */
+    public int64 draft_id { get; construct set; }
+
+    /**
+     * Text of the pending message
+     */
+    public FormattedText text { get; construct set; }
+
+    public UpdatePendingTextMessage (
+        int64 chat_id,
+        int32 forum_topic_id,
+        int64 draft_id,
+        FormattedText text
+    ) {
+        Object (
+            chat_id: chat_id,
+            forum_topic_id: forum_topic_id,
+            draft_id: draft_id,
+            text: text,
+            tdlib_type: "updatePendingTextMessage",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -2862,6 +2918,43 @@ public class TDLib.UpdateGroupCallVerificationState : Update {
             generation: generation,
             emojis: emojis,
             tdlib_type: "updateGroupCallVerificationState",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A new message was received in a group call. It must be shown for at
+ * most getOption("group_call_message_show_time_max") seconds after
+ * receiving
+ */
+public class TDLib.UpdateGroupCallNewMessage : Update {
+
+    /**
+     * Identifier of the group call
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * Identifier of the sender of the message
+     */
+    public MessageSender sender_id { get; construct set; }
+
+    /**
+     * Text of the message
+     */
+    public FormattedText text { get; construct set; }
+
+    public UpdateGroupCallNewMessage (
+        int32 group_call_id,
+        MessageSender sender_id,
+        FormattedText text
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            sender_id: sender_id,
+            text: text,
+            tdlib_type: "updateGroupCallNewMessage",
             tdlib_extra: Uuid.string_random ()
         );
     }

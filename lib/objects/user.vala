@@ -72,6 +72,12 @@ public class TDLib.User : Error {
     public int64 background_custom_emoji_id { get; construct set; }
 
     /**
+     * Color scheme based on an upgraded gift to be used for the user instead
+     * of accent_color_id and background_custom_emoji_id; may be null if none
+     */
+    public UpgradedGiftColors? upgraded_gift_colors { get; construct set; }
+
+    /**
      * Identifier of the accent color for the user's profile; -1 if none
      */
     public int32 profile_accent_color_id { get; construct set; }
@@ -186,6 +192,7 @@ public class TDLib.User : Error {
         ProfilePhoto? profile_photo,
         int32 accent_color_id,
         int64 background_custom_emoji_id,
+        UpgradedGiftColors? upgraded_gift_colors,
         int32 profile_accent_color_id,
         int64 profile_background_custom_emoji_id,
         EmojiStatus? emoji_status,
@@ -215,6 +222,7 @@ public class TDLib.User : Error {
             profile_photo: profile_photo,
             accent_color_id: accent_color_id,
             background_custom_emoji_id: background_custom_emoji_id,
+            upgraded_gift_colors: upgraded_gift_colors,
             profile_accent_color_id: profile_accent_color_id,
             profile_background_custom_emoji_id: profile_background_custom_emoji_id,
             emoji_status: emoji_status,

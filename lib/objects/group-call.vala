@@ -143,6 +143,17 @@ public class TDLib.GroupCall : Error {
     public bool can_toggle_mute_new_participants { get; construct set; }
 
     /**
+     * True, if users can send messages to the group call
+     */
+    public bool can_send_messages { get; construct set; }
+
+    /**
+     * True, if the current user can enable or disable sending messages in
+     * the group call
+     */
+    public bool can_toggle_can_send_messages { get; construct set; }
+
+    /**
      * Duration of the ongoing group call recording, in seconds; 0 if none.
      * An updateGroupCall update is not triggered when value of this field
      * changes, but the same recording goes on
@@ -181,6 +192,8 @@ public class TDLib.GroupCall : Error {
         bool can_enable_video,
         bool mute_new_participants,
         bool can_toggle_mute_new_participants,
+        bool can_send_messages,
+        bool can_toggle_can_send_messages,
         int32 record_duration,
         bool is_video_recorded,
         int32 duration
@@ -207,6 +220,8 @@ public class TDLib.GroupCall : Error {
             can_enable_video: can_enable_video,
             mute_new_participants: mute_new_participants,
             can_toggle_mute_new_participants: can_toggle_mute_new_participants,
+            can_send_messages: can_send_messages,
+            can_toggle_can_send_messages: can_toggle_can_send_messages,
             record_duration: record_duration,
             is_video_recorded: is_video_recorded,
             duration: duration,

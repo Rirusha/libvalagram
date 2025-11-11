@@ -25,8 +25,8 @@
 public class TDLib.DraftMessage : Error {
 
     /**
-     * Information about the message to be replied; must be of the type
-     * inputMessageReplyToMessage; may be null if none
+     * Information about the message to be replied; inputMessageReplyToStory
+     * is unsupported; may be null if none
      */
     public InputMessageReplyTo? reply_to { get; construct set; }
 

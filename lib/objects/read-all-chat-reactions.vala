@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Marks all reactions in a chat or a forum topic as read
+ * Marks all reactions in a chat as read
  */
 public class TDLib.ReadAllChatReactions : TDObject {
 

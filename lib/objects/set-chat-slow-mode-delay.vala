@@ -31,7 +31,7 @@ public class TDLib.SetChatSlowModeDelay : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * New slow mode delay for the chat, in seconds; must be one of 0, 10,
+     * New slow mode delay for the chat, in seconds; must be one of 0, 5, 10,
      * 30, 60, 300, 900, 3600
      */
     public int32 slow_mode_delay { get; construct set; }

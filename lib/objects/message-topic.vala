@@ -25,18 +25,38 @@
 public abstract class TDLib.MessageTopic : Error {}
 
 /**
- * A topic in a forum supergroup chat
+ * A topic in a non-forum supergroup chat
+ */
+public class TDLib.MessageTopicThread : MessageTopic {
+
+    /**
+     * Unique identifier of the message thread
+     */
+    public int64 message_thread_id { get; construct set; }
+
+    public MessageTopicThread (
+        int64 message_thread_id
+    ) {
+        Object (
+            message_thread_id: message_thread_id,
+            tdlib_type: "messageTopicThread",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A topic in a forum supergroup chat or a chat with a bot
  */
 public class TDLib.MessageTopicForum : MessageTopic {
 
     /**
-     * Unique identifier of the forum topic; all messages in a non-forum
-     * supergroup chats belongs to the General topic
+     * Unique identifier of the forum topic
      */
-    public int64 forum_topic_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
     public MessageTopicForum (
-        int64 forum_topic_id
+        int32 forum_topic_id
     ) {
         Object (
             forum_topic_id: forum_topic_id,

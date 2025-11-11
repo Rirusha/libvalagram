@@ -20,29 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Removes all pinned messages from a forum topic; requires
- * can_pin_messages member right in the supergroup
+ * Changes color scheme for the current user based on an owned or a
+ * hosted upgraded gift; for Telegram Premium users only
  */
-public class TDLib.UnpinAllMessageThreadMessages : TDObject {
+public class TDLib.SetUpgradedGiftColors : TDObject {
 
     /**
-     * Identifier of the chat
+     * Identifier of the upgradedGiftColors scheme to use
      */
-    public int64 chat_id { get; construct set; }
+    public int64 upgraded_gift_colors_id { get; construct set; }
 
-    /**
-     * Message thread identifier in which messages will be unpinned
-     */
-    public int64 message_thread_id { get; construct set; }
-
-    public UnpinAllMessageThreadMessages (
-        int64 chat_id,
-        int64 message_thread_id
+    public SetUpgradedGiftColors (
+        int64 upgraded_gift_colors_id
     ) {
         Object (
-            chat_id: chat_id,
-            message_thread_id: message_thread_id,
-            tdlib_type: "unpinAllMessageThreadMessages",
+            upgraded_gift_colors_id: upgraded_gift_colors_id,
+            tdlib_type: "setUpgradedGiftColors",
             tdlib_extra: Uuid.string_random ()
         );
     }

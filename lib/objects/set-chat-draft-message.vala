@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the draft message in a chat
+ * Changes the draft message in a chat or a topic
  */
 public class TDLib.SetChatDraftMessage : TDObject {
 
@@ -30,9 +30,10 @@ public class TDLib.SetChatDraftMessage : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * If not 0, the message thread identifier in which the draft was changed
+     * Topic in which the draft will be changed; pass null to change the
+     * draft for the chat itself
      */
-    public int64 message_thread_id { get; construct set; }
+    public MessageTopic topic_id { get; construct set; }
 
     /**
      * New draft message; pass null to remove the draft. All files in draft
@@ -43,12 +44,12 @@ public class TDLib.SetChatDraftMessage : TDObject {
 
     public SetChatDraftMessage (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         DraftMessage draft_message
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            topic_id: topic_id,
             draft_message: draft_message,
             tdlib_type: "setChatDraftMessage",
             tdlib_extra: Uuid.string_random ()

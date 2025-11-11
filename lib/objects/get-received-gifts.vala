@@ -79,6 +79,18 @@ public class TDLib.GetReceivedGifts : TDObject {
     public bool exclude_upgraded { get; construct set; }
 
     /**
+     * Pass true to exclude gifts that can't be used in
+     * {@link Client.set_upgraded_gift_colors}
+     */
+    public bool exclude_without_colors { get; construct set; }
+
+    /**
+     * Pass true to exclude gifts that are just hosted and are not owned by
+     * the owner
+     */
+    public bool exclude_hosted { get; construct set; }
+
+    /**
      * Pass true to sort results by gift price instead of send date
      */
     public bool sort_by_price { get; construct set; }
@@ -106,6 +118,8 @@ public class TDLib.GetReceivedGifts : TDObject {
         bool exclude_upgradable,
         bool exclude_non_upgradable,
         bool exclude_upgraded,
+        bool exclude_without_colors,
+        bool exclude_hosted,
         bool sort_by_price,
         string offset,
         int32 limit
@@ -120,6 +134,8 @@ public class TDLib.GetReceivedGifts : TDObject {
             exclude_upgradable: exclude_upgradable,
             exclude_non_upgradable: exclude_non_upgradable,
             exclude_upgraded: exclude_upgraded,
+            exclude_without_colors: exclude_without_colors,
+            exclude_hosted: exclude_hosted,
             sort_by_price: sort_by_price,
             offset: offset,
             limit: limit,

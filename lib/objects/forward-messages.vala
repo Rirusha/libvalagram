@@ -33,10 +33,10 @@ public class TDLib.ForwardMessages : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * If not 0, the message thread identifier in which the message will be
-     * sent; for forum threads only
+     * Topic in which the messages will be forwarded; message threads aren't
+     * supported; pass null if none
      */
-    public int64 message_thread_id { get; construct set; }
+    public MessageTopic topic_id { get; construct set; }
 
     /**
      * Identifier of the chat from which to forward messages
@@ -75,7 +75,7 @@ public class TDLib.ForwardMessages : TDObject {
 
     public ForwardMessages (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         int64 from_chat_id,
         Gee.ArrayList<int64?> message_ids,
         MessageSendOptions options,
@@ -84,7 +84,7 @@ public class TDLib.ForwardMessages : TDObject {
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            topic_id: topic_id,
             from_chat_id: from_chat_id,
             message_ids: message_ids,
             options: options,

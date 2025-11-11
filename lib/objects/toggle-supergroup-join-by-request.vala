@@ -27,7 +27,8 @@
 public class TDLib.ToggleSupergroupJoinByRequest : TDObject {
 
     /**
-     * Identifier of the supergroup that isn't a broadcast group
+     * Identifier of the supergroup that isn't a broadcast group and isn't a
+     * channel direct message group
      */
     public int64 supergroup_id { get; construct set; }
 

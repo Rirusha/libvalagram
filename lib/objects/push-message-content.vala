@@ -1028,6 +1028,19 @@ public class TDLib.PushMessageContentSuggestProfilePhoto : PushMessageContent {
 }
 
 /**
+ * A birthdate was suggested to be set
+ */
+public class TDLib.PushMessageContentSuggestBirthdate : PushMessageContent {
+
+    public PushMessageContentSuggestBirthdate () {
+        Object (
+            tdlib_type: "pushMessageContentSuggestBirthdate",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A user in the chat came within proximity alert range from the current
  * user
  */

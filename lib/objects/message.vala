@@ -157,12 +157,6 @@ public class TDLib.Message : Error {
     public MessageReplyTo? reply_to { get; construct set; }
 
     /**
-     * If non-zero, the identifier of the message thread the message belongs
-     * to; unique within the chat to which the message belongs
-     */
-    public int64 message_thread_id { get; construct set; }
-
-    /**
      * Identifier of the topic within the chat to which the message belongs;
      * may be null if none
      */
@@ -267,7 +261,6 @@ public class TDLib.Message : Error {
         FactCheck? fact_check,
         SuggestedPostInfo? suggested_post_info,
         MessageReplyTo? reply_to,
-        int64 message_thread_id,
         MessageTopic? topic_id,
         MessageSelfDestructType? self_destruct_type,
         double self_destruct_in,
@@ -307,7 +300,6 @@ public class TDLib.Message : Error {
             fact_check: fact_check,
             suggested_post_info: suggested_post_info,
             reply_to: reply_to,
-            message_thread_id: message_thread_id,
             topic_id: topic_id,
             self_destruct_type: self_destruct_type,
             self_destruct_in: self_destruct_in,

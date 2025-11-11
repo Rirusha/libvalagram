@@ -20,39 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the pinned state of a topic in a forum supergroup chat or a
- * chat with a bot with topics; requires can_manage_topics administrator
- * right in the supergroup.
- * There can be up to getOption("pinned_forum_topic_count_max") pinned
- * forum topics
+ * Toggles whether participants of a group call can send messages there.
+ * Requires groupCall.can_toggle_can_send_messages right
  */
-public class TDLib.ToggleForumTopicIsPinned : TDObject {
+public class TDLib.ToggleGroupCallCanSendMessages : TDObject {
 
     /**
-     * Chat identifier
+     * Group call identifier
      */
-    public int64 chat_id { get; construct set; }
+    public int32 group_call_id { get; construct set; }
 
     /**
-     * Forum topic identifier
+     * New value of the can_send_messages setting
      */
-    public int32 forum_topic_id { get; construct set; }
+    public bool can_send_messages { get; construct set; }
 
-    /**
-     * Pass true to pin the topic; pass false to unpin it
-     */
-    public bool is_pinned { get; construct set; }
-
-    public ToggleForumTopicIsPinned (
-        int64 chat_id,
-        int32 forum_topic_id,
-        bool is_pinned
+    public ToggleGroupCallCanSendMessages (
+        int32 group_call_id,
+        bool can_send_messages
     ) {
         Object (
-            chat_id: chat_id,
-            forum_topic_id: forum_topic_id,
-            is_pinned: is_pinned,
-            tdlib_type: "toggleForumTopicIsPinned",
+            group_call_id: group_call_id,
+            can_send_messages: can_send_messages,
+            tdlib_type: "toggleGroupCallCanSendMessages",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -25,19 +25,15 @@
 public class TDLib.ForumTopicInfo : Error {
 
     /**
-     * Identifier of the forum chat to which the topic belongs
+     * Identifier of a forum supergroup chat or a chat with a bot to which
+     * the topic belongs
      */
     public int64 chat_id { get; construct set; }
 
     /**
      * Forum topic identifier of the topic
      */
-    public int64 forum_topic_id { get; construct set; }
-
-    /**
-     * Message thread identifier of the topic
-     */
-    public int64 message_thread_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
     /**
      * Name of the topic
@@ -60,7 +56,7 @@ public class TDLib.ForumTopicInfo : Error {
     public MessageSender creator_id { get; construct set; }
 
     /**
-     * True, if the topic is the General topic list
+     * True, if the topic is the General topic
      */
     public bool is_general { get; construct set; }
 
@@ -82,10 +78,14 @@ public class TDLib.ForumTopicInfo : Error {
      */
     public bool is_hidden { get; construct set; }
 
+    /**
+     * True, if the name of the topic wasn't added explicitly
+     */
+    public bool is_name_implicit { get; construct set; }
+
     public ForumTopicInfo (
         int64 chat_id,
-        int64 forum_topic_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         string name,
         ForumTopicIcon icon,
         int32 creation_date,
@@ -93,12 +93,12 @@ public class TDLib.ForumTopicInfo : Error {
         bool is_general,
         bool is_outgoing,
         bool is_closed,
-        bool is_hidden
+        bool is_hidden,
+        bool is_name_implicit
     ) {
         Object (
             chat_id: chat_id,
             forum_topic_id: forum_topic_id,
-            message_thread_id: message_thread_id,
             name: name,
             icon: icon,
             creation_date: creation_date,
@@ -107,6 +107,7 @@ public class TDLib.ForumTopicInfo : Error {
             is_outgoing: is_outgoing,
             is_closed: is_closed,
             is_hidden: is_hidden,
+            is_name_implicit: is_name_implicit,
             tdlib_type: "forumTopicInfo",
             tdlib_extra: Uuid.string_random ()
         );

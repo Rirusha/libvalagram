@@ -20,13 +20,14 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns found forum topics in a forum chat. This is a temporary method
- * for getting information about topic list from the server
+ * Returns found forum topics in a forum supergroup chat or a chat with a
+ * bot with topics. This is a temporary method for getting information
+ * about topic list from the server
  */
 public class TDLib.GetForumTopics : TDObject {
 
     /**
-     * Identifier of the forum chat
+     * Identifier of the chat
      */
     public int64 chat_id { get; construct set; }
 
@@ -48,10 +49,10 @@ public class TDLib.GetForumTopics : TDObject {
     public int64 offset_message_id { get; construct set; }
 
     /**
-     * The message thread identifier of the last found topic, or 0 for the
-     * first request
+     * The forum topic identifier of the last found topic, or 0 for the first
+     * request
      */
-    public int64 offset_message_thread_id { get; construct set; }
+    public int32 offset_forum_topic_id { get; construct set; }
 
     /**
      * The maximum number of forum topics to be returned; up to 100. For
@@ -65,7 +66,7 @@ public class TDLib.GetForumTopics : TDObject {
         string query,
         int32 offset_date,
         int64 offset_message_id,
-        int64 offset_message_thread_id,
+        int32 offset_forum_topic_id,
         int32 limit
     ) {
         Object (
@@ -73,7 +74,7 @@ public class TDLib.GetForumTopics : TDObject {
             query: query,
             offset_date: offset_date,
             offset_message_id: offset_message_id,
-            offset_message_thread_id: offset_message_thread_id,
+            offset_forum_topic_id: offset_forum_topic_id,
             limit: limit,
             tdlib_type: "getForumTopics",
             tdlib_extra: Uuid.string_random ()

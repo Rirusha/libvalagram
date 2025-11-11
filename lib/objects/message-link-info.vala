@@ -37,10 +37,10 @@ public class TDLib.MessageLinkInfo : Error {
     public int64 chat_id { get; construct set; }
 
     /**
-     * If found, identifier of the message thread in which to open the
-     * message, or a forum topic to open if the message is missing
+     * Identifier of the specific topic in which the message must be opened,
+     * or a topic to open if the message is missing; may be null if none
      */
-    public int64 message_thread_id { get; construct set; }
+    public MessageTopic? topic_id { get; construct set; }
 
     /**
      * If found, the linked message; may be null
@@ -62,7 +62,7 @@ public class TDLib.MessageLinkInfo : Error {
     public MessageLinkInfo (
         bool is_public,
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic? topic_id,
         Message? message,
         int32 media_timestamp,
         bool for_album
@@ -70,7 +70,7 @@ public class TDLib.MessageLinkInfo : Error {
         Object (
             is_public: is_public,
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            topic_id: topic_id,
             message: message,
             media_timestamp: media_timestamp,
             for_album: for_album,

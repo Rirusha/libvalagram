@@ -46,24 +46,24 @@ public class TDLib.ForumTopics : Error {
     public int64 next_offset_message_id { get; construct set; }
 
     /**
-     * Offset message thread identifier for the next
+     * Offset forum topic identifier for the next
      * {@link Client.get_forum_topics} request
      */
-    public int64 next_offset_message_thread_id { get; construct set; }
+    public int32 next_offset_forum_topic_id { get; construct set; }
 
     public ForumTopics (
         int32 total_count,
         Gee.ArrayList<ForumTopic?> topics,
         int32 next_offset_date,
         int64 next_offset_message_id,
-        int64 next_offset_message_thread_id
+        int32 next_offset_forum_topic_id
     ) {
         Object (
             total_count: total_count,
             topics: topics,
             next_offset_date: next_offset_date,
             next_offset_message_id: next_offset_message_id,
-            next_offset_message_thread_id: next_offset_message_thread_id,
+            next_offset_forum_topic_id: next_offset_forum_topic_id,
             tdlib_type: "forumTopics",
             tdlib_extra: Uuid.string_random ()
         );

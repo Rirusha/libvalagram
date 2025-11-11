@@ -20,39 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the pinned state of a topic in a forum supergroup chat or a
- * chat with a bot with topics; requires can_manage_topics administrator
- * right in the supergroup.
- * There can be up to getOption("pinned_forum_topic_count_max") pinned
- * forum topics
+ * Removes all pinned messages from a topic in a forum supergroup chat or
+ * a chat with a bot with topics; requires can_pin_messages member right
+ * in the supergroup
  */
-public class TDLib.ToggleForumTopicIsPinned : TDObject {
+public class TDLib.UnpinAllForumTopicMessages : TDObject {
 
     /**
-     * Chat identifier
+     * Identifier of the chat
      */
     public int64 chat_id { get; construct set; }
 
     /**
-     * Forum topic identifier
+     * Forum topic identifier in which messages will be unpinned
      */
     public int32 forum_topic_id { get; construct set; }
 
-    /**
-     * Pass true to pin the topic; pass false to unpin it
-     */
-    public bool is_pinned { get; construct set; }
-
-    public ToggleForumTopicIsPinned (
+    public UnpinAllForumTopicMessages (
         int64 chat_id,
-        int32 forum_topic_id,
-        bool is_pinned
+        int32 forum_topic_id
     ) {
         Object (
             chat_id: chat_id,
             forum_topic_id: forum_topic_id,
-            is_pinned: is_pinned,
-            tdlib_type: "toggleForumTopicIsPinned",
+            tdlib_type: "unpinAllForumTopicMessages",
             tdlib_extra: Uuid.string_random ()
         );
     }

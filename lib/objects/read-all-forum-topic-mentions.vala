@@ -20,9 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Marks all reactions in a forum topic as read
+ * Marks all mentions in a topic in a forum supergroup chat as read
  */
-public class TDLib.ReadAllMessageThreadReactions : TDObject {
+public class TDLib.ReadAllForumTopicMentions : TDObject {
 
     /**
      * Chat identifier
@@ -30,18 +30,18 @@ public class TDLib.ReadAllMessageThreadReactions : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Message thread identifier in which reactions are marked as read
+     * Forum topic identifier in which mentions are marked as read
      */
-    public int64 message_thread_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
-    public ReadAllMessageThreadReactions (
+    public ReadAllForumTopicMentions (
         int64 chat_id,
-        int64 message_thread_id
+        int32 forum_topic_id
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
-            tdlib_type: "readAllMessageThreadReactions",
+            forum_topic_id: forum_topic_id,
+            tdlib_type: "readAllForumTopicMentions",
             tdlib_extra: Uuid.string_random ()
         );
     }

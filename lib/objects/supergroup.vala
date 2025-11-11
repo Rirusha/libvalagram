@@ -118,8 +118,8 @@ public class TDLib.Supergroup : Error {
 
     /**
      * True, if all users directly joining the supergroup need to be approved
-     * by supergroup administrators. Always false for channels and
-     * supergroups without username, location, or a linked chat
+     * by supergroup administrators. May be true only for non-broadcast
+     * supergroups with username, location, or a linked chat
      */
     public bool join_by_request { get; construct set; }
 

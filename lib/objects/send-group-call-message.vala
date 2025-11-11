@@ -20,38 +20,30 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the draft message in the topic in a channel direct messages
- * chat administered by the current user
+ * Sends a message to other participants of a group call. Requires
+ * groupCall.can_send_messages right
  */
-public class TDLib.SetDirectMessagesChatTopicDraftMessage : TDObject {
+public class TDLib.SendGroupCallMessage : TDObject {
 
     /**
-     * Chat identifier
+     * Group call identifier
      */
-    public int64 chat_id { get; construct set; }
+    public int32 group_call_id { get; construct set; }
 
     /**
-     * Topic identifier
+     * Text of the message to send;
+     * 1-getOption("group_call_message_text_length_max") characters
      */
-    public int64 topic_id { get; construct set; }
+    public FormattedText text { get; construct set; }
 
-    /**
-     * New draft message; pass null to remove the draft. All files in draft
-     * message content must be of the type inputFileLocal. Media thumbnails
-     * and captions are ignored
-     */
-    public DraftMessage draft_message { get; construct set; }
-
-    public SetDirectMessagesChatTopicDraftMessage (
-        int64 chat_id,
-        int64 topic_id,
-        DraftMessage draft_message
+    public SendGroupCallMessage (
+        int32 group_call_id,
+        FormattedText text
     ) {
         Object (
-            chat_id: chat_id,
-            topic_id: topic_id,
-            draft_message: draft_message,
-            tdlib_type: "setDirectMessagesChatTopicDraftMessage",
+            group_call_id: group_call_id,
+            text: text,
+            tdlib_type: "sendGroupCallMessage",
             tdlib_extra: Uuid.string_random ()
         );
     }

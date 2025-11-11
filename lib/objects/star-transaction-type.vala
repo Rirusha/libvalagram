@@ -623,6 +623,35 @@ public class TDLib.StarTransactionTypeGiftTransfer : StarTransactionType {
 }
 
 /**
+ * The transaction is a drop of original details of an upgraded gift; for
+ * regular users only
+ */
+public class TDLib.StarTransactionTypeGiftOriginalDetailsDrop : StarTransactionType {
+
+    /**
+     * Identifier of the user or the channel that owns the gift
+     */
+    public MessageSender owner_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public StarTransactionTypeGiftOriginalDetailsDrop (
+        MessageSender owner_id,
+        UpgradedGift gift
+    ) {
+        Object (
+            owner_id: owner_id,
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftOriginalDetailsDrop",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a sale of a received gift; for regular users and
  * channel chats only
  */

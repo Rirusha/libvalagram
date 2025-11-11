@@ -32,9 +32,9 @@ public class TDLib.ToggleForumTopicIsClosed : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Message thread identifier of the forum topic
+     * Forum topic identifier
      */
-    public int64 message_thread_id { get; construct set; }
+    public int32 forum_topic_id { get; construct set; }
 
     /**
      * Pass true to {@link Client.close} the topic; pass false to reopen it
@@ -43,12 +43,12 @@ public class TDLib.ToggleForumTopicIsClosed : TDObject {
 
     public ToggleForumTopicIsClosed (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         bool is_closed
     ) {
         Object (
             chat_id: chat_id,
-            message_thread_id: message_thread_id,
+            forum_topic_id: forum_topic_id,
             is_closed: is_closed,
             tdlib_type: "toggleForumTopicIsClosed",
             tdlib_extra: Uuid.string_random ()

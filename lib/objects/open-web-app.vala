@@ -48,16 +48,9 @@ public class TDLib.OpenWebApp : TDObject {
     public string url { get; construct set; }
 
     /**
-     * If not 0, the message thread identifier to which the message will be
-     * sent
+     * Topic in which the message will be sent; pass null if none
      */
-    public int64 message_thread_id { get; construct set; }
-
-    /**
-     * If not 0, unique identifier of the topic of channel direct messages
-     * chat to which the message will be sent
-     */
-    public int64 direct_messages_chat_topic_id { get; construct set; }
+    public MessageTopic topic_id { get; construct set; }
 
     /**
      * Information about the message or story to be replied in the message
@@ -74,8 +67,7 @@ public class TDLib.OpenWebApp : TDObject {
         int64 chat_id,
         int64 bot_user_id,
         string url,
-        int64 message_thread_id,
-        int64 direct_messages_chat_topic_id,
+        MessageTopic topic_id,
         InputMessageReplyTo reply_to,
         WebAppOpenParameters parameters
     ) {
@@ -83,8 +75,7 @@ public class TDLib.OpenWebApp : TDObject {
             chat_id: chat_id,
             bot_user_id: bot_user_id,
             url: url,
-            message_thread_id: message_thread_id,
-            direct_messages_chat_topic_id: direct_messages_chat_topic_id,
+            topic_id: topic_id,
             reply_to: reply_to,
             parameters: parameters,
             tdlib_type: "openWebApp",

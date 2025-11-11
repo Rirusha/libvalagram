@@ -20,39 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the pinned state of a topic in a forum supergroup chat or a
- * chat with a bot with topics; requires can_manage_topics administrator
- * right in the supergroup.
- * There can be up to getOption("pinned_forum_topic_count_max") pinned
- * forum topics
+ * Drops original details for an upgraded gift
  */
-public class TDLib.ToggleForumTopicIsPinned : TDObject {
+public class TDLib.DropGiftOriginalDetails : TDObject {
 
     /**
-     * Chat identifier
+     * Identifier of the gift
      */
-    public int64 chat_id { get; construct set; }
+    public string received_gift_id { get; construct set; }
 
     /**
-     * Forum topic identifier
+     * The amount of Telegram Stars required to pay for the operation
      */
-    public int32 forum_topic_id { get; construct set; }
+    public int64 star_count { get; construct set; }
 
-    /**
-     * Pass true to pin the topic; pass false to unpin it
-     */
-    public bool is_pinned { get; construct set; }
-
-    public ToggleForumTopicIsPinned (
-        int64 chat_id,
-        int32 forum_topic_id,
-        bool is_pinned
+    public DropGiftOriginalDetails (
+        string received_gift_id,
+        int64 star_count
     ) {
         Object (
-            chat_id: chat_id,
-            forum_topic_id: forum_topic_id,
-            is_pinned: is_pinned,
-            tdlib_type: "toggleForumTopicIsPinned",
+            received_gift_id: received_gift_id,
+            star_count: star_count,
+            tdlib_type: "dropGiftOriginalDetails",
             tdlib_extra: Uuid.string_random ()
         );
     }

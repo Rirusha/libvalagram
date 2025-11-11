@@ -22,8 +22,7 @@
 /**
  * Deletes the default reply markup from a chat. Must be called after a
  * one-time keyboard or a replyMarkupForceReply reply markup has been
- * used. An updateChatReplyMarkup update will be sent if the reply markup
- * is changed
+ * used or dismissed
  */
 public class TDLib.DeleteChatReplyMarkup : TDObject {
 

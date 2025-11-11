@@ -42,7 +42,7 @@ public class TDLib.Usernames : Error {
     public Gee.ArrayList<string?> disabled_usernames { get; construct set; default = new Gee.ArrayList<string?> (); }
 
     /**
-     * The active username, which can be changed with
+     * Active or disabled username, which may be changed with
      * {@link Client.set_username} or {@link Client.set_supergroup_username}
      * Information about other active usernames can be received using
      * {@link Client.get_collectible_item_info}

@@ -20,8 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Creates a topic in a forum supergroup chat; requires can_manage_topics
- * administrator or can_create_topics member right in the supergroup
+ * Creates a topic in a forum supergroup chat or a chat with a bot with
+ * topics; requires can_manage_topics administrator or can_create_topics
+ * member right in the supergroup
  */
 public class TDLib.CreateForumTopic : TDObject {
 
@@ -36,6 +37,12 @@ public class TDLib.CreateForumTopic : TDObject {
     public string name { get; construct set; }
 
     /**
+     * Pass true if the name of the topic wasn't entered explicitly; for
+     * chats with bots only
+     */
+    public bool is_name_implicit { get; construct set; }
+
+    /**
      * Icon of the topic. Icon color must be one of 0x6FB9F0, 0xFFD67E,
      * 0xCB86DB, 0x8EEE98, 0xFF93B2, or 0xFB6F5F. Telegram Premium users can
      * use any custom emoji as topic icon, other users can use only a custom
@@ -46,11 +53,13 @@ public class TDLib.CreateForumTopic : TDObject {
     public CreateForumTopic (
         int64 chat_id,
         string name,
+        bool is_name_implicit,
         ForumTopicIcon icon
     ) {
         Object (
             chat_id: chat_id,
             name: name,
+            is_name_implicit: is_name_implicit,
             icon: icon,
             tdlib_type: "createForumTopic",
             tdlib_extra: Uuid.string_random ()

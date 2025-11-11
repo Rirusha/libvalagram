@@ -185,6 +185,11 @@ public class TDLib.UserFullInfo : Error {
     public int32 pending_rating_date { get; construct set; }
 
     /**
+     * Note added to the user's contact; may be null if none
+     */
+    public FormattedText? note { get; construct set; }
+
+    /**
      * Information about business settings for Telegram Business accounts;
      * may be null if none
      */
@@ -224,6 +229,7 @@ public class TDLib.UserFullInfo : Error {
         UserRating? rating,
         UserRating? pending_rating,
         int32 pending_rating_date,
+        FormattedText? note,
         BusinessInfo? business_info,
         BotInfo? bot_info
     ) {
@@ -255,6 +261,7 @@ public class TDLib.UserFullInfo : Error {
             rating: rating,
             pending_rating: pending_rating,
             pending_rating_date: pending_rating_date,
+            note: note,
             business_info: business_info,
             bot_info: bot_info,
             tdlib_type: "userFullInfo",

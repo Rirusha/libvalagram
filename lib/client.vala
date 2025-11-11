@@ -252,18 +252,21 @@ public sealed class TDLib.Client : Object {
         typeof (UpgradedGiftOriginUpgrade).ensure ();
         typeof (UpgradedGiftOriginTransfer).ensure ();
         typeof (UpgradedGiftOriginResale).ensure ();
+        typeof (UpgradedGiftOriginBlockchain).ensure ();
         typeof (UpgradedGiftOriginPrepaidUpgrade).ensure ();
         typeof (UpgradedGiftModel).ensure ();
         typeof (UpgradedGiftSymbol).ensure ();
         typeof (UpgradedGiftBackdropColors).ensure ();
         typeof (UpgradedGiftBackdrop).ensure ();
         typeof (UpgradedGiftOriginalDetails).ensure ();
+        typeof (UpgradedGiftColors).ensure ();
         typeof (Gift).ensure ();
         typeof (UpgradedGift).ensure ();
         typeof (UpgradedGiftValueInfo).ensure ();
         typeof (UpgradeGiftResult).ensure ();
         typeof (AvailableGift).ensure ();
         typeof (AvailableGifts).ensure ();
+        typeof (GiftUpgradePrice).ensure ();
         typeof (UpgradedGiftAttributeIdModel).ensure ();
         typeof (UpgradedGiftAttributeIdSymbol).ensure ();
         typeof (UpgradedGiftAttributeIdBackdrop).ensure ();
@@ -305,6 +308,7 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypeChannelSubscriptionSale).ensure ();
         typeof (StarTransactionTypeGiftPurchase).ensure ();
         typeof (StarTransactionTypeGiftTransfer).ensure ();
+        typeof (StarTransactionTypeGiftOriginalDetailsDrop).ensure ();
         typeof (StarTransactionTypeGiftSale).ensure ();
         typeof (StarTransactionTypeGiftUpgrade).ensure ();
         typeof (StarTransactionTypeGiftUpgradePurchase).ensure ();
@@ -435,6 +439,7 @@ public sealed class TDLib.Client : Object {
         typeof (MessageReactions).ensure ();
         typeof (MessageInteractionInfo).ensure ();
         typeof (UnreadReaction).ensure ();
+        typeof (MessageTopicThread).ensure ();
         typeof (MessageTopicForum).ensure ();
         typeof (MessageTopicDirectMessages).ensure ();
         typeof (MessageTopicSavedMessages).ensure ();
@@ -853,6 +858,7 @@ public sealed class TDLib.Client : Object {
         typeof (MessageForumTopicIsClosedToggled).ensure ();
         typeof (MessageForumTopicIsHiddenToggled).ensure ();
         typeof (MessageSuggestProfilePhoto).ensure ();
+        typeof (MessageSuggestBirthdate).ensure ();
         typeof (MessageCustomServiceAction).ensure ();
         typeof (MessageGameScore).ensure ();
         typeof (MessagePaymentSuccessful).ensure ();
@@ -1131,6 +1137,7 @@ public sealed class TDLib.Client : Object {
         typeof (Animations).ensure ();
         typeof (DiceStickersRegular).ensure ();
         typeof (DiceStickersSlotMachine).ensure ();
+        typeof (ImportedContact).ensure ();
         typeof (ImportedContacts).ensure ();
         typeof (SpeechRecognitionResultPending).ensure ();
         typeof (SpeechRecognitionResultText).ensure ();
@@ -1435,6 +1442,7 @@ public sealed class TDLib.Client : Object {
         typeof (PushMessageContentChatJoinByRequest).ensure ();
         typeof (PushMessageContentRecurringPayment).ensure ();
         typeof (PushMessageContentSuggestProfilePhoto).ensure ();
+        typeof (PushMessageContentSuggestBirthdate).ensure ();
         typeof (PushMessageContentProximityAlertTriggered).ensure ();
         typeof (PushMessageContentChecklistTasksAdded).ensure ();
         typeof (PushMessageContentChecklistTasksDone).ensure ();
@@ -1808,6 +1816,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateHavePendingNotifications).ensure ();
         typeof (UpdateDeleteMessages).ensure ();
         typeof (UpdateChatAction).ensure ();
+        typeof (UpdatePendingTextMessage).ensure ();
         typeof (UpdateUserStatus).ensure ();
         typeof (UpdateUser).ensure ();
         typeof (UpdateBasicGroup).ensure ();
@@ -1831,6 +1840,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateGroupCallParticipant).ensure ();
         typeof (UpdateGroupCallParticipants).ensure ();
         typeof (UpdateGroupCallVerificationState).ensure ();
+        typeof (UpdateGroupCallNewMessage).ensure ();
         typeof (UpdateNewCallSignalingData).ensure ();
         typeof (UpdateUserPrivacySettingRules).ensure ();
         typeof (UpdateUnreadMessageCount).ensure ();
@@ -6635,60 +6645,6 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes the draft message in the topic in a channel direct messages
-     * chat administered by the current user
-     * @param chat_id Chat identifier
-     * @param topic_id Topic identifier
-     * @param draft_message New draft message; pass null to remove the draft.
-     * All files in draft message content must be of the type inputFileLocal.
-     * Media thumbnails and captions are ignored
-     */
-    public async Ok set_direct_messages_chat_topic_draft_message (
-        int64 chat_id,
-        int64 topic_id,
-        DraftMessage draft_message
-    ) throws TDLibError {
-        try {
-
-        var obj = new SetDirectMessagesChatTopicDraftMessage (
-            chat_id,
-            topic_id,
-            draft_message
-        );
-        string json_response = "";
-
-        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
-
-        GLib.debug ("send %d %s", client_id, json_string);
-
-        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
-            if (request_extra == obj.tdlib_extra) {
-                json_response = response;
-                Idle.add (set_direct_messages_chat_topic_draft_message.callback);
-            }
-        });
-        TDJsonApi.send (client_id, json_string);
-
-        yield;
-        SignalHandler.disconnect (request_manager, conid);
-
-        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
-        string tdlib_type = jsoner.deserialize_value ().get_string ();
-
-        if (tdlib_type == "error") {
-            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
-            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
-        }
-
-        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Ok) jsoner.deserialize_object (null);
-
-        } catch (JsonError e) {
-            throw new TDLibError.COMMON ("Error while parsing json");
-        }
-    }
-
-    /**
      * Removes all pinned messages from the topic in a channel direct
      * messages chat administered by the current user
      * @param chat_id Identifier of the chat
@@ -8668,7 +8624,7 @@ public sealed class TDLib.Client : Object {
      * about messages
      * @param topic_id Pass topic identifier to get the result only in
      * specific topic; pass null to get the result in all topics; forum
-     * topics aren't supported
+     * topics and message threads aren't supported
      * @param filter Filter for message content. Filters
      * searchMessagesFilterEmpty, searchMessagesFilterMention,
      * searchMessagesFilterUnreadMention, and
@@ -8728,7 +8684,8 @@ public sealed class TDLib.Client : Object {
      * chat or its topic
      * @param chat_id Identifier of the chat in which to count messages
      * @param topic_id Pass topic identifier to get number of messages only
-     * in specific topic; pass null to get number of messages in all topics
+     * in specific topic; pass null to get number of messages in all topics;
+     * message threads aren't supported
      * @param filter Filter for message content; searchMessagesFilterEmpty is
      * unsupported in this function
      * @param return_local Pass true to get the number of messages without
@@ -8790,7 +8747,7 @@ public sealed class TDLib.Client : Object {
      * position
      * @param topic_id Pass topic identifier to get position among messages
      * only in specific topic; pass null to get position among all chat
-     * messages
+     * messages; message threads aren't supported
      * @param filter Filter for message content; searchMessagesFilterEmpty,
      * searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction,
      * and searchMessagesFilterFailedToSend are unsupported in this function
@@ -10008,8 +9965,8 @@ public sealed class TDLib.Client : Object {
     /**
      * Sends a message. Returns the sent message
      * @param chat_id Target chat
-     * @param message_thread_id If not 0, the message thread identifier in
-     * which the message will be sent
+     * @param topic_id Topic in which the message will be sent; pass null if
+     * none
      * @param reply_to Information about the message or story to be replied;
      * pass null if none
      * @param options Options to be used to send the message; pass null to
@@ -10020,7 +9977,7 @@ public sealed class TDLib.Client : Object {
      */
     public async Message send_message (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         InputMessageReplyTo reply_to,
         MessageSendOptions options,
         ReplyMarkup reply_markup,
@@ -10030,7 +9987,7 @@ public sealed class TDLib.Client : Object {
 
         var obj = new SendMessage (
             chat_id,
-            message_thread_id,
+            topic_id,
             reply_to,
             options,
             reply_markup,
@@ -10076,8 +10033,8 @@ public sealed class TDLib.Client : Object {
      * Documents and audio files can be only grouped in an album with
      * messages of the same type. Returns sent messages
      * @param chat_id Target chat
-     * @param message_thread_id If not 0, the message thread identifier in
-     * which the messages will be sent
+     * @param topic_id Topic in which the messages will be sent; pass null if
+     * none
      * @param reply_to Information about the message or story to be replied;
      * pass null if none
      * @param options Options to be used to send the messages; pass null to
@@ -10088,7 +10045,7 @@ public sealed class TDLib.Client : Object {
      */
     public async Messages send_message_album (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         InputMessageReplyTo reply_to,
         MessageSendOptions options,
         Gee.ArrayList<InputMessageContent?> input_message_contents
@@ -10097,7 +10054,7 @@ public sealed class TDLib.Client : Object {
 
         var obj = new SendMessageAlbum (
             chat_id,
-            message_thread_id,
+            topic_id,
             reply_to,
             options,
             input_message_contents
@@ -10195,8 +10152,8 @@ public sealed class TDLib.Client : Object {
      * Sends the result of an inline query as a message. Returns the sent
      * message. Always clears a chat draft message
      * @param chat_id Target chat
-     * @param message_thread_id If not 0, the message thread identifier in
-     * which the message will be sent
+     * @param topic_id Topic in which the message will be sent; pass null if
+     * none
      * @param reply_to Information about the message or story to be replied;
      * pass null if none
      * @param options Options to be used to send the message; pass null to
@@ -10211,7 +10168,7 @@ public sealed class TDLib.Client : Object {
      */
     public async Message send_inline_query_result_message (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         InputMessageReplyTo reply_to,
         MessageSendOptions options,
         int64 query_id,
@@ -10222,7 +10179,7 @@ public sealed class TDLib.Client : Object {
 
         var obj = new SendInlineQueryResultMessage (
             chat_id,
-            message_thread_id,
+            topic_id,
             reply_to,
             options,
             query_id,
@@ -10268,8 +10225,8 @@ public sealed class TDLib.Client : Object {
      * message can't be forwarded, null will be returned instead of the
      * message
      * @param chat_id Identifier of the chat to which to forward messages
-     * @param message_thread_id If not 0, the message thread identifier in
-     * which the message will be sent; for forum threads only
+     * @param topic_id Topic in which the messages will be forwarded; message
+     * threads aren't supported; pass null if none
      * @param from_chat_id Identifier of the chat from which to forward
      * messages
      * @param message_ids Identifiers of the messages to forward. Message
@@ -10289,7 +10246,7 @@ public sealed class TDLib.Client : Object {
      */
     public async Messages forward_messages (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         int64 from_chat_id,
         Gee.ArrayList<int64?> message_ids,
         MessageSendOptions options,
@@ -10300,7 +10257,7 @@ public sealed class TDLib.Client : Object {
 
         var obj = new ForwardMessages (
             chat_id,
-            message_thread_id,
+            topic_id,
             from_chat_id,
             message_ids,
             options,
@@ -13355,10 +13312,13 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Creates a topic in a forum supergroup chat; requires can_manage_topics
-     * administrator or can_create_topics member right in the supergroup
+     * Creates a topic in a forum supergroup chat or a chat with a bot with
+     * topics; requires can_manage_topics administrator or can_create_topics
+     * member right in the supergroup
      * @param chat_id Identifier of the chat
      * @param name Name of the topic; 1-128 characters
+     * @param is_name_implicit Pass true if the name of the topic wasn't
+     * entered explicitly; for chats with bots only
      * @param icon Icon of the topic. Icon color must be one of 0x6FB9F0,
      * 0xFFD67E, 0xCB86DB, 0x8EEE98, 0xFF93B2, or 0xFB6F5F. Telegram Premium
      * users can use any custom emoji as topic icon, other users can use only
@@ -13368,6 +13328,7 @@ public sealed class TDLib.Client : Object {
     public async ForumTopicInfo create_forum_topic (
         int64 chat_id,
         string name,
+        bool is_name_implicit,
         ForumTopicIcon icon
     ) throws TDLibError {
         try {
@@ -13375,6 +13336,7 @@ public sealed class TDLib.Client : Object {
         var obj = new CreateForumTopic (
             chat_id,
             name,
+            is_name_implicit,
             icon
         );
         string json_response = "";
@@ -13411,11 +13373,12 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Edits title and icon of a topic in a forum supergroup chat; requires
-     * can_manage_topics administrator right in the supergroup unless the
-     * user is creator of the topic
+     * Edits title and icon of a topic in a forum supergroup chat or a chat
+     * with a bot with topics; for supergroup chats requires
+     * can_manage_topics administrator right
+     * unless the user is creator of the topic
      * @param chat_id Identifier of the chat
-     * @param message_thread_id Message thread identifier of the forum topic
+     * @param forum_topic_id Forum topic identifier
      * @param name New name of the topic; 0-128 characters. If empty, the
      * previous topic name is kept
      * @param edit_icon_custom_emoji Pass true to edit the icon of the topic.
@@ -13428,7 +13391,7 @@ public sealed class TDLib.Client : Object {
      */
     public async Ok edit_forum_topic (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         string name,
         bool edit_icon_custom_emoji,
         int64 icon_custom_emoji_id
@@ -13437,7 +13400,7 @@ public sealed class TDLib.Client : Object {
 
         var obj = new EditForumTopic (
             chat_id,
-            message_thread_id,
+            forum_topic_id,
             name,
             edit_icon_custom_emoji,
             icon_custom_emoji_id
@@ -13476,19 +13439,20 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns information about a forum topic
+     * Returns information about a topic in a forum supergroup chat or a chat
+     * with a bot with topics
      * @param chat_id Identifier of the chat
-     * @param message_thread_id Message thread identifier of the forum topic
+     * @param forum_topic_id Forum topic identifier
      */
     public async ForumTopic get_forum_topic (
         int64 chat_id,
-        int64 message_thread_id
+        int32 forum_topic_id
     ) throws TDLibError {
         try {
 
         var obj = new GetForumTopic (
             chat_id,
-            message_thread_id
+            forum_topic_id
         );
         string json_response = "";
 
@@ -13524,20 +13488,88 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns an HTTPS link to a topic in a forum chat. This is an offline
-     * method
+     * Returns messages in a topic in a forum supergroup chat or a chat with
+     * a bot with topics. The messages are returned in reverse chronological
+     * order
+     * (i.e., in order of decreasing message_id). For optimal performance,
+     * the number of returned messages is chosen by TDLib
+     * @param chat_id Chat identifier
+     * @param forum_topic_id Forum topic identifier
+     * @param from_message_id Identifier of the message starting from which
+     * history must be fetched; use 0 to get results from the last message
+     * @param offset Specify 0 to get results from exactly the message
+     * from_message_id or a negative number from -99 to -1 to get
+     * additionally -offset newer messages
+     * @param limit The maximum number of messages to be returned; must be
+     * positive and can't be greater than 100. If the offset is negative,
+     * then the limit must be greater than or equal to -offset. For optimal
+     * performance, the number of returned messages is chosen by TDLib and
+     * can be smaller than the specified limit
+     */
+    public async Messages get_forum_topic_history (
+        int64 chat_id,
+        int32 forum_topic_id,
+        int64 from_message_id,
+        int32 offset,
+        int32 limit
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetForumTopicHistory (
+            chat_id,
+            forum_topic_id,
+            from_message_id,
+            offset,
+            limit
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_forum_topic_history.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Messages) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns an HTTPS link to a topic in a forum supergroup chat. This is
+     * an offline method
      * @param chat_id Identifier of the chat
-     * @param message_thread_id Message thread identifier of the forum topic
+     * @param forum_topic_id Forum topic identifier
      */
     public async MessageLink get_forum_topic_link (
         int64 chat_id,
-        int64 message_thread_id
+        int32 forum_topic_id
     ) throws TDLibError {
         try {
 
         var obj = new GetForumTopicLink (
             chat_id,
-            message_thread_id
+            forum_topic_id
         );
         string json_response = "";
 
@@ -13573,17 +13605,18 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns found forum topics in a forum chat. This is a temporary method
-     * for getting information about topic list from the server
-     * @param chat_id Identifier of the forum chat
+     * Returns found forum topics in a forum supergroup chat or a chat with a
+     * bot with topics. This is a temporary method for getting information
+     * about topic list from the server
+     * @param chat_id Identifier of the chat
      * @param query Query to search for in the forum topic's name
      * @param offset_date The date starting from which the results need to be
      * fetched. Use 0 or any date in the future to get results from the last
      * topic
      * @param offset_message_id The message identifier of the last message in
      * the last found topic, or 0 for the first request
-     * @param offset_message_thread_id The message thread identifier of the
-     * last found topic, or 0 for the first request
+     * @param offset_forum_topic_id The forum topic identifier of the last
+     * found topic, or 0 for the first request
      * @param limit The maximum number of forum topics to be returned; up to
      * 100. For optimal performance, the number of returned forum topics is
      * chosen by TDLib and can be smaller than the specified limit
@@ -13593,7 +13626,7 @@ public sealed class TDLib.Client : Object {
         string query,
         int32 offset_date,
         int64 offset_message_id,
-        int64 offset_message_thread_id,
+        int32 offset_forum_topic_id,
         int32 limit
     ) throws TDLibError {
         try {
@@ -13603,7 +13636,7 @@ public sealed class TDLib.Client : Object {
             query,
             offset_date,
             offset_message_id,
-            offset_message_thread_id,
+            offset_forum_topic_id,
             limit
         );
         string json_response = "";
@@ -13640,23 +13673,24 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes the notification settings of a forum topic
+     * Changes the notification settings of a forum topic in a forum
+     * supergroup chat or a chat with a bot with topics
      * @param chat_id Chat identifier
-     * @param message_thread_id Message thread identifier of the forum topic
+     * @param forum_topic_id Forum topic identifier
      * @param notification_settings New notification settings for the forum
      * topic. If the topic is muted for more than 366 days, it is considered
      * to be muted forever
      */
     public async Ok set_forum_topic_notification_settings (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         ChatNotificationSettings notification_settings
     ) throws TDLibError {
         try {
 
         var obj = new SetForumTopicNotificationSettings (
             chat_id,
-            message_thread_id,
+            forum_topic_id,
             notification_settings
         );
         string json_response = "";
@@ -13697,20 +13731,20 @@ public sealed class TDLib.Client : Object {
      * can_manage_topics administrator right in the supergroup unless the
      * user is creator of the topic
      * @param chat_id Identifier of the chat
-     * @param message_thread_id Message thread identifier of the forum topic
+     * @param forum_topic_id Forum topic identifier
      * @param is_closed Pass true to {@link Client.close} the topic; pass
      * false to reopen it
      */
     public async Ok toggle_forum_topic_is_closed (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         bool is_closed
     ) throws TDLibError {
         try {
 
         var obj = new ToggleForumTopicIsClosed (
             chat_id,
-            message_thread_id,
+            forum_topic_id,
             is_closed
         );
         string json_response = "";
@@ -13797,23 +13831,25 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes the pinned state of a forum topic; requires can_manage_topics
-     * administrator right in the supergroup. There can be up to
-     * getOption("pinned_forum_topic_count_max") pinned forum topics
+     * Changes the pinned state of a topic in a forum supergroup chat or a
+     * chat with a bot with topics; requires can_manage_topics administrator
+     * right in the supergroup.
+     * There can be up to getOption("pinned_forum_topic_count_max") pinned
+     * forum topics
      * @param chat_id Chat identifier
-     * @param message_thread_id Message thread identifier of the forum topic
+     * @param forum_topic_id Forum topic identifier
      * @param is_pinned Pass true to pin the topic; pass false to unpin it
      */
     public async Ok toggle_forum_topic_is_pinned (
         int64 chat_id,
-        int64 message_thread_id,
+        int32 forum_topic_id,
         bool is_pinned
     ) throws TDLibError {
         try {
 
         var obj = new ToggleForumTopicIsPinned (
             chat_id,
-            message_thread_id,
+            forum_topic_id,
             is_pinned
         );
         string json_response = "";
@@ -13850,20 +13886,22 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes the order of pinned forum topics; requires can_manage_topics
-     * administrator right in the supergroup
+     * Changes the order of pinned topics in a forum supergroup chat or a
+     * chat with a bot with topics; requires can_manage_topics administrator
+     * right in the supergroup
      * @param chat_id Chat identifier
-     * @param message_thread_ids The new list of pinned forum topics
+     * @param forum_topic_ids The new list of identifiers of the pinned forum
+     * topics
      */
     public async Ok set_pinned_forum_topics (
         int64 chat_id,
-        Gee.ArrayList<int64?> message_thread_ids
+        Gee.ArrayList<int32?> forum_topic_ids
     ) throws TDLibError {
         try {
 
         var obj = new SetPinnedForumTopics (
             chat_id,
-            message_thread_ids
+            forum_topic_ids
         );
         string json_response = "";
 
@@ -13899,22 +13937,23 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Deletes all messages in a forum topic; requires can_delete_messages
-     * administrator right in the supergroup unless the user is creator of
-     * the topic, the topic has no messages from other users and has at most
-     * 11 messages
+     * Deletes all messages from a topic in a forum supergroup chat or a chat
+     * with a bot with topics; requires can_delete_messages administrator
+     * right in the supergroup
+     * unless the user is creator of the topic, the topic has no messages
+     * from other users and has at most 11 messages
      * @param chat_id Identifier of the chat
-     * @param message_thread_id Message thread identifier of the forum topic
+     * @param forum_topic_id Forum topic identifier
      */
     public async Ok delete_forum_topic (
         int64 chat_id,
-        int64 message_thread_id
+        int32 forum_topic_id
     ) throws TDLibError {
         try {
 
         var obj = new DeleteForumTopic (
             chat_id,
-            message_thread_id
+            forum_topic_id
         );
         string json_response = "";
 
@@ -13926,6 +13965,156 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (delete_forum_topic.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Marks all mentions in a topic in a forum supergroup chat as read
+     * @param chat_id Chat identifier
+     * @param forum_topic_id Forum topic identifier in which mentions are
+     * marked as read
+     */
+    public async Ok read_all_forum_topic_mentions (
+        int64 chat_id,
+        int32 forum_topic_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReadAllForumTopicMentions (
+            chat_id,
+            forum_topic_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (read_all_forum_topic_mentions.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Marks all reactions in a topic in a forum supergroup chat or a chat
+     * with a bot with topics as read
+     * @param chat_id Chat identifier
+     * @param forum_topic_id Forum topic identifier in which reactions are
+     * marked as read
+     */
+    public async Ok read_all_forum_topic_reactions (
+        int64 chat_id,
+        int32 forum_topic_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReadAllForumTopicReactions (
+            chat_id,
+            forum_topic_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (read_all_forum_topic_reactions.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Removes all pinned messages from a topic in a forum supergroup chat or
+     * a chat with a bot with topics; requires can_pin_messages member right
+     * in the supergroup
+     * @param chat_id Identifier of the chat
+     * @param forum_topic_id Forum topic identifier in which messages will be
+     * unpinned
+     */
+    public async Ok unpin_all_forum_topic_messages (
+        int64 chat_id,
+        int32 forum_topic_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new UnpinAllForumTopicMessages (
+            chat_id,
+            forum_topic_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (unpin_all_forum_topic_messages.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -17194,11 +17383,8 @@ public sealed class TDLib.Client : Object {
      * @param url The URL from an inlineKeyboardButtonTypeWebApp button, a
      * botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an
      * empty string otherwise
-     * @param message_thread_id If not 0, the message thread identifier to
-     * which the message will be sent
-     * @param direct_messages_chat_topic_id If not 0, unique identifier of
-     * the topic of channel direct messages chat to which the message will be
-     * sent
+     * @param topic_id Topic in which the message will be sent; pass null if
+     * none
      * @param reply_to Information about the message or story to be replied
      * in the message sent by the Web App; pass null if none
      * @param parameters Parameters to use to open the Web App
@@ -17207,8 +17393,7 @@ public sealed class TDLib.Client : Object {
         int64 chat_id,
         int64 bot_user_id,
         string url,
-        int64 message_thread_id,
-        int64 direct_messages_chat_topic_id,
+        MessageTopic topic_id,
         InputMessageReplyTo reply_to,
         WebAppOpenParameters parameters
     ) throws TDLibError {
@@ -17218,8 +17403,7 @@ public sealed class TDLib.Client : Object {
             chat_id,
             bot_user_id,
             url,
-            message_thread_id,
-            direct_messages_chat_topic_id,
+            topic_id,
             reply_to,
             parameters
         );
@@ -17842,8 +18026,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Deletes the default reply markup from a chat. Must be called after a
      * one-time keyboard or a replyMarkupForceReply reply markup has been
-     * used. An updateChatReplyMarkup update will be sent if the reply markup
-     * is changed
+     * used or dismissed
      * @param chat_id Chat identifier
      * @param message_id The message identifier of the used keyboard
      */
@@ -17893,8 +18076,8 @@ public sealed class TDLib.Client : Object {
     /**
      * Sends a notification about user activity in a chat
      * @param chat_id Chat identifier
-     * @param message_thread_id If not 0, the message thread identifier in
-     * which the action was performed
+     * @param topic_id Identifier of the topic in which the action is
+     * performed
      * @param business_connection_id Unique identifier of business connection
      * on behalf of which to send the request; for bots only
      * @param action The action description; pass null to cancel the
@@ -17902,7 +18085,7 @@ public sealed class TDLib.Client : Object {
      */
     public async Ok send_chat_action (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         string business_connection_id,
         ChatAction action
     ) throws TDLibError {
@@ -17910,7 +18093,7 @@ public sealed class TDLib.Client : Object {
 
         var obj = new SendChatAction (
             chat_id,
-            message_thread_id,
+            topic_id,
             business_connection_id,
             action
         );
@@ -17924,6 +18107,61 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (send_chat_action.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Sends a draft for a being generated text message; for bots only
+     * @param chat_id Chat identifier
+     * @param forum_topic_id The forum topic identifier in which the message
+     * will be sent; pass 0 if none
+     * @param draft_id Unique identifier of the draft
+     * @param text Draft text of the message
+     */
+    public async Ok send_text_message_draft (
+        int64 chat_id,
+        int32 forum_topic_id,
+        int64 draft_id,
+        FormattedText text
+    ) throws TDLibError {
+        try {
+
+        var obj = new SendTextMessageDraft (
+            chat_id,
+            forum_topic_id,
+            draft_id,
+            text
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (send_text_message_draft.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -18447,56 +18685,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Marks all mentions in a forum topic as read
-     * @param chat_id Chat identifier
-     * @param message_thread_id Message thread identifier in which mentions
-     * are marked as read
-     */
-    public async Ok read_all_message_thread_mentions (
-        int64 chat_id,
-        int64 message_thread_id
-    ) throws TDLibError {
-        try {
-
-        var obj = new ReadAllMessageThreadMentions (
-            chat_id,
-            message_thread_id
-        );
-        string json_response = "";
-
-        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
-
-        GLib.debug ("send %d %s", client_id, json_string);
-
-        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
-            if (request_extra == obj.tdlib_extra) {
-                json_response = response;
-                Idle.add (read_all_message_thread_mentions.callback);
-            }
-        });
-        TDJsonApi.send (client_id, json_string);
-
-        yield;
-        SignalHandler.disconnect (request_manager, conid);
-
-        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
-        string tdlib_type = jsoner.deserialize_value ().get_string ();
-
-        if (tdlib_type == "error") {
-            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
-            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
-        }
-
-        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Ok) jsoner.deserialize_object (null);
-
-        } catch (JsonError e) {
-            throw new TDLibError.COMMON ("Error while parsing json");
-        }
-    }
-
-    /**
-     * Marks all reactions in a chat or a forum topic as read
+     * Marks all reactions in a chat as read
      * @param chat_id Chat identifier
      */
     public async Ok read_all_chat_reactions (
@@ -18517,55 +18706,6 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (read_all_chat_reactions.callback);
-            }
-        });
-        TDJsonApi.send (client_id, json_string);
-
-        yield;
-        SignalHandler.disconnect (request_manager, conid);
-
-        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
-        string tdlib_type = jsoner.deserialize_value ().get_string ();
-
-        if (tdlib_type == "error") {
-            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
-            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
-        }
-
-        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Ok) jsoner.deserialize_object (null);
-
-        } catch (JsonError e) {
-            throw new TDLibError.COMMON ("Error while parsing json");
-        }
-    }
-
-    /**
-     * Marks all reactions in a forum topic as read
-     * @param chat_id Chat identifier
-     * @param message_thread_id Message thread identifier in which reactions
-     * are marked as read
-     */
-    public async Ok read_all_message_thread_reactions (
-        int64 chat_id,
-        int64 message_thread_id
-    ) throws TDLibError {
-        try {
-
-        var obj = new ReadAllMessageThreadReactions (
-            chat_id,
-            message_thread_id
-        );
-        string json_response = "";
-
-        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
-
-        GLib.debug ("send %d %s", client_id, json_string);
-
-        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
-            if (request_extra == obj.tdlib_extra) {
-                json_response = response;
-                Idle.add (read_all_message_thread_reactions.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -20720,24 +20860,24 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes the draft message in a chat
+     * Changes the draft message in a chat or a topic
      * @param chat_id Chat identifier
-     * @param message_thread_id If not 0, the message thread identifier in
-     * which the draft was changed
+     * @param topic_id Topic in which the draft will be changed; pass null to
+     * change the draft for the chat itself
      * @param draft_message New draft message; pass null to remove the draft.
      * All files in draft message content must be of the type inputFileLocal.
      * Media thumbnails and captions are ignored
      */
     public async Ok set_chat_draft_message (
         int64 chat_id,
-        int64 message_thread_id,
+        MessageTopic topic_id,
         DraftMessage draft_message
     ) throws TDLibError {
         try {
 
         var obj = new SetChatDraftMessage (
             chat_id,
-            message_thread_id,
+            topic_id,
             draft_message
         );
         string json_response = "";
@@ -21389,7 +21529,7 @@ public sealed class TDLib.Client : Object {
      * requires can_restrict_members administrator right
      * @param chat_id Chat identifier
      * @param slow_mode_delay New slow mode delay for the chat, in seconds;
-     * must be one of 0, 10, 30, 60, 300, 900, 3600
+     * must be one of 0, 5, 10, 30, 60, 300, 900, 3600
      */
     public async Ok set_chat_slow_mode_delay (
         int64 chat_id,
@@ -21566,56 +21706,6 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (unpin_all_chat_messages.callback);
-            }
-        });
-        TDJsonApi.send (client_id, json_string);
-
-        yield;
-        SignalHandler.disconnect (request_manager, conid);
-
-        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
-        string tdlib_type = jsoner.deserialize_value ().get_string ();
-
-        if (tdlib_type == "error") {
-            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
-            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
-        }
-
-        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Ok) jsoner.deserialize_object (null);
-
-        } catch (JsonError e) {
-            throw new TDLibError.COMMON ("Error while parsing json");
-        }
-    }
-
-    /**
-     * Removes all pinned messages from a forum topic; requires
-     * can_pin_messages member right in the supergroup
-     * @param chat_id Identifier of the chat
-     * @param message_thread_id Message thread identifier in which messages
-     * will be unpinned
-     */
-    public async Ok unpin_all_message_thread_messages (
-        int64 chat_id,
-        int64 message_thread_id
-    ) throws TDLibError {
-        try {
-
-        var obj = new UnpinAllMessageThreadMessages (
-            chat_id,
-            message_thread_id
-        );
-        string json_response = "";
-
-        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
-
-        GLib.debug ("send %d %s", client_id, json_string);
-
-        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
-            if (request_extra == obj.tdlib_extra) {
-                json_response = response;
-                Idle.add (unpin_all_message_thread_messages.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -28912,6 +29002,105 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Toggles whether participants of a group call can send messages there.
+     * Requires groupCall.can_toggle_can_send_messages right
+     * @param group_call_id Group call identifier
+     * @param can_send_messages New value of the can_send_messages setting
+     */
+    public async Ok toggle_group_call_can_send_messages (
+        int32 group_call_id,
+        bool can_send_messages
+    ) throws TDLibError {
+        try {
+
+        var obj = new ToggleGroupCallCanSendMessages (
+            group_call_id,
+            can_send_messages
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (toggle_group_call_can_send_messages.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Sends a message to other participants of a group call. Requires
+     * groupCall.can_send_messages right
+     * @param group_call_id Group call identifier
+     * @param text Text of the message to send;
+     * 1-getOption("group_call_message_text_length_max") characters
+     */
+    public async Ok send_group_call_message (
+        int32 group_call_id,
+        FormattedText text
+    ) throws TDLibError {
+        try {
+
+        var obj = new SendGroupCallMessage (
+            group_call_id,
+            text
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (send_group_call_message.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Invites a user to an active group call; for group calls not bound to a
      * chat only. Sends a service message of the type messageGroupCall.
      * The group call can have at most
@@ -30211,8 +30400,9 @@ public sealed class TDLib.Client : Object {
     /**
      * Adds a user to the contact list or edits an existing contact by their
      * user identifier
+     * @param user_id Identifier of the user
      * @param contact The contact to add or edit; phone number may be empty
-     * and needs to be specified only if known, vCard is ignored
+     * and needs to be specified only if known
      * @param share_phone_number Pass true to share the current user's phone
      * number with the new contact. A corresponding rule to
      * userPrivacySettingShowPhoneNumber will be added if needed. Use the
@@ -30220,12 +30410,14 @@ public sealed class TDLib.Client : Object {
      * whether the current user needs to be asked to share their phone number
      */
     public async Ok add_contact (
-        Contact contact,
+        int64 user_id,
+        ImportedContact contact,
         bool share_phone_number
     ) throws TDLibError {
         try {
 
         var obj = new AddContact (
+            user_id,
             contact,
             share_phone_number
         );
@@ -30265,11 +30457,10 @@ public sealed class TDLib.Client : Object {
     /**
      * Adds new contacts or edits existing contacts by their phone numbers;
      * contacts' user identifiers are ignored
-     * @param contacts The list of contacts to import or edit; contacts'
-     * vCard are ignored and are not imported
+     * @param contacts The list of contacts to import or edit
      */
     public async ImportedContacts import_contacts (
-        Gee.ArrayList<Contact?> contacts
+        Gee.ArrayList<ImportedContact?> contacts
     ) throws TDLibError {
         try {
 
@@ -30489,11 +30680,10 @@ public sealed class TDLib.Client : Object {
      * database is enabled, deletes recently deleted contacts.
      * Query result depends on the result of the previous query, so only one
      * query is possible at the same time
-     * @param contacts The new list of contacts, contact's vCard are ignored
-     * and are not imported
+     * @param contacts The new list of contacts to import
      */
     public async ImportedContacts change_imported_contacts (
-        Gee.ArrayList<Contact?> contacts
+        Gee.ArrayList<ImportedContact?> contacts
     ) throws TDLibError {
         try {
 
@@ -30709,6 +30899,57 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Changes a note of a contact user
+     * @param user_id User identifier
+     * @param note Note to set for the user;
+     * 0-getOption("user_note_text_length_max") characters. Only Bold,
+     * Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities
+     * are allowed
+     */
+    public async Ok set_user_note (
+        int64 user_id,
+        FormattedText note
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetUserNote (
+            user_id,
+            note
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_user_note.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Suggests a profile photo to another regular user with common messages
      * and allowing non-paid messages
      * @param user_id User identifier
@@ -30735,6 +30976,55 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (suggest_user_profile_photo.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Suggests a birthdate to another regular user with common messages and
+     * allowing non-paid messages
+     * @param user_id User identifier
+     * @param birthdate Birthdate to suggest
+     */
+    public async Ok suggest_user_birthdate (
+        int64 user_id,
+        Birthdate birthdate
+    ) throws TDLibError {
+        try {
+
+        var obj = new SuggestUserBirthdate (
+            user_id,
+            birthdate
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (suggest_user_birthdate.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -33502,6 +33792,53 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Changes color scheme for the current user based on an owned or a
+     * hosted upgraded gift; for Telegram Premium users only
+     * @param upgraded_gift_colors_id Identifier of the upgradedGiftColors
+     * scheme to use
+     */
+    public async Ok set_upgraded_gift_colors (
+        int64 upgraded_gift_colors_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetUpgradedGiftColors (
+            upgraded_gift_colors_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_upgraded_gift_colors.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Changes accent color and background custom emoji for profile of the
      * current user; for Telegram Premium users only
      * @param profile_accent_color_id Identifier of the accent color to use
@@ -36006,10 +36343,10 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Changes active state for a username of a bot. The editable username
-     * can't be disabled. May return an error with a message
-     * "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames
-     * has been reached. Can be called only if userTypeBot.can_be_edited ==
-     * true
+     * can be disabled only if there are other active usernames.
+     * May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the
+     * maximum number of active usernames has been reached. Can be called
+     * only if userTypeBot.can_be_edited == true
      * @param bot_user_id Identifier of the target bot
      * @param username The username to change
      * @param is_active Pass true to activate the username; pass false to
@@ -37383,7 +37720,7 @@ public sealed class TDLib.Client : Object {
      * approved by supergroup administrators; requires can_restrict_members
      * administrator right
      * @param supergroup_id Identifier of the supergroup that isn't a
-     * broadcast group
+     * broadcast group and isn't a channel direct message group
      * @param join_by_request New value of join_by_request
      */
     public async Ok toggle_supergroup_join_by_request (
@@ -39053,6 +39390,55 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Drops original details for an upgraded gift
+     * @param received_gift_id Identifier of the gift
+     * @param star_count The amount of Telegram Stars required to pay for the
+     * operation
+     */
+    public async Ok drop_gift_original_details (
+        string received_gift_id,
+        int64 star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new DropGiftOriginalDetails (
+            received_gift_id,
+            star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (drop_gift_original_details.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Sends an upgraded gift that is available for resale to another user or
      * channel chat; gifts already owned by the current user
      * must be transferred using {@link Client.transfer_gift} and can't be
@@ -39128,6 +39514,10 @@ public sealed class TDLib.Client : Object {
      * @param exclude_non_upgradable Pass true to exclude gifts that can be
      * purchased limited number of times and can't be upgraded
      * @param exclude_upgraded Pass true to exclude upgraded gifts
+     * @param exclude_without_colors Pass true to exclude gifts that can't be
+     * used in {@link Client.set_upgraded_gift_colors}
+     * @param exclude_hosted Pass true to exclude gifts that are just hosted
+     * and are not owned by the owner
      * @param sort_by_price Pass true to sort results by gift price instead
      * of send date
      * @param offset Offset of the first entry to return as received from the
@@ -39147,6 +39537,8 @@ public sealed class TDLib.Client : Object {
         bool exclude_upgradable,
         bool exclude_non_upgradable,
         bool exclude_upgraded,
+        bool exclude_without_colors,
+        bool exclude_hosted,
         bool sort_by_price,
         string offset,
         int32 limit
@@ -39163,6 +39555,8 @@ public sealed class TDLib.Client : Object {
             exclude_upgradable,
             exclude_non_upgradable,
             exclude_upgraded,
+            exclude_without_colors,
+            exclude_hosted,
             sort_by_price,
             offset,
             limit
