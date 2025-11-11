@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>TDLib.CreateChatSubscriptionInviteLink &ndash; valagram-1 &ndash; Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">TDLib.CreateChatSubscriptionInviteLink &ndash; valagram-1 Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">valagram-1</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="TDLib.html">TDLib</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="class">CreateChatSubscriptionInviteLink</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="TDLib.CreateChatSubscriptionInviteLink.chat_id.html">chat_id</a></li>
+          <li class="property"><a href="TDLib.CreateChatSubscriptionInviteLink.name.html">name</a></li>
+          <li class="property"><a href="TDLib.CreateChatSubscriptionInviteLink.subscription_pricing.html">subscription_pricing</a></li>
+          <li class="creation_method"><a href="TDLib.CreateChatSubscriptionInviteLink.CreateChatSubscriptionInviteLink.html">
+              CreateChatSubscriptionInviteLink</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">CreateChatSubscriptionInviteLink</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        
+        <img class="main_diagram" usemap="#TDLib.CreateChatSubscriptionInviteLink" alt="Object hierarchy for CreateChatSubscriptionInviteLink" src="img/TDLib.CreateChatSubscriptionInviteLink.png"/>
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">class</span> <b><span class="class">CreateChatSubscriptionInviteLink</span></b> : <span class="main_type"><a href="TDLib.TDObject.html" class="abstract_class">TDObject</a></span>
+        </div>
+        <div class="description">
+          <p>Creates a new subscription invite link for a channel chat. Requires can_invite_users right in the chat</p>
+        </div><br/>
+        <div class="namespace_note"><b>Namespace:</b> <a href="TDLib.html">TDLib</a>
+        </div>
+        <div class="package_note"><b>Package:</b> <a href="index.htm">valagram-1</a>
+        </div>
+        <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Properties:</h3>
+        <ul class="navi_inline">
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int64</span></span> <b><a href="TDLib.CreateChatSubscriptionInviteLink.chat_id.html" class="property">chat_id</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Chat identifier</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="TDLib.CreateChatSubscriptionInviteLink.name.html" class="property">name</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Invite link name; 0-32 characters</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="TDLib.StarSubscriptionPricing.html" class="class">StarSubscriptionPricing</a></span> <b><a href="TDLib.CreateChatSubscriptionInviteLink.subscription_pricing.html" class="property">subscription_pricing</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Information about subscription plan that will be applied to the users 
+                joining the chat via the link. Subscription period must be 2592000 in production environment, and 60 or 300 if Telegram test 
+                environment is used</span>
+            </div></li>
+        </ul>
+        <h3 class="main_title">Creation methods:</h3>
+        <ul class="navi_inline">
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="TDLib.CreateChatSubscriptionInviteLink.CreateChatSubscriptionInviteLink.html" class="creation_method">CreateChatSubscriptionInviteLink</a></b> (<span class="main_basic_type"><span class="struct">int64</span></span> chat_id, <span class="main_basic_type"><span class="class">string</span></span> name, <span class="main_type"><a href="TDLib.StarSubscriptionPricing.html" class="class">StarSubscriptionPricing</a></span> subscription_pricing)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+        <h3 class="main_title">Inherited Members:</h3>
+        <div class="box">
+          <div class="headline" onclick="toggle_box (this, 'box-content-998')">All known members inherited from class GLib.Object</div>
+          <div class="content" id="box-content-998">
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="method">@get</li>
+                <li class="static_method">@new</li>
+                <li class="method">@ref</li>
+                <li class="method">@set</li>
+                <li class="method">add_toggle_ref</li>
+                <li class="method">add_weak_pointer</li>
+                <li class="method">bind_property</li>
+                <li class="method">connect</li>
+                <li class="virtual_method">constructed</li>
+                <li class="method">disconnect</li>
+                <li class="virtual_method">dispose</li>
+                <li class="method">dup_data</li>
+                <li class="method">dup_qdata</li>
+                <li class="method">force_floating</li>
+                <li class="method">freeze_notify</li>
+                <li class="method">get_class</li>
+                <li class="method">get_data</li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="method">get_property</li>
+                <li class="method">get_qdata</li>
+                <li class="method">get_type</li>
+                <li class="method">getv</li>
+                <li class="static_method">interface_find_property</li>
+                <li class="static_method">interface_install_property</li>
+                <li class="static_method">interface_list_properties</li>
+                <li class="method">is_floating</li>
+                <li class="static_method">new_valist</li>
+                <li class="static_method">new_with_properties</li>
+                <li class="static_method">newv</li>
+                <li class="signal">notify</li>
+                <li class="method">notify_property</li>
+                <li class="field">ref_count</li>
+                <li class="method">ref_sink</li>
+                <li class="method">remove_toggle_ref</li>
+                <li class="method">remove_weak_pointer</li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="method">replace_data</li>
+                <li class="method">replace_qdata</li>
+                <li class="method">set_data</li>
+                <li class="method">set_data_full</li>
+                <li class="method">set_property</li>
+                <li class="method">set_qdata</li>
+                <li class="method">set_qdata_full</li>
+                <li class="method">set_valist</li>
+                <li class="method">setv</li>
+                <li class="method">steal_data</li>
+                <li class="method">steal_qdata</li>
+                <li class="method">thaw_notify</li>
+                <li class="method">unref</li>
+                <li class="method">watch_closure</li>
+                <li class="method">weak_ref</li>
+                <li class="method">weak_unref</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="https://docs.vala.dev"><kbd>valadoc</kbd></a>
+    </div>
+  </body>
+</html>

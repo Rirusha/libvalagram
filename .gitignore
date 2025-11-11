@@ -1,9 +1,0 @@
-# meson
-_build
-
-# .vscode
-.vscode/settings.json
-
-subprojects/*/
-
-auto-update/altrepo2vala

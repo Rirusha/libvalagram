@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>TDLib.InputMessageInvoice &ndash; valagram-1 &ndash; Vala Binding Reference</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/><script src="../scripts.js" type="text/javascript">
+    </script>
+  </head>
+  <body>
+    <div class="site_header">TDLib.InputMessageInvoice &ndash; valagram-1 Reference Manual</div>
+    <div class="site_body">
+      <div class="site_navigation">
+        <ul class="navi_main">
+          <li class="package_index"><a href="../index.html">Packages</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="package"><a href="index.htm">valagram-1</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="namespace"><a href="TDLib.html">TDLib</a></li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="class">InputMessageInvoice</li>
+        </ul>
+        <hr class="navi_hr"/>
+        <ul class="navi_main">
+          <li class="property"><a href="TDLib.InputMessageInvoice.description.html">description</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.invoice.html">invoice</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.paid_media.html">paid_media</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.paid_media_caption.html">paid_media_caption</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.payload.html">payload</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.photo_height.html">photo_height</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.photo_size.html">photo_size</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.photo_url.html">photo_url</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.photo_width.html">photo_width</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.provider_data.html">provider_data</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.provider_token.html">provider_token</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.start_parameter.html">start_parameter</a></li>
+          <li class="property"><a href="TDLib.InputMessageInvoice.title.html">title</a></li>
+          <li class="creation_method"><a href="TDLib.InputMessageInvoice.InputMessageInvoice.html">InputMessageInvoice</a></li>
+        </ul>
+      </div>
+      <div class="site_content">
+        <h1 class="main_title">InputMessageInvoice</h1>
+        <hr class="main_hr"/>
+        <h2 class="main_title">Object Hierarchy:</h2>
+        
+        <img class="main_diagram" usemap="#TDLib.InputMessageInvoice" alt="Object hierarchy for InputMessageInvoice" src="img/TDLib.InputMessageInvoice.png"/>
+        <h2 class="main_title">Description:</h2>
+        <div class="main_code_definition"><span class="main_keyword">public</span> <span class="main_keyword">class</span> <b><span class="class">InputMessageInvoice</span></b> : <span class="main_type"><a href="TDLib.InputMessageContent.html" class="abstract_class">InputMessageContent</a></span>
+        </div>
+        <div class="description">
+          <p>A message with an invoice; can be used only by bots</p>
+        </div><br/>
+        <div class="namespace_note"><b>Namespace:</b> <a href="TDLib.html">TDLib</a>
+        </div>
+        <div class="package_note"><b>Package:</b> <a href="index.htm">valagram-1</a>
+        </div>
+        <h2 class="main_title">Content:</h2>
+        <h3 class="main_title">Properties:</h3>
+        <ul class="navi_inline">
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="TDLib.InputMessageInvoice.description.html" class="property">description</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Product description; 0-255 characters</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="TDLib.Invoice.html" class="class">Invoice</a></span> <b><a href="TDLib.InputMessageInvoice.invoice.html" class="property">invoice</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Invoice</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="TDLib.InputPaidMedia.html" class="class">InputPaidMedia</a></span> <b><a href="TDLib.InputMessageInvoice.paid_media.html" class="property">paid_media</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">The content of paid media attached to the invoice; pass null if none
+              </span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><a href="TDLib.FormattedText.html" class="class">FormattedText</a></span> <b><a href="TDLib.InputMessageInvoice.paid_media_caption.html" class="property">paid_media_caption</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Paid media caption; pass null to use an empty caption; 0-
+                getOption("message_caption_length_max") characters</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_type"><span class="class">Bytes</span></span> <b><a href="TDLib.InputMessageInvoice.payload.html" class="property">payload</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">The invoice payload</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int32</span></span> <b><a href="TDLib.InputMessageInvoice.photo_height.html" class="property">photo_height</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Product photo height</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int32</span></span> <b><a href="TDLib.InputMessageInvoice.photo_size.html" class="property">photo_size</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Product photo size</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="TDLib.InputMessageInvoice.photo_url.html" class="property">photo_url</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Product photo URL; optional</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="struct">int32</span></span> <b><a href="TDLib.InputMessageInvoice.photo_width.html" class="property">photo_width</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Product photo width</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="TDLib.InputMessageInvoice.provider_data.html" class="property">provider_data</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">JSON-encoded data about the invoice, which will be shared with the 
+                payment provider</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="TDLib.InputMessageInvoice.provider_token.html" class="property">provider_token</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Payment provider token; may be empty for payments in Telegram Stars
+              </span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="TDLib.InputMessageInvoice.start_parameter.html" class="property">start_parameter</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Unique invoice bot deep link parameter for the generation of this 
+                invoice. If empty, it would be possible to pay directly from forwards of the invoice message</span>
+            </div></li>
+          <li class="property"><span class="leaf_code_definition"><span class="main_keyword">public</span> <span class="main_basic_type"><span class="class">string</span></span> <b><a href="TDLib.InputMessageInvoice.title.html" class="property">title</a></b> { <span class="main_keyword">get</span>; <span class="main_keyword">set</span> <span class="main_keyword">construct</span>; }
+            </span>
+            <div class="leaf_brief_description"><span class="brief_description">Product title; 1-32 characters</span>
+            </div></li>
+        </ul>
+        <h3 class="main_title">Creation methods:</h3>
+        <ul class="navi_inline">
+          <li class="creation_method"><span class="leaf_code_definition"><span class="main_keyword">public</span> <b><a href="TDLib.InputMessageInvoice.InputMessageInvoice.html" class="creation_method">InputMessageInvoice</a></b> (<span class="main_type"><a href="TDLib.Invoice.html" class="class">Invoice</a></span> invoice, <span class="main_basic_type"><span class="class">string</span></span> title, <span class="main_basic_type"><span class="class">string</span></span> description, <span class="main_basic_type"><span class="class">string</span></span> photo_url, <span class="main_basic_type"><span class="struct">int32</span></span> photo_size, <span class="main_basic_type"><span class="struct">int32</span></span> photo_width, <span class="main_basic_type"><span class="struct">int32</span></span> photo_height, <span class="main_type"><span class="class">Bytes</span></span> payload, <span class="main_basic_type"><span class="class">string</span></span> provider_token, <span class="main_basic_type"><span class="class">string</span></span> provider_data, <span class="main_basic_type"><span class="class">string</span></span> start_parameter, <span class="main_type"><a href="TDLib.InputPaidMedia.html" class="class">InputPaidMedia</a></span> paid_media, <span class="main_type"><a href="TDLib.FormattedText.html" class="class">FormattedText</a></span> paid_media_caption)
+            </span>
+            <div class="leaf_brief_description">
+            </div></li>
+        </ul>
+        <h3 class="main_title">Inherited Members:</h3>
+        <div class="box">
+          <div class="headline" onclick="toggle_box (this, 'box-content-1966')">All known members inherited from class TDLib.Error</div>
+          <div class="content" id="box-content-1966">
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="property"><a href="TDLib.Error.code.html">code</a></li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="property"><a href="TDLib.Error.message.html">message</a></li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="navi_inline">
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="headline" onclick="toggle_box (this, 'box-content-1967')">All known members inherited from class GLib.Object</div>
+          <div class="content" id="box-content-1967">
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="method">@get</li>
+                <li class="static_method">@new</li>
+                <li class="method">@ref</li>
+                <li class="method">@set</li>
+                <li class="method">add_toggle_ref</li>
+                <li class="method">add_weak_pointer</li>
+                <li class="method">bind_property</li>
+                <li class="method">connect</li>
+                <li class="virtual_method">constructed</li>
+                <li class="method">disconnect</li>
+                <li class="virtual_method">dispose</li>
+                <li class="method">dup_data</li>
+                <li class="method">dup_qdata</li>
+                <li class="method">force_floating</li>
+                <li class="method">freeze_notify</li>
+                <li class="method">get_class</li>
+                <li class="method">get_data</li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="method">get_property</li>
+                <li class="method">get_qdata</li>
+                <li class="method">get_type</li>
+                <li class="method">getv</li>
+                <li class="static_method">interface_find_property</li>
+                <li class="static_method">interface_install_property</li>
+                <li class="static_method">interface_list_properties</li>
+                <li class="method">is_floating</li>
+                <li class="static_method">new_valist</li>
+                <li class="static_method">new_with_properties</li>
+                <li class="static_method">newv</li>
+                <li class="signal">notify</li>
+                <li class="method">notify_property</li>
+                <li class="field">ref_count</li>
+                <li class="method">ref_sink</li>
+                <li class="method">remove_toggle_ref</li>
+                <li class="method">remove_weak_pointer</li>
+              </ul>
+            </div>
+            <div class="column">
+              <ul class="navi_inline">
+                <li class="method">replace_data</li>
+                <li class="method">replace_qdata</li>
+                <li class="method">set_data</li>
+                <li class="method">set_data_full</li>
+                <li class="method">set_property</li>
+                <li class="method">set_qdata</li>
+                <li class="method">set_qdata_full</li>
+                <li class="method">set_valist</li>
+                <li class="method">setv</li>
+                <li class="method">steal_data</li>
+                <li class="method">steal_qdata</li>
+                <li class="method">thaw_notify</li>
+                <li class="method">unref</li>
+                <li class="method">watch_closure</li>
+                <li class="method">weak_ref</li>
+                <li class="method">weak_unref</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br/>
+    <div class="site_footer">Generated by <a href="https://docs.vala.dev"><kbd>valadoc</kbd></a>
+    </div>
+  </body>
+</html>
