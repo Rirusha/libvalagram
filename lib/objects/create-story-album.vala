@@ -37,7 +37,7 @@ public class TDLib.CreateStoryAlbum : TDObject {
 
     /**
      * Identifiers of stories to add to the album;
-     * 0-getOption("story_album_story_count_max") identifiers
+     * 0-getOption("story_album_size_max") identifiers
      */
     public Gee.ArrayList<int32?> story_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 

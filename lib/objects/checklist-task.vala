@@ -37,10 +37,10 @@ public class TDLib.ChecklistTask : Error {
     public FormattedText text { get; construct set; }
 
     /**
-     * Identifier of the user that completed the task; 0 if the task isn't
-     * completed
+     * Identifier of the user or chat that completed the task; may be null if
+     * the task isn't completed yet
      */
-    public int64 completed_by_user_id { get; construct set; }
+    public MessageSender? completed_by { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the task was completed; 0 if the
@@ -51,13 +51,13 @@ public class TDLib.ChecklistTask : Error {
     public ChecklistTask (
         int32 id_,
         FormattedText text,
-        int64 completed_by_user_id,
+        MessageSender? completed_by,
         int32 completion_date
     ) {
         Object (
             id_: id_,
             text: text,
-            completed_by_user_id: completed_by_user_id,
+            completed_by: completed_by,
             completion_date: completion_date,
             tdlib_type: "checklistTask",
             tdlib_extra: Uuid.string_random ()

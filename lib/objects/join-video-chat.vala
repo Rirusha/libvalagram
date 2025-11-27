@@ -31,7 +31,7 @@ public class TDLib.JoinVideoChat : TDObject {
 
     /**
      * Identifier of a group call participant, which will be used to join the
-     * call; pass null to join as self; video chats only
+     * call; pass null to join as self
      */
     public MessageSender participant_id { get; construct set; }
 

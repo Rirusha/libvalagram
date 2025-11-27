@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes chosen reaction on a story that has already been sent
+ * Changes chosen reaction on a story that has already been sent; not
+ * supported for live stories
  */
 public class TDLib.SetStoryReaction : TDObject {
 

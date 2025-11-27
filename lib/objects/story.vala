@@ -72,7 +72,9 @@ public class TDLib.Story : Error {
     public bool is_visible_only_for_self { get; construct set; }
 
     /**
-     * True, if the story can be added to an album
+     * True, if the story can be added to an album using
+     * {@link Client.create_story_album} and
+     * {@link Client.add_story_album_stories}
      */
     public bool can_be_added_to_album { get; construct set; }
 
@@ -98,6 +100,11 @@ public class TDLib.Story : Error {
      * posted the story
      */
     public bool can_be_replied { get; construct set; }
+
+    /**
+     * True, if the story privacy settings can be changed
+     */
+    public bool can_set_privacy_settings { get; construct set; }
 
     /**
      * True, if the story's is_posted_to_chat_page value can be changed
@@ -182,6 +189,7 @@ public class TDLib.Story : Error {
         bool can_be_edited,
         bool can_be_forwarded,
         bool can_be_replied,
+        bool can_set_privacy_settings,
         bool can_toggle_is_posted_to_chat_page,
         bool can_get_statistics,
         bool can_get_interactions,
@@ -210,6 +218,7 @@ public class TDLib.Story : Error {
             can_be_edited: can_be_edited,
             can_be_forwarded: can_be_forwarded,
             can_be_replied: can_be_replied,
+            can_set_privacy_settings: can_set_privacy_settings,
             can_toggle_is_posted_to_chat_page: can_toggle_is_posted_to_chat_page,
             can_get_statistics: can_get_statistics,
             can_get_interactions: can_get_interactions,

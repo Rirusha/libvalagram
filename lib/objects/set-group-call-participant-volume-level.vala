@@ -20,9 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes volume level of a participant of an active group call. If the
- * current user can manage the group call or is the owner of the group
- * call,
+ * Changes volume level of a participant of an active group call; not
+ * supported for live stories. If the current user can manage the group
+ * call or is the owner of the group call,
  * then the participant's volume level will be changed for all users with
  * the default volume level
  */

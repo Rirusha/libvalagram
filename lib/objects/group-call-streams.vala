@@ -20,22 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Represents a list of group call streams
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.GroupCallStreams : Error {
 
     /**
-     * Group call identifier
+     * A list of group call streams
      */
-    public int32 group_call_id { get; construct set; }
+    public Gee.ArrayList<GroupCallStream?> streams { get; construct set; default = new Gee.ArrayList<GroupCallStream?> (); }
 
-    public EndGroupCall (
-        int32 group_call_id
+    public GroupCallStreams (
+        Gee.ArrayList<GroupCallStream?> streams
     ) {
         Object (
-            group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            streams: streams,
+            tdlib_type: "groupCallStreams",
             tdlib_extra: Uuid.string_random ()
         );
     }

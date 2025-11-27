@@ -20,22 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Joins a group call of an active live story. Returns join response
+ * payload for tgcalls
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.JoinLiveStory : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public EndGroupCall (
-        int32 group_call_id
+    /**
+     * Parameters to join the call
+     */
+    public GroupCallJoinParameters join_parameters { get; construct set; }
+
+    public JoinLiveStory (
+        int32 group_call_id,
+        GroupCallJoinParameters join_parameters
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            join_parameters: join_parameters,
+            tdlib_type: "joinLiveStory",
             tdlib_extra: Uuid.string_random ()
         );
     }

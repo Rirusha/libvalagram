@@ -20,22 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Returns the list of message sender identifiers, on whose behalf
+ * messages can be sent to a live story
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.GetLiveStoryAvailableMessageSenders : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public EndGroupCall (
+    public GetLiveStoryAvailableMessageSenders (
         int32 group_call_id
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            tdlib_type: "getLiveStoryAvailableMessageSenders",
             tdlib_extra: Uuid.string_random ()
         );
     }

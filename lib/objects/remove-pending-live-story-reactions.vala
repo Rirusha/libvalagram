@@ -20,22 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Removes all pending paid reactions in a live story group call
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.RemovePendingLiveStoryReactions : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public EndGroupCall (
+    public RemovePendingLiveStoryReactions (
         int32 group_call_id
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            tdlib_type: "removePendingLiveStoryReactions",
             tdlib_extra: Uuid.string_random ()
         );
     }

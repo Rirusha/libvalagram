@@ -1867,6 +1867,11 @@ public class TDLib.UpdateForumTopic : Update {
      */
     public ChatNotificationSettings notification_settings { get; construct set; }
 
+    /**
+     * A draft of a message in the topic; may be null if none
+     */
+    public DraftMessage? draft_message { get; construct set; }
+
     public UpdateForumTopic (
         int64 chat_id,
         int32 forum_topic_id,
@@ -1875,7 +1880,8 @@ public class TDLib.UpdateForumTopic : Update {
         int64 last_read_outbox_message_id,
         int32 unread_mention_count,
         int32 unread_reaction_count,
-        ChatNotificationSettings notification_settings
+        ChatNotificationSettings notification_settings,
+        DraftMessage? draft_message
     ) {
         Object (
             chat_id: chat_id,
@@ -1886,6 +1892,7 @@ public class TDLib.UpdateForumTopic : Update {
             unread_mention_count: unread_mention_count,
             unread_reaction_count: unread_reaction_count,
             notification_settings: notification_settings,
+            draft_message: draft_message,
             tdlib_type: "updateForumTopic",
             tdlib_extra: Uuid.string_random ()
         );
@@ -2924,11 +2931,9 @@ public class TDLib.UpdateGroupCallVerificationState : Update {
 }
 
 /**
- * A new message was received in a group call. It must be shown for at
- * most getOption("group_call_message_show_time_max") seconds after
- * receiving
+ * A new message was received in a group call
  */
-public class TDLib.UpdateGroupCallNewMessage : Update {
+public class TDLib.UpdateNewGroupCallMessage : Update {
 
     /**
      * Identifier of the group call
@@ -2936,25 +2941,144 @@ public class TDLib.UpdateGroupCallNewMessage : Update {
     public int32 group_call_id { get; construct set; }
 
     /**
-     * Identifier of the sender of the message
+     * The message
+     */
+    public new GroupCallMessage message { get; construct set; }
+
+    public UpdateNewGroupCallMessage (
+        int32 group_call_id,
+        GroupCallMessage message
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            message: message,
+            tdlib_type: "updateNewGroupCallMessage",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A new paid reaction was received in a live story group call
+ */
+public class TDLib.UpdateNewGroupCallPaidReaction : Update {
+
+    /**
+     * Identifier of the group call
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * Identifier of the sender of the reaction
      */
     public MessageSender sender_id { get; construct set; }
 
     /**
-     * Text of the message
+     * The number of Telegram Stars that were paid to send the reaction
      */
-    public FormattedText text { get; construct set; }
+    public int64 star_count { get; construct set; }
 
-    public UpdateGroupCallNewMessage (
+    public UpdateNewGroupCallPaidReaction (
         int32 group_call_id,
         MessageSender sender_id,
-        FormattedText text
+        int64 star_count
     ) {
         Object (
             group_call_id: group_call_id,
             sender_id: sender_id,
-            text: text,
-            tdlib_type: "updateGroupCallNewMessage",
+            star_count: star_count,
+            tdlib_type: "updateNewGroupCallPaidReaction",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A group call message failed to send
+ */
+public class TDLib.UpdateGroupCallMessageSendFailed : Update {
+
+    /**
+     * Identifier of the group call
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * Message identifier
+     */
+    public int32 message_id { get; construct set; }
+
+    /**
+     * The cause of the message sending failure
+     */
+    public Error error { get; construct set; }
+
+    public UpdateGroupCallMessageSendFailed (
+        int32 group_call_id,
+        int32 message_id,
+        Error error
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            message_id: message_id,
+            error: error,
+            tdlib_type: "updateGroupCallMessageSendFailed",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Some group call messages were deleted
+ */
+public class TDLib.UpdateGroupCallMessagesDeleted : Update {
+
+    /**
+     * Identifier of the group call
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * Identifiers of the deleted messages
+     */
+    public Gee.ArrayList<int32?> message_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+
+    public UpdateGroupCallMessagesDeleted (
+        int32 group_call_id,
+        Gee.ArrayList<int32?> message_ids
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            message_ids: message_ids,
+            tdlib_type: "updateGroupCallMessagesDeleted",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The list of top donors in live story group call has changed
+ */
+public class TDLib.UpdateLiveStoryTopDonors : Update {
+
+    /**
+     * Identifier of the group call
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * New list of live story donors
+     */
+    public LiveStoryDonors donors { get; construct set; }
+
+    public UpdateLiveStoryTopDonors (
+        int32 group_call_id,
+        LiveStoryDonors donors
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            donors: donors,
+            tdlib_type: "updateLiveStoryTopDonors",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -3296,6 +3420,29 @@ public class TDLib.UpdateStoryStealthMode : Update {
             active_until_date: active_until_date,
             cooldown_until_date: cooldown_until_date,
             tdlib_type: "updateStoryStealthMode",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * Lists of bots which Mini Apps must be allowed to read text from
+ * clipboard and must be opened without a warning
+ */
+public class TDLib.UpdateTrustedMiniAppBots : Update {
+
+    /**
+     * List of user identifiers of the bots; the corresponding users may not
+     * be sent using updateUser updates and may not be accessible
+     */
+    public Gee.ArrayList<int64?> bot_user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
+
+    public UpdateTrustedMiniAppBots (
+        Gee.ArrayList<int64?> bot_user_ids
+    ) {
+        Object (
+            bot_user_ids: bot_user_ids,
+            tdlib_type: "updateTrustedMiniAppBots",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -4149,6 +4296,28 @@ public class TDLib.UpdateSpeechRecognitionTrial : Update {
             left_count: left_count,
             next_reset_date: next_reset_date,
             tdlib_type: "updateSpeechRecognitionTrial",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The levels of live story group call messages have changed
+ */
+public class TDLib.UpdateGroupCallMessageLevels : Update {
+
+    /**
+     * New description of the levels in decreasing order of
+     * groupCallMessageLevel.min_star_count
+     */
+    public Gee.ArrayList<GroupCallMessageLevel?> levels { get; construct set; default = new Gee.ArrayList<GroupCallMessageLevel?> (); }
+
+    public UpdateGroupCallMessageLevels (
+        Gee.ArrayList<GroupCallMessageLevel?> levels
+    ) {
+        Object (
+            levels: levels,
+            tdlib_type: "updateGroupCallMessageLevels",
             tdlib_extra: Uuid.string_random ()
         );
     }

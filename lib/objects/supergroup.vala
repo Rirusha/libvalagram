@@ -185,16 +185,10 @@ public class TDLib.Supergroup : Error {
     public int64 paid_message_star_count { get; construct set; }
 
     /**
-     * True, if the supergroup or channel has non-expired stories available
-     * to the current user
+     * State of active stories of the supergroup or channel; may be null if
+     * there are no active stories
      */
-    public bool has_active_stories { get; construct set; }
-
-    /**
-     * True, if the supergroup or channel has unread non-expired stories
-     * available to the current user
-     */
-    public bool has_unread_active_stories { get; construct set; }
+    public ActiveStoryState? active_story_state { get; construct set; }
 
     public Supergroup (
         int64 id_,
@@ -221,8 +215,7 @@ public class TDLib.Supergroup : Error {
         bool has_forum_tabs,
         RestrictionInfo? restriction_info,
         int64 paid_message_star_count,
-        bool has_active_stories,
-        bool has_unread_active_stories
+        ActiveStoryState? active_story_state
     ) {
         Object (
             id_: id_,
@@ -249,8 +242,7 @@ public class TDLib.Supergroup : Error {
             has_forum_tabs: has_forum_tabs,
             restriction_info: restriction_info,
             paid_message_star_count: paid_message_star_count,
-            has_active_stories: has_active_stories,
-            has_unread_active_stories: has_unread_active_stories,
+            active_story_state: active_story_state,
             tdlib_type: "supergroup",
             tdlib_extra: Uuid.string_random ()
         );

@@ -20,22 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Toggles whether participants of a group call can send messages there.
+ * Requires groupCall.can_toggle_are_messages_allowed right
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.ToggleGroupCallAreMessagesAllowed : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public EndGroupCall (
-        int32 group_call_id
+    /**
+     * New value of the are_messages_allowed setting
+     */
+    public bool are_messages_allowed { get; construct set; }
+
+    public ToggleGroupCallAreMessagesAllowed (
+        int32 group_call_id,
+        bool are_messages_allowed
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            are_messages_allowed: are_messages_allowed,
+            tdlib_type: "toggleGroupCallAreMessagesAllowed",
             tdlib_extra: Uuid.string_random ()
         );
     }

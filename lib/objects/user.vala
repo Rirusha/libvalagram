@@ -133,16 +133,10 @@ public class TDLib.User : Error {
     public RestrictionInfo? restriction_info { get; construct set; }
 
     /**
-     * True, if the user has non-expired stories available to the current
-     * user
+     * State of active stories of the user; may be null if the user has no
+     * active stories
      */
-    public bool has_active_stories { get; construct set; }
-
-    /**
-     * True, if the user has unread non-expired stories available to the
-     * current user
-     */
-    public bool has_unread_active_stories { get; construct set; }
+    public ActiveStoryState? active_story_state { get; construct set; }
 
     /**
      * True, if the user may restrict new chats with non-contacts. Use
@@ -203,8 +197,7 @@ public class TDLib.User : Error {
         bool is_premium,
         bool is_support,
         RestrictionInfo? restriction_info,
-        bool has_active_stories,
-        bool has_unread_active_stories,
+        ActiveStoryState? active_story_state,
         bool restricts_new_chats,
         int64 paid_message_star_count,
         bool have_access,
@@ -233,8 +226,7 @@ public class TDLib.User : Error {
             is_premium: is_premium,
             is_support: is_support,
             restriction_info: restriction_info,
-            has_active_stories: has_active_stories,
-            has_unread_active_stories: has_unread_active_stories,
+            active_story_state: active_story_state,
             restricts_new_chats: restricts_new_chats,
             paid_message_star_count: paid_message_star_count,
             have_access: have_access,

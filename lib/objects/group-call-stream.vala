@@ -20,22 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Describes an available stream in a video chat or a live story
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.GroupCallStream : Error {
 
     /**
-     * Group call identifier
+     * Identifier of an audio/video channel
      */
-    public int32 group_call_id { get; construct set; }
+    public int32 channel_id { get; construct set; }
 
-    public EndGroupCall (
-        int32 group_call_id
+    /**
+     * Scale of segment durations in the stream. The duration is
+     * 1000/(2**scale) milliseconds
+     */
+    public int32 scale { get; construct set; }
+
+    /**
+     * Point in time when the stream currently ends; Unix timestamp in
+     * milliseconds
+     */
+    public int64 time_offset { get; construct set; }
+
+    public GroupCallStream (
+        int32 channel_id,
+        int32 scale,
+        int64 time_offset
     ) {
         Object (
-            group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            channel_id: channel_id,
+            scale: scale,
+            time_offset: time_offset,
+            tdlib_type: "groupCallStream",
             tdlib_extra: Uuid.string_random ()
         );
     }

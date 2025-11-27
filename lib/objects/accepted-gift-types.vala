@@ -41,6 +41,12 @@ public class TDLib.AcceptedGiftTypes : Error {
     public bool upgraded_gifts { get; construct set; }
 
     /**
+     * True, if gifts from channels are accepted subject to other
+     * restrictions
+     */
+    public bool gifts_from_channels { get; construct set; }
+
+    /**
      * True, if Telegram Premium subscription is accepted
      */
     public bool premium_subscription { get; construct set; }
@@ -49,12 +55,14 @@ public class TDLib.AcceptedGiftTypes : Error {
         bool unlimited_gifts,
         bool limited_gifts,
         bool upgraded_gifts,
+        bool gifts_from_channels,
         bool premium_subscription
     ) {
         Object (
             unlimited_gifts: unlimited_gifts,
             limited_gifts: limited_gifts,
             upgraded_gifts: upgraded_gifts,
+            gifts_from_channels: gifts_from_channels,
             premium_subscription: premium_subscription,
             tdlib_type: "acceptedGiftTypes",
             tdlib_extra: Uuid.string_random ()

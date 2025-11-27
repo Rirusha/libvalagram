@@ -20,22 +20,29 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Contains a list of users and chats that spend most money on paid
+ * messages and reactions in a live story
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.LiveStoryDonors : Error {
 
     /**
-     * Group call identifier
+     * Total amount of spend Telegram Stars
      */
-    public int32 group_call_id { get; construct set; }
+    public int64 total_star_count { get; construct set; }
 
-    public EndGroupCall (
-        int32 group_call_id
+    /**
+     * List of top donors in the live story
+     */
+    public Gee.ArrayList<PaidReactor?> top_donors { get; construct set; default = new Gee.ArrayList<PaidReactor?> (); }
+
+    public LiveStoryDonors (
+        int64 total_star_count,
+        Gee.ArrayList<PaidReactor?> top_donors
     ) {
         Object (
-            group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            total_star_count: total_star_count,
+            top_donors: top_donors,
+            tdlib_type: "liveStoryDonors",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -39,10 +39,10 @@ public class TDLib.AddGiftCollectionGifts : TDObject {
 
     /**
      * Identifier of the gifts to add to the collection;
-     * 1-getOption("gift_collection_gift_count_max") identifiers.
+     * 1-getOption("gift_collection_size_max") identifiers.
      * If after addition the collection has more than
-     * getOption("gift_collection_gift_count_max") gifts, then the last one
-     * are removed from the collection
+     * getOption("gift_collection_size_max") gifts, then the last one are
+     * removed from the collection
      */
     public Gee.ArrayList<string?> received_gift_ids { get; construct set; default = new Gee.ArrayList<string?> (); }
 

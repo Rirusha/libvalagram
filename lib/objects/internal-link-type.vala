@@ -699,6 +699,46 @@ public class TDLib.InternalLinkTypeLanguageSettings : InternalLinkType {
 }
 
 /**
+ * The link is a link to a live story. Call
+ * {@link Client.search_public_chat} with the given chat username, then
+ * {@link Client.get_chat_active_stories} to get active stories in the
+ * chat,
+ * then find a live story among active stories of the chat, and then
+ * {@link Client.join_live_story} to join the live story
+ */
+public class TDLib.InternalLinkTypeLiveStory : InternalLinkType {
+
+    /**
+     * Username of the poster of the story
+     */
+    public string story_poster_username { get; construct set; }
+
+    public InternalLinkTypeLiveStory (
+        string story_poster_username
+    ) {
+        Object (
+            story_poster_username: story_poster_username,
+            tdlib_type: "internalLinkTypeLiveStory",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to the login email set up section of the
+ * application settings, forcing set up of the login email
+ */
+public class TDLib.InternalLinkTypeLoginEmailSettings : InternalLinkType {
+
+    public InternalLinkTypeLoginEmailSettings () {
+        Object (
+            tdlib_type: "internalLinkTypeLoginEmailSettings",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to the main Web App of a bot. Call
  * {@link Client.search_public_chat} with the given bot username, check
  * that the user is a bot and has the main Web App.
@@ -888,6 +928,19 @@ public class TDLib.InternalLinkTypePassportDataRequest : InternalLinkType {
 }
 
 /**
+ * The link is a link to the password section of the application settings
+ */
+public class TDLib.InternalLinkTypePasswordSettings : InternalLinkType {
+
+    public InternalLinkTypePasswordSettings () {
+        Object (
+            tdlib_type: "internalLinkTypePasswordSettings",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link can be used to confirm ownership of a phone number to prevent
  * account deletion. Call {@link Client.send_phone_number_code} with the
  * given phone number and with phoneNumberCodeTypeConfirmOwnership with
@@ -916,6 +969,20 @@ public class TDLib.InternalLinkTypePhoneNumberConfirmation : InternalLinkType {
             hash: hash,
             phone_number: phone_number,
             tdlib_type: "internalLinkTypePhoneNumberConfirmation",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to the phone number privacy settings section of the
+ * application settings
+ */
+public class TDLib.InternalLinkTypePhoneNumberPrivacySettings : InternalLinkType {
+
+    public InternalLinkTypePhoneNumberPrivacySettings () {
+        Object (
+            tdlib_type: "internalLinkTypePhoneNumberPrivacySettings",
             tdlib_extra: Uuid.string_random ()
         );
     }

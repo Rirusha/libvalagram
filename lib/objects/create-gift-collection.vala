@@ -41,7 +41,7 @@ public class TDLib.CreateGiftCollection : TDObject {
 
     /**
      * Identifier of the gifts to add to the collection;
-     * 0-getOption("gift_collection_gift_count_max") identifiers
+     * 0-getOption("gift_collection_size_max") identifiers
      */
     public Gee.ArrayList<string?> received_gift_ids { get; construct set; default = new Gee.ArrayList<string?> (); }
 

@@ -974,6 +974,126 @@ public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
 }
 
 /**
+ * The transaction is a sending of a paid group call message; for regular
+ * users only
+ */
+public class TDLib.StarTransactionTypePaidGroupCallMessageSend : StarTransactionType {
+
+    /**
+     * Identifier of the chat that received the payment
+     */
+    public int64 chat_id { get; construct set; }
+
+    public StarTransactionTypePaidGroupCallMessageSend (
+        int64 chat_id
+    ) {
+        Object (
+            chat_id: chat_id,
+            tdlib_type: "starTransactionTypePaidGroupCallMessageSend",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a receiving of a paid group call message; for
+ * regular users and channel chats only
+ */
+public class TDLib.StarTransactionTypePaidGroupCallMessageReceive : StarTransactionType {
+
+    /**
+     * Identifier of the sender of the message
+     */
+    public MessageSender sender_id { get; construct set; }
+
+    /**
+     * The number of Telegram Stars received by the Telegram for each 1000
+     * Telegram Stars paid for message sending
+     */
+    public int32 commission_per_mille { get; construct set; }
+
+    /**
+     * The amount of Telegram Stars that were received by Telegram; can be
+     * negative for refunds
+     */
+    public StarAmount commission_star_amount { get; construct set; }
+
+    public StarTransactionTypePaidGroupCallMessageReceive (
+        MessageSender sender_id,
+        int32 commission_per_mille,
+        StarAmount commission_star_amount
+    ) {
+        Object (
+            sender_id: sender_id,
+            commission_per_mille: commission_per_mille,
+            commission_star_amount: commission_star_amount,
+            tdlib_type: "starTransactionTypePaidGroupCallMessageReceive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a sending of a paid group reaction; for regular
+ * users only
+ */
+public class TDLib.StarTransactionTypePaidGroupCallReactionSend : StarTransactionType {
+
+    /**
+     * Identifier of the chat that received the payment
+     */
+    public int64 chat_id { get; construct set; }
+
+    public StarTransactionTypePaidGroupCallReactionSend (
+        int64 chat_id
+    ) {
+        Object (
+            chat_id: chat_id,
+            tdlib_type: "starTransactionTypePaidGroupCallReactionSend",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a receiving of a paid group call reaction; for
+ * regular users and channel chats only
+ */
+public class TDLib.StarTransactionTypePaidGroupCallReactionReceive : StarTransactionType {
+
+    /**
+     * Identifier of the sender of the reaction
+     */
+    public MessageSender sender_id { get; construct set; }
+
+    /**
+     * The number of Telegram Stars received by the Telegram for each 1000
+     * Telegram Stars paid for reaction sending
+     */
+    public int32 commission_per_mille { get; construct set; }
+
+    /**
+     * The amount of Telegram Stars that were received by Telegram; can be
+     * negative for refunds
+     */
+    public StarAmount commission_star_amount { get; construct set; }
+
+    public StarTransactionTypePaidGroupCallReactionReceive (
+        MessageSender sender_id,
+        int32 commission_per_mille,
+        StarAmount commission_star_amount
+    ) {
+        Object (
+            sender_id: sender_id,
+            commission_per_mille: commission_per_mille,
+            commission_star_amount: commission_star_amount,
+            tdlib_type: "starTransactionTypePaidGroupCallReactionReceive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a payment for a suggested post; for regular users
  * only
  */

@@ -20,37 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes an available stream in a video chat
+ * Selects a message sender to send messages in a live story call
  */
-public class TDLib.VideoChatStream : Error {
+public class TDLib.SetLiveStoryMessageSender : TDObject {
 
     /**
-     * Identifier of an audio/video channel
+     * Group call identifier
      */
-    public int32 channel_id { get; construct set; }
+    public int32 group_call_id { get; construct set; }
 
     /**
-     * Scale of segment durations in the stream. The duration is
-     * 1000/(2**scale) milliseconds
+     * New message sender for the group call
      */
-    public int32 scale { get; construct set; }
+    public MessageSender message_sender_id { get; construct set; }
 
-    /**
-     * Point in time when the stream currently ends; Unix timestamp in
-     * milliseconds
-     */
-    public int64 time_offset { get; construct set; }
-
-    public VideoChatStream (
-        int32 channel_id,
-        int32 scale,
-        int64 time_offset
+    public SetLiveStoryMessageSender (
+        int32 group_call_id,
+        MessageSender message_sender_id
     ) {
         Object (
-            channel_id: channel_id,
-            scale: scale,
-            time_offset: time_offset,
-            tdlib_type: "videoChatStream",
+            group_call_id: group_call_id,
+            message_sender_id: message_sender_id,
+            tdlib_type: "setLiveStoryMessageSender",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -58,8 +58,8 @@ public class TDLib.PostStory : TDObject {
 
     /**
      * Identifiers of story albums to which the story will be added upon
-     * posting. An album can have up to
-     * getOption("story_album_story_count_max")
+     * posting. An album can have up to getOption("story_album_size_max")
+     * stories
      */
     public Gee.ArrayList<int32?> album_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 

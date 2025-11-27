@@ -20,7 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Pauses or unpauses screen sharing in a joined group call
+ * Pauses or unpauses screen sharing in a joined group call; not
+ * supported in live stories
  */
 public class TDLib.ToggleGroupCallScreenSharingIsPaused : TDObject {
 

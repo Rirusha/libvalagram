@@ -158,7 +158,8 @@ public class TDLib.Message : Error {
 
     /**
      * Identifier of the topic within the chat to which the message belongs;
-     * may be null if none
+     * may be null if none; may change when the chat is converted to a forum
+     * or back
      */
     public MessageTopic? topic_id { get; construct set; }
 

@@ -20,22 +20,13 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Checks whether the current user is required to set login email address
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.IsLoginEmailAddressRequired : TDObject {
 
-    /**
-     * Group call identifier
-     */
-    public int32 group_call_id { get; construct set; }
-
-    public EndGroupCall (
-        int32 group_call_id
-    ) {
+    public IsLoginEmailAddressRequired () {
         Object (
-            group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            tdlib_type: "isLoginEmailAddressRequired",
             tdlib_extra: Uuid.string_random ()
         );
     }

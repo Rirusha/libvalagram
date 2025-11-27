@@ -20,21 +20,31 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents a list of video chat streams
+ * Changes the minimum number of Telegram Stars that must be paid by
+ * general participant for each sent message to a live story call.
+ * Requires groupCall.can_be_managed right
  */
-public class TDLib.VideoChatStreams : Error {
+public class TDLib.SetGroupCallPaidMessageStarCount : TDObject {
 
     /**
-     * A list of video chat streams
+     * Group call identifier; must be an identifier of a live story call
      */
-    public Gee.ArrayList<VideoChatStream?> streams { get; construct set; default = new Gee.ArrayList<VideoChatStream?> (); }
+    public int32 group_call_id { get; construct set; }
 
-    public VideoChatStreams (
-        Gee.ArrayList<VideoChatStream?> streams
+    /**
+     * The new minimum number of Telegram Stars;
+     * 0-getOption("paid_group_call_message_star_count_max")
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
+    public SetGroupCallPaidMessageStarCount (
+        int32 group_call_id,
+        int64 paid_message_star_count
     ) {
         Object (
-            streams: streams,
-            tdlib_type: "videoChatStreams",
+            group_call_id: group_call_id,
+            paid_message_star_count: paid_message_star_count,
+            tdlib_type: "setGroupCallPaidMessageStarCount",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,10 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns a file with a segment of a video chat stream in a modified OGG
- * format for audio or MPEG-4 format for video
+ * Returns a file with a segment of a video chat or live story in a
+ * modified OGG format for audio or MPEG-4 format for video
  */
-public class TDLib.GetVideoChatStreamSegment : TDObject {
+public class TDLib.GetGroupCallStreamSegment : TDObject {
 
     /**
      * Group call identifier
@@ -53,7 +53,7 @@ public class TDLib.GetVideoChatStreamSegment : TDObject {
      */
     public GroupCallVideoQuality video_quality { get; construct set; }
 
-    public GetVideoChatStreamSegment (
+    public GetGroupCallStreamSegment (
         int32 group_call_id,
         int64 time_offset,
         int32 scale,
@@ -66,7 +66,7 @@ public class TDLib.GetVideoChatStreamSegment : TDObject {
             scale: scale,
             channel_id: channel_id,
             video_quality: video_quality,
-            tdlib_type: "getVideoChatStreamSegment",
+            tdlib_type: "getGroupCallStreamSegment",
             tdlib_extra: Uuid.string_random ()
         );
     }

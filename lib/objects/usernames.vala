@@ -44,20 +44,27 @@ public class TDLib.Usernames : Error {
     /**
      * Active or disabled username, which may be changed with
      * {@link Client.set_username} or {@link Client.set_supergroup_username}
-     * Information about other active usernames can be received using
-     * {@link Client.get_collectible_item_info}
      */
     public string editable_username { get; construct set; }
+
+    /**
+     * Collectible usernames that were purchased at [[https://fragment.com]]
+     * and can be passed to {@link Client.get_collectible_item_info} for more
+     * details
+     */
+    public Gee.ArrayList<string?> collectible_usernames { get; construct set; default = new Gee.ArrayList<string?> (); }
 
     public Usernames (
         Gee.ArrayList<string?> active_usernames,
         Gee.ArrayList<string?> disabled_usernames,
-        string editable_username
+        string editable_username,
+        Gee.ArrayList<string?> collectible_usernames
     ) {
         Object (
             active_usernames: active_usernames,
             disabled_usernames: disabled_usernames,
             editable_username: editable_username,
+            collectible_usernames: collectible_usernames,
             tdlib_type: "usernames",
             tdlib_extra: Uuid.string_random ()
         );

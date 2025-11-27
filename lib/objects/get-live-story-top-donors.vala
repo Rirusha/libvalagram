@@ -20,22 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Returns the list of top live story donors
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.GetLiveStoryTopDonors : TDObject {
 
     /**
-     * Group call identifier
+     * Group call identifier of the live story
      */
     public int32 group_call_id { get; construct set; }
 
-    public EndGroupCall (
+    public GetLiveStoryTopDonors (
         int32 group_call_id
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            tdlib_type: "getLiveStoryTopDonors",
             tdlib_extra: Uuid.string_random ()
         );
     }

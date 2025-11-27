@@ -39,10 +39,10 @@ public class TDLib.AddStoryAlbumStories : TDObject {
 
     /**
      * Identifier of the stories to add to the album;
-     * 1-getOption("story_album_story_count_max") identifiers.
+     * 1-getOption("story_album_size_max") identifiers.
      * If after addition the album has more than
-     * getOption("story_album_story_count_max") stories, then the last one
-     * are removed from the album
+     * getOption("story_album_size_max") stories, then the last one are
+     * removed from the album
      */
     public Gee.ArrayList<int32?> story_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 

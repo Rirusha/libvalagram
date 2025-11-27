@@ -32,17 +32,31 @@ public class TDLib.SendGroupCallMessage : TDObject {
 
     /**
      * Text of the message to send;
-     * 1-getOption("group_call_message_text_length_max") characters
+     * 1-getOption("group_call_message_text_length_max") characters for
+     * non-live-stories; see updateGroupCallMessageLevels for live story
+     * restrictions,
+     * which depends on paid_message_star_count. Can't contain line feeds for
+     * live stories
      */
     public FormattedText text { get; construct set; }
 
+    /**
+     * The number of Telegram Stars the user agreed to pay to send the
+     * message; for live stories only;
+     * 0-getOption("paid_group_call_message_star_count_max").
+     * Must be 0 for messages sent to live stories posted by the current user
+     */
+    public int64 paid_message_star_count { get; construct set; }
+
     public SendGroupCallMessage (
         int32 group_call_id,
-        FormattedText text
+        FormattedText text,
+        int64 paid_message_star_count
     ) {
         Object (
             group_call_id: group_call_id,
             text: text,
+            paid_message_star_count: paid_message_star_count,
             tdlib_type: "sendGroupCallMessage",
             tdlib_extra: Uuid.string_random ()
         );

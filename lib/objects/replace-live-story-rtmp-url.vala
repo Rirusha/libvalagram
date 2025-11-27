@@ -20,22 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Replaces the current RTMP URL for streaming to a live story; requires
+ * owner privileges for channel chats
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.ReplaceLiveStoryRtmpUrl : TDObject {
 
     /**
-     * Group call identifier
+     * Chat identifier
      */
-    public int32 group_call_id { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
-    public EndGroupCall (
-        int32 group_call_id
+    public ReplaceLiveStoryRtmpUrl (
+        int64 chat_id
     ) {
         Object (
-            group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            chat_id: chat_id,
+            tdlib_type: "replaceLiveStoryRtmpUrl",
             tdlib_extra: Uuid.string_random ()
         );
     }

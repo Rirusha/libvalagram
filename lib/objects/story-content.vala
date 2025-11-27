@@ -75,6 +75,35 @@ public class TDLib.StoryContentVideo : StoryContent {
 }
 
 /**
+ * A live story
+ */
+public class TDLib.StoryContentLive : StoryContent {
+
+    /**
+     * Identifier of the corresponding group call. The group call can be
+     * received through the method {@link Client.get_group_call}
+     */
+    public int32 group_call_id { get; construct set; }
+
+    /**
+     * True, if the call is an RTMP stream instead of an ordinary group call
+     */
+    public bool is_rtmp_stream { get; construct set; }
+
+    public StoryContentLive (
+        int32 group_call_id,
+        bool is_rtmp_stream
+    ) {
+        Object (
+            group_call_id: group_call_id,
+            is_rtmp_stream: is_rtmp_stream,
+            tdlib_type: "storyContentLive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A story content that is not supported in the current TDLib version
  */
 public class TDLib.StoryContentUnsupported : StoryContent {

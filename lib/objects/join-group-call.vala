@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Joins a group call that is not bound to a chat
+ * Joins a regular group call that is not bound to a chat
  */
 public class TDLib.JoinGroupCall : TDObject {
 

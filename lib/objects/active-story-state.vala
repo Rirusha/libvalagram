@@ -20,30 +20,52 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes privacy settings of a story. The method can be called only for
- * stories posted on behalf of the current user and if
- * story.can_set_privacy_settings == true
+ * Describes state of active stories posted by a chat
  */
-public class TDLib.SetStoryPrivacySettings : TDObject {
+public abstract class TDLib.ActiveStoryState : Error {}
+
+/**
+ * The chat has an active live story
+ */
+public class TDLib.ActiveStoryStateLive : ActiveStoryState {
 
     /**
-     * Identifier of the story
+     * Identifier of the active live story
      */
     public int32 story_id { get; construct set; }
 
-    /**
-     * The new privacy settings for the story
-     */
-    public StoryPrivacySettings privacy_settings { get; construct set; }
-
-    public SetStoryPrivacySettings (
-        int32 story_id,
-        StoryPrivacySettings privacy_settings
+    public ActiveStoryStateLive (
+        int32 story_id
     ) {
         Object (
             story_id: story_id,
-            privacy_settings: privacy_settings,
-            tdlib_type: "setStoryPrivacySettings",
+            tdlib_type: "activeStoryStateLive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The chat has some unread active stories
+ */
+public class TDLib.ActiveStoryStateUnread : ActiveStoryState {
+
+    public ActiveStoryStateUnread () {
+        Object (
+            tdlib_type: "activeStoryStateUnread",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The chat has active stories, all of which were read
+ */
+public class TDLib.ActiveStoryStateRead : ActiveStoryState {
+
+    public ActiveStoryStateRead () {
+        Object (
+            tdlib_type: "activeStoryStateRead",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -20,21 +20,34 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about available video chat streams
+ * Adds pending paid reaction in a live story group call. Can't be used
+ * in live stories posted by the current user.
+ * Call {@link Client.commit_pending_live_story_reactions} or
+ * {@link Client.remove_pending_live_story_reactions} to actually send
+ * all pending reactions when the undo timer is over or abort the sending
  */
-public class TDLib.GetVideoChatStreams : TDObject {
+public class TDLib.AddPendingLiveStoryReaction : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public GetVideoChatStreams (
-        int32 group_call_id
+    /**
+     * Number of Telegram Stars to be used for the reaction. The total number
+     * of pending paid reactions must not exceed
+     * getOption("paid_group_call_message_star_count_max")
+     */
+    public int64 star_count { get; construct set; }
+
+    public AddPendingLiveStoryReaction (
+        int32 group_call_id,
+        int64 star_count
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "getVideoChatStreams",
+            star_count: star_count,
+            tdlib_type: "addPendingLiveStoryReaction",
             tdlib_extra: Uuid.string_random ()
         );
     }

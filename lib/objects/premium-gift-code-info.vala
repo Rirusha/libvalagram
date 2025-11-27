@@ -49,9 +49,15 @@ public class TDLib.PremiumGiftCodeInfo : Error {
 
     /**
      * Number of months the Telegram Premium subscription will be active
-     * after code activation
+     * after code activation; 0 if the number of months isn't integer
      */
     public int32 month_count { get; construct set; }
+
+    /**
+     * Number of days the Telegram Premium subscription will be active after
+     * code activation
+     */
+    public int32 day_count { get; construct set; }
 
     /**
      * Identifier of a user for which the code was created; 0 if none
@@ -69,6 +75,7 @@ public class TDLib.PremiumGiftCodeInfo : Error {
         bool is_from_giveaway,
         int64 giveaway_message_id,
         int32 month_count,
+        int32 day_count,
         int64 user_id,
         int32 use_date
     ) {
@@ -78,6 +85,7 @@ public class TDLib.PremiumGiftCodeInfo : Error {
             is_from_giveaway: is_from_giveaway,
             giveaway_message_id: giveaway_message_id,
             month_count: month_count,
+            day_count: day_count,
             user_id: user_id,
             use_date: use_date,
             tdlib_type: "premiumGiftCodeInfo",

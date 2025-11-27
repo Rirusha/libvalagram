@@ -33,7 +33,7 @@ public class TDLib.PaidReactor : Error {
     /**
      * Number of Telegram Stars added
      */
-    public int32 star_count { get; construct set; }
+    public int64 star_count { get; construct set; }
 
     /**
      * True, if the reactor is one of the most active reactors; may be false
@@ -53,7 +53,7 @@ public class TDLib.PaidReactor : Error {
 
     public PaidReactor (
         MessageSender? sender_id,
-        int32 star_count,
+        int64 star_count,
         bool is_top,
         bool is_me,
         bool is_anonymous

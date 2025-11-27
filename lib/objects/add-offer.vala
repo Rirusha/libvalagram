@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Sent a suggested post based on a previously sent message in a channel
+ * Sends a suggested post based on a previously sent message in a channel
  * direct messages chat. Can be also used to suggest price or time change
  * for an existing suggested post.
  * Returns the sent message

@@ -31,7 +31,8 @@ public class TDLib.SetVideoChatDefaultParticipant : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Default group call participant identifier to join the video chats
+     * Default group call participant identifier to join the video chats in
+     * the chat
      */
     public MessageSender default_participant_id { get; construct set; }
 

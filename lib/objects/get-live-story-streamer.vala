@@ -20,22 +20,22 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Returns information about the user or the chat that streams to a live
+ * story; for live stories that aren't an RTMP stream only
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.GetLiveStoryStreamer : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public EndGroupCall (
+    public GetLiveStoryStreamer (
         int32 group_call_id
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            tdlib_type: "getLiveStoryStreamer",
             tdlib_extra: Uuid.string_random ()
         );
     }

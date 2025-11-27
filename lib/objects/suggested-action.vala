@@ -286,3 +286,30 @@ public class TDLib.SuggestedActionCustom : SuggestedAction {
         );
     }
 }
+
+/**
+ * Suggests the user to add login email address. Call
+ * {@link Client.is_login_email_address_required} and then
+ * {@link Client.set_login_email_address} or
+ * {@link Client.check_login_email_address_code} to change the login
+ * email address
+ */
+public class TDLib.SuggestedActionSetLoginEmailAddress : SuggestedAction {
+
+    /**
+     * True, if the suggested action can be hidden using
+     * {@link Client.hide_suggested_action} Otherwise, the user must not be
+     * able to use the app without setting up the email address
+     */
+    public bool can_be_hidden { get; construct set; }
+
+    public SuggestedActionSetLoginEmailAddress (
+        bool can_be_hidden
+    ) {
+        Object (
+            can_be_hidden: can_be_hidden,
+            tdlib_type: "suggestedActionSetLoginEmailAddress",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

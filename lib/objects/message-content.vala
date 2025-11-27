@@ -1888,8 +1888,14 @@ public class TDLib.MessageGiftedPremium : MessageContent {
 
     /**
      * Number of months the Telegram Premium subscription will be active
+     * after code activation; 0 if the number of months isn't integer
      */
     public int32 month_count { get; construct set; }
+
+    /**
+     * Number of days the Telegram Premium subscription will be active
+     */
+    public int32 day_count { get; construct set; }
 
     /**
      * A sticker to be shown in the message; may be null if unknown
@@ -1905,6 +1911,7 @@ public class TDLib.MessageGiftedPremium : MessageContent {
         string cryptocurrency,
         int64 cryptocurrency_amount,
         int32 month_count,
+        int32 day_count,
         Sticker? sticker
     ) {
         Object (
@@ -1916,6 +1923,7 @@ public class TDLib.MessageGiftedPremium : MessageContent {
             cryptocurrency: cryptocurrency,
             cryptocurrency_amount: cryptocurrency_amount,
             month_count: month_count,
+            day_count: day_count,
             sticker: sticker,
             tdlib_type: "messageGiftedPremium",
             tdlib_extra: Uuid.string_random ()
@@ -1974,9 +1982,15 @@ public class TDLib.MessagePremiumGiftCode : MessageContent {
 
     /**
      * Number of months the Telegram Premium subscription will be active
-     * after code activation
+     * after code activation; 0 if the number of months isn't integer
      */
     public int32 month_count { get; construct set; }
+
+    /**
+     * Number of days the Telegram Premium subscription will be active after
+     * code activation
+     */
+    public int32 day_count { get; construct set; }
 
     /**
      * A sticker to be shown in the message; may be null if unknown
@@ -1998,6 +2012,7 @@ public class TDLib.MessagePremiumGiftCode : MessageContent {
         string cryptocurrency,
         int64 cryptocurrency_amount,
         int32 month_count,
+        int32 day_count,
         Sticker? sticker,
         string code
     ) {
@@ -2011,6 +2026,7 @@ public class TDLib.MessagePremiumGiftCode : MessageContent {
             cryptocurrency: cryptocurrency,
             cryptocurrency_amount: cryptocurrency_amount,
             month_count: month_count,
+            day_count: day_count,
             sticker: sticker,
             code: code,
             tdlib_type: "messagePremiumGiftCode",

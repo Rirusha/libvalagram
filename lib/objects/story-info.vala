@@ -39,15 +39,22 @@ public class TDLib.StoryInfo : Error {
      */
     public bool is_for_close_friends { get; construct set; }
 
+    /**
+     * True, if the story is a live story
+     */
+    public bool is_live { get; construct set; }
+
     public StoryInfo (
         int32 story_id,
         int32 date,
-        bool is_for_close_friends
+        bool is_for_close_friends,
+        bool is_live
     ) {
         Object (
             story_id: story_id,
             date: date,
             is_for_close_friends: is_for_close_friends,
+            is_live: is_live,
             tdlib_type: "storyInfo",
             tdlib_extra: Uuid.string_random ()
         );

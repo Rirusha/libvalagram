@@ -542,6 +542,34 @@ public class TDLib.LinkPreviewTypeInvoice : LinkPreviewType {
 }
 
 /**
+ * The link is a link to a live story group call
+ */
+public class TDLib.LinkPreviewTypeLiveStory : LinkPreviewType {
+
+    /**
+     * The identifier of the chat that posted the story
+     */
+    public int64 story_poster_chat_id { get; construct set; }
+
+    /**
+     * Story identifier
+     */
+    public int32 story_id { get; construct set; }
+
+    public LinkPreviewTypeLiveStory (
+        int64 story_poster_chat_id,
+        int32 story_id
+    ) {
+        Object (
+            story_poster_chat_id: story_poster_chat_id,
+            story_id: story_id,
+            tdlib_type: "linkPreviewTypeLiveStory",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to a text or a poll Telegram message
  */
 public class TDLib.LinkPreviewTypeMessage : LinkPreviewType {

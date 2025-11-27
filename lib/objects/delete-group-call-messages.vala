@@ -20,10 +20,10 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Toggles whether participants of a group call can send messages there.
- * Requires groupCall.can_toggle_can_send_messages right
+ * Deletes messages in a group call; for live story calls only. Requires
+ * groupCallMessage.can_be_deleted right
  */
-public class TDLib.ToggleGroupCallCanSendMessages : TDObject {
+public class TDLib.DeleteGroupCallMessages : TDObject {
 
     /**
      * Group call identifier
@@ -31,18 +31,25 @@ public class TDLib.ToggleGroupCallCanSendMessages : TDObject {
     public int32 group_call_id { get; construct set; }
 
     /**
-     * New value of the can_send_messages setting
+     * Identifiers of the messages to be deleted
      */
-    public bool can_send_messages { get; construct set; }
+    public Gee.ArrayList<int32?> message_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
-    public ToggleGroupCallCanSendMessages (
+    /**
+     * Pass true to report the messages as spam
+     */
+    public bool report_spam { get; construct set; }
+
+    public DeleteGroupCallMessages (
         int32 group_call_id,
-        bool can_send_messages
+        Gee.ArrayList<int32?> message_ids,
+        bool report_spam
     ) {
         Object (
             group_call_id: group_call_id,
-            can_send_messages: can_send_messages,
-            tdlib_type: "toggleGroupCallCanSendMessages",
+            message_ids: message_ids,
+            report_spam: report_spam,
+            tdlib_type: "deleteGroupCallMessages",
             tdlib_extra: Uuid.string_random ()
         );
     }

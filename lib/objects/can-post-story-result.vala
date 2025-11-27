@@ -132,3 +132,25 @@ public class TDLib.CanPostStoryResultMonthlyLimitExceeded : CanPostStoryResult {
         );
     }
 }
+
+/**
+ * The user or the chat has an active live story. The live story must be
+ * deleted first
+ */
+public class TDLib.CanPostStoryResultLiveStoryIsActive : CanPostStoryResult {
+
+    /**
+     * Identifier of the active live story
+     */
+    public int32 story_id { get; construct set; }
+
+    public CanPostStoryResultLiveStoryIsActive (
+        int32 story_id
+    ) {
+        Object (
+            story_id: story_id,
+            tdlib_type: "canPostStoryResultLiveStoryIsActive",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

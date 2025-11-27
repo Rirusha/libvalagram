@@ -31,7 +31,8 @@ public class TDLib.BotMediaPreview : Error {
     public int32 date { get; construct set; }
 
     /**
-     * Content of the preview
+     * Content of the preview; may only be of the types storyContentPhoto,
+     * storyContentVideo, or storyContentUnsupported
      */
     public StoryContent content { get; construct set; }
 

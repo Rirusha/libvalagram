@@ -107,6 +107,20 @@ public class TDLib.UserPrivacySettingShowBirthdate : UserPrivacySetting {
 }
 
 /**
+ * A privacy setting for managing whether the user's profile audio files
+ * are visible
+ */
+public class TDLib.UserPrivacySettingShowProfileAudio : UserPrivacySetting {
+
+    public UserPrivacySettingShowProfileAudio () {
+        Object (
+            tdlib_type: "userPrivacySettingShowProfileAudio",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * A privacy setting for managing whether the user can be invited to
  * chats
  */

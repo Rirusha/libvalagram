@@ -37,9 +37,17 @@ public class TDLib.GroupCall : Error {
     /**
      * Invite link for the group call; for group calls that aren't bound to a
      * chat. For video chats call {@link Client.get_video_chat_invite_link}
-     * to get the link
+     * to get the link.
+     * For live stories in chats with username call
+     * {@link Client.get_internal_link} with internalLinkTypeLiveStory
      */
     public string invite_link { get; construct set; }
+
+    /**
+     * The minimum number of Telegram Stars that must be paid by general
+     * participant for each sent message to the call; for live stories only
+     */
+    public int64 paid_message_star_count { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the group call is expected to be
@@ -65,8 +73,13 @@ public class TDLib.GroupCall : Error {
     public bool is_video_chat { get; construct set; }
 
     /**
+     * True, if the call is a live story of a chat
+     */
+    public bool is_live_story { get; construct set; }
+
+    /**
      * True, if the call is an RTMP stream instead of an ordinary video chat;
-     * for video chats only
+     * for video chats and live stories only
      */
     public bool is_rtmp_stream { get; construct set; }
 
@@ -90,7 +103,7 @@ public class TDLib.GroupCall : Error {
 
     /**
      * True, if the current user can manage the group call; for video chats
-     * only
+     * and live stories only
      */
     public bool can_be_managed { get; construct set; }
 
@@ -109,6 +122,12 @@ public class TDLib.GroupCall : Error {
      * True, if all group call participants are loaded
      */
     public bool loaded_all_participants { get; construct set; }
+
+    /**
+     * Message sender chosen to send messages to the group call; for live
+     * stories only; may be null if the call isn't a live story
+     */
+    public MessageSender? message_sender_id { get; construct set; }
 
     /**
      * At most 3 recently speaking users in the group call
@@ -143,15 +162,25 @@ public class TDLib.GroupCall : Error {
     public bool can_toggle_mute_new_participants { get; construct set; }
 
     /**
-     * True, if users can send messages to the group call
+     * True, if the current user can send messages to the group call
      */
     public bool can_send_messages { get; construct set; }
 
     /**
-     * True, if the current user can enable or disable sending messages in
+     * True, if sending of messages is allowed in the group call
+     */
+    public bool are_messages_allowed { get; construct set; }
+
+    /**
+     * True, if the current user can enable or disable sending of messages in
      * the group call
      */
-    public bool can_toggle_can_send_messages { get; construct set; }
+    public bool can_toggle_are_messages_allowed { get; construct set; }
+
+    /**
+     * True, if the user can delete messages in the group call
+     */
+    public bool can_delete_messages { get; construct set; }
 
     /**
      * Duration of the ongoing group call recording, in seconds; 0 if none.
@@ -174,10 +203,12 @@ public class TDLib.GroupCall : Error {
         int32 id_,
         string title,
         string invite_link,
+        int64 paid_message_star_count,
         int32 scheduled_start_date,
         bool enabled_start_notification,
         bool is_active,
         bool is_video_chat,
+        bool is_live_story,
         bool is_rtmp_stream,
         bool is_joined,
         bool need_rejoin,
@@ -186,6 +217,7 @@ public class TDLib.GroupCall : Error {
         int32 participant_count,
         bool has_hidden_listeners,
         bool loaded_all_participants,
+        MessageSender? message_sender_id,
         Gee.ArrayList<GroupCallRecentSpeaker?> recent_speakers,
         bool is_my_video_enabled,
         bool is_my_video_paused,
@@ -193,7 +225,9 @@ public class TDLib.GroupCall : Error {
         bool mute_new_participants,
         bool can_toggle_mute_new_participants,
         bool can_send_messages,
-        bool can_toggle_can_send_messages,
+        bool are_messages_allowed,
+        bool can_toggle_are_messages_allowed,
+        bool can_delete_messages,
         int32 record_duration,
         bool is_video_recorded,
         int32 duration
@@ -202,10 +236,12 @@ public class TDLib.GroupCall : Error {
             id_: id_,
             title: title,
             invite_link: invite_link,
+            paid_message_star_count: paid_message_star_count,
             scheduled_start_date: scheduled_start_date,
             enabled_start_notification: enabled_start_notification,
             is_active: is_active,
             is_video_chat: is_video_chat,
+            is_live_story: is_live_story,
             is_rtmp_stream: is_rtmp_stream,
             is_joined: is_joined,
             need_rejoin: need_rejoin,
@@ -214,6 +250,7 @@ public class TDLib.GroupCall : Error {
             participant_count: participant_count,
             has_hidden_listeners: has_hidden_listeners,
             loaded_all_participants: loaded_all_participants,
+            message_sender_id: message_sender_id,
             recent_speakers: recent_speakers,
             is_my_video_enabled: is_my_video_enabled,
             is_my_video_paused: is_my_video_paused,
@@ -221,7 +258,9 @@ public class TDLib.GroupCall : Error {
             mute_new_participants: mute_new_participants,
             can_toggle_mute_new_participants: can_toggle_mute_new_participants,
             can_send_messages: can_send_messages,
-            can_toggle_can_send_messages: can_toggle_can_send_messages,
+            are_messages_allowed: are_messages_allowed,
+            can_toggle_are_messages_allowed: can_toggle_are_messages_allowed,
+            can_delete_messages: can_delete_messages,
             record_duration: record_duration,
             is_video_recorded: is_video_recorded,
             duration: duration,

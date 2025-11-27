@@ -20,22 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Ends a group call. Requires groupCall.can_be_managed right for video
- * chats and live stories or groupCall.is_owned otherwise
+ * Deletes all messages sent by the specified message sender in a group
+ * call; for live story calls only. Requires
+ * groupCall.can_delete_messages right
  */
-public class TDLib.EndGroupCall : TDObject {
+public class TDLib.DeleteGroupCallMessagesBySender : TDObject {
 
     /**
      * Group call identifier
      */
     public int32 group_call_id { get; construct set; }
 
-    public EndGroupCall (
-        int32 group_call_id
+    /**
+     * Identifier of the sender of messages to delete
+     */
+    public MessageSender sender_id { get; construct set; }
+
+    /**
+     * Pass true to report the messages as spam
+     */
+    public bool report_spam { get; construct set; }
+
+    public DeleteGroupCallMessagesBySender (
+        int32 group_call_id,
+        MessageSender sender_id,
+        bool report_spam
     ) {
         Object (
             group_call_id: group_call_id,
-            tdlib_type: "endGroupCall",
+            sender_id: sender_id,
+            report_spam: report_spam,
+            tdlib_type: "deleteGroupCallMessagesBySender",
             tdlib_extra: Uuid.string_random ()
         );
     }

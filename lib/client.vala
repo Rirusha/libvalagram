@@ -319,6 +319,10 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypeAffiliateProgramCommission).ensure ();
         typeof (StarTransactionTypePaidMessageSend).ensure ();
         typeof (StarTransactionTypePaidMessageReceive).ensure ();
+        typeof (StarTransactionTypePaidGroupCallMessageSend).ensure ();
+        typeof (StarTransactionTypePaidGroupCallMessageReceive).ensure ();
+        typeof (StarTransactionTypePaidGroupCallReactionSend).ensure ();
+        typeof (StarTransactionTypePaidGroupCallReactionReceive).ensure ();
         typeof (StarTransactionTypeSuggestedPostPaymentSend).ensure ();
         typeof (StarTransactionTypeSuggestedPostPaymentReceive).ensure ();
         typeof (StarTransactionTypePremiumPurchase).ensure ();
@@ -335,6 +339,9 @@ public sealed class TDLib.Client : Object {
         typeof (TonTransactionTypeUnsupported).ensure ();
         typeof (TonTransaction).ensure ();
         typeof (TonTransactions).ensure ();
+        typeof (ActiveStoryStateLive).ensure ();
+        typeof (ActiveStoryStateUnread).ensure ();
+        typeof (ActiveStoryStateRead).ensure ();
         typeof (GiveawayParticipantStatusEligible).ensure ();
         typeof (GiveawayParticipantStatusParticipating).ensure ();
         typeof (GiveawayParticipantStatusAlreadyWasMember).ensure ();
@@ -432,6 +439,7 @@ public sealed class TDLib.Client : Object {
         typeof (PaidReactionTypeAnonymous).ensure ();
         typeof (PaidReactionTypeChat).ensure ();
         typeof (PaidReactor).ensure ();
+        typeof (LiveStoryDonors).ensure ();
         typeof (MessageForwardInfo).ensure ();
         typeof (MessageImportInfo).ensure ();
         typeof (MessageReplyInfo).ensure ();
@@ -674,6 +682,7 @@ public sealed class TDLib.Client : Object {
         typeof (LinkPreviewTypeGiftCollection).ensure ();
         typeof (LinkPreviewTypeGroupCall).ensure ();
         typeof (LinkPreviewTypeInvoice).ensure ();
+        typeof (LinkPreviewTypeLiveStory).ensure ();
         typeof (LinkPreviewTypeMessage).ensure ();
         typeof (LinkPreviewTypePhoto).ensure ();
         typeof (LinkPreviewTypePremiumGiftCode).ensure ();
@@ -1030,6 +1039,7 @@ public sealed class TDLib.Client : Object {
         typeof (StoryVideo).ensure ();
         typeof (StoryContentPhoto).ensure ();
         typeof (StoryContentVideo).ensure ();
+        typeof (StoryContentLive).ensure ();
         typeof (StoryContentUnsupported).ensure ();
         typeof (InputStoryContentPhoto).ensure ();
         typeof (InputStoryContentVideo).ensure ();
@@ -1096,8 +1106,8 @@ public sealed class TDLib.Client : Object {
         typeof (GroupCallVideoQualityThumbnail).ensure ();
         typeof (GroupCallVideoQualityMedium).ensure ();
         typeof (GroupCallVideoQualityFull).ensure ();
-        typeof (VideoChatStream).ensure ();
-        typeof (VideoChatStreams).ensure ();
+        typeof (GroupCallStream).ensure ();
+        typeof (GroupCallStreams).ensure ();
         typeof (RtmpUrl).ensure ();
         typeof (GroupCallRecentSpeaker).ensure ();
         typeof (GroupCall).ensure ();
@@ -1106,6 +1116,8 @@ public sealed class TDLib.Client : Object {
         typeof (GroupCallParticipant).ensure ();
         typeof (GroupCallParticipants).ensure ();
         typeof (GroupCallInfo).ensure ();
+        typeof (GroupCallMessage).ensure ();
+        typeof (GroupCallMessageLevel).ensure ();
         typeof (InviteGroupCallParticipantResultUserPrivacyRestricted).ensure ();
         typeof (InviteGroupCallParticipantResultUserAlreadyParticipant).ensure ();
         typeof (InviteGroupCallParticipantResultUserWasBanned).ensure ();
@@ -1384,6 +1396,9 @@ public sealed class TDLib.Client : Object {
         typeof (CanPostStoryResultActiveStoryLimitExceeded).ensure ();
         typeof (CanPostStoryResultWeeklyLimitExceeded).ensure ();
         typeof (CanPostStoryResultMonthlyLimitExceeded).ensure ();
+        typeof (CanPostStoryResultLiveStoryIsActive).ensure ();
+        typeof (StartLiveStoryResultOk).ensure ();
+        typeof (StartLiveStoryResultFail).ensure ();
         typeof (CanTransferOwnershipResultOk).ensure ();
         typeof (CanTransferOwnershipResultPasswordNeeded).ensure ();
         typeof (CanTransferOwnershipResultPasswordTooFresh).ensure ();
@@ -1493,6 +1508,7 @@ public sealed class TDLib.Client : Object {
         typeof (UserPrivacySettingShowPhoneNumber).ensure ();
         typeof (UserPrivacySettingShowBio).ensure ();
         typeof (UserPrivacySettingShowBirthdate).ensure ();
+        typeof (UserPrivacySettingShowProfileAudio).ensure ();
         typeof (UserPrivacySettingAllowChatInvites).ensure ();
         typeof (UserPrivacySettingAllowCalls).ensure ();
         typeof (UserPrivacySettingAllowPeerToPeerCalls).ensure ();
@@ -1572,13 +1588,17 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeInvoice).ensure ();
         typeof (InternalLinkTypeLanguagePack).ensure ();
         typeof (InternalLinkTypeLanguageSettings).ensure ();
+        typeof (InternalLinkTypeLiveStory).ensure ();
+        typeof (InternalLinkTypeLoginEmailSettings).ensure ();
         typeof (InternalLinkTypeMainWebApp).ensure ();
         typeof (InternalLinkTypeMessage).ensure ();
         typeof (InternalLinkTypeMessageDraft).ensure ();
         typeof (InternalLinkTypeMyStars).ensure ();
         typeof (InternalLinkTypeMyToncoins).ensure ();
         typeof (InternalLinkTypePassportDataRequest).ensure ();
+        typeof (InternalLinkTypePasswordSettings).ensure ();
         typeof (InternalLinkTypePhoneNumberConfirmation).ensure ();
+        typeof (InternalLinkTypePhoneNumberPrivacySettings).ensure ();
         typeof (InternalLinkTypePremiumFeatures).ensure ();
         typeof (InternalLinkTypePremiumGift).ensure ();
         typeof (InternalLinkTypePremiumGiftCode).ensure ();
@@ -1688,6 +1708,7 @@ public sealed class TDLib.Client : Object {
         typeof (SuggestedActionExtendPremium).ensure ();
         typeof (SuggestedActionExtendStarSubscriptions).ensure ();
         typeof (SuggestedActionCustom).ensure ();
+        typeof (SuggestedActionSetLoginEmailAddress).ensure ();
         typeof (Count).ensure ();
         typeof (Text).ensure ();
         typeof (Data).ensure ();
@@ -1840,7 +1861,11 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateGroupCallParticipant).ensure ();
         typeof (UpdateGroupCallParticipants).ensure ();
         typeof (UpdateGroupCallVerificationState).ensure ();
-        typeof (UpdateGroupCallNewMessage).ensure ();
+        typeof (UpdateNewGroupCallMessage).ensure ();
+        typeof (UpdateNewGroupCallPaidReaction).ensure ();
+        typeof (UpdateGroupCallMessageSendFailed).ensure ();
+        typeof (UpdateGroupCallMessagesDeleted).ensure ();
+        typeof (UpdateLiveStoryTopDonors).ensure ();
         typeof (UpdateNewCallSignalingData).ensure ();
         typeof (UpdateUserPrivacySettingRules).ensure ();
         typeof (UpdateUnreadMessageCount).ensure ();
@@ -1852,6 +1877,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateChatActiveStories).ensure ();
         typeof (UpdateStoryListChatCount).ensure ();
         typeof (UpdateStoryStealthMode).ensure ();
+        typeof (UpdateTrustedMiniAppBots).ensure ();
         typeof (UpdateOption).ensure ();
         typeof (UpdateStickerSet).ensure ();
         typeof (UpdateInstalledStickerSets).ensure ();
@@ -1884,6 +1910,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateStarRevenueStatus).ensure ();
         typeof (UpdateTonRevenueStatus).ensure ();
         typeof (UpdateSpeechRecognitionTrial).ensure ();
+        typeof (UpdateGroupCallMessageLevels).ensure ();
         typeof (UpdateDiceEmojis).ensure ();
         typeof (UpdateAnimatedEmojiMessageClicked).ensure ();
         typeof (UpdateAnimationSearchParameters).ensure ();
@@ -3295,12 +3322,54 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Checks whether the current user is required to set login email address
+     */
+    public async Ok is_login_email_address_required () throws TDLibError {
+        try {
+
+        var obj = new IsLoginEmailAddressRequired ();
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (is_login_email_address_required.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Changes the login email address of the user. The email address can be
      * changed only if the current user already has login email and
-     * passwordState.login_email_address_pattern is non-empty.
-     * The change will not be applied until the new login email address is
-     * confirmed with {@link Client.check_login_email_address_code} To use
-     * Apple ID/Google ID instead of an email address, call
+     * passwordState.login_email_address_pattern is non-empty,
+     * or the user received suggestedActionSetLoginEmailAddress and
+     * {@link Client.is_login_email_address_required} succeeds. The change
+     * will not be applied until the new login email address is confirmed
+     * with {@link Client.check_login_email_address_code}
+     * To use Apple ID/Google ID instead of an email address, call
      * {@link Client.check_login_email_address_code} directly
      * @param new_login_email_address New login email address
      */
@@ -23119,7 +23188,7 @@ public sealed class TDLib.Client : Object {
      * for stories posted on behalf of supergroup and channel chats
      * @param album_ids Identifiers of story albums to which the story will
      * be added upon posting. An album can have up to
-     * getOption("story_album_story_count_max")
+     * getOption("story_album_size_max") stories
      * @param active_period Period after which the story is moved to archive,
      * in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400
      * for Telegram Premium users, and 86400 otherwise
@@ -23184,6 +23253,75 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (Story) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Starts a new live story on behalf of a chat; requires can_post_stories
+     * administrator right for channel chats
+     * @param chat_id Identifier of the chat that will start the live story.
+     * Pass Saved Messages chat identifier when starting a live story on
+     * behalf of the current user, or a channel chat identifier
+     * @param privacy_settings The privacy settings for the story; ignored
+     * for stories posted on behalf of channel chats
+     * @param protect_content Pass true if the content of the story must be
+     * protected from screenshotting
+     * @param is_rtmp_stream Pass true to create an RTMP stream instead of an
+     * ordinary group call
+     * @param enable_messages Pass true to allow viewers of the story to send
+     * messages
+     * @param paid_message_star_count The minimum number of Telegram Stars
+     * that must be paid by viewers for each sent message to the call;
+     * 0-getOption("paid_group_call_message_star_count_max")
+     */
+    public async StartLiveStoryResult start_live_story (
+        int64 chat_id,
+        StoryPrivacySettings privacy_settings,
+        bool protect_content,
+        bool is_rtmp_stream,
+        bool enable_messages,
+        int64 paid_message_star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new StartLiveStory (
+            chat_id,
+            privacy_settings,
+            protect_content,
+            is_rtmp_stream,
+            enable_messages,
+            paid_message_star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (start_live_story.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StartLiveStoryResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -23310,7 +23448,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Changes privacy settings of a story. The method can be called only for
      * stories posted on behalf of the current user and if
-     * story.can_be_edited == true
+     * story.can_set_privacy_settings == true
      * @param story_id Identifier of the story
      * @param privacy_settings The new privacy settings for the story
      */
@@ -23956,7 +24094,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes chosen reaction on a story that has already been sent
+     * Changes chosen reaction on a story that has already been sent; not
+     * supported for live stories
      * @param story_poster_chat_id The identifier of the poster of the story
      * @param story_id The identifier of the story
      * @param reaction_type Type of the reaction to set; pass null to remove
@@ -24424,7 +24563,7 @@ public sealed class TDLib.Client : Object {
      * stories
      * @param name Name of the album; 1-12 characters
      * @param story_ids Identifiers of stories to add to the album;
-     * 0-getOption("story_album_story_count_max") identifiers
+     * 0-getOption("story_album_size_max") identifiers
      */
     public async StoryAlbum create_story_album (
         int64 story_poster_chat_id,
@@ -24632,10 +24771,9 @@ public sealed class TDLib.Client : Object {
      * @param chat_id Identifier of the chat that owns the stories
      * @param story_album_id Identifier of the story album
      * @param story_ids Identifier of the stories to add to the album;
-     * 1-getOption("story_album_story_count_max") identifiers. If after
-     * addition the album has more than
-     * getOption("story_album_story_count_max") stories, then the last one
-     * are removed from the album
+     * 1-getOption("story_album_size_max") identifiers. If after addition the
+     * album has more than getOption("story_album_size_max") stories, then
+     * the last one are removed from the album
      */
     public async StoryAlbum add_story_album_stories (
         int64 chat_id,
@@ -27796,7 +27934,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Sent a suggested post based on a previously sent message in a channel
+     * Sends a suggested post based on a previously sent message in a channel
      * direct messages chat. Can be also used to suggest price or time change
      * for an existing suggested post.
      * Returns the sent message
@@ -28266,7 +28404,7 @@ public sealed class TDLib.Client : Object {
      * in the chat will be joined
      * @param chat_id Chat identifier
      * @param default_participant_id Default group call participant
-     * identifier to join the video chats
+     * identifier to join the video chats in the chat
      */
     public async Ok set_video_chat_default_participant (
         int64 chat_id,
@@ -28511,6 +28649,98 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns RTMP URL for streaming to a live story; requires
+     * can_post_stories administrator right for channel chats
+     * @param chat_id Chat identifier
+     */
+    public async RtmpUrl get_live_story_rtmp_url (
+        int64 chat_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetLiveStoryRtmpUrl (
+            chat_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_live_story_rtmp_url.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (RtmpUrl) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Replaces the current RTMP URL for streaming to a live story; requires
+     * owner privileges for channel chats
+     * @param chat_id Chat identifier
+     */
+    public async RtmpUrl replace_live_story_rtmp_url (
+        int64 chat_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new ReplaceLiveStoryRtmpUrl (
+            chat_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (replace_live_story_rtmp_url.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (RtmpUrl) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Returns information about a group call
      * @param group_call_id Group call identifier
      */
@@ -28651,7 +28881,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Joins a group call that is not bound to a chat
+     * Joins a regular group call that is not bound to a chat
      * @param input_group_call The group call to join
      * @param join_parameters Parameters to join the call
      */
@@ -28702,8 +28932,7 @@ public sealed class TDLib.Client : Object {
      * Joins an active video chat. Returns join response payload for tgcalls
      * @param group_call_id Group call identifier
      * @param participant_id Identifier of a group call participant, which
-     * will be used to join the call; pass null to join as self; video chats
-     * only
+     * will be used to join the call; pass null to join as self
      * @param join_parameters Parameters to join the call
      * @param invite_hash Invite hash as received from
      * internalLinkTypeVideoChat
@@ -28756,8 +28985,57 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Starts screen sharing in a joined group call. Returns join response
+     * Joins a group call of an active live story. Returns join response
      * payload for tgcalls
+     * @param group_call_id Group call identifier
+     * @param join_parameters Parameters to join the call
+     */
+    public async Text join_live_story (
+        int32 group_call_id,
+        GroupCallJoinParameters join_parameters
+    ) throws TDLibError {
+        try {
+
+        var obj = new JoinLiveStory (
+            group_call_id,
+            join_parameters
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (join_live_story.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Text) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Starts screen sharing in a joined group call; not supported in live
+     * stories. Returns join response payload for tgcalls
      * @param group_call_id Group call identifier
      * @param audio_source_id Screen sharing audio channel synchronization
      * source identifier; received from tgcalls
@@ -28809,7 +29087,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Pauses or unpauses screen sharing in a joined group call
+     * Pauses or unpauses screen sharing in a joined group call; not
+     * supported in live stories
      * @param group_call_id Group call identifier
      * @param is_paused Pass true to pause screen sharing; pass false to
      * unpause it
@@ -28858,7 +29137,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Ends screen sharing in a joined group call
+     * Ends screen sharing in a joined group call; not supported in live
+     * stories
      * @param group_call_id Group call identifier
      */
     public async Ok end_group_call_screen_sharing (
@@ -29003,19 +29283,20 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Toggles whether participants of a group call can send messages there.
-     * Requires groupCall.can_toggle_can_send_messages right
+     * Requires groupCall.can_toggle_are_messages_allowed right
      * @param group_call_id Group call identifier
-     * @param can_send_messages New value of the can_send_messages setting
+     * @param are_messages_allowed New value of the are_messages_allowed
+     * setting
      */
-    public async Ok toggle_group_call_can_send_messages (
+    public async Ok toggle_group_call_are_messages_allowed (
         int32 group_call_id,
-        bool can_send_messages
+        bool are_messages_allowed
     ) throws TDLibError {
         try {
 
-        var obj = new ToggleGroupCallCanSendMessages (
+        var obj = new ToggleGroupCallAreMessagesAllowed (
             group_call_id,
-            can_send_messages
+            are_messages_allowed
         );
         string json_response = "";
 
@@ -29026,7 +29307,147 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (toggle_group_call_can_send_messages.callback);
+                Idle.add (toggle_group_call_are_messages_allowed.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns information about the user or the chat that streams to a live
+     * story; for live stories that aren't an RTMP stream only
+     * @param group_call_id Group call identifier
+     */
+    public async GroupCallParticipant get_live_story_streamer (
+        int32 group_call_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetLiveStoryStreamer (
+            group_call_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_live_story_streamer.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GroupCallParticipant) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the list of message sender identifiers, on whose behalf
+     * messages can be sent to a live story
+     * @param group_call_id Group call identifier
+     */
+    public async ChatMessageSenders get_live_story_available_message_senders (
+        int32 group_call_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetLiveStoryAvailableMessageSenders (
+            group_call_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_live_story_available_message_senders.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (ChatMessageSenders) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Selects a message sender to send messages in a live story call
+     * @param group_call_id Group call identifier
+     * @param message_sender_id New message sender for the group call
+     */
+    public async Ok set_live_story_message_sender (
+        int32 group_call_id,
+        MessageSender message_sender_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetLiveStoryMessageSender (
+            group_call_id,
+            message_sender_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_live_story_message_sender.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -29055,17 +29476,26 @@ public sealed class TDLib.Client : Object {
      * groupCall.can_send_messages right
      * @param group_call_id Group call identifier
      * @param text Text of the message to send;
-     * 1-getOption("group_call_message_text_length_max") characters
+     * 1-getOption("group_call_message_text_length_max") characters for
+     * non-live-stories; see updateGroupCallMessageLevels for live story
+     * restrictions, which depends on paid_message_star_count. Can't contain
+     * line feeds for live stories
+     * @param paid_message_star_count The number of Telegram Stars the user
+     * agreed to pay to send the message; for live stories only;
+     * 0-getOption("paid_group_call_message_star_count_max"). Must be 0 for
+     * messages sent to live stories posted by the current user
      */
     public async Ok send_group_call_message (
         int32 group_call_id,
-        FormattedText text
+        FormattedText text,
+        int64 paid_message_star_count
     ) throws TDLibError {
         try {
 
         var obj = new SendGroupCallMessage (
             group_call_id,
-            text
+            text,
+            paid_message_star_count
         );
         string json_response = "";
 
@@ -29094,6 +29524,300 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Adds pending paid reaction in a live story group call. Can't be used
+     * in live stories posted by the current user.
+     * Call {@link Client.commit_pending_live_story_reactions} or
+     * {@link Client.remove_pending_live_story_reactions} to actually send
+     * all pending reactions when the undo timer is over or abort the sending
+     * @param group_call_id Group call identifier
+     * @param star_count Number of Telegram Stars to be used for the
+     * reaction. The total number of pending paid reactions must not exceed
+     * getOption("paid_group_call_message_star_count_max")
+     */
+    public async Ok add_pending_live_story_reaction (
+        int32 group_call_id,
+        int64 star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new AddPendingLiveStoryReaction (
+            group_call_id,
+            star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (add_pending_live_story_reaction.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Applies all pending paid reactions in a live story group call
+     * @param group_call_id Group call identifier
+     */
+    public async Ok commit_pending_live_story_reactions (
+        int32 group_call_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new CommitPendingLiveStoryReactions (
+            group_call_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (commit_pending_live_story_reactions.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Removes all pending paid reactions in a live story group call
+     * @param group_call_id Group call identifier
+     */
+    public async Ok remove_pending_live_story_reactions (
+        int32 group_call_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new RemovePendingLiveStoryReactions (
+            group_call_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (remove_pending_live_story_reactions.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Deletes messages in a group call; for live story calls only. Requires
+     * groupCallMessage.can_be_deleted right
+     * @param group_call_id Group call identifier
+     * @param message_ids Identifiers of the messages to be deleted
+     * @param report_spam Pass true to report the messages as spam
+     */
+    public async Ok delete_group_call_messages (
+        int32 group_call_id,
+        Gee.ArrayList<int32?> message_ids,
+        bool report_spam
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeleteGroupCallMessages (
+            group_call_id,
+            message_ids,
+            report_spam
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (delete_group_call_messages.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Deletes all messages sent by the specified message sender in a group
+     * call; for live story calls only. Requires
+     * groupCall.can_delete_messages right
+     * @param group_call_id Group call identifier
+     * @param sender_id Identifier of the sender of messages to delete
+     * @param report_spam Pass true to report the messages as spam
+     */
+    public async Ok delete_group_call_messages_by_sender (
+        int32 group_call_id,
+        MessageSender sender_id,
+        bool report_spam
+    ) throws TDLibError {
+        try {
+
+        var obj = new DeleteGroupCallMessagesBySender (
+            group_call_id,
+            sender_id,
+            report_spam
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (delete_group_call_messages_by_sender.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the list of top live story donors
+     * @param group_call_id Group call identifier of the live story
+     */
+    public async LiveStoryDonors get_live_story_top_donors (
+        int32 group_call_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetLiveStoryTopDonors (
+            group_call_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_live_story_top_donors.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (LiveStoryDonors) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -29607,6 +30331,58 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Changes the minimum number of Telegram Stars that must be paid by
+     * general participant for each sent message to a live story call.
+     * Requires groupCall.can_be_managed right
+     * @param group_call_id Group call identifier; must be an identifier of a
+     * live story call
+     * @param paid_message_star_count The new minimum number of Telegram
+     * Stars; 0-getOption("paid_group_call_message_star_count_max")
+     */
+    public async Ok set_group_call_paid_message_star_count (
+        int32 group_call_id,
+        int64 paid_message_star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new SetGroupCallPaidMessageStarCount (
+            group_call_id,
+            paid_message_star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (set_group_call_paid_message_star_count.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Informs TDLib that speaking state of a participant of an active group
      * call has changed. Returns identifier of the participant if it is found
      * @param group_call_id Group call identifier
@@ -29661,7 +30437,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Toggles whether a participant of an active group call is muted,
-     * unmuted, or allowed to unmute themselves
+     * unmuted, or allowed to unmute themselves; not supported for live
+     * stories
      * @param group_call_id Group call identifier
      * @param participant_id Participant identifier
      * @param is_muted Pass true to mute the user; pass false to unmute them
@@ -29712,9 +30489,9 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes volume level of a participant of an active group call. If the
-     * current user can manage the group call or is the owner of the group
-     * call,
+     * Changes volume level of a participant of an active group call; not
+     * supported for live stories. If the current user can manage the group
+     * call or is the owner of the group call,
      * then the participant's volume level will be changed for all users with
      * the default volume level
      * @param group_call_id Group call identifier
@@ -29873,10 +30650,10 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Loads more participants of a group call. The loaded participants will
-     * be received through updates. Use the field
-     * groupCall.loaded_all_participants to check whether all participants
-     * have already been loaded
+     * Loads more participants of a group call; not supported in live
+     * stories. The loaded participants will be received through updates.
+     * Use the field groupCall.loaded_all_participants to check whether all
+     * participants have already been loaded
      * @param group_call_id Group call identifier. The group call must be
      * previously received through {@link Client.get_group_call} and must be
      * joined or being joined
@@ -29972,7 +30749,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Ends a group call. Requires groupCall.can_be_managed right for video
-     * chats or groupCall.is_owned otherwise
+     * chats and live stories or groupCall.is_owned otherwise
      * @param group_call_id Group call identifier
      */
     public async Ok end_group_call (
@@ -30017,15 +30794,16 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns information about available video chat streams
+     * Returns information about available streams in a video chat or a live
+     * story
      * @param group_call_id Group call identifier
      */
-    public async VideoChatStreams get_video_chat_streams (
+    public async GroupCallStreams get_group_call_streams (
         int32 group_call_id
     ) throws TDLibError {
         try {
 
-        var obj = new GetVideoChatStreams (
+        var obj = new GetGroupCallStreams (
             group_call_id
         );
         string json_response = "";
@@ -30037,7 +30815,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_video_chat_streams.callback);
+                Idle.add (get_group_call_streams.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -30054,7 +30832,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (VideoChatStreams) jsoner.deserialize_object (null);
+        return (GroupCallStreams) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -30062,8 +30840,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns a file with a segment of a video chat stream in a modified OGG
-     * format for audio or MPEG-4 format for video
+     * Returns a file with a segment of a video chat or live story in a
+     * modified OGG format for audio or MPEG-4 format for video
      * @param group_call_id Group call identifier
      * @param time_offset Point in time when the stream segment begins; Unix
      * timestamp in milliseconds
@@ -30074,7 +30852,7 @@ public sealed class TDLib.Client : Object {
      * @param video_quality Video quality as received from tgcalls; pass null
      * to get the worst available quality
      */
-    public async Data get_video_chat_stream_segment (
+    public async Data get_group_call_stream_segment (
         int32 group_call_id,
         int64 time_offset,
         int32 scale,
@@ -30083,7 +30861,7 @@ public sealed class TDLib.Client : Object {
     ) throws TDLibError {
         try {
 
-        var obj = new GetVideoChatStreamSegment (
+        var obj = new GetGroupCallStreamSegment (
             group_call_id,
             time_offset,
             scale,
@@ -30099,7 +30877,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_video_chat_stream_segment.callback);
+                Idle.add (get_group_call_stream_segment.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -39953,7 +40731,7 @@ public sealed class TDLib.Client : Object {
      * received the gifts
      * @param name Name of the collection; 1-12 characters
      * @param received_gift_ids Identifier of the gifts to add to the
-     * collection; 0-getOption("gift_collection_gift_count_max") identifiers
+     * collection; 0-getOption("gift_collection_size_max") identifiers
      */
     public async GiftCollection create_gift_collection (
         MessageSender owner_id,
@@ -40165,10 +40943,10 @@ public sealed class TDLib.Client : Object {
      * the collection
      * @param collection_id Identifier of the gift collection
      * @param received_gift_ids Identifier of the gifts to add to the
-     * collection; 1-getOption("gift_collection_gift_count_max") identifiers.
-     * If after addition the collection has more than
-     * getOption("gift_collection_gift_count_max") gifts, then the last one
-     * are removed from the collection
+     * collection; 1-getOption("gift_collection_size_max") identifiers. If
+     * after addition the collection has more than
+     * getOption("gift_collection_size_max") gifts, then the last one are
+     * removed from the collection
      */
     public async GiftCollection add_gift_collection_gifts (
         MessageSender owner_id,
