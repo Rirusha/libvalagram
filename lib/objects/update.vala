@@ -3113,6 +3113,48 @@ public class TDLib.UpdateNewCallSignalingData : Update {
 }
 
 /**
+ * State of a gift auction was updated
+ */
+public class TDLib.UpdateGiftAuctionState : Update {
+
+    /**
+     * New state of the auction
+     */
+    public GiftAuctionState state { get; construct set; }
+
+    public UpdateGiftAuctionState (
+        GiftAuctionState state
+    ) {
+        Object (
+            state: state,
+            tdlib_type: "updateGiftAuctionState",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The list of auctions in which participate the current user has changed
+ */
+public class TDLib.UpdateActiveGiftAuctions : Update {
+
+    /**
+     * New states of the auctions
+     */
+    public Gee.ArrayList<GiftAuctionState?> states { get; construct set; default = new Gee.ArrayList<GiftAuctionState?> (); }
+
+    public UpdateActiveGiftAuctions (
+        Gee.ArrayList<GiftAuctionState?> states
+    ) {
+        Object (
+            states: states,
+            tdlib_type: "updateActiveGiftAuctions",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * Some privacy setting rules have been changed
  */
 public class TDLib.UpdateUserPrivacySettingRules : Update {

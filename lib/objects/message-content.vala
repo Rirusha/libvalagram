@@ -2485,6 +2485,11 @@ public class TDLib.MessageGift : MessageContent {
     public bool is_upgrade_separate { get; construct set; }
 
     /**
+     * True, if the message is a notification about a gift won on an auction
+     */
+    public bool is_from_auction { get; construct set; }
+
+    /**
      * True, if the sender and gift text are shown only to the gift receiver;
      * otherwise, everyone will be able to see them
      */
@@ -2546,6 +2551,7 @@ public class TDLib.MessageGift : MessageContent {
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
         bool is_upgrade_separate,
+        bool is_from_auction,
         bool is_private,
         bool is_saved,
         bool is_prepaid_upgrade,
@@ -2565,6 +2571,7 @@ public class TDLib.MessageGift : MessageContent {
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
             is_upgrade_separate: is_upgrade_separate,
+            is_from_auction: is_from_auction,
             is_private: is_private,
             is_saved: is_saved,
             is_prepaid_upgrade: is_prepaid_upgrade,

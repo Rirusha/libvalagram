@@ -565,6 +565,34 @@ public class TDLib.StarTransactionTypeChannelSubscriptionSale : StarTransactionT
 }
 
 /**
+ * The transaction is a bid on a gift auction; for regular users only
+ */
+public class TDLib.StarTransactionTypeGiftAuctionBid : StarTransactionType {
+
+    /**
+     * Identifier of the user that will receive the gift
+     */
+    public MessageSender owner_id { get; construct set; }
+
+    /**
+     * The gift
+     */
+    public Gift gift { get; construct set; }
+
+    public StarTransactionTypeGiftAuctionBid (
+        MessageSender owner_id,
+        Gift gift
+    ) {
+        Object (
+            owner_id: owner_id,
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftAuctionBid",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a purchase of a regular gift; for regular users and
  * bots only
  */

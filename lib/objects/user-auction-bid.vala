@@ -1,0 +1,72 @@
+/*
+ * Copyright (C) 2024-2025 Vladimir Vaskov
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+// THIS FILE WAS GENERATED, DON'T MODIFY IT
+
+/**
+ * Describes a bid of the current user in an auction
+ */
+public class TDLib.UserAuctionBid : Error {
+
+    /**
+     * The number of Telegram Stars that were put in the bid
+     */
+    public int64 star_count { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the bid was made
+     */
+    public int32 bid_date { get; construct set; }
+
+    /**
+     * The minimum number of Telegram Stars that can be put for the next bid
+     */
+    public int64 next_bid_star_count { get; construct set; }
+
+    /**
+     * Identifier of the user or the chat that will receive the auctioned
+     * item. If the auction is opened in context of another user or chat,
+     * then a warning is supposed to be shown to the current user
+     */
+    public MessageSender owner_id { get; construct set; }
+
+    /**
+     * True, if the bid was returned to the user, because it was outbid and
+     * can't win anymore
+     */
+    public bool was_returned { get; construct set; }
+
+    public UserAuctionBid (
+        int64 star_count,
+        int32 bid_date,
+        int64 next_bid_star_count,
+        MessageSender owner_id,
+        bool was_returned
+    ) {
+        Object (
+            star_count: star_count,
+            bid_date: bid_date,
+            next_bid_star_count: next_bid_star_count,
+            owner_id: owner_id,
+            was_returned: was_returned,
+            tdlib_type: "userAuctionBid",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

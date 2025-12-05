@@ -74,6 +74,12 @@ public class TDLib.Gift : Error {
     public bool is_premium { get; construct set; }
 
     /**
+     * Information about the auction on which the gift can be purchased; may
+     * be null if the gift can be purchased directly
+     */
+    public GiftAuction? auction_info { get; construct set; }
+
+    /**
      * Point in time (Unix timestamp) when the gift can be sent next time by
      * the current user; can be 0 or a date in the past.
      * If the date is in the future, then call {@link Client.can_send_gift}
@@ -115,6 +121,7 @@ public class TDLib.Gift : Error {
         bool has_colors,
         bool is_for_birthday,
         bool is_premium,
+        GiftAuction? auction_info,
         int32 next_send_date,
         GiftPurchaseLimits? user_limits,
         GiftPurchaseLimits? overall_limits,
@@ -131,6 +138,7 @@ public class TDLib.Gift : Error {
             has_colors: has_colors,
             is_for_birthday: is_for_birthday,
             is_premium: is_premium,
+            auction_info: auction_info,
             next_send_date: next_send_date,
             user_limits: user_limits,
             overall_limits: overall_limits,

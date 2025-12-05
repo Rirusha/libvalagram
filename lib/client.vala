@@ -243,6 +243,8 @@ public sealed class TDLib.Client : Object {
         typeof (StarGiveawayPaymentOptions).ensure ();
         typeof (AcceptedGiftTypes).ensure ();
         typeof (GiftSettings).ensure ();
+        typeof (GiftAuction).ensure ();
+        typeof (GiftBackground).ensure ();
         typeof (GiftPurchaseLimits).ensure ();
         typeof (GiftResaleParameters).ensure ();
         typeof (GiftCollection).ensure ();
@@ -285,6 +287,13 @@ public sealed class TDLib.Client : Object {
         typeof (ReceivedGift).ensure ();
         typeof (ReceivedGifts).ensure ();
         typeof (GiftUpgradePreview).ensure ();
+        typeof (AuctionBid).ensure ();
+        typeof (UserAuctionBid).ensure ();
+        typeof (AuctionStateActive).ensure ();
+        typeof (AuctionStateFinished).ensure ();
+        typeof (GiftAuctionState).ensure ();
+        typeof (GiftAuctionAcquiredGift).ensure ();
+        typeof (GiftAuctionAcquiredGifts).ensure ();
         typeof (TransactionDirectionIncoming).ensure ();
         typeof (TransactionDirectionOutgoing).ensure ();
         typeof (StarTransactionTypePremiumBotDeposit).ensure ();
@@ -306,6 +315,7 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypeBotSubscriptionSale).ensure ();
         typeof (StarTransactionTypeChannelSubscriptionPurchase).ensure ();
         typeof (StarTransactionTypeChannelSubscriptionSale).ensure ();
+        typeof (StarTransactionTypeGiftAuctionBid).ensure ();
         typeof (StarTransactionTypeGiftPurchase).ensure ();
         typeof (StarTransactionTypeGiftTransfer).ensure ();
         typeof (StarTransactionTypeGiftOriginalDetailsDrop).ensure ();
@@ -679,6 +689,7 @@ public sealed class TDLib.Client : Object {
         typeof (LinkPreviewTypeEmbeddedVideoPlayer).ensure ();
         typeof (LinkPreviewTypeExternalAudio).ensure ();
         typeof (LinkPreviewTypeExternalVideo).ensure ();
+        typeof (LinkPreviewTypeGiftAuction).ensure ();
         typeof (LinkPreviewTypeGiftCollection).ensure ();
         typeof (LinkPreviewTypeGroupCall).ensure ();
         typeof (LinkPreviewTypeInvoice).ensure ();
@@ -1582,6 +1593,7 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeDirectMessagesChat).ensure ();
         typeof (InternalLinkTypeEditProfileSettings).ensure ();
         typeof (InternalLinkTypeGame).ensure ();
+        typeof (InternalLinkTypeGiftAuction).ensure ();
         typeof (InternalLinkTypeGiftCollection).ensure ();
         typeof (InternalLinkTypeGroupCall).ensure ();
         typeof (InternalLinkTypeInstantView).ensure ();
@@ -1867,6 +1879,8 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateGroupCallMessagesDeleted).ensure ();
         typeof (UpdateLiveStoryTopDonors).ensure ();
         typeof (UpdateNewCallSignalingData).ensure ();
+        typeof (UpdateGiftAuctionState).ensure ();
+        typeof (UpdateActiveGiftAuctions).ensure ();
         typeof (UpdateUserPrivacySettingRules).ensure ();
         typeof (UpdateUnreadMessageCount).ensure ();
         typeof (UpdateUnreadChatCount).ensure ();
@@ -39724,6 +39738,297 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (send_gift.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns auction state for a gift
+     * @param auction_id Unique identifier of the auction
+     */
+    public async GiftAuctionState get_gift_auction_state (
+        string auction_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetGiftAuctionState (
+            auction_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_gift_auction_state.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftAuctionState) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the gifts that were acquired by the current user on a gift
+     * auction
+     * @param gift_id Identifier of the auctioned gift
+     */
+    public async GiftAuctionAcquiredGifts get_gift_auction_acquired_gifts (
+        int64 gift_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetGiftAuctionAcquiredGifts (
+            gift_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_gift_auction_acquired_gifts.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftAuctionAcquiredGifts) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Informs TDLib that a gift auction was opened by the user
+     * @param gift_id Identifier of the gift, which auction was opened
+     */
+    public async Ok open_gift_auction (
+        int64 gift_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new OpenGiftAuction (
+            gift_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (open_gift_auction.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Informs TDLib that a gift auction was closed by the user
+     * @param gift_id Identifier of the gift, which auction was closed
+     */
+    public async Ok close_gift_auction (
+        int64 gift_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new CloseGiftAuction (
+            gift_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (close_gift_auction.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Places a bid on an auction gift
+     * @param gift_id Identifier of the gift to place the bid on
+     * @param star_count The number of Telegram Stars to place in the bid
+     * @param user_id Identifier of the user that will receive the gift
+     * @param text Text to show along with the gift;
+     * 0-getOption("gift_text_length_max") characters. Only Bold, Italic,
+     * Underline, Strikethrough, Spoiler, and CustomEmoji entities are
+     * allowed. Must be empty if the receiver enabled paid messages
+     * @param is_private Pass true to show gift text and sender only to the
+     * gift receiver; otherwise, everyone will be able to see them
+     */
+    public async Ok place_gift_auction_bid (
+        int64 gift_id,
+        int64 star_count,
+        int64 user_id,
+        FormattedText text,
+        bool is_private
+    ) throws TDLibError {
+        try {
+
+        var obj = new PlaceGiftAuctionBid (
+            gift_id,
+            star_count,
+            user_id,
+            text,
+            is_private
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (place_gift_auction_bid.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Increases a bid for an auction gift without changing gift text and
+     * receiver
+     * @param gift_id Identifier of the gift to put the bid on
+     * @param star_count The number of Telegram Stars to put in the bid
+     */
+    public async Ok increase_gift_auction_bid (
+        int64 gift_id,
+        int64 star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new IncreaseGiftAuctionBid (
+            gift_id,
+            star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (increase_gift_auction_bid.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);

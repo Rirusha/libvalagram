@@ -495,6 +495,41 @@ public class TDLib.LinkPreviewTypeExternalVideo : LinkPreviewType {
 }
 
 /**
+ * The link is a link to a gift auction
+ */
+public class TDLib.LinkPreviewTypeGiftAuction : LinkPreviewType {
+
+    /**
+     * The gift
+     */
+    public Gift gift { get; construct set; }
+
+    /**
+     * Background of the gift
+     */
+    public GiftBackground gift_background { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the auction will be ended
+     */
+    public int32 auction_end_date { get; construct set; }
+
+    public LinkPreviewTypeGiftAuction (
+        Gift gift,
+        GiftBackground gift_background,
+        int32 auction_end_date
+    ) {
+        Object (
+            gift: gift,
+            gift_background: gift_background,
+            auction_end_date: auction_end_date,
+            tdlib_type: "linkPreviewTypeGiftAuction",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to a gift collection
  */
 public class TDLib.LinkPreviewTypeGiftCollection : LinkPreviewType {

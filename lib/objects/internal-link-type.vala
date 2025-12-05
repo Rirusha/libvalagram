@@ -549,6 +549,29 @@ public class TDLib.InternalLinkTypeGame : InternalLinkType {
 }
 
 /**
+ * The link is a link to a gift auction. Call
+ * {@link Client.get_gift_auction_state} with the given auction
+ * identifier to process the link
+ */
+public class TDLib.InternalLinkTypeGiftAuction : InternalLinkType {
+
+    /**
+     * Unique identifier of the auction
+     */
+    public string auction_id { get; construct set; }
+
+    public InternalLinkTypeGiftAuction (
+        string auction_id
+    ) {
+        Object (
+            auction_id: auction_id,
+            tdlib_type: "internalLinkTypeGiftAuction",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to a gift collection. Call
  * {@link Client.search_public_chat} with the given username, then call
  * {@link Client.get_received_gifts} with the received gift owner
