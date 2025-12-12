@@ -26,7 +26,7 @@ public abstract class TDLib.StarTransactionType : Error {}
 
 /**
  * The transaction is a deposit of Telegram Stars from the Premium bot;
- * for regular users only
+ * relevant for regular users only
  */
 public class TDLib.StarTransactionTypePremiumBotDeposit : StarTransactionType {
 
@@ -39,8 +39,8 @@ public class TDLib.StarTransactionTypePremiumBotDeposit : StarTransactionType {
 }
 
 /**
- * The transaction is a deposit of Telegram Stars from App Store; for
- * regular users only
+ * The transaction is a deposit of Telegram Stars from App Store;
+ * relevant for regular users only
  */
 public class TDLib.StarTransactionTypeAppStoreDeposit : StarTransactionType {
 
@@ -53,8 +53,8 @@ public class TDLib.StarTransactionTypeAppStoreDeposit : StarTransactionType {
 }
 
 /**
- * The transaction is a deposit of Telegram Stars from Google Play; for
- * regular users only
+ * The transaction is a deposit of Telegram Stars from Google Play;
+ * relevant for regular users only
  */
 public class TDLib.StarTransactionTypeGooglePlayDeposit : StarTransactionType {
 
@@ -67,8 +67,8 @@ public class TDLib.StarTransactionTypeGooglePlayDeposit : StarTransactionType {
 }
 
 /**
- * The transaction is a deposit of Telegram Stars from Fragment; for
- * regular users and bots only
+ * The transaction is a deposit of Telegram Stars from Fragment; relevant
+ * for regular users and bots only
  */
 public class TDLib.StarTransactionTypeFragmentDeposit : StarTransactionType {
 
@@ -81,8 +81,8 @@ public class TDLib.StarTransactionTypeFragmentDeposit : StarTransactionType {
 }
 
 /**
- * The transaction is a deposit of Telegram Stars by another user; for
- * regular users only
+ * The transaction is a deposit of Telegram Stars by another user;
+ * relevant for regular users only
  */
 public class TDLib.StarTransactionTypeUserDeposit : StarTransactionType {
 
@@ -112,8 +112,8 @@ public class TDLib.StarTransactionTypeUserDeposit : StarTransactionType {
 }
 
 /**
- * The transaction is a deposit of Telegram Stars from a giveaway; for
- * regular users only
+ * The transaction is a deposit of Telegram Stars from a giveaway;
+ * relevant for regular users only
  */
 public class TDLib.StarTransactionTypeGiveawayDeposit : StarTransactionType {
 
@@ -143,7 +143,7 @@ public class TDLib.StarTransactionTypeGiveawayDeposit : StarTransactionType {
 
 /**
  * The transaction is a withdrawal of earned Telegram Stars to Fragment;
- * for regular users, bots, supergroup and channel chats only
+ * relevant for regular users, bots, supergroup and channel chats only
  */
 public class TDLib.StarTransactionTypeFragmentWithdrawal : StarTransactionType {
 
@@ -165,7 +165,7 @@ public class TDLib.StarTransactionTypeFragmentWithdrawal : StarTransactionType {
 
 /**
  * The transaction is a withdrawal of earned Telegram Stars to Telegram
- * Ad platform; for bots and channel chats only
+ * Ad platform; relevant for bots and channel chats only
  */
 public class TDLib.StarTransactionTypeTelegramAdsWithdrawal : StarTransactionType {
 
@@ -178,7 +178,8 @@ public class TDLib.StarTransactionTypeTelegramAdsWithdrawal : StarTransactionTyp
 }
 
 /**
- * The transaction is a payment for Telegram API usage; for bots only
+ * The transaction is a payment for Telegram API usage; relevant for bots
+ * only
  */
 public class TDLib.StarTransactionTypeTelegramApiUsage : StarTransactionType {
 
@@ -200,7 +201,7 @@ public class TDLib.StarTransactionTypeTelegramApiUsage : StarTransactionType {
 
 /**
  * The transaction is a purchase of paid media from a bot or a business
- * account by the current user; for regular users only
+ * account by the current user; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeBotPaidMediaPurchase : StarTransactionType {
 
@@ -230,7 +231,7 @@ public class TDLib.StarTransactionTypeBotPaidMediaPurchase : StarTransactionType
 
 /**
  * The transaction is a sale of paid media by the bot or a business
- * account managed by the bot; for bots only
+ * account managed by the bot; relevant for bots only
  */
 public class TDLib.StarTransactionTypeBotPaidMediaSale : StarTransactionType {
 
@@ -274,7 +275,7 @@ public class TDLib.StarTransactionTypeBotPaidMediaSale : StarTransactionType {
 
 /**
  * The transaction is a purchase of paid media from a channel by the
- * current user; for regular users only
+ * current user; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeChannelPaidMediaPurchase : StarTransactionType {
 
@@ -310,8 +311,8 @@ public class TDLib.StarTransactionTypeChannelPaidMediaPurchase : StarTransaction
 }
 
 /**
- * The transaction is a sale of paid media by the channel chat; for
- * channel chats only
+ * The transaction is a sale of paid media by the channel chat; relevant
+ * for channel chats only
  */
 public class TDLib.StarTransactionTypeChannelPaidMediaSale : StarTransactionType {
 
@@ -348,7 +349,7 @@ public class TDLib.StarTransactionTypeChannelPaidMediaSale : StarTransactionType
 
 /**
  * The transaction is a purchase of a product from a bot or a business
- * account by the current user; for regular users only
+ * account by the current user; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeBotInvoicePurchase : StarTransactionType {
 
@@ -377,7 +378,8 @@ public class TDLib.StarTransactionTypeBotInvoicePurchase : StarTransactionType {
 }
 
 /**
- * The transaction is a sale of a product by the bot; for bots only
+ * The transaction is a sale of a product by the bot; relevant for bots
+ * only
  */
 public class TDLib.StarTransactionTypeBotInvoiceSale : StarTransactionType {
 
@@ -421,7 +423,7 @@ public class TDLib.StarTransactionTypeBotInvoiceSale : StarTransactionType {
 
 /**
  * The transaction is a purchase of a subscription from a bot or a
- * business account by the current user; for regular users only
+ * business account by the current user; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeBotSubscriptionPurchase : StarTransactionType {
 
@@ -457,7 +459,8 @@ public class TDLib.StarTransactionTypeBotSubscriptionPurchase : StarTransactionT
 }
 
 /**
- * The transaction is a sale of a subscription by the bot; for bots only
+ * The transaction is a sale of a subscription by the bot; relevant for
+ * bots only
  */
 public class TDLib.StarTransactionTypeBotSubscriptionSale : StarTransactionType {
 
@@ -508,7 +511,7 @@ public class TDLib.StarTransactionTypeBotSubscriptionSale : StarTransactionType 
 
 /**
  * The transaction is a purchase of a subscription to a channel chat by
- * the current user; for regular users only
+ * the current user; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeChannelSubscriptionPurchase : StarTransactionType {
 
@@ -536,8 +539,8 @@ public class TDLib.StarTransactionTypeChannelSubscriptionPurchase : StarTransact
 }
 
 /**
- * The transaction is a sale of a subscription by the channel chat; for
- * channel chats only
+ * The transaction is a sale of a subscription by the channel chat;
+ * relevant for channel chats only
  */
 public class TDLib.StarTransactionTypeChannelSubscriptionSale : StarTransactionType {
 
@@ -565,7 +568,8 @@ public class TDLib.StarTransactionTypeChannelSubscriptionSale : StarTransactionT
 }
 
 /**
- * The transaction is a bid on a gift auction; for regular users only
+ * The transaction is a bid on a gift auction; relevant for regular users
+ * only
  */
 public class TDLib.StarTransactionTypeGiftAuctionBid : StarTransactionType {
 
@@ -593,8 +597,8 @@ public class TDLib.StarTransactionTypeGiftAuctionBid : StarTransactionType {
 }
 
 /**
- * The transaction is a purchase of a regular gift; for regular users and
- * bots only
+ * The transaction is a purchase of a regular gift; relevant for regular
+ * users and bots only
  */
 public class TDLib.StarTransactionTypeGiftPurchase : StarTransactionType {
 
@@ -622,8 +626,8 @@ public class TDLib.StarTransactionTypeGiftPurchase : StarTransactionType {
 }
 
 /**
- * The transaction is a transfer of an upgraded gift; for regular users
- * only
+ * The transaction is a transfer of an upgraded gift; relevant for
+ * regular users only
  */
 public class TDLib.StarTransactionTypeGiftTransfer : StarTransactionType {
 
@@ -651,8 +655,8 @@ public class TDLib.StarTransactionTypeGiftTransfer : StarTransactionType {
 }
 
 /**
- * The transaction is a drop of original details of an upgraded gift; for
- * regular users only
+ * The transaction is a drop of original details of an upgraded gift;
+ * relevant for regular users only
  */
 public class TDLib.StarTransactionTypeGiftOriginalDetailsDrop : StarTransactionType {
 
@@ -680,8 +684,8 @@ public class TDLib.StarTransactionTypeGiftOriginalDetailsDrop : StarTransactionT
 }
 
 /**
- * The transaction is a sale of a received gift; for regular users and
- * channel chats only
+ * The transaction is a sale of a received gift; relevant for regular
+ * users and channel chats only
  */
 public class TDLib.StarTransactionTypeGiftSale : StarTransactionType {
 
@@ -709,7 +713,8 @@ public class TDLib.StarTransactionTypeGiftSale : StarTransactionType {
 }
 
 /**
- * The transaction is an upgrade of a gift; for regular users only
+ * The transaction is an upgrade of a gift; relevant for regular users
+ * only
  */
 public class TDLib.StarTransactionTypeGiftUpgrade : StarTransactionType {
 
@@ -738,7 +743,7 @@ public class TDLib.StarTransactionTypeGiftUpgrade : StarTransactionType {
 
 /**
  * The transaction is a purchase of an upgrade of a gift owned by another
- * user or channel; for regular users only
+ * user or channel; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeGiftUpgradePurchase : StarTransactionType {
 
@@ -767,7 +772,7 @@ public class TDLib.StarTransactionTypeGiftUpgradePurchase : StarTransactionType 
 
 /**
  * The transaction is a purchase of an upgraded gift for some user or
- * channel; for regular users only
+ * channel; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeUpgradedGiftPurchase : StarTransactionType {
 
@@ -795,7 +800,8 @@ public class TDLib.StarTransactionTypeUpgradedGiftPurchase : StarTransactionType
 }
 
 /**
- * The transaction is a sale of an upgraded gift; for regular users only
+ * The transaction is a sale of an upgraded gift; relevant for regular
+ * users only
  */
 public class TDLib.StarTransactionTypeUpgradedGiftSale : StarTransactionType {
 
@@ -840,7 +846,7 @@ public class TDLib.StarTransactionTypeUpgradedGiftSale : StarTransactionType {
 
 /**
  * The transaction is a sending of a paid reaction to a message in a
- * channel chat by the current user; for regular users only
+ * channel chat by the current user; relevant for regular users only
  */
 public class TDLib.StarTransactionTypeChannelPaidReactionSend : StarTransactionType {
 
@@ -870,7 +876,7 @@ public class TDLib.StarTransactionTypeChannelPaidReactionSend : StarTransactionT
 
 /**
  * The transaction is a receiving of a paid reaction to a message by the
- * channel chat; for channel chats only
+ * channel chat; relevant for channel chats only
  */
 public class TDLib.StarTransactionTypeChannelPaidReactionReceive : StarTransactionType {
 
@@ -900,7 +906,7 @@ public class TDLib.StarTransactionTypeChannelPaidReactionReceive : StarTransacti
 
 /**
  * The transaction is a receiving of a commission from an affiliate
- * program; for regular users, bots and channel chats only
+ * program; relevant for regular users, bots and channel chats only
  */
 public class TDLib.StarTransactionTypeAffiliateProgramCommission : StarTransactionType {
 
@@ -929,7 +935,8 @@ public class TDLib.StarTransactionTypeAffiliateProgramCommission : StarTransacti
 }
 
 /**
- * The transaction is a sending of a paid message; for regular users only
+ * The transaction is a sending of a paid message; relevant for regular
+ * users only
  */
 public class TDLib.StarTransactionTypePaidMessageSend : StarTransactionType {
 
@@ -957,8 +964,8 @@ public class TDLib.StarTransactionTypePaidMessageSend : StarTransactionType {
 }
 
 /**
- * The transaction is a receiving of a paid message; for regular users,
- * supergroup and channel chats only
+ * The transaction is a receiving of a paid message; relevant for regular
+ * users, supergroup and channel chats only
  */
 public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
 
@@ -1002,8 +1009,8 @@ public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
 }
 
 /**
- * The transaction is a sending of a paid group call message; for regular
- * users only
+ * The transaction is a sending of a paid group call message; relevant
+ * for regular users only
  */
 public class TDLib.StarTransactionTypePaidGroupCallMessageSend : StarTransactionType {
 
@@ -1024,8 +1031,8 @@ public class TDLib.StarTransactionTypePaidGroupCallMessageSend : StarTransaction
 }
 
 /**
- * The transaction is a receiving of a paid group call message; for
- * regular users and channel chats only
+ * The transaction is a receiving of a paid group call message; relevant
+ * for regular users and channel chats only
  */
 public class TDLib.StarTransactionTypePaidGroupCallMessageReceive : StarTransactionType {
 
@@ -1062,8 +1069,8 @@ public class TDLib.StarTransactionTypePaidGroupCallMessageReceive : StarTransact
 }
 
 /**
- * The transaction is a sending of a paid group reaction; for regular
- * users only
+ * The transaction is a sending of a paid group reaction; relevant for
+ * regular users only
  */
 public class TDLib.StarTransactionTypePaidGroupCallReactionSend : StarTransactionType {
 
@@ -1084,8 +1091,8 @@ public class TDLib.StarTransactionTypePaidGroupCallReactionSend : StarTransactio
 }
 
 /**
- * The transaction is a receiving of a paid group call reaction; for
- * regular users and channel chats only
+ * The transaction is a receiving of a paid group call reaction; relevant
+ * for regular users and channel chats only
  */
 public class TDLib.StarTransactionTypePaidGroupCallReactionReceive : StarTransactionType {
 
@@ -1122,8 +1129,8 @@ public class TDLib.StarTransactionTypePaidGroupCallReactionReceive : StarTransac
 }
 
 /**
- * The transaction is a payment for a suggested post; for regular users
- * only
+ * The transaction is a payment for a suggested post; relevant for
+ * regular users only
  */
 public class TDLib.StarTransactionTypeSuggestedPostPaymentSend : StarTransactionType {
 
@@ -1145,7 +1152,7 @@ public class TDLib.StarTransactionTypeSuggestedPostPaymentSend : StarTransaction
 
 /**
  * The transaction is a receiving of a payment for a suggested post by
- * the channel chat; for channel chats only
+ * the channel chat; relevant for channel chats only
  */
 public class TDLib.StarTransactionTypeSuggestedPostPaymentReceive : StarTransactionType {
 
@@ -1166,8 +1173,8 @@ public class TDLib.StarTransactionTypeSuggestedPostPaymentReceive : StarTransact
 }
 
 /**
- * The transaction is a purchase of Telegram Premium subscription; for
- * regular users and bots only
+ * The transaction is a purchase of Telegram Premium subscription;
+ * relevant for regular users and bots only
  */
 public class TDLib.StarTransactionTypePremiumPurchase : StarTransactionType {
 
@@ -1203,8 +1210,8 @@ public class TDLib.StarTransactionTypePremiumPurchase : StarTransactionType {
 }
 
 /**
- * The transaction is a transfer of Telegram Stars to a business bot; for
- * regular users only
+ * The transaction is a transfer of Telegram Stars to a business bot;
+ * relevant for regular users only
  */
 public class TDLib.StarTransactionTypeBusinessBotTransferSend : StarTransactionType {
 
@@ -1226,7 +1233,7 @@ public class TDLib.StarTransactionTypeBusinessBotTransferSend : StarTransactionT
 
 /**
  * The transaction is a transfer of Telegram Stars from a business
- * account; for bots only
+ * account; relevant for bots only
  */
 public class TDLib.StarTransactionTypeBusinessBotTransferReceive : StarTransactionType {
 
@@ -1248,7 +1255,7 @@ public class TDLib.StarTransactionTypeBusinessBotTransferReceive : StarTransacti
 
 /**
  * The transaction is a payment for search of posts in public Telegram
- * channels; for regular users only
+ * channels; relevant for regular users only
  */
 public class TDLib.StarTransactionTypePublicPostSearch : StarTransactionType {
 

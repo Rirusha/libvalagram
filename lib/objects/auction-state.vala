@@ -70,13 +70,13 @@ public class TDLib.AuctionStateActive : AuctionState {
     public int32 total_round_count { get; construct set; }
 
     /**
-     * The number of items that have to be distributed on the auciton
+     * The number of items that have to be distributed on the auction
      */
     public int32 left_item_count { get; construct set; }
 
     /**
      * The number of items that were purchased by the current user on the
-     * auciton
+     * auction
      */
     public int32 acquired_item_count { get; construct set; }
 
@@ -138,7 +138,7 @@ public class TDLib.AuctionStateFinished : AuctionState {
 
     /**
      * The number of items that were purchased by the current user on the
-     * auciton
+     * auction
      */
     public int32 acquired_item_count { get; construct set; }
 

@@ -76,7 +76,7 @@ public class TDLib.TonTransactionTypeSuggestedPostPayment : TonTransactionType {
 
 /**
  * The transaction is a purchase of an upgraded gift for some user or
- * channel; for regular users only
+ * channel
  */
 public class TDLib.TonTransactionTypeUpgradedGiftPurchase : TonTransactionType {
 
@@ -104,7 +104,7 @@ public class TDLib.TonTransactionTypeUpgradedGiftPurchase : TonTransactionType {
 }
 
 /**
- * The transaction is a sale of an upgraded gift; for regular users only
+ * The transaction is a sale of an upgraded gift
  */
 public class TDLib.TonTransactionTypeUpgradedGiftSale : TonTransactionType {
 
