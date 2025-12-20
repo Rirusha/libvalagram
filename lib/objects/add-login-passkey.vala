@@ -20,36 +20,31 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Deletes media previews from the list of media previews of a bot
+ * Adds a passkey allowed to be used for the login by the current user
+ * and returns the added passkey. Call
+ * {@link Client.get_passkey_parameters} to get parameters for creating
+ * of the passkey
  */
-public class TDLib.DeleteBotMediaPreviews : TDObject {
+public class TDLib.AddLoginPasskey : TDObject {
 
     /**
-     * Identifier of the target bot. The bot must be owned and must have the
-     * main Web App
+     * JSON-encoded client data
      */
-    public int64 bot_user_id { get; construct set; }
+    public string client_data { get; construct set; }
 
     /**
-     * Language code of the media previews to delete
+     * Passkey attestation object
      */
-    public string language_code { get; construct set; }
+    public Bytes attestation_object { get; construct set; }
 
-    /**
-     * File identifiers of the media to delete
-     */
-    public Gee.ArrayList<int32?> file_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
-
-    public DeleteBotMediaPreviews (
-        int64 bot_user_id,
-        string language_code,
-        Gee.ArrayList<int32?> file_ids
+    public AddLoginPasskey (
+        string client_data,
+        Bytes attestation_object
     ) {
         Object (
-            bot_user_id: bot_user_id,
-            language_code: language_code,
-            file_ids: file_ids,
-            tdlib_type: "deleteBotMediaPreviews",
+            client_data: client_data,
+            attestation_object: attestation_object,
+            tdlib_type: "addLoginPasskey",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -50,6 +50,12 @@ public class TDLib.GiftAuctionAcquiredGift : Error {
     public int32 auction_round_position { get; construct set; }
 
     /**
+     * Unique number of the gift among gifts upgraded from the same gift
+     * after upgrade; 0 if yet unassigned
+     */
+    public int32 unique_gift_number { get; construct set; }
+
+    /**
      * Message added to the gift
      */
     public FormattedText text { get; construct set; }
@@ -66,6 +72,7 @@ public class TDLib.GiftAuctionAcquiredGift : Error {
         int64 star_count,
         int32 auction_round_number,
         int32 auction_round_position,
+        int32 unique_gift_number,
         FormattedText text,
         bool is_private
     ) {
@@ -75,6 +82,7 @@ public class TDLib.GiftAuctionAcquiredGift : Error {
             star_count: star_count,
             auction_round_number: auction_round_number,
             auction_round_position: auction_round_position,
+            unique_gift_number: unique_gift_number,
             text: text,
             is_private: is_private,
             tdlib_type: "giftAuctionAcquiredGift",

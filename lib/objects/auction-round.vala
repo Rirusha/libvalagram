@@ -20,36 +20,43 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Deletes media previews from the list of media previews of a bot
+ * Describes a round of an auction
  */
-public class TDLib.DeleteBotMediaPreviews : TDObject {
+public class TDLib.AuctionRound : Error {
 
     /**
-     * Identifier of the target bot. The bot must be owned and must have the
-     * main Web App
+     * 1-based number of the round
      */
-    public int64 bot_user_id { get; construct set; }
+    public int32 number { get; construct set; }
 
     /**
-     * Language code of the media previews to delete
+     * Duration of the round, in seconds
      */
-    public string language_code { get; construct set; }
+    public int32 duration { get; construct set; }
 
     /**
-     * File identifiers of the media to delete
+     * The number of seconds for which the round will be extended if there
+     * are changes in the top winners
      */
-    public Gee.ArrayList<int32?> file_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+    public int32 extend_time { get; construct set; }
 
-    public DeleteBotMediaPreviews (
-        int64 bot_user_id,
-        string language_code,
-        Gee.ArrayList<int32?> file_ids
+    /**
+     * The number of top winners who trigger round extension if changed
+     */
+    public int32 top_winner_count { get; construct set; }
+
+    public AuctionRound (
+        int32 number,
+        int32 duration,
+        int32 extend_time,
+        int32 top_winner_count
     ) {
         Object (
-            bot_user_id: bot_user_id,
-            language_code: language_code,
-            file_ids: file_ids,
-            tdlib_type: "deleteBotMediaPreviews",
+            number: number,
+            duration: duration,
+            extend_time: extend_time,
+            top_winner_count: top_winner_count,
+            tdlib_type: "auctionRound",
             tdlib_extra: Uuid.string_random ()
         );
     }

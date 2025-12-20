@@ -150,6 +150,12 @@ public class TDLib.UpgradedGift : Error {
     public GiftResaleParameters? resale_parameters { get; construct set; }
 
     /**
+     * True, if an offer to purchase the gift can be sent using
+     * {@link Client.send_gift_purchase_offer}
+     */
+    public bool can_send_purchase_offer { get; construct set; }
+
+    /**
      * ISO 4217 currency code of the currency in which value of the gift is
      * represented; may be empty if unavailable
      */
@@ -160,6 +166,11 @@ public class TDLib.UpgradedGift : Error {
      * if unavailable
      */
     public int64 value_amount { get; construct set; }
+
+    /**
+     * Estimated value of the gift in USD; in USD cents; 0 if unavailable
+     */
+    public int64 value_usd_amount { get; construct set; }
 
     public UpgradedGift (
         int64 id_,
@@ -184,8 +195,10 @@ public class TDLib.UpgradedGift : Error {
         UpgradedGiftOriginalDetails? original_details,
         UpgradedGiftColors? colors,
         GiftResaleParameters? resale_parameters,
+        bool can_send_purchase_offer,
         string value_currency,
-        int64 value_amount
+        int64 value_amount,
+        int64 value_usd_amount
     ) {
         Object (
             id_: id_,
@@ -210,8 +223,10 @@ public class TDLib.UpgradedGift : Error {
             original_details: original_details,
             colors: colors,
             resale_parameters: resale_parameters,
+            can_send_purchase_offer: can_send_purchase_offer,
             value_currency: value_currency,
             value_amount: value_amount,
+            value_usd_amount: value_usd_amount,
             tdlib_type: "upgradedGift",
             tdlib_extra: Uuid.string_random ()
         );

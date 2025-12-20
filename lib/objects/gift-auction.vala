@@ -34,13 +34,20 @@ public class TDLib.GiftAuction : Error {
      */
     public int32 gifts_per_round { get; construct set; }
 
+    /**
+     * Point in time (Unix timestamp) when the auction will start
+     */
+    public int32 start_date { get; construct set; }
+
     public GiftAuction (
         string id_,
-        int32 gifts_per_round
+        int32 gifts_per_round,
+        int32 start_date
     ) {
         Object (
             id_: id_,
             gifts_per_round: gifts_per_round,
+            start_date: start_date,
             tdlib_type: "giftAuction",
             tdlib_extra: Uuid.string_random ()
         );

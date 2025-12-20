@@ -20,21 +20,14 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a Telegram Premium gift code
+ * Returns the list of passkeys allowed to be used for the login by the
+ * current user
  */
-public class TDLib.CheckPremiumGiftCode : TDObject {
+public class TDLib.GetLoginPasskeys : TDObject {
 
-    /**
-     * The code to check
-     */
-    public string code { get; construct set; }
-
-    public CheckPremiumGiftCode (
-        string code
-    ) {
+    public GetLoginPasskeys () {
         Object (
-            code: code,
-            tdlib_type: "checkPremiumGiftCode",
+            tdlib_type: "getLoginPasskeys",
             tdlib_extra: Uuid.string_random ()
         );
     }

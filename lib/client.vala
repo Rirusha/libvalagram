@@ -66,6 +66,8 @@ public sealed class TDLib.Client : Object {
         typeof (TextEntities).ensure ();
         typeof (FormattedText).ensure ();
         typeof (TermsOfService).ensure ();
+        typeof (Passkey).ensure ();
+        typeof (Passkeys).ensure ();
         typeof (AuthorizationStateWaitTdlibParameters).ensure ();
         typeof (AuthorizationStateWaitPhoneNumber).ensure ();
         typeof (AuthorizationStateWaitPremiumPurchase).ensure ();
@@ -200,6 +202,9 @@ public sealed class TDLib.Client : Object {
         typeof (ChatAdministratorRights).ensure ();
         typeof (GiftResalePriceStar).ensure ();
         typeof (GiftResalePriceTon).ensure ();
+        typeof (GiftPurchaseOfferStatePending).ensure ();
+        typeof (GiftPurchaseOfferStateAccepted).ensure ();
+        typeof (GiftPurchaseOfferStateRejected).ensure ();
         typeof (SuggestedPostPriceStar).ensure ();
         typeof (SuggestedPostPriceTon).ensure ();
         typeof (SuggestedPostStatePending).ensure ();
@@ -256,6 +261,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpgradedGiftOriginResale).ensure ();
         typeof (UpgradedGiftOriginBlockchain).ensure ();
         typeof (UpgradedGiftOriginPrepaidUpgrade).ensure ();
+        typeof (UpgradedGiftOriginOffer).ensure ();
         typeof (UpgradedGiftModel).ensure ();
         typeof (UpgradedGiftSymbol).ensure ();
         typeof (UpgradedGiftBackdropColors).ensure ();
@@ -287,8 +293,10 @@ public sealed class TDLib.Client : Object {
         typeof (ReceivedGift).ensure ();
         typeof (ReceivedGifts).ensure ();
         typeof (GiftUpgradePreview).ensure ();
+        typeof (GiftUpgradeVariants).ensure ();
         typeof (AuctionBid).ensure ();
         typeof (UserAuctionBid).ensure ();
+        typeof (AuctionRound).ensure ();
         typeof (AuctionStateActive).ensure ();
         typeof (AuctionStateFinished).ensure ();
         typeof (GiftAuctionState).ensure ();
@@ -317,6 +325,7 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransactionTypeChannelSubscriptionSale).ensure ();
         typeof (StarTransactionTypeGiftAuctionBid).ensure ();
         typeof (StarTransactionTypeGiftPurchase).ensure ();
+        typeof (StarTransactionTypeGiftPurchaseOffer).ensure ();
         typeof (StarTransactionTypeGiftTransfer).ensure ();
         typeof (StarTransactionTypeGiftOriginalDetailsDrop).ensure ();
         typeof (StarTransactionTypeGiftSale).ensure ();
@@ -343,7 +352,9 @@ public sealed class TDLib.Client : Object {
         typeof (StarTransaction).ensure ();
         typeof (StarTransactions).ensure ();
         typeof (TonTransactionTypeFragmentDeposit).ensure ();
+        typeof (TonTransactionTypeFragmentWithdrawal).ensure ();
         typeof (TonTransactionTypeSuggestedPostPayment).ensure ();
+        typeof (TonTransactionTypeGiftPurchaseOffer).ensure ();
         typeof (TonTransactionTypeUpgradedGiftPurchase).ensure ();
         typeof (TonTransactionTypeUpgradedGiftSale).ensure ();
         typeof (TonTransactionTypeUnsupported).ensure ();
@@ -896,6 +907,8 @@ public sealed class TDLib.Client : Object {
         typeof (MessageGift).ensure ();
         typeof (MessageUpgradedGift).ensure ();
         typeof (MessageRefundedUpgradedGift).ensure ();
+        typeof (MessageUpgradedGiftPurchaseOffer).ensure ();
+        typeof (MessageUpgradedGiftPurchaseOfferDeclined).ensure ();
         typeof (MessagePaidMessagesRefunded).ensure ();
         typeof (MessagePaidMessagePriceChanged).ensure ();
         typeof (MessageDirectMessagePriceChanged).ensure ();
@@ -1322,6 +1335,7 @@ public sealed class TDLib.Client : Object {
         typeof (PremiumFeatureBusiness).ensure ();
         typeof (PremiumFeatureMessageEffects).ensure ();
         typeof (PremiumFeatureChecklists).ensure ();
+        typeof (PremiumFeaturePaidMessages).ensure ();
         typeof (BusinessFeatureLocation).ensure ();
         typeof (BusinessFeatureOpeningHours).ensure ();
         typeof (BusinessFeatureQuickReplies).ensure ();
@@ -1721,6 +1735,7 @@ public sealed class TDLib.Client : Object {
         typeof (SuggestedActionExtendStarSubscriptions).ensure ();
         typeof (SuggestedActionCustom).ensure ();
         typeof (SuggestedActionSetLoginEmailAddress).ensure ();
+        typeof (SuggestedActionAddLoginPasskey).ensure ();
         typeof (Count).ensure ();
         typeof (Text).ensure ();
         typeof (Data).ensure ();
@@ -2509,6 +2524,114 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (request_qr_code_authentication.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns parameters for authentication using a passkey as
+     * JSON-serialized string
+     */
+    public async Text get_authentication_passkey_parameters () throws TDLibError {
+        try {
+
+        var obj = new GetAuthenticationPasskeyParameters ();
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_authentication_passkey_parameters.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Text) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Checks a passkey to log in to the corresponding account. Call
+     * {@link Client.get_authentication_passkey_parameters} to get parameters
+     * for the passkey. Works only when the current authorization state is
+     * authorizationStateWaitPhoneNumber or
+     * authorizationStateWaitOtherDeviceConfirmation, or if there is no
+     * pending authentication query and the current authorization state is
+     * authorizationStateWaitPremiumPurchase,
+     * authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode,
+     * authorizationStateWaitCode, authorizationStateWaitRegistration, or
+     * authorizationStateWaitPassword
+     * @param credential_id Base64url-encoded identifier of the credential
+     * @param client_data JSON-encoded client data
+     * @param authenticator_data Authenticator data of the application that
+     * created the credential
+     * @param signature Cryptographic signature of the credential
+     * @param user_handle User handle of the passkey
+     */
+    public async Ok check_authentication_passkey (
+        string credential_id,
+        string client_data,
+        Bytes authenticator_data,
+        Bytes signature,
+        Bytes user_handle
+    ) throws TDLibError {
+        try {
+
+        var obj = new CheckAuthenticationPasskey (
+            credential_id,
+            client_data,
+            authenticator_data,
+            signature,
+            user_handle
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (check_authentication_passkey.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -4572,6 +4695,8 @@ public sealed class TDLib.Client : Object {
      * messageSuggestedPostRefunded,
      * the message with the regular gift that was upgraded for
      * messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
+     * the message with gift purchase offer for
+     * messageUpgradedGiftPurchaseOfferDeclined,
      * and the topic creation message for topic messages without non-bundled
      * replied message. Returns a 404 error if the message doesn't exist
      * @param chat_id Identifier of the chat the message belongs to
@@ -12645,8 +12770,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Transfer Telegram Stars from the business account to the business bot;
-     * for bots only
+     * Transfers Telegram Stars from the business account to the business
+     * bot; for bots only
      * @param business_connection_id Unique identifier of business connection
      * @param star_count Number of Telegram Stars to transfer
      */
@@ -14198,6 +14323,185 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (unpin_all_forum_topic_messages.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns parameters for creating of a new passkey as JSON-serialized
+     * string
+     */
+    public async Text get_passkey_parameters () throws TDLibError {
+        try {
+
+        var obj = new GetPasskeyParameters ();
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_passkey_parameters.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Text) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Adds a passkey allowed to be used for the login by the current user
+     * and returns the added passkey. Call
+     * {@link Client.get_passkey_parameters} to get parameters for creating
+     * of the passkey
+     * @param client_data JSON-encoded client data
+     * @param attestation_object Passkey attestation object
+     */
+    public async Passkey add_login_passkey (
+        string client_data,
+        Bytes attestation_object
+    ) throws TDLibError {
+        try {
+
+        var obj = new AddLoginPasskey (
+            client_data,
+            attestation_object
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (add_login_passkey.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Passkey) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the list of passkeys allowed to be used for the login by the
+     * current user
+     */
+    public async Passkeys get_login_passkeys () throws TDLibError {
+        try {
+
+        var obj = new GetLoginPasskeys ();
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_login_passkeys.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Passkeys) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Removes a passkey from the list of passkeys allowed to be used for the
+     * login by the current user
+     * @param passkey_id Unique identifier of the passkey to remove
+     */
+    public async Ok remove_login_passkey (
+        string passkey_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new RemoveLoginPasskey (
+            passkey_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (remove_login_passkey.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -22951,7 +23255,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Traverse all chats in a chat list and marks all messages in the chats
+     * Traverses all chats in a chat list and marks all messages in the chats
      * as read
      * @param chat_list Chat list in which to mark all chats as read
      */
@@ -26016,7 +26320,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Preliminary uploads a file to the cloud before sending it in a
+     * Preliminarily uploads a file to the cloud before sending it in a
      * message, which can be useful for uploading of being recorded voice and
      * video notes.
      * In all other cases there is no need to preliminary upload a file.
@@ -26701,8 +27005,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Application or reCAPTCHA verification has been completed. Can be
-     * called before authorization
+     * Informs TDLib that application or reCAPTCHA verification has been
+     * completed. Can be called before authorization
      * @param verification_id Unique identifier for the verification process
      * as received from updateApplicationVerificationRequired or
      * updateApplicationRecaptchaVerificationRequired
@@ -32385,6 +32689,60 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns outline of a sticker as an SVG path. This is an offline
+     * method. Returns an empty string if the outline isn't known
+     * @param sticker_file_id File identifier of the sticker
+     * @param for_animated_emoji Pass true to get the outline scaled for
+     * animated emoji
+     * @param for_clicked_animated_emoji_message Pass true to get the outline
+     * scaled for clicked animated emoji message
+     */
+    public async Text get_sticker_outline_svg_path (
+        int32 sticker_file_id,
+        bool for_animated_emoji,
+        bool for_clicked_animated_emoji_message
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetStickerOutlineSvgPath (
+            sticker_file_id,
+            for_animated_emoji,
+            for_clicked_animated_emoji_message
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_sticker_outline_svg_path.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Text) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Returns stickers from the installed sticker sets that correspond to
      * any of the given emoji or can be found by sticker-specific keywords.
      * If the query is non-empty, then favorite, recently used or trending
@@ -33668,7 +34026,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Return emojis matching the keyword. Supported only if the file
+     * Returns emojis matching the keyword. Supported only if the file
      * database is enabled. Order of results is unspecified
      * @param text Text to search for
      * @param input_language_codes List of possible IETF language tags of the
@@ -35588,7 +35946,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Check the authentication code and completes the request for which the
+     * Checks the authentication code and completes the request for which the
      * code was sent if appropriate
      * @param code Authentication code to check
      */
@@ -36929,7 +37287,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Delete media previews from the list of media previews of a bot
+     * Deletes media previews from the list of media previews of a bot
      * @param bot_user_id Identifier of the target bot. The bot must be owned
      * and must have the main Web App
      * @param language_code Language code of the media previews to delete
@@ -40303,6 +40661,51 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns all possible variants of upgraded gifts for a regular gift
+     * @param gift_id Identifier of the gift
+     */
+    public async GiftUpgradeVariants get_gift_upgrade_variants (
+        int64 gift_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetGiftUpgradeVariants (
+            gift_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_gift_upgrade_variants.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftUpgradeVariants) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Upgrades a regular gift
      * @param business_connection_id Unique identifier of business connection
      * on behalf of which to send the request; for bots only
@@ -40570,6 +40973,119 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (GiftResaleResult) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Sends an offer to purchase an upgraded gift
+     * @param owner_id Identifier of the user or the channel chat that
+     * currently owns the gift and will receive the offer
+     * @param gift_name Name of the upgraded gift
+     * @param price The price that the user agreed to pay for the gift
+     * @param duration Duration of the offer, in seconds; must be one of
+     * 21600, 43200, 86400, 129600, 172800, or 259200. Can also be 120 if
+     * Telegram test environment is used
+     * @param paid_message_star_count The number of Telegram Stars the user
+     * agreed to pay additionally for sending of the offer message to the
+     * current gift owner; pass userFullInfo.outgoing_paid_message_star_count
+     * for users and 0 otherwise
+     */
+    public async Ok send_gift_purchase_offer (
+        MessageSender owner_id,
+        string gift_name,
+        GiftResalePrice price,
+        int32 duration,
+        int64 paid_message_star_count
+    ) throws TDLibError {
+        try {
+
+        var obj = new SendGiftPurchaseOffer (
+            owner_id,
+            gift_name,
+            price,
+            duration,
+            paid_message_star_count
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (send_gift_purchase_offer.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Handles a pending gift purchase offer
+     * @param message_id Identifier of the message with the gift purchase
+     * offer
+     * @param approve Pass true to approve the request; pass false to decline
+     * it
+     */
+    public async Ok process_gift_purchase_offer (
+        int64 message_id,
+        bool approve
+    ) throws TDLibError {
+        try {
+
+        var obj = new ProcessGiftPurchaseOffer (
+            message_id,
+            approve
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (process_gift_purchase_offer.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Ok) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -40855,6 +41371,46 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (HttpUrl) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns promotional anumation for upgraded gifts
+     */
+    public async Animation get_upgraded_gifts_promotional_animation () throws TDLibError {
+        try {
+
+        var obj = new GetUpgradedGiftsPromotionalAnimation ();
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_upgraded_gifts_promotional_animation.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (Animation) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -42955,7 +43511,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Check whether the current user can message another user or try to
+     * Checks whether the current user can message another user or try to
      * create a chat with them
      * @param user_id Identifier of the other user
      * @param only_local Pass true to get only locally available information
@@ -46887,7 +47443,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Return information about a Telegram Premium gift code
+     * Returns information about a Telegram Premium gift code
      * @param code The code to check
      */
     public async PremiumGiftCodeInfo check_premium_gift_code (

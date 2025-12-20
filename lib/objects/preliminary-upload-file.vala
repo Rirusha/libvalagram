@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Preliminary uploads a file to the cloud before sending it in a
+ * Preliminarily uploads a file to the cloud before sending it in a
  * message, which can be useful for uploading of being recorded voice and
  * video notes.
  * In all other cases there is no need to preliminary upload a file.

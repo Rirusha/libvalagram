@@ -42,6 +42,12 @@ public class TDLib.ReceivedGift : Error {
     public FormattedText text { get; construct set; }
 
     /**
+     * Unique number of the gift among gifts upgraded from the same gift
+     * after upgrade; 0 if yet unassigned
+     */
+    public int32 unique_gift_number { get; construct set; }
+
+    /**
      * True, if the sender and gift text are shown only to the gift receiver;
      * otherwise, everyone are able to see them
      */
@@ -154,6 +160,7 @@ public class TDLib.ReceivedGift : Error {
         string received_gift_id,
         MessageSender? sender_id,
         FormattedText text,
+        int32 unique_gift_number,
         bool is_private,
         bool is_saved,
         bool is_pinned,
@@ -177,6 +184,7 @@ public class TDLib.ReceivedGift : Error {
             received_gift_id: received_gift_id,
             sender_id: sender_id,
             text: text,
+            unique_gift_number: unique_gift_number,
             is_private: is_private,
             is_saved: is_saved,
             is_pinned: is_pinned,

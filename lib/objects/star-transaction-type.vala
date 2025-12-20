@@ -123,7 +123,7 @@ public class TDLib.StarTransactionTypeGiveawayDeposit : StarTransactionType {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the message with the giveaway; can be 0 or an identifier
+     * Identifier of the message with the giveaway; may be 0 or an identifier
      * of a deleted message
      */
     public int64 giveaway_message_id { get; construct set; }
@@ -285,7 +285,7 @@ public class TDLib.StarTransactionTypeChannelPaidMediaPurchase : StarTransaction
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the corresponding message with paid media; can be 0 or
+     * Identifier of the corresponding message with paid media; may be 0 or
      * an identifier of a deleted message
      */
     public int64 message_id { get; construct set; }
@@ -322,7 +322,7 @@ public class TDLib.StarTransactionTypeChannelPaidMediaSale : StarTransactionType
     public int64 user_id { get; construct set; }
 
     /**
-     * Identifier of the corresponding message with paid media; can be 0 or
+     * Identifier of the corresponding message with paid media; may be 0 or
      * an identifier of a deleted message
      */
     public int64 message_id { get; construct set; }
@@ -626,6 +626,28 @@ public class TDLib.StarTransactionTypeGiftPurchase : StarTransactionType {
 }
 
 /**
+ * The transaction is an offer of gift purchase; relevant for regular
+ * users only
+ */
+public class TDLib.StarTransactionTypeGiftPurchaseOffer : StarTransactionType {
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public StarTransactionTypeGiftPurchaseOffer (
+        UpgradedGift gift
+    ) {
+        Object (
+            gift: gift,
+            tdlib_type: "starTransactionTypeGiftPurchaseOffer",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a transfer of an upgraded gift; relevant for
  * regular users only
  */
@@ -827,17 +849,24 @@ public class TDLib.StarTransactionTypeUpgradedGiftSale : StarTransactionType {
      */
     public StarAmount commission_star_amount { get; construct set; }
 
+    /**
+     * True, if the gift was sold through a purchase offer
+     */
+    public bool via_offer { get; construct set; }
+
     public StarTransactionTypeUpgradedGiftSale (
         int64 user_id,
         UpgradedGift gift,
         int32 commission_per_mille,
-        StarAmount commission_star_amount
+        StarAmount commission_star_amount,
+        bool via_offer
     ) {
         Object (
             user_id: user_id,
             gift: gift,
             commission_per_mille: commission_per_mille,
             commission_star_amount: commission_star_amount,
+            via_offer: via_offer,
             tdlib_type: "starTransactionTypeUpgradedGiftSale",
             tdlib_extra: Uuid.string_random ()
         );
@@ -856,7 +885,7 @@ public class TDLib.StarTransactionTypeChannelPaidReactionSend : StarTransactionT
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the reacted message; can be 0 or an identifier of a
+     * Identifier of the reacted message; may be 0 or an identifier of a
      * deleted message
      */
     public int64 message_id { get; construct set; }
@@ -886,7 +915,7 @@ public class TDLib.StarTransactionTypeChannelPaidReactionReceive : StarTransacti
     public int64 user_id { get; construct set; }
 
     /**
-     * Identifier of the reacted message; can be 0 or an identifier of a
+     * Identifier of the reacted message; may be 0 or an identifier of a
      * deleted message
      */
     public int64 message_id { get; construct set; }

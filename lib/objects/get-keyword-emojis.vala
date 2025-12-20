@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Return emojis matching the keyword. Supported only if the file
+ * Returns emojis matching the keyword. Supported only if the file
  * database is enabled. Order of results is unspecified
  */
 public class TDLib.GetKeywordEmojis : TDObject {

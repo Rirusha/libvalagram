@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Check whether the current user can message another user or try to
+ * Checks whether the current user can message another user or try to
  * create a chat with them
  */
 public class TDLib.CanSendMessageToUser : TDObject {

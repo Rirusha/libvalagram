@@ -64,7 +64,7 @@ public class TDLib.ChatAdministratorRights : Error {
 
     /**
      * True, if the administrator can restrict, ban, or unban chat members or
-     * view supergroup statistics; always true for channels
+     * view supergroup statistics
      */
     public bool can_restrict_members { get; construct set; }
 

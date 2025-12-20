@@ -20,21 +20,13 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a Telegram Premium gift code
+ * Returns promotional anumation for upgraded gifts
  */
-public class TDLib.CheckPremiumGiftCode : TDObject {
+public class TDLib.GetUpgradedGiftsPromotionalAnimation : TDObject {
 
-    /**
-     * The code to check
-     */
-    public string code { get; construct set; }
-
-    public CheckPremiumGiftCode (
-        string code
-    ) {
+    public GetUpgradedGiftsPromotionalAnimation () {
         Object (
-            code: code,
-            tdlib_type: "checkPremiumGiftCode",
+            tdlib_type: "getUpgradedGiftsPromotionalAnimation",
             tdlib_extra: Uuid.string_random ()
         );
     }

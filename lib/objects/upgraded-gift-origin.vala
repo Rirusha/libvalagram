@@ -30,7 +30,7 @@ public abstract class TDLib.UpgradedGiftOrigin : Error {}
 public class TDLib.UpgradedGiftOriginUpgrade : UpgradedGiftOrigin {
 
     /**
-     * Identifier of the message with the regular gift that was upgraded; can
+     * Identifier of the message with the regular gift that was upgraded; may
      * be 0 or an identifier of a deleted message
      */
     public int64 gift_message_id { get; construct set; }
@@ -65,7 +65,7 @@ public class TDLib.UpgradedGiftOriginTransfer : UpgradedGiftOrigin {
 public class TDLib.UpgradedGiftOriginResale : UpgradedGiftOrigin {
 
     /**
-     * Price paid by the sender for the gift
+     * Price paid for the gift
      */
     public GiftResalePrice price { get; construct set; }
 
@@ -103,6 +103,27 @@ public class TDLib.UpgradedGiftOriginPrepaidUpgrade : UpgradedGiftOrigin {
     public UpgradedGiftOriginPrepaidUpgrade () {
         Object (
             tdlib_type: "upgradedGiftOriginPrepaidUpgrade",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The gift was bought through an offer
+ */
+public class TDLib.UpgradedGiftOriginOffer : UpgradedGiftOrigin {
+
+    /**
+     * Price paid for the gift
+     */
+    public GiftResalePrice price { get; construct set; }
+
+    public UpgradedGiftOriginOffer (
+        GiftResalePrice price
+    ) {
+        Object (
+            price: price,
+            tdlib_type: "upgradedGiftOriginOffer",
             tdlib_extra: Uuid.string_random ()
         );
     }

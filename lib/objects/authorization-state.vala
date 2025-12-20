@@ -41,7 +41,9 @@ public class TDLib.AuthorizationStateWaitTdlibParameters : AuthorizationState {
 /**
  * TDLib needs the user's phone number to authorize. Call
  * {@link Client.set_authentication_phone_number} to provide the phone
- * number, or use {@link Client.request_qr_code_authentication} or
+ * number,
+ * or use {@link Client.request_qr_code_authentication}
+ * {@link Client.get_authentication_passkey_parameters} or
  * {@link Client.check_authentication_bot_token} for other authentication
  * options
  */

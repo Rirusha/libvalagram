@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Check the authentication code and completes the request for which the
+ * Checks the authentication code and completes the request for which the
  * code was sent if appropriate
  */
 public class TDLib.CheckPhoneNumberCode : TDObject {

@@ -1639,7 +1639,7 @@ public class TDLib.MessagePaymentSuccessful : MessageContent {
     public int64 invoice_chat_id { get; construct set; }
 
     /**
-     * Identifier of the message with the corresponding invoice; can be 0 or
+     * Identifier of the message with the corresponding invoice; may be 0 or
      * an identifier of a deleted message
      */
     public int64 invoice_message_id { get; construct set; }
@@ -2110,8 +2110,8 @@ public class TDLib.MessageGiveaway : MessageContent {
 public class TDLib.MessageGiveawayCompleted : MessageContent {
 
     /**
-     * Identifier of the message with the giveaway; can be 0 if the message
-     * was deleted
+     * Identifier of the message with the giveaway; may be 0 or an identifier
+     * of a deleted message
      */
     public int64 giveaway_message_id { get; construct set; }
 
@@ -2396,8 +2396,8 @@ public class TDLib.MessageGiveawayPrizeStars : MessageContent {
     public int64 boosted_chat_id { get; construct set; }
 
     /**
-     * Identifier of the message with the giveaway in the boosted chat; can
-     * be 0 if the message was deleted
+     * Identifier of the message with the giveaway in the boosted chat; may
+     * be 0 or an identifier of a deleted message
      */
     public int64 giveaway_message_id { get; construct set; }
 
@@ -2465,6 +2465,12 @@ public class TDLib.MessageGift : MessageContent {
      * Message added to the gift
      */
     public FormattedText text { get; construct set; }
+
+    /**
+     * Unique number of the gift among gifts upgraded from the same gift
+     * after upgrade; 0 if yet unassigned
+     */
+    public int32 unique_gift_number { get; construct set; }
 
     /**
      * Number of Telegram Stars that can be claimed by the receiver instead
@@ -2548,6 +2554,7 @@ public class TDLib.MessageGift : MessageContent {
         MessageSender receiver_id,
         string received_gift_id,
         FormattedText text,
+        int32 unique_gift_number,
         int64 sell_star_count,
         int64 prepaid_upgrade_star_count,
         bool is_upgrade_separate,
@@ -2568,6 +2575,7 @@ public class TDLib.MessageGift : MessageContent {
             receiver_id: receiver_id,
             received_gift_id: received_gift_id,
             text: text,
+            unique_gift_number: unique_gift_number,
             sell_star_count: sell_star_count,
             prepaid_upgrade_star_count: prepaid_upgrade_star_count,
             is_upgrade_separate: is_upgrade_separate,
@@ -2750,6 +2758,93 @@ public class TDLib.MessageRefundedUpgradedGift : MessageContent {
 }
 
 /**
+ * An offer to purchase an upgraded gift was sent or received
+ */
+public class TDLib.MessageUpgradedGiftPurchaseOffer : MessageContent {
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    /**
+     * State of the offer
+     */
+    public GiftPurchaseOfferState state { get; construct set; }
+
+    /**
+     * The proposed price
+     */
+    public GiftResalePrice price { get; construct set; }
+
+    /**
+     * Point in time (Unix timestamp) when the offer will expire or has
+     * expired
+     */
+    public int32 expiration_date { get; construct set; }
+
+    public MessageUpgradedGiftPurchaseOffer (
+        UpgradedGift gift,
+        GiftPurchaseOfferState state,
+        GiftResalePrice price,
+        int32 expiration_date
+    ) {
+        Object (
+            gift: gift,
+            state: state,
+            price: price,
+            expiration_date: expiration_date,
+            tdlib_type: "messageUpgradedGiftPurchaseOffer",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * An offer to purchase a gift was declined or expired
+ */
+public class TDLib.MessageUpgradedGiftPurchaseOfferDeclined : MessageContent {
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    /**
+     * The proposed price
+     */
+    public GiftResalePrice price { get; construct set; }
+
+    /**
+     * Identifier of the message with purchase offer which was declined or
+     * expired; may be 0 or an identifier of a deleted message
+     */
+    public int64 offer_message_id { get; construct set; }
+
+    /**
+     * True, if the offer has expired; otherwise, the offer was explicitly
+     * declined
+     */
+    public bool was_expired { get; construct set; }
+
+    public MessageUpgradedGiftPurchaseOfferDeclined (
+        UpgradedGift gift,
+        GiftResalePrice price,
+        int64 offer_message_id,
+        bool was_expired
+    ) {
+        Object (
+            gift: gift,
+            price: price,
+            offer_message_id: offer_message_id,
+            was_expired: was_expired,
+            tdlib_type: "messageUpgradedGiftPurchaseOfferDeclined",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * Paid messages were refunded
  */
 public class TDLib.MessagePaidMessagesRefunded : MessageContent {
@@ -2837,8 +2932,8 @@ public class TDLib.MessageDirectMessagePriceChanged : MessageContent {
 public class TDLib.MessageChecklistTasksDone : MessageContent {
 
     /**
-     * Identifier of the message with the checklist; can be 0 if the message
-     * was deleted
+     * Identifier of the message with the checklist; may be 0 or an
+     * identifier of a deleted message
      */
     public int64 checklist_message_id { get; construct set; }
 
@@ -2873,8 +2968,8 @@ public class TDLib.MessageChecklistTasksDone : MessageContent {
 public class TDLib.MessageChecklistTasksAdded : MessageContent {
 
     /**
-     * Identifier of the message with the checklist; can be 0 if the message
-     * was deleted
+     * Identifier of the message with the checklist; may be 0 or an
+     * identifier of a deleted message
      */
     public int64 checklist_message_id { get; construct set; }
 
@@ -2903,8 +2998,8 @@ public class TDLib.MessageChecklistTasksAdded : MessageContent {
 public class TDLib.MessageSuggestedPostApprovalFailed : MessageContent {
 
     /**
-     * Identifier of the message with the suggested post; can be 0 if the
-     * message was deleted
+     * Identifier of the message with the suggested post; may be 0 or an
+     * identifier of a deleted message
      */
     public int64 suggested_post_message_id { get; construct set; }
 
@@ -2932,8 +3027,8 @@ public class TDLib.MessageSuggestedPostApprovalFailed : MessageContent {
 public class TDLib.MessageSuggestedPostApproved : MessageContent {
 
     /**
-     * Identifier of the message with the suggested post; can be 0 if the
-     * message was deleted
+     * Identifier of the message with the suggested post; may be 0 or an
+     * identifier of a deleted message
      */
     public int64 suggested_post_message_id { get; construct set; }
 
@@ -2969,8 +3064,8 @@ public class TDLib.MessageSuggestedPostApproved : MessageContent {
 public class TDLib.MessageSuggestedPostDeclined : MessageContent {
 
     /**
-     * Identifier of the message with the suggested post; can be 0 if the
-     * message was deleted
+     * Identifier of the message with the suggested post; may be 0 or an
+     * identifier of a deleted message
      */
     public int64 suggested_post_message_id { get; construct set; }
 
@@ -3001,8 +3096,8 @@ public class TDLib.MessageSuggestedPostDeclined : MessageContent {
 public class TDLib.MessageSuggestedPostPaid : MessageContent {
 
     /**
-     * Identifier of the message with the suggested post; can be 0 if the
-     * message was deleted
+     * Identifier of the message with the suggested post; may be 0 or an
+     * identifier of a deleted message
      */
     public int64 suggested_post_message_id { get; construct set; }
 
@@ -3038,8 +3133,8 @@ public class TDLib.MessageSuggestedPostPaid : MessageContent {
 public class TDLib.MessageSuggestedPostRefunded : MessageContent {
 
     /**
-     * Identifier of the message with the suggested post; can be 0 if the
-     * message was deleted
+     * Identifier of the message with the suggested post; may be 0 or an
+     * identifier of a deleted message
      */
     public int64 suggested_post_message_id { get; construct set; }
 

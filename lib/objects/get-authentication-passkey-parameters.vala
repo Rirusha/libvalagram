@@ -20,21 +20,14 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns information about a Telegram Premium gift code
+ * Returns parameters for authentication using a passkey as
+ * JSON-serialized string
  */
-public class TDLib.CheckPremiumGiftCode : TDObject {
+public class TDLib.GetAuthenticationPasskeyParameters : TDObject {
 
-    /**
-     * The code to check
-     */
-    public string code { get; construct set; }
-
-    public CheckPremiumGiftCode (
-        string code
-    ) {
+    public GetAuthenticationPasskeyParameters () {
         Object (
-            code: code,
-            tdlib_type: "checkPremiumGiftCode",
+            tdlib_type: "getAuthenticationPasskeyParameters",
             tdlib_extra: Uuid.string_random ()
         );
     }

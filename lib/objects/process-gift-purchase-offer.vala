@@ -20,36 +20,28 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Deletes media previews from the list of media previews of a bot
+ * Handles a pending gift purchase offer
  */
-public class TDLib.DeleteBotMediaPreviews : TDObject {
+public class TDLib.ProcessGiftPurchaseOffer : TDObject {
 
     /**
-     * Identifier of the target bot. The bot must be owned and must have the
-     * main Web App
+     * Identifier of the message with the gift purchase offer
      */
-    public int64 bot_user_id { get; construct set; }
+    public int64 message_id { get; construct set; }
 
     /**
-     * Language code of the media previews to delete
+     * Pass true to approve the request; pass false to decline it
      */
-    public string language_code { get; construct set; }
+    public bool approve { get; construct set; }
 
-    /**
-     * File identifiers of the media to delete
-     */
-    public Gee.ArrayList<int32?> file_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
-
-    public DeleteBotMediaPreviews (
-        int64 bot_user_id,
-        string language_code,
-        Gee.ArrayList<int32?> file_ids
+    public ProcessGiftPurchaseOffer (
+        int64 message_id,
+        bool approve
     ) {
         Object (
-            bot_user_id: bot_user_id,
-            language_code: language_code,
-            file_ids: file_ids,
-            tdlib_type: "deleteBotMediaPreviews",
+            message_id: message_id,
+            approve: approve,
+            tdlib_type: "processGiftPurchaseOffer",
             tdlib_extra: Uuid.string_random ()
         );
     }

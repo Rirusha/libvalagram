@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Application or reCAPTCHA verification has been completed. Can be
- * called before authorization
+ * Informs TDLib that application or reCAPTCHA verification has been
+ * completed. Can be called before authorization
  */
 public class TDLib.SetApplicationVerificationToken : TDObject {
 

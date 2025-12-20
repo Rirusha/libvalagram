@@ -25,12 +25,12 @@
 public abstract class TDLib.AuctionState : Error {}
 
 /**
- * Contains information about an ongoing auction
+ * Contains information about an ongoing or scheduled auction
  */
 public class TDLib.AuctionStateActive : AuctionState {
 
     /**
-     * Point in time (Unix timestamp) when the auction started
+     * Point in time (Unix timestamp) when the auction started or will start
      */
     public int32 start_date { get; construct set; }
 
@@ -55,6 +55,12 @@ public class TDLib.AuctionStateActive : AuctionState {
     public Gee.ArrayList<int64?> top_bidder_user_ids { get; construct set; default = new Gee.ArrayList<int64?> (); }
 
     /**
+     * Rounds of the auction in which their duration or extension rules are
+     * changed
+     */
+    public Gee.ArrayList<AuctionRound?> rounds { get; construct set; default = new Gee.ArrayList<AuctionRound?> (); }
+
+    /**
      * Point in time (Unix timestamp) when the current round will end
      */
     public int32 current_round_end_date { get; construct set; }
@@ -68,6 +74,11 @@ public class TDLib.AuctionStateActive : AuctionState {
      * The total number of rounds
      */
     public int32 total_round_count { get; construct set; }
+
+    /**
+     * The number of items that were purchased on the auction by all users
+     */
+    public int32 distributed_item_count { get; construct set; }
 
     /**
      * The number of items that have to be distributed on the auction
@@ -91,9 +102,11 @@ public class TDLib.AuctionStateActive : AuctionState {
         int64 min_bid,
         Gee.ArrayList<AuctionBid?> bid_levels,
         Gee.ArrayList<int64?> top_bidder_user_ids,
+        Gee.ArrayList<AuctionRound?> rounds,
         int32 current_round_end_date,
         int32 current_round_number,
         int32 total_round_count,
+        int32 distributed_item_count,
         int32 left_item_count,
         int32 acquired_item_count,
         UserAuctionBid? user_bid
@@ -104,9 +117,11 @@ public class TDLib.AuctionStateActive : AuctionState {
             min_bid: min_bid,
             bid_levels: bid_levels,
             top_bidder_user_ids: top_bidder_user_ids,
+            rounds: rounds,
             current_round_end_date: current_round_end_date,
             current_round_number: current_round_number,
             total_round_count: total_round_count,
+            distributed_item_count: distributed_item_count,
             left_item_count: left_item_count,
             acquired_item_count: acquired_item_count,
             user_bid: user_bid,
@@ -142,17 +157,39 @@ public class TDLib.AuctionStateFinished : AuctionState {
      */
     public int32 acquired_item_count { get; construct set; }
 
+    /**
+     * Number of items from the auction being resold on Telegram
+     */
+    public int32 telegram_listed_item_count { get; construct set; }
+
+    /**
+     * Number of items from the auction being resold on Fragment
+     */
+    public int32 fragment_listed_item_count { get; construct set; }
+
+    /**
+     * The HTTPS link to the Fragment for the resold items; may be empty if
+     * there are no such items being sold on Fragment
+     */
+    public string fragment_url { get; construct set; }
+
     public AuctionStateFinished (
         int32 start_date,
         int32 end_date,
         int64 average_price,
-        int32 acquired_item_count
+        int32 acquired_item_count,
+        int32 telegram_listed_item_count,
+        int32 fragment_listed_item_count,
+        string fragment_url
     ) {
         Object (
             start_date: start_date,
             end_date: end_date,
             average_price: average_price,
             acquired_item_count: acquired_item_count,
+            telegram_listed_item_count: telegram_listed_item_count,
+            fragment_listed_item_count: fragment_listed_item_count,
+            fragment_url: fragment_url,
             tdlib_type: "auctionStateFinished",
             tdlib_extra: Uuid.string_random ()
         );

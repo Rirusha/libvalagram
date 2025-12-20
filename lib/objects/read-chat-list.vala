@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Traverse all chats in a chat list and marks all messages in the chats
+ * Traverses all chats in a chat list and marks all messages in the chats
  * as read
  */
 public class TDLib.ReadChatList : TDObject {

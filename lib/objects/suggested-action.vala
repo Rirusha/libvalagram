@@ -313,3 +313,17 @@ public class TDLib.SuggestedActionSetLoginEmailAddress : SuggestedAction {
         );
     }
 }
+
+/**
+ * Suggests the user to add a passkey for login using
+ * {@link Client.add_login_passkey}
+ */
+public class TDLib.SuggestedActionAddLoginPasskey : SuggestedAction {
+
+    public SuggestedActionAddLoginPasskey () {
+        Object (
+            tdlib_type: "suggestedActionAddLoginPasskey",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

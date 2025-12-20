@@ -77,8 +77,9 @@ public class TDLib.MessageSendOptions : Error {
 
     /**
      * Identifier of the effect to apply to the message; pass 0 if none;
-     * applicable only to {@link Client.send_message} and
-     * {@link Client.send_message_album} in private chats
+     * applicable only to {@link Client.send_message}
+     * {@link Client.send_message_album} in private chats and
+     * {@link Client.forward_messages} with one message to private chats
      */
     public int64 effect_id { get; construct set; }
 

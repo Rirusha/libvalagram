@@ -20,36 +20,36 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Deletes media previews from the list of media previews of a bot
+ * Returns outline of a sticker as an SVG path. This is an offline
+ * method. Returns an empty string if the outline isn't known
  */
-public class TDLib.DeleteBotMediaPreviews : TDObject {
+public class TDLib.GetStickerOutlineSvgPath : TDObject {
 
     /**
-     * Identifier of the target bot. The bot must be owned and must have the
-     * main Web App
+     * File identifier of the sticker
      */
-    public int64 bot_user_id { get; construct set; }
+    public int32 sticker_file_id { get; construct set; }
 
     /**
-     * Language code of the media previews to delete
+     * Pass true to get the outline scaled for animated emoji
      */
-    public string language_code { get; construct set; }
+    public bool for_animated_emoji { get; construct set; }
 
     /**
-     * File identifiers of the media to delete
+     * Pass true to get the outline scaled for clicked animated emoji message
      */
-    public Gee.ArrayList<int32?> file_ids { get; construct set; default = new Gee.ArrayList<int32?> (); }
+    public bool for_clicked_animated_emoji_message { get; construct set; }
 
-    public DeleteBotMediaPreviews (
-        int64 bot_user_id,
-        string language_code,
-        Gee.ArrayList<int32?> file_ids
+    public GetStickerOutlineSvgPath (
+        int32 sticker_file_id,
+        bool for_animated_emoji,
+        bool for_clicked_animated_emoji_message
     ) {
         Object (
-            bot_user_id: bot_user_id,
-            language_code: language_code,
-            file_ids: file_ids,
-            tdlib_type: "deleteBotMediaPreviews",
+            sticker_file_id: sticker_file_id,
+            for_animated_emoji: for_animated_emoji,
+            for_clicked_animated_emoji_message: for_clicked_animated_emoji_message,
+            tdlib_type: "getStickerOutlineSvgPath",
             tdlib_extra: Uuid.string_random ()
         );
     }

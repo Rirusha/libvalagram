@@ -54,6 +54,27 @@ public class TDLib.TonTransactionTypeFragmentDeposit : TonTransactionType {
 }
 
 /**
+ * The transaction is a withdrawal of earned Toncoins to Fragment
+ */
+public class TDLib.TonTransactionTypeFragmentWithdrawal : TonTransactionType {
+
+    /**
+     * State of the withdrawal; may be null for refunds from Fragment
+     */
+    public RevenueWithdrawalState? withdrawal_state { get; construct set; }
+
+    public TonTransactionTypeFragmentWithdrawal (
+        RevenueWithdrawalState? withdrawal_state
+    ) {
+        Object (
+            withdrawal_state: withdrawal_state,
+            tdlib_type: "tonTransactionTypeFragmentWithdrawal",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The transaction is a payment for a suggested post
  */
 public class TDLib.TonTransactionTypeSuggestedPostPayment : TonTransactionType {
@@ -69,6 +90,27 @@ public class TDLib.TonTransactionTypeSuggestedPostPayment : TonTransactionType {
         Object (
             chat_id: chat_id,
             tdlib_type: "tonTransactionTypeSuggestedPostPayment",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is an offer of gift purchase
+ */
+public class TDLib.TonTransactionTypeGiftPurchaseOffer : TonTransactionType {
+
+    /**
+     * The gift
+     */
+    public UpgradedGift gift { get; construct set; }
+
+    public TonTransactionTypeGiftPurchaseOffer (
+        UpgradedGift gift
+    ) {
+        Object (
+            gift: gift,
+            tdlib_type: "tonTransactionTypeGiftPurchaseOffer",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -130,17 +172,24 @@ public class TDLib.TonTransactionTypeUpgradedGiftSale : TonTransactionType {
      */
     public int64 commission_toncoin_amount { get; construct set; }
 
+    /**
+     * True, if the gift was sold through a purchase offer
+     */
+    public bool via_offer { get; construct set; }
+
     public TonTransactionTypeUpgradedGiftSale (
         int64 user_id,
         UpgradedGift gift,
         int32 commission_per_mille,
-        int64 commission_toncoin_amount
+        int64 commission_toncoin_amount,
+        bool via_offer
     ) {
         Object (
             user_id: user_id,
             gift: gift,
             commission_per_mille: commission_per_mille,
             commission_toncoin_amount: commission_toncoin_amount,
+            via_offer: via_offer,
             tdlib_type: "tonTransactionTypeUpgradedGiftSale",
             tdlib_extra: Uuid.string_random ()
         );

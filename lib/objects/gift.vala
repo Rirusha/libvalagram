@@ -58,6 +58,12 @@ public class TDLib.Gift : Error {
     public int64 upgrade_star_count { get; construct set; }
 
     /**
+     * Number of unique gift variants that are available for the upgraded
+     * gift; 0 if unknown
+     */
+    public int32 upgrade_variant_count { get; construct set; }
+
+    /**
      * True, if the gift can be used to customize the user's name, and
      * backgrounds of profile photo, reply header, and link preview
      */
@@ -81,7 +87,7 @@ public class TDLib.Gift : Error {
 
     /**
      * Point in time (Unix timestamp) when the gift can be sent next time by
-     * the current user; can be 0 or a date in the past.
+     * the current user; may be 0 or a date in the past.
      * If the date is in the future, then call {@link Client.can_send_gift}
      * to get the reason, why the gift can't be sent now
      */
@@ -98,6 +104,11 @@ public class TDLib.Gift : Error {
      * not limited
      */
     public GiftPurchaseLimits? overall_limits { get; construct set; }
+
+    /**
+     * Background of the gift
+     */
+    public GiftBackground background { get; construct set; }
 
     /**
      * Point in time (Unix timestamp) when the gift was send for the first
@@ -118,6 +129,7 @@ public class TDLib.Gift : Error {
         int64 star_count,
         int64 default_sell_star_count,
         int64 upgrade_star_count,
+        int32 upgrade_variant_count,
         bool has_colors,
         bool is_for_birthday,
         bool is_premium,
@@ -125,6 +137,7 @@ public class TDLib.Gift : Error {
         int32 next_send_date,
         GiftPurchaseLimits? user_limits,
         GiftPurchaseLimits? overall_limits,
+        GiftBackground background,
         int32 first_send_date,
         int32 last_send_date
     ) {
@@ -135,6 +148,7 @@ public class TDLib.Gift : Error {
             star_count: star_count,
             default_sell_star_count: default_sell_star_count,
             upgrade_star_count: upgrade_star_count,
+            upgrade_variant_count: upgrade_variant_count,
             has_colors: has_colors,
             is_for_birthday: is_for_birthday,
             is_premium: is_premium,
@@ -142,6 +156,7 @@ public class TDLib.Gift : Error {
             next_send_date: next_send_date,
             user_limits: user_limits,
             overall_limits: overall_limits,
+            background: background,
             first_send_date: first_send_date,
             last_send_date: last_send_date,
             tdlib_type: "gift",

@@ -355,3 +355,16 @@ public class TDLib.PremiumFeatureChecklists : PremiumFeature {
         );
     }
 }
+
+/**
+ * The ability to require a payment for incoming messages in new chats
+ */
+public class TDLib.PremiumFeaturePaidMessages : PremiumFeature {
+
+    public PremiumFeaturePaidMessages () {
+        Object (
+            tdlib_type: "premiumFeaturePaidMessages",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

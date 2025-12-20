@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Transfer Telegram Stars from the business account to the business bot;
- * for bots only
+ * Transfers Telegram Stars from the business account to the business
+ * bot; for bots only
  */
 public class TDLib.TransferBusinessAccountStars : TDObject {
 

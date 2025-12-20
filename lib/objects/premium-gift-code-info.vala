@@ -43,7 +43,7 @@ public class TDLib.PremiumGiftCodeInfo : Error {
 
     /**
      * Identifier of the corresponding giveaway message in the creator_id
-     * chat; can be 0 or an identifier of a deleted message
+     * chat; may be 0 or an identifier of a deleted message
      */
     public int64 giveaway_message_id { get; construct set; }
 
