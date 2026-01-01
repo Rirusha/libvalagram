@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024-2025 Vladimir Vaskov
+ * Copyright (C) 2024-2026 Vladimir Vaskov
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ public class TDLib.Sticker : Error {
     public int32 height { get; construct set; }
 
     /**
-     * Emoji corresponding to the sticker
+     * Emoji corresponding to the sticker; may be empty if unknown
      */
     public string emoji { get; construct set; }
 
