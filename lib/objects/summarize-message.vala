@@ -20,28 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Handles a pending gift purchase offer
+ * Summarizes content of the message with non-empty summary_language_code
  */
-public class TDLib.ProcessGiftPurchaseOffer : TDObject {
+public class TDLib.SummarizeMessage : TDObject {
 
     /**
-     * Identifier of the message with the gift purchase offer
+     * Identifier of the chat to which the message belongs
+     */
+    public int64 chat_id { get; construct set; }
+
+    /**
+     * Identifier of the message
      */
     public int64 message_id { get; construct set; }
 
     /**
-     * Pass true to accept the request; pass false to reject it
+     * Pass a language code to which the summary will be translated; may be
+     * empty if translation isn't needed. See translateText.to_language_code
+     * for the list of supported values
      */
-    public bool accept { get; construct set; }
+    public string translate_to_language_code { get; construct set; }
 
-    public ProcessGiftPurchaseOffer (
+    public SummarizeMessage (
+        int64 chat_id,
         int64 message_id,
-        bool accept
+        string translate_to_language_code
     ) {
         Object (
+            chat_id: chat_id,
             message_id: message_id,
-            accept: accept,
-            tdlib_type: "processGiftPurchaseOffer",
+            translate_to_language_code: translate_to_language_code,
+            tdlib_type: "summarizeMessage",
             tdlib_extra: Uuid.string_random ()
         );
     }

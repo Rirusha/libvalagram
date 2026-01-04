@@ -45,7 +45,7 @@ public class TDLib.InputMessageText : InputMessageContent {
     public LinkPreviewOptions? link_preview_options { get; construct set; }
 
     /**
-     * True, if a chat message draft must be deleted
+     * True, if the chat message draft must be deleted
      */
     public bool clear_draft { get; construct set; }
 
@@ -968,6 +968,46 @@ public class TDLib.InputMessagePoll : InputMessageContent {
             close_date: close_date,
             is_closed: is_closed,
             tdlib_type: "inputMessagePoll",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * A stake dice message
+ */
+public class TDLib.InputMessageStakeDice : InputMessageContent {
+
+    /**
+     * Hash of the stake dice state. The state hash can be used only if it
+     * was received recently enough. Otherwise, a new state must be requested
+     * using {@link Client.get_stake_dice_state}
+     */
+    public string state_hash { get; construct set; }
+
+    /**
+     * The amount of Toncoins that will be staked; in the smallest units of
+     * the currency. Must be in the range
+     * 
+     * getOption("stake_dice_stake_amount_min")-getOption("stake_dice_stake_amount_max")
+     */
+    public int64 stake_toncoin_amount { get; construct set; }
+
+    /**
+     * True, if the chat message draft must be deleted
+     */
+    public bool clear_draft { get; construct set; }
+
+    public InputMessageStakeDice (
+        string state_hash,
+        int64 stake_toncoin_amount,
+        bool clear_draft
+    ) {
+        Object (
+            state_hash: state_hash,
+            stake_toncoin_amount: stake_toncoin_amount,
+            clear_draft: clear_draft,
+            tdlib_type: "inputMessageStakeDice",
             tdlib_extra: Uuid.string_random ()
         );
     }

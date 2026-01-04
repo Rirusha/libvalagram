@@ -140,6 +140,7 @@ public sealed class TDLib.Client : Object {
         typeof (Location).ensure ();
         typeof (Venue).ensure ();
         typeof (Game).ensure ();
+        typeof (StakeDiceState).ensure ();
         typeof (WebApp).ensure ();
         typeof (Poll).ensure ();
         typeof (AlternativeVideo).ensure ();
@@ -858,6 +859,7 @@ public sealed class TDLib.Client : Object {
         typeof (MessageDice).ensure ();
         typeof (MessageGame).ensure ();
         typeof (MessagePoll).ensure ();
+        typeof (MessageStakeDice).ensure ();
         typeof (MessageStory).ensure ();
         typeof (MessageChecklist).ensure ();
         typeof (MessageInvoice).ensure ();
@@ -908,7 +910,7 @@ public sealed class TDLib.Client : Object {
         typeof (MessageUpgradedGift).ensure ();
         typeof (MessageRefundedUpgradedGift).ensure ();
         typeof (MessageUpgradedGiftPurchaseOffer).ensure ();
-        typeof (MessageUpgradedGiftPurchaseOfferDeclined).ensure ();
+        typeof (MessageUpgradedGiftPurchaseOfferRejected).ensure ();
         typeof (MessagePaidMessagesRefunded).ensure ();
         typeof (MessagePaidMessagePriceChanged).ensure ();
         typeof (MessageDirectMessagePriceChanged).ensure ();
@@ -979,6 +981,7 @@ public sealed class TDLib.Client : Object {
         typeof (InputMessageGame).ensure ();
         typeof (InputMessageInvoice).ensure ();
         typeof (InputMessagePoll).ensure ();
+        typeof (InputMessageStakeDice).ensure ();
         typeof (InputMessageStory).ensure ();
         typeof (InputMessageChecklist).ensure ();
         typeof (InputMessageForwarded).ensure ();
@@ -1941,6 +1944,7 @@ public sealed class TDLib.Client : Object {
         typeof (UpdateSpeechRecognitionTrial).ensure ();
         typeof (UpdateGroupCallMessageLevels).ensure ();
         typeof (UpdateDiceEmojis).ensure ();
+        typeof (UpdateStakeDiceState).ensure ();
         typeof (UpdateAnimatedEmojiMessageClicked).ensure ();
         typeof (UpdateAnimationSearchParameters).ensure ();
         typeof (UpdateSuggestedActions).ensure ();
@@ -4696,7 +4700,7 @@ public sealed class TDLib.Client : Object {
      * the message with the regular gift that was upgraded for
      * messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
      * the message with gift purchase offer for
-     * messageUpgradedGiftPurchaseOfferDeclined,
+     * messageUpgradedGiftPurchaseOfferRejected,
      * and the topic creation message for topic messages without non-bundled
      * replied message. Returns a 404 error if the message doesn't exist
      * @param chat_id Identifier of the chat the message belongs to
@@ -9917,18 +9921,8 @@ public sealed class TDLib.Client : Object {
      * @param chat_id Identifier of the chat to which the message belongs
      * @param message_id Identifier of the message
      * @param to_language_code Language code of the language to which the
-     * message is translated. Must be one of "af", "sq", "am", "ar", "hy",
-     * "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "zh-CN", "zh",
-     * "zh-Hans", "zh-TW", "zh-Hant", "co", "hr", "cs", "da", "nl", "en",
-     * "eo", "et", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht",
-     * "ha", "haw", "he", "iw", "hi", "hmn", "hu", "is", "ig", "id", "in",
-     * "ga", "it", "ja", "jv", "kn", "kk", "km", "rw", "ko", "ku", "ky",
-     * "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi",
-     * "mr", "mn", "my", "ne", "no", "ny", "or", "ps", "fa", "pl", "pt",
-     * "pa", "ro", "ru", "sm", "gd", "sr", "st", "sn", "sd", "si", "sk",
-     * "sl", "so", "es", "su", "sw", "sv", "tl", "tg", "ta", "tt", "te",
-     * "th", "tr", "tk", "uk", "ur", "ug", "uz", "vi", "cy", "xh", "yi",
-     * "ji", "yo", "zu"
+     * message is translated. See translateText.to_language_code for the list
+     * of supported values
      */
     public async FormattedText translate_message_text (
         int64 chat_id,
@@ -9952,6 +9946,59 @@ public sealed class TDLib.Client : Object {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
                 Idle.add (translate_message_text.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (FormattedText) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Summarizes content of the message with non-empty summary_language_code
+     * @param chat_id Identifier of the chat to which the message belongs
+     * @param message_id Identifier of the message
+     * @param translate_to_language_code Pass a language code to which the
+     * summary will be translated; may be empty if translation isn't needed.
+     * See translateText.to_language_code for the list of supported values
+     */
+    public async FormattedText summarize_message (
+        int64 chat_id,
+        int64 message_id,
+        string translate_to_language_code
+    ) throws TDLibError {
+        try {
+
+        var obj = new SummarizeMessage (
+            chat_id,
+            message_id,
+            translate_to_language_code
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (summarize_message.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -22727,6 +22774,46 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the current state of stake dice
+     */
+    public async StakeDiceState get_stake_dice_state () throws TDLibError {
+        try {
+
+        var obj = new GetStakeDiceState ();
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_stake_dice_state.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (StakeDiceState) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41046,18 +41133,17 @@ public sealed class TDLib.Client : Object {
      * Handles a pending gift purchase offer
      * @param message_id Identifier of the message with the gift purchase
      * offer
-     * @param approve Pass true to approve the request; pass false to decline
-     * it
+     * @param accept Pass true to accept the request; pass false to reject it
      */
     public async Ok process_gift_purchase_offer (
         int64 message_id,
-        bool approve
+        bool accept
     ) throws TDLibError {
         try {
 
         var obj = new ProcessGiftPurchaseOffer (
             message_id,
-            approve
+            accept
         );
         string json_response = "";
 

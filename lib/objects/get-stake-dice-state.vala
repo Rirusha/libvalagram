@@ -20,28 +20,13 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Handles a pending gift purchase offer
+ * Returns the current state of stake dice
  */
-public class TDLib.ProcessGiftPurchaseOffer : TDObject {
+public class TDLib.GetStakeDiceState : TDObject {
 
-    /**
-     * Identifier of the message with the gift purchase offer
-     */
-    public int64 message_id { get; construct set; }
-
-    /**
-     * Pass true to accept the request; pass false to reject it
-     */
-    public bool accept { get; construct set; }
-
-    public ProcessGiftPurchaseOffer (
-        int64 message_id,
-        bool accept
-    ) {
+    public GetStakeDiceState () {
         Object (
-            message_id: message_id,
-            accept: accept,
-            tdlib_type: "processGiftPurchaseOffer",
+            tdlib_type: "getStakeDiceState",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -229,6 +229,12 @@ public class TDLib.Message : Error {
     public RestrictionInfo? restriction_info { get; construct set; }
 
     /**
+     * IETF language tag of the message language on which it can be
+     * summarized; empty if summary isn't available for the message
+     */
+    public string summary_language_code { get; construct set; }
+
+    /**
      * Content of the message
      */
     public MessageContent content { get; construct set; }
@@ -274,6 +280,7 @@ public class TDLib.Message : Error {
         int64 media_album_id,
         int64 effect_id,
         RestrictionInfo? restriction_info,
+        string summary_language_code,
         MessageContent content,
         ReplyMarkup? reply_markup
     ) {
@@ -313,6 +320,7 @@ public class TDLib.Message : Error {
             media_album_id: media_album_id,
             effect_id: effect_id,
             restriction_info: restriction_info,
+            summary_language_code: summary_language_code,
             content: content,
             reply_markup: reply_markup,
             tdlib_type: "message",

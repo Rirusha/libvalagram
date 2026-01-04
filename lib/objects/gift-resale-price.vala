@@ -31,7 +31,7 @@ public class TDLib.GiftResalePriceStar : GiftResalePrice {
 
     /**
      * The amount of Telegram Stars expected to be paid for the gift. Must be
-     * in range
+     * in the range
      * 
      * getOption("gift_resale_star_count_min")-getOption("gift_resale_star_count_max")
      * for gifts put for resale
@@ -56,7 +56,7 @@ public class TDLib.GiftResalePriceTon : GiftResalePrice {
 
     /**
      * The amount of 1/100 of Toncoin expected to be paid for the gift. Must
-     * be in range
+     * be in the range
      * 
      * getOption("gift_resale_toncoin_cent_count_min")-getOption("gift_resale_toncoin_cent_count_max")
      */

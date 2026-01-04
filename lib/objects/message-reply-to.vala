@@ -75,7 +75,7 @@ public class TDLib.MessageReplyToMessage : MessageReplyTo {
      * messageDocument, messageGame,
      * messageGiveaway, messageGiveawayWinners, messageInvoice,
      * messageLocation, messagePaidMedia, messagePhoto, messagePoll,
-     * messageSticker, messageStory,
+     * messageStakeDice, messageSticker, messageStory,
      * messageText (for link preview), messageVenue, messageVideo,
      * messageVideoNote, or messageVoiceNote
      */

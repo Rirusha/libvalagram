@@ -4387,6 +4387,29 @@ public class TDLib.UpdateDiceEmojis : Update {
 }
 
 /**
+ * The stake dice state has changed
+ */
+public class TDLib.UpdateStakeDiceState : Update {
+
+    /**
+     * The new state. The state can be used only if it was received recently
+     * enough. Otherwise, a new state must be requested using
+     * {@link Client.get_stake_dice_state}
+     */
+    public StakeDiceState state { get; construct set; }
+
+    public UpdateStakeDiceState (
+        StakeDiceState state
+    ) {
+        Object (
+            state: state,
+            tdlib_type: "updateStakeDiceState",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * Some animated emoji message was clicked and a big animated sticker
  * must be played if the message is visible on the screen.
  * chatActionWatchingAnimations with the text of the message needs to be
