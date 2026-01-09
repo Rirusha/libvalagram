@@ -25,17 +25,17 @@
 public class TDLib.StarRevenueStatus : Error {
 
     /**
-     * Total amount of Telegram Stars earned
+     * Total Telegram Star amount earned
      */
     public StarAmount total_amount { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that aren't withdrawn yet
+     * The Telegram Star amount that isn't withdrawn yet
      */
     public StarAmount current_amount { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that are available for withdrawal
+     * The Telegram Star amount that is available for withdrawal
      */
     public StarAmount available_amount { get; construct set; }
 

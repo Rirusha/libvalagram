@@ -30,7 +30,7 @@ public class TDLib.GiftUpgradePrice : Error {
     public int32 date { get; construct set; }
 
     /**
-     * The amount of Telegram Stars required to pay to upgrade the gift
+     * The Telegram Star amount required to pay to upgrade the gift
      */
     public int64 star_count { get; construct set; }
 

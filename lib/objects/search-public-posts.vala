@@ -45,8 +45,8 @@ public class TDLib.SearchPublicPosts : TDObject {
     public int32 limit { get; construct set; }
 
     /**
-     * The amount of Telegram Stars the user agreed to pay for the search;
-     * pass 0 for free searches
+     * The Telegram Star amount the user agreed to pay for the search; pass 0
+     * for free searches
      */
     public int64 star_count { get; construct set; }
 

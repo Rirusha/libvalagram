@@ -48,7 +48,7 @@ public class TDLib.UpgradedGiftValueInfo : Error {
     public int32 initial_sale_date { get; construct set; }
 
     /**
-     * Amount of Telegram Stars that were paid for the gift
+     * The Telegram Star amount that was paid for the gift
      */
     public int64 initial_sale_star_count { get; construct set; }
 

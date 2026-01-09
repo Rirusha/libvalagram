@@ -8189,8 +8189,8 @@ public sealed class TDLib.Client : Object {
      * @param limit The maximum number of messages to be returned; up to 100.
      * For optimal performance, the number of returned messages is chosen by
      * TDLib and can be smaller than the specified limit
-     * @param star_count The amount of Telegram Stars the user agreed to pay
-     * for the search; pass 0 for free searches
+     * @param star_count The Telegram Star amount the user agreed to pay for
+     * the search; pass 0 for free searches
      */
     public async FoundPublicPosts search_public_posts (
         string query,
@@ -12771,8 +12771,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns the amount of Telegram Stars owned by a business account; for
-     * bots only
+     * Returns the Telegram Star amount owned by a business account; for bots
+     * only
      * @param business_connection_id Unique identifier of business connection
      */
     public async StarAmount get_business_account_star_amount (
@@ -40799,7 +40799,7 @@ public sealed class TDLib.Client : Object {
      * @param received_gift_id Identifier of the gift
      * @param keep_original_details Pass true to keep the original gift text,
      * sender and receiver in the upgraded gift
-     * @param star_count The amount of Telegram Stars required to pay for the
+     * @param star_count The Telegram Star amount required to pay for the
      * upgrade. It the gift has prepaid_upgrade_star_count > 0, then pass 0,
      * otherwise, pass gift.upgrade_star_count
      */
@@ -40857,8 +40857,8 @@ public sealed class TDLib.Client : Object {
      * the gift
      * @param prepaid_upgrade_hash Prepaid upgrade hash as received along
      * with the gift
-     * @param star_count The amount of Telegram Stars the user agreed to pay
-     * for the upgrade; must be equal to gift.upgrade_star_count
+     * @param star_count The Telegram Star amount the user agreed to pay for
+     * the upgrade; must be equal to gift.upgrade_star_count
      */
     public async Ok buy_gift_upgrade (
         MessageSender owner_id,
@@ -40912,7 +40912,7 @@ public sealed class TDLib.Client : Object {
      * @param received_gift_id Identifier of the gift
      * @param new_owner_id Identifier of the user or the channel chat that
      * will receive the gift
-     * @param star_count The amount of Telegram Stars required to pay for the
+     * @param star_count The Telegram Star amount required to pay for the
      * transfer
      */
     public async Ok transfer_gift (
@@ -40965,7 +40965,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Drops original details for an upgraded gift
      * @param received_gift_id Identifier of the gift
-     * @param star_count The amount of Telegram Stars required to pay for the
+     * @param star_count The Telegram Star amount required to pay for the
      * operation
      */
     public async Ok drop_gift_original_details (
@@ -43542,9 +43542,9 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Changes the amount of Telegram Stars that must be paid to send a
-     * message to a supergroup chat; requires can_restrict_members
-     * administrator right and supergroupFullInfo.can_enable_paid_messages
+     * Changes the Telegram Star amount that must be paid to send a message
+     * to a supergroup chat; requires can_restrict_members administrator
+     * right and supergroupFullInfo.can_enable_paid_messages
      * @param chat_id Identifier of the supergroup chat
      * @param paid_message_star_count The new number of Telegram Stars that
      * must be paid for each message that is sent to the supergroup chat
@@ -48531,8 +48531,8 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns an affiliate program that were connected to the given
-     * affiliate by identifier of the bot that created the program
+     * Returns an affiliate program that was connected to the given affiliate
+     * by identifier of the bot that created the program
      * @param affiliate The affiliate to which the affiliate program will be
      * connected
      * @param bot_user_id Identifier of the bot that created the program

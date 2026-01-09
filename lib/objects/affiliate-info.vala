@@ -37,8 +37,8 @@ public class TDLib.AffiliateInfo : Error {
     public int64 affiliate_chat_id { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that were received by the affiliate; can
-     * be negative for refunds
+     * The Telegram Star amount that was received by the affiliate; can be
+     * negative for refunds
      */
     public StarAmount star_amount { get; construct set; }
 

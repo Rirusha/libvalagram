@@ -30,8 +30,8 @@ public abstract class TDLib.GiftResalePrice : Error {}
 public class TDLib.GiftResalePriceStar : GiftResalePrice {
 
     /**
-     * The amount of Telegram Stars expected to be paid for the gift. Must be
-     * in the range
+     * The Telegram Star amount expected to be paid for the gift. Must be in
+     * the range
      * 
      * getOption("gift_resale_star_count_min")-getOption("gift_resale_star_count_max")
      * for gifts put for resale

@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns an affiliate program that were connected to the given
- * affiliate by identifier of the bot that created the program
+ * Returns an affiliate program that was connected to the given affiliate
+ * by identifier of the bot that created the program
  */
 public class TDLib.GetConnectedAffiliateProgram : TDObject {
 

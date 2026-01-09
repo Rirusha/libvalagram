@@ -167,8 +167,8 @@ public class TDLib.TonTransactionTypeUpgradedGiftSale : TonTransactionType {
     public int32 commission_per_mille { get; construct set; }
 
     /**
-     * The amount of Toncoins that were received by the Telegram; in the
-     * smallest units of the currency
+     * The Toncoin amount that was received by the Telegram; in the smallest
+     * units of the currency
      */
     public int64 commission_toncoin_amount { get; construct set; }
 

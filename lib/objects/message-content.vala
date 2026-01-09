@@ -741,13 +741,13 @@ public class TDLib.MessageStakeDice : MessageContent {
     public int32 value { get; construct set; }
 
     /**
-     * The amount of Toncoins that were staked; in the smallest units of the
+     * The Toncoin amount that was staked; in the smallest units of the
      * currency
      */
     public int64 stake_toncoin_amount { get; construct set; }
 
     /**
-     * The amount of Toncoins that were gained from the roll; in the smallest
+     * The Toncoin amount that was gained from the roll; in the smallest
      * units of the currency; -1 if the dice don't have final state yet
      */
     public int64 prize_toncoin_amount { get; construct set; }
@@ -2398,7 +2398,7 @@ public class TDLib.MessageGiftedTon : MessageContent {
     public int64 receiver_user_id { get; construct set; }
 
     /**
-     * The received amount of Toncoins, in the smallest units of the
+     * The received Toncoin amount, in the smallest units of the
      * cryptocurrency
      */
     public int64 ton_amount { get; construct set; }

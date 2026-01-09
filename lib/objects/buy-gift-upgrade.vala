@@ -36,8 +36,8 @@ public class TDLib.BuyGiftUpgrade : TDObject {
     public string prepaid_upgrade_hash { get; construct set; }
 
     /**
-     * The amount of Telegram Stars the user agreed to pay for the upgrade;
-     * must be equal to gift.upgrade_star_count
+     * The Telegram Star amount the user agreed to pay for the upgrade; must
+     * be equal to gift.upgrade_star_count
      */
     public int64 star_count { get; construct set; }
 

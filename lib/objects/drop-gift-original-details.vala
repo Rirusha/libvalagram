@@ -30,7 +30,7 @@ public class TDLib.DropGiftOriginalDetails : TDObject {
     public string received_gift_id { get; construct set; }
 
     /**
-     * The amount of Telegram Stars required to pay for the operation
+     * The Telegram Star amount required to pay for the operation
      */
     public int64 star_count { get; construct set; }
 

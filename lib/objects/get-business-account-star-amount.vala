@@ -20,8 +20,8 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns the amount of Telegram Stars owned by a business account; for
- * bots only
+ * Returns the Telegram Star amount owned by a business account; for bots
+ * only
  */
 public class TDLib.GetBusinessAccountStarAmount : TDObject {
 

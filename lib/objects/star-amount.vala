@@ -20,12 +20,12 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a possibly non-integer amount of Telegram Stars
+ * Describes a possibly non-integer Telegram Star amount
  */
 public class TDLib.StarAmount : Error {
 
     /**
-     * The integer amount of Telegram Stars rounded to 0
+     * The integer Telegram Star amount rounded to 0
      */
     public int64 star_count { get; construct set; }
 

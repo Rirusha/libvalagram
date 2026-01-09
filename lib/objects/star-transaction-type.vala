@@ -844,7 +844,7 @@ public class TDLib.StarTransactionTypeUpgradedGiftSale : StarTransactionType {
     public int32 commission_per_mille { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that were received by Telegram; can be
+     * The Telegram Star amount that was received by Telegram; can be
      * negative for refunds
      */
     public StarAmount commission_star_amount { get; construct set; }
@@ -1015,7 +1015,7 @@ public class TDLib.StarTransactionTypePaidMessageReceive : StarTransactionType {
     public int32 commission_per_mille { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that were received by Telegram; can be
+     * The Telegram Star amount that was received by Telegram; can be
      * negative for refunds
      */
     public StarAmount commission_star_amount { get; construct set; }
@@ -1077,7 +1077,7 @@ public class TDLib.StarTransactionTypePaidGroupCallMessageReceive : StarTransact
     public int32 commission_per_mille { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that were received by Telegram; can be
+     * The Telegram Star amount that was received by Telegram; can be
      * negative for refunds
      */
     public StarAmount commission_star_amount { get; construct set; }
@@ -1137,7 +1137,7 @@ public class TDLib.StarTransactionTypePaidGroupCallReactionReceive : StarTransac
     public int32 commission_per_mille { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that were received by Telegram; can be
+     * The Telegram Star amount that was received by Telegram; can be
      * negative for refunds
      */
     public StarAmount commission_star_amount { get; construct set; }

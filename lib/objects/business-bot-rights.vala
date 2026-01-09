@@ -66,8 +66,8 @@ public class TDLib.BusinessBotRights : Error {
     public bool can_edit_username { get; construct set; }
 
     /**
-     * True, if the bot can view gifts and amount of Telegram Stars owned by
-     * the business account
+     * True, if the bot can view gifts and Telegram Star amount owned by the
+     * business account
      */
     public bool can_view_gifts_and_stars { get; construct set; }
 

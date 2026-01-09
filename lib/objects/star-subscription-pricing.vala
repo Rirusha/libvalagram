@@ -30,7 +30,7 @@ public class TDLib.StarSubscriptionPricing : Error {
     public int32 period { get; construct set; }
 
     /**
-     * The amount of Telegram Stars that must be paid for each period
+     * The Telegram Star amount that must be paid for each period
      */
     public int64 star_count { get; construct set; }
 

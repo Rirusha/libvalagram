@@ -20,9 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Changes the amount of Telegram Stars that must be paid to send a
- * message to a supergroup chat; requires can_restrict_members
- * administrator right and supergroupFullInfo.can_enable_paid_messages
+ * Changes the Telegram Star amount that must be paid to send a message
+ * to a supergroup chat; requires can_restrict_members administrator
+ * right and supergroupFullInfo.can_enable_paid_messages
  */
 public class TDLib.SetChatPaidMessageStarCount : TDObject {
 

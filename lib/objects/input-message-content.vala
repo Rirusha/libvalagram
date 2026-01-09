@@ -986,8 +986,8 @@ public class TDLib.InputMessageStakeDice : InputMessageContent {
     public string state_hash { get; construct set; }
 
     /**
-     * The amount of Toncoins that will be staked; in the smallest units of
-     * the currency. Must be in the range
+     * The Toncoin amount that will be staked; in the smallest units of the
+     * currency. Must be in the range
      * 
      * getOption("stake_dice_stake_amount_min")-getOption("stake_dice_stake_amount_max")
      */

@@ -41,7 +41,7 @@ public class TDLib.TransferGift : TDObject {
     public MessageSender new_owner_id { get; construct set; }
 
     /**
-     * The amount of Telegram Stars required to pay for the transfer
+     * The Telegram Star amount required to pay for the transfer
      */
     public int64 star_count { get; construct set; }
 

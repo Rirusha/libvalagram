@@ -31,7 +31,7 @@ public class TDLib.StakeDiceState : Error {
     public string state_hash { get; construct set; }
 
     /**
-     * The amount of Toncoins that was staked in the previous roll; in the
+     * The Toncoin amount that was staked in the previous roll; in the
      * smallest units of the currency
      */
     public int64 stake_toncoin_amount { get; construct set; }

@@ -37,8 +37,8 @@ public class TDLib.PremiumGiftPaymentOption : Error {
     public int64 amount { get; construct set; }
 
     /**
-     * The alternative amount of Telegram Stars to pay; 0 if payment in
-     * Telegram Stars is not possible
+     * The alternative Telegram Star amount to pay; 0 if payment in Telegram
+     * Stars is not possible
      */
     public int64 star_count { get; construct set; }
 

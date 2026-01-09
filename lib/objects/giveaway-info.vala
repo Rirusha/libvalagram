@@ -105,8 +105,8 @@ public class TDLib.GiveawayInfoCompleted : GiveawayInfo {
     public string gift_code { get; construct set; }
 
     /**
-     * The amount of Telegram Stars won by the current user; 0 if the user
-     * isn't a winner in the giveaway or the giveaway isn't a Telegram Star
+     * The Telegram Star amount won by the current user; 0 if the user isn't
+     * a winner in the giveaway or the giveaway isn't a Telegram Star
      * giveaway
      */
     public int64 won_star_count { get; construct set; }

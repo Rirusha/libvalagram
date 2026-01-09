@@ -30,7 +30,7 @@ public abstract class TDLib.SuggestedPostPrice : Error {}
 public class TDLib.SuggestedPostPriceStar : SuggestedPostPrice {
 
     /**
-     * The amount of Telegram Stars expected to be paid for the post;
+     * The Telegram Star amount expected to be paid for the post;
      * getOption("suggested_post_star_count_min")-getOption("suggested_post_star_count_max")
      */
     public int64 star_count { get; construct set; }
