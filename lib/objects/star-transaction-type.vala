@@ -87,7 +87,7 @@ public class TDLib.StarTransactionTypeFragmentDeposit : StarTransactionType {
 public class TDLib.StarTransactionTypeUserDeposit : StarTransactionType {
 
     /**
-     * Identifier of the user that gifted Telegram Stars; 0 if the user was
+     * Identifier of the user who gifted Telegram Stars; 0 if the user was
      * anonymous
      */
     public int64 user_id { get; construct set; }
@@ -206,7 +206,7 @@ public class TDLib.StarTransactionTypeTelegramApiUsage : StarTransactionType {
 public class TDLib.StarTransactionTypeBotPaidMediaPurchase : StarTransactionType {
 
     /**
-     * Identifier of the bot or the business account user that sent the paid
+     * Identifier of the bot or the business account user who sent the paid
      * media
      */
     public int64 user_id { get; construct set; }
@@ -236,7 +236,7 @@ public class TDLib.StarTransactionTypeBotPaidMediaPurchase : StarTransactionType
 public class TDLib.StarTransactionTypeBotPaidMediaSale : StarTransactionType {
 
     /**
-     * Identifier of the user that bought the media
+     * Identifier of the user who bought the media
      */
     public int64 user_id { get; construct set; }
 
@@ -317,7 +317,7 @@ public class TDLib.StarTransactionTypeChannelPaidMediaPurchase : StarTransaction
 public class TDLib.StarTransactionTypeChannelPaidMediaSale : StarTransactionType {
 
     /**
-     * Identifier of the user that bought the media
+     * Identifier of the user who bought the media
      */
     public int64 user_id { get; construct set; }
 
@@ -354,7 +354,7 @@ public class TDLib.StarTransactionTypeChannelPaidMediaSale : StarTransactionType
 public class TDLib.StarTransactionTypeBotInvoicePurchase : StarTransactionType {
 
     /**
-     * Identifier of the bot or the business account user that created the
+     * Identifier of the bot or the business account user who created the
      * invoice
      */
     public int64 user_id { get; construct set; }
@@ -384,7 +384,7 @@ public class TDLib.StarTransactionTypeBotInvoicePurchase : StarTransactionType {
 public class TDLib.StarTransactionTypeBotInvoiceSale : StarTransactionType {
 
     /**
-     * Identifier of the user that bought the product
+     * Identifier of the user who bought the product
      */
     public int64 user_id { get; construct set; }
 
@@ -428,7 +428,7 @@ public class TDLib.StarTransactionTypeBotInvoiceSale : StarTransactionType {
 public class TDLib.StarTransactionTypeBotSubscriptionPurchase : StarTransactionType {
 
     /**
-     * Identifier of the bot or the business account user that created the
+     * Identifier of the bot or the business account user who created the
      * subscription link
      */
     public int64 user_id { get; construct set; }
@@ -465,7 +465,7 @@ public class TDLib.StarTransactionTypeBotSubscriptionPurchase : StarTransactionT
 public class TDLib.StarTransactionTypeBotSubscriptionSale : StarTransactionType {
 
     /**
-     * Identifier of the user that bought the subscription
+     * Identifier of the user who bought the subscription
      */
     public int64 user_id { get; construct set; }
 
@@ -545,7 +545,7 @@ public class TDLib.StarTransactionTypeChannelSubscriptionPurchase : StarTransact
 public class TDLib.StarTransactionTypeChannelSubscriptionSale : StarTransactionType {
 
     /**
-     * Identifier of the user that bought the subscription
+     * Identifier of the user who bought the subscription
      */
     public int64 user_id { get; construct set; }
 
@@ -574,7 +574,7 @@ public class TDLib.StarTransactionTypeChannelSubscriptionSale : StarTransactionT
 public class TDLib.StarTransactionTypeGiftAuctionBid : StarTransactionType {
 
     /**
-     * Identifier of the user that will receive the gift
+     * Identifier of the user who will receive the gift
      */
     public MessageSender owner_id { get; construct set; }
 
@@ -712,7 +712,7 @@ public class TDLib.StarTransactionTypeGiftOriginalDetailsDrop : StarTransactionT
 public class TDLib.StarTransactionTypeGiftSale : StarTransactionType {
 
     /**
-     * Identifier of the user that sent the gift
+     * Identifier of the user who sent the gift
      */
     public int64 user_id { get; construct set; }
 
@@ -741,7 +741,7 @@ public class TDLib.StarTransactionTypeGiftSale : StarTransactionType {
 public class TDLib.StarTransactionTypeGiftUpgrade : StarTransactionType {
 
     /**
-     * Identifier of the user that initially sent the gift
+     * Identifier of the user who initially sent the gift
      */
     public int64 user_id { get; construct set; }
 
@@ -799,7 +799,7 @@ public class TDLib.StarTransactionTypeGiftUpgradePurchase : StarTransactionType 
 public class TDLib.StarTransactionTypeUpgradedGiftPurchase : StarTransactionType {
 
     /**
-     * Identifier of the user that sold the gift
+     * Identifier of the user who sold the gift
      */
     public int64 user_id { get; construct set; }
 
@@ -828,7 +828,7 @@ public class TDLib.StarTransactionTypeUpgradedGiftPurchase : StarTransactionType
 public class TDLib.StarTransactionTypeUpgradedGiftSale : StarTransactionType {
 
     /**
-     * Identifier of the user that bought the gift
+     * Identifier of the user who bought the gift
      */
     public int64 user_id { get; construct set; }
 
@@ -910,7 +910,7 @@ public class TDLib.StarTransactionTypeChannelPaidReactionSend : StarTransactionT
 public class TDLib.StarTransactionTypeChannelPaidReactionReceive : StarTransactionType {
 
     /**
-     * Identifier of the user that added the paid reaction
+     * Identifier of the user who added the paid reaction
      */
     public int64 user_id { get; construct set; }
 
@@ -1186,7 +1186,7 @@ public class TDLib.StarTransactionTypeSuggestedPostPaymentSend : StarTransaction
 public class TDLib.StarTransactionTypeSuggestedPostPaymentReceive : StarTransactionType {
 
     /**
-     * Identifier of the user that paid for the suggested post
+     * Identifier of the user who paid for the suggested post
      */
     public int64 user_id { get; construct set; }
 
@@ -1208,7 +1208,7 @@ public class TDLib.StarTransactionTypeSuggestedPostPaymentReceive : StarTransact
 public class TDLib.StarTransactionTypePremiumPurchase : StarTransactionType {
 
     /**
-     * Identifier of the user that received the Telegram Premium subscription
+     * Identifier of the user who received the Telegram Premium subscription
      */
     public int64 user_id { get; construct set; }
 
@@ -1267,7 +1267,7 @@ public class TDLib.StarTransactionTypeBusinessBotTransferSend : StarTransactionT
 public class TDLib.StarTransactionTypeBusinessBotTransferReceive : StarTransactionType {
 
     /**
-     * Identifier of the user that sent Telegram Stars
+     * Identifier of the user who sent Telegram Stars
      */
     public int64 user_id { get; construct set; }
 

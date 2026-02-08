@@ -29,8 +29,17 @@ public abstract class TDLib.GiftResaleResult : Error {}
  */
 public class TDLib.GiftResaleResultOk : GiftResaleResult {
 
-    public GiftResaleResultOk () {
+    /**
+     * Unique identifier of the received gift; only for the gifts sent to the
+     * current user
+     */
+    public string received_gift_id { get; construct set; }
+
+    public GiftResaleResultOk (
+        string received_gift_id
+    ) {
         Object (
+            received_gift_id: received_gift_id,
             tdlib_type: "giftResaleResultOk",
             tdlib_extra: Uuid.string_random ()
         );

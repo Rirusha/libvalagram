@@ -30,6 +30,12 @@ public class TDLib.Call : Error {
     public int32 id_ { get; construct set; }
 
     /**
+     * Persistent unique call identifier; 0 if isn't assigned yet by the
+     * server
+     */
+    public int64 unique_id { get; construct set; }
+
+    /**
      * User identifier of the other call participant
      */
     public int64 user_id { get; construct set; }
@@ -51,6 +57,7 @@ public class TDLib.Call : Error {
 
     public Call (
         int32 id_,
+        int64 unique_id,
         int64 user_id,
         bool is_outgoing,
         bool is_video,
@@ -58,6 +65,7 @@ public class TDLib.Call : Error {
     ) {
         Object (
             id_: id_,
+            unique_id: unique_id,
             user_id: user_id,
             is_outgoing: is_outgoing,
             is_video: is_video,

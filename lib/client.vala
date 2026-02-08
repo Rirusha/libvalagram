@@ -263,6 +263,12 @@ public sealed class TDLib.Client : Object {
         typeof (UpgradedGiftOriginBlockchain).ensure ();
         typeof (UpgradedGiftOriginPrepaidUpgrade).ensure ();
         typeof (UpgradedGiftOriginOffer).ensure ();
+        typeof (UpgradedGiftOriginCraft).ensure ();
+        typeof (UpgradedGiftAttributeRarityPerMille).ensure ();
+        typeof (UpgradedGiftAttributeRarityUncommon).ensure ();
+        typeof (UpgradedGiftAttributeRarityRare).ensure ();
+        typeof (UpgradedGiftAttributeRarityEpic).ensure ();
+        typeof (UpgradedGiftAttributeRarityLegendary).ensure ();
         typeof (UpgradedGiftModel).ensure ();
         typeof (UpgradedGiftSymbol).ensure ();
         typeof (UpgradedGiftBackdropColors).ensure ();
@@ -273,6 +279,10 @@ public sealed class TDLib.Client : Object {
         typeof (UpgradedGift).ensure ();
         typeof (UpgradedGiftValueInfo).ensure ();
         typeof (UpgradeGiftResult).ensure ();
+        typeof (CraftGiftResultSuccess).ensure ();
+        typeof (CraftGiftResultTooEarly).ensure ();
+        typeof (CraftGiftResultInvalidGift).ensure ();
+        typeof (CraftGiftResultFail).ensure ();
         typeof (AvailableGift).ensure ();
         typeof (AvailableGifts).ensure ();
         typeof (GiftUpgradePrice).ensure ();
@@ -293,6 +303,8 @@ public sealed class TDLib.Client : Object {
         typeof (SentGiftUpgraded).ensure ();
         typeof (ReceivedGift).ensure ();
         typeof (ReceivedGifts).ensure ();
+        typeof (AttributeCraftPersistenceProbability).ensure ();
+        typeof (GiftsForCrafting).ensure ();
         typeof (GiftUpgradePreview).ensure ();
         typeof (GiftUpgradeVariants).ensure ();
         typeof (AuctionBid).ensure ();
@@ -358,6 +370,8 @@ public sealed class TDLib.Client : Object {
         typeof (TonTransactionTypeGiftPurchaseOffer).ensure ();
         typeof (TonTransactionTypeUpgradedGiftPurchase).ensure ();
         typeof (TonTransactionTypeUpgradedGiftSale).ensure ();
+        typeof (TonTransactionTypeStakeDiceStake).ensure ();
+        typeof (TonTransactionTypeStakeDicePayout).ensure ();
         typeof (TonTransactionTypeUnsupported).ensure ();
         typeof (TonTransaction).ensure ();
         typeof (TonTransactions).ensure ();
@@ -575,6 +589,10 @@ public sealed class TDLib.Client : Object {
         typeof (ChatActionBarAddContact).ensure ();
         typeof (ChatActionBarSharePhoneNumber).ensure ();
         typeof (ChatActionBarJoinRequest).ensure ();
+        typeof (ButtonStyleDefault).ensure ();
+        typeof (ButtonStylePrimary).ensure ();
+        typeof (ButtonStyleDanger).ensure ();
+        typeof (ButtonStyleSuccess).ensure ();
         typeof (KeyboardButtonTypeText).ensure ();
         typeof (KeyboardButtonTypeRequestPhoneNumber).ensure ();
         typeof (KeyboardButtonTypeRequestLocation).ensure ();
@@ -874,6 +892,8 @@ public sealed class TDLib.Client : Object {
         typeof (MessageChatChangeTitle).ensure ();
         typeof (MessageChatChangePhoto).ensure ();
         typeof (MessageChatDeletePhoto).ensure ();
+        typeof (MessageChatOwnerLeft).ensure ();
+        typeof (MessageChatOwnerChanged).ensure ();
         typeof (MessageChatAddMembers).ensure ();
         typeof (MessageChatJoinByLink).ensure ();
         typeof (MessageChatJoinByRequest).ensure ();
@@ -1064,6 +1084,10 @@ public sealed class TDLib.Client : Object {
         typeof (InputStoryArea).ensure ();
         typeof (InputStoryAreas).ensure ();
         typeof (StoryVideo).ensure ();
+        typeof (StoryContentTypePhoto).ensure ();
+        typeof (StoryContentTypeVideo).ensure ();
+        typeof (StoryContentTypeLive).ensure ();
+        typeof (StoryContentTypeUnsupported).ensure ();
         typeof (StoryContentPhoto).ensure ();
         typeof (StoryContentVideo).ensure ();
         typeof (StoryContentLive).ensure ();
@@ -1503,6 +1527,7 @@ public sealed class TDLib.Client : Object {
         typeof (NotificationSounds).ensure ();
         typeof (Notification).ensure ();
         typeof (NotificationGroup).ensure ();
+        typeof (Proxy).ensure ();
         typeof (OptionValueBoolean).ensure ();
         typeof (OptionValueEmpty).ensure ();
         typeof (OptionValueInteger).ensure ();
@@ -1591,7 +1616,27 @@ public sealed class TDLib.Client : Object {
         typeof (ReportStoryResultOk).ensure ();
         typeof (ReportStoryResultOptionRequired).ensure ();
         typeof (ReportStoryResultTextRequired).ensure ();
-        typeof (InternalLinkTypeActiveSessions).ensure ();
+        typeof (SettingsSectionAppearance).ensure ();
+        typeof (SettingsSectionAskQuestion).ensure ();
+        typeof (SettingsSectionBusiness).ensure ();
+        typeof (SettingsSectionChatFolders).ensure ();
+        typeof (SettingsSectionDataAndStorage).ensure ();
+        typeof (SettingsSectionDevices).ensure ();
+        typeof (SettingsSectionEditProfile).ensure ();
+        typeof (SettingsSectionFaq).ensure ();
+        typeof (SettingsSectionFeatures).ensure ();
+        typeof (SettingsSectionInAppBrowser).ensure ();
+        typeof (SettingsSectionLanguage).ensure ();
+        typeof (SettingsSectionMyStars).ensure ();
+        typeof (SettingsSectionMyToncoins).ensure ();
+        typeof (SettingsSectionNotifications).ensure ();
+        typeof (SettingsSectionPowerSaving).ensure ();
+        typeof (SettingsSectionPremium).ensure ();
+        typeof (SettingsSectionPrivacyAndSecurity).ensure ();
+        typeof (SettingsSectionPrivacyPolicy).ensure ();
+        typeof (SettingsSectionQrCode).ensure ();
+        typeof (SettingsSectionSearch).ensure ();
+        typeof (SettingsSectionSendGift).ensure ();
         typeof (InternalLinkTypeAttachmentMenuBot).ensure ();
         typeof (InternalLinkTypeAuthenticationCode).ensure ();
         typeof (InternalLinkTypeBackground).ensure ();
@@ -1599,16 +1644,14 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeBotStart).ensure ();
         typeof (InternalLinkTypeBotStartInGroup).ensure ();
         typeof (InternalLinkTypeBusinessChat).ensure ();
-        typeof (InternalLinkTypeBuyStars).ensure ();
-        typeof (InternalLinkTypeChangePhoneNumber).ensure ();
+        typeof (InternalLinkTypeCallsPage).ensure ();
         typeof (InternalLinkTypeChatAffiliateProgram).ensure ();
         typeof (InternalLinkTypeChatBoost).ensure ();
         typeof (InternalLinkTypeChatFolderInvite).ensure ();
-        typeof (InternalLinkTypeChatFolderSettings).ensure ();
         typeof (InternalLinkTypeChatInvite).ensure ();
-        typeof (InternalLinkTypeDefaultMessageAutoDeleteTimerSettings).ensure ();
+        typeof (InternalLinkTypeChatSelection).ensure ();
+        typeof (InternalLinkTypeContactsPage).ensure ();
         typeof (InternalLinkTypeDirectMessagesChat).ensure ();
-        typeof (InternalLinkTypeEditProfileSettings).ensure ();
         typeof (InternalLinkTypeGame).ensure ();
         typeof (InternalLinkTypeGiftAuction).ensure ();
         typeof (InternalLinkTypeGiftCollection).ensure ();
@@ -1616,34 +1659,33 @@ public sealed class TDLib.Client : Object {
         typeof (InternalLinkTypeInstantView).ensure ();
         typeof (InternalLinkTypeInvoice).ensure ();
         typeof (InternalLinkTypeLanguagePack).ensure ();
-        typeof (InternalLinkTypeLanguageSettings).ensure ();
         typeof (InternalLinkTypeLiveStory).ensure ();
-        typeof (InternalLinkTypeLoginEmailSettings).ensure ();
         typeof (InternalLinkTypeMainWebApp).ensure ();
         typeof (InternalLinkTypeMessage).ensure ();
         typeof (InternalLinkTypeMessageDraft).ensure ();
-        typeof (InternalLinkTypeMyStars).ensure ();
-        typeof (InternalLinkTypeMyToncoins).ensure ();
+        typeof (InternalLinkTypeMyProfilePage).ensure ();
+        typeof (InternalLinkTypeNewChannelChat).ensure ();
+        typeof (InternalLinkTypeNewGroupChat).ensure ();
+        typeof (InternalLinkTypeNewPrivateChat).ensure ();
+        typeof (InternalLinkTypeNewStory).ensure ();
         typeof (InternalLinkTypePassportDataRequest).ensure ();
-        typeof (InternalLinkTypePasswordSettings).ensure ();
         typeof (InternalLinkTypePhoneNumberConfirmation).ensure ();
-        typeof (InternalLinkTypePhoneNumberPrivacySettings).ensure ();
-        typeof (InternalLinkTypePremiumFeatures).ensure ();
-        typeof (InternalLinkTypePremiumGift).ensure ();
+        typeof (InternalLinkTypePremiumFeaturesPage).ensure ();
         typeof (InternalLinkTypePremiumGiftCode).ensure ();
-        typeof (InternalLinkTypePrivacyAndSecuritySettings).ensure ();
+        typeof (InternalLinkTypePremiumGiftPurchase).ensure ();
         typeof (InternalLinkTypeProxy).ensure ();
         typeof (InternalLinkTypePublicChat).ensure ();
         typeof (InternalLinkTypeQrCodeAuthentication).ensure ();
         typeof (InternalLinkTypeRestorePurchases).ensure ();
+        typeof (InternalLinkTypeSavedMessages).ensure ();
+        typeof (InternalLinkTypeSearch).ensure ();
         typeof (InternalLinkTypeSettings).ensure ();
+        typeof (InternalLinkTypeStarPurchase).ensure ();
         typeof (InternalLinkTypeStickerSet).ensure ();
         typeof (InternalLinkTypeStory).ensure ();
         typeof (InternalLinkTypeStoryAlbum).ensure ();
         typeof (InternalLinkTypeTheme).ensure ();
-        typeof (InternalLinkTypeThemeSettings).ensure ();
         typeof (InternalLinkTypeUnknownDeepLink).ensure ();
-        typeof (InternalLinkTypeUnsupportedProxy).ensure ();
         typeof (InternalLinkTypeUpgradedGift).ensure ();
         typeof (InternalLinkTypeUserPhoneNumber).ensure ();
         typeof (InternalLinkTypeUserToken).ensure ();
@@ -1751,8 +1793,8 @@ public sealed class TDLib.Client : Object {
         typeof (ProxyTypeSocks5).ensure ();
         typeof (ProxyTypeHttp).ensure ();
         typeof (ProxyTypeMtproto).ensure ();
-        typeof (Proxy).ensure ();
-        typeof (Proxies).ensure ();
+        typeof (AddedProxy).ensure ();
+        typeof (AddedProxies).ensure ();
         typeof (InputSticker).ensure ();
         typeof (DateRange).ensure ();
         typeof (StatisticalValue).ensure ();
@@ -17030,7 +17072,8 @@ public sealed class TDLib.Client : Object {
      * @param message_id Message identifier of the message with the button
      * @param button_id Button identifier
      * @param allow_write_access Pass true to allow the bot to send messages
-     * to the current user
+     * to the current user. Phone number access can't be requested using the
+     * button
      */
     public async HttpUrl get_login_url (
         int64 chat_id,
@@ -17270,7 +17313,7 @@ public sealed class TDLib.Client : Object {
      * Sets the result of an inline query; for bots only
      * @param inline_query_id Identifier of the inline query
      * @param is_personal Pass true if results may be cached and returned
-     * only for the user that sent the query. By default, results may be
+     * only for the user who sent the query. By default, results may be
      * returned to any user who sends the same query
      * @param button Button to be shown above inline query results; pass null
      * if none
@@ -18511,7 +18554,7 @@ public sealed class TDLib.Client : Object {
      * Sends a notification about user activity in a chat
      * @param chat_id Chat identifier
      * @param topic_id Identifier of the topic in which the action is
-     * performed
+     * performed; pass null if none
      * @param business_connection_id Unique identifier of business connection
      * on behalf of which to send the request; for bots only
      * @param action The action description; pass null to cancel the
@@ -19022,23 +19065,29 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns an HTTP URL which can be used to automatically authorize the
-     * current user on a website after clicking an HTTP link. Use the method
-     * {@link Client.get_external_link_info} to find whether a prior user
-     * confirmation is needed
+     * current user on a website after clicking an HTTP link.
+     * Use the method {@link Client.get_external_link_info} to find whether a
+     * prior user confirmation is needed. May return an empty link if just a
+     * toast about successful login has to be shown
      * @param link The HTTP link
      * @param allow_write_access Pass true if the current user allowed the
-     * bot, returned in {@link Client.get_external_link_info} to send them
-     * messages
+     * bot that was returned in {@link Client.get_external_link_info} to send
+     * them messages
+     * @param allow_phone_number_access Pass true if the current user allowed
+     * the bot that was returned in {@link Client.get_external_link_info} to
+     * access their phone number
      */
     public async HttpUrl get_external_link (
         string link,
-        bool allow_write_access
+        bool allow_write_access,
+        bool allow_phone_number_access
     ) throws TDLibError {
         try {
 
         var obj = new GetExternalLink (
             link,
-            allow_write_access
+            allow_write_access,
+            allow_phone_number_access
         );
         string json_response = "";
 
@@ -22438,7 +22487,7 @@ public sealed class TDLib.Client : Object {
      * considered to be banned forever. Ignored in basic groups and if a chat
      * is banned
      * @param revoke_messages Pass true to delete all messages in the chat
-     * for the user that is being removed. Always true for supergroups and
+     * for the user who is being removed. Always true for supergroups and
      * channels
      */
     public async Ok ban_chat_member (
@@ -22578,6 +22627,54 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Returns the user who will become the owner of the chat after 7 days if
+     * the current user does not return to the chat during that period;
+     * requires owner privileges in the chat.
+     * Available only for supergroups and channel chats
+     * @param chat_id Chat identifier
+     */
+    public async User get_chat_owner_after_leaving (
+        int64 chat_id
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetChatOwnerAfterLeaving (
+            chat_id
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_chat_owner_after_leaving.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (User) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -28124,7 +28221,7 @@ public sealed class TDLib.Client : Object {
     /**
      * Handles a pending join request in a chat
      * @param chat_id Chat identifier
-     * @param user_id Identifier of the user that sent the request
+     * @param user_id Identifier of the user who sent the request
      * @param approve Pass true to approve the request; pass false to decline
      * it
      */
@@ -40391,7 +40488,7 @@ public sealed class TDLib.Client : Object {
      * Places a bid on an auction gift
      * @param gift_id Identifier of the gift to place the bid on
      * @param star_count The number of Telegram Stars to place in the bid
-     * @param user_id Identifier of the user that will receive the gift
+     * @param user_id Identifier of the user who will receive the gift
      * @param text Text to show along with the gift;
      * 0-getOption("gift_text_length_max") characters. Only Bold, Italic,
      * Underline, Strikethrough, Spoiler, and CustomEmoji entities are
@@ -40704,15 +40801,15 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns examples of possible upgraded gifts for a regular gift
-     * @param gift_id Identifier of the gift
+     * @param regular_gift_id Identifier of the regular gift
      */
     public async GiftUpgradePreview get_gift_upgrade_preview (
-        int64 gift_id
+        int64 regular_gift_id
     ) throws TDLibError {
         try {
 
         var obj = new GetGiftUpgradePreview (
-            gift_id
+            regular_gift_id
         );
         string json_response = "";
 
@@ -40749,15 +40846,23 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns all possible variants of upgraded gifts for a regular gift
-     * @param gift_id Identifier of the gift
+     * @param regular_gift_id Identifier of the regular gift
+     * @param return_upgrade_models Pass true to get models that can be
+     * obtained by upgrading a regular gift
+     * @param return_craft_models Pass true to get models that can be
+     * obtained by crafting a gift from upgraded gifts
      */
-    public async GiftUpgradeVariants get_gift_upgrade_variants (
-        int64 gift_id
+    public async GiftUpgradeVariants get_upgraded_gift_variants (
+        int64 regular_gift_id,
+        bool return_upgrade_models,
+        bool return_craft_models
     ) throws TDLibError {
         try {
 
-        var obj = new GetGiftUpgradeVariants (
-            gift_id
+        var obj = new GetUpgradedGiftVariants (
+            regular_gift_id,
+            return_upgrade_models,
+            return_craft_models
         );
         string json_response = "";
 
@@ -40768,7 +40873,7 @@ public sealed class TDLib.Client : Object {
         ulong conid = request_manager.recieved.connect ((request_extra, response) => {
             if (request_extra == obj.tdlib_extra) {
                 json_response = response;
-                Idle.add (get_gift_upgrade_variants.callback);
+                Idle.add (get_upgraded_gift_variants.callback);
             }
         });
         TDJsonApi.send (client_id, json_string);
@@ -40899,6 +41004,51 @@ public sealed class TDLib.Client : Object {
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
         return (Ok) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
+     * Crafts a new gift from other gifts that will be permanently lost
+     * @param received_gift_ids Identifier of the gifts to use for crafting
+     */
+    public async CraftGiftResult craft_gift (
+        Gee.ArrayList<string?> received_gift_ids
+    ) throws TDLibError {
+        try {
+
+        var obj = new CraftGift (
+            received_gift_ids
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (craft_gift.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (CraftGiftResult) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -41325,6 +41475,63 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
+     * Returns upgraded gifts of the current user who can be used to craft
+     * another gifts
+     * @param regular_gift_id Identifier of the regular gift that will be
+     * used for crafting
+     * @param offset Offset of the first entry to return as received from the
+     * previous request; use empty string to get the first chunk of results
+     * @param limit The maximum number of gifts to be returned; must be
+     * positive and can't be greater than 100. For optimal performance, the
+     * number of returned objects is chosen by TDLib and can be smaller than
+     * the specified limit
+     */
+    public async GiftsForCrafting get_gifts_for_crafting (
+        int64 regular_gift_id,
+        string offset,
+        int32 limit
+    ) throws TDLibError {
+        try {
+
+        var obj = new GetGiftsForCrafting (
+            regular_gift_id,
+            offset,
+            limit
+        );
+        string json_response = "";
+
+        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
+
+        GLib.debug ("send %d %s", client_id, json_string);
+
+        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
+            if (request_extra == obj.tdlib_extra) {
+                json_response = response;
+                Idle.add (get_gifts_for_crafting.callback);
+            }
+        });
+        TDJsonApi.send (client_id, json_string);
+
+        yield;
+        SignalHandler.disconnect (request_manager, conid);
+
+        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
+        string tdlib_type = jsoner.deserialize_value ().get_string ();
+
+        if (tdlib_type == "error") {
+            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
+            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
+        }
+
+        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
+        return (GiftsForCrafting) jsoner.deserialize_object (null);
+
+        } catch (JsonError e) {
+            throw new TDLibError.COMMON ("Error while parsing json");
+        }
+    }
+
+    /**
      * Returns information about an upgraded gift by its name
      * @param name Unique name of the upgraded gift
      */
@@ -41563,6 +41770,7 @@ public sealed class TDLib.Client : Object {
      * @param gift_id Identifier of the regular gift that was upgraded to a
      * unique gift
      * @param order Order in which the results will be sorted
+     * @param for_crafting Pass true to get only gifts suitable for crafting
      * @param attributes Attributes used to filter received gifts. If
      * multiple attributes of the same type are specified, then all of them
      * are allowed. If none attributes of specific type are specified, then
@@ -41575,6 +41783,7 @@ public sealed class TDLib.Client : Object {
     public async GiftsForResale search_gifts_for_resale (
         int64 gift_id,
         GiftForResaleOrder order,
+        bool for_crafting,
         Gee.ArrayList<UpgradedGiftAttributeId?> attributes,
         string offset,
         int32 limit
@@ -41584,6 +41793,7 @@ public sealed class TDLib.Client : Object {
         var obj = new SearchGiftsForResale (
             gift_id,
             order,
+            for_crafting,
             attributes,
             offset,
             limit
@@ -42103,7 +42313,7 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Refunds a previously done payment in Telegram Stars; for bots only
-     * @param user_id Identifier of the user that did the payment
+     * @param user_id Identifier of the user who did the payment
      * @param telegram_payment_charge_id Telegram payment identifier
      */
     public async Ok refund_star_payment (
@@ -42150,7 +42360,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Returns a user that can be contacted to get support
+     * Returns a user who can be contacted to get support
      */
     public async User get_support_user () throws TDLibError {
         try {
@@ -45808,7 +46018,7 @@ public sealed class TDLib.Client : Object {
     }
 
     /**
-     * Informs the user that some of the elements in their Telegram Passport
+     * Informs the user who some of the elements in their Telegram Passport
      * contain errors; for bots only. The user will not be able to resend the
      * elements, until the errors are fixed
      * @param user_id User identifier
@@ -47825,8 +48035,8 @@ public sealed class TDLib.Client : Object {
 
     /**
      * Returns available options for Telegram Stars gifting
-     * @param user_id Identifier of the user that will receive Telegram
-     * Stars; pass 0 to get options for an unspecified user
+     * @param user_id Identifier of the user who will receive Telegram Stars;
+     * pass 0 to get options for an unspecified user
      */
     public async StarPaymentOptions get_star_gift_payment_options (
         int64 user_id
@@ -49426,24 +49636,18 @@ public sealed class TDLib.Client : Object {
     /**
      * Adds a proxy server for network requests. Can be called before
      * authorization
-     * @param server Proxy server domain or IP address
-     * @param port Proxy server port
+     * @param proxy The proxy to add
      * @param enable Pass true to immediately enable the proxy
-     * @param type_ Proxy type
      */
-    public async Proxy add_proxy (
-        string server,
-        int32 port,
-        bool enable,
-        ProxyType type_
+    public async AddedProxy add_proxy (
+        Proxy proxy,
+        bool enable
     ) throws TDLibError {
         try {
 
         var obj = new AddProxy (
-            server,
-            port,
-            enable,
-            type_
+            proxy,
+            enable
         );
         string json_response = "";
 
@@ -49471,7 +49675,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Proxy) jsoner.deserialize_object (null);
+        return (AddedProxy) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49482,26 +49686,20 @@ public sealed class TDLib.Client : Object {
      * Edits an existing proxy server for network requests. Can be called
      * before authorization
      * @param proxy_id Proxy identifier
-     * @param server Proxy server domain or IP address
-     * @param port Proxy server port
+     * @param proxy The new information about the proxy
      * @param enable Pass true to immediately enable the proxy
-     * @param type_ Proxy type
      */
-    public async Proxy edit_proxy (
+    public async AddedProxy edit_proxy (
         int32 proxy_id,
-        string server,
-        int32 port,
-        bool enable,
-        ProxyType type_
+        Proxy proxy,
+        bool enable
     ) throws TDLibError {
         try {
 
         var obj = new EditProxy (
             proxy_id,
-            server,
-            port,
-            enable,
-            type_
+            proxy,
+            enable
         );
         string json_response = "";
 
@@ -49529,7 +49727,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Proxy) jsoner.deserialize_object (null);
+        return (AddedProxy) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49672,7 +49870,7 @@ public sealed class TDLib.Client : Object {
      * Returns the list of proxies that are currently set up. Can be called
      * before authorization
      */
-    public async Proxies get_proxies () throws TDLibError {
+    public async AddedProxies get_proxies () throws TDLibError {
         try {
 
         var obj = new GetProxies ();
@@ -49702,54 +49900,7 @@ public sealed class TDLib.Client : Object {
         }
 
         jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (Proxies) jsoner.deserialize_object (null);
-
-        } catch (JsonError e) {
-            throw new TDLibError.COMMON ("Error while parsing json");
-        }
-    }
-
-    /**
-     * Returns an HTTPS link, which can be used to add a proxy. Available
-     * only for SOCKS5 and MTProto proxies. Can be called before
-     * authorization
-     * @param proxy_id Proxy identifier
-     */
-    public async HttpUrl get_proxy_link (
-        int32 proxy_id
-    ) throws TDLibError {
-        try {
-
-        var obj = new GetProxyLink (
-            proxy_id
-        );
-        string json_response = "";
-
-        string json_string = TDJsoner.serialize (obj, Case.SNAKE);
-
-        GLib.debug ("send %d %s", client_id, json_string);
-
-        ulong conid = request_manager.recieved.connect ((request_extra, response) => {
-            if (request_extra == obj.tdlib_extra) {
-                json_response = response;
-                Idle.add (get_proxy_link.callback);
-            }
-        });
-        TDJsonApi.send (client_id, json_string);
-
-        yield;
-        SignalHandler.disconnect (request_manager, conid);
-
-        var jsoner = new TDJsoner (json_response, { "@type" }, Case.SNAKE);
-        string tdlib_type = jsoner.deserialize_value ().get_string ();
-
-        if (tdlib_type == "error") {
-            jsoner = new TDJsoner (json_response, { "message" }, Case.SNAKE);
-            throw new TDLibError.COMMON (jsoner.deserialize_value ().get_string ());
-        }
-
-        jsoner = new TDJsoner (json_response, null, Case.SNAKE);
-        return (HttpUrl) jsoner.deserialize_object (null);
+        return (AddedProxies) jsoner.deserialize_object (null);
 
         } catch (JsonError e) {
             throw new TDLibError.COMMON ("Error while parsing json");
@@ -49759,16 +49910,16 @@ public sealed class TDLib.Client : Object {
     /**
      * Computes time needed to receive a response from a Telegram server
      * through a proxy. Can be called before authorization
-     * @param proxy_id Proxy identifier. Use 0 to ping a Telegram server
+     * @param proxy The proxy to test; pass null to ping a Telegram server
      * without a proxy
      */
     public async Seconds ping_proxy (
-        int32 proxy_id
+        Proxy proxy
     ) throws TDLibError {
         try {
 
         var obj = new PingProxy (
-            proxy_id
+            proxy
         );
         string json_response = "";
 
@@ -50997,25 +51148,19 @@ public sealed class TDLib.Client : Object {
     /**
      * Sends a simple network request to the Telegram servers via proxy; for
      * testing only. Can be called before authorization
-     * @param server Proxy server domain or IP address
-     * @param port Proxy server port
-     * @param type_ Proxy type
+     * @param proxy The proxy to test
      * @param dc_id Identifier of a datacenter with which to test connection
      * @param timeout The maximum overall timeout for the request
      */
     public async Ok test_proxy (
-        string server,
-        int32 port,
-        ProxyType type_,
+        Proxy proxy,
         int32 dc_id,
         double timeout
     ) throws TDLibError {
         try {
 
         var obj = new TestProxy (
-            server,
-            port,
-            type_,
+            proxy,
             dc_id,
             timeout
         );

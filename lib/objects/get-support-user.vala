@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns a user that can be contacted to get support
+ * Returns a user who can be contacted to get support
  */
 public class TDLib.GetSupportUser : TDObject {
 

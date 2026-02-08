@@ -30,7 +30,7 @@ public abstract class TDLib.MessageOrigin : Error {}
 public class TDLib.MessageOriginUser : MessageOrigin {
 
     /**
-     * Identifier of the user that originally sent the message
+     * Identifier of the user who originally sent the message
      */
     public int64 sender_user_id { get; construct set; }
 

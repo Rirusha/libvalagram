@@ -959,6 +959,11 @@ public class TDLib.MessageCall : MessageContent {
 public class TDLib.MessageGroupCall : MessageContent {
 
     /**
+     * Persistent unique group call identifier
+     */
+    public int64 unique_id { get; construct set; }
+
+    /**
      * True, if the call is active, i.e. the called user joined the call
      */
     public bool is_active { get; construct set; }
@@ -984,6 +989,7 @@ public class TDLib.MessageGroupCall : MessageContent {
     public Gee.ArrayList<MessageSender?> other_participant_ids { get; construct set; default = new Gee.ArrayList<MessageSender?> (); }
 
     public MessageGroupCall (
+        int64 unique_id,
         bool is_active,
         bool was_missed,
         bool is_video,
@@ -991,6 +997,7 @@ public class TDLib.MessageGroupCall : MessageContent {
         Gee.ArrayList<MessageSender?> other_participant_ids
     ) {
         Object (
+            unique_id: unique_id,
             is_active: is_active,
             was_missed: was_missed,
             is_video: is_video,
@@ -1203,6 +1210,49 @@ public class TDLib.MessageChatDeletePhoto : MessageContent {
     public MessageChatDeletePhoto () {
         Object (
             tdlib_type: "messageChatDeletePhoto",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The owner of the chat has left
+ */
+public class TDLib.MessageChatOwnerLeft : MessageContent {
+
+    /**
+     * Identifier of the user who will become the new owner of the chat if
+     * the previous owner isn't return; 0 if none
+     */
+    public int64 new_owner_user_id { get; construct set; }
+
+    public MessageChatOwnerLeft (
+        int64 new_owner_user_id
+    ) {
+        Object (
+            new_owner_user_id: new_owner_user_id,
+            tdlib_type: "messageChatOwnerLeft",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The owner of the chat has changed
+ */
+public class TDLib.MessageChatOwnerChanged : MessageContent {
+
+    /**
+     * Identifier of the user who is the new owner of the chat
+     */
+    public int64 new_owner_user_id { get; construct set; }
+
+    public MessageChatOwnerChanged (
+        int64 new_owner_user_id
+    ) {
+        Object (
+            new_owner_user_id: new_owner_user_id,
+            tdlib_type: "messageChatOwnerChanged",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -1907,13 +1957,13 @@ public class TDLib.MessagePaymentRefunded : MessageContent {
 public class TDLib.MessageGiftedPremium : MessageContent {
 
     /**
-     * The identifier of a user that gifted Telegram Premium; 0 if the gift
+     * The identifier of a user who gifted Telegram Premium; 0 if the gift
      * was anonymous or is outgoing
      */
     public int64 gifter_user_id { get; construct set; }
 
     /**
-     * The identifier of a user that received Telegram Premium; 0 if the gift
+     * The identifier of a user who received Telegram Premium; 0 if the gift
      * is incoming
      */
     public int64 receiver_user_id { get; construct set; }
@@ -1995,7 +2045,7 @@ public class TDLib.MessageGiftedPremium : MessageContent {
 public class TDLib.MessagePremiumGiftCode : MessageContent {
 
     /**
-     * Identifier of a chat or a user that created the gift code; may be null
+     * Identifier of a chat or a user who created the gift code; may be null
      * if unknown
      */
     public MessageSender? creator_id { get; construct set; }
@@ -2305,14 +2355,14 @@ public class TDLib.MessageGiveawayWinners : MessageContent {
 public class TDLib.MessageGiftedStars : MessageContent {
 
     /**
-     * The identifier of a user that gifted Telegram Stars; 0 if the gift was
+     * The identifier of a user who gifted Telegram Stars; 0 if the gift was
      * anonymous or is outgoing
      */
     public int64 gifter_user_id { get; construct set; }
 
     /**
-     * The identifier of a user that received Telegram Stars; 0 if the gift
-     * is incoming
+     * The identifier of a user who received Telegram Stars; 0 if the gift is
+     * incoming
      */
     public int64 receiver_user_id { get; construct set; }
 
@@ -2386,13 +2436,13 @@ public class TDLib.MessageGiftedStars : MessageContent {
 public class TDLib.MessageGiftedTon : MessageContent {
 
     /**
-     * The identifier of a user that gifted Toncoins; 0 if the gift was
+     * The identifier of a user who gifted Toncoins; 0 if the gift was
      * anonymous or is outgoing
      */
     public int64 gifter_user_id { get; construct set; }
 
     /**
-     * The identifier of a user that received Toncoins; 0 if the gift is
+     * The identifier of a user who received Toncoins; 0 if the gift is
      * incoming
      */
     public int64 receiver_user_id { get; construct set; }
@@ -2738,6 +2788,12 @@ public class TDLib.MessageUpgradedGift : MessageContent {
      */
     public int32 export_date { get; construct set; }
 
+    /**
+     * Point in time (Unix timestamp) when the gift can be used to craft
+     * another gift can be in the past; only for the receiver of the gift
+     */
+    public int32 craft_date { get; construct set; }
+
     public MessageUpgradedGift (
         UpgradedGift gift,
         MessageSender? sender_id,
@@ -2751,7 +2807,8 @@ public class TDLib.MessageUpgradedGift : MessageContent {
         int64 drop_original_details_star_count,
         int32 next_transfer_date,
         int32 next_resale_date,
-        int32 export_date
+        int32 export_date,
+        int32 craft_date
     ) {
         Object (
             gift: gift,
@@ -2767,6 +2824,7 @@ public class TDLib.MessageUpgradedGift : MessageContent {
             next_transfer_date: next_transfer_date,
             next_resale_date: next_resale_date,
             export_date: export_date,
+            craft_date: craft_date,
             tdlib_type: "messageUpgradedGift",
             tdlib_extra: Uuid.string_random ()
         );

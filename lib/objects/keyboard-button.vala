@@ -30,16 +30,31 @@ public class TDLib.KeyboardButton : Error {
     public string text { get; construct set; }
 
     /**
+     * Identifier of the custom emoji that must be shown on the button; 0 if
+     * none
+     */
+    public int64 icon_custom_emoji_id { get; construct set; }
+
+    /**
+     * Style of the button
+     */
+    public ButtonStyle style { get; construct set; }
+
+    /**
      * Type of the button
      */
     public KeyboardButtonType type_ { get; construct set; }
 
     public KeyboardButton (
         string text,
+        int64 icon_custom_emoji_id,
+        ButtonStyle style,
         KeyboardButtonType type_
     ) {
         Object (
             text: text,
+            icon_custom_emoji_id: icon_custom_emoji_id,
+            style: style,
             type_: type_,
             tdlib_type: "keyboardButton",
             tdlib_extra: Uuid.string_random ()

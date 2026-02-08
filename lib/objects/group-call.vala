@@ -30,6 +30,11 @@ public class TDLib.GroupCall : Error {
     public int32 id_ { get; construct set; }
 
     /**
+     * Persistent unique group call identifier
+     */
+    public int64 unique_id { get; construct set; }
+
+    /**
      * Group call title; for video chats only
      */
     public string title { get; construct set; }
@@ -201,6 +206,7 @@ public class TDLib.GroupCall : Error {
 
     public GroupCall (
         int32 id_,
+        int64 unique_id,
         string title,
         string invite_link,
         int64 paid_message_star_count,
@@ -234,6 +240,7 @@ public class TDLib.GroupCall : Error {
     ) {
         Object (
             id_: id_,
+            unique_id: unique_id,
             title: title,
             invite_link: invite_link,
             paid_message_star_count: paid_message_star_count,

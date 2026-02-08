@@ -46,8 +46,8 @@ public class TDLib.BanChatMember : TDObject {
     public int32 banned_until_date { get; construct set; }
 
     /**
-     * Pass true to delete all messages in the chat for the user that is
-     * being removed. Always true for supergroups and channels
+     * Pass true to delete all messages in the chat for the user who is being
+     * removed. Always true for supergroups and channels
      */
     public bool revoke_messages { get; construct set; }
 

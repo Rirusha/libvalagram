@@ -96,8 +96,8 @@ public class TDLib.Story : Error {
     public bool can_be_forwarded { get; construct set; }
 
     /**
-     * True, if the story can be replied in the chat with the user that
-     * posted the story
+     * True, if the story can be replied in the chat with the user who posted
+     * the story
      */
     public bool can_be_replied { get; construct set; }
 

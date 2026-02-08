@@ -26,15 +26,15 @@
 public class TDLib.PingProxy : TDObject {
 
     /**
-     * Proxy identifier. Use 0 to ping a Telegram server without a proxy
+     * The proxy to test; pass null to ping a Telegram server without a proxy
      */
-    public int32 proxy_id { get; construct set; }
+    public Proxy proxy { get; construct set; }
 
     public PingProxy (
-        int32 proxy_id
+        Proxy proxy
     ) {
         Object (
-            proxy_id: proxy_id,
+            proxy: proxy,
             tdlib_type: "pingProxy",
             tdlib_extra: Uuid.string_random ()
         );

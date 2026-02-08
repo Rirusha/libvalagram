@@ -70,6 +70,16 @@ public class TDLib.UpgradedGift : Error {
     public int32 max_upgraded_count { get; construct set; }
 
     /**
+     * True, if the gift was used to craft another gift
+     */
+    public bool is_burned { get; construct set; }
+
+    /**
+     * True, if the gift was craft from another gifts
+     */
+    public bool is_crafted { get; construct set; }
+
+    /**
      * True, if the original gift could have been bought only by Telegram
      * Premium subscribers
      */
@@ -140,7 +150,8 @@ public class TDLib.UpgradedGift : Error {
 
     /**
      * Colors that can be set for user's name, background of empty chat
-     * photo, replies to messages and link previews; may be null if none
+     * photo, replies to messages and link previews; may be null if none or
+     * unknown
      */
     public UpgradedGiftColors? colors { get; construct set; }
 
@@ -154,6 +165,12 @@ public class TDLib.UpgradedGift : Error {
      * {@link Client.send_gift_purchase_offer}
      */
     public bool can_send_purchase_offer { get; construct set; }
+
+    /**
+     * Probability that the gift adds to the chance of successful crafting of
+     * a new gift; 0 if the gift can't be used for crafting
+     */
+    public int32 craft_probability_per_mille { get; construct set; }
 
     /**
      * ISO 4217 currency code of the currency in which value of the gift is
@@ -181,6 +198,8 @@ public class TDLib.UpgradedGift : Error {
         int32 number,
         int32 total_upgraded_count,
         int32 max_upgraded_count,
+        bool is_burned,
+        bool is_crafted,
         bool is_premium,
         bool is_theme_available,
         int64 used_theme_chat_id,
@@ -196,6 +215,7 @@ public class TDLib.UpgradedGift : Error {
         UpgradedGiftColors? colors,
         GiftResaleParameters? resale_parameters,
         bool can_send_purchase_offer,
+        int32 craft_probability_per_mille,
         string value_currency,
         int64 value_amount,
         int64 value_usd_amount
@@ -209,6 +229,8 @@ public class TDLib.UpgradedGift : Error {
             number: number,
             total_upgraded_count: total_upgraded_count,
             max_upgraded_count: max_upgraded_count,
+            is_burned: is_burned,
+            is_crafted: is_crafted,
             is_premium: is_premium,
             is_theme_available: is_theme_available,
             used_theme_chat_id: used_theme_chat_id,
@@ -224,6 +246,7 @@ public class TDLib.UpgradedGift : Error {
             colors: colors,
             resale_parameters: resale_parameters,
             can_send_purchase_offer: can_send_purchase_offer,
+            craft_probability_per_mille: craft_probability_per_mille,
             value_currency: value_currency,
             value_amount: value_amount,
             value_usd_amount: value_usd_amount,

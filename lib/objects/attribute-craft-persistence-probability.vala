@@ -20,21 +20,26 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Represents a list of proxy servers
+ * Describes chance of the crafted gift to have the backdrop or symbol of
+ * one of the original gifts
  */
-public class TDLib.Proxies : Error {
+public class TDLib.AttributeCraftPersistenceProbability : Error {
 
     /**
-     * List of proxy servers
+     * The 4 numbers that describe probability of the craft result to have
+     * the same attribute as one of the original gifts
+     * if 1, 2, 3, or 4 gifts with the attribute are used in the craft. Each
+     * number represents the number of crafted gifts with the original
+     * attribute per 1000 successful craftings
      */
-    public Gee.ArrayList<Proxy?> proxies { get; construct set; default = new Gee.ArrayList<Proxy?> (); }
+    public Gee.ArrayList<int32?> persistence_chance_per_mille { get; construct set; default = new Gee.ArrayList<int32?> (); }
 
-    public Proxies (
-        Gee.ArrayList<Proxy?> proxies
+    public AttributeCraftPersistenceProbability (
+        Gee.ArrayList<int32?> persistence_chance_per_mille
     ) {
         Object (
-            proxies: proxies,
-            tdlib_type: "proxies",
+            persistence_chance_per_mille: persistence_chance_per_mille,
+            tdlib_type: "attributeCraftPersistenceProbability",
             tdlib_extra: Uuid.string_random ()
         );
     }

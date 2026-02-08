@@ -25,7 +25,7 @@
 public class TDLib.GetStarGiftPaymentOptions : TDObject {
 
     /**
-     * Identifier of the user that will receive Telegram Stars; pass 0 to get
+     * Identifier of the user who will receive Telegram Stars; pass 0 to get
      * options for an unspecified user
      */
     public int64 user_id { get; construct set; }

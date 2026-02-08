@@ -26,19 +26,9 @@
 public class TDLib.TestProxy : TDObject {
 
     /**
-     * Proxy server domain or IP address
+     * The proxy to test
      */
-    public string server { get; construct set; }
-
-    /**
-     * Proxy server port
-     */
-    public int32 port { get; construct set; }
-
-    /**
-     * Proxy type
-     */
-    public ProxyType type_ { get; construct set; }
+    public Proxy proxy { get; construct set; }
 
     /**
      * Identifier of a datacenter with which to test connection
@@ -51,16 +41,12 @@ public class TDLib.TestProxy : TDObject {
     public double timeout { get; construct set; }
 
     public TestProxy (
-        string server,
-        int32 port,
-        ProxyType type_,
+        Proxy proxy,
         int32 dc_id,
         double timeout
     ) {
         Object (
-            server: server,
-            port: port,
-            type_: type_,
+            proxy: proxy,
             dc_id: dc_id,
             timeout: timeout,
             tdlib_type: "testProxy",

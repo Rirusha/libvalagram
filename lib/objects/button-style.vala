@@ -20,47 +20,57 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains information about the sender of a message
+ * Describes style of a button
  */
-public abstract class TDLib.MessageSender : Error {}
+public abstract class TDLib.ButtonStyle : Error {}
 
 /**
- * The message was sent by a known user
+ * The button has default style
  */
-public class TDLib.MessageSenderUser : MessageSender {
+public class TDLib.ButtonStyleDefault : ButtonStyle {
 
-    /**
-     * Identifier of the user who sent the message
-     */
-    public int64 user_id { get; construct set; }
-
-    public MessageSenderUser (
-        int64 user_id
-    ) {
+    public ButtonStyleDefault () {
         Object (
-            user_id: user_id,
-            tdlib_type: "messageSenderUser",
+            tdlib_type: "buttonStyleDefault",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * The message was sent on behalf of a chat
+ * The button has dark blue color
  */
-public class TDLib.MessageSenderChat : MessageSender {
+public class TDLib.ButtonStylePrimary : ButtonStyle {
 
-    /**
-     * Identifier of the chat that sent the message
-     */
-    public int64 chat_id { get; construct set; }
-
-    public MessageSenderChat (
-        int64 chat_id
-    ) {
+    public ButtonStylePrimary () {
         Object (
-            chat_id: chat_id,
-            tdlib_type: "messageSenderChat",
+            tdlib_type: "buttonStylePrimary",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The button has red color
+ */
+public class TDLib.ButtonStyleDanger : ButtonStyle {
+
+    public ButtonStyleDanger () {
+        Object (
+            tdlib_type: "buttonStyleDanger",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The button has green color
+ */
+public class TDLib.ButtonStyleSuccess : ButtonStyle {
+
+    public ButtonStyleSuccess () {
+        Object (
+            tdlib_type: "buttonStyleSuccess",
             tdlib_extra: Uuid.string_random ()
         );
     }

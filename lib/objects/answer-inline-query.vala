@@ -30,7 +30,7 @@ public class TDLib.AnswerInlineQuery : TDObject {
     public int64 inline_query_id { get; construct set; }
 
     /**
-     * Pass true if results may be cached and returned only for the user that
+     * Pass true if results may be cached and returned only for the user who
      * sent the query. By default, results may be returned to any user who
      * sends the same query
      */

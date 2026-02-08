@@ -123,7 +123,7 @@ public class TDLib.TonTransactionTypeGiftPurchaseOffer : TonTransactionType {
 public class TDLib.TonTransactionTypeUpgradedGiftPurchase : TonTransactionType {
 
     /**
-     * Identifier of the user that sold the gift
+     * Identifier of the user who sold the gift
      */
     public int64 user_id { get; construct set; }
 
@@ -151,7 +151,7 @@ public class TDLib.TonTransactionTypeUpgradedGiftPurchase : TonTransactionType {
 public class TDLib.TonTransactionTypeUpgradedGiftSale : TonTransactionType {
 
     /**
-     * Identifier of the user that bought the gift
+     * Identifier of the user who bought the gift
      */
     public int64 user_id { get; construct set; }
 
@@ -191,6 +191,32 @@ public class TDLib.TonTransactionTypeUpgradedGiftSale : TonTransactionType {
             commission_toncoin_amount: commission_toncoin_amount,
             via_offer: via_offer,
             tdlib_type: "tonTransactionTypeUpgradedGiftSale",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a payment for stake dice throw
+ */
+public class TDLib.TonTransactionTypeStakeDiceStake : TonTransactionType {
+
+    public TonTransactionTypeStakeDiceStake () {
+        Object (
+            tdlib_type: "tonTransactionTypeStakeDiceStake",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The transaction is a payment for successful stake dice throw
+ */
+public class TDLib.TonTransactionTypeStakeDicePayout : TonTransactionType {
+
+    public TonTransactionTypeStakeDicePayout () {
+        Object (
+            tdlib_type: "tonTransactionTypeStakeDicePayout",
             tdlib_extra: Uuid.string_random ()
         );
     }

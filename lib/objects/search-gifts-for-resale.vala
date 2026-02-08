@@ -36,6 +36,11 @@ public class TDLib.SearchGiftsForResale : TDObject {
     public GiftForResaleOrder order { get; construct set; }
 
     /**
+     * Pass true to get only gifts suitable for crafting
+     */
+    public bool for_crafting { get; construct set; }
+
+    /**
      * Attributes used to filter received gifts. If multiple attributes of
      * the same type are specified, then all of them are allowed.
      * If none attributes of specific type are specified, then all values for
@@ -58,6 +63,7 @@ public class TDLib.SearchGiftsForResale : TDObject {
     public SearchGiftsForResale (
         int64 gift_id,
         GiftForResaleOrder order,
+        bool for_crafting,
         Gee.ArrayList<UpgradedGiftAttributeId?> attributes,
         string offset,
         int32 limit
@@ -65,6 +71,7 @@ public class TDLib.SearchGiftsForResale : TDObject {
         Object (
             gift_id: gift_id,
             order: order,
+            for_crafting: for_crafting,
             attributes: attributes,
             offset: offset,
             limit: limit,

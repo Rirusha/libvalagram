@@ -96,7 +96,7 @@ public class TDLib.CanPostStoryResultActiveStoryLimitExceeded : CanPostStoryResu
 public class TDLib.CanPostStoryResultWeeklyLimitExceeded : CanPostStoryResult {
 
     /**
-     * Time left before the user can post the next story
+     * Time left before the user can post the next story, in seconds
      */
     public int32 retry_after { get; construct set; }
 
@@ -118,7 +118,7 @@ public class TDLib.CanPostStoryResultWeeklyLimitExceeded : CanPostStoryResult {
 public class TDLib.CanPostStoryResultMonthlyLimitExceeded : CanPostStoryResult {
 
     /**
-     * Time left before the user can post the next story
+     * Time left before the user can post the next story, in seconds
      */
     public int32 retry_after { get; construct set; }
 

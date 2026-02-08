@@ -20,36 +20,24 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Edits an existing proxy server for network requests. Can be called
- * before authorization
+ * Returns the user who will become the owner of the chat after 7 days if
+ * the current user does not return to the chat during that period;
+ * requires owner privileges in the chat.
+ * Available only for supergroups and channel chats
  */
-public class TDLib.EditProxy : TDObject {
+public class TDLib.GetChatOwnerAfterLeaving : TDObject {
 
     /**
-     * Proxy identifier
+     * Chat identifier
      */
-    public int32 proxy_id { get; construct set; }
+    public int64 chat_id { get; construct set; }
 
-    /**
-     * The new information about the proxy
-     */
-    public Proxy proxy { get; construct set; }
-
-    /**
-     * Pass true to immediately enable the proxy
-     */
-    public bool enable { get; construct set; }
-
-    public EditProxy (
-        int32 proxy_id,
-        Proxy proxy,
-        bool enable
+    public GetChatOwnerAfterLeaving (
+        int64 chat_id
     ) {
         Object (
-            proxy_id: proxy_id,
-            proxy: proxy,
-            enable: enable,
-            tdlib_type: "editProxy",
+            chat_id: chat_id,
+            tdlib_type: "getChatOwnerAfterLeaving",
             tdlib_extra: Uuid.string_random ()
         );
     }

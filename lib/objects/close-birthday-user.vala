@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a user that had or will have a birthday soon
+ * Describes a user who had or will have a birthday soon
  */
 public class TDLib.CloseBirthdayUser : Error {
 

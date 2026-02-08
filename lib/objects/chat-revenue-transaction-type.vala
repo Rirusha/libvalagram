@@ -73,7 +73,7 @@ public class TDLib.ChatRevenueTransactionTypeSponsoredMessageEarnings : ChatReve
 public class TDLib.ChatRevenueTransactionTypeSuggestedPostEarnings : ChatRevenueTransactionType {
 
     /**
-     * Identifier of the user that paid for the suggested post
+     * Identifier of the user who paid for the suggested post
      */
     public int64 user_id { get; construct set; }
 

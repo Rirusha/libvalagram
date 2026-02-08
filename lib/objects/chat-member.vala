@@ -32,7 +32,7 @@ public class TDLib.ChatMember : Error {
     public MessageSender member_id { get; construct set; }
 
     /**
-     * Identifier of a user that invited/promoted/banned this member in the
+     * Identifier of a user who invited/promoted/banned this member in the
      * chat; 0 if unknown
      */
     public int64 inviter_user_id { get; construct set; }

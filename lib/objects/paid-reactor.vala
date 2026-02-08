@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains information about a user that added paid reactions
+ * Contains information about a user who added paid reactions
  */
 public class TDLib.PaidReactor : Error {
 

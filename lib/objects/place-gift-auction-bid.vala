@@ -35,7 +35,7 @@ public class TDLib.PlaceGiftAuctionBid : TDObject {
     public int64 star_count { get; construct set; }
 
     /**
-     * Identifier of the user that will receive the gift
+     * Identifier of the user who will receive the gift
      */
     public int64 user_id { get; construct set; }
 

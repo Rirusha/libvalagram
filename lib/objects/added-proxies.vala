@@ -20,36 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Edits an existing proxy server for network requests. Can be called
- * before authorization
+ * Represents a list of added proxy servers
  */
-public class TDLib.EditProxy : TDObject {
+public class TDLib.AddedProxies : Error {
 
     /**
-     * Proxy identifier
+     * List of proxy servers
      */
-    public int32 proxy_id { get; construct set; }
+    public Gee.ArrayList<AddedProxy?> proxies { get; construct set; default = new Gee.ArrayList<AddedProxy?> (); }
 
-    /**
-     * The new information about the proxy
-     */
-    public Proxy proxy { get; construct set; }
-
-    /**
-     * Pass true to immediately enable the proxy
-     */
-    public bool enable { get; construct set; }
-
-    public EditProxy (
-        int32 proxy_id,
-        Proxy proxy,
-        bool enable
+    public AddedProxies (
+        Gee.ArrayList<AddedProxy?> proxies
     ) {
         Object (
-            proxy_id: proxy_id,
-            proxy: proxy,
-            enable: enable,
-            tdlib_type: "editProxy",
+            proxies: proxies,
+            tdlib_type: "addedProxies",
             tdlib_extra: Uuid.string_random ()
         );
     }

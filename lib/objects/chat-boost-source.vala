@@ -59,7 +59,7 @@ public class TDLib.ChatBoostSourceGiftCode : ChatBoostSource {
 public class TDLib.ChatBoostSourceGiveaway : ChatBoostSource {
 
     /**
-     * Identifier of a user that won in the giveaway; 0 if none
+     * Identifier of a user who won in the giveaway; 0 if none
      */
     public int64 user_id { get; construct set; }
 

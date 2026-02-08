@@ -20,21 +20,21 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns all possible variants of upgraded gifts for a regular gift
+ * Crafts a new gift from other gifts that will be permanently lost
  */
-public class TDLib.GetGiftUpgradeVariants : TDObject {
+public class TDLib.CraftGift : TDObject {
 
     /**
-     * Identifier of the gift
+     * Identifier of the gifts to use for crafting
      */
-    public int64 gift_id { get; construct set; }
+    public Gee.ArrayList<string?> received_gift_ids { get; construct set; default = new Gee.ArrayList<string?> (); }
 
-    public GetGiftUpgradeVariants (
-        int64 gift_id
+    public CraftGift (
+        Gee.ArrayList<string?> received_gift_ids
     ) {
         Object (
-            gift_id: gift_id,
-            tdlib_type: "getGiftUpgradeVariants",
+            received_gift_ids: received_gift_ids,
+            tdlib_type: "craftGift",
             tdlib_extra: Uuid.string_random ()
         );
     }

@@ -30,7 +30,8 @@ public class TDLib.SendChatAction : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the topic in which the action is performed
+     * Identifier of the topic in which the action is performed; pass null if
+     * none
      */
     public MessageTopic topic_id { get; construct set; }
 

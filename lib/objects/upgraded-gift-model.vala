@@ -35,20 +35,26 @@ public class TDLib.UpgradedGiftModel : Error {
     public Sticker sticker { get; construct set; }
 
     /**
-     * The number of upgraded gifts that receive this model for each 1000
-     * gifts upgraded
+     * The rarity of the model
      */
-    public int32 rarity_per_mille { get; construct set; }
+    public UpgradedGiftAttributeRarity rarity { get; construct set; }
+
+    /**
+     * True, if the model can be obtained only through gift crafting
+     */
+    public bool is_crafted { get; construct set; }
 
     public UpgradedGiftModel (
         string name,
         Sticker sticker,
-        int32 rarity_per_mille
+        UpgradedGiftAttributeRarity rarity,
+        bool is_crafted
     ) {
         Object (
             name: name,
             sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
+            rarity: rarity,
+            is_crafted: is_crafted,
             tdlib_type: "upgradedGiftModel",
             tdlib_extra: Uuid.string_random ()
         );

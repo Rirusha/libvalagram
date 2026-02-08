@@ -128,3 +128,16 @@ public class TDLib.UpgradedGiftOriginOffer : UpgradedGiftOrigin {
         );
     }
 }
+
+/**
+ * The gift was crafted from other gifts
+ */
+public class TDLib.UpgradedGiftOriginCraft : UpgradedGiftOrigin {
+
+    public UpgradedGiftOriginCraft () {
+        Object (
+            tdlib_type: "upgradedGiftOriginCraft",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}

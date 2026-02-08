@@ -20,36 +20,37 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Edits an existing proxy server for network requests. Can be called
- * before authorization
+ * Returns all possible variants of upgraded gifts for a regular gift
  */
-public class TDLib.EditProxy : TDObject {
+public class TDLib.GetUpgradedGiftVariants : TDObject {
 
     /**
-     * Proxy identifier
+     * Identifier of the regular gift
      */
-    public int32 proxy_id { get; construct set; }
+    public int64 regular_gift_id { get; construct set; }
 
     /**
-     * The new information about the proxy
+     * Pass true to get models that can be obtained by upgrading a regular
+     * gift
      */
-    public Proxy proxy { get; construct set; }
+    public bool return_upgrade_models { get; construct set; }
 
     /**
-     * Pass true to immediately enable the proxy
+     * Pass true to get models that can be obtained by crafting a gift from
+     * upgraded gifts
      */
-    public bool enable { get; construct set; }
+    public bool return_craft_models { get; construct set; }
 
-    public EditProxy (
-        int32 proxy_id,
-        Proxy proxy,
-        bool enable
+    public GetUpgradedGiftVariants (
+        int64 regular_gift_id,
+        bool return_upgrade_models,
+        bool return_craft_models
     ) {
         Object (
-            proxy_id: proxy_id,
-            proxy: proxy,
-            enable: enable,
-            tdlib_type: "editProxy",
+            regular_gift_id: regular_gift_id,
+            return_upgrade_models: return_upgrade_models,
+            return_craft_models: return_craft_models,
+            tdlib_type: "getUpgradedGiftVariants",
             tdlib_extra: Uuid.string_random ()
         );
     }

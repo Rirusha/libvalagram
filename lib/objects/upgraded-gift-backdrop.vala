@@ -40,22 +40,21 @@ public class TDLib.UpgradedGiftBackdrop : Error {
     public UpgradedGiftBackdropColors colors { get; construct set; }
 
     /**
-     * The number of upgraded gifts that receive this backdrop for each 1000
-     * gifts upgraded
+     * The rarity of the backdrop
      */
-    public int32 rarity_per_mille { get; construct set; }
+    public UpgradedGiftAttributeRarity rarity { get; construct set; }
 
     public UpgradedGiftBackdrop (
         int32 id_,
         string name,
         UpgradedGiftBackdropColors colors,
-        int32 rarity_per_mille
+        UpgradedGiftAttributeRarity rarity
     ) {
         Object (
             id_: id_,
             name: name,
             colors: colors,
-            rarity_per_mille: rarity_per_mille,
+            rarity: rarity,
             tdlib_type: "upgradedGiftBackdrop",
             tdlib_extra: Uuid.string_random ()
         );

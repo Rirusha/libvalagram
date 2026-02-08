@@ -35,20 +35,19 @@ public class TDLib.UpgradedGiftSymbol : Error {
     public Sticker sticker { get; construct set; }
 
     /**
-     * The number of upgraded gifts that receive this symbol for each 1000
-     * gifts upgraded
+     * The rarity of the symbol
      */
-    public int32 rarity_per_mille { get; construct set; }
+    public UpgradedGiftAttributeRarity rarity { get; construct set; }
 
     public UpgradedGiftSymbol (
         string name,
         Sticker sticker,
-        int32 rarity_per_mille
+        UpgradedGiftAttributeRarity rarity
     ) {
         Object (
             name: name,
             sticker: sticker,
-            rarity_per_mille: rarity_per_mille,
+            rarity: rarity,
             tdlib_type: "upgradedGiftSymbol",
             tdlib_extra: Uuid.string_random ()
         );

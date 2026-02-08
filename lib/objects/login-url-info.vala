@@ -79,17 +79,57 @@ public class TDLib.LoginUrlInfoRequestConfirmation : LoginUrlInfo {
      */
     public bool request_write_access { get; construct set; }
 
+    /**
+     * True, if the user must be asked for the permission to share their
+     * phone number
+     */
+    public bool request_phone_number_access { get; construct set; }
+
+    /**
+     * The version of a browser used for the authorization; may be empty if
+     * irrelevant
+     */
+    public string browser { get; construct set; }
+
+    /**
+     * Operating system the browser is running on; may be empty if irrelevant
+     */
+    public string platform { get; construct set; }
+
+    /**
+     * IP address from which the authorization is performed, in
+     * human-readable format; may be empty if irrelevant
+     */
+    public string ip_address { get; construct set; }
+
+    /**
+     * Human-readable description of a country and a region from which the
+     * authorization is performed, based on the IP address; may be empty if
+     * irrelevant
+     */
+    public string location { get; construct set; }
+
     public LoginUrlInfoRequestConfirmation (
         string url,
         string domain,
         int64 bot_user_id,
-        bool request_write_access
+        bool request_write_access,
+        bool request_phone_number_access,
+        string browser,
+        string platform,
+        string ip_address,
+        string location
     ) {
         Object (
             url: url,
             domain: domain,
             bot_user_id: bot_user_id,
             request_write_access: request_write_access,
+            request_phone_number_access: request_phone_number_access,
+            browser: browser,
+            platform: platform,
+            ip_address: ip_address,
+            location: location,
             tdlib_type: "loginUrlInfoRequestConfirmation",
             tdlib_extra: Uuid.string_random ()
         );

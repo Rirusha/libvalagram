@@ -21,9 +21,10 @@
 
 /**
  * Returns an HTTP URL which can be used to automatically authorize the
- * current user on a website after clicking an HTTP link. Use the method
- * {@link Client.get_external_link_info} to find whether a prior user
- * confirmation is needed
+ * current user on a website after clicking an HTTP link.
+ * Use the method {@link Client.get_external_link_info} to find whether a
+ * prior user confirmation is needed. May return an empty link if just a
+ * toast about successful login has to be shown
  */
 public class TDLib.GetExternalLink : TDObject {
 
@@ -33,18 +34,26 @@ public class TDLib.GetExternalLink : TDObject {
     public string link { get; construct set; }
 
     /**
-     * Pass true if the current user allowed the bot, returned in
+     * Pass true if the current user allowed the bot that was returned in
      * {@link Client.get_external_link_info} to send them messages
      */
     public bool allow_write_access { get; construct set; }
 
+    /**
+     * Pass true if the current user allowed the bot that was returned in
+     * {@link Client.get_external_link_info} to access their phone number
+     */
+    public bool allow_phone_number_access { get; construct set; }
+
     public GetExternalLink (
         string link,
-        bool allow_write_access
+        bool allow_write_access,
+        bool allow_phone_number_access
     ) {
         Object (
             link: link,
             allow_write_access: allow_write_access,
+            allow_phone_number_access: allow_phone_number_access,
             tdlib_type: "getExternalLink",
             tdlib_extra: Uuid.string_random ()
         );

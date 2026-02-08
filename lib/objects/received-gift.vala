@@ -156,6 +156,12 @@ public class TDLib.ReceivedGift : Error {
      */
     public string prepaid_upgrade_hash { get; construct set; }
 
+    /**
+     * Point in time (Unix timestamp) when the gift can be used to craft
+     * another gift can be in the past; only for the receiver of the gift
+     */
+    public int32 craft_date { get; construct set; }
+
     public ReceivedGift (
         string received_gift_id,
         MessageSender? sender_id,
@@ -178,7 +184,8 @@ public class TDLib.ReceivedGift : Error {
         int32 next_transfer_date,
         int32 next_resale_date,
         int32 export_date,
-        string prepaid_upgrade_hash
+        string prepaid_upgrade_hash,
+        int32 craft_date
     ) {
         Object (
             received_gift_id: received_gift_id,
@@ -203,6 +210,7 @@ public class TDLib.ReceivedGift : Error {
             next_resale_date: next_resale_date,
             export_date: export_date,
             prepaid_upgrade_hash: prepaid_upgrade_hash,
+            craft_date: craft_date,
             tdlib_type: "receivedGift",
             tdlib_extra: Uuid.string_random ()
         );

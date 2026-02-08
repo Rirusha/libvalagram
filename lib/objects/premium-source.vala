@@ -110,7 +110,7 @@ public class TDLib.PremiumSourceStoryFeature : PremiumSource {
 
 /**
  * A user opened an internal link of the type
- * internalLinkTypePremiumFeatures
+ * internalLinkTypePremiumFeaturesPage
  */
 public class TDLib.PremiumSourceLink : PremiumSource {
 

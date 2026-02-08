@@ -25,7 +25,7 @@
 public class TDLib.RefundStarPayment : TDObject {
 
     /**
-     * Identifier of the user that did the payment
+     * Identifier of the user who did the payment
      */
     public int64 user_id { get; construct set; }
 

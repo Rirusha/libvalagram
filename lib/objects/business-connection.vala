@@ -30,7 +30,7 @@ public class TDLib.BusinessConnection : Error {
     public string id_ { get; construct set; }
 
     /**
-     * Identifier of the business user that created the connection
+     * Identifier of the business user who created the connection
      */
     public int64 user_id { get; construct set; }
 

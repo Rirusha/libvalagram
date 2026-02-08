@@ -20,14 +20,9 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains information about a proxy server
+ * Describes a proxy server
  */
 public class TDLib.Proxy : Error {
-
-    /**
-     * Unique identifier of the proxy
-     */
-    public int32 id_ { get; construct set; }
 
     /**
      * Proxy server domain or IP address
@@ -40,35 +35,18 @@ public class TDLib.Proxy : Error {
     public int32 port { get; construct set; }
 
     /**
-     * Point in time (Unix timestamp) when the proxy was last used; 0 if
-     * never
-     */
-    public int32 last_used_date { get; construct set; }
-
-    /**
-     * True, if the proxy is enabled now
-     */
-    public bool is_enabled { get; construct set; }
-
-    /**
      * Type of the proxy
      */
     public ProxyType type_ { get; construct set; }
 
     public Proxy (
-        int32 id_,
         string server,
         int32 port,
-        int32 last_used_date,
-        bool is_enabled,
         ProxyType type_
     ) {
         Object (
-            id_: id_,
             server: server,
             port: port,
-            last_used_date: last_used_date,
-            is_enabled: is_enabled,
             type_: type_,
             tdlib_type: "proxy",
             tdlib_extra: Uuid.string_random ()

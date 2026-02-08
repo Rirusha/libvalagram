@@ -26,36 +26,22 @@
 public class TDLib.AddProxy : TDObject {
 
     /**
-     * Proxy server domain or IP address
+     * The proxy to add
      */
-    public string server { get; construct set; }
-
-    /**
-     * Proxy server port
-     */
-    public int32 port { get; construct set; }
+    public Proxy proxy { get; construct set; }
 
     /**
      * Pass true to immediately enable the proxy
      */
     public bool enable { get; construct set; }
 
-    /**
-     * Proxy type
-     */
-    public ProxyType type_ { get; construct set; }
-
     public AddProxy (
-        string server,
-        int32 port,
-        bool enable,
-        ProxyType type_
+        Proxy proxy,
+        bool enable
     ) {
         Object (
-            server: server,
-            port: port,
+            proxy: proxy,
             enable: enable,
-            type_: type_,
             tdlib_type: "addProxy",
             tdlib_extra: Uuid.string_random ()
         );

@@ -30,7 +30,7 @@ public class TDLib.ProcessChatJoinRequest : TDObject {
     public int64 chat_id { get; construct set; }
 
     /**
-     * Identifier of the user that sent the request
+     * Identifier of the user who sent the request
      */
     public int64 user_id { get; construct set; }
 

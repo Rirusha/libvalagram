@@ -20,8 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains information about a user that has failed to be added to a
- * chat
+ * Contains information about a user who has failed to be added to a chat
  */
 public class TDLib.FailedToAddMember : Error {
 

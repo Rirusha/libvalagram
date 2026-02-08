@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Describes a user that sent a join request and waits for administrator
+ * Describes a user who sent a join request and waits for administrator
  * approval
  */
 public class TDLib.ChatJoinRequest : Error {

@@ -45,7 +45,8 @@ public class TDLib.GetLoginUrl : TDObject {
     public int64 button_id { get; construct set; }
 
     /**
-     * Pass true to allow the bot to send messages to the current user
+     * Pass true to allow the bot to send messages to the current user. Phone
+     * number access can't be requested using the button
      */
     public bool allow_write_access { get; construct set; }
 

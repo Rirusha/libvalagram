@@ -91,6 +91,11 @@ public class TDLib.UserTypeBot : UserType {
     public bool has_topics { get; construct set; }
 
     /**
+     * True, if users can create and delete topics in the chat with the bot
+     */
+    public bool allows_users_to_create_topics { get; construct set; }
+
+    /**
      * True, if the bot supports inline queries
      */
     public bool is_inline { get; construct set; }
@@ -128,6 +133,7 @@ public class TDLib.UserTypeBot : UserType {
         bool can_read_all_group_messages,
         bool has_main_web_app,
         bool has_topics,
+        bool allows_users_to_create_topics,
         bool is_inline,
         string inline_query_placeholder,
         bool need_location,
@@ -141,6 +147,7 @@ public class TDLib.UserTypeBot : UserType {
             can_read_all_group_messages: can_read_all_group_messages,
             has_main_web_app: has_main_web_app,
             has_topics: has_topics,
+            allows_users_to_create_topics: allows_users_to_create_topics,
             is_inline: is_inline,
             inline_query_placeholder: inline_query_placeholder,
             need_location: need_location,

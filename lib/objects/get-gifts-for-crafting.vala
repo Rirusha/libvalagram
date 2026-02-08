@@ -20,21 +20,39 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns examples of possible upgraded gifts for a regular gift
+ * Returns upgraded gifts of the current user who can be used to craft
+ * another gifts
  */
-public class TDLib.GetGiftUpgradePreview : TDObject {
+public class TDLib.GetGiftsForCrafting : TDObject {
 
     /**
-     * Identifier of the regular gift
+     * Identifier of the regular gift that will be used for crafting
      */
     public int64 regular_gift_id { get; construct set; }
 
-    public GetGiftUpgradePreview (
-        int64 regular_gift_id
+    /**
+     * Offset of the first entry to return as received from the previous
+     * request; use empty string to get the first chunk of results
+     */
+    public string offset { get; construct set; }
+
+    /**
+     * The maximum number of gifts to be returned; must be positive and can't
+     * be greater than 100. For optimal performance, the number of returned
+     * objects is chosen by TDLib and can be smaller than the specified limit
+     */
+    public int32 limit { get; construct set; }
+
+    public GetGiftsForCrafting (
+        int64 regular_gift_id,
+        string offset,
+        int32 limit
     ) {
         Object (
             regular_gift_id: regular_gift_id,
-            tdlib_type: "getGiftUpgradePreview",
+            offset: offset,
+            limit: limit,
+            tdlib_type: "getGiftsForCrafting",
             tdlib_extra: Uuid.string_random ()
         );
     }

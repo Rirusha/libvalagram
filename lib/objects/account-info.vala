@@ -20,7 +20,7 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Contains basic information about another user that started a chat with
+ * Contains basic information about another user who started a chat with
  * the current user
  */
 public class TDLib.AccountInfo : Error {

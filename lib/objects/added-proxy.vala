@@ -20,23 +20,43 @@
 // THIS FILE WAS GENERATED, DON'T MODIFY IT
 
 /**
- * Returns an HTTPS link, which can be used to add a proxy. Available
- * only for SOCKS5 and MTProto proxies. Can be called before
- * authorization
+ * Contains information about a proxy server added to the list of proxies
  */
-public class TDLib.GetProxyLink : TDObject {
+public class TDLib.AddedProxy : Error {
 
     /**
-     * Proxy identifier
+     * Unique identifier of the proxy
      */
-    public int32 proxy_id { get; construct set; }
+    public int32 id_ { get; construct set; }
 
-    public GetProxyLink (
-        int32 proxy_id
+    /**
+     * Point in time (Unix timestamp) when the proxy was last used; 0 if
+     * never
+     */
+    public int32 last_used_date { get; construct set; }
+
+    /**
+     * True, if the proxy is enabled now
+     */
+    public bool is_enabled { get; construct set; }
+
+    /**
+     * The proxy
+     */
+    public Proxy proxy { get; construct set; }
+
+    public AddedProxy (
+        int32 id_,
+        int32 last_used_date,
+        bool is_enabled,
+        Proxy proxy
     ) {
         Object (
-            proxy_id: proxy_id,
-            tdlib_type: "getProxyLink",
+            id_: id_,
+            last_used_date: last_used_date,
+            is_enabled: is_enabled,
+            proxy: proxy,
+            tdlib_type: "addedProxy",
             tdlib_extra: Uuid.string_random ()
         );
     }

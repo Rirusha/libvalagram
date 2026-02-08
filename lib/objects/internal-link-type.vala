@@ -26,21 +26,6 @@
 public abstract class TDLib.InternalLinkType : Error {}
 
 /**
- * The link is a link to the Devices section of the application. Use
- * {@link Client.get_active_sessions} to get the list of active sessions
- * and show them to the user
- */
-public class TDLib.InternalLinkTypeActiveSessions : InternalLinkType {
-
-    public InternalLinkTypeActiveSessions () {
-        Object (
-            tdlib_type: "internalLinkTypeActiveSessions",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
  * The link is a link to an attachment menu bot to be opened in the
  * specified or a chosen chat. Process given target_chat to open the
  * chat.
@@ -299,45 +284,22 @@ public class TDLib.InternalLinkTypeBusinessChat : InternalLinkType {
 }
 
 /**
- * The link is a link to the Telegram Star purchase section of the
- * application
+ * The link is a link to the Call tab or page
  */
-public class TDLib.InternalLinkTypeBuyStars : InternalLinkType {
+public class TDLib.InternalLinkTypeCallsPage : InternalLinkType {
 
     /**
-     * The number of Telegram Stars that must be owned by the user
+     * Section of the page; may be one of
+     * "", "all", "missed", "edit", "show-tab", "start-call"
      */
-    public int64 star_count { get; construct set; }
+    public string section { get; construct set; }
 
-    /**
-     * Purpose of Telegram Star purchase. Arbitrary string specified by the
-     * server, for example, "subs" if the Telegram Stars are required to
-     * extend channel subscriptions
-     */
-    public string purpose { get; construct set; }
-
-    public InternalLinkTypeBuyStars (
-        int64 star_count,
-        string purpose
+    public InternalLinkTypeCallsPage (
+        string section
     ) {
         Object (
-            star_count: star_count,
-            purpose: purpose,
-            tdlib_type: "internalLinkTypeBuyStars",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
- * The link is a link to the change phone number section of the
- * application
- */
-public class TDLib.InternalLinkTypeChangePhoneNumber : InternalLinkType {
-
-    public InternalLinkTypeChangePhoneNumber () {
-        Object (
-            tdlib_type: "internalLinkTypeChangePhoneNumber",
+            section: section,
+            tdlib_type: "internalLinkTypeCallsPage",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -427,19 +389,6 @@ public class TDLib.InternalLinkTypeChatFolderInvite : InternalLinkType {
 }
 
 /**
- * The link is a link to the folder section of the application settings
- */
-public class TDLib.InternalLinkTypeChatFolderSettings : InternalLinkType {
-
-    public InternalLinkTypeChatFolderSettings () {
-        Object (
-            tdlib_type: "internalLinkTypeChatFolderSettings",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
  * The link is a chat invite link. Call
  * {@link Client.check_chat_invite_link} with the given invite link to
  * process the link.
@@ -465,14 +414,35 @@ public class TDLib.InternalLinkTypeChatInvite : InternalLinkType {
 }
 
 /**
- * The link is a link to the default message auto-delete timer settings
- * section of the application settings
+ * The link is a link that allows to select some chats
  */
-public class TDLib.InternalLinkTypeDefaultMessageAutoDeleteTimerSettings : InternalLinkType {
+public class TDLib.InternalLinkTypeChatSelection : InternalLinkType {
 
-    public InternalLinkTypeDefaultMessageAutoDeleteTimerSettings () {
+    public InternalLinkTypeChatSelection () {
         Object (
-            tdlib_type: "internalLinkTypeDefaultMessageAutoDeleteTimerSettings",
+            tdlib_type: "internalLinkTypeChatSelection",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to the Contacts tab or page
+ */
+public class TDLib.InternalLinkTypeContactsPage : InternalLinkType {
+
+    /**
+     * Section of the page; may be one of
+     * "", "search", "sort", "new", "invite", "manage"
+     */
+    public string section { get; construct set; }
+
+    public InternalLinkTypeContactsPage (
+        string section
+    ) {
+        Object (
+            section: section,
+            tdlib_type: "internalLinkTypeContactsPage",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -498,20 +468,6 @@ public class TDLib.InternalLinkTypeDirectMessagesChat : InternalLinkType {
         Object (
             channel_username: channel_username,
             tdlib_type: "internalLinkTypeDirectMessagesChat",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
- * The link is a link to the edit profile section of the application
- * settings
- */
-public class TDLib.InternalLinkTypeEditProfileSettings : InternalLinkType {
-
-    public InternalLinkTypeEditProfileSettings () {
-        Object (
-            tdlib_type: "internalLinkTypeEditProfileSettings",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -709,19 +665,6 @@ public class TDLib.InternalLinkTypeLanguagePack : InternalLinkType {
 }
 
 /**
- * The link is a link to the language section of the application settings
- */
-public class TDLib.InternalLinkTypeLanguageSettings : InternalLinkType {
-
-    public InternalLinkTypeLanguageSettings () {
-        Object (
-            tdlib_type: "internalLinkTypeLanguageSettings",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
  * The link is a link to a live story. Call
  * {@link Client.search_public_chat} with the given chat username, then
  * {@link Client.get_chat_active_stories} to get active stories in the
@@ -742,20 +685,6 @@ public class TDLib.InternalLinkTypeLiveStory : InternalLinkType {
         Object (
             story_poster_username: story_poster_username,
             tdlib_type: "internalLinkTypeLiveStory",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
- * The link is a link to the login email set up section of the
- * application settings, forcing set up of the login email
- */
-public class TDLib.InternalLinkTypeLoginEmailSettings : InternalLinkType {
-
-    public InternalLinkTypeLoginEmailSettings () {
-        Object (
-            tdlib_type: "internalLinkTypeLoginEmailSettings",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -865,28 +794,85 @@ public class TDLib.InternalLinkTypeMessageDraft : InternalLinkType {
 }
 
 /**
- * The link is a link to the screen with information about Telegram Star
- * balance and transactions of the current user
+ * The link is a link to the My Profile application page
  */
-public class TDLib.InternalLinkTypeMyStars : InternalLinkType {
+public class TDLib.InternalLinkTypeMyProfilePage : InternalLinkType {
 
-    public InternalLinkTypeMyStars () {
+    /**
+     * Section of the page; may be one of
+     * "", "posts", "posts/all-stories", "posts/add-album", "gifts",
+     * "archived-posts"
+     */
+    public string section { get; construct set; }
+
+    public InternalLinkTypeMyProfilePage (
+        string section
+    ) {
         Object (
-            tdlib_type: "internalLinkTypeMyStars",
+            section: section,
+            tdlib_type: "internalLinkTypeMyProfilePage",
             tdlib_extra: Uuid.string_random ()
         );
     }
 }
 
 /**
- * The link is a link to the screen with information about Toncoin
- * balance and transactions of the current user
+ * The link is a link to the screen for creating a new channel chat
  */
-public class TDLib.InternalLinkTypeMyToncoins : InternalLinkType {
+public class TDLib.InternalLinkTypeNewChannelChat : InternalLinkType {
 
-    public InternalLinkTypeMyToncoins () {
+    public InternalLinkTypeNewChannelChat () {
         Object (
-            tdlib_type: "internalLinkTypeMyToncoins",
+            tdlib_type: "internalLinkTypeNewChannelChat",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to the screen for creating a new group chat
+ */
+public class TDLib.InternalLinkTypeNewGroupChat : InternalLinkType {
+
+    public InternalLinkTypeNewGroupChat () {
+        Object (
+            tdlib_type: "internalLinkTypeNewGroupChat",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to the screen for creating a new private chat with
+ * a contact
+ */
+public class TDLib.InternalLinkTypeNewPrivateChat : InternalLinkType {
+
+    public InternalLinkTypeNewPrivateChat () {
+        Object (
+            tdlib_type: "internalLinkTypeNewPrivateChat",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to open the story posting interface
+ */
+public class TDLib.InternalLinkTypeNewStory : InternalLinkType {
+
+    /**
+     * The type of the content of the story to post; may be null if
+     * unspecified
+     */
+    public StoryContentType? content_type { get; construct set; }
+
+    public InternalLinkTypeNewStory (
+        StoryContentType? content_type
+    ) {
+        Object (
+            content_type: content_type,
+            tdlib_type: "internalLinkTypeNewStory",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -951,19 +937,6 @@ public class TDLib.InternalLinkTypePassportDataRequest : InternalLinkType {
 }
 
 /**
- * The link is a link to the password section of the application settings
- */
-public class TDLib.InternalLinkTypePasswordSettings : InternalLinkType {
-
-    public InternalLinkTypePasswordSettings () {
-        Object (
-            tdlib_type: "internalLinkTypePasswordSettings",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
  * The link can be used to confirm ownership of a phone number to prevent
  * account deletion. Call {@link Client.send_phone_number_code} with the
  * given phone number and with phoneNumberCodeTypeConfirmOwnership with
@@ -998,61 +971,24 @@ public class TDLib.InternalLinkTypePhoneNumberConfirmation : InternalLinkType {
 }
 
 /**
- * The link is a link to the phone number privacy settings section of the
- * application settings
- */
-public class TDLib.InternalLinkTypePhoneNumberPrivacySettings : InternalLinkType {
-
-    public InternalLinkTypePhoneNumberPrivacySettings () {
-        Object (
-            tdlib_type: "internalLinkTypePhoneNumberPrivacySettings",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
  * The link is a link to the Premium features screen of the application
  * from which the user can subscribe to Telegram Premium. Call
  * {@link Client.get_premium_features} with the given referrer to process
  * the link
  */
-public class TDLib.InternalLinkTypePremiumFeatures : InternalLinkType {
+public class TDLib.InternalLinkTypePremiumFeaturesPage : InternalLinkType {
 
     /**
      * Referrer specified in the link
      */
     public string referrer { get; construct set; }
 
-    public InternalLinkTypePremiumFeatures (
+    public InternalLinkTypePremiumFeaturesPage (
         string referrer
     ) {
         Object (
             referrer: referrer,
-            tdlib_type: "internalLinkTypePremiumFeatures",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
- * The link is a link to the screen for gifting Telegram Premium
- * subscriptions to friends via inputInvoiceTelegram with
- * telegramPaymentPurposePremiumGift payments or in-store purchases
- */
-public class TDLib.InternalLinkTypePremiumGift : InternalLinkType {
-
-    /**
-     * Referrer specified in the link
-     */
-    public string referrer { get; construct set; }
-
-    public InternalLinkTypePremiumGift (
-        string referrer
-    ) {
-        Object (
-            referrer: referrer,
-            tdlib_type: "internalLinkTypePremiumGift",
+            tdlib_type: "internalLinkTypePremiumFeaturesPage",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -1084,14 +1020,23 @@ public class TDLib.InternalLinkTypePremiumGiftCode : InternalLinkType {
 }
 
 /**
- * The link is a link to the privacy and security section of the
- * application settings
+ * The link is a link to the screen for gifting Telegram Premium
+ * subscriptions to friends via inputInvoiceTelegram with
+ * telegramPaymentPurposePremiumGift payments or in-store purchases
  */
-public class TDLib.InternalLinkTypePrivacyAndSecuritySettings : InternalLinkType {
+public class TDLib.InternalLinkTypePremiumGiftPurchase : InternalLinkType {
 
-    public InternalLinkTypePrivacyAndSecuritySettings () {
+    /**
+     * Referrer specified in the link
+     */
+    public string referrer { get; construct set; }
+
+    public InternalLinkTypePremiumGiftPurchase (
+        string referrer
+    ) {
         Object (
-            tdlib_type: "internalLinkTypePrivacyAndSecuritySettings",
+            referrer: referrer,
+            tdlib_type: "internalLinkTypePremiumGiftPurchase",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -1104,29 +1049,16 @@ public class TDLib.InternalLinkTypePrivacyAndSecuritySettings : InternalLinkType
 public class TDLib.InternalLinkTypeProxy : InternalLinkType {
 
     /**
-     * Proxy server domain or IP address
+     * The proxy; may be null if the proxy is unsupported, in which case an
+     * alert can be shown to the user
      */
-    public string server { get; construct set; }
-
-    /**
-     * Proxy server port
-     */
-    public int32 port { get; construct set; }
-
-    /**
-     * Type of the proxy
-     */
-    public ProxyType type_ { get; construct set; }
+    public Proxy? proxy { get; construct set; }
 
     public InternalLinkTypeProxy (
-        string server,
-        int32 port,
-        ProxyType type_
+        Proxy? proxy
     ) {
         Object (
-            server: server,
-            port: port,
-            type_: type_,
+            proxy: proxy,
             tdlib_type: "internalLinkTypeProxy",
             tdlib_extra: Uuid.string_random ()
         );
@@ -1208,13 +1140,80 @@ public class TDLib.InternalLinkTypeRestorePurchases : InternalLinkType {
 }
 
 /**
+ * The link is a link to the Saved Messages chat. Call
+ * {@link Client.create_private_chat} with getOption("my_id") and open
+ * the chat
+ */
+public class TDLib.InternalLinkTypeSavedMessages : InternalLinkType {
+
+    public InternalLinkTypeSavedMessages () {
+        Object (
+            tdlib_type: "internalLinkTypeSavedMessages",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to the global chat and messages search field
+ */
+public class TDLib.InternalLinkTypeSearch : InternalLinkType {
+
+    public InternalLinkTypeSearch () {
+        Object (
+            tdlib_type: "internalLinkTypeSearch",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
  * The link is a link to application settings
  */
 public class TDLib.InternalLinkTypeSettings : InternalLinkType {
 
-    public InternalLinkTypeSettings () {
+    /**
+     * Section of the application settings to open; may be null if none
+     */
+    public SettingsSection? section { get; construct set; }
+
+    public InternalLinkTypeSettings (
+        SettingsSection? section
+    ) {
         Object (
+            section: section,
             tdlib_type: "internalLinkTypeSettings",
+            tdlib_extra: Uuid.string_random ()
+        );
+    }
+}
+
+/**
+ * The link is a link to the Telegram Star purchase section of the
+ * application
+ */
+public class TDLib.InternalLinkTypeStarPurchase : InternalLinkType {
+
+    /**
+     * The number of Telegram Stars that must be owned by the user
+     */
+    public int64 star_count { get; construct set; }
+
+    /**
+     * Purpose of Telegram Star purchase. Arbitrary string specified by the
+     * server, for example, "subs" if the Telegram Stars are required to
+     * extend channel subscriptions
+     */
+    public string purpose { get; construct set; }
+
+    public InternalLinkTypeStarPurchase (
+        int64 star_count,
+        string purpose
+    ) {
+        Object (
+            star_count: star_count,
+            purpose: purpose,
+            tdlib_type: "internalLinkTypeStarPurchase",
             tdlib_extra: Uuid.string_random ()
         );
     }
@@ -1338,19 +1337,6 @@ public class TDLib.InternalLinkTypeTheme : InternalLinkType {
 }
 
 /**
- * The link is a link to the theme section of the application settings
- */
-public class TDLib.InternalLinkTypeThemeSettings : InternalLinkType {
-
-    public InternalLinkTypeThemeSettings () {
-        Object (
-            tdlib_type: "internalLinkTypeThemeSettings",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
  * The link is an unknown tg: link. Call
  * {@link Client.get_deep_link_info} to process the link
  */
@@ -1367,20 +1353,6 @@ public class TDLib.InternalLinkTypeUnknownDeepLink : InternalLinkType {
         Object (
             link: link,
             tdlib_type: "internalLinkTypeUnknownDeepLink",
-            tdlib_extra: Uuid.string_random ()
-        );
-    }
-}
-
-/**
- * The link is a link to an unsupported proxy. An alert can be shown to
- * the user
- */
-public class TDLib.InternalLinkTypeUnsupportedProxy : InternalLinkType {
-
-    public InternalLinkTypeUnsupportedProxy () {
-        Object (
-            tdlib_type: "internalLinkTypeUnsupportedProxy",
             tdlib_extra: Uuid.string_random ()
         );
     }
